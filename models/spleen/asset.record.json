@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:hra:spleen",
+  "title": "HRA female v1.10 spleen",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/spleen",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:spleen:hra-female-v1-10-r03",
+      "title": "HRA female v1.10 spleen source and replay for hra-female-v1-10-r03",
+      "sourceType": "recipe source or retained provenance",
+      "subject": "HRA female v1.10 spleen",
+      "license": "CC BY 4.0, with the Human Reference Atlas and named creators credited.",
+      "evidence": [
+        {
+          "path": "models/spleen/README.md",
+          "sha256": "4d609cae4c0e2b7338b6a54f4f5b07c662de7566eb3ce0c5348435662069d574"
+        },
+        {
+          "path": "models/spleen/ATTRIBUTION.md",
+          "sha256": "eeee6b093490dac075d1e2e9f293cc327d03532d9710d61a9fc2988892bef36f"
+        },
+        {
+          "path": "sources/datasets/hra/united-female-v1.10/external-source.json",
+          "sha256": "b6b8f7c3ef3f8e1452428ff60f2669c8ab3a649c520fa956a34bbed21d0c8efd"
+        }
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "partId": "vh-f-gastric-surface-of-spleen",
+      "label": "VH_F_gastric_surface_of_spleen",
+      "selectors": [
+        "VH_F_gastric_surface_of_spleen"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "vh-f-diaphragmatic-surface-of-spleen",
+      "label": "VH_F_diaphragmatic_surface_of_spleen",
+      "selectors": [
+        "VH_F_diaphragmatic_surface_of_spleen"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "vh-f-colic-surface-of-spleen",
+      "label": "VH_F_colic_surface_of_spleen",
+      "selectors": [
+        "VH_F_colic_surface_of_spleen"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "vh-f-hilum-of-spleen",
+      "label": "VH_F_hilum_of_spleen",
+      "selectors": [
+        "VH_F_hilum_of_spleen"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "vh-f-renal-surface-of-spleen",
+      "label": "VH_F_renal_surface_of_spleen",
+      "selectors": [
+        "VH_F_renal_surface_of_spleen"
+      ],
+      "registration": "unknown"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "hra-female-v1-10-r03",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "models/spleen/README.md",
+        "sha256": "4d609cae4c0e2b7338b6a54f4f5b07c662de7566eb3ce0c5348435662069d574"
+      },
+      "sourceIds": [
+        "source:spleen:hra-female-v1-10-r03"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "models/spleen/README.md"
+      },
+      "exports": [
+        {
+          "id": "exterior",
+          "path": "models/spleen/exports/hra-female-v1.10-r03/spleen.glb",
+          "sha256": "4e2637cf6c844aef85ab77c2c1049d4e7647348a13c34d784795b98825f7c8c7",
+          "bytes": 278576,
+          "triangles": 8544,
+          "format": "glb",
+          "partIds": [
+            "vh-f-gastric-surface-of-spleen",
+            "vh-f-diaphragmatic-surface-of-spleen",
+            "vh-f-colic-surface-of-spleen",
+            "vh-f-hilum-of-spleen",
+            "vh-f-renal-surface-of-spleen"
+          ]
+        }
+      ],
+      "qualifications": [],
+      "partIds": [
+        "vh-f-colic-surface-of-spleen",
+        "vh-f-diaphragmatic-surface-of-spleen",
+        "vh-f-gastric-surface-of-spleen",
+        "vh-f-hilum-of-spleen",
+        "vh-f-renal-surface-of-spleen"
+      ]
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "The exterior regions retain their exact HRA frame. The older s1233 surface is an independent lineage."
+  ]
+}

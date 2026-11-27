@@ -1,0 +1,298 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:s1233:stomach",
+  "title": "s1233 stomach exterior and teaching section",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/stomach",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:stomach:metadata-cleanup-r01",
+      "title": "TotalSegmentator v2.0.1 case s1233 and authored teaching section source and replay for metadata-cleanup-r01",
+      "sourceType": "recipe source or retained provenance",
+      "subject": "TotalSegmentator v2.0.1 case s1233 and authored teaching section",
+      "license": "CC BY 4.0. Retain the TotalSegmentator data and label-source notices.",
+      "evidence": [
+        {
+          "path": "reviews/stomach/2026-10-23-metadata-cleanup-r01/record.json",
+          "sha256": "c835bc2268c1919b99411ad517fcd2baa668a70406891e1a6f1c578292f3eb14"
+        },
+        {
+          "path": "models/stomach/recipes/metadata/approved-patch.json",
+          "sha256": "45f841f4ccedb014c84ce694c69fc6a46340e00e7b02444706899d5dc499056f"
+        },
+        {
+          "path": "body/anatomy-workshop-r1/docs/licenses/NOTICE.md",
+          "sha256": "87372df39878e0c73903675edc21875fa712a90b22f497ffb55d50a29f210a94"
+        }
+      ],
+      "sha256": "f1e8dfe7918361822503e9f6e5232204960f8c74b45bf9b294556c10d024ca82",
+      "bytes": 3402440,
+      "url": {
+        "url": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/motion/stomach_breathing.glb",
+        "sha256": "f1e8dfe7918361822503e9f6e5232204960f8c74b45bf9b294556c10d024ca82",
+        "bytes": 3402440
+      }
+    },
+    {
+      "sourceId": "source:stomach:teaching-economy-r02",
+      "title": "TotalSegmentator v2.0.1 case s1233 and authored teaching section source and replay for teaching-economy-r02",
+      "sourceType": "recipe source or retained provenance",
+      "subject": "TotalSegmentator v2.0.1 case s1233 and authored teaching section",
+      "license": "CC BY 4.0. Retain the TotalSegmentator data and label-source notices.",
+      "evidence": [
+        {
+          "path": "models/stomach/exports/teaching-economy-r02/README.md",
+          "sha256": "b0636c189b377a5f7e7038048edbd0ee11edc390c59a9038d67f519c06f6b0f2"
+        },
+        {
+          "path": "models/stomach/recipes/metadata/approved-patch.json",
+          "sha256": "45f841f4ccedb014c84ce694c69fc6a46340e00e7b02444706899d5dc499056f"
+        },
+        {
+          "path": "body/anatomy-workshop-r1/docs/licenses/NOTICE.md",
+          "sha256": "87372df39878e0c73903675edc21875fa712a90b22f497ffb55d50a29f210a94"
+        }
+      ],
+      "path": "models/stomach/exports/metadata-cleanup-r01/stomach.glb",
+      "sha256": "ad0876f37f92945171750d31d9c53165535a697e60a3d2ac8a3f3f78667fdec6",
+      "bytes": 3402184
+    }
+  ],
+  "parts": [
+    {
+      "partId": "stomach-source-surface",
+      "label": "Stomach | source surface",
+      "selectors": [
+        "Stomach | source surface"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "stomach-authored-closed-back-teaching-section",
+      "label": "stomach | authored closed-back teaching section",
+      "selectors": [
+        "stomach | authored closed-back teaching section"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "gastric-mucosal-fold-1",
+      "label": "Gastric mucosal fold 1",
+      "selectors": [
+        "Gastric mucosal fold 1"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "gastric-mucosal-fold-2",
+      "label": "Gastric mucosal fold 2",
+      "selectors": [
+        "Gastric mucosal fold 2"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "gastric-mucosal-fold-3",
+      "label": "Gastric mucosal fold 3",
+      "selectors": [
+        "Gastric mucosal fold 3"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "gastric-mucosal-fold-4",
+      "label": "Gastric mucosal fold 4",
+      "selectors": [
+        "Gastric mucosal fold 4"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "gastric-mucosal-fold-5",
+      "label": "Gastric mucosal fold 5",
+      "selectors": [
+        "Gastric mucosal fold 5"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "gastric-mucosal-fold-6",
+      "label": "Gastric mucosal fold 6",
+      "selectors": [
+        "Gastric mucosal fold 6"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "gastric-mucosal-fold-7",
+      "label": "Gastric mucosal fold 7",
+      "selectors": [
+        "Gastric mucosal fold 7"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "gastric-mucosal-fold-8",
+      "label": "Gastric mucosal fold 8",
+      "selectors": [
+        "Gastric mucosal fold 8"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "gastric-mucosal-fold-9",
+      "label": "Gastric mucosal fold 9",
+      "selectors": [
+        "Gastric mucosal fold 9"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "gastric-mucosal-fold-10",
+      "label": "Gastric mucosal fold 10",
+      "selectors": [
+        "Gastric mucosal fold 10"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "gastric-mucosal-fold-11",
+      "label": "Gastric mucosal fold 11",
+      "selectors": [
+        "Gastric mucosal fold 11"
+      ],
+      "registration": "unknown"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "metadata-cleanup-r01",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "reviews/stomach/2026-10-23-metadata-cleanup-r01/record.json",
+        "sha256": "c835bc2268c1919b99411ad517fcd2baa668a70406891e1a6f1c578292f3eb14"
+      },
+      "sourceIds": [
+        "source:stomach:metadata-cleanup-r01"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "reviews/stomach/2026-10-23-metadata-cleanup-r01/record.json"
+      },
+      "exports": [
+        {
+          "id": "teaching",
+          "path": "models/stomach/exports/metadata-cleanup-r01/stomach.glb",
+          "sha256": "ad0876f37f92945171750d31d9c53165535a697e60a3d2ac8a3f3f78667fdec6",
+          "bytes": 3402184,
+          "triangles": 60456,
+          "format": "glb",
+          "partIds": [
+            "stomach-source-surface",
+            "stomach-authored-closed-back-teaching-section",
+            "gastric-mucosal-fold-1",
+            "gastric-mucosal-fold-2",
+            "gastric-mucosal-fold-3",
+            "gastric-mucosal-fold-4",
+            "gastric-mucosal-fold-5",
+            "gastric-mucosal-fold-6",
+            "gastric-mucosal-fold-7",
+            "gastric-mucosal-fold-8",
+            "gastric-mucosal-fold-9",
+            "gastric-mucosal-fold-10",
+            "gastric-mucosal-fold-11"
+          ]
+        }
+      ],
+      "qualifications": [],
+      "partIds": [
+        "gastric-mucosal-fold-1",
+        "gastric-mucosal-fold-10",
+        "gastric-mucosal-fold-11",
+        "gastric-mucosal-fold-2",
+        "gastric-mucosal-fold-3",
+        "gastric-mucosal-fold-4",
+        "gastric-mucosal-fold-5",
+        "gastric-mucosal-fold-6",
+        "gastric-mucosal-fold-7",
+        "gastric-mucosal-fold-8",
+        "gastric-mucosal-fold-9",
+        "stomach-authored-closed-back-teaching-section",
+        "stomach-source-surface"
+      ]
+    },
+    {
+      "revisionId": "teaching-economy-r02",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "models/stomach/exports/teaching-economy-r02/README.md",
+        "sha256": "b0636c189b377a5f7e7038048edbd0ee11edc390c59a9038d67f519c06f6b0f2"
+      },
+      "sourceIds": [
+        "source:stomach:teaching-economy-r02"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "models/stomach/exports/teaching-economy-r02/README.md"
+      },
+      "exports": [
+        {
+          "id": "teaching",
+          "path": "models/stomach/exports/teaching-economy-r02/stomach.glb",
+          "sha256": "1afedcb4412b0833e07eded5276913250b37d82bbffda578d2e18110021d2452",
+          "bytes": 2992144,
+          "triangles": 60456,
+          "format": "glb",
+          "partIds": [
+            "stomach-source-surface",
+            "stomach-authored-closed-back-teaching-section",
+            "gastric-mucosal-fold-1",
+            "gastric-mucosal-fold-2",
+            "gastric-mucosal-fold-3",
+            "gastric-mucosal-fold-4",
+            "gastric-mucosal-fold-5",
+            "gastric-mucosal-fold-6",
+            "gastric-mucosal-fold-7",
+            "gastric-mucosal-fold-8",
+            "gastric-mucosal-fold-9",
+            "gastric-mucosal-fold-10",
+            "gastric-mucosal-fold-11"
+          ]
+        }
+      ],
+      "qualifications": [],
+      "recipe": "recipes/teaching-economy-r02.json",
+      "partIds": [
+        "gastric-mucosal-fold-1",
+        "gastric-mucosal-fold-10",
+        "gastric-mucosal-fold-11",
+        "gastric-mucosal-fold-2",
+        "gastric-mucosal-fold-3",
+        "gastric-mucosal-fold-4",
+        "gastric-mucosal-fold-5",
+        "gastric-mucosal-fold-6",
+        "gastric-mucosal-fold-7",
+        "gastric-mucosal-fold-8",
+        "gastric-mucosal-fold-9",
+        "stomach-authored-closed-back-teaching-section",
+        "stomach-source-surface"
+      ]
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "The surface and authored closed-back section have different evidence boundaries. Fold structures are illustrative. The historical metadata-patch input differs from the current Workshop path."
+  ]
+}
