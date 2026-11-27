@@ -37,7 +37,7 @@ Integrate on `asset-governance-v1`. A package PR in this specification correspon
 
 ## Wave 0 baseline
 
-Local checkout on 2026-11-28, commit `1b135799`. Merge status and complete s1233 playback acceptance are unverified here.
+Local checkout on 2026-11-28, commit `1b135799`. This table records the starting state. The [local campaign record](../records/campaigns/assetkit-migration.md) owns subsequent results and evidence.
 
 | Item | Evidence at the baseline | Remaining before dispatch |
 | --- | --- | --- |
