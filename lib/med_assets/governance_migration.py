@@ -6,7 +6,8 @@ from pathlib import Path
 from tempfile import NamedTemporaryFile
 from typing import Any
 from .artifacts import declared_identity, source_path
-from .governance import GovernanceError,build_catalog,owner_path
+from .governance import GovernanceError,owner_path
+from .governance_ultrasound import build_catalog
 
 def _sha(path:Path): return hashlib.sha256(path.read_bytes()).hexdigest()
 def _atomic(path:Path,data:bytes):
