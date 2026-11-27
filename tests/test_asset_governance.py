@@ -61,7 +61,7 @@ class GovernanceTests(unittest.TestCase):
     def test_scan_keeps_package_and_consumers_separate(self):
         with tempfile.TemporaryDirectory() as directory:
             root=Path(directory);self.fixture(root);catalog=build_catalog(root)
-            self.assertEqual(len(catalog.packages),3);self.assertEqual(next(x for x in catalog.packages if x.path=="models/liver").record_status,"unregistered")
+            self.assertEqual(len(catalog.packages),4);self.assertEqual(next(x for x in catalog.packages if x.path=="models/liver").record_status,"unregistered")
             self.assertEqual(len([x for x in catalog.consumers if x.domain=='body-systems']),3);self.assertEqual(find(catalog,"liver")["packages"][0]["path"],"models/liver")
             self.assertEqual(show(catalog,"body-systems:digestive:digestive-liver")["domain"],"body-systems")
             stop=show(catalog,"body-systems:digestive:digestive-liver")
