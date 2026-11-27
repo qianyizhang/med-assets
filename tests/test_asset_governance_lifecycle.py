@@ -20,7 +20,7 @@ class LifecycleTests(unittest.TestCase):
             "artifacts":[],"exports":[],"uses":[],"retirement":None,"unresolved":[]}
         (package/"asset.record.json").write_text(json.dumps(record,indent=2)+"\n")
         lesson=root/"lessons"/"demo"; lesson.mkdir(parents=True)
-        (lesson/"lesson.json").write_text(json.dumps({"title":"Fixture","question":"Inspect organ"}))
+        (lesson/"lesson.json").write_text(json.dumps({"title":"Fixture","question":"Inspect organ","model":"models/fixture/fixture.glb"}))
         return package
 
     def payload(self, root, value):
