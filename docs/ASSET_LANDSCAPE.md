@@ -2,7 +2,7 @@
 
 This inventory groups candidate 3D packages and their known readers. The [migration specification](MIGRATION_SPEC.md) owns package acceptance, wave assignments, and cleanup criteria. Wave 1 starts after the [HRA liver acceptance test](MIGRATION_SPEC.md#hra-liver-acceptance-test) and the s1233 sweep prerequisites pass on the merged base.
 
-**Snapshot** · Local branch `asset-governance-v1`, 2026-11-28. Package counts describe directories. LFS totals use declared bytes from `git lfs ls-files --json`, in decimal MB. The [AssetKit design](../src/assetkit/DESIGN.md#decisions) defines the reusable 3D scope.
+**Pre-migration inventory** · Local branch `asset-governance-v1`, 2026-11-28. Package counts describe directories. LFS totals use declared bytes from `git lfs ls-files --json`, in decimal MB. The [AssetKit design](../src/assetkit/DESIGN.md#decisions) defines the reusable 3D scope.
 
 ---
 
@@ -21,7 +21,7 @@ This inventory groups candidate 3D packages and their known readers. The [migrat
 | `reviews/` & `sources/` | — | 686 | 244.1 MB | **Evidence / Raw** | `reviews/` alone is `240.5 MB` (`682` files); cold-archive candidate |
 | **Total** | **110 pkgs** | **1,704** | **1,157.0 MB** | **85 candidate 3D package directories** | All indexed LFS files hydrated locally at this snapshot; savings require separate measurement |
 
-Of 85 candidate 3D directories, two already have owner records (`models/liver_s1233` and `heart/Cardiac_Atlas_Animated`). The 83 remaining include the HRA liver gate, multi-asset directories, and recipe-only packages. The wave plan records exactly which exports to port or defer. At this baseline the standalone Governance toolkit was retired locally in `1b135799`.
+At the start of the migration, two of the 85 candidate 3D directories had owner records (`models/liver_s1233` and `heart/Cardiac_Atlas_Animated`). The other 83 included the HRA liver gate, multi-asset directories, and recipe-only packages. The wave plan records exactly which exports to port or defer. The standalone Governance toolkit was retired locally in `1b135799`. The [migration acceptance record](../records/campaigns/assetkit-migration.md) tracks completed ports and their reader checks.
 
 ---
 
@@ -141,7 +141,7 @@ Package totals include all indexed LFS files, including earlier editions and edi
 | `models/penis` | `1` GLB | `1 · 0.1 MB` | `G` | assessed, recipe | **port** |
 | `models/thymus` | `1` GLB | `1 · 40 KB` | `G`, `BS` | assessed, recipe | **port** |
 | `models/pituitary` | `1` GLB | `1 · 22 KB` | `G` | assessed, recipe | **port** |
-| `models/fetus` | `0` GLB (recipe only) | `0 · 0.0 MB` | `G`, `US` | recipe | **WIP (US)** — build via AssetKit |
+| `models/fetus` | No tracked GLB | `0 · 0.0 MB` | Historical study | [Owner](../models/fetus/exports/head-face-junction-r01/README.md) | Keep its existing source and review limits. The pregnancy sweeps use their own gestational recipe. New reusable fetal geometry requires separate authoring. |
 
 ### 2D. 3D Assemblies (`assemblies/*` — 16 pkgs · 7.6 MB)
 
