@@ -161,6 +161,7 @@ class GalleryAssetView(AssetModel):
     families: tuple[str, ...] = ()
     concepts: tuple[str, ...] = ()
     revisions: tuple[GalleryRevisionView, ...] = ()
+    status: str | None = None
 
 
 class GalleryProjection(AssetModel):
@@ -412,6 +413,7 @@ class CurationStore:
                     families=asset.families,
                     concepts=asset.concepts,
                     revisions=tuple(revs),
+                    status=asset.status,
                 )
             )
         return GalleryProjection(

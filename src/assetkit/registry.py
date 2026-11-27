@@ -223,6 +223,7 @@ class AssetRegistry:
     ) -> AssetRegistry:
         root = repo.resolve()
         assets, covered_dirs = _load_native_assets(root, inspect_glbs=inspect_glbs)
+        manifest_dirs = covered_dirs.copy()
         existing_ids = {a.id for a in assets}
         record_assets = _load_asset_records(
             root, covered_dirs, existing_ids, inspect_glbs=inspect_glbs
@@ -233,9 +234,15 @@ class AssetRegistry:
             for item in atlas:
                 existing_ids.add(item.id)
             assets.extend(atlas)
+            export_paths = {
+                export.path
+                for asset in assets
+                for revision in asset.revisions
+                for export in revision.exports
+            }
             assets.extend(
                 _project_directory_packages(
-                    root, covered_dirs, existing_ids, inspect_glbs=inspect_glbs
+                    root, manifest_dirs, existing_ids, export_paths, inspect_glbs=inspect_glbs
                 )
             )
         return cls(assets=tuple(assets))
@@ -806,7 +813,12 @@ def _project_body_atlas(repo: Path, covered_dirs: set[str], *, inspect_glbs: boo
 
 
 def _project_directory_packages(
-    repo: Path, covered_dirs: set[str], existing_ids: set[str], *, inspect_glbs: bool
+    repo: Path,
+    manifest_dirs: set[str],
+    existing_ids: set[str],
+    export_paths: set[str],
+    *,
+    inspect_glbs: bool,
 ) -> list[Asset]:
     kind_map = {
         "models": "model",
@@ -819,16 +831,22 @@ def _project_directory_packages(
         root = repo / root_name
         if not root.is_dir():
             continue
-        for pkg in sorted(p for p in root.iterdir() if p.is_dir() and not p.name.startswith(".")):
+        for pkg in sorted(
+            p
+            for p in root.iterdir()
+            if p.is_dir() and not p.is_symlink() and not p.name.startswith(".")
+        ):
             owner_dir = _rel(repo, pkg)
-            if owner_dir in covered_dirs:
+            if owner_dir in manifest_dirs:
                 continue
             files = sorted(
                 f
                 for f in pkg.rglob("*")
-                if f.is_file()
-                and f.suffix.lower() in MODEL_EXTS
+                if f.suffix.lower() in MODEL_EXTS
+                and not f.is_symlink()
+                and f.is_file()
                 and not any(part in SKIP_DIRS for part in f.relative_to(repo).parts)
+                and f.relative_to(repo).as_posix() not in export_paths
             )
             if not files:
                 continue
@@ -882,6 +900,7 @@ def _project_directory_packages(
                     kind=kind,
                     owner_dir=owner_dir,
                     revisions=tuple(revisions),
+                    status="legacy-candidate",
                 )
             )
     return assets

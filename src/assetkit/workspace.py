@@ -37,6 +37,7 @@ class AssetSummary(AssetModel):
     owner_dir: str
     source_manifest: str | None = None
     revisions: tuple[str, ...] = ()
+    status: str | None = None
 
 
 class PartSummary(AssetModel):
@@ -235,6 +236,7 @@ class Workspace:
                         owner_dir=asset.owner_dir,
                         source_manifest=asset.source_manifest,
                         revisions=tuple(r.id for r in asset.revisions),
+                        status=asset.status,
                     )
                 )
             for rev in asset.revisions:
@@ -280,6 +282,16 @@ class Workspace:
     def show(self, target: str) -> ShowResult:
         """Inspect a maintained asset (or consumer) with its exports, assessments, and decisions."""
         matched_assets, _ = self.registry.match_target(target)
+        if len(matched_assets) > 1:
+            native_owners = {
+                asset.id
+                for asset in self.registry.assets
+                if asset.id in matched_assets
+                and asset.owner_dir == target
+                and asset.source_manifest is not None
+            }
+            if len(native_owners) == 1:
+                matched_assets = native_owners
         if len(matched_assets) > 1:
             raise AssetKitError(f"Ambiguous target {target!r}; use one of {sorted(matched_assets)}")
         if matched_assets:

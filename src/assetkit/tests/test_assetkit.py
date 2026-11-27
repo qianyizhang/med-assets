@@ -543,9 +543,14 @@ def test_cardiac_atlas_parity_and_unknown_target() -> None:
 
     gallery = ws.compile_gallery()
     cardiac_entries = [a for a in gallery.assets if a.owner_dir == "heart/Cardiac_Atlas_Animated"]
-    assert len(cardiac_entries) == 1
-    assert cardiac_entries[0].id == "anatomy:heart:cardiac-atlas"
-    gallery_exports = cardiac_entries[0].revisions[0].exports
+    canonical_entries = [entry for entry in cardiac_entries if entry.status == "provisional"]
+    assert [entry.id for entry in canonical_entries] == ["anatomy:heart:cardiac-atlas"]
+    assert all(
+        entry.status == "legacy-candidate"
+        for entry in cardiac_entries
+        if entry not in canonical_entries
+    )
+    gallery_exports = canonical_entries[0].revisions[0].exports
     assert {e.path for e in gallery_exports} == export_paths
     assert all(e.qualified is False for e in gallery_exports)
     assert all(e.review_statuses == ("accepted",) for e in gallery_exports)

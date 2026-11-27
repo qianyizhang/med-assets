@@ -17,7 +17,7 @@ Sync the `uv` environment (`uv sync`) and run from the repository root:
 # Check index structure and declared relationships
 uv run assetkit validate
 
-# Discover and inspect maintained assets, parts, assessments, and decisions
+# Discover and inspect assets, parts, assessments, and decisions
 uv run assetkit find cardiac-atlas
 uv run assetkit show anatomy:heart:cardiac-atlas
 
@@ -54,6 +54,8 @@ uv run assetkit compile --target r2
 ```
 
 A bundle preserves one item per use, including its transform. Totals count each pinned export once. Check each item’s storage status and digest before runtime use. The R2 projection lists demand. The transport owner controls upload admission.
+
+Default queries include directory-discovered files with status `legacy-candidate`. An exact governed export path resolves through its owner record. Use `--native-only` for acceptance of a governed dependency.
 
 ## Register a package
 
