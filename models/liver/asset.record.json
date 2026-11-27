@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:hra:liver",
+  "title": "Female HRA liver exterior",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/liver",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:hra-female-v1-10:liver-exterior",
+      "title": "HRA female v1.10 liver exterior replay",
+      "sourceType": "atlas-derived GLB",
+      "subject": "HRA female v1.10 reference atlas",
+      "path": "models/liver/exports/hra-female-v1.10-r02/liver.glb",
+      "sha256": "e9abb0c2503a3fa9d725988451e630283ec2c902c182b812219f2d73f3ab1038",
+      "bytes": 763480,
+      "license": "CC-BY-4.0",
+      "evidence": [
+        {
+          "path": "models/liver/ATTRIBUTION.md",
+          "sha256": "d24c499eb7afb781c6c9631bffec531ccd430541ac444556fcdd951300e48505"
+        },
+        {
+          "path": "sources/datasets/hra/united-female-v1.10/external-source.json",
+          "sha256": "b6b8f7c3ef3f8e1452428ff60f2669c8ab3a649c520fa956a34bbed21d0c8efd"
+        }
+      ],
+      "limitations": [
+        "Exterior representation with open source annotation patches and illustrative materials."
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "partId": "capsule",
+      "label": "Liver capsule",
+      "selectors": ["VH_F_capsule_of_the_liver"],
+      "registration": "native"
+    },
+    {
+      "partId": "bare-area",
+      "label": "Bare area of the liver",
+      "selectors": ["VH_F_bare_area_of_liver"],
+      "registration": "native"
+    },
+    {
+      "partId": "coronary-ligament",
+      "label": "Coronary ligament of the liver",
+      "selectors": ["VH_F_coronary_ligament_of_liver"],
+      "registration": "native"
+    },
+    {
+      "partId": "falciform-ligament",
+      "label": "Falciform ligament",
+      "selectors": ["VH_F_falciform_ligament"],
+      "registration": "native"
+    },
+    {
+      "partId": "triangular-ligament",
+      "label": "Triangular ligament of the liver",
+      "selectors": ["VH_F_triangular_ligament_of_liver"],
+      "registration": "native"
+    },
+    {
+      "partId": "ligamentum-venosum",
+      "label": "Ligamentum venosum",
+      "selectors": ["VH_F_ligamentum_venosum"],
+      "registration": "native"
+    },
+    {
+      "partId": "round-ligament",
+      "label": "Round ligament of the liver",
+      "selectors": ["VH_F_round_ligament_of_liver"],
+      "registration": "native"
+    },
+    {
+      "partId": "hepatoduodenal-ligament",
+      "label": "Hepatoduodenal ligament",
+      "selectors": ["VH_F_hepataduodenal_ligament"],
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "r02",
+      "status": "provisional",
+      "recipe": "recipes/teaching-economy-r02.json",
+      "recipeEvidence": {
+        "path": "assemblies/liver-spleen/recipes/README.md",
+        "sha256": "daa1e8e75d091711590f5a28183dcaa452ecaa71d5806598875fc69d01a5f2a9"
+      },
+      "sourceIds": ["source:hra-female-v1-10:liver-exterior"],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": ["right-handed", "Y-up"],
+        "evidence": "models/liver/exports/teaching-economy-r02/README.md"
+      },
+      "partIds": [
+        "capsule",
+        "bare-area",
+        "coronary-ligament",
+        "falciform-ligament",
+        "triangular-ligament",
+        "ligamentum-venosum",
+        "round-ligament",
+        "hepatoduodenal-ligament"
+      ],
+      "exports": [
+        {
+          "id": "teaching-economy",
+          "path": "models/liver/exports/teaching-economy-r02/liver.glb",
+          "sha256": "5978654a1e5b8ac608735dde82434e3fe67c1e1883930c4fa1b60d53fe85dd7d",
+          "bytes": 595352,
+          "format": "glb",
+          "triangles": 41470,
+          "frame": {
+            "convention": "glb-y-up-m",
+            "units": "m",
+            "axes": ["right-handed", "Y-up"],
+            "evidence": "models/liver/exports/teaching-economy-r02/README.md"
+          },
+          "partIds": [
+            "capsule",
+            "bare-area",
+            "coronary-ligament",
+            "falciform-ligament",
+            "triangular-ligament",
+            "ligamentum-venosum",
+            "round-ligament",
+            "hepatoduodenal-ligament"
+          ]
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "artifacts": [],
+  "uses": [],
+  "retirement": null,
+  "unresolved": [
+    "The original HRA source frame is preserved. Placement transforms into s1233 or the current body atlas are unverified."
+  ]
+}
