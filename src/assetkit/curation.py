@@ -426,7 +426,7 @@ class CurationStore:
         """List exact runtime delivery exports referenced by Selections or Consumer pins."""
         needed_paths = {s.export_path for s in self.selections}
         for consumer in delivery.consumers:
-            for pin in consumer.pins:
+            for pin in consumer.runtime_pins:
                 resolved = registry.resolve_export(pin.asset_id, pin.revision_id, pin.export_id)
                 if resolved is not None:
                     needed_paths.add(resolved[2].path)

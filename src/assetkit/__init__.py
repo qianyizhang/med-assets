@@ -59,6 +59,7 @@ from .registry import (
     ExportRef,
     Part,
     Provenance,
+    RecordExportRef,
     Revision,
     SpatialFrame,
 )
@@ -119,6 +120,7 @@ __all__ = [
     "PortCheck",
     "PortExpectation",
     "Provenance",
+    "RecordExportRef",
     "Qualification",
     "QualificationStatus",
     "R2SyncItem",

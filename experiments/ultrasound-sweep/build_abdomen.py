@@ -16,7 +16,7 @@ from build_study import (
     CT_SHA, H, LAST, LONG, W, WORKSHOP, body_surface, fine_scatter, material_at, unit, volume,
 )
 from delivery import read_poses, sha256, sweep_files, verify_inventory, write_manifest
-from display_body import BONES_SHA, SKIN_SHA, registered_atlas
+from display_body import load_body_atlas, registered_atlas
 from fit_abdomen import CONTACT_TOLERANCE_MM, fit_window, max_outer_error, open_flanks
 from geometry import KEYFRAMES, LENS_RADIUS_MM, SECTOR_HALF_ANGLE_DEG, VOXEL_MM
 from prepare_scenes import mesh_bytes
@@ -306,11 +306,12 @@ def exterior_inputs(case, tracks):
     for name in FIT_RIBS:
         rib = volume(case / f'segmentations/{name}.nii.gz', PINS[name], 'u1')
         points.append(np.column_stack(np.nonzero(rib)))
-    vertices, faces = registered_atlas(np.concatenate(points))
+    atlas = load_body_atlas()
+    vertices, faces = registered_atlas(np.concatenate(points), atlas)
     flank = None
     if any(track['id'] in RIB_REGIONS for track in tracks):
         flank = open_flanks(vertices, faces)
-    return vertices, faces, flank
+    return vertices, faces, flank, atlas.source_digests()
 
 
 def fit_exterior(track, frames, shell, torso, source):
@@ -323,12 +324,12 @@ def fit_exterior(track, frames, shell, torso, source):
     if track['exterior'] == 'case-ct':
         vertices, faces, error = ct_vertices, ct_faces, ct_error
     else:
-        raw, faces, flank = source
+        raw, faces, flank, source_digests = source
         posed, arm_weight = flank if lateral else (raw, np.zeros(len(raw)))
         # Use the left/right flank sheet even when a posterolateral beam points mostly forward.
         vertices = fit_window(posed, shell, contacts, beams, arm_weight, axis=0 if lateral else None)
         error = max_outer_error(vertices, faces, contacts, beams)
-        result.update(atlasSkinSha256=SKIN_SHA, atlasBonesSha256=BONES_SHA,
+        result.update(**source_digests,
                       registrationMaskSha256={name: PINS[name] for name in FIT_RIBS},
                       atlasBeforeConformanceMaxOuterContactErrorMm=round(max_outer_error(
                           raw, faces, contacts, beams), 3),

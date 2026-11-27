@@ -57,7 +57,8 @@ def pose_recipe_sha256(slug):
 
 def model_recipe_sha256():
     names = ('build_carotid.py', 'build_thyroid.py', 'build_breast.py', 'breast_compression.py',
-             'display_neck.py', 'fit_abdomen.py', 'build_study.py', 'build_abdomen.py', 'carotid_vein.py', 'carotid_surface.py')
+             'display_body.py', 'display_neck.py', 'exterior-atlas.json', 'fit_abdomen.py', 'build_study.py',
+             'build_abdomen.py', 'carotid_vein.py', 'carotid_surface.py')
     return sha256(json.dumps({name: sha256((HERE / name).read_bytes()) for name in names}, sort_keys=True).encode())
 
 

@@ -23,7 +23,8 @@ from prepare_scenes import mesh_bytes
 HERE = Path(__file__).resolve().parent
 RECIPE_FILES = (
     'aaa_acquisition.py', 'aaa_model.mjs', 'aortic-screening-track.json', 'build_abdomen.py',
-    'build_aortic_screening.py', 'build_study.py', 'fit_abdomen.py', 'geometry.py', 'prepare_scenes.py',
+    'build_aortic_screening.py', 'build_study.py', 'display_body.py', 'exterior-atlas.json',
+    'fit_abdomen.py', 'geometry.py', 'prepare_scenes.py',
     'cases/vascular/cases.json', 'cases/vascular/playable.js', 'cases/vascular/playable-model.js',
     'cases/vascular/playable-aorta.js',
 )

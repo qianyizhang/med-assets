@@ -46,7 +46,7 @@ def pose_recipe_sha256(slug):
 
 def model_recipe_sha256():
     names = ('build_aortic_screening.py', 'build_abdomen.py', 'build_study.py', 'geometry.py',
-             'display_body.py', 'fit_abdomen.py')
+             'display_body.py', 'exterior-atlas.json', 'fit_abdomen.py')
     pins = {name: sha256((HERE / name).read_bytes()) for name in names}
     return sha256(json.dumps(pins, sort_keys=True).encode())
 

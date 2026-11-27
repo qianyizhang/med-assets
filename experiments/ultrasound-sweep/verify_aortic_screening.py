@@ -11,7 +11,7 @@ import build_aortic_screening as aortic
 from build_abdomen import ImagingGrid, measure_landmark, section_palette_sha256
 from build_study import material_at, volume
 from delivery import read_poses, sweep_files, validate_mesh, verify_inventory
-from display_body import BONES_SHA, SKIN_SHA
+from display_body import expected_source_digests
 from fit_abdomen import CONTACT_TOLERANCE_MM, max_outer_error
 from geometry import RASTER_SIZE, VOXEL_MM
 
@@ -27,7 +27,7 @@ def verify(case, root):
         validate_mesh(path.read_bytes(), path)
     receipt = json.loads((root / 'verification.json').read_text())
     if (receipt['exterior'] != track['exterior']
-            or receipt['atlasSkinSha256'] != SKIN_SHA or receipt['atlasBonesSha256'] != BONES_SHA
+            or any(receipt.get(key) != value for key, value in expected_source_digests().items())
             or receipt['registrationMaskSha256'] != {name: aortic.abdomen.PINS[name] for name in aortic.abdomen.FIT_RIBS}
             or receipt['modelRecipeSha256'] != aortic.model_recipe_sha256()
             or receipt['poseRecipeSha256'] != aortic.pose_recipe_sha256(track['id'])

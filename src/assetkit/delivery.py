@@ -9,11 +9,13 @@ from typing import Any, Literal
 
 from pydantic import Field, computed_field
 
+from .blobs import normalize_path
 from .curation import Adoption, CurationStore, Qualification, Review, Selection
 from .discovery import manifests
 from .errors import AssetKitError
 from .models import AssetModel
 from .registry import REGISTRATION_STATES, AssetRegistry, ExportRef, Part
+from .ultrasound import EXTERIOR_ATLAS_CONFIG, read_exterior_atlas
 from .vocab import ConceptGraph
 
 CONSUMER_KINDS = frozenset(
@@ -63,6 +65,8 @@ class Pin(AssetModel):
     registration: str = "unknown"
     transform: tuple[float, ...] | None = None
     limits: tuple[str, ...] = ()
+    stage: Literal["recipe"] | None = None
+    record: str | None = None
 
     def validate_invariants(self, consumer_id: str) -> None:
         if not self.asset_id.strip() or not self.revision_id.strip() or not self.export_id.strip():
@@ -85,6 +89,10 @@ class Consumer(AssetModel):
     requirements: tuple[Requirement, ...] = ()
     pins: tuple[Pin, ...] = ()
     local_files: tuple[str, ...] = ()
+
+    @property
+    def runtime_pins(self) -> tuple[Pin, ...]:
+        return tuple(pin for pin in self.pins if pin.stage is None)
 
     def validate_invariants(self) -> None:
         if not self.id.strip() or not self.owner_path.strip():
@@ -269,6 +277,26 @@ class DeliveryGraph:
         consumers = _load_native_consumers(root)
         existing_ids = {c.id for c in consumers}
         consumers.extend(_load_ultrasound_sweep_consumers(root, existing_ids, pinned_only=True))
+        if (root / EXTERIOR_ATLAS_CONFIG).is_file():
+            atlas = read_exterior_atlas(root)
+            consumers.append(
+                Consumer(
+                    id="ultrasound:recipe:exterior-atlas",
+                    title="BodyParts3D exterior recipe inputs",
+                    kind="other",
+                    owner_path=EXTERIOR_ATLAS_CONFIG,
+                    pins=tuple(
+                        Pin(
+                            asset_id=ref.asset,
+                            revision_id=ref.revision,
+                            export_id=ref.export,
+                            stage="recipe",
+                            record=ref.record,
+                        )
+                        for ref in atlas.inputs()
+                    ),
+                )
+            )
         if include_legacy_adapters:
             consumers.extend(_project_legacy_consumers(root, existing_ids))
         return cls(consumers=tuple(consumers))
@@ -292,7 +320,11 @@ class DeliveryGraph:
                         f"{pin.asset_id}@{pin.revision_id}:{pin.export_id}"
                     )
                     continue
-                _, _, exp = resolved
+                asset, _, exp = resolved
+                if pin.record and asset.source_manifest != normalize_path(pin.record):
+                    raise AssetKitError(
+                        f"Pin on {consumer.id} names the wrong package record: {pin.record}"
+                    )
                 if pin.sha256 and exp.sha256 and pin.sha256 != exp.sha256:
                     raise AssetKitError(
                         f"Pin sha256 mismatch for {consumer.id} -> "
@@ -318,7 +350,7 @@ class DeliveryGraph:
         total_bytes = 0
         total_tris = 0
         counted: set[tuple[str, str, str]] = set()
-        for pin in consumer.pins:
+        for pin in consumer.runtime_pins:
             resolved = registry.resolve_export(pin.asset_id, pin.revision_id, pin.export_id)
             if resolved is None:
                 raise AssetKitError(
@@ -461,7 +493,7 @@ class DeliveryGraph:
         for consumer in self.consumers:
             loaded_keys: dict[tuple[str, str, str], set[str]] = {}
             whole_exports = set()
-            for pin in consumer.pins:
+            for pin in consumer.runtime_pins:
                 key = (pin.asset_id, pin.revision_id, pin.export_id)
                 if not pin.parts:
                     whole_exports.add(key)

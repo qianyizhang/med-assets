@@ -9,7 +9,7 @@ import numpy as np
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parents[1]))
-from display_body import BONES, BONES_SHA, SKIN, SKIN_SHA, atlas, primitive_stream
+from display_body import load_body_atlas, primitive_stream
 from prepare_scenes import mesh_bytes
 
 # glTF in millimetres: +X patient left, +Y cranial, +Z anterior. Keep the same
@@ -37,15 +37,16 @@ def cluster(vertices, faces, cell):
 
 
 def export(destination):
-    records = {'sourceSkin': {'path': SKIN, 'sha256': SKIN_SHA},
-               'sourceSkeleton': {'path': BONES, 'sha256': BONES_SHA}}
+    source = load_body_atlas()
+    records = {'sourceSkin': {'path': source.skin.path, 'sha256': source.skin.sha256},
+               'sourceSkeleton': {'path': source.skeleton.path, 'sha256': source.skeleton.sha256}}
     def save(name, vertices, faces):
         raw = mesh_bytes(vertices, faces)
         (destination / (name + '.raw')).write_bytes(raw)
         records[name] = {'vertices': len(vertices), 'triangles': len(faces),
                          'sha256': hashlib.sha256(raw).hexdigest()}
 
-    skin, binary = atlas(SKIN, SKIN_SHA)
+    skin, binary = source.skin.document, source.skin.binary
     source_v, source_f = mesh(skin, binary, skin['nodes'][0])
     upper_body = source_f[source_v[source_f, 1].max(axis=1) > 950]
     # The original includes a thin inner skin surface. Clustering adjacent
@@ -53,7 +54,7 @@ def export(destination):
     used, remap = np.unique(upper_body, return_inverse=True)
     skin_v, skin_f = source_v[used], remap.reshape(-1, 3)
     save('skin', skin_v, skin_f)
-    skeleton, binary = atlas(BONES, BONES_SHA)
+    skeleton, binary = source.skeleton.document, source.skeleton.binary
     for group, endings in [('bones', (' rib', ' clavicle', ' sternum')), ('cartilage', (' costal cartilage',))]:
         pieces = [mesh(skeleton, binary, node) for node in skeleton['nodes']
                   if node.get('name', '').endswith(endings)]

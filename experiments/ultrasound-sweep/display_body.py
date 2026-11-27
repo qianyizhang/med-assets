@@ -1,23 +1,87 @@
 """Fit the illustrative atlas exterior around the measured s1233 contact window."""
 import hashlib
-import sys
+from dataclasses import dataclass
 from pathlib import Path
 
 import numpy as np
 from scipy.interpolate import LinearNDInterpolator
 from scipy.spatial import cKDTree
 
-ROOT = Path(__file__).resolve().parents[2]
-sys.path.insert(0, str(ROOT / 'lib'))
+from assetkit import AssetKitError, AssetRegistry
+from assetkit.blobs import read_verified
+from assetkit.ultrasound import read_exterior_atlas
 from med_assets.glb import decode
 from med_assets.glb_projection import stream
 from geometry import VOXEL_MM
 
-SKIN = 'models/skin/exports/bp3d-envelope-r01/skin_source_frame.glb'
-SKIN_SHA = 'd86719833a17dc7b45c8eb970498f1e2feefd352b5812942f4b147a9ffcfbe4f'
-BONES = 'models/skeleton/exports/teaching-economy-r01/skeleton_source_frame.glb'
-BONES_SHA = 'ca10c44878ec836c63882855b9af29193e637773059dbc33b15daff044c2bb3c'
+ROOT = Path(__file__).resolve().parents[2]
 RIBS = {f'right {n} rib' for n in ('sixth', 'seventh', 'eighth', 'ninth', 'tenth')}
+ATLAS_SUBJECT = 'BodyParts3D 4.0 reference atlas'
+ATLAS_AXES = ('right-handed', 'Y-up', '+X atlas left', '+Y superior', '+Z anterior')
+
+
+@dataclass(frozen=True)
+class AtlasMesh:
+    path: str
+    sha256: str
+    document: dict
+    binary: bytes
+
+
+@dataclass(frozen=True)
+class BodyAtlas:
+    skin: AtlasMesh
+    skeleton: AtlasMesh
+    rib_bounds: tuple[np.ndarray, np.ndarray]
+
+    def source_digests(self):
+        return source_digests(self.skin.sha256, self.skeleton.sha256)
+
+
+def source_digests(skin, skeleton):
+    return {'atlasSkinSha256': skin, 'atlasBonesSha256': skeleton}
+
+
+def exterior_exports(repo):
+    catalogue = read_exterior_atlas(repo)
+    registry = AssetRegistry.load_records(repo, (ref.record for ref in catalogue.inputs()))
+    exports = []
+    for slot, ref in (('skin', catalogue.skin), ('skeleton', catalogue.skeleton)):
+        _, revision, export = registry.require_record_export(ref)
+        frame = export.frame
+        if (frame is None or frame.convention != 'glb-y-up-m' or frame.units != 'm'
+                or frame.axes != ATLAS_AXES or revision.provenance.subject != ATLAS_SUBJECT):
+            raise AssetKitError(f'Exterior atlas {slot} requires the native BodyParts3D frame: {export.path}')
+        if export.format != 'glb' or export.sha256 is None or export.bytes is None:
+            raise AssetKitError(f'Exterior atlas {slot} requires an identity-pinned GLB: {export.path}')
+        exports.append(export)
+    return tuple(exports)
+
+
+def load_body_atlas(repo=ROOT):
+    skin_export, skeleton_export = exterior_exports(repo)
+
+    def load(export):
+        raw = read_verified(repo, export.path, export.sha256, export.bytes)
+        document, binary = decode(raw)
+        nodes = document['nodes']
+        if any(any(key in node for key in ('matrix', 'rotation', 'scale', 'translation', 'children'))
+               for node in nodes):
+            raise AssetKitError(f'Exterior atlas expects flat native coordinates: {export.path}')
+        return AtlasMesh(export.path, export.sha256, document, binary)
+
+    skin = load(skin_export)
+    skeleton = load(skeleton_export)
+    skin_selectors = {selector for part in skin_export.parts if part.id == 'skin' for selector in part.selectors}
+    if len(skin.document['nodes']) != 1 or skin.document['nodes'][0].get('mesh') != 0 or (
+            skin.document['nodes'][0].get('name') not in skin_selectors):
+        raise AssetKitError(f'Exterior atlas skin must bind the sole first mesh: {skin.path}')
+    return BodyAtlas(skin, skeleton, atlas_rib_bounds(skeleton.document))
+
+
+def expected_source_digests():
+    skin, skeleton = exterior_exports(ROOT)
+    return source_digests(skin.sha256, skeleton.sha256)
 
 
 def atlas(path, digest):
@@ -37,17 +101,19 @@ def ras_from_gltf(xyz):
     return xyz[..., [0, 2, 1]] * [-1, 1, 1]
 
 
-def atlas_rib_bounds():
-    doc, _ = atlas(BONES, BONES_SHA)
-    bounds = []
+def atlas_rib_bounds(doc):
+    bounds = {}
     for node in doc['nodes']:
-        if node['name'].partition(' ')[2] in RIBS:
+        name = node['name'].partition(' ')[2]
+        if name in RIBS:
             primitive = doc['meshes'][node['mesh']]['primitives'][0]
             accessor = doc['accessors'][primitive['attributes']['POSITION']]
-            bounds.extend((accessor['min'], accessor['max']))
-    if len(bounds) != 2 * len(RIBS):
+            if name in bounds:
+                raise ValueError(f'Duplicate atlas rib landmark: {name}')
+            bounds[name] = accessor['min'], accessor['max']
+    if bounds.keys() != RIBS:
         raise ValueError('Incomplete atlas rib landmarks')
-    points = ras_from_gltf(np.asarray(bounds))
+    points = ras_from_gltf(np.asarray(list(bounds.values())).reshape((-1, 3)))
     return points.min(0), points.max(0)
 
 
@@ -74,19 +140,19 @@ def smooth_atlas(vertices, faces):
     return vertices + weight[:, None] * delta
 
 
-def registered_atlas(rib_vertices):
-    doc, binary = atlas(SKIN, SKIN_SHA)
+def registered_atlas(rib_vertices, source):
+    doc, binary = source.skin.document, source.skin.binary
     prim = doc['meshes'][0]['primitives'][0]
     vertices = ras_from_gltf(primitive_stream(doc, binary, prim['attributes']['POSITION']).reshape(-1, 3))
     faces = primitive_stream(doc, binary, prim['indices']).reshape(-1, 3)
     vertices = smooth_atlas(vertices, faces)
-    low, high = atlas_rib_bounds()
+    low, high = source.rib_bounds
     scale = np.ptp(rib_vertices, axis=0) / (high-low)
     return (vertices-low) * scale + rib_vertices.min(0), faces
 
 
-def fitted_surface(torso_vertices, rib_vertices, contacts):
-    vertices, faces = registered_atlas(rib_vertices)
+def fitted_surface(torso_vertices, rib_vertices, contacts, source):
+    vertices, faces = registered_atlas(rib_vertices, source)
     front = anterior_surface(torso_vertices, contacts)
     projected = vertices[:, [0, 2]]
     distance, _ = cKDTree(contacts[:, [0, 2]]).query(projected)

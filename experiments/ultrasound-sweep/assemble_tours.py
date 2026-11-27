@@ -24,6 +24,7 @@ from breast_anatomy import FEMALE_SKIN_SHA, MAMMARY_SHA
 from breast_compression import SETTLE_DEPTH_MM
 from case_library import write_case_library
 from delivery import detail_files, read_poses, sha256, sweep_files, validate_image, validate_mesh, verify_inventory
+from display_body import expected_source_digests
 from geometry import FRAME_COUNT, KEYFRAMES, RASTER_SIZE, SECTOR_DEPTH_MM, SECTOR_HALF_ANGLE_DEG, LENS_RADIUS_MM, VOXEL_MM
 from prepare_scenes import read_vendor, shared_geometry
 from survey_delivery import STUDY, survey_files
@@ -122,11 +123,13 @@ def verify_ap_spans(root, receipt):
             raise ValueError(f'Invalid modeled AP span at frame {i}')
 
 
-def verify_track(root, track, stops, builder):
+def verify_track(root, track, stops, builder, atlas_digests):
     slug = track['id']
     case = track.get('case', 's1233')
     linear = track.get('probeType') == 'linear'
     receipt = json.loads((root / 'verification.json').read_text())
+    if track['exterior'] == 'fitted-atlas' and any(receipt.get(key) != value for key, value in atlas_digests.items()):
+        raise ValueError(f'Rebuild {slug} for the current BodyParts3D exterior atlas.')
     recipe = Path(builder.__file__).name
     if builder is build_aortic_screening:
         if (not (root / 'delivery.json').is_file()
@@ -225,6 +228,7 @@ def configure_timeline(tour):
 def configured_tours(output, refs, files, landmark_refs, tracks):
     tours, identities, used_references = [], {}, set()
     pregnancy_stages = json.loads((HERE / 'pregnancy-stages.json').read_text())
+    atlas_digests = expected_source_digests()
     for track, builder in tracks:
         tour = track.copy()
         slug = tour['id']
@@ -302,14 +306,17 @@ def configured_tours(output, refs, files, landmark_refs, tracks):
                              for kind in ('scan', 'section') for frame in range(FRAME_COUNT))
         if slug == 'gallbladder':
             inventory += [refs[stop['referenceId']]['path'] for stop in stops]
+            receipt = output / 'verification.json'
+            if not receipt.is_file() or json.loads(receipt.read_text()) != atlas_digests:
+                raise ValueError('Run prepare_scenes.py for the current gallbladder BodyParts3D exterior atlas.')
         else:
-            verify_track(output / root, track, stops, builder)
+            verify_track(output / root, track, stops, builder, atlas_digests)
             tour.pop('requirePoseReceipt', None)
             tour.pop('requirePaletteReceipt', None)
             if tour.get('pregnancyStage'):
                 for key in ('windows', 'landmarkMinimums', 'requireModelReceipt'):
                     tour.pop(key, None)
-        verify_inventory(output / root, inventory)
+        verify_inventory(output / root, inventory + ['verification.json'] if slug == 'gallbladder' else inventory)
         if tour.pop('sceneAssets', None):
             build_abdomen.scene_assets(track, output / root / 'scenes')
         for relative in inventory:

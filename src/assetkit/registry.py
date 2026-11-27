@@ -3,13 +3,14 @@
 from __future__ import annotations
 
 import json
+from collections.abc import Iterable
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Literal
 
 from pydantic import Field, FiniteFloat, PositiveInt
 
-from .blobs import inspect_mesh, normalize_path, verify
+from .blobs import inspect_mesh, normalize_path, safe_path, verify
 from .discovery import SKIP_DIRS, manifests
 from .errors import AssetKitError
 from .models import AssetModel
@@ -30,6 +31,12 @@ class ExportRef(AssetModel):
     asset: str
     revision: str
     export: str
+
+
+class RecordExportRef(ExportRef):
+    """An exact export reference with its package record for targeted reads."""
+
+    record: str
 
 
 class VoxelGrid(AssetModel):
@@ -247,6 +254,18 @@ class AssetRegistry:
             )
         return cls(assets=tuple(assets))
 
+    @classmethod
+    def load_records(cls, repo: Path, paths: Iterable[str]) -> AssetRegistry:
+        """Resolve explicit package records without discovering or inspecting other assets."""
+        paths = tuple(dict.fromkeys(paths))
+        records = tuple(safe_path(repo, path) for path in paths)
+        if any(path.name != "asset.record.json" for path in records):
+            raise AssetKitError("Expected package-owned asset.record.json paths")
+        assets = _load_asset_records(
+            repo.resolve(), set(), set(), inspect_glbs=False, record_paths=records
+        )
+        return cls(assets=tuple(assets))
+
     def validate(self, vocab: ConceptGraph | None = None) -> list[str]:
         warnings: list[str] = []
         known_concepts = vocab.ids if vocab is not None else set()
@@ -278,6 +297,16 @@ class AssetRegistry:
         if exp is None:
             return None
         return (asset, rev, exp)
+
+    def require_record_export(self, ref: RecordExportRef) -> tuple[Asset, Revision, Export]:
+        """Resolve an export and require the package record named by its reader."""
+        key = f"{ref.asset}@{ref.revision}:{ref.export}"
+        resolved = self.resolve_export(ref.asset, ref.revision, ref.export)
+        if resolved is None:
+            raise AssetKitError(f"Unknown package export: {key}")
+        if resolved[0].source_manifest != normalize_path(ref.record):
+            raise AssetKitError(f"Package export {key} is outside its declared record {ref.record}")
+        return resolved
 
     def require_voxel_export(self, ref: ExportRef, grid: VoxelGrid) -> Export:
         """Resolve a pinned export that can be placed directly on the requested grid."""
@@ -506,13 +535,18 @@ def _load_asset_records(
     existing_ids: set[str],
     *,
     inspect_glbs: bool,
+    record_paths: tuple[Path, ...] | None = None,
 ) -> list[Asset]:
     """Read package-owned asset.record.json declarations without synthesizing directory IDs."""
     assets: list[Asset] = []
-    for record_path in manifests(repo, "asset.record.json"):
+    for record_path in (
+        manifests(repo, "asset.record.json") if record_paths is None else record_paths
+    ):
         owner_dir = _rel(repo, record_path.parent)
         doc = _read_json(record_path)
         if not isinstance(doc, dict) or not doc.get("assetId"):
+            if record_paths is not None:
+                raise AssetKitError(f"Missing assetId in package record: {record_path}")
             continue
         asset_id = str(doc["assetId"])
         if asset_id in existing_ids:
@@ -594,12 +628,17 @@ def _load_asset_records(
                 base_eid = str(exp_row.get("id") or Path(exp_path).stem)
                 eid = base_eid if base_eid not in seen_eids else exp_path
                 seen_eids.add(eid)
-                chk = verify(repo, exp_path, exp_row.get("sha256"), exp_row.get("bytes"))
+                chk = (
+                    verify(repo, exp_path, exp_row.get("sha256"), exp_row.get("bytes"))
+                    if record_paths is None
+                    else None
+                )
                 tris = exp_row.get("triangles")
                 node_tris: dict[str, int] = {}
                 if (
                     inspect_glbs
                     and exp_path.endswith(".glb")
+                    and chk is not None
                     and chk.status in {"verified", "hydrated"}
                 ):
                     stats = inspect_mesh(repo, exp_path)
@@ -662,7 +701,7 @@ def _load_asset_records(
                         sha256=exp_row.get("sha256"),
                         bytes=exp_row.get("bytes"),
                         triangles=tris,
-                        storage_status=chk.status,
+                        storage_status=chk.status if chk is not None else "unverified",
                         parts=tuple(exp_parts),
                         voxel_grid=VoxelGrid.model_validate(exp_row["voxelGrid"])
                         if "voxelGrid" in exp_row

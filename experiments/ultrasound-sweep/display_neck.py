@@ -6,7 +6,7 @@ from scipy.optimize import least_squares
 from scipy.spatial import cKDTree
 
 from build_study import volume
-from display_body import BONES, BONES_SHA, SKIN, SKIN_SHA, atlas, primitive_stream, ras_from_gltf, smooth_atlas
+from display_body import load_body_atlas, primitive_stream, ras_from_gltf, smooth_atlas
 from fit_abdomen import max_outer_error, ramp, surface_height
 from geometry import VOXEL_MM
 
@@ -23,8 +23,7 @@ REGISTRATION_MASKS = {
 }
 
 
-def paired_landmarks(case, shape, affine):
-    doc, _ = atlas(BONES, BONES_SHA)
+def paired_landmarks(case, shape, affine, doc):
     nodes = {node['name'].partition(' ')[2]: node for node in doc['nodes'] if 'mesh' in node}
     template, observed = [], []
     for name, (atlas_name, digest) in REGISTRATION_MASKS.items():
@@ -145,9 +144,10 @@ def conform_neck(vertices, faces, shell, contacts):
 
 def fitted_neck(case, shell, contacts, beams, *, shape, affine, conformer=conform_neck):
     """Return the display-only atlas mesh and its registration/contact receipt."""
-    template, observed = paired_landmarks(case, shape, affine)
+    source = load_body_atlas()
+    template, observed = paired_landmarks(case, shape, affine, source.skeleton.document)
     transform, landmarks = registration(template, observed)
-    doc, binary = atlas(SKIN, SKIN_SHA)
+    doc, binary = source.skin.document, source.skin.binary
     primitive = doc['meshes'][0]['primitives'][0]
     vertices = ras_from_gltf(primitive_stream(doc, binary, primitive['attributes']['POSITION']).reshape(-1, 3))
     faces = primitive_stream(doc, binary, primitive['indices']).reshape(-1, 3)
@@ -156,8 +156,7 @@ def fitted_neck(case, shell, contacts, beams, *, shape, affine, conformer=confor
     vertices = conformer(vertices, faces, shell, contacts)
     error = max_outer_error(vertices, faces, contacts, beams)
     return vertices, faces, {
-        'atlasSkinSha256': SKIN_SHA,
-        'atlasBonesSha256': BONES_SHA,
+        **source.source_digests(),
         'registrationMaskSha256': {name: value[1] for name, value in REGISTRATION_MASKS.items()},
         'registrationBoneResidualMm': dict(zip(REGISTRATION_MASKS, landmarks.round(2).tolist(), strict=True)),
         'atlasDisplayMaxOuterContactErrorMm': round(error, 3),
