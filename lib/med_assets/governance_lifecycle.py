@@ -36,6 +36,19 @@ def _revision(record: dict, revision_id: str) -> dict:
         raise GovernanceError(f"Expected exactly one revision {revision_id}")
     return rows[0]
 
+def _verify_evidence(repo: Path, rows: list) -> None:
+    if not isinstance(rows, list) or not rows:
+        raise GovernanceError("Evidence must be a non-empty list of path/digest records")
+    for row in rows:
+        if not isinstance(row, dict) or not isinstance(row.get("path"), str) or len(row.get("sha256", "")) != 64:
+            raise GovernanceError("Evidence entries require repository path and SHA-256")
+        path = owner_path(repo, row["path"])
+        data = path.read_bytes()
+        if data.startswith(b"version https://git-lfs.github.com/spec/"):
+            raise GovernanceError(f"Evidence is not hydrated: {row['path']}")
+        if _sha(data) != row["sha256"]:
+            raise GovernanceError(f"Evidence digest mismatch: {row['path']}")
+
 def _validate(record: dict) -> None:
     required = {"schemaVersion","assetId","title","kind","status","owner","concepts","sources","parts","revisions","artifacts","exports","uses","retirement","unresolved"}
     if set(record) != required or record.get("schemaVersion") != 1:
@@ -73,18 +86,28 @@ def _mutate(repo: Path, record: dict, action: str, payload: dict, catalog) -> di
                 if not isinstance(changes[field], list): raise GovernanceError(f"{field} must be an array")
                 for row in changes[field]: _append(out[field], row, key, field)
     elif action in {"assess", "qualify"}:
-        rev = _revision(out, payload.get("revisionId", ""))
         key = "assessment" if action == "assess" else "qualification"
         row = payload.get(key)
         if not isinstance(row, dict): raise GovernanceError(f"{action} requires {key} object")
+        required = ("assessmentId" if action == "assess" else "qualificationId", "scope", "reviewer", "assessedAt", "evidence")
+        if any(not row.get(k) for k in required):
+            raise GovernanceError(f"{action} requires scope, reviewer, date, identity and evidence")
+        _verify_evidence(repo, row["evidence"])
         if action == "qualify":
-            required = ("qualificationId","scope","reviewer","assessedAt","decision","evidence")
-            if any(not row.get(k) for k in required) or row["decision"] != "qualified" or not isinstance(row["evidence"], list) or not row["evidence"]:
-                raise GovernanceError("Qualification requires scope, reviewer, date, qualified decision and evidence")
-            key_id = "qualificationId"
+            if row.get("decision") != "qualified":
+                raise GovernanceError("Qualification decision must be qualified")
+            use_id = payload.get("useId")
+            if use_id:
+                use = next((x for x in out["uses"] if x.get("useId") == use_id), None)
+                if use is None: raise GovernanceError(f"Unknown teaching use: {use_id}")
+                _append(use.setdefault("qualifications", []), row, "qualificationId", "qualification")
+                use["status"] = "qualified"
+            else:
+                rev = _revision(out, payload.get("revisionId", ""))
+                _append(rev.setdefault("qualifications", []), row, "qualificationId", "qualification")
         else:
-            key_id = "assessmentId"
-        _append(rev.setdefault("qualifications" if action == "qualify" else "assessments", []), row, key_id, key)
+            rev = _revision(out, payload.get("revisionId", ""))
+            _append(rev.setdefault("assessments", []), row, "assessmentId", "assessment")
     elif action == "adopt":
         use = payload.get("use")
         if not isinstance(use, dict): raise GovernanceError("adopt requires use object")
