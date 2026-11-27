@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:z-anatomy:auricles",
+  "title": "Z-Anatomy auricle exteriors",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/ears_z",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:z-anatomy:small-static-auricles",
+      "title": "Z-Anatomy external archive and auricle dependencies",
+      "subject": "Z-Anatomy native reference atlas",
+      "sourceType": "retained source or source receipt",
+      "license": "Z-Anatomy, CC BY-SA 4.0. Retain historical BodyParts3D / DBCLS CC BY-SA 2.1 Japan credit.",
+      "path": "sources/datasets/z-anatomy/small-static-studies/dependency-manifest.json",
+      "sha256": "acceb69ae780db57d5bdd6d44666ac737b0aeef64be4c61971f568a2547ab48a",
+      "bytes": 17584,
+      "evidence": [
+        {
+          "path": "models/ears_z/exports/r04/README.md",
+          "sha256": "2dad5a95b2a4628234963e56a259a7ca9ba8129206fc585be018c0dfce4f3fb8"
+        },
+        {
+          "path": "sources/datasets/z-anatomy/small-static-studies/ATTRIBUTION.md",
+          "sha256": "3a822fc26456a514be1b58c09fe41bf0e6889d549b1affd523cba18b2f602615"
+        }
+      ],
+      "limitations": []
+    },
+    {
+      "sourceId": "source:recipe:teaching-economy-r01",
+      "title": "Exact retained edition source",
+      "subject": "Z-Anatomy native reference atlas",
+      "sourceType": "retained source or source receipt",
+      "license": "Z-Anatomy, CC BY-SA 4.0. Retain historical BodyParts3D / DBCLS CC BY-SA 2.1 Japan credit.",
+      "path": "models/ears_z/exports/r04/ears_z.glb",
+      "bytes": 1752248,
+      "sha256": "04ba664cdc219dc7b78e80ddb2b1d5ff39ffe4438bd0ab1bf63c2221c46f5939",
+      "evidence": [
+        {
+          "path": "models/ears_z/exports/teaching-economy-r01/README.md",
+          "sha256": "d3679ee1256e63228c4def652b1a10a584740cf25f3e9087ce18c270f64b9f01"
+        }
+      ],
+      "limitations": []
+    }
+  ],
+  "parts": [
+    {
+      "partId": "auricle-exterior",
+      "label": "Compound bilateral auricle exterior",
+      "selectors": [
+        "Z-Anatomy source auricle surface regions compound"
+      ],
+      "sourcePath": "models/ears_z/exports/r04/README.md",
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "teaching-economy-r01",
+      "status": "provisional",
+      "recipe": "recipes/teaching-economy-r01.json",
+      "sourceIds": [
+        "source:recipe:teaching-economy-r01"
+      ],
+      "recipeEvidence": {
+        "path": "models/ears_z/exports/teaching-economy-r01/README.md",
+        "sha256": "d3679ee1256e63228c4def652b1a10a584740cf25f3e9087ce18c270f64b9f01"
+      },
+      "frame": {
+        "convention": "glb-y-up-m",
+        "evidence": "models/ears_z/exports/r04/README.md",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ]
+      },
+      "partIds": [
+        "auricle-exterior"
+      ],
+      "exports": [
+        {
+          "id": "teaching",
+          "path": "models/ears_z/exports/teaching-economy-r01/ears_z.glb",
+          "sha256": "cb5f38d7d5b8d617df11b53c65ef9d1fe11eb0c3f208d161209bda534917deed",
+          "bytes": 1005904,
+          "format": "glb",
+          "partIds": [
+            "auricle-exterior"
+          ],
+          "triangles": 54966
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "Open medial boundaries remain. The export shows auricles only."
+  ]
+}

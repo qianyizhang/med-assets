@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:s1233:gallbladder-display",
+  "title": "s1233 gallbladder and illustrative motion",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/gallbladder",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:workshop:gallbladder-breathing-r1",
+      "title": "Exact Workshop-held gallbladder motion input",
+      "subject": "Workshop s1233 frame",
+      "sourceType": "retained source or source receipt",
+      "license": "Jakob Wasserthal and TotalSegmentator contributors, University Hospital Basel. TotalSegmentator v2.0.1, CC BY 4.0. Retain the Apache-2.0 label-source notice.",
+      "path": "body/breathing/gallbladder_breathing.glb",
+      "sha256": "5c403eeb19149ae9989dd3f26b63f002359c1184a9d22bffd868ac0be45cff4f",
+      "bytes": 2125208,
+      "evidence": [
+        {
+          "path": "body/breathing/README.md",
+          "sha256": "f784c5296b6117569227551c2fe46c932bdee32f6e2b516f96a92ec16111fca8"
+        },
+        {
+          "path": "body/breathing/animation-manifest.json",
+          "sha256": "79e105f7b003ff3d9e8c727c620f907aace641f394833d82419285af09ca768f"
+        },
+        {
+          "path": "body/anatomy-workshop-r1/README.md",
+          "sha256": "44ecc5254f65866b8b8cf7d16d3cd7b7b309a3753a3dfdfdc74b30eaca51049f"
+        },
+        {
+          "path": "models/gallbladder/recipes/metadata/approved-patch.json",
+          "sha256": "e17bca4c225e5802f5466c56d27b3ee5569238aa6d40587c05396d5db1a7f2dd"
+        }
+      ],
+      "limitations": []
+    }
+  ],
+  "parts": [
+    {
+      "partId": "gallbladder-surface",
+      "label": "Source-derived gallbladder exterior",
+      "selectors": [
+        "Gallbladder | source surface"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/body-3d-delivery/manifest.json",
+      "registration": "native"
+    },
+    {
+      "partId": "teaching-section",
+      "label": "Authored teaching section",
+      "selectors": [
+        "gallbladder | anterior teaching section"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/body-3d-delivery/manifest.json",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "cystic-duct",
+      "label": "Schematic cystic duct",
+      "selectors": [
+        "Cystic duct · schematic"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/body-3d-delivery/manifest.json",
+      "registration": "illustrative"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "metadata-cleanup-r01",
+      "status": "provisional",
+      "sourceIds": [
+        "source:workshop:gallbladder-breathing-r1"
+      ],
+      "recipeEvidence": {
+        "path": "models/gallbladder/recipes/metadata/approved-patch.json",
+        "sha256": "e17bca4c225e5802f5466c56d27b3ee5569238aa6d40587c05396d5db1a7f2dd"
+      },
+      "frame": {
+        "convention": "glb-y-up-m",
+        "evidence": "body/anatomy-workshop-r1/body-3d-delivery/manifest.json",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ]
+      },
+      "partIds": [
+        "gallbladder-surface",
+        "teaching-section",
+        "cystic-duct"
+      ],
+      "exports": [
+        {
+          "id": "teaching",
+          "path": "models/gallbladder/exports/metadata-cleanup-r01/gallbladder.glb",
+          "sha256": "faa06e38130b3f63cc0094914eeb9adfb874ba2a2dc78da49e1c255c1f740227",
+          "bytes": 2124988,
+          "format": "glb",
+          "partIds": [
+            "gallbladder-surface",
+            "teaching-section",
+            "cystic-duct"
+          ],
+          "triangles": 9596
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "The stored Workshop frame is unchanged. The four-second translation clip and exposed wall and duct are illustrative."
+  ]
+}

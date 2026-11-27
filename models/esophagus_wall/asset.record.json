@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:authored:esophageal-wall",
+  "title": "Illustrative esophageal wall cutaway",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/esophagus_wall",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:authored:esophagus-wall-parameters",
+      "title": "Analytic wall geometry and explanatory parameters",
+      "subject": "Authored explanatory segment",
+      "sourceType": "retained source or source receipt",
+      "license": "Project-authored teaching geometry. No separate public reuse license is declared.",
+      "path": "models/esophagus_wall/recipes/parameters.json",
+      "sha256": "d4311f9ced2019468a1e45bcdfe19a7faaa43a5426c3648c1ce296779c176242",
+      "bytes": 424,
+      "evidence": [
+        {
+          "path": "models/esophagus_wall/exports/authored-cutaway-r01/README.md",
+          "sha256": "3cb15dd9a9a71f5b469372568161556af33c23fb24746b96c4e1dc572d2f1722"
+        },
+        {
+          "path": "models/esophagus_wall/recipes/build_wall.py",
+          "sha256": "670fcd10c8d0c00457adf6567dd3a5b6863f7a08c5e25fe7c81ee22daca7ecd4"
+        },
+        {
+          "path": "reviews/esophagus_wall/2026-10-25-authored-teaching/review-record.json",
+          "sha256": "1b2809760304a8fb36495aa4c23cfcffd5df97a7f625d4fe2f37b022b5956497"
+        }
+      ],
+      "limitations": []
+    }
+  ],
+  "parts": [
+    {
+      "partId": "mucosa",
+      "label": "Composite mucosa",
+      "selectors": [
+        "01 Mucosa - composite"
+      ],
+      "sourcePath": "models/esophagus_wall/exports/authored-cutaway-r01/README.md",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "submucosa",
+      "label": "Submucosa",
+      "selectors": [
+        "02 Submucosa"
+      ],
+      "sourcePath": "models/esophagus_wall/exports/authored-cutaway-r01/README.md",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "inner-circular",
+      "label": "Inner circular muscularis externa",
+      "selectors": [
+        "03 Muscularis externa - inner circular"
+      ],
+      "sourcePath": "models/esophagus_wall/exports/authored-cutaway-r01/README.md",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "outer-longitudinal",
+      "label": "Outer longitudinal muscularis externa",
+      "selectors": [
+        "04 Muscularis externa - outer longitudinal"
+      ],
+      "sourcePath": "models/esophagus_wall/exports/authored-cutaway-r01/README.md",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "adventitia",
+      "label": "Illustrative adventitia",
+      "selectors": [
+        "05 Adventitia"
+      ],
+      "sourcePath": "models/esophagus_wall/exports/authored-cutaway-r01/README.md",
+      "registration": "illustrative"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "authored-cutaway-r01",
+      "status": "provisional",
+      "sourceIds": [
+        "source:authored:esophagus-wall-parameters"
+      ],
+      "recipeEvidence": {
+        "path": "models/esophagus_wall/exports/authored-cutaway-r01/README.md",
+        "sha256": "3cb15dd9a9a71f5b469372568161556af33c23fb24746b96c4e1dc572d2f1722"
+      },
+      "frame": {
+        "convention": "glb-y-up-m",
+        "evidence": "models/esophagus_wall/exports/authored-cutaway-r01/README.md",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ]
+      },
+      "partIds": [
+        "mucosa",
+        "submucosa",
+        "inner-circular",
+        "outer-longitudinal",
+        "adventitia"
+      ],
+      "exports": [
+        {
+          "id": "teaching",
+          "path": "models/esophagus_wall/exports/authored-cutaway-r01/esophagus-wall-cutaway-r01.glb",
+          "sha256": "e4f51a86040ef115776fe06a33443982f7b63243332681e53dadaa77f81c05f5",
+          "bytes": 201328,
+          "format": "glb",
+          "partIds": [
+            "mucosa",
+            "submucosa",
+            "inner-circular",
+            "outer-longitudinal",
+            "adventitia"
+          ],
+          "triangles": 7700
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "The four-tunic model uses illustrative thickness, folded surface and wedge. It is independent of the whole-organ respiratory animation."
+  ]
+}
