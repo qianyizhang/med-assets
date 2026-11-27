@@ -40,6 +40,10 @@ A modeled hepatic-vein teaching surface does not satisfy the separately register
 
 The eleven reviewed stops are first-class requirements: skeletal, muscular, respiratory, urinary, cardiovascular, digestive, nervous, endocrine, lymphatic, reproductive and integumentary. Preserve action, observation, review status and exact detail identifier. Do not infer asset adoption from anatomical naming alone. Linked One Breath, cardiac imaging, right-arm, skeletal, pelvic and pathway lessons remain distinct consumers with their own pins and evidence.
 
+### Accepted teaching assessments
+
+The library also imports all 130 currently accepted teaching assessments, including the exact export and view hashes, task text, source references, four-axis observations, target disposition, attribution, and whether the assessment is the maintained selection or an accepted alternative. This preserves the distinction between an accepted assessment and the selected default. It does not infer a Body Systems or Ultrasound consumer binding unless an exact consumer pin exists.
+
 ### Other consumers
 
 Other lessons, diagrams, experiments and historical studies are indexed as package candidates. They receive no bespoke adapter until a concrete query or migration requires one.

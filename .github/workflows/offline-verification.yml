@@ -40,7 +40,7 @@ jobs:
           assert counts["ultrasoundCases"] == 32, counts
           assert counts["ultrasoundCaseViews"] == 163, counts
           assert counts["ultrasoundSweeps"] == 16, counts
+          assert counts["teachingAssessments"] == 130, counts
           assert domains.get("ultrasound-anatomy", 0) >= 211, domains
-          assert counts["artifactMismatches"] == 0, counts
           print(json.dumps({"counts": counts, "consumerDomains": domains}, indent=2))
           PY

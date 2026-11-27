@@ -5,6 +5,7 @@ import hashlib, json, re
 from pathlib import Path, PurePosixPath
 from typing import Any
 from .artifacts import HEX64, parse_pointer, source_path, unique_keys
+from .teaching import CurrentTeaching
 
 SCHEMA_VERSION=1
 ROOTS=("models","assemblies","body","heart","diagrams","lessons")
@@ -73,7 +74,8 @@ class Catalog:
             "ultrasoundCases":sum(x.kind=="modeled-case" for x in self.consumers),
             "ultrasoundCaseViews":sum(x.kind=="acquisition-chapter" for x in self.consumers),
             "ultrasoundSweeps":sum(x.kind=="standalone-sweep" for x in self.consumers),
-            "bodySystemStops":sum(x.domain=="body-systems" for x in self.consumers)}}
+            "bodySystemStops":sum(x.domain=="body-systems" for x in self.consumers),
+            "teachingAssessments":sum(x.domain=="teaching-assessments" for x in self.consumers)}}
 
 def _record_status(repo:Path,package:Path):
     path=package/RECORD
@@ -357,11 +359,52 @@ def ultrasound_consumers(repo:Path):
         raise GovernanceError("Duplicate ultrasound consumer identity: "+", ".join(duplicates[:20]))
     return tuple(result)
 
+def teaching_consumers(repo:Path):
+    """Expose exact accepted teaching assessments and maintained selections."""
+    current=CurrentTeaching(repo)
+    result=[]
+    for assessment in current.gallery():
+        row=assessment.row
+        export=row["export"]
+        path=export["path"]
+        selection=current.selections.get(path)
+        selected=bool(selection and selection.task_id==assessment.task_id)
+        target=row.get("target",{})
+        status="selected" if selected else "accepted-alternative"
+        if target.get("status")=="blocked": status="blocked-alternative"
+        artifact_pins=[dict(claim) for claim in (export,*row.get("views",[]))]
+        source_paths=[]
+        for source in row.get("sources",[]):
+            source_name=source.get("path") if isinstance(source,dict) else None
+            if isinstance(source_name,str):
+                source_name=source_name.split("#",1)[0]
+                if source_name and not source_name.startswith(("https://","http://")):
+                    source_paths.append(source_name)
+        result.append(Consumer(
+            f"teaching-assessment:{path}:{assessment.task_id}:{assessment.sha256[:12]}",
+            "teaching-assessments","accepted-assessment",
+            f"{Path(path).name} · {assessment.task_id}",row["task"],status,
+            rel(repo,assessment.owner),
+            {"export":export,"artifactPins":artifact_pins,"taskId":assessment.task_id,
+             "assessmentSha256":assessment.sha256,"sources":row.get("sources",[]),
+             "sourcePaths":source_paths,"views":row.get("views",[]),
+             "teachingView":row.get("teachingView"),"axes":row.get("axes"),
+             "target":target,"attribution":assessment.attribution,
+             "collectionId":selection.collection_id if selected else None,
+             "familyId":selection.family_id if selected else None}
+        ))
+    return tuple(result)
+
 def build_catalog(repo:Path):
     repo=repo.resolve(); packages=scan_packages(repo)
-    consumers=body_system_consumers(repo)+ultrasound_consumers(repo); hashes={}
+    consumers=body_system_consumers(repo)+ultrasound_consumers(repo)+teaching_consumers(repo); hashes={}
     for item in consumers:
         path=owner_path(repo,item.source_path); hashes[item.source_path]=sha(path.read_bytes())
+        for source_name in item.evidence.get("sourcePaths",[]):
+            source=owner_path(repo,source_name)
+            hashes[source_name]=sha(source.read_bytes())
+        for pin in item.evidence.get("artifactPins",[]):
+            hashes["artifact:"+pin["path"]]=f"{pin['sha256']}:{pin.get('bytes',0)}"
     for item in packages:
         if item.readme_sha256: hashes[item.path+"/README.md"]=item.readme_sha256
         for manifest_name in item.manifests:
