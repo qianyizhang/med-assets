@@ -30,6 +30,7 @@ def create_backfill_plan(repo:Path)->dict[str,Any]:
         proposals.append({"candidateId":item.candidate_id,"packagePath":item.path,"title":item.title,
           "kind":item.kind,"readmeSha256":item.readme_sha256,"exports":list(item.exports),
           "manifests":list(item.manifests),"artifacts":[asdict(x) for x in item.artifacts],
+          "parts":[asdict(x) for x in item.parts],
           "exportIdentities":export_identities,
           "decision":"defer","assetId":None,"owner":item.path,
           "notes":"Package discovery is not proof of an independent asset lineage. Confirm granularity and ownership."})

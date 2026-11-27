@@ -48,6 +48,20 @@ The library also imports all 130 currently accepted teaching assessments, includ
 
 Other lessons, diagrams, experiments and historical studies are indexed as package candidates. They receive no bespoke adapter until a concrete query or migration requires one.
 
+## Exact part discovery and resolution
+
+The package adapter imports explicit part selectors from existing source records where available: Body Systems 3D delivery manifests (including node IDs and source-case declarations), the whole-body 2D canonical-part manifest, the Cardiac Atlas anatomy manifest, explicit HRA region keys, kidney layer keys, dental source inventories and the ovary/tubal build receipt. Each part retains the metadata file that declared it, its selector, source case/frame when declared, geometry kind, derivation and scope. A source-node mapping or schematic part is not silently promoted to a loadable, registered 3D asset.
+
+Use `resolve` to compare a consumer's declared part IDs with those exact selectors:
+
+```sh
+python tools/asset_governance.py resolve ultrasound:sweep:abdomen-tracks:liver
+python tools/asset_governance.py resolve ultrasound:sweep:thyroid-tracks:thyroid-right
+python tools/asset_governance.py resolve ultrasound:sweep:abdomen-tracks:liver --part liver
+```
+
+An exact selector plus exact source-case match produces an **exact binding candidate**, not a qualified teaching asset. Anatomical suitability, spatial registration, license compatibility, learner-task evidence and runtime behavior remain separate gates. Unknown source frames, missing selectors and conflicting candidates remain visible.
+
 ## CLI
 
 Run from the repository root:
@@ -57,6 +71,7 @@ python tools/asset_governance.py scan
 python tools/asset_governance.py find "hepatic vein" --domain ultrasound-anatomy
 python tools/asset_governance.py find "left vesical" --domain body-systems
 python tools/asset_governance.py show body-systems:digestive:digestive-s1233-route
+python tools/asset_governance.py resolve ultrasound:sweep:abdomen-tracks:liver
 python tools/asset_governance.py impact package:models/liver
 \`\`\`
 

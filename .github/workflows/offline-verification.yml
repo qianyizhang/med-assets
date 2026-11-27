@@ -36,6 +36,7 @@ jobs:
           for row in catalog["consumers"]:
               domains[row["domain"]] = domains.get(row["domain"], 0) + 1
           assert counts["packageCandidates"] > 0, counts
+          assert counts["partCandidates"] > 0, counts
           assert domains.get("body-systems") == 11, domains
           assert counts["ultrasoundCases"] == 32, counts
           assert counts["ultrasoundCaseViews"] == 163, counts

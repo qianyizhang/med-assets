@@ -44,9 +44,26 @@ class ArtifactDeclaration:
     verification:str
 
 @dataclass(frozen=True)
+class PackagePart:
+    part_id:str
+    label:str
+    selectors:tuple[str,...]
+    source_path:str
+    geometry_type:str
+    status:str
+    source_case:str|None=None
+    source_frame:str|None=None
+    parent_part_id:str|None=None
+    aliases:tuple[str,...]=()
+    license:str|None=None
+    derivation:str|None=None
+    attributes:dict[str,Any]|None=None
+
+@dataclass(frozen=True)
 class Package:
     candidate_id:str; path:str; title:str; kind:str; readme_sha256:str|None
     exports:tuple[str,...]; manifests:tuple[str,...]; artifacts:tuple[ArtifactDeclaration,...]
+    parts:tuple[PackagePart,...]
     record_path:str|None; record_status:str; unresolved:tuple[str,...]
 
 @dataclass(frozen=True)
@@ -70,6 +87,7 @@ class Catalog:
             "artifactMissing":sum(a.verification=="missing" for x in self.packages for a in x.artifacts),
             "artifactMismatches":sum(a.verification=="mismatch" for x in self.packages for a in x.artifacts),
             "artifactInvalidPointers":sum(a.verification=="invalid-pointer" for x in self.packages for a in x.artifacts),
+            "partCandidates":sum(len(x.parts) for x in self.packages),
             "consumerRequirements":len(self.consumers),
             "ultrasoundCases":sum(x.kind=="modeled-case" for x in self.consumers),
             "ultrasoundCaseViews":sum(x.kind=="acquisition-chapter" for x in self.consumers),
@@ -130,6 +148,124 @@ def _manifest_artifacts(repo:Path,package:Path):
             artifacts.append(ArtifactDeclaration(identity,target_name,manifest_path,digest,size,verification))
     return tuple(artifacts),tuple(rel(repo,p) for p in manifests)
 
+def _package_parts(repo:Path,package:Path):
+    parts=[]
+    def add(part_id,label,selectors,source,geometry_type,status,**kwargs):
+        if not isinstance(part_id,str) or not part_id.strip(): return
+        if not isinstance(label,str) or not label.strip(): label=str(part_id)
+        normalized=tuple(dict.fromkeys(x for x in selectors if isinstance(x,str) and x.strip()))
+        parts.append(PackagePart(part_id,label,normalized,rel(repo,source),geometry_type,status,
+            kwargs.get("source_case"),kwargs.get("source_frame"),kwargs.get("parent_part_id"),
+            tuple(kwargs.get("aliases",())),kwargs.get("license"),kwargs.get("derivation"),
+            kwargs.get("attributes",{})))
+
+    for manifest in sorted(package.rglob("manifest.json")):
+        if manifest.is_symlink() or manifest.resolve()!=manifest: continue
+        try: doc=read_json(manifest)
+        except GovernanceError: continue
+        if isinstance(doc,dict) and doc.get("format")=="whole-body-anatomy-parts":
+            canonical=doc.get("canonical_to_assets",{})
+            for concept_id in doc.get("canonical_ids",[]):
+                row=canonical.get(concept_id,{})
+                variants=row.get("variants",[])
+                selectors=[row.get("primary"),row.get("overlay"),*(x.get("file") for x in variants)]
+                label=concept_id.replace("-"," ").title()
+                add(concept_id,label,selectors,manifest,"svg-schematic","illustrative",
+                    source_frame=f"svg:{row.get('primary_view','unknown')}",aliases=(concept_id,),
+                    derivation=doc.get("anatomy_state","normal-schematic"),
+                    attributes={"primaryView":row.get("primary_view"),"variants":variants,
+                      "overlay":row.get("overlay"),"geometryType":doc.get("geometry_type"),
+                      "coordinateUnits":doc.get("coordinate_units")})
+        elif isinstance(doc,dict) and isinstance(doc.get("assets"),list) and isinstance(doc.get("coordinates"),dict):
+            coordinates=doc["coordinates"]
+            for asset in doc["assets"]:
+                if not isinstance(asset,dict): continue
+                asset_id=asset.get("id"); name=asset.get("name",{})
+                label=name.get("en",asset_id) if isinstance(name,dict) else str(name)
+                case=asset.get("sourceCase")
+                add(asset_id,label,(asset.get("file"),asset_id),manifest,"glb-component",
+                    asset.get("status","declared"),source_case=case,
+                    source_frame=f"{case}:scene" if case else None,aliases=tuple(asset.get("organIds",[])),
+                    license=asset.get("license"),derivation=asset.get("provenance"),
+                    attributes={"group":asset.get("group"),"sourceKind":asset.get("sourceKind"),
+                      "coordinates":coordinates,"cutawaySupport":asset.get("cutawaySupport"),
+                      "defaultVisible":asset.get("defaultVisible")})
+                for node in asset.get("nodes",[]):
+                    if not isinstance(node,dict): continue
+                    node_id=node.get("anatomy_id"); node_name=node.get("name",node_id)
+                    derivation=node.get("derivation","")
+                    status="source-derived" if derivation=="source-derived" else "illustrative"
+                    add(node_id,node_name,(node.get("name"),node_id,asset.get("file")),manifest,
+                        "glb-node",status,source_case=case,
+                        source_frame=f"{case}:scene" if case else None,parent_part_id=asset_id,
+                        license=asset.get("license"),derivation=derivation,
+                        attributes={"viewRole":node.get("view_role"),"cutawaySupport":asset.get("cutawaySupport")})
+
+    for manifest in sorted(package.rglob("anatomy_manifest.json")):
+        if manifest.is_symlink() or manifest.resolve()!=manifest: continue
+        doc=read_json(manifest)
+        if not isinstance(doc,list): continue
+        for row in doc:
+            if not isinstance(row,dict): continue
+            part_id=row.get("anatomy_id")
+            add(part_id,row.get("object",part_id),(row.get("object"),part_id),manifest,
+                "blender-object","declared-component",
+                attributes={"vertices":row.get("vertices"),"faces":row.get("faces"),
+                  "shapeKeys":row.get("shape_keys",[]),"segmentationLabel":row.get("segmentation_label")})
+
+    for key_file in sorted(package.rglob("explicit-region-key.json")):
+        if key_file.is_symlink() or key_file.resolve()!=key_file: continue
+        doc=read_json(key_file)
+        for row in doc.get("rows",[]):
+            if not isinstance(row,dict): continue
+            node_id=row.get("source_atlas_node_id")
+            mesh=row.get("source_mesh_name")
+            role=row.get("illustrative_display_role")
+            add(f"source-node:{node_id}",row.get("source_label") if row.get("source_label") not in (None,"-") else role,
+                (mesh,str(node_id) if node_id is not None else None),key_file,"source-node-mapping",
+                "illustrative",license=None,derivation=doc.get("role_mapping_method"),
+                attributes={"sourceLabel":row.get("source_label"),"displayRole":role,
+                  "sourceNodeType":row.get("source_node_type"),"materials":row.get("materials",[]),
+                  "mappingId":doc.get("id"),"sourceAtlasSha256":doc.get("source_atlas_sha256"),
+                  "legendScope":doc.get("legend_scope")})
+
+    for key_file in sorted(package.rglob("layer-key.json")):
+        if key_file.is_symlink() or key_file.resolve()!=key_file: continue
+        doc=read_json(key_file); modes=doc.get("modes",{})
+        supported={part for mode in doc.get("supportedModes",[]) for part in modes.get(mode,[])}
+        diagnostic={part for mode in doc.get("diagnosticOnlyModes",[]) for part in modes.get(mode,[])}
+        rejected={part for mode in doc.get("rejectedModes",[]) for part in modes.get(mode,[])}
+        for layer,selectors in doc.get("layers",{}).items():
+            status=("supported" if layer in supported else "diagnostic-only" if layer in diagnostic
+                    else "rejected" if layer in rejected else "declared")
+            add(f"layer:{layer}",layer.replace("_"," ").title(),selectors,key_file,
+                "glb-node-set",status,aliases=(layer,),
+                attributes={"supportedModes":[m for m,v in modes.items() if layer in v],
+                  "diagnosticOnly":layer in diagnostic,"rejected":layer in rejected,
+                  "supportedModesDeclared":doc.get("supportedModes",[]),
+                  "diagnosticOnlyModesDeclared":doc.get("diagnosticOnlyModes",[]),
+                  "rejectedModesDeclared":doc.get("rejectedModes",[]),"note":doc.get("note")})
+
+    for inventory in sorted(package.rglob("source-inventory.json")):
+        if inventory.is_symlink() or inventory.resolve()!=inventory: continue
+        doc=read_json(inventory)
+        if not isinstance(doc,list): continue
+        for row in doc:
+            if not isinstance(row,dict): continue
+            name=row.get("name"); source_file=row.get("source_file")
+            add(f"source-mesh:{name}",name,(source_file,name),inventory,
+                Path(source_file or "").suffix.lstrip(".") or "source-mesh","source-input",
+                attributes={"sourceSha256":row.get("source_sha256"),"vertices":row.get("vertices"),
+                  "triangles":row.get("triangles"),"nativeBounds":row.get("native_bounds")})
+
+    for build in sorted(package.rglob("ovary-tubal-context.build.json")):
+        if build.is_symlink() or build.resolve()!=build: continue
+        doc=read_json(build); checks=doc.get("checks",{})
+        for name in checks.get("sourceNames",[]):
+            add(f"source-mesh:{name}",name,(name,),build,"glb-source-node","source-derived",
+                attributes={"sourceCommit":doc.get("sourceCommit"),"artifact":doc.get("artifact")})
+    return tuple(parts)
+
 def scan_packages(repo:Path):
     result=[]; seen=set()
     for root_name in ROOTS:
@@ -142,6 +278,7 @@ def scan_packages(repo:Path):
                 if p.is_file() and p.suffix.lower() in {".glb",".gltf",".blend",".svg",".obj",".stl",".ply",".fbx"}
                 and ".artifacts" not in p.parts and ".git" not in p.parts)
             artifacts,manifests=_manifest_artifacts(repo,package)
+            parts=_package_parts(repo,package)
             record=package/RECORD; status,unresolved=_record_status(repo,package)
             candidate="package:"+path
             if record.is_file(): candidate=read_json(record)["assetId"]
@@ -149,7 +286,7 @@ def scan_packages(repo:Path):
             seen.add(candidate)
             kind={"models":"model-package","assemblies":"assembly-package","body":"body-package",
                   "heart":"heart-package","diagrams":"diagram-package","lessons":"lesson-package"}[root_name]
-            result.append(Package(candidate,path,readme_title(readme,package.name),kind,readme_hash,exports,manifests,artifacts,
+            result.append(Package(candidate,path,readme_title(readme,package.name),kind,readme_hash,exports,manifests,artifacts,parts,
                 rel(repo,record) if record.is_file() else None,status,unresolved))
     return tuple(result)
 
@@ -425,6 +562,9 @@ def build_catalog(repo:Path):
         for manifest_name in item.manifests:
             manifest=owner_path(repo,manifest_name)
             hashes[manifest_name]=sha(manifest.read_bytes())
+        for part_source in {part.source_path for part in item.parts}:
+            source=owner_path(repo,part_source)
+            hashes[part_source]=sha(source.read_bytes())
         if item.record_path:
             path=owner_path(repo,item.record_path); hashes[item.record_path]=sha(path.read_bytes())
     return Catalog(str(repo),packages,consumers,hashes)
@@ -432,7 +572,8 @@ def build_catalog(repo:Path):
 def find(catalog:Catalog,query:str,domain:str|None=None):
     terms=tuple(x.casefold() for x in query.split() if x); packages=[]; consumers=[]
     for item in catalog.packages:
-        hay=" ".join((item.candidate_id,item.path,item.title,*item.exports)).casefold()
+        part_terms=tuple(value for part in item.parts for value in (part.part_id,part.label,*part.selectors,*part.aliases))
+        hay=" ".join((item.candidate_id,item.path,item.title,*item.exports,*part_terms)).casefold()
         if all(term in hay for term in terms): packages.append(asdict(item))
     for item in catalog.consumers:
         if domain and item.domain!=domain: continue
@@ -446,6 +587,65 @@ def show(catalog:Catalog,identity:str):
     for item in catalog.consumers:
         if identity==item.consumer_id: return {"type":"consumer-requirement",**asdict(item)}
     raise GovernanceError(f"Unknown identity: {identity}")
+
+def resolve(catalog:Catalog,identity:str,part_id:str|None=None):
+    """Resolve explicit consumer part tokens without anatomical-name inference."""
+    consumer=show(catalog,identity)
+    if consumer["type"]!="consumer-requirement":
+        raise GovernanceError("Resolve requires a consumer identity, not a package identity")
+    evidence=consumer.get("evidence",{})
+    declared=evidence.get("parts",[])
+    if part_id is not None:
+        required=[part_id]
+    elif isinstance(declared,list):
+        required=list(dict.fromkeys(x for x in declared if isinstance(x,str) and x.strip()))
+    else:
+        required=[]
+    if not required:
+        return {"consumer":consumer,"status":"no-exact-part-contract",
+          "reason":"This consumer does not declare machine-readable part selectors; no binding is inferred from prose."}
+    case=evidence.get("case")
+    results=[]
+    mesh_types={"glb-component","glb-node","blender-object","stl","glb-source-node","glb-node-set"}
+    eligible_states={"ready","source-derived","declared-component","supported","source-input"}
+    for requested in required:
+        exact=[];near=[];incompatible=[]
+        for package in catalog.packages:
+            for candidate in package.parts:
+                tokens={candidate.part_id,*candidate.aliases,*candidate.selectors}
+                if requested not in tokens: continue
+                item={"packageId":package.candidate_id,"packagePath":package.path,
+                  "partId":candidate.part_id,"label":candidate.label,
+                  "selectors":list(candidate.selectors),"sourcePath":candidate.source_path,
+                  "geometryType":candidate.geometry_type,"status":candidate.status,
+                  "sourceCase":candidate.source_case,"sourceFrame":candidate.source_frame,
+                  "derivation":candidate.derivation,"license":candidate.license,
+                  "parentPartId":candidate.parent_part_id,"attributes":candidate.attributes}
+                if case and candidate.source_case and candidate.source_case!=case:
+                    item["reason"]="Different source case"
+                    incompatible.append(item);continue
+                case_match=bool(case and candidate.source_case==case)
+                geometry_match=candidate.geometry_type in mesh_types
+                state_match=candidate.status in eligible_states
+                if geometry_match and state_match and (not case or case_match):
+                    item["matchBasis"]=["exact part selector"]
+                    if case_match: item["matchBasis"].append("exact source-case identity")
+                    exact.append(item)
+                else:
+                    reasons=[]
+                    if not geometry_match: reasons.append("Not a 3D mesh/node delivery")
+                    if not state_match: reasons.append("Part declaration is not in an eligible delivery state")
+                    if case and not candidate.source_case: reasons.append("Source case is not declared")
+                    item["reason"]="; ".join(reasons) or "Insufficient exact identity evidence"
+                    near.append(item)
+        status=("ambiguous" if len(exact)>1 else "exact-binding-candidate" if len(exact)==1
+                else "near-match" if near else "missing")
+        results.append({"requiredPart":requested,"status":status,
+          "exactCandidates":exact,"nearMatches":near,"incompatibleCandidates":incompatible,
+          "qualification":"not-established",
+          "note":"An exact selector and source-case match is a candidate binding, not anatomical, registration, rights or teaching qualification."})
+    return {"consumer":consumer,"sourceCase":case,"status":"resolved-candidates",
+      "parts":results}
 
 def impact(catalog:Catalog,identity:str):
     target=show(catalog,identity)

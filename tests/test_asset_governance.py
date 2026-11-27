@@ -20,7 +20,18 @@ class GovernanceTests(unittest.TestCase):
            "views":[{"title":"Liver","caption":"Locate liver."},{"title":"Portal vein","caption":"Trace portal vein."}]}]))
         (root/"experiments/ultrasound-sweep").mkdir(parents=True,exist_ok=True)
         (root/"experiments/ultrasound-sweep/abdomen-tracks.json").write_text(json.dumps({
+          "common":{"case":"s1233"},
           "sweeps":[{"id":"liver","title":"Liver sweep","parts":["liver"],"landmarks":["hepatic-vein"]}]}))
+        delivery=root/"body/anatomy-workshop-r1/body-3d-delivery"
+        delivery.mkdir(parents=True)
+        (root/"body/anatomy-workshop-r1/README.md").write_text("# Anatomy Workshop\\n")
+        (delivery/"manifest.json").write_text(json.dumps({
+          "coordinates":{"units":"metres","axes":{"x":"patient left","y":"superior","z":"anterior"},
+            "RASmm_to_scene":[[-0.001,0,0,0],[0,0,0.001,-0.43],[0,0.001,0,-0.155],[0,0,0,1]]},
+          "assets":[{"id":"liver","name":{"en":"Liver","zh":"肝脏"},"file":"meshes/liver.glb",
+            "group":"digestive","sourceKind":"segmented","provenance":"s1233 segmentation derivative",
+            "license":"CC BY 4.0","sourceCase":"s1233","status":"ready",
+            "nodes":[{"name":"Liver | source surface","anatomy_id":"liver_surface","view_role":"surface","derivation":"source-derived"}]}]}))
     def test_scan_keeps_package_and_consumers_separate(self):
         with tempfile.TemporaryDirectory() as directory:
             root=Path(directory);self.fixture(root);catalog=build_catalog(root)
@@ -29,6 +40,10 @@ class GovernanceTests(unittest.TestCase):
             self.assertEqual(show(catalog,"body-systems:digestive:digestive-liver")["domain"],"body-systems")
             self.assertEqual(show(catalog,"ultrasound:case-view:organs:abdomen-survey:2")["title"],"Abdominal survey · Portal vein")
             self.assertEqual(show(catalog,"ultrasound:sweep:abdomen-tracks:liver")["domain"],"ultrasound-anatomy")
+            resolved=resolve(catalog,"ultrasound:sweep:abdomen-tracks:liver")
+            self.assertEqual(resolved["parts"][0]["status"],"exact-binding-candidate")
+            self.assertEqual(resolved["parts"][0]["exactCandidates"][0]["partId"],"liver")
+            self.assertEqual(resolved["parts"][0]["exactCandidates"][0]["sourceCase"],"s1233")
     def test_backfill_requires_explicit_approval_and_starts_provisional(self):
         with tempfile.TemporaryDirectory() as directory:
             root=Path(directory);self.fixture(root);plan=create_backfill_plan(root);proposal=plan["proposals"][0]
