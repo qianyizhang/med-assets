@@ -37,7 +37,9 @@ jobs:
               domains[row["domain"]] = domains.get(row["domain"], 0) + 1
           assert counts["packageCandidates"] > 0, counts
           assert counts["partCandidates"] > 0, counts
-          assert domains.get("body-systems") == 11, domains
+          assert counts["bodySystemStops"] == 11, counts
+          assert counts["bodySystemAssemblies"] == 11, counts
+          assert counts["bodySystemPlates"] >= 30, counts
           assert counts["ultrasoundCases"] == 32, counts
           assert counts["ultrasoundCaseViews"] == 163, counts
           assert counts["ultrasoundSweeps"] == 16, counts

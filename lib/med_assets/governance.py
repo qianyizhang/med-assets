@@ -102,25 +102,50 @@ def _record_status(repo:Path,package:Path):
     path=package/RECORD
     if not path.exists(): return "unregistered",("No package-owned asset.record.json",)
     data=read_json(path)
-    required={"schemaVersion","assetId","title","kind","status","owner","concepts","sources","parts","revisions","uses","unresolved"}
-    if set(data)!=required or data.get("schemaVersion")!=1: raise GovernanceError(f"Invalid asset record: {rel(repo,path)}")
-    if data["status"] not in {"provisional","active","deprecated","retired"}: raise GovernanceError(f"Invalid lifecycle status: {rel(repo,path)}")
-    if data["owner"]!=rel(repo,package): raise GovernanceError(f"Asset record owner mismatch: {rel(repo,path)}")
-    for field in ("concepts","sources","parts","revisions","uses","unresolved"):
-        if not isinstance(data[field],list): raise GovernanceError(f"Expected array {field}: {rel(repo,path)}")
+    required={"schemaVersion","assetId","title","kind","status","owner","concepts","sources",
+      "parts","revisions","artifacts","exports","uses","unresolved"}
+    if set(data)!=required or data.get("schemaVersion")!=1:
+        raise GovernanceError(f"Invalid asset record: {rel(repo,path)}")
+    if data["status"] not in {"provisional","active","deprecated","retired"}:
+        raise GovernanceError(f"Invalid lifecycle status: {rel(repo,path)}")
+    if data["owner"]!=rel(repo,package):
+        raise GovernanceError(f"Asset record owner mismatch: {rel(repo,path)}")
+    for field in ("concepts","sources","parts","revisions","artifacts","exports","uses","unresolved"):
+        if not isinstance(data[field],list):
+            raise GovernanceError(f"Expected array {field}: {rel(repo,path)}")
+    part_ids=[row.get("partId") for row in data["parts"] if isinstance(row,dict)]
+    if len(part_ids)!=len(data["parts"]) or len(part_ids)!=len(set(part_ids)):
+        raise GovernanceError(f"Invalid or duplicate part IDs: {rel(repo,path)}")
+    for row in data["exports"]:
+        if not isinstance(row,dict) or not isinstance(row.get("path"),str):
+            raise GovernanceError(f"Invalid export record: {rel(repo,path)}")
+        if not isinstance(row.get("sha256"),str) or not HEX64.fullmatch(row["sha256"]):
+            raise GovernanceError(f"Invalid export digest: {rel(repo,path)}")
+        if type(row.get("bytes")) is not int or row["bytes"]<0:
+            raise GovernanceError(f"Invalid export size: {rel(repo,path)}")
     return ("confirmed" if data["status"]=="active" else "provisional"),tuple(data["unresolved"])
 
 def _manifest_artifacts(repo:Path,package:Path):
-    artifacts=[]; manifests=sorted(package.rglob("package-manifest.json"))
-    for manifest in manifests:
-        manifest_path=rel(repo,manifest)
+    artifacts=[]; manifests=[]
+    candidates=sorted(package.rglob("package-manifest.json"))+sorted(package.rglob("manifest.json"))
+    for manifest in candidates:
         if manifest.is_symlink() or manifest.resolve()!=manifest:
-            raise GovernanceError(f"Linked package manifest: {manifest_path}")
+            raise GovernanceError(f"Linked package manifest: {rel(repo,manifest)}")
         document=read_json(manifest)
-        if not isinstance(document,list):
-            raise GovernanceError(f"Unsupported package manifest shape: {manifest_path}")
-        seen=set()
-        for row in document:
+        rows=[]
+        if manifest.name=="package-manifest.json":
+            if not isinstance(document,list):
+                raise GovernanceError(f"Unsupported package manifest shape: {rel(repo,manifest)}")
+            rows=document
+        elif isinstance(document,dict) and isinstance(document.get("assets"),list):
+            # Delivery manifests own exact file hashes on each asset row.
+            rows=[row for row in document["assets"] if isinstance(row,dict)
+                and isinstance(row.get("file"),str) and isinstance(row.get("sha256"),str)
+                and type(row.get("bytes")) is int]
+        else:
+            continue
+        manifest_path=rel(repo,manifest); manifests.append(manifest_path); seen=set()
+        for row in rows:
             if not isinstance(row,dict): raise GovernanceError(f"Invalid artifact row: {manifest_path}")
             name=row.get("file"); digest=row.get("sha256"); size=row.get("bytes")
             if not isinstance(name,str): raise GovernanceError(f"Missing artifact path: {manifest_path}")
@@ -137,19 +162,16 @@ def _manifest_artifacts(repo:Path,package:Path):
                 with target.open("rb") as stream:
                     prefix=stream.read(1025)
                     if prefix.startswith(b"version https://git-lfs.github.com/spec/"):
-                        try:
-                            actual_digest,actual_size=parse_pointer(prefix)
-                        except ValueError:
-                            verification="invalid-pointer"
-                        else:
-                            verification="pointer-match" if (actual_digest,actual_size)==(digest,size) else "mismatch"
+                        try: actual_digest,actual_size=parse_pointer(prefix)
+                        except ValueError: verification="invalid-pointer"
+                        else: verification="pointer-match" if (actual_digest,actual_size)==(digest,size) else "mismatch"
                     else:
                         stream.seek(0); actual_size=target.stat().st_size
                         actual_digest=hashlib.file_digest(stream,"sha256").hexdigest()
                         verification="verified" if (actual_digest,actual_size)==(digest,size) else "mismatch"
-            identity=sha((manifest_path+"\\0"+target_name).encode())
+            identity=sha((manifest_path+"\0"+target_name).encode())
             artifacts.append(ArtifactDeclaration(identity,target_name,manifest_path,digest,size,verification))
-    return tuple(artifacts),tuple(rel(repo,p) for p in manifests)
+    return tuple(artifacts),tuple(manifests)
 
 def _package_parts(repo:Path,package:Path):
     parts=[]
@@ -351,10 +373,12 @@ def body_system_consumers(repo:Path):
         plate_map={}
         for plate in plates_for_system:
             if not isinstance(plate,dict): raise GovernanceError(f"Invalid plate in {system_id}")
-            plate_id=plate.get("id")
-            if not isinstance(plate_id,str) or not plate_id.strip() or plate_id in plate_map:
-                raise GovernanceError(f"Invalid or duplicate plate identity in {system_id}: {plate_id}")
-            plate_map[plate_id]=plate
+            plate_id,plate_kind=plate.get("id"),plate.get("kind")
+            if not isinstance(plate_id,str) or not plate_id.strip() or not isinstance(plate_kind,str) or not plate_kind.strip():
+                raise GovernanceError(f"Invalid plate identity in {system_id}: {plate_id}")
+            key=(plate_kind,plate_id)
+            if key in plate_map: raise GovernanceError(f"Duplicate plate identity in {system_id}: {key}")
+            plate_map[key]=plate
         plates[system_id]=plate_map
         source_paths=paths_from_sources(system.get("sources",[]))
         assembly=next((p for p in plates_for_system if p.get("kind")=="assembly"),None)
@@ -369,6 +393,7 @@ def body_system_consumers(repo:Path):
                  "frames":frames,"framePaths":[x["path"] for x in frames],
                  "sourcePaths":source_paths,"legend":assembly.get("legend",[]),"scale":assembly.get("scale")}))
         for plate in plates_for_system:
+            if plate.get("kind")=="assembly": continue
             frames=frame_records(plate,system_id)
             plate_id=plate["id"]
             result.append(Consumer(f"body-systems:plate:{system_id}:{plate_id}","body-systems","display-plate",
@@ -387,7 +412,7 @@ def body_system_consumers(repo:Path):
         identity=f"body-systems:{system}:{detail}"
         if identity in seen: raise GovernanceError(f"Duplicate consumer: {identity}")
         seen.add(identity)
-        plate=plates.get(system,{}).get(detail)
+        plate=plates.get(system,{}).get(("detail",detail))
         display_status="exact-display-detail" if plate else "unmapped-display-detail"
         frames=frame_records(plate,system) if plate else []
         system_row=by_system.get(system,{})

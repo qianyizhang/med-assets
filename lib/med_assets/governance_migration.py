@@ -46,13 +46,47 @@ def write_backfill_plan(repo:Path,destination:Path):
 
 def _record_document(proposal:dict[str,Any],asset_id:str):
     owner=source_path(proposal["owner"])
+    parts=proposal.get("parts",[])
+    sources_by_key={}
+    for part in parts:
+        if not isinstance(part,dict): raise GovernanceError("Backfill part candidate must be an object")
+        declaration=part.get("source_path")
+        if not isinstance(declaration,str): continue
+        key=(declaration,part.get("source_case"),part.get("source_frame"),
+             part.get("license"),part.get("derivation"))
+        if key in sources_by_key: continue
+        source_id="declaration:"+hashlib.sha256(json.dumps(key,ensure_ascii=False).encode()).hexdigest()[:20]
+        sources_by_key[key]={"sourceId":source_id,"declarationPath":declaration,
+            "subjectCase":part.get("source_case"),"frame":part.get("source_frame"),
+            "license":part.get("license"),"derivation":part.get("derivation"),
+            "status":"declared-unverified"}
+    exports=[{"path":path,"sha256":identity["sha256"],"bytes":identity["bytes"],
+        "identityBasis":"git-lfs-pointer-or-local-bytes"}
+        for path,identity in sorted(proposal.get("exportIdentities",{}).items())]
+    artifacts=proposal.get("artifacts",[])
+    unresolved=[]
+    if not proposal.get("parts"):
+        unresolved.append("No named part declarations were discovered; add reviewed stable part selectors.")
+    if not sources_by_key:
+        unresolved.append("No package-owned provenance declarations were discovered; identify source subjects, rights and attribution.")
+    else:
+        unresolved.append("Source/provenance declarations are copied from package metadata and require owner review.")
+    unresolved.append("No canonical anatomical concept mappings have been approved.")
+    unresolved.append("No explicit revision IDs were declared; do not synthesize revisions from filenames or hashes.")
+    unresolved.append("No downstream teaching or consumer bindings have been adopted.")
+    unresolved.append("Package-level lineage granularity still requires owner confirmation.")
+    for part in parts:
+        if not part.get("selectors"):
+            unresolved.append(f"Part {part.get('part_id')} has no exact source selector.")
+        if part.get("status") in {"illustrative","diagnostic-only","rejected","unknown"}:
+            unresolved.append(f"Part {part.get('part_id')} has non-production status {part.get('status')}.")
+    for artifact in artifacts:
+        if artifact.get("verification") in {"missing","mismatch","invalid-pointer"}:
+            unresolved.append(f"Artifact {artifact.get('path')} has verification state {artifact.get('verification')}.")
     return {"schemaVersion":1,"assetId":asset_id,"title":proposal["title"],"kind":proposal["kind"],
-      "status":"provisional","owner":owner,"concepts":[],"sources":[],"parts":[],"revisions":[],"uses":[],
-      "unresolved":["Confirm independent maintenance lineage and editable source.",
-        "Declare source provenance, rights, subject, units, axes and laterality.",
-        "Map stable concepts and named parts to exact source selectors.",
-        "Bind revisions, exports, recipes and artifact identities.",
-        "Reconcile downstream consumers before qualification or retirement."]}
+      "status":"provisional","owner":owner,"concepts":[],"sources":list(sources_by_key.values()),
+      "parts":parts,"revisions":[],"artifacts":artifacts,"exports":exports,"uses":[],
+      "unresolved":list(dict.fromkeys(unresolved))}
 
 def apply_backfill_plan(repo:Path,plan_path:Path):
     repo=repo.resolve();plan=json.loads(plan_path.read_text(encoding="utf-8"))
@@ -81,6 +115,8 @@ def apply_backfill_plan(repo:Path,plan_path:Path):
         package_path=source_path(proposal["packagePath"])
         candidate=packages_by_path.get(package_path)
         if candidate is None: raise GovernanceError(f"Package disappeared after planning: {package_path}")
+        if candidate.candidate_id!=proposal.get("candidateId"):
+            raise GovernanceError(f"Package candidate identity changed: {package_path}")
         if list(candidate.exports)!=proposal.get("exports") or list(candidate.manifests)!=proposal.get("manifests"):
             raise GovernanceError(f"Package export or manifest inventory changed: {package_path}")
         if [asdict(x) for x in candidate.artifacts]!=proposal.get("artifacts"):

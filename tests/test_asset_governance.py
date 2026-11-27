@@ -15,7 +15,7 @@ class GovernanceTests(unittest.TestCase):
         (root/"lessons/body-systems/display/index.json").write_text(json.dumps([
           {"id":"digestive","name":"Digestive","function":"Locate digestive organs.","detail":"Find the liver.",
            "limit":"External localization only.","sources":[],
-           "plates":[{"id":"digestive-assembly","kind":"assembly","title":"Digestive assembly","frames":[],"legend":[]},
+           "plates":[{"id":"digestive-liver","kind":"assembly","title":"Digestive assembly","frames":[],"legend":[]},
                      {"id":"digestive-liver","kind":"detail","title":"Liver detail","frames":[],"legend":[]}]}]))
         (root/"docs/gallery/use-cases").mkdir(parents=True)
         (root/"docs/gallery/use-cases/ultrasound-anatomy.md").write_text(
@@ -31,13 +31,18 @@ class GovernanceTests(unittest.TestCase):
         delivery=root/"body/anatomy-workshop-r1/body-3d-delivery"
         delivery.mkdir(parents=True)
         (root/"body/anatomy-workshop-r1/README.md").write_text("# Anatomy Workshop\\n")
-        (delivery/"manifest.json").write_text(json.dumps({
-          "coordinates":{"units":"metres","axes":{"x":"patient left","y":"superior","z":"anterior"},
-            "RASmm_to_scene":[[-0.001,0,0,0],[0,0,0.001,-0.43],[0,0.001,0,-0.155],[0,0,0,1]]},
-          "assets":[{"id":"liver","name":{"en":"Liver","zh":"肝脏"},"file":"meshes/liver.glb",
+        mesh=delivery/"meshes/liver.glb";mesh.parent.mkdir(parents=True)
+        payload=b"workshop liver mesh";mesh.write_bytes(payload)
+        asset={"id":"liver","name":{"en":"Liver","zh":"肝脏"},"file":"meshes/liver.glb",
             "group":"digestive","sourceKind":"segmented","provenance":"s1233 segmentation derivative",
             "license":"CC BY 4.0","sourceCase":"s1233","status":"ready",
-            "nodes":[{"name":"Liver | source surface","anatomy_id":"liver_surface","view_role":"surface","derivation":"source-derived"}]}]}))
+            "bytes":len(payload),"sha256":hashlib.sha256(payload).hexdigest(),
+            "nodes":[{"name":"Liver | source surface","anatomy_id":"liver_surface","view_role":"surface","derivation":"source-derived"}]}
+        (delivery/"manifest.json").write_text(json.dumps({
+          "version":"2026-11-27-r1",
+          "coordinates":{"units":"metres","axes":{"x":"patient left","y":"superior","z":"anterior"},
+            "RASmm_to_scene":[[-0.001,0,0,0],[0,0,0.001,-0.43],[0,0.001,0,-0.155],[0,0,0,1]]},
+          "assets":[asset]}))
     def test_scan_keeps_package_and_consumers_separate(self):
         with tempfile.TemporaryDirectory() as directory:
             root=Path(directory);self.fixture(root);catalog=build_catalog(root)
@@ -56,11 +61,21 @@ class GovernanceTests(unittest.TestCase):
             self.assertEqual(resolved["parts"][0]["exactCandidates"][0]["sourceCase"],"s1233")
     def test_backfill_requires_explicit_approval_and_starts_provisional(self):
         with tempfile.TemporaryDirectory() as directory:
-            root=Path(directory);self.fixture(root);plan=create_backfill_plan(root);proposal=plan["proposals"][0]
-            self.assertEqual(proposal["decision"],"defer");proposal.update(decision="accept",assetId="anatomy:liver:hra-female")
+            root=Path(directory);self.fixture(root);plan=create_backfill_plan(root)
+            proposal=next(row for row in plan["proposals"] if row["packagePath"]=="body/anatomy-workshop-r1")
+            self.assertEqual(proposal["decision"],"defer")
+            proposal.update(decision="accept",assetId="anatomy:workshop:s1233")
             path=root/"backfill.json";path.write_text(json.dumps(plan))
-            applied=apply_backfill_plan(root,path);self.assertEqual(applied,["models/liver/asset.record.json"])
+            applied=apply_backfill_plan(root,path)
+            self.assertEqual(applied,["body/anatomy-workshop-r1/asset.record.json"])
             record=json.loads((root/applied[0]).read_text());self.assertEqual(record["status"],"provisional")
+            self.assertIn("liver",{part["part_id"] for part in record["parts"]})
+            self.assertIn("s1233",{source["subjectCase"] for source in record["sources"]})
+            self.assertIn("body/anatomy-workshop-r1/body-3d-delivery/meshes/liver.glb",
+                {artifact["path"] for artifact in record["artifacts"]})
+            self.assertIn("body/anatomy-workshop-r1/body-3d-delivery/meshes/liver.glb",
+                {export["path"] for export in record["exports"]})
+            self.assertTrue(record["unresolved"])
             self.assertEqual(apply_backfill_plan(root,path),[])
     def test_ultrasound_geometry_gaps_are_parsed_without_nested_helper_duplicates(self):
         with tempfile.TemporaryDirectory() as directory:
