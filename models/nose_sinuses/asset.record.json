@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:nih3d:nasal-airspace",
+  "title": "NIH 3D nasal airspace cast",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/nose_sinuses",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:nose-sinuses:nih3d-airspace-r01",
+      "title": "NIH 3D 3DPX-002305 upper respiratory airways cast source and replay for nih3d-airspace-r01",
+      "sourceType": "recipe source or retained provenance",
+      "subject": "NIH 3D 3DPX-002305 upper respiratory airways cast",
+      "license": "CC BY 4.0, Nevit Dilmen",
+      "evidence": [
+        {
+          "path": "models/nose_sinuses/recipes/nih3d-airspace-r01/README.md",
+          "sha256": "465f7dd51889651bddf717f875f0b1f1da95b67eb97a347d0cafeab19e08d693"
+        },
+        {
+          "path": "sources/nose_sinuses/nih3d-airspace-r01/ATTRIBUTION.md",
+          "sha256": "7e04ae6d76546175d20cfb2aac51ab3619067b4bf33e156f2d368bf01dae39ff"
+        },
+        {
+          "path": "sources/nose_sinuses/nih3d-airspace-r01/provenance.json",
+          "sha256": "cafde3811a18f2a5db6049c7dafd11ff6fe9354f336b89fe888fbcf48dd6f698"
+        }
+      ]
+    },
+    {
+      "sourceId": "source:nose-sinuses:index-pack-r02",
+      "title": "NIH 3D 3DPX-002305 upper respiratory airways cast source and replay for index-pack-r02",
+      "sourceType": "recipe source or retained provenance",
+      "subject": "NIH 3D 3DPX-002305 upper respiratory airways cast",
+      "license": "CC BY 4.0, Nevit Dilmen",
+      "evidence": [
+        {
+          "path": "models/nose_sinuses/exports/index-pack-r02/README.md",
+          "sha256": "151d23dd65b23de806323ea6c50322d5a9749ab7a3db2e10b8206c32334c390a"
+        },
+        {
+          "path": "sources/nose_sinuses/nih3d-airspace-r01/ATTRIBUTION.md",
+          "sha256": "7e04ae6d76546175d20cfb2aac51ab3619067b4bf33e156f2d368bf01dae39ff"
+        },
+        {
+          "path": "sources/nose_sinuses/nih3d-airspace-r01/provenance.json",
+          "sha256": "cafde3811a18f2a5db6049c7dafd11ff6fe9354f336b89fe888fbcf48dd6f698"
+        }
+      ],
+      "path": "models/nose_sinuses/exports/nih3d-airspace-r01/nasal_airspace.glb",
+      "sha256": "3d8c4d56e09d72ae369c697d2bb9435cc3792f9dbe225e7d456ff58174a577be",
+      "bytes": 4758484
+    }
+  ],
+  "parts": [
+    {
+      "partId": "nih3d-3dpx-002305-airspace-cast",
+      "label": "NIH3D_3DPX-002305_airspace_cast",
+      "selectors": [
+        "NIH3D_3DPX-002305_airspace_cast"
+      ],
+      "registration": "unknown"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "nih3d-airspace-r01",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "models/nose_sinuses/recipes/nih3d-airspace-r01/README.md",
+        "sha256": "465f7dd51889651bddf717f875f0b1f1da95b67eb97a347d0cafeab19e08d693"
+      },
+      "sourceIds": [
+        "source:nose-sinuses:nih3d-airspace-r01"
+      ],
+      "frame": {
+        "convention": "unverified-frame",
+        "evidence": "models/nose_sinuses/recipes/nih3d-airspace-r01/README.md",
+        "unresolved": "The cast has no registered patient frame or side mapping."
+      },
+      "exports": [
+        {
+          "id": "cast",
+          "path": "models/nose_sinuses/exports/nih3d-airspace-r01/nasal_airspace.glb",
+          "sha256": "3d8c4d56e09d72ae369c697d2bb9435cc3792f9dbe225e7d456ff58174a577be",
+          "bytes": 4758484,
+          "triangles": 198408,
+          "format": "glb",
+          "partIds": [
+            "nih3d-3dpx-002305-airspace-cast"
+          ]
+        }
+      ],
+      "qualifications": [],
+      "partIds": [
+        "nih3d-3dpx-002305-airspace-cast"
+      ]
+    },
+    {
+      "revisionId": "index-pack-r02",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "models/nose_sinuses/exports/index-pack-r02/README.md",
+        "sha256": "151d23dd65b23de806323ea6c50322d5a9749ab7a3db2e10b8206c32334c390a"
+      },
+      "sourceIds": [
+        "source:nose-sinuses:index-pack-r02"
+      ],
+      "frame": {
+        "convention": "unverified-frame",
+        "evidence": "models/nose_sinuses/exports/index-pack-r02/README.md",
+        "unresolved": "The cast has no registered patient frame or side mapping."
+      },
+      "exports": [
+        {
+          "id": "cast",
+          "path": "models/nose_sinuses/exports/index-pack-r02/nasal_airspace.glb",
+          "sha256": "49a5253df26078a4cb8241788352bc6f142b95ff34266bb699a7f6edceceae50",
+          "bytes": 3604296,
+          "triangles": 198408,
+          "format": "glb",
+          "partIds": [
+            "nih3d-3dpx-002305-airspace-cast"
+          ]
+        }
+      ],
+      "qualifications": [],
+      "recipe": "recipes/index-pack-r02.json",
+      "partIds": [
+        "nih3d-3dpx-002305-airspace-cast"
+      ]
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "The cast has no registered patient frame or side mapping.",
+    "Labels and planar cuts support visible space comparison within this cast. Specimen relief and inferior cutoff remain."
+  ]
+}

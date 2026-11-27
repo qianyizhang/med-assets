@@ -1,0 +1,179 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:z-anatomy:ulnar-elbow",
+  "title": "Right ulnar nerve at the elbow",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/peripheral_nerves/ulnar-elbow",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:peripheral-nerves-ulnar-elbow:ulnar-elbow-r01",
+      "title": "Z-Anatomy native ulnar elbow localization source and replay for ulnar-elbow-r01",
+      "sourceType": "recipe source or retained provenance",
+      "subject": "Z-Anatomy native ulnar elbow localization",
+      "license": "CC BY-SA 4.0, with Z-Anatomy and inherited BodyParts3D attribution as recorded.",
+      "evidence": [
+        {
+          "path": "models/peripheral_nerves/exports/ulnar-elbow-r01/README.md",
+          "sha256": "c3671698c628fdabb568953d8874cf9859d3d482144ab95b63b99565f7cbab6c"
+        },
+        {
+          "path": "sources/datasets/z-anatomy/ulnar-elbow/provenance.json",
+          "sha256": "c0ccf46d5018abb433dea7bd5f5a1cb865c923a2448df505a2676d637ac3cd3e"
+        },
+        {
+          "path": "models/peripheral_nerves/recipes/ulnar-elbow-r01/README.md",
+          "sha256": "e6cfe20228d3d59ccd1b6a0013ad2420ed4a77b270effa9f6d5be8652bd4d865"
+        }
+      ]
+    },
+    {
+      "sourceId": "source:peripheral-nerves-ulnar-elbow:ulnar-elbow-r02",
+      "title": "Z-Anatomy native ulnar elbow localization source and replay for ulnar-elbow-r02",
+      "sourceType": "recipe source or retained provenance",
+      "subject": "Z-Anatomy native ulnar elbow localization",
+      "license": "CC BY-SA 4.0, with Z-Anatomy and inherited BodyParts3D attribution as recorded.",
+      "evidence": [
+        {
+          "path": "models/peripheral_nerves/exports/ulnar-elbow-r02/README.md",
+          "sha256": "c8d4cae47a6814fb14b491892171f0af91218c181c172ab8c96ad24d63f7e54b"
+        },
+        {
+          "path": "sources/datasets/z-anatomy/ulnar-elbow/provenance.json",
+          "sha256": "c0ccf46d5018abb433dea7bd5f5a1cb865c923a2448df505a2676d637ac3cd3e"
+        },
+        {
+          "path": "models/peripheral_nerves/recipes/ulnar-elbow-r01/README.md",
+          "sha256": "e6cfe20228d3d59ccd1b6a0013ad2420ed4a77b270effa9f6d5be8652bd4d865"
+        }
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "partId": "ulnar-nerve-r",
+      "label": "Ulnar nerve.r",
+      "selectors": [
+        "Ulnar nerve.r"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "humerus-r",
+      "label": "Humerus.r",
+      "selectors": [
+        "Humerus.r"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "ulna-r",
+      "label": "Ulna.r",
+      "selectors": [
+        "Ulna.r"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "radius-r",
+      "label": "Radius.r",
+      "selectors": [
+        "Radius.r"
+      ],
+      "registration": "unknown"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "ulnar-elbow-r01",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "models/peripheral_nerves/exports/ulnar-elbow-r01/README.md",
+        "sha256": "c3671698c628fdabb568953d8874cf9859d3d482144ab95b63b99565f7cbab6c"
+      },
+      "sourceIds": [
+        "source:peripheral-nerves-ulnar-elbow:ulnar-elbow-r01"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "models/peripheral_nerves/exports/ulnar-elbow-r01/README.md"
+      },
+      "exports": [
+        {
+          "id": "regional",
+          "path": "models/peripheral_nerves/exports/ulnar-elbow-r01/right-ulnar-elbow.glb",
+          "sha256": "94a7bde3f8a2882cc632082301d7701a737a769e1d1afe0f55629ecac3013ac3",
+          "bytes": 187708,
+          "triangles": 9136,
+          "format": "glb",
+          "partIds": [
+            "ulnar-nerve-r",
+            "humerus-r",
+            "ulna-r",
+            "radius-r"
+          ]
+        }
+      ],
+      "qualifications": [],
+      "partIds": [
+        "humerus-r",
+        "radius-r",
+        "ulna-r",
+        "ulnar-nerve-r"
+      ]
+    },
+    {
+      "revisionId": "ulnar-elbow-r02",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "models/peripheral_nerves/exports/ulnar-elbow-r02/README.md",
+        "sha256": "c8d4cae47a6814fb14b491892171f0af91218c181c172ab8c96ad24d63f7e54b"
+      },
+      "sourceIds": [
+        "source:peripheral-nerves-ulnar-elbow:ulnar-elbow-r02"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "models/peripheral_nerves/exports/ulnar-elbow-r02/README.md"
+      },
+      "exports": [
+        {
+          "id": "regional",
+          "path": "models/peripheral_nerves/exports/ulnar-elbow-r02/right-ulnar-elbow.glb",
+          "sha256": "18dee1b0333b31f04dc07b52d4d4c58ec94f8c65108475c0f02467b06dd2cc83",
+          "bytes": 186972,
+          "triangles": 9136,
+          "format": "glb",
+          "partIds": [
+            "ulnar-nerve-r",
+            "humerus-r",
+            "ulna-r",
+            "radius-r"
+          ]
+        }
+      ],
+      "qualifications": [],
+      "partIds": [
+        "humerus-r",
+        "radius-r",
+        "ulna-r",
+        "ulnar-nerve-r"
+      ]
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "The selected native surfaces support regional skeletal localization. Nerve continuity, passage clearance and clinical use remain outside scope."
+  ]
+}

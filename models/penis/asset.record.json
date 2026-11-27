@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:z-anatomy:penile-components",
+  "title": "Gross penile internal components",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/penis",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:penis:z-native-components-r04",
+      "title": "Z-Anatomy native gross penile components source and replay for z-native-components-r04",
+      "sourceType": "recipe source or retained provenance",
+      "subject": "Z-Anatomy native gross penile components",
+      "license": "CC BY-SA 4.0, with Z-Anatomy and inherited BodyParts3D attribution as recorded.",
+      "evidence": [
+        {
+          "path": "models/penis/exports/z-native-components-r04/README.md",
+          "sha256": "5aec885c57b90cb4881c90320d2b6b91236d6e78e52122cb97c68196543a00bc"
+        },
+        {
+          "path": "sources/datasets/z-anatomy/penile-components/provenance.json",
+          "sha256": "8386de6f52b0af1cd7d1804102bf26b3ebc8f585a768e662a762645b26dd86d3"
+        },
+        {
+          "path": "models/penis/recipes/native-components-r04/README.md",
+          "sha256": "0b34f77854194581d14be10c4a37b63c55048ca47fbb4d6a1990986a91f8b7fc"
+        }
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "partId": "glans-penis-source-display",
+      "label": "Glans penis source display",
+      "selectors": [
+        "Glans penis source display"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "corpus-spongiosum-of-penis-source-display",
+      "label": "Corpus spongiosum of penis source display",
+      "selectors": [
+        "Corpus spongiosum of penis source display"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "corpus-cavernosum-of-penis-source-display",
+      "label": "Corpus cavernosum of penis source display",
+      "selectors": [
+        "Corpus cavernosum of penis source display"
+      ],
+      "registration": "unknown"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "z-native-components-r04",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "models/penis/exports/z-native-components-r04/README.md",
+        "sha256": "5aec885c57b90cb4881c90320d2b6b91236d6e78e52122cb97c68196543a00bc"
+      },
+      "sourceIds": [
+        "source:penis:z-native-components-r04"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "models/penis/exports/z-native-components-r04/README.md"
+      },
+      "exports": [
+        {
+          "id": "components",
+          "path": "models/penis/exports/z-native-components-r04/penile_internal_components.glb",
+          "sha256": "c44d35e13be11d2fb35141747d819d4609a45ca0a5527c89e1015618d17cab70",
+          "bytes": 61664,
+          "triangles": 3239,
+          "format": "glb",
+          "partIds": [
+            "glans-penis-source-display",
+            "corpus-spongiosum-of-penis-source-display",
+            "corpus-cavernosum-of-penis-source-display"
+          ]
+        }
+      ],
+      "qualifications": [],
+      "partIds": [
+        "corpus-cavernosum-of-penis-source-display",
+        "corpus-spongiosum-of-penis-source-display",
+        "glans-penis-source-display"
+      ]
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "Scope covers three named source surfaces. The distal discontinuity and urethral lumen remain outside qualification."
+  ]
+}

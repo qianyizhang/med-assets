@@ -1,0 +1,139 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:z-anatomy:parathyroids",
+  "title": "Parathyroid gland locators",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/parathyroids",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:parathyroids:z-localization-r01",
+      "title": "Z-Anatomy native posterior thyroid and parathyroid atlas source and replay for z-localization-r01",
+      "sourceType": "recipe source or retained provenance",
+      "subject": "Z-Anatomy native posterior thyroid and parathyroid atlas",
+      "license": "CC BY-SA 4.0, with Z-Anatomy and inherited BodyParts3D attribution as recorded.",
+      "evidence": [
+        {
+          "path": "models/parathyroids/exports/z-localization-r01/README.md",
+          "sha256": "8c42c8cbc8dfbe091851697e3931d4b6843b7be095a4f50f8fda7111f242c642"
+        },
+        {
+          "path": "models/parathyroids/exports/z-localization-r01/ATTRIBUTION.md",
+          "sha256": "7468cc6c13773ac076803c151e9c1de99cf27015bc8b1ca6b66f57dee17f97f6"
+        },
+        {
+          "path": "models/parathyroids/recipes/README.md",
+          "sha256": "5f67a6d64a2f7ea6eeaefe8441e1a19f3082533395e069c1ee5ad290d4f610fe"
+        }
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "partId": "superior-parathyroid-gland-r-001",
+      "label": "Superior parathyroid gland.r.001",
+      "selectors": [
+        "Superior parathyroid gland.r.001"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "superior-parathyroid-gland-l-001",
+      "label": "Superior parathyroid gland.l.001",
+      "selectors": [
+        "Superior parathyroid gland.l.001"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "inferior-parathyroid-gland-r-001",
+      "label": "Inferior parathyroid gland.r.001",
+      "selectors": [
+        "Inferior parathyroid gland.r.001"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "inferior-parathyroid-gland-l-001",
+      "label": "Inferior parathyroid gland.l.001",
+      "selectors": [
+        "Inferior parathyroid gland.l.001"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "thyroid-gland-001",
+      "label": "Thyroid gland.001",
+      "selectors": [
+        "Thyroid gland.001"
+      ],
+      "registration": "unknown"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "z-localization-r01",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "models/parathyroids/exports/z-localization-r01/README.md",
+        "sha256": "8c42c8cbc8dfbe091851697e3931d4b6843b7be095a4f50f8fda7111f242c642"
+      },
+      "sourceIds": [
+        "source:parathyroids:z-localization-r01"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "models/parathyroids/exports/z-localization-r01/README.md"
+      },
+      "exports": [
+        {
+          "id": "glands",
+          "path": "models/parathyroids/exports/z-localization-r01/parathyroids_native.glb",
+          "sha256": "b6fbbabfa7efd12b8c377f5bc56193bd81776daab999a8c1ac8286f693b85b45",
+          "bytes": 11544,
+          "triangles": 512,
+          "format": "glb",
+          "partIds": [
+            "superior-parathyroid-gland-r-001",
+            "superior-parathyroid-gland-l-001",
+            "inferior-parathyroid-gland-r-001",
+            "inferior-parathyroid-gland-l-001"
+          ]
+        },
+        {
+          "id": "thyroid-context",
+          "path": "models/parathyroids/exports/z-localization-r01/parathyroids_thyroid_context.glb",
+          "sha256": "7759008c5682ac76e77f39f68f5cd421ea42cfe5252cebe9bd82ecc54dc04345",
+          "bytes": 59456,
+          "triangles": 3112,
+          "format": "glb",
+          "partIds": [
+            "superior-parathyroid-gland-r-001",
+            "superior-parathyroid-gland-l-001",
+            "inferior-parathyroid-gland-r-001",
+            "inferior-parathyroid-gland-l-001",
+            "thyroid-gland-001"
+          ]
+        }
+      ],
+      "qualifications": [],
+      "partIds": [
+        "inferior-parathyroid-gland-l-001",
+        "inferior-parathyroid-gland-r-001",
+        "superior-parathyroid-gland-l-001",
+        "superior-parathyroid-gland-r-001",
+        "thyroid-gland-001"
+      ]
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "The four source forms are simplified and mirrored. Their positions provide a single atlas example."
+  ]
+}
