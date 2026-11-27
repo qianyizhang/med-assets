@@ -226,28 +226,41 @@ def ultrasound_gap_requirements(repo:Path):
         if not path.is_file(): continue
         source=path.read_text(encoding="utf-8")
         for call_index,(function,args,strings,line) in enumerate(_javascript_calls(source),1):
+            direct=[value for value in strings if value]
             if function in ("gap","rebuild"):
-                if len(args)<4: continue  # helper declarations and nested helper invocations
-                part=next((strings[i] for i in range(1,len(strings)) if strings[i]),None)
-                # The semantic part and label are the last direct string arguments
-                # before any legacy alias array.
-                direct=[value for value in strings if value]
-                if len(direct)<3:
-                    # Shared resolvers may construct requirements from runtime identities.
+                if len(args)<4: continue
+                offset=1 if args[0].strip().startswith(("'",'"')) else 0
+                if len(direct)>=offset+3:
+                    part,label,reason=direct[offset],direct[offset+1],direct[offset+2]
+                    part_expression=None
+                elif len(direct)>=2:
+                    part_expression=args[1]
+                    part="dynamic:"+part_expression
+                    label,reason=direct[-2],direct[-1]
+                else:
                     continue
-                offset=1 if args and (args[0].strip().startswith("'") or args[0].strip().startswith('"')) else 0
-                if len(direct)<offset+3: continue
-                part,label,reason=direct[offset],direct[offset+1],direct[offset+2]
                 status="rebuild-required" if function=="rebuild" else "missing-required"
+                extra={"part":part,"declaration":function,"line":line}
+                if part_expression: extra["partExpression"]=part_expression
             else:
-                if len(args)<5: continue
-                direct=[value for value in strings if value]
-                if len(direct)<5: raise GovernanceError(f"Incomplete missingPart requirement at {filename}:{line}")
-                part,label,reason=direct[2],direct[3],direct[4]
+                if len(args)<5 or len(direct)<2: continue
+                asset_id=direct[0] if len(direct)>=4 else None
+                asset_label=direct[1] if len(direct)>=4 else None
+                if len(direct)>=5:
+                    part,label,reason=direct[2],direct[3],direct[4]
+                    part_expression=None
+                else:
+                    part_expression=args[2]
+                    part="dynamic:"+part_expression
+                    label,reason=direct[-2],direct[-1]
                 status="missing-required"
+                extra={"part":part,"declaration":function,"line":line}
+                if part_expression: extra["partExpression"]=part_expression
+                if asset_id: extra["assetId"]=asset_id
+                if asset_label: extra["assetLabel"]=asset_label
             identity=f"ultrasound:geometry-gap:{Path(filename).stem}:{line}:{call_index}:{part}"
             result.append(Consumer(identity,"ultrasound-anatomy","geometry-requirement",
-                label,reason,status,filename,{"part":part,"declaration":function,"line":line}))
+                label,reason,status,filename,extra))
     return result
 
 def _ultrasound_case_consumers(repo:Path):
