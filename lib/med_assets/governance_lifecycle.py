@@ -76,15 +76,28 @@ def _validate(record: dict) -> None:
         raise GovernanceError("Teaching-use IDs must be unique")
 
 def _affected_consumers(catalog, record: dict) -> list:
-    rows = list(impact(catalog, record["assetId"]).get("knownConsumers", []))
-    by_id = {row.get("consumerId"): row for row in rows}
+    package_path = record["owner"]
+    by_id = {}
+    for consumer in catalog.consumers:
+        evidence = consumer.evidence
+        paths = list(evidence.get("sourcePaths", [])) + list(evidence.get("framePaths", [])) + list(evidence.get("artifactPaths", []))
+        paths += [row.get("path") for row in evidence.get("assetPins", []) if isinstance(row, dict)]
+        paths += [row.get("exportPath") for row in evidence.get("assetBindings", {}).values() if isinstance(row, dict)]
+        paths += [row.get("path") for row in evidence.get("artifactPins", []) if isinstance(row, dict)]
+        if isinstance(evidence.get("export"), dict):
+            paths.append(evidence["export"].get("path"))
+        matched = [path for path in paths if isinstance(path, str) and (path == package_path or path.startswith(package_path + "/"))]
+        if matched:
+            by_id[consumer.consumer_id] = {"consumerId":consumer.consumer_id,"domain":consumer.domain,
+                "kind":consumer.kind,"title":consumer.title,"matchedPaths":list(dict.fromkeys(matched)),"matchedParts":[]}
     for use in record.get("uses", []):
         consumer_id = use.get("consumerId")
         if consumer_id:
             row = by_id.setdefault(consumer_id, {"consumerId":consumer_id,"domain":"governance-use",
                 "kind":"revision-pinned-adoption","title":consumer_id,"matchedPaths":[],"matchedParts":[]})
-            row["matchedPaths"] = list(dict.fromkeys([*row.get("matchedPaths", []), use.get("exportPath")]))
-            row["matchedParts"] = list(dict.fromkeys([*row.get("matchedParts", []), *use.get("partIds", [])]))
+            if use.get("exportPath"):
+                row["matchedPaths"] = list(dict.fromkeys([*row["matchedPaths"], use["exportPath"]]))
+            row["matchedParts"] = list(dict.fromkeys([*row["matchedParts"], *use.get("partIds", [])]))
     return sorted(by_id.values(), key=lambda row: row["consumerId"])
 
 def _mutate(repo: Path, record: dict, action: str, payload: dict, catalog) -> dict:
