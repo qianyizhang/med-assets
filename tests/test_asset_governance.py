@@ -69,7 +69,7 @@ class GovernanceTests(unittest.TestCase):
             applied=apply_backfill_plan(root,path)
             self.assertEqual(applied,["body/anatomy-workshop-r1/asset.record.json"])
             record=json.loads((root/applied[0]).read_text());self.assertEqual(record["status"],"provisional")
-            self.assertIn("liver",{part["part_id"] for part in record["parts"]})
+            self.assertIn("liver",{part["partId"] for part in record["parts"]})
             self.assertIn("s1233",{source["subjectCase"] for source in record["sources"]})
             self.assertIn("body/anatomy-workshop-r1/body-3d-delivery/meshes/liver.glb",
                 {artifact["path"] for artifact in record["artifacts"]})
