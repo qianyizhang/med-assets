@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "concepts": [
+    { "id": "digestive-system", "label": "Digestive system" },
+    { "id": "metabolism", "label": "Metabolism" },
+    { "id": "liver", "label": "Liver" },
+    { "id": "gallbladder", "label": "Gallbladder" },
+    { "id": "portal-vein", "label": "Portal vein" },
+    { "id": "hepatic-vein", "label": "Hepatic vein" },
+    { "id": "ivc", "label": "Inferior vena cava" },
+    { "id": "hepatic-vein-ivc-junction", "label": "Hepatic vein–IVC junction" },
+    { "id": "hepatic-focal-lesion", "label": "Hepatic focal lesion" },
+    { "id": "skeletal-system", "label": "Skeletal system" },
+    { "id": "vertebral-column", "label": "Vertebral column" },
+    { "id": "L3-vertebra", "label": "L3 vertebra" },
+    { "id": "bone-marrow", "label": "Bone marrow" },
+    { "id": "blood-cell", "label": "Blood cell" },
+    { "id": "immune-response", "label": "Immune response" }
+  ],
+  "edges": [
+    { "subject": "liver", "predicate": "part_of", "object": "digestive-system" },
+    { "subject": "liver", "predicate": "participates_in", "object": "metabolism" },
+    { "subject": "gallbladder", "predicate": "part_of", "object": "digestive-system" },
+    { "subject": "liver", "predicate": "supplied_by", "object": "portal-vein" },
+    { "subject": "liver", "predicate": "drains_to", "object": "hepatic-vein" },
+    { "subject": "hepatic-vein", "predicate": "drains_to", "object": "ivc" },
+    { "subject": "hepatic-vein-ivc-junction", "predicate": "part_of", "object": "hepatic-vein" },
+    { "subject": "hepatic-vein-ivc-junction", "predicate": "connected_to", "object": "ivc" },
+    { "subject": "hepatic-focal-lesion", "predicate": "located_in", "object": "liver" },
+    { "subject": "vertebral-column", "predicate": "part_of", "object": "skeletal-system" },
+    { "subject": "L3-vertebra", "predicate": "part_of", "object": "vertebral-column" },
+    { "subject": "bone-marrow", "predicate": "located_in", "object": "L3-vertebra" },
+    { "subject": "bone-marrow", "predicate": "produces", "object": "blood-cell" },
+    { "subject": "bone-marrow", "predicate": "participates_in", "object": "immune-response" }
+  ]
+}
