@@ -22,4 +22,6 @@ blender -b --disable-autoexec -t 2 -P assemblies/musculoskeletal-teaching/recipe
 ```
 Fresh export-only replay reproduced exact reviewed GLB bytes. Native rendering is separate and pixel identity across platforms is not promised. This is dependency-explicit, not self-contained source delivery.
 
+Use the current recipe path in the command above. The [dated replay receipt](../../../reviews/draft_muscle/2026-10-23-achilles-context/independent-export-replay.json) retains the original invocation at `tests/achilles_context/build_proposal.py`. The script at its current location has the same SHA-256. The recorded execution predates the move in `5331ea07`.
+
 **Lesson:** floating rods describe routes, not tissue relationships; a useful bounded spatial study still does not establish attachment anatomy.
