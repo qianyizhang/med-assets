@@ -34,8 +34,10 @@ class LifecycleTests(unittest.TestCase):
     def test_qualify_promote_and_idempotent_apply(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp); self.fixture(root)
+            evidence=b"reviewed anatomy and runtime"
+            (root/"review.json").write_bytes(evidence)
             q={"qualificationId":"q1","scope":"anatomy-and-runtime","reviewer":"owner",
-                "assessedAt":"2026-11-27","decision":"qualified","evidence":["review.json"]}
+                "assessedAt":"2026-11-27","decision":"qualified","evidence":[{"path":"review.json","sha256":hashlib.sha256(evidence).hexdigest()}]}
             plan=self.plan_apply(root,"qualify",{"revisionId":"r1","qualification":q})
             self.assertEqual(apply_lifecycle_plan(root,plan)["status"],"applied")
             self.assertEqual(apply_lifecycle_plan(root,plan)["status"],"already-applied")
@@ -52,6 +54,14 @@ class LifecycleTests(unittest.TestCase):
             plan=self.plan_apply(root,"adopt",{"use":use}); apply_lifecycle_plan(root,plan)
             record=json.loads((root/"models/fixture/asset.record.json").read_text())
             self.assertEqual(record["uses"][0]["status"],"provisional")
+            evidence=b"consumer-specific review"; (root/"consumer-review.json").write_bytes(evidence)
+            q={"qualificationId":"use-q1","scope":"ultrasound-liver-task","reviewer":"owner",
+                "assessedAt":"2026-11-27","decision":"qualified",
+                "evidence":[{"path":"consumer-review.json","sha256":hashlib.sha256(evidence).hexdigest()}]}
+            plan=self.plan_apply(root,"qualify",{"useId":"use:organ","qualification":q})
+            apply_lifecycle_plan(root,plan)
+            record=json.loads((root/"models/fixture/asset.record.json").read_text())
+            self.assertEqual(record["uses"][0]["status"],"qualified")
 
     def test_retire_archive_and_keep_payload(self):
         with tempfile.TemporaryDirectory() as tmp:
