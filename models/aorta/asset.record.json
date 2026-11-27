@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:s1233:aorta",
+  "title": "s1233 aortic surface",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/aorta",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:workshop:s1233-aorta",
+      "title": "Original Workshop s1233 aorta",
+      "subject": "s1233",
+      "sourceType": "retained source or source receipt",
+      "license": "Jakob Wasserthal and TotalSegmentator contributors, University Hospital Basel. TotalSegmentator v2.0.1, CC BY 4.0. Retain the Apache-2.0 label-source notice.",
+      "path": "body/anatomy-workshop-r1/meshes/aorta.glb",
+      "sha256": "1a20d6322cefb6c6c85c7c8ed95295e8314e568a12420434ccda40beb4f8cc31",
+      "bytes": 1189864,
+      "evidence": [
+        {
+          "path": "reviews/aorta/2026-10-23-metadata-cleanup-r01/verification.json",
+          "sha256": "0eaca50ea929e17d49b4fbdbb68d03afd0eade4cb70084603a0e674a7949c58f"
+        },
+        {
+          "path": "body/anatomy-workshop-r1/docs/licenses/NOTICE.md",
+          "sha256": "87372df39878e0c73903675edc21875fa712a90b22f497ffb55d50a29f210a94"
+        }
+      ],
+      "limitations": []
+    }
+  ],
+  "parts": [
+    {
+      "partId": "aorta",
+      "label": "Source-derived aorta",
+      "selectors": [
+        "Aorta | source surface"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/body-3d-delivery/manifest.json",
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "metadata-cleanup-r01",
+      "status": "provisional",
+      "sourceIds": [
+        "source:workshop:s1233-aorta"
+      ],
+      "recipeEvidence": {
+        "path": "models/aorta/recipes/metadata/approved-patch.json",
+        "sha256": "22ad38348ddc55037346dd064378d67c5cc7382b96f7a2c168a5c404769d2b4a"
+      },
+      "frame": {
+        "convention": "glb-y-up-m",
+        "evidence": "body/anatomy-workshop-r1/body-3d-delivery/manifest.json",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ]
+      },
+      "partIds": [
+        "aorta"
+      ],
+      "exports": [
+        {
+          "id": "teaching",
+          "path": "models/aorta/exports/metadata-cleanup-r01/aorta.glb",
+          "sha256": "f3c68980cbdbfbc1142751062e79d15f96e4d0dc6690e12d42d294c9d4d3b4ef",
+          "bytes": 1189384,
+          "format": "glb",
+          "partIds": [
+            "aorta"
+          ],
+          "triangles": 9600
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "Workshop placement is retained. The derivative does not establish lumen, flow or clinical measurement."
+  ]
+}

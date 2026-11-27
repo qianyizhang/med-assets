@@ -1,0 +1,154 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:authored:blood-cell-forms",
+  "title": "Authored blood-cell forms",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/blood_cell_study",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:authored:blood-cells-baked",
+      "title": "Baked editable blood-cell teaching source",
+      "subject": "Authored display units",
+      "sourceType": "retained source or source receipt",
+      "license": "Project-authored teaching geometry. No separate public reuse license is declared.",
+      "path": "models/blood_cell_study/source/blood-cell-authored-study-r05-public.blend",
+      "sha256": "f3123f0c84444ada60a2c0abe81520b166da4a4be69ba447211c11ada2191ad1",
+      "bytes": 8560432,
+      "evidence": [
+        {
+          "path": "models/blood_cell_study/source/PROVENANCE.md",
+          "sha256": "cf8bd126f0fb8c5d6a848c2505d8ed4e8f260b136008e76b969a20a31f2c17c3"
+        },
+        {
+          "path": "models/blood_cell_study/README.md",
+          "sha256": "abe4672edd83047c86404360bb2a55a6dd86ebd5721e64bfa2f75ca7aacfeb27"
+        }
+      ],
+      "limitations": []
+    },
+    {
+      "sourceId": "source:recipe:teaching-economy-r01",
+      "title": "Exact retained edition source",
+      "subject": "Authored display units",
+      "sourceType": "retained source or source receipt",
+      "license": "Project-authored teaching geometry. No separate public reuse license is declared.",
+      "path": "models/blood_cell_study/exports/authored-r05/blood-cell-authored-study-r05.glb",
+      "bytes": 3461004,
+      "sha256": "4c7c738b3ca6ae6cc7e44a449be0f7d26d04ceb9975e43d3b834a2caad96618c",
+      "evidence": [
+        {
+          "path": "models/blood_cell_study/exports/teaching-economy-r01/README.md",
+          "sha256": "22c9d901d347aa22e8e29c8c988208eaa3bcef5c0432f995433aa2bf2da49f8b"
+        }
+      ],
+      "limitations": []
+    }
+  ],
+  "parts": [
+    {
+      "partId": "erythrocyte",
+      "label": "Closed erythrocyte orientations",
+      "selectors": [
+        "RBC_A_closed_biconcave",
+        "RBC_B_closed_biconcave_profile"
+      ],
+      "sourcePath": "models/blood_cell_study/source/PROVENANCE.md",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "neutrophil-nucleus",
+      "label": "Connected segmented nucleus",
+      "selectors": [
+        "NEUTROPHIL_INTACT_one_connected_segmented_nucleus",
+        "NEUTROPHIL_CUTAWAY_same_connected_nucleus"
+      ],
+      "sourcePath": "models/blood_cell_study/source/PROVENANCE.md",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "neutrophil-outer-boundary",
+      "label": "Intact and cutaway cell forms",
+      "selectors": [
+        "NEUTROPHIL_INTACT_cytoplasm_and_closed_outer_boundary",
+        "NEUTROPHIL_CUTAWAY_front_half_cytoplasm_removed"
+      ],
+      "sourcePath": "models/blood_cell_study/source/PROVENANCE.md",
+      "registration": "illustrative"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "teaching-economy-r01",
+      "status": "provisional",
+      "recipe": "recipes/teaching-economy-r01.json",
+      "sourceIds": [
+        "source:recipe:teaching-economy-r01"
+      ],
+      "recipeEvidence": {
+        "path": "models/blood_cell_study/exports/teaching-economy-r01/README.md",
+        "sha256": "22c9d901d347aa22e8e29c8c988208eaa3bcef5c0432f995433aa2bf2da49f8b"
+      },
+      "frame": {
+        "convention": "unverified-frame",
+        "evidence": "models/blood_cell_study/source/PROVENANCE.md",
+        "unresolved": "The authored proportions use arbitrary display units. Anatomical scale and placement are unverified."
+      },
+      "partIds": [
+        "erythrocyte",
+        "neutrophil-nucleus",
+        "neutrophil-outer-boundary"
+      ],
+      "exports": [
+        {
+          "id": "teaching",
+          "path": "models/blood_cell_study/exports/teaching-economy-r01/blood-cell-authored-study-r05.glb",
+          "sha256": "cd34b007869be3d77a0e8493b21c51f5bd99fc86c0e496aee9716f698055d4b6",
+          "bytes": 2722128,
+          "format": "glb",
+          "partIds": [
+            "erythrocyte",
+            "neutrophil-nucleus",
+            "neutrophil-outer-boundary"
+          ],
+          "triangles": 111302
+        }
+      ],
+      "qualifications": []
+    },
+    {
+      "revisionId": "native-r05",
+      "status": "provisional",
+      "sourceIds": [
+        "source:authored:blood-cells-baked"
+      ],
+      "recipeEvidence": {
+        "path": "models/blood_cell_study/README.md",
+        "sha256": "abe4672edd83047c86404360bb2a55a6dd86ebd5721e64bfa2f75ca7aacfeb27"
+      },
+      "frame": {
+        "convention": "unverified-frame",
+        "evidence": "models/blood_cell_study/source/PROVENANCE.md",
+        "unresolved": "The authored proportions use arbitrary display units. Anatomical scale and placement are unverified."
+      },
+      "partIds": [],
+      "exports": [
+        {
+          "id": "editable",
+          "path": "models/blood_cell_study/source/blood-cell-authored-study-r05-public.blend",
+          "sha256": "f3123f0c84444ada60a2c0abe81520b166da4a4be69ba447211c11ada2191ad1",
+          "bytes": 8560432,
+          "format": "blend",
+          "partIds": []
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "The baked source replay is separate from the earlier procedural rebuild whose exact geometry could not be repeated.",
+    "The authored proportions use arbitrary display units. Anatomical scale and placement are unverified."
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:bp3d:adrenals",
+  "title": "BodyParts3D adrenal localization",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/adrenals",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:bp3d:adrenal-atlas",
+      "title": "BP3D native archive and member pins",
+      "subject": "BodyParts3D 4.0 reference atlas",
+      "sourceType": "retained source or source receipt",
+      "license": "BodyParts3D © Database Center for Life Science, CC BY 4.0 for the source. Retain the historical CC BY-SA 2.1 Japan OBJ notices.",
+      "path": "sources/datasets/bp3d-4.0-glands/external-source-members.json",
+      "sha256": "50ca363bd42284dcf727932c7596469aad7551bbacf9b266e5d5289bf90380f7",
+      "bytes": 4449,
+      "evidence": [
+        {
+          "path": "models/adrenals/ATTRIBUTION.md",
+          "sha256": "9e7dcb5d7527406343f5aca723da50258279b0ee7a106d55444895ce9ae4717e"
+        },
+        {
+          "path": "models/adrenals/README.md",
+          "sha256": "966fa2030eac45f924f40744be0e48a8017b3b85d53621707511517689426eea"
+        }
+      ],
+      "limitations": []
+    },
+    {
+      "sourceId": "source:bp3d:adrenal-r01-glb",
+      "title": "Exact unedited-relief gland source GLB",
+      "subject": "BodyParts3D 4.0 reference atlas",
+      "sourceType": "retained source or source receipt",
+      "license": "BodyParts3D © Database Center for Life Science, CC BY 4.0 for the source. Retain the historical CC BY-SA 2.1 Japan OBJ notices.",
+      "path": "models/adrenals/exports/source-candidate-01/adrenals_source_frame.glb",
+      "sha256": "c7de1afa5394a7f64b106a62ff979eaa9e0b428db23a13fa34340c2d38ba13a7",
+      "bytes": 115440,
+      "evidence": [
+        {
+          "path": "models/adrenals/README.md",
+          "sha256": "966fa2030eac45f924f40744be0e48a8017b3b85d53621707511517689426eea"
+        },
+        {
+          "path": "models/adrenals/ATTRIBUTION.md",
+          "sha256": "9e7dcb5d7527406343f5aca723da50258279b0ee7a106d55444895ce9ae4717e"
+        }
+      ],
+      "limitations": []
+    }
+  ],
+  "parts": [
+    {
+      "partId": "left-adrenal",
+      "label": "Interpreted left adrenal",
+      "selectors": [
+        "FJ3129 left adrenal gland"
+      ],
+      "sourcePath": "models/adrenals/exports/atlas-locator-r02/README.md",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "right-adrenal",
+      "label": "Interpreted right adrenal",
+      "selectors": [
+        "FJ3130 right adrenal gland"
+      ],
+      "sourcePath": "models/adrenals/exports/atlas-locator-r02/README.md",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "left-kidney-context",
+      "label": "Left atlas kidney",
+      "selectors": [
+        "FJ3145 left kidney (context)"
+      ],
+      "sourcePath": "models/adrenals/exports/atlas-locator-r02/README.md",
+      "registration": "native"
+    },
+    {
+      "partId": "right-kidney-context",
+      "label": "Right atlas kidney",
+      "selectors": [
+        "FJ3147 right kidney (context)"
+      ],
+      "sourcePath": "models/adrenals/exports/atlas-locator-r02/README.md",
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "atlas-locator-r02",
+      "status": "provisional",
+      "sourceIds": [
+        "source:bp3d:adrenal-r01-glb",
+        "source:bp3d:adrenal-atlas"
+      ],
+      "recipeEvidence": {
+        "path": "reviews/teaching-assessments/reopen-regional/README.md",
+        "sha256": "1bf1b5436e21307a5fb0b0f5f61c856ea7ef4476d8111b669dfd30a510e5527e"
+      },
+      "frame": {
+        "convention": "glb-y-up-m",
+        "evidence": "models/adrenals/exports/atlas-locator-r02/README.md",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ]
+      },
+      "partIds": [
+        "left-adrenal",
+        "right-adrenal",
+        "left-kidney-context",
+        "right-kidney-context"
+      ],
+      "exports": [
+        {
+          "id": "teaching",
+          "path": "models/adrenals/exports/atlas-locator-r02/atlas-profiles.glb",
+          "sha256": "de52cd888b8e169e2b729376d749975db05fa4cbca13a65a5e2f943aaf233afa",
+          "bytes": 213016,
+          "format": "glb",
+          "partIds": [
+            "left-adrenal",
+            "right-adrenal",
+            "left-kidney-context",
+            "right-kidney-context"
+          ],
+          "triangles": 11582
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "No patient placement. The original adrenal source's portable exact rebuild is unverified."
+  ]
+}
