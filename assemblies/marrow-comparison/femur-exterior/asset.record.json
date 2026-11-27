@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:bp3d:right-femur-exterior",
+  "title": "BodyParts3D right femur exterior",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "assemblies/marrow-comparison/femur-exterior",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:bp3d-4-0:fj3365",
+      "title": "BodyParts3D FJ3365 right femur",
+      "sourceType": "original OBJ",
+      "subject": "BodyParts3D 4.0 reference atlas",
+      "license": "BodyParts3D © DBCLS, CC BY 4.0. Historical OBJ headers retain CC BY-SA 2.1 Japan.",
+      "evidence": [
+        {
+          "path": "reviews/draft_bone/2026-10-23-marrow-comparison/LICENSES.md",
+          "sha256": "cad852c6a71c4581810fb93f53b0a073e3a1e32dc449cf173e7b34e69f65d73f"
+        },
+        {
+          "path": "reviews/draft_bone/2026-10-23-marrow-comparison/evidence/model-container-checks.json",
+          "sha256": "f2d76e4183ae0949ace5efa165115e79c174b8634be91cf07173054aca1aa686"
+        }
+      ],
+      "path": "sources/datasets/marrow-comparison-v1/BP3D-FJ3365.obj",
+      "sha256": "02fffe2e1b0f8e038d8b7b48e47cbc4925a749446240e676e910bff34d5348de",
+      "bytes": 192118
+    }
+  ],
+  "parts": [
+    {
+      "partId": "right-femur",
+      "label": "Right femur exterior",
+      "selectors": [
+        "BP3D_FJ3365_right_femur_source_exterior"
+      ],
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "comparison-2026-10-23",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "assemblies/marrow-comparison/2026-10-23/README.md",
+        "sha256": "fb0581c674b4dc0194111ab8312ce0b72888f55d09cc579f690a3300c630be0f"
+      },
+      "sourceIds": [
+        "source:bp3d-4-0:fj3365"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up",
+          "+X atlas left",
+          "+Y superior",
+          "+Z anterior"
+        ],
+        "evidence": "reviews/draft_bone/2026-10-23-marrow-comparison/LICENSES.md"
+      },
+      "partIds": [
+        "right-femur"
+      ],
+      "exports": [
+        {
+          "id": "exterior",
+          "path": "assemblies/marrow-comparison/2026-10-23/bp3d-right-femur-exterior.glb",
+          "sha256": "3dc45bb8496f9796cf418257a39aa88afc2cc60cbd3738335a391eaec9632745",
+          "bytes": 57812,
+          "format": "glb",
+          "triangles": 3102,
+          "partIds": [
+            "right-femur"
+          ]
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "The exterior supplies gross femur context. There is no measured interior or shared subject with the independent micro-CT specimen."
+  ]
+}
