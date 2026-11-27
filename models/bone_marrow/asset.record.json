@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:bp3d:femoral-marrow-cutaway",
+  "title": "Proximal femur marrow teaching cutaway",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/bone_marrow",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:bp3d:femur-r05-cutaway",
+      "title": "Exact r05 authored cutaway over BP3D femur",
+      "subject": "BP3D FJ3259 left femur with authored interior",
+      "sourceType": "retained source or source receipt",
+      "license": "BodyParts3D © Database Center for Life Science, CC BY 4.0 for the source. Retain the historical CC BY-SA 2.1 Japan OBJ notices. The authored marrow and cortical inset retain the package terms.",
+      "path": "models/bone_marrow/exports/authored-source-cutaway-r05/marrow_cutaway.glb",
+      "sha256": "7b21b74fb3712b2816801337bd4d0732ef8bb035a999ad36558b8235609cfe02",
+      "bytes": 8770012,
+      "evidence": [
+        {
+          "path": "reviews/bone_marrow/2026-10-26-source-cutaway-r05/README.md",
+          "sha256": "4fdd3c49003426a97e20fb53499e0fcf8a5045815968bddd5ec3389c280d65a4"
+        },
+        {
+          "path": "models/bone_marrow/recipes/source-cutaway-r05/README.md",
+          "sha256": "a2a09099df7f46ea92a80523efca670b21a5502c43c69fa14ef67c574dcdb642"
+        }
+      ],
+      "limitations": []
+    }
+  ],
+  "parts": [
+    {
+      "partId": "cortical-shell",
+      "label": "Source exterior with authored cortical inset",
+      "selectors": [
+        "Source exterior with authored cortical shell - cut after offset"
+      ],
+      "sourcePath": "reviews/bone_marrow/2026-10-26-source-cutaway-r05/README.md",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "marrow",
+      "label": "Authored marrow backing",
+      "selectors": [
+        "Illustrative marrow - partially removed, color transition not p"
+      ],
+      "sourcePath": "reviews/bone_marrow/2026-10-26-source-cutaway-r05/README.md",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "trabecular-network",
+      "label": "Illustrative trabecular network",
+      "selectors": [
+        "Connected illustrative trabecular network - not patient microar"
+      ],
+      "sourcePath": "reviews/bone_marrow/2026-10-26-source-cutaway-r05/README.md",
+      "registration": "illustrative"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "teaching-economy-r01",
+      "status": "provisional",
+      "sourceIds": [
+        "source:bp3d:femur-r05-cutaway"
+      ],
+      "recipeEvidence": {
+        "path": "models/bone_marrow/recipes/lattice-economy-trial/README.md",
+        "sha256": "ead144fef81b1280ed411898b146f62ad8348b5b8dcd8acc74a61eb950d7c43e"
+      },
+      "frame": {
+        "convention": "glb-y-up-m",
+        "evidence": "reviews/bone_marrow/2026-10-26-source-cutaway-r05/README.md",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ]
+      },
+      "partIds": [
+        "cortical-shell",
+        "marrow",
+        "trabecular-network"
+      ],
+      "exports": [
+        {
+          "id": "teaching",
+          "path": "models/bone_marrow/exports/teaching-economy-r01/marrow_cutaway.glb",
+          "sha256": "98c2e5ababce25387867803659b77f04ff1849d29c48fab65ad09b387e75b3d7",
+          "bytes": 4218116,
+          "format": "glb",
+          "partIds": [
+            "cortical-shell",
+            "marrow",
+            "trabecular-network"
+          ],
+          "triangles": 179612
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "Cortex interior, marrow and trabecular structures are authored; no patient microarchitecture or tissue fidelity."
+  ]
+}

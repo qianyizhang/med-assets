@@ -1,0 +1,162 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:synthetic:molar-root-support",
+  "title": "Synthetic mandibular root and support study",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/dental-root-support",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:mendeley:synthetic-human-jaw-v1",
+      "title": "External lower jaw dataset ZIP",
+      "subject": "Synthetic lower jaw v1",
+      "sourceType": "retained source or source receipt",
+      "license": "Cristian Diaz, Carlos Andres Ferro Sanchez and Oscar Campo, synthetic human jaw dataset v1, CC BY 4.0. The source archive contains no separate license file.",
+      "doi": "https://doi.org/10.17632/xjsx7nfhj8.1",
+      "sha256": "902e50c488e8c09bda23bfa6f1d01d5e0ed5528e2738731c2199270ad232e87a",
+      "bytes": 109558383,
+      "evidence": [
+        {
+          "path": "models/dental-root-support/v3/README.md",
+          "sha256": "4d8dc3c6429ca7f5eac948da61b971bc180c7a7aefbe827d8802681e7733f0b3"
+        },
+        {
+          "path": "models/dental-root-support/v3/source-inventory.json",
+          "sha256": "6740089714a99bff48f85db2b14ceaebd74ee3d846a675a058312cfa5c884012"
+        }
+      ],
+      "limitations": []
+    }
+  ],
+  "parts": [
+    {
+      "partId": "teeth-35-37",
+      "label": "Source-labeled teeth 35–37",
+      "selectors": [
+        "D35",
+        "D36",
+        "D37"
+      ],
+      "sourcePath": "models/dental-root-support/v3/README.md",
+      "registration": "native"
+    },
+    {
+      "partId": "cortical-bone",
+      "label": "Cropped outer cortical bone",
+      "selectors": [
+        "Cortical bone lower jaw with boolean"
+      ],
+      "sourcePath": "models/dental-root-support/v3/README.md",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "inner-bone",
+      "label": "Cropped inner bone",
+      "selectors": [
+        "Alveolar bone lower jaw with boolean"
+      ],
+      "sourcePath": "models/dental-root-support/v3/README.md",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "pdl-shells-35-37",
+      "label": "Model-authored ligament shells 35–37",
+      "selectors": [
+        "L35",
+        "L36",
+        "L37"
+      ],
+      "sourcePath": "models/dental-root-support/v3/README.md",
+      "registration": "illustrative"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "v3",
+      "status": "provisional",
+      "sourceIds": [
+        "source:mendeley:synthetic-human-jaw-v1"
+      ],
+      "recipeEvidence": {
+        "path": "models/dental-root-support/v3/README.md",
+        "sha256": "4d8dc3c6429ca7f5eac948da61b971bc180c7a7aefbe827d8802681e7733f0b3"
+      },
+      "frame": {
+        "convention": "glb-y-up-m",
+        "evidence": "models/dental-root-support/v3/README.md",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ]
+      },
+      "partIds": [
+        "teeth-35-37",
+        "cortical-bone",
+        "inner-bone"
+      ],
+      "exports": [
+        {
+          "id": "molar-support",
+          "path": "models/dental-root-support/v3/molar-support-v3.glb",
+          "sha256": "4989befb8409d951d2a0220948c97a9afaf4ac62193fdfa3b97450201e457a02",
+          "bytes": 3078744,
+          "format": "glb",
+          "partIds": [
+            "teeth-35-37",
+            "cortical-bone",
+            "inner-bone"
+          ],
+          "triangles": 35184
+        }
+      ],
+      "qualifications": []
+    },
+    {
+      "revisionId": "v3-pdl",
+      "status": "provisional",
+      "sourceIds": [
+        "source:mendeley:synthetic-human-jaw-v1"
+      ],
+      "recipeEvidence": {
+        "path": "models/dental-root-support/v3/README.md",
+        "sha256": "4d8dc3c6429ca7f5eac948da61b971bc180c7a7aefbe827d8802681e7733f0b3"
+      },
+      "frame": {
+        "convention": "glb-y-up-m",
+        "evidence": "models/dental-root-support/v3/README.md",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ]
+      },
+      "partIds": [
+        "pdl-shells-35-37",
+        "cortical-bone",
+        "inner-bone"
+      ],
+      "exports": [
+        {
+          "id": "synthetic-pdl",
+          "path": "models/dental-root-support/v3/synthetic-pdl-v3.glb",
+          "sha256": "0d53613e1fa392657c20e597e04c3945d18150bf41c707f022d73acb37bc7463",
+          "bytes": 3305740,
+          "format": "glb",
+          "partIds": [
+            "pdl-shells-35-37",
+            "cortical-bone",
+            "inner-bone"
+          ],
+          "triangles": 38096
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "Original synthetic dataset alignment is retained. Nominal ligament thickness, cropped planes and solid inner bone are illustrative."
+  ]
+}

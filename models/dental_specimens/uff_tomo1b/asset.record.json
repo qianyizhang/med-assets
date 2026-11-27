@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:uff:tomo1b",
+  "title": "UFF Tomo1B micro-CT research display",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/dental_specimens/uff_tomo1b",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:uff:ds-uct-002-tomo1b",
+      "title": "UFF source archive and selected slices",
+      "subject": "UFF Tomo1B unnumbered specimen",
+      "sourceType": "retained source or source receipt",
+      "license": "UFF ds-uct-002, CC BY 4.0. Retain original dataset creators and derivative changes.",
+      "path": "sources/datasets/uff-ds-uct-002/source-map.json",
+      "sha256": "046ab6bfbf5e7a51b0a7c07fc5f5b25ae6372f6dd8e895a35c02e4f5838775c2",
+      "bytes": 4049,
+      "evidence": [
+        {
+          "path": "models/dental_specimens/uff_tomo1b/exports/r01/ATTRIBUTION.md",
+          "sha256": "6620fd4e9bb865c1ffc9f812575b74fe143da4633682c3502175166d31511739"
+        },
+        {
+          "path": "sources/datasets/uff-ds-uct-002/replay-verification.json",
+          "sha256": "366b2373e956ee1454a837a9b47759409175dde31a055a7666e7ec30250448e9"
+        }
+      ],
+      "limitations": []
+    }
+  ],
+  "parts": [
+    {
+      "partId": "hard-tissue-boundary",
+      "label": "Threshold-positive mineralized boundary",
+      "selectors": [
+        "uff_tomo1b_hard_tissue_boundary"
+      ],
+      "sourcePath": "models/dental_specimens/uff_tomo1b/exports/r01/README.md",
+      "registration": "native"
+    },
+    {
+      "partId": "slice-space-proxy",
+      "label": "Slice-enclosed method illustration",
+      "selectors": [
+        "uff_tomo1b_slice_enclosed_space_proxy"
+      ],
+      "sourcePath": "models/dental_specimens/uff_tomo1b/exports/r01/README.md",
+      "registration": "illustrative"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "r01",
+      "status": "provisional",
+      "sourceIds": [
+        "source:uff:ds-uct-002-tomo1b"
+      ],
+      "recipeEvidence": {
+        "path": "models/dental_specimens/uff_tomo1b/exports/r01/README.md",
+        "sha256": "fdaf14630337c5f3ee0129c5809ba900625ad80296d8996c2c1b97793b8c89e6"
+      },
+      "frame": {
+        "convention": "glb-y-up-m",
+        "evidence": "models/dental_specimens/uff_tomo1b/exports/r01/README.md",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ]
+      },
+      "partIds": [
+        "hard-tissue-boundary",
+        "slice-space-proxy"
+      ],
+      "exports": [
+        {
+          "id": "teaching",
+          "path": "models/dental_specimens/uff_tomo1b/exports/r01/uff-tomo1b-display.glb",
+          "sha256": "46694985ff0162a4220d959528847446ffe48b3be41e481f5890429500e2d3b3",
+          "bytes": 20434544,
+          "format": "glb",
+          "partIds": [
+            "hard-tissue-boundary",
+            "slice-space-proxy"
+          ],
+          "triangles": 1135186
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "Stored X/Y/Z follow source column/row/slice in metres. Specimen orientation, tooth number and anatomical registration remain unknown.",
+    "The space proxy has an exterior connection and an algorithmic closure. Complete root-canal anatomy remains unverified."
+  ]
+}

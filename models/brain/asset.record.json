@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:bp3d:brain-exterior",
+  "title": "BodyParts3D brain exterior",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/brain",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:bp3d:head-studies",
+      "title": "Native head atlas source and member pins",
+      "subject": "BodyParts3D 4.0 reference atlas",
+      "sourceType": "retained source or source receipt",
+      "license": "BodyParts3D © Database Center for Life Science, CC BY 4.0 for the source. Retain the historical CC BY-SA 2.1 Japan OBJ notices.",
+      "path": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json",
+      "sha256": "c5f364d6bbfd974e126f6141dd13514c08cb95c98dc01f391f08b4491fc04942",
+      "bytes": 73276,
+      "evidence": [
+        {
+          "path": "models/brain/exports/bodyparts3d-4.0-atlas-r2/README.md",
+          "sha256": "61974dd2fb87699ebe184a54cb5e912b7f02556efad90699862e8d7309bd553d"
+        },
+        {
+          "path": "models/brain/exports/bodyparts3d-4.0-atlas-r2/ATTRIBUTION.md",
+          "sha256": "cfda6f0ff97071d18ee221025dd0cb35be954900897b0e772c7f2b6ea898c723"
+        }
+      ],
+      "limitations": []
+    },
+    {
+      "sourceId": "source:recipe:teaching-economy-r02",
+      "title": "Exact retained edition source",
+      "subject": "BodyParts3D 4.0 reference atlas",
+      "sourceType": "retained source or source receipt",
+      "license": "BodyParts3D © Database Center for Life Science, CC BY 4.0 for the source. Retain the historical CC BY-SA 2.1 Japan OBJ notices.",
+      "path": "models/brain/exports/bodyparts3d-4.0-atlas-r2/brain-source-frame.glb",
+      "bytes": 4415384,
+      "sha256": "26d39768e2882daee034f997a8d594e915283b5f8a176a8bb60003944a45b886",
+      "evidence": [
+        {
+          "path": "models/brain/exports/teaching-economy-r02/README.md",
+          "sha256": "709aa14e6aad6c04115a2038bc6ce01bdcc049de9fc359ebfa0c78eb5b0af08c"
+        }
+      ],
+      "limitations": []
+    }
+  ],
+  "parts": [
+    {
+      "partId": "cerebellum",
+      "label": "Atlas cerebellum surfaces",
+      "selectors": [
+        "cerebellum | FJ1781",
+        "cerebellum | FJ1830"
+      ],
+      "sourcePath": "models/brain/exports/bodyparts3d-4.0-atlas-r2/README.md",
+      "registration": "native"
+    },
+    {
+      "partId": "brainstem",
+      "label": "Retained brainstem surfaces",
+      "selectors": [
+        "medulla oblongata | FJ1769",
+        "medulla oblongata | FJ1831",
+        "midbrain | FJ1770",
+        "midbrain | FJ1817",
+        "pons | FJ1775",
+        "pons | FJ1822"
+      ],
+      "sourcePath": "models/brain/exports/bodyparts3d-4.0-atlas-r2/README.md",
+      "registration": "native"
+    },
+    {
+      "partId": "frontal-gyri",
+      "label": "Selected frontal gyri",
+      "selectors": [
+        "left inferior frontal gyrus | FJ1744",
+        "left middle frontal gyrus | FJ1787",
+        "left superior frontal gyrus | FJ1833",
+        "right inferior frontal gyrus | FJ1745",
+        "right middle frontal gyrus | FJ1788",
+        "right superior frontal gyrus | FJ1834"
+      ],
+      "sourcePath": "models/brain/exports/bodyparts3d-4.0-atlas-r2/README.md",
+      "registration": "native"
+    },
+    {
+      "partId": "occipital-lobes",
+      "label": "Occipital lobes",
+      "selectors": [
+        "left occipital lobe | FJ1791",
+        "right occipital lobe | FJ1792"
+      ],
+      "sourcePath": "models/brain/exports/bodyparts3d-4.0-atlas-r2/README.md",
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "teaching-economy-r02",
+      "status": "provisional",
+      "recipe": "recipes/teaching-economy-r02.json",
+      "sourceIds": [
+        "source:recipe:teaching-economy-r02"
+      ],
+      "recipeEvidence": {
+        "path": "models/brain/exports/teaching-economy-r02/README.md",
+        "sha256": "709aa14e6aad6c04115a2038bc6ce01bdcc049de9fc359ebfa0c78eb5b0af08c"
+      },
+      "frame": {
+        "convention": "glb-y-up-m",
+        "evidence": "models/brain/exports/bodyparts3d-4.0-atlas-r2/README.md",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ]
+      },
+      "partIds": [
+        "cerebellum",
+        "brainstem",
+        "frontal-gyri",
+        "occipital-lobes"
+      ],
+      "exports": [
+        {
+          "id": "teaching",
+          "path": "models/brain/exports/teaching-economy-r02/brain-source-frame.glb",
+          "sha256": "fbd8034279b9119ffb8e7ee5e99208c06c5851d18be753283e8a871a6f1aec3a",
+          "bytes": 3446724,
+          "format": "glb",
+          "partIds": [
+            "cerebellum",
+            "brainstem",
+            "frontal-gyri",
+            "occipital-lobes"
+          ],
+          "triangles": 242358
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "Open atlas scope: truncated brainstem, external landmarks only, and no mixed-source placement."
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:workshop:bronchial-first-fork",
+  "title": "Authored bronchial first-fork exterior",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/bronchial_tree",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:workshop:bronchial-distal-r14",
+      "title": "Exact r14 authored schematic exterior",
+      "subject": "Authored Workshop-based respiratory schematic",
+      "sourceType": "retained source or source receipt",
+      "license": "Jakob Wasserthal and TotalSegmentator contributors, University Hospital Basel. TotalSegmentator v2.0.1, CC BY 4.0. Retain the Apache-2.0 label-source notice. The authored routes carry no separate public reuse grant.",
+      "path": "models/bronchial_tree/exports/distal-sampling-r14/bronchial_distal_sampling.glb",
+      "sha256": "f8d78751f47cf14311138a3c7e2e35d6e28415c9f6e1d2a0e4f6ca2bf1a07fc9",
+      "bytes": 7401328,
+      "evidence": [
+        {
+          "path": "models/bronchial_tree/exports/distal-sampling-r14/README.md",
+          "sha256": "fa0a9c382f40f02ea9aabb2cdb6aab5c0ac93f7ef44f81f1be76aa9893b44e52"
+        },
+        {
+          "path": "models/bronchial_tree/exports/authored-central-fairing-r13/ATTRIBUTION.md",
+          "sha256": "2388fe1975b0232881ed76f6022e8011bd8714c7b38a2b0e04861afd85224aed"
+        }
+      ],
+      "limitations": []
+    }
+  ],
+  "parts": [
+    {
+      "partId": "first-fork",
+      "label": "Single authored bronchial exterior",
+      "selectors": [
+        "Authored bronchial junction-consolidation experiment"
+      ],
+      "sourcePath": "models/bronchial_tree/exports/first-fork-fairing-r15/README.md",
+      "registration": "illustrative"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "first-fork-fairing-r15",
+      "status": "provisional",
+      "sourceIds": [
+        "source:workshop:bronchial-distal-r14"
+      ],
+      "recipeEvidence": {
+        "path": "models/bronchial_tree/exports/first-fork-fairing-r15/README.md",
+        "sha256": "3d8bffeb4361cb9af97eeff5b26c28ecb253284fb88c41ce4338a899d2a51f2b"
+      },
+      "frame": {
+        "convention": "glb-y-up-m",
+        "evidence": "models/bronchial_tree/exports/first-fork-fairing-r15/README.md",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ]
+      },
+      "partIds": [
+        "first-fork"
+      ],
+      "exports": [
+        {
+          "id": "teaching",
+          "path": "models/bronchial_tree/exports/first-fork-fairing-r15/bronchial-first-fork.glb",
+          "sha256": "dec2886f07745086e56a31676b96005e0741d4475782fd879f47faf15769a42e",
+          "bytes": 7401468,
+          "format": "glb",
+          "partIds": [
+            "first-fork"
+          ],
+          "triangles": 308288
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "Source-frame surface fairing supports the first-fork silhouette. Terminal caps and lumen anatomy remain schematic."
+  ]
+}
