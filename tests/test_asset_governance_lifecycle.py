@@ -62,6 +62,11 @@ class LifecycleTests(unittest.TestCase):
             apply_lifecycle_plan(root,plan)
             record=json.loads((root/"models/fixture/asset.record.json").read_text())
             self.assertEqual(record["uses"][0]["status"],"qualified")
+            plan=self.plan_apply(root,"retire",{"reason":"consumer moved","recordedAt":"2026-11-27",
+                "readerDisposition":{"lesson:demo":"migrated"}})
+            apply_lifecycle_plan(root,plan)
+            record=json.loads((root/"models/fixture/asset.record.json").read_text())
+            self.assertEqual(record["retirement"]["readerDisposition"]["lesson:demo"],"migrated")
 
     def test_retire_archive_and_keep_payload(self):
         with tempfile.TemporaryDirectory() as tmp:
