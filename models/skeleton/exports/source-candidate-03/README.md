@@ -9,6 +9,8 @@ Isolated BodyParts3D skeletal exterior, reviewed in front/side/back and skull/pe
 
 Unchanged canonical GLB: `d224985628cc62d0c9c4284019b73505c9ebf14d78d30a040d74a7b33c68620e` (12705356 bytes). Source-frame transforms retained exactly; no geometry changes or registration.
 
+The [Body Systems survey recipe](../../../../sites/body-systems-survey/jobs.json) uses this original export for its axial and appendicular plate. The [compact edition](../teaching-economy-r01/README.md) has its own exact Library and ultrasound uses. [Native package record](../../asset.record.json)
+
 Review and evidence: `reviews/skeleton/2026-10-24-source-candidate-03-bounded-migration/bounded-record.json`. Selected WebP hashes identify actual stored bytes; original PNG identities are separate external dependencies. Baselines depict earlier drafts, not accepted candidates. Shared source dependencies: `sources/datasets/bp3d-4.0-body-studies/external-source-map.json`. Source IDs are embedded; source hashes are independently pinned, not embedded or rebuild-verified.
 
 No fresh public readback, rendering, runtime or clinical validation performed by this migration.

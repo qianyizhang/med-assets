@@ -8,4 +8,6 @@
 
 Exact canonical GLB SHA256 `7081144bdbca0d2d871311a3568a0aedb1c8e125f7709ae8e7d55345a54bdfb7`. No model edits. Dated review: `reviews/muscle/2026-10-24-bounded-migration/bounded-record.json`. Source and recipe dependencies: `sources/datasets/muscle-bounded/external-source-map.json`. Raw source, scenes and full history are external; this is not a portable rebuild package.
 
+The [Body Systems survey recipe](../../../../sites/body-systems-survey/jobs.json) uses this exact source-frame GLB for the whole-body muscle surface plate. The [compact teaching edition](../teaching-economy-r02/README.md) is the selected Library delivery and replays from this GLB. [Native package record](../../asset.record.json)
+
 Transport remains blocked under existing caps pending explicit approval. No compression, splitting or model changes are proposed as a cap workaround.
