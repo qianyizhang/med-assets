@@ -32,7 +32,7 @@ def create_backfill_plan(repo:Path)->dict[str,Any]:
         "ultrasoundRequirements":sum(x.domain=="ultrasound-anatomy" for x in catalog.consumers)}}
 
 def write_backfill_plan(repo:Path,destination:Path):
-    plan=create_backfill_plan(repo);_atomic(destination,(json.dumps(plan,ensure_ascii=False,indent=2)+"\\n").encode());return plan
+    plan=create_backfill_plan(repo);_atomic(destination,(json.dumps(plan,ensure_ascii=False,indent=2)+"\n").encode());return plan
 
 def apply_backfill_plan(repo:Path,plan_path:Path):
     repo=repo.resolve();plan=json.loads(plan_path.read_text(encoding="utf-8"))
@@ -60,7 +60,7 @@ def apply_backfill_plan(repo:Path,plan_path:Path):
             "Map stable concepts and named parts to exact source selectors.",
             "Bind revisions, exports, recipes and artifact identities.",
             "Reconcile downstream consumers before qualification or retirement."]}
-        encoded=(json.dumps(record,ensure_ascii=False,indent=2)+"\\n").encode()
+        encoded=(json.dumps(record,ensure_ascii=False,indent=2)+"\n").encode()
         if destination.exists():
             if destination.read_bytes()!=encoded: raise GovernanceError(f"Conflicting existing asset record: {destination}")
             continue

@@ -121,7 +121,7 @@ def _javascript_calls(source:str):
                 if escaped: escaped=False
                 elif char=="\\": escaped=True
                 elif char==quote: quote=None
-            elif char in ("'",'"',"\`"): quote=char
+            elif char in ("'",'"',"`"): quote=char
             elif char=="/" and nxt=="/": line_comment=True;i+=1
             elif char=="/" and nxt=="*": block_comment=True;i+=1
             elif char=="(": depth+=1
@@ -135,7 +135,7 @@ def _javascript_calls(source:str):
                 if escaped: escaped=False
                 elif char=="\\": escaped=True
                 elif char==quote: quote=None
-            elif char in ("'",'"',"\`"): quote=char
+            elif char in ("'",'"',"`"): quote=char
             elif char in "([{": level+=1
             elif char in ")]}": level-=1
             elif char=="," and level==0:
