@@ -47,6 +47,18 @@ def write_backfill_plan(repo:Path,destination:Path):
 def _record_document(proposal:dict[str,Any],asset_id:str):
     owner=source_path(proposal["owner"])
     parts=proposal.get("parts",[])
+    parts_by_id={}
+    for part in parts:
+        part_id=part.get("part_id")
+        if not isinstance(part_id,str) or not part_id.strip():
+            raise GovernanceError("Backfill part requires a stable part_id")
+        merged=parts_by_id.setdefault(part_id,{"partId":part_id,"label":part.get("label",part_id),
+            "selectors":[],"declarations":[]})
+        if part.get("label") and part.get("label")!=merged["label"]:
+            merged.setdefault("alternateLabels",[]).append(part["label"])
+        for selector in part.get("selectors",[]):
+            if selector not in merged["selectors"]: merged["selectors"].append(selector)
+        merged["declarations"].append(part)
     sources_by_key={}
     for part in parts:
         if not isinstance(part,dict): raise GovernanceError("Backfill part candidate must be an object")
@@ -85,7 +97,7 @@ def _record_document(proposal:dict[str,Any],asset_id:str):
             unresolved.append(f"Artifact {artifact.get('path')} has verification state {artifact.get('verification')}.")
     return {"schemaVersion":1,"assetId":asset_id,"title":proposal["title"],"kind":proposal["kind"],
       "status":"provisional","owner":owner,"concepts":[],"sources":list(sources_by_key.values()),
-      "parts":parts,"revisions":[],"artifacts":artifacts,"exports":exports,"uses":[],
+      "parts":list(parts_by_id.values()),"revisions":[],"artifacts":artifacts,"exports":exports,"uses":[],
       "unresolved":list(dict.fromkeys(unresolved))}
 
 def apply_backfill_plan(repo:Path,plan_path:Path):
