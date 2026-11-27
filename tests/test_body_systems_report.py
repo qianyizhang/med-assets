@@ -2,6 +2,7 @@
 
 from contextlib import redirect_stderr
 from functools import partial
+from hashlib import sha256
 import io
 import json
 from pathlib import Path
@@ -13,6 +14,7 @@ from unittest.mock import patch
 SURVEY = Path(__file__).resolve().parents[1] / "sites/body-systems-survey"
 sys.path.insert(0, str(SURVEY))
 try:
+    import export_gallery
     import gallery_plan
     import report
 finally:
@@ -52,3 +54,19 @@ class SameCaseRecovery(unittest.TestCase):
         colon["componentVoxelCounts6"].pop()
         with self.assertRaisesRegex(ValueError, "Invalid colon component measurements"):
             report.colon_gap_copy(audit)
+
+    def test_exporter_retains_an_approved_display_across_encoder_changes(self):
+        with TemporaryDirectory() as temporary:
+            target = Path(temporary) / "plate.webp"
+            exact = b"approved bytes"
+            approved = (sha256(exact).hexdigest(), len(exact))
+            target.write_bytes(exact)
+            with patch.object(export_gallery, "encode_webp", return_value=b"different bytes") as encode:
+                self.assertEqual(export_gallery.display_bytes(target, target, approved), exact)
+                encode.assert_not_called()
+                target.write_bytes(b"altered bytes!")
+                with self.assertRaisesRegex(ValueError, "did not reproduce the approved"):
+                    export_gallery.display_bytes(target, target, approved)
+                self.assertEqual(target.read_bytes(), b"altered bytes!")
+            with patch.object(export_gallery, "encode_webp", return_value=exact):
+                self.assertEqual(export_gallery.display_bytes(target, target, approved), exact)

@@ -165,15 +165,18 @@ class Workspace:
         inspect_glbs: bool = False,
     ) -> Workspace:
         root = repo.resolve()
+        registry = AssetRegistry.load(
+            root,
+            include_legacy_adapters=include_legacy_adapters,
+            inspect_glbs=inspect_glbs,
+        )
         return cls(
             repository=root,
             vocab=ConceptGraph.load(root),
-            registry=AssetRegistry.load(
-                root,
-                include_legacy_adapters=include_legacy_adapters,
-                inspect_glbs=inspect_glbs,
+            registry=registry,
+            delivery=DeliveryGraph.load(
+                root, include_legacy_adapters=include_legacy_adapters, registry=registry
             ),
-            delivery=DeliveryGraph.load(root, include_legacy_adapters=include_legacy_adapters),
             curation=CurationStore.load(root, include_legacy_adapters=include_legacy_adapters),
         )
 

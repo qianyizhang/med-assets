@@ -59,7 +59,7 @@ export async function checkLayerLessons({ browser, base, capture }) {
         await page.getByRole('navigation', { name: 'Teaching scale' }).locator('a[href*="?detail="]').click();
         await page.getByRole('combobox', { name: 'Detail view' }).selectOption(detail);
       } else {
-        const entrance = id === 'duct' ? tasks.location.route : id === 'shoulder' ? 'use-cases/systems/muscular' : 'use-cases';
+        const entrance = { duct: tasks.location.route, shoulder: 'use-cases/systems/muscular', elbow: 'use-cases/lessons' }[id] ?? 'use-cases';
         await page.goto(base + '/#/' + entrance);
         await page.locator('a[href="#/' + route + '"]:visible').first().click();
       }

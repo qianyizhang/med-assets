@@ -278,7 +278,15 @@ class DeliveryGraph:
     consumers: tuple[Consumer, ...] = ()
 
     @classmethod
-    def load(cls, repo: Path, *, include_legacy_adapters: bool = True) -> DeliveryGraph:
+    def load(
+        cls,
+        repo: Path,
+        *,
+        include_legacy_adapters: bool = True,
+        registry: AssetRegistry | None = None,
+    ) -> DeliveryGraph:
+        from .body_systems import DISPLAY_INDEX, REPLAY_BINDINGS
+
         root = repo.resolve()
         consumers = _load_native_consumers(root)
         existing_ids = {c.id for c in consumers}
@@ -311,6 +319,8 @@ class DeliveryGraph:
                     ),
                 )
             )
+        if (root / DISPLAY_INDEX).is_file() or (root / REPLAY_BINDINGS).is_file():
+            consumers.extend(_body_systems_consumers(root, registry))
         if include_legacy_adapters:
             consumers.extend(_project_legacy_consumers(root, existing_ids))
         return cls(consumers=tuple(consumers))
@@ -891,6 +901,54 @@ def _recipe_consumer(
             for ref in refs
         ),
     )
+
+
+def _body_systems_consumers(repo: Path, registry: AssetRegistry | None) -> Iterable[Consumer]:
+    from .body_systems import PELVIC_LAYERS, REPLAY_BINDINGS, read_body_systems
+
+    replay, actions = read_body_systems(repo, registry)
+    sources = {source.path: source for source in replay.inputs}
+    for plate in replay.plates:
+        pins = []
+        for item in replay.scenes[plate.scene].inputs:
+            ref = sources[item.path].ref
+            if ref is not None:
+                pins.append(
+                    Pin(
+                        asset_id=ref.asset,
+                        revision_id=ref.revision,
+                        export_id=ref.export,
+                        sha256=item.sha256,
+                        stage="recipe",
+                        record=ref.record,
+                    )
+                )
+        if pins:
+            yield Consumer(
+                id=f"{plate.consumer_id}:replay",
+                title=f"Body Systems · {plate.id} render inputs",
+                kind="lesson-stop",
+                owner_path=REPLAY_BINDINGS,
+                pins=tuple(pins),
+            )
+    for action in actions:
+        yield Consumer(
+            id=action.consumer_id,
+            title=f"Body Systems · {action.id} 3D layers",
+            kind="lesson-stop",
+            owner_path=PELVIC_LAYERS,
+            pins=(
+                Pin(
+                    asset_id=action.ref.asset,
+                    revision_id=action.ref.revision,
+                    export_id=action.ref.export,
+                    sha256=action.sha256,
+                    parts=action.parts,
+                    registration="native",
+                    record=action.ref.record,
+                ),
+            ),
+        )
 
 
 def _read_json(path: Path) -> Any:

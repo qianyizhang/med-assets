@@ -1,0 +1,1621 @@
+{
+  "schemaVersion": 1,
+  "displayIndexSha256": "3ee32418526c52f3cb1696b8e9275bbc1d0858f4003c4ebf1e087fada29b4326",
+  "inputs": [
+    {
+      "path": "models/skeleton/exports/source-candidate-03/skeleton_source_frame.glb",
+      "sha256": "d224985628cc62d0c9c4284019b73505c9ebf14d78d30a040d74a7b33c68620e",
+      "bytes": 12705356,
+      "ref": {
+        "record": "models/skeleton/asset.record.json",
+        "asset": "anatomy:bp3d:skeleton",
+        "revision": "source-candidate-03",
+        "export": "skeleton"
+      }
+    },
+    {
+      "path": "models/skin/exports/bp3d-envelope-r01/skin_source_frame.glb",
+      "sha256": "d86719833a17dc7b45c8eb970498f1e2feefd352b5812942f4b147a9ffcfbe4f",
+      "bytes": 4901132,
+      "ref": {
+        "record": "models/skin/asset.record.json",
+        "asset": "anatomy:bp3d:skin",
+        "revision": "bp3d-envelope-r01",
+        "export": "envelope"
+      }
+    },
+    {
+      "path": "assemblies/skeletal-teaching/knee-motion-r01/knee-motion.glb",
+      "sha256": "3702f9ed5aaa3a4b41945a548eb95843ea24b9d7a4941a160128a3ea9b1a76ea",
+      "bytes": 165152,
+      "archive": "teaching-media"
+    },
+    {
+      "path": "models/muscle/exports/z-anatomy-r02/muscle_z_native_frame.glb",
+      "sha256": "7081144bdbca0d2d871311a3568a0aedb1c8e125f7709ae8e7d55345a54bdfb7",
+      "bytes": 30517312,
+      "ref": {
+        "record": "models/muscle/asset.record.json",
+        "asset": "anatomy:z-anatomy:muscle",
+        "revision": "z-anatomy-r02",
+        "export": "muscle"
+      }
+    },
+    {
+      "path": "assemblies/musculoskeletal-teaching/plantarflexion-r01/calf-plantarflexion.glb",
+      "sha256": "cfb5242ba5daf9fe3ec176912e0c33e3d5efcf4aa23a1cfc306db35237c8a118",
+      "bytes": 805944,
+      "archive": "teaching-media"
+    },
+    {
+      "path": "body/anatomy-workshop-r1/meshes/lung_left.glb",
+      "sha256": "6ec2acc585e59f4d11dcc11bbf6bbfdf880a171c8733587bb858fe72476dba9c",
+      "bytes": 2293040,
+      "ref": {
+        "record": "body/anatomy-workshop-r1/asset.record.json",
+        "asset": "anatomy:workshop:s1233-body",
+        "revision": "r1",
+        "export": "lung-left"
+      }
+    },
+    {
+      "path": "body/anatomy-workshop-r1/meshes/lung_right.glb",
+      "sha256": "232166f23bff9c4c7142147e4e5f51cdb4519bc183c5aeb81ed1b264659f9b8f",
+      "bytes": 2384572,
+      "ref": {
+        "record": "body/anatomy-workshop-r1/asset.record.json",
+        "asset": "anatomy:workshop:s1233-body",
+        "revision": "r1",
+        "export": "lung-right"
+      }
+    },
+    {
+      "path": "body/anatomy-workshop-r1/meshes/bronchial_tree.glb",
+      "sha256": "2d2d4e269995f11179cfa423a302f144d9d163883ccde0995a2987e83dd2e898",
+      "bytes": 1640504,
+      "ref": {
+        "record": "body/anatomy-workshop-r1/asset.record.json",
+        "asset": "anatomy:workshop:s1233-body",
+        "revision": "r1",
+        "export": "bronchial-tree"
+      }
+    },
+    {
+      "path": "body/breathing/diaphragm_breathing.glb",
+      "sha256": "7aa24dcf98016381c87857c7ec31a7733a78c5b590f56ff6f2f617a342ae4d33",
+      "bytes": 74140,
+      "ref": {
+        "record": "body/breathing/asset.record.json",
+        "asset": "assembly:workshop:breathing",
+        "revision": "r1",
+        "export": "diaphragm"
+      }
+    },
+    {
+      "path": "lessons/one-breath/airway-r01/airway-route.glb",
+      "sha256": "92fd447bad48b03489041e16d0de8750b550034ec4f158219b8352571e0e6091",
+      "bytes": 2083460,
+      "archive": "teaching-media"
+    },
+    {
+      "path": "assemblies/urinary-junctions/r01/urinary-junctions.glb",
+      "sha256": "637ebe6bec902bf933c1c9ba2ab77a7cec0ef3bf58bbea6047c26665a40e5ead",
+      "bytes": 1641696,
+      "archive": "teaching-media"
+    },
+    {
+      "path": ".artifacts/body-systems-survey-2026-11-19/workshop-s1233-r01/cardiovascular.glb",
+      "sha256": "b1cf892622f39b2c66b33749c787b5d1b041b028096e56ea610d30b0e4ccda80",
+      "bytes": 2868644,
+      "workshop": "cardiovascular"
+    },
+    {
+      "path": "assemblies/cardiovascular-loop/cardiovascular-loop.glb",
+      "sha256": "89f80adddacddb3915c82d971ac7d4c68c180344eb1ae47dda2d659fa55ab4f2",
+      "bytes": 1006420,
+      "archive": "teaching-media"
+    },
+    {
+      "path": ".artifacts/body-systems-survey-2026-11-19/workshop-s1233-r01/digestive.glb",
+      "sha256": "8870d0764681fe07dfea5b54f0ec0f274931e04ff06b7deed704fa07b96aa456",
+      "bytes": 10712920,
+      "workshop": "digestive"
+    },
+    {
+      "path": "assemblies/digestive-route/r01/digestive-route.glb",
+      "sha256": "f91ee8cb160b182d932b991a1dff61d465213431b87cff535cf907fa8822834a",
+      "bytes": 11697816,
+      "archive": "teaching-media"
+    },
+    {
+      "path": "assemblies/nervous-senses/nervous-senses.glb",
+      "sha256": "9566e891615c5c428523f86c691f4e08efe170f02524fff853f5dae125267bdf",
+      "bytes": 8452100,
+      "archive": "teaching-media"
+    },
+    {
+      "path": "assemblies/endocrine-locator/r01/endocrine-locator.glb",
+      "sha256": "bf7f9d786f354b9c4e9fb73fc63265752a27033371f8fb19353d7a1b4d951469",
+      "bytes": 1792144,
+      "archive": "teaching-media"
+    },
+    {
+      "path": "assemblies/lymphatic-return/r01/lymphatic-return.glb",
+      "sha256": "e46b62ae432daccaf0b216c15179c98473e7817c296793fd774f1351cddf4507",
+      "bytes": 912552,
+      "archive": "teaching-media"
+    },
+    {
+      "path": "assemblies/reproductive-tracts/r01/female.glb",
+      "sha256": "f5f58c4c4ccdb27a72b9cf1d2ff06a9c08d7240da01bca86ce5faef61f731817",
+      "bytes": 1849460,
+      "archive": "teaching-media"
+    },
+    {
+      "path": "assemblies/reproductive-tracts/r01/male.glb",
+      "sha256": "278f42a5717e63ac3e44aa17a083c9b2794fa62691cf5dc8c537888f8999dffa",
+      "bytes": 625720,
+      "archive": "teaching-media"
+    },
+    {
+      "path": "models/skin/teaching-block-r01/skin-block.glb",
+      "sha256": "3c03ee0cf6d966d7e452b82b253153ac841d217def47abb23bfee79b3d5157e7",
+      "bytes": 1852252,
+      "archive": "teaching-media"
+    }
+  ],
+  "workshop": {
+    "config": {
+      "path": "assemblies/workshop-s1233/inputs.json",
+      "sha256": "961d6d63dbb22fdf20eafb38fb3914ed3b25953d773c80e26f0c3d88a7d447a0"
+    },
+    "receipt": {
+      "path": ".artifacts/body-systems-survey-2026-11-19/workshop-s1233-r01/assemblies.json",
+      "sha256": "87aa95898ac84a74c28cb48fd3d858426e48f75f92916cb80b17017883775562"
+    },
+    "maskAudit": {
+      "path": ".artifacts/body-systems-survey-2026-11-19/workshop-s1233-r01/mask-audit.json",
+      "sha256": "ee1e7a5338f4040a47c52883b86001c2815c2041e2ecd2e9c95fb4cb7fb9b29a"
+    }
+  },
+  "scenes": {
+    "skeleton": {
+      "receipt": {
+        "path": ".artifacts/body-systems-survey-2026-11-19/presentation-r01/skeleton/renders.json",
+        "sha256": "4669d932c4c98ed5154d6515c1a919cbdf5fe9684c43494e259244769b7efd16"
+      },
+      "owner": "sites/body-systems-survey/jobs.json",
+      "inputs": [
+        {
+          "path": "models/skeleton/exports/source-candidate-03/skeleton_source_frame.glb",
+          "sha256": "d224985628cc62d0c9c4284019b73505c9ebf14d78d30a040d74a7b33c68620e"
+        },
+        {
+          "path": "models/skin/exports/bp3d-envelope-r01/skin_source_frame.glb",
+          "sha256": "d86719833a17dc7b45c8eb970498f1e2feefd352b5812942f4b147a9ffcfbe4f"
+        }
+      ],
+      "views": {
+        "assembly": [
+          {
+            "file": "assembly-iso.png",
+            "sha256": "64d56808eee5b6149872993eabd4f8c0af51f1b0508a3b949a10b4a5eb1792f9"
+          },
+          {
+            "file": "assembly-ortho.png",
+            "sha256": "12b59995d42946db8965d2fe1b2b6f54ea900b73c92478cd8dbd385d6825bef5"
+          }
+        ]
+      }
+    },
+    "skeletal": {
+      "receipt": {
+        "path": ".artifacts/body-systems-survey-2026-11-19/presentation-r01/skeletal/renders.json",
+        "sha256": "87f4e9a21f14b37a73dfc7fffa65b3c59b68f7ea155396d9ceb0617c78702528"
+      },
+      "owner": "reviews/joints/knee-motion-r01/renders.json",
+      "inputs": [
+        {
+          "path": "assemblies/skeletal-teaching/knee-motion-r01/knee-motion.glb",
+          "sha256": "3702f9ed5aaa3a4b41945a548eb95843ea24b9d7a4941a160128a3ea9b1a76ea"
+        }
+      ],
+      "views": {
+        "poses": [
+          {
+            "file": "poses-iso.png",
+            "sha256": "a0ea256db81a948710e68ae136a3ccd540b376977a8f1275fb0d184861139d8b"
+          },
+          {
+            "file": "poses-ortho.png",
+            "sha256": "b5c11befb4701c8c341e45ff341f3b8e315388050f974a7dce918c98a91704f8"
+          }
+        ],
+        "source": [
+          {
+            "file": "source-iso.png",
+            "sha256": "0e410e9d1e0a832286af809de1e486dd2bb8bb6a6d8f4533ce47d429b513d36c"
+          },
+          {
+            "file": "source-ortho.png",
+            "sha256": "16d80582e853905e472fa95b72a7f5dd0c252f66471f28c82899fa19ba8185fc"
+          }
+        ],
+        "flexion": [
+          {
+            "file": "flexion-iso.png",
+            "sha256": "d68f47526ec9bf8c5560e47e8324d6aaea40ca6a0a132b6b3b58104237cdff5d"
+          },
+          {
+            "file": "flexion-ortho.png",
+            "sha256": "c5a52828d1d5ad153762b188d0a79efdeba5b2c8ef87950b9fe326546d31b09c"
+          }
+        ]
+      }
+    },
+    "muscles": {
+      "receipt": {
+        "path": ".artifacts/body-systems-survey-2026-11-19/presentation-r01/muscles/renders.json",
+        "sha256": "8d261b5c616c80212410777e892e1e24dd8b4df957af55e760f3c35120f0dbb6"
+      },
+      "owner": "sites/body-systems-survey/jobs.json",
+      "inputs": [
+        {
+          "path": "models/muscle/exports/z-anatomy-r02/muscle_z_native_frame.glb",
+          "sha256": "7081144bdbca0d2d871311a3568a0aedb1c8e125f7709ae8e7d55345a54bdfb7"
+        }
+      ],
+      "views": {
+        "assembly": [
+          {
+            "file": "assembly-iso.png",
+            "sha256": "5434c82e913916665aaf87fb61424c8ece0eb3c4dd1907b8dd66ad7245ea5d03"
+          },
+          {
+            "file": "assembly-ortho.png",
+            "sha256": "4e1a775bbf1620ac3ad0c38c0c3beb5d5d5fba5e5ad0f12a02d05146a83de7ae"
+          }
+        ]
+      }
+    },
+    "muscular": {
+      "receipt": {
+        "path": ".artifacts/body-systems-survey-2026-11-19/presentation-r01/muscular/renders.json",
+        "sha256": "f1bad6648a4cebd1a363a2760dc20c3bf6724e3c47244bbdc02b06705aad566d"
+      },
+      "owner": "reviews/muscle/plantarflexion-r01/renders.json",
+      "inputs": [
+        {
+          "path": "assemblies/musculoskeletal-teaching/plantarflexion-r01/calf-plantarflexion.glb",
+          "sha256": "cfb5242ba5daf9fe3ec176912e0c33e3d5efcf4aa23a1cfc306db35237c8a118"
+        }
+      ],
+      "views": {
+        "neutral": [
+          {
+            "file": "neutral-iso.png",
+            "sha256": "a1c3c31bac26cd78e27fe05060b26609f0ebaf26fddc88726b07254a4d773767"
+          },
+          {
+            "file": "neutral-ortho.png",
+            "sha256": "1463bb992050a93499fc6c43d67c4f68aebe01854a4ff2b2c4b3c8a7fce664e0"
+          }
+        ],
+        "plantarflexion": [
+          {
+            "file": "plantarflexion-iso.png",
+            "sha256": "2d2066d74fc37ec9f2f7e28b289247239a40b5268a027bc1cde903c94d1e1708"
+          },
+          {
+            "file": "plantarflexion-ortho.png",
+            "sha256": "7dcac96a04db280067a1844bb609738245a93d1323f60a7c4a826bb640314701"
+          }
+        ],
+        "neutral-insertion": [
+          {
+            "file": "neutral-insertion-iso.png",
+            "sha256": "308af0fbdd4222804806ea05e06e0bd14871b8721376fdc4ce51a27432c09442"
+          },
+          {
+            "file": "neutral-insertion-ortho.png",
+            "sha256": "e447696f1f5db7db6790637600261e1b799035988e57af6056c62903287991ba"
+          }
+        ],
+        "flexed-insertion": [
+          {
+            "file": "flexed-insertion-iso.png",
+            "sha256": "a817bbdf9a216d28d02a3825addeae8ea9642a738910c20f8203b28e4a405233"
+          },
+          {
+            "file": "flexed-insertion-ortho.png",
+            "sha256": "2857b231ae87aeef9e3d0e16b81056918156893c8c880e84cdbe2a687ff0061c"
+          }
+        ]
+      }
+    },
+    "thorax": {
+      "receipt": {
+        "path": ".artifacts/body-systems-survey-2026-11-19/presentation-r01/thorax/renders.json",
+        "sha256": "1ad7b9e18619b29b43afdb99ed558f267cce8f9fd72b44c35d80e210fe1bc220"
+      },
+      "owner": "sites/body-systems-survey/jobs.json",
+      "inputs": [
+        {
+          "path": "body/anatomy-workshop-r1/meshes/lung_left.glb",
+          "sha256": "6ec2acc585e59f4d11dcc11bbf6bbfdf880a171c8733587bb858fe72476dba9c"
+        },
+        {
+          "path": "body/anatomy-workshop-r1/meshes/lung_right.glb",
+          "sha256": "232166f23bff9c4c7142147e4e5f51cdb4519bc183c5aeb81ed1b264659f9b8f"
+        },
+        {
+          "path": "body/anatomy-workshop-r1/meshes/bronchial_tree.glb",
+          "sha256": "2d2d4e269995f11179cfa423a302f144d9d163883ccde0995a2987e83dd2e898"
+        },
+        {
+          "path": "body/breathing/diaphragm_breathing.glb",
+          "sha256": "7aa24dcf98016381c87857c7ec31a7733a78c5b590f56ff6f2f617a342ae4d33"
+        }
+      ],
+      "views": {
+        "assembly": [
+          {
+            "file": "assembly-iso.png",
+            "sha256": "86f465082c85c70b233ea0360cdeab5dcb7d39a26c577b05999b6c1c6714592e"
+          },
+          {
+            "file": "assembly-ortho.png",
+            "sha256": "cc8b8cf6e26ac57cf2265480b0a49135288c5d6ecec2b674c7223b98e80f66ff"
+          }
+        ]
+      }
+    },
+    "respiratory": {
+      "receipt": {
+        "path": ".artifacts/body-systems-survey-2026-11-19/presentation-r01/respiratory/renders.json",
+        "sha256": "ff236e718e13a68b48212bacfd331bff25b09f4aba5bf2b606bed23a29e257ee"
+      },
+      "owner": "reviews/one-breath/airway-r01/renders.json",
+      "inputs": [
+        {
+          "path": "lessons/one-breath/airway-r01/airway-route.glb",
+          "sha256": "92fd447bad48b03489041e16d0de8750b550034ec4f158219b8352571e0e6091"
+        }
+      ],
+      "views": {
+        "route": [
+          {
+            "file": "route-iso.png",
+            "sha256": "3f96fe03c950e0f494fc213d65061592ee33db7fd53c6e7e5ab1d5a223824cfc"
+          },
+          {
+            "file": "route-ortho.png",
+            "sha256": "0d9a1b8e430f62a7b3c4c003941589e0f032ea64f32ac28dee1ca01c0c86d41c"
+          }
+        ],
+        "upper": [
+          {
+            "file": "upper-iso.png",
+            "sha256": "7feb45c9c39b0b60ea34f6c20a9c98618d4985e917b80f732c3ed77f7e036982"
+          },
+          {
+            "file": "upper-ortho.png",
+            "sha256": "1b97a80fd12e26c07fb70c234c20059d85935af18cdc312a2dd4ba16c4adb00c"
+          }
+        ],
+        "branch": [
+          {
+            "file": "branch-iso.png",
+            "sha256": "0d56b7a378c8876fe2823d6c98514f20b1f64f22063799dee0a7d8f3981c624b"
+          },
+          {
+            "file": "branch-ortho.png",
+            "sha256": "571b17819b486d40a6507c51296ece7bdab5945ca9cbba68c53901df1c3a922b"
+          }
+        ],
+        "terminal": [
+          {
+            "file": "terminal-iso.png",
+            "sha256": "426b8c2aca91e96a0347299256fa6d97312e7bff1e7ef6fcea9949c34c11526c"
+          },
+          {
+            "file": "terminal-ortho.png",
+            "sha256": "85b471ef887318b3eade4df5175a6d12f3ae5d20ba70e63d520bc5c6dced46b6"
+          }
+        ]
+      }
+    },
+    "urinary": {
+      "receipt": {
+        "path": ".artifacts/body-systems-survey-2026-11-19/presentation-r01/urinary/renders.json",
+        "sha256": "3d4411aa30a5489a2ad26d6978adfc98de48b93fcff2d19e26e8343e73770608"
+      },
+      "owner": "reviews/urinary-junctions/r01/renders.json",
+      "inputs": [
+        {
+          "path": "assemblies/urinary-junctions/r01/urinary-junctions.glb",
+          "sha256": "637ebe6bec902bf933c1c9ba2ab77a7cec0ef3bf58bbea6047c26665a40e5ead"
+        }
+      ],
+      "views": {
+        "tract": [
+          {
+            "file": "tract-iso.png",
+            "sha256": "346bddb2986a889a57ab4503e7b86c4f3303c9e5d1c57140fc13aa67caa850f0"
+          },
+          {
+            "file": "tract-ortho.png",
+            "sha256": "e18fad121de430e056f88b37173c0dea959423694dd590919cbdfdf0a463e73e"
+          }
+        ],
+        "overview": [
+          {
+            "file": "overview-iso.png",
+            "sha256": "801f76f569b56a57fe2fc7f5f944250938d408ec15ee41eb6500c2d1746653b5"
+          },
+          {
+            "file": "overview-ortho.png",
+            "sha256": "f884fff25db989f31df5252c46dd5a22ec9571f55b48db6c41351ff23e965ee0"
+          }
+        ],
+        "filtration": [
+          {
+            "file": "filtration-iso.png",
+            "sha256": "d99effa325b20be8b3a5b5c05f74d5b92ea10f6261c2e0fec66e81df07347298"
+          },
+          {
+            "file": "filtration-ortho.png",
+            "sha256": "af118594c715b86697175ffeb7dd4061eb595edd64f5d7c5e20a47a4680ae6b7"
+          }
+        ],
+        "left-renal": [
+          {
+            "file": "left-renal-iso.png",
+            "sha256": "c930ee6767c0933bda2d29ba0031ab8b9188df65ee2fa0d3c2f1dafe80f659f0"
+          },
+          {
+            "file": "left-renal-ortho.png",
+            "sha256": "94f465c40347efd4e64d3c77f48c65753ec1977db1095b3dc8a744e6de174d24"
+          }
+        ],
+        "right-renal": [
+          {
+            "file": "right-renal-iso.png",
+            "sha256": "4a891ec369171de759afb6f30ed10212ab8af06009e40ed4751f6a710abb631e"
+          },
+          {
+            "file": "right-renal-ortho.png",
+            "sha256": "12a386aee8490ef850ae16133d39ee9f925279964b9b421f17c472d6bc167b3b"
+          }
+        ],
+        "left-vesical": [
+          {
+            "file": "left-vesical-iso.png",
+            "sha256": "0f214e1f248f89eea82648c357930be7da59eb139f845815cfa98914b0f1e6cc"
+          },
+          {
+            "file": "left-vesical-ortho.png",
+            "sha256": "56ec65630f3940d09b9169fe5a392b0dd59f8d1391f56fda312ecc63e986ddf4"
+          }
+        ],
+        "right-vesical": [
+          {
+            "file": "right-vesical-iso.png",
+            "sha256": "b8ff694c90b143189e5da970ffaebc1c92c64808f5dc81cc65f481fbfcef6b0f"
+          },
+          {
+            "file": "right-vesical-ortho.png",
+            "sha256": "dace89fb94e60442e94c903aa9e4c706c0a340d051510c3a2ef8e03920b19343"
+          }
+        ],
+        "outlet": [
+          {
+            "file": "outlet-iso.png",
+            "sha256": "c88e6aa1ab7454c836520432ae701d0157c12029723580cb14038166ccb28da0"
+          },
+          {
+            "file": "outlet-ortho.png",
+            "sha256": "82e5d4240e00657ce61886eeab2e3b8d6a39ee3d7b3743b9e95355f5392ea72a"
+          }
+        ]
+      }
+    },
+    "cardiovascular-s1233": {
+      "receipt": {
+        "path": ".artifacts/body-systems-survey-2026-11-19/presentation-r01/cardiovascular-s1233/renders.json",
+        "sha256": "4674dcd3fd79fcb22f697bc808520c784cb6b6f4ccb8fbac660b6bcf326a80d2"
+      },
+      "owner": "assemblies/workshop-s1233/inputs.json",
+      "inputs": [
+        {
+          "path": ".artifacts/body-systems-survey-2026-11-19/workshop-s1233-r01/cardiovascular.glb",
+          "sha256": "b1cf892622f39b2c66b33749c787b5d1b041b028096e56ea610d30b0e4ccda80"
+        }
+      ],
+      "views": {
+        "assembly": [
+          {
+            "file": "assembly-iso.png",
+            "sha256": "bdcf697e4e9d60f276775a2335b4324b1d3603c516d7d5508568cf9c756547dc"
+          },
+          {
+            "file": "assembly-ortho.png",
+            "sha256": "6b957026e3dded9118cabdc0b6e1294670d17eca5ed77fec857d467a78a8e448"
+          }
+        ],
+        "route": [
+          {
+            "file": "route-iso.png",
+            "sha256": "54d230820e7b4bb193d985c6a127416d428b3ec89a11ce0d5dea6aef46c23853"
+          },
+          {
+            "file": "route-ortho.png",
+            "sha256": "6a31edc0d37a7fe74972de283a067bc69d48ef42506683ff34f872065eb8796e"
+          }
+        ]
+      }
+    },
+    "cardiovascular": {
+      "receipt": {
+        "path": ".artifacts/body-systems-survey-2026-11-19/presentation-r01/cardiovascular/renders.json",
+        "sha256": "e8b6cd6c11b06d49653277469b6eaef82ecefc7935e139e8a1eacae24e574367"
+      },
+      "owner": "reviews/cardiovascular-loop/renders.json",
+      "inputs": [
+        {
+          "path": "assemblies/cardiovascular-loop/cardiovascular-loop.glb",
+          "sha256": "89f80adddacddb3915c82d971ac7d4c68c180344eb1ae47dda2d659fa55ab4f2"
+        }
+      ],
+      "views": {
+        "loop": [
+          {
+            "file": "loop-iso.png",
+            "sha256": "87b42800552483fcf5739ad2cf4d8922de35106dae4c5d10cbfc56085d583fda"
+          },
+          {
+            "file": "loop-ortho.png",
+            "sha256": "caf6b9111021d0be338165a6db053b7e4f3daaf229fda17af2328879f1e707ae"
+          }
+        ],
+        "right-valves": [
+          {
+            "file": "right-valves-iso.png",
+            "sha256": "7883c126b95233db1fb7022449243f8da3df78880d0f34c15cb96efbe55e8328"
+          },
+          {
+            "file": "right-valves-ortho.png",
+            "sha256": "25eb246d56174a8dd3777e7470c1d75aa170ef809e30d9c3e8e96f6afb9652be"
+          }
+        ],
+        "left-valves": [
+          {
+            "file": "left-valves-iso.png",
+            "sha256": "985ea04cef6d86597511458f8585af3018b73e0f72e6f6972611570c13709840"
+          },
+          {
+            "file": "left-valves-ortho.png",
+            "sha256": "42611a8b1631cc760eed8fa8075b197e46f879ed82b95f6061c443d2980c462a"
+          }
+        ]
+      }
+    },
+    "digestive-s1233": {
+      "receipt": {
+        "path": ".artifacts/body-systems-survey-2026-11-19/presentation-r01/digestive-s1233/renders.json",
+        "sha256": "f9ec4e65cc3e272b997c5bc7b13a74d22c752b889a3cb6cd3bbbec3f4a3ed415"
+      },
+      "owner": "assemblies/workshop-s1233/inputs.json",
+      "inputs": [
+        {
+          "path": ".artifacts/body-systems-survey-2026-11-19/workshop-s1233-r01/digestive.glb",
+          "sha256": "8870d0764681fe07dfea5b54f0ec0f274931e04ff06b7deed704fa07b96aa456"
+        }
+      ],
+      "views": {
+        "assembly": [
+          {
+            "file": "assembly-iso.png",
+            "sha256": "1680c9e493cce2c9aec860215c98b9db2f48d03691cf0e702d528e8be2478070"
+          },
+          {
+            "file": "assembly-ortho.png",
+            "sha256": "299eb6a74d6eb8635ce8be584a41c3ee2aa1d83cc0c0b27a75ed6a427fba38e7"
+          }
+        ],
+        "route": [
+          {
+            "file": "route-iso.png",
+            "sha256": "9d1208d2fa95403a9ca09e627d346ed6e62908e89b95eb8af3b488264d896d79"
+          },
+          {
+            "file": "route-ortho.png",
+            "sha256": "14087afbe71adc85cb4370d19cd6f7f7967dd6e6df47ff9f79e98e41fe334f5b"
+          }
+        ]
+      }
+    },
+    "digestive": {
+      "receipt": {
+        "path": ".artifacts/body-systems-survey-2026-11-19/presentation-r01/digestive/renders.json",
+        "sha256": "2c1ffc9ed0c0ce257955005f3bfa28193aa8022bd3c28921669fd5ae0de24abb"
+      },
+      "owner": "reviews/digestive-route/r01/renders.json",
+      "inputs": [
+        {
+          "path": "assemblies/digestive-route/r01/digestive-route.glb",
+          "sha256": "f91ee8cb160b182d932b991a1dff61d465213431b87cff535cf907fa8822834a"
+        }
+      ],
+      "views": {
+        "context": [
+          {
+            "file": "context-iso.png",
+            "sha256": "a0f836d3e61b668fd50105650a49f0a0d660e3a593f462ff3a7494311e395639"
+          },
+          {
+            "file": "context-ortho.png",
+            "sha256": "4d85ce427d8d8f1d22af97f8d37ab644c6eaf4fe7f51ec797505173cdb552041"
+          }
+        ],
+        "food": [
+          {
+            "file": "food-iso.png",
+            "sha256": "3c8b55e0aef009b2a21473e9b2ad85035449eb11ef68ae52881bb238886eda12"
+          },
+          {
+            "file": "food-ortho.png",
+            "sha256": "47715f79c3be09e049878bc32733c5458e558faa7921fdf98f1e7cfeaf2a6dd2"
+          }
+        ],
+        "saliva": [
+          {
+            "file": "saliva-iso.png",
+            "sha256": "58d3c89caf2e14d75e89eb68e0fa78f5bda810445da42978ce68d3bb2371fbb1"
+          },
+          {
+            "file": "saliva-ortho.png",
+            "sha256": "b3bd3997fcc87254f7b84c620f38748a8e702d46d65c8d3b0e5579335de7d847"
+          }
+        ],
+        "duodenal-entry": [
+          {
+            "file": "duodenal-entry-iso.png",
+            "sha256": "c3aaf37ed18a2641724aa5f31c14ab990ef09336ee49eb87aa6c7e6ef7d5ff32"
+          },
+          {
+            "file": "duodenal-entry-ortho.png",
+            "sha256": "36dd461917274282747a4d99c79fe0189a4df84f1f676c3d57491f192b307b1d"
+          }
+        ],
+        "outlet": [
+          {
+            "file": "outlet-iso.png",
+            "sha256": "c7b19c7f54145f4e8d36a59f2e39824887fb212fb95ec6b5025e88c7d8c4b4b8"
+          },
+          {
+            "file": "outlet-ortho.png",
+            "sha256": "82d3fe4dfb8d143bf8654c2f6f6cba8cbe0d3a2272ff36bc0f78b6d958cce6af"
+          }
+        ]
+      }
+    },
+    "nervous": {
+      "receipt": {
+        "path": ".artifacts/body-systems-survey-2026-11-19/presentation-r01/nervous/renders.json",
+        "sha256": "c223dbdf1bda067d0deba771eda0c8a4d7c584304eb5487e68465041fbe1d859"
+      },
+      "owner": "reviews/nervous-senses/renders.json",
+      "inputs": [
+        {
+          "path": "assemblies/nervous-senses/nervous-senses.glb",
+          "sha256": "9566e891615c5c428523f86c691f4e08efe170f02524fff853f5dae125267bdf"
+        }
+      ],
+      "views": {
+        "central": [
+          {
+            "file": "central-iso.png",
+            "sha256": "9a9c9c60edcadfafa2f555a7fc07e9332635269e25d8d9f7e9742596dd63ff68"
+          },
+          {
+            "file": "central-ortho.png",
+            "sha256": "fa0b7151cde5bbe4465da51677a708bd80b1385a4f06def2c88da9b84c51f196"
+          }
+        ],
+        "ear": [
+          {
+            "file": "ear-iso.png",
+            "sha256": "872d04cdebf9a2ad9a874b4f37316355cf52fd4fda69318508785561f2241d5e"
+          },
+          {
+            "file": "ear-ortho.png",
+            "sha256": "3d9f1a69aa25fe611d556e1a124adceb53de17e2c60508b2d2cd8b99096dfcce"
+          }
+        ],
+        "root": [
+          {
+            "file": "root-iso.png",
+            "sha256": "c3cac70ce90ef08f66bed9e09a205f2a350efe516167249fe59b47c90f117b8a"
+          },
+          {
+            "file": "root-ortho.png",
+            "sha256": "627b906175e24646f34632cfe15f5f66118105d441443c80fe9595e3df07869e"
+          }
+        ],
+        "hearing": [
+          {
+            "file": "hearing-iso.png",
+            "sha256": "7e57e10ba6a6606101e42019ec7a67019f68cd9bc56758586d98b6721855e6c0"
+          },
+          {
+            "file": "hearing-ortho.png",
+            "sha256": "7e69e45bb6dffb6099cdb562486069c6858773d78aef97770199955f15f18b7e"
+          }
+        ],
+        "balance": [
+          {
+            "file": "balance-iso.png",
+            "sha256": "75340a4e23f7c69bf0032d060a378b8d96d0fd760451deb344054745bdd4ef92"
+          },
+          {
+            "file": "balance-ortho.png",
+            "sha256": "4067e11be564f7d267b7722c854a42eb5898df1d1f878c82496a31f66204260c"
+          }
+        ],
+        "vision": [
+          {
+            "file": "vision-iso.png",
+            "sha256": "f80e3a2be7fbbdea6b7e728bf789c22fe18fafb39d647baf7f66fca149dbe007"
+          },
+          {
+            "file": "vision-ortho.png",
+            "sha256": "20ebd73d72826f5631f081f4978cc0dc7a7adca2da3dc5153cec2c422b5007e1"
+          }
+        ],
+        "smell": [
+          {
+            "file": "smell-iso.png",
+            "sha256": "b1d0cfe0902e84a2bf684db0a9865f0e350342b98e5fabe683d34dbfcaad3328"
+          },
+          {
+            "file": "smell-ortho.png",
+            "sha256": "30456ab10871eced2b2d8c274f919744467c26831882d5e37e48a65434a663d1"
+          }
+        ],
+        "taste": [
+          {
+            "file": "taste-iso.png",
+            "sha256": "6dab255d032fd1482db7c41cf997206227401cdbb1954f98119e5635837dcaff"
+          },
+          {
+            "file": "taste-ortho.png",
+            "sha256": "a99baa4440b7376e71b8e07df1a7b59d8e74685b00f14d03e5c3105a26b306f2"
+          }
+        ]
+      }
+    },
+    "endocrine": {
+      "receipt": {
+        "path": ".artifacts/body-systems-survey-2026-11-19/presentation-r01/endocrine/renders.json",
+        "sha256": "15f2c23877f35570af047124886c421e94e64089b1440ae8822f91a49e43d8ea"
+      },
+      "owner": "reviews/endocrine-locator/r01/renders.json",
+      "inputs": [
+        {
+          "path": "assemblies/endocrine-locator/r01/endocrine-locator.glb",
+          "sha256": "bf7f9d786f354b9c4e9fb73fc63265752a27033371f8fb19353d7a1b4d951469"
+        }
+      ],
+      "views": {
+        "locator": [
+          {
+            "file": "locator-iso.png",
+            "sha256": "57e2e0dde9919117fe77c8766853b172d1b06692c3311a83cf927821c229d9a3"
+          },
+          {
+            "file": "locator-ortho.png",
+            "sha256": "a0698ed573ac9018187b09ec6c9dc98264127f0d3c098428a6b2e80434cbff5f"
+          }
+        ],
+        "overview": [
+          {
+            "file": "overview-iso.png",
+            "sha256": "0214b7324ad819c955b41c407468b635610e3114e03e65658ffa9841571ee03f"
+          },
+          {
+            "file": "overview-ortho.png",
+            "sha256": "0009f7c6224685ab6b240ad00f8390bb42a0a49df64afa1cb8b35f0663e3328d"
+          }
+        ],
+        "thyroid-axis": [
+          {
+            "file": "thyroid-axis-iso.png",
+            "sha256": "c7080958d5aaab71bff53350180c76a389c03dfd49fc7520ffa94da5091b50de"
+          },
+          {
+            "file": "thyroid-axis-ortho.png",
+            "sha256": "9ab24df38fa2b2bb0d1f03e5e2d0b723ce6e5fd4393ddbacfc25224697db767c"
+          }
+        ],
+        "posterior-neck": [
+          {
+            "file": "posterior-neck-iso.png",
+            "sha256": "8286211d0bfee46760dde2accbcd6f3d6ae81ffcf8b9706d5949b62530d307e4"
+          },
+          {
+            "file": "posterior-neck-ortho.png",
+            "sha256": "6444e95cc559b0c2e03af1483f43bed68b447a3e5ca6c4cb6ce09e339996966c"
+          }
+        ],
+        "islet": [
+          {
+            "file": "islet-iso.png",
+            "sha256": "ab0999bebee5933c444fa1345bb5775f60c9218bb24cbdd2ffe2865f27e44eba"
+          },
+          {
+            "file": "islet-ortho.png",
+            "sha256": "98c8130fef3a603c30c533c35760ae8061b326477d0a631d7ebc5689b3186a03"
+          }
+        ],
+        "upper-abdomen": [
+          {
+            "file": "upper-abdomen-iso.png",
+            "sha256": "481c0081e9ba8bbeba26006877c31b69b81a8f004cb39f82d8d55b731ff03db9"
+          },
+          {
+            "file": "upper-abdomen-ortho.png",
+            "sha256": "4cc993530a70f495e5e558525dc2ca728ef11db10c45aefae0f5f18cb2453b57"
+          }
+        ],
+        "posterior-abdomen": [
+          {
+            "file": "posterior-abdomen-iso.png",
+            "sha256": "f52f3f48d3a82d9ab7c554131f17f20104bffcd5c986289c28d0505e36094714"
+          },
+          {
+            "file": "posterior-abdomen-ortho.png",
+            "sha256": "d0f71888c2d48bee6203e807e036371e371838046ba7242fbf591a202f7e531d"
+          }
+        ],
+        "gonads": [
+          {
+            "file": "gonads-iso.png",
+            "sha256": "6abfb22a1f8e65305628873c47d9d19a3fa2801c08487f8097b2ede72bff85c8"
+          },
+          {
+            "file": "gonads-ortho.png",
+            "sha256": "dfe1b36febe80059fe03525526a880f7f72e61f2ac09f40e5298b4be764bcff0"
+          }
+        ]
+      }
+    },
+    "lymphatic": {
+      "receipt": {
+        "path": ".artifacts/body-systems-survey-2026-11-19/presentation-r01/lymphatic/renders.json",
+        "sha256": "24c4953dd1984cf7a8b617a41cb2aad2de8412e74c00f411f23b011417bc7197"
+      },
+      "owner": "reviews/lymphatic-return/r01/renders.json",
+      "inputs": [
+        {
+          "path": "assemblies/lymphatic-return/r01/lymphatic-return.glb",
+          "sha256": "e46b62ae432daccaf0b216c15179c98473e7817c296793fd774f1351cddf4507"
+        }
+      ],
+      "views": {
+        "overview": [
+          {
+            "file": "overview-iso.png",
+            "sha256": "ed48a9e0863d11704ce3f82c26f411792387cf5316eba3d74ea93a8d64ee7453"
+          },
+          {
+            "file": "overview-ortho.png",
+            "sha256": "d8c7bc15aa2dee85bb623cc6893937adf29eba0204c125a311723664fd102f56"
+          }
+        ],
+        "venous-angle": [
+          {
+            "file": "venous-angle-iso.png",
+            "sha256": "c7a0b4e44d834ee734beb274212a1b5bb695743ed7b2c78800f177424464971e"
+          },
+          {
+            "file": "venous-angle-ortho.png",
+            "sha256": "db2bba5872b5285361ab164654487874d132d10a29203caee1b24a7fccd651ea"
+          }
+        ],
+        "nodal-entry": [
+          {
+            "file": "nodal-entry-iso.png",
+            "sha256": "9eda62d9ae2f9682b52b00ddd1942f9e1326cf0596c1c12624ebeb433fa191ef"
+          },
+          {
+            "file": "nodal-entry-ortho.png",
+            "sha256": "eb3bba2bad0fe6e28bfb3b1c53e1f8d8fbb1f87f60380d481e9ebe9a6c938f5d"
+          }
+        ],
+        "node-transit": [
+          {
+            "file": "node-transit-iso.png",
+            "sha256": "d60295dfc7f0ca727bc75f478430cff54e04d277c1f1fcfd27ff35c780eafc04"
+          },
+          {
+            "file": "node-transit-ortho.png",
+            "sha256": "51820b4782f708e55470a39535c4e090027ff7c9c2bc0b9cf1f2647063e7426c"
+          }
+        ],
+        "organ-locators": [
+          {
+            "file": "organ-locators-iso.png",
+            "sha256": "6ad8170bd80534e25e0f08bbe183bd8b5ec6f7b988304d8ca3e27126a8523188"
+          },
+          {
+            "file": "organ-locators-ortho.png",
+            "sha256": "730a01389c95af111ee3c44b8c11b748b0551b03e337100e60571f93d3e38f05"
+          }
+        ]
+      }
+    },
+    "reproductive-female": {
+      "receipt": {
+        "path": ".artifacts/body-systems-survey-2026-11-19/presentation-r01/reproductive-female/renders.json",
+        "sha256": "24a36aa500109104df0acc2e99436b7affaca1add105e0b79524808d754791d3"
+      },
+      "owner": "reviews/reproductive-tracts/r01/female/renders.json",
+      "inputs": [
+        {
+          "path": "assemblies/reproductive-tracts/r01/female.glb",
+          "sha256": "f5f58c4c4ccdb27a72b9cf1d2ff06a9c08d7240da01bca86ce5faef61f731817"
+        }
+      ],
+      "views": {
+        "context": [
+          {
+            "file": "context-iso.png",
+            "sha256": "6cff95fa591506bc33184753c5fb8bf94d1673424026c170e67289f3f7d6876b"
+          },
+          {
+            "file": "context-ortho.png",
+            "sha256": "2db42ced94f6aa855009f93da87d8e3e044dcae0ec7c406f2c2e7c80b4253c55"
+          }
+        ],
+        "left-pickup": [
+          {
+            "file": "left-pickup-iso.png",
+            "sha256": "98d01a897bf237d8b9675870183ba46d21a2ab62d6f2df6afe4ec4fd160a9464"
+          },
+          {
+            "file": "left-pickup-ortho.png",
+            "sha256": "dc7cd4a4951d77f3962c617ffb7cc2447b6f9543983a968311264ef985e7067c"
+          }
+        ],
+        "uterine-entry": [
+          {
+            "file": "uterine-entry-iso.png",
+            "sha256": "cb8becb23de894d141a308607b97a0e3cc85b7dee45964964caa42d56924bcac"
+          },
+          {
+            "file": "uterine-entry-ortho.png",
+            "sha256": "6920c9bebd09fada6638f794614597e3304749981a9c56ff0152abd20075f09c"
+          }
+        ]
+      }
+    },
+    "reproductive-male": {
+      "receipt": {
+        "path": ".artifacts/body-systems-survey-2026-11-19/presentation-r01/reproductive-male/renders.json",
+        "sha256": "2cf2b95c56ac38c116921561025b1b8e8b1939ba0dedeb63e4d3e0f8b0504a8d"
+      },
+      "owner": "reviews/reproductive-tracts/r01/male/renders.json",
+      "inputs": [
+        {
+          "path": "assemblies/reproductive-tracts/r01/male.glb",
+          "sha256": "278f42a5717e63ac3e44aa17a083c9b2794fa62691cf5dc8c537888f8999dffa"
+        }
+      ],
+      "views": {
+        "context": [
+          {
+            "file": "context-iso.png",
+            "sha256": "aa51bf217588435e53bd03b770c43dc964d771a703557c07a89e9562a03d8348"
+          },
+          {
+            "file": "context-ortho.png",
+            "sha256": "55356aa3c81f592262069eea65477bc9ad10728d871bdbb1122c72ac6c2b455a"
+          }
+        ],
+        "route": [
+          {
+            "file": "route-iso.png",
+            "sha256": "c037ad90651f410ed33ecd75a99a3b4cad5b972b494e9901631ecc69da69a9ec"
+          },
+          {
+            "file": "route-ortho.png",
+            "sha256": "90d69d46355e808a1955f9e74007682fce58af1ba6344389f18b64dc22865490"
+          }
+        ],
+        "left-confluence": [
+          {
+            "file": "left-confluence-iso.png",
+            "sha256": "e3f12f2e209b3f338e6c9ae45f13890a81ae06368e7ea33de6b7a367fc20319e"
+          },
+          {
+            "file": "left-confluence-ortho.png",
+            "sha256": "98851d4038388b5f288330bb887e3d65d7e9e65fb0092a7fbdd63a084d29f0bc"
+          }
+        ]
+      }
+    },
+    "skin": {
+      "receipt": {
+        "path": ".artifacts/body-systems-survey-2026-11-19/presentation-r01/skin/renders.json",
+        "sha256": "fdb22c4023e2b34727eb12acf1eb89eb097ea2f2e746869a4719d8b4f895b6fd"
+      },
+      "owner": "sites/body-systems-survey/jobs.json",
+      "inputs": [
+        {
+          "path": "models/skin/exports/bp3d-envelope-r01/skin_source_frame.glb",
+          "sha256": "d86719833a17dc7b45c8eb970498f1e2feefd352b5812942f4b147a9ffcfbe4f"
+        }
+      ],
+      "views": {
+        "assembly": [
+          {
+            "file": "assembly-iso.png",
+            "sha256": "546497ee949a2adbd32f30a10c0a239036b1065442718fe3200cf8eb24a71476"
+          },
+          {
+            "file": "assembly-ortho.png",
+            "sha256": "ca3deb6a834578e3caa5a39a954aec5f01c0953c8d52732aa0260c23c459fc59"
+          }
+        ]
+      }
+    },
+    "integumentary": {
+      "receipt": {
+        "path": ".artifacts/body-systems-survey-2026-11-19/presentation-r01/integumentary/renders.json",
+        "sha256": "4eba4b9e0b4f5e90a9bcfc5453a5c3b8a739df2c4592c0414e07d6dfddc81aad"
+      },
+      "owner": "reviews/skin/teaching-block-r01/renders.json",
+      "inputs": [
+        {
+          "path": "models/skin/teaching-block-r01/skin-block.glb",
+          "sha256": "3c03ee0cf6d966d7e452b82b253153ac841d217def47abb23bfee79b3d5157e7"
+        }
+      ],
+      "views": {
+        "combined": [
+          {
+            "file": "combined-iso.png",
+            "sha256": "8eafad1dd20828b0595978d8df6d229e78f540537616597531df5ba1cd7ae555"
+          },
+          {
+            "file": "combined-ortho.png",
+            "sha256": "55a289c013a9743b807e91dfb05bae45d744137d9349b4f3a490a924f729c96e"
+          }
+        ],
+        "skin-block": [
+          {
+            "file": "skin-block-iso.png",
+            "sha256": "9f1f7d822a4e5555e144662d8f74fae099d910ab01acf3b22a2e6f800768ddec"
+          },
+          {
+            "file": "skin-block-ortho.png",
+            "sha256": "226aaf8f7d05db204ef496a948275d5a5d3f484f43eaecb449597571a31b273a"
+          }
+        ],
+        "appendages": [
+          {
+            "file": "appendages-iso.png",
+            "sha256": "869e1cdc7dcf9ad0ec5c83b7134e69ffbfdb3379a4608a28b41b9c5095474f54"
+          },
+          {
+            "file": "appendages-ortho.png",
+            "sha256": "abd7bad031260511b4161f6d6b9c574a947c8db8c1f5535fd82479f41bffbe38"
+          }
+        ],
+        "nail": [
+          {
+            "file": "nail-iso.png",
+            "sha256": "fc989d087b0da40da6dfd90692bb9972a292b76637f4444413b475854a80b7ed"
+          },
+          {
+            "file": "nail-ortho.png",
+            "sha256": "9bfbebae43efae252e2d4dcc1183949b7a5ca305a31392bd536550f500cf06ba"
+          }
+        ]
+      }
+    }
+  },
+  "plates": [
+    {
+      "system": "skeletal",
+      "kind": "assembly",
+      "id": "skeleton-assembly",
+      "scene": "skeleton",
+      "view": "assembly"
+    },
+    {
+      "system": "skeletal",
+      "kind": "detail",
+      "id": "skeletal-poses",
+      "scene": "skeletal",
+      "view": "poses"
+    },
+    {
+      "system": "skeletal",
+      "kind": "detail",
+      "id": "skeletal-source",
+      "scene": "skeletal",
+      "view": "source"
+    },
+    {
+      "system": "skeletal",
+      "kind": "detail",
+      "id": "skeletal-flexion",
+      "scene": "skeletal",
+      "view": "flexion"
+    },
+    {
+      "system": "muscular",
+      "kind": "assembly",
+      "id": "muscles-assembly",
+      "scene": "muscles",
+      "view": "assembly"
+    },
+    {
+      "system": "muscular",
+      "kind": "detail",
+      "id": "muscular-neutral",
+      "scene": "muscular",
+      "view": "neutral"
+    },
+    {
+      "system": "muscular",
+      "kind": "detail",
+      "id": "muscular-plantarflexion",
+      "scene": "muscular",
+      "view": "plantarflexion"
+    },
+    {
+      "system": "muscular",
+      "kind": "detail",
+      "id": "muscular-neutral-insertion",
+      "scene": "muscular",
+      "view": "neutral-insertion"
+    },
+    {
+      "system": "muscular",
+      "kind": "detail",
+      "id": "muscular-flexed-insertion",
+      "scene": "muscular",
+      "view": "flexed-insertion"
+    },
+    {
+      "system": "respiratory",
+      "kind": "assembly",
+      "id": "thorax-assembly",
+      "scene": "thorax",
+      "view": "assembly"
+    },
+    {
+      "system": "respiratory",
+      "kind": "detail",
+      "id": "respiratory-route",
+      "scene": "respiratory",
+      "view": "route"
+    },
+    {
+      "system": "respiratory",
+      "kind": "detail",
+      "id": "respiratory-upper",
+      "scene": "respiratory",
+      "view": "upper"
+    },
+    {
+      "system": "respiratory",
+      "kind": "detail",
+      "id": "respiratory-branch",
+      "scene": "respiratory",
+      "view": "branch"
+    },
+    {
+      "system": "respiratory",
+      "kind": "detail",
+      "id": "respiratory-terminal",
+      "scene": "respiratory",
+      "view": "terminal"
+    },
+    {
+      "system": "urinary",
+      "kind": "assembly",
+      "id": "urinary-tract",
+      "scene": "urinary",
+      "view": "tract"
+    },
+    {
+      "system": "urinary",
+      "kind": "detail",
+      "id": "urinary-overview",
+      "scene": "urinary",
+      "view": "overview"
+    },
+    {
+      "system": "urinary",
+      "kind": "detail",
+      "id": "urinary-filtration",
+      "scene": "urinary",
+      "view": "filtration"
+    },
+    {
+      "system": "urinary",
+      "kind": "detail",
+      "id": "urinary-left-renal",
+      "scene": "urinary",
+      "view": "left-renal"
+    },
+    {
+      "system": "urinary",
+      "kind": "detail",
+      "id": "urinary-right-renal",
+      "scene": "urinary",
+      "view": "right-renal"
+    },
+    {
+      "system": "urinary",
+      "kind": "detail",
+      "id": "urinary-left-vesical",
+      "scene": "urinary",
+      "view": "left-vesical"
+    },
+    {
+      "system": "urinary",
+      "kind": "detail",
+      "id": "urinary-right-vesical",
+      "scene": "urinary",
+      "view": "right-vesical"
+    },
+    {
+      "system": "urinary",
+      "kind": "detail",
+      "id": "urinary-outlet",
+      "scene": "urinary",
+      "view": "outlet"
+    },
+    {
+      "system": "cardiovascular",
+      "kind": "assembly",
+      "id": "cardiovascular-s1233-assembly",
+      "scene": "cardiovascular-s1233",
+      "view": "assembly"
+    },
+    {
+      "system": "cardiovascular",
+      "kind": "detail",
+      "id": "cardiovascular-loop",
+      "scene": "cardiovascular",
+      "view": "loop"
+    },
+    {
+      "system": "cardiovascular",
+      "kind": "detail",
+      "id": "cardiovascular-right-valves",
+      "scene": "cardiovascular",
+      "view": "right-valves"
+    },
+    {
+      "system": "cardiovascular",
+      "kind": "detail",
+      "id": "cardiovascular-left-valves",
+      "scene": "cardiovascular",
+      "view": "left-valves"
+    },
+    {
+      "system": "cardiovascular",
+      "kind": "detail",
+      "id": "cardiovascular-s1233-route",
+      "scene": "cardiovascular-s1233",
+      "view": "route"
+    },
+    {
+      "system": "digestive",
+      "kind": "assembly",
+      "id": "digestive-s1233-assembly",
+      "scene": "digestive-s1233",
+      "view": "assembly"
+    },
+    {
+      "system": "digestive",
+      "kind": "detail",
+      "id": "digestive-context",
+      "scene": "digestive",
+      "view": "context"
+    },
+    {
+      "system": "digestive",
+      "kind": "detail",
+      "id": "digestive-food",
+      "scene": "digestive",
+      "view": "food"
+    },
+    {
+      "system": "digestive",
+      "kind": "detail",
+      "id": "digestive-saliva",
+      "scene": "digestive",
+      "view": "saliva"
+    },
+    {
+      "system": "digestive",
+      "kind": "detail",
+      "id": "digestive-duodenal-entry",
+      "scene": "digestive",
+      "view": "duodenal-entry"
+    },
+    {
+      "system": "digestive",
+      "kind": "detail",
+      "id": "digestive-outlet",
+      "scene": "digestive",
+      "view": "outlet"
+    },
+    {
+      "system": "digestive",
+      "kind": "detail",
+      "id": "digestive-s1233-route",
+      "scene": "digestive-s1233",
+      "view": "route"
+    },
+    {
+      "system": "nervous",
+      "kind": "assembly",
+      "id": "nervous-central",
+      "scene": "nervous",
+      "view": "central"
+    },
+    {
+      "system": "nervous",
+      "kind": "detail",
+      "id": "nervous-central",
+      "scene": "nervous",
+      "view": "central"
+    },
+    {
+      "system": "nervous",
+      "kind": "detail",
+      "id": "nervous-ear",
+      "scene": "nervous",
+      "view": "ear"
+    },
+    {
+      "system": "nervous",
+      "kind": "detail",
+      "id": "nervous-root",
+      "scene": "nervous",
+      "view": "root"
+    },
+    {
+      "system": "nervous",
+      "kind": "detail",
+      "id": "nervous-hearing",
+      "scene": "nervous",
+      "view": "hearing"
+    },
+    {
+      "system": "nervous",
+      "kind": "detail",
+      "id": "nervous-balance",
+      "scene": "nervous",
+      "view": "balance"
+    },
+    {
+      "system": "nervous",
+      "kind": "detail",
+      "id": "nervous-vision",
+      "scene": "nervous",
+      "view": "vision"
+    },
+    {
+      "system": "nervous",
+      "kind": "detail",
+      "id": "nervous-smell",
+      "scene": "nervous",
+      "view": "smell"
+    },
+    {
+      "system": "nervous",
+      "kind": "detail",
+      "id": "nervous-taste",
+      "scene": "nervous",
+      "view": "taste"
+    },
+    {
+      "system": "endocrine",
+      "kind": "assembly",
+      "id": "endocrine-locator",
+      "scene": "endocrine",
+      "view": "locator"
+    },
+    {
+      "system": "endocrine",
+      "kind": "detail",
+      "id": "endocrine-overview",
+      "scene": "endocrine",
+      "view": "overview"
+    },
+    {
+      "system": "endocrine",
+      "kind": "detail",
+      "id": "endocrine-thyroid-axis",
+      "scene": "endocrine",
+      "view": "thyroid-axis"
+    },
+    {
+      "system": "endocrine",
+      "kind": "detail",
+      "id": "endocrine-posterior-neck",
+      "scene": "endocrine",
+      "view": "posterior-neck"
+    },
+    {
+      "system": "endocrine",
+      "kind": "detail",
+      "id": "endocrine-islet",
+      "scene": "endocrine",
+      "view": "islet"
+    },
+    {
+      "system": "endocrine",
+      "kind": "detail",
+      "id": "endocrine-upper-abdomen",
+      "scene": "endocrine",
+      "view": "upper-abdomen"
+    },
+    {
+      "system": "endocrine",
+      "kind": "detail",
+      "id": "endocrine-posterior-abdomen",
+      "scene": "endocrine",
+      "view": "posterior-abdomen"
+    },
+    {
+      "system": "endocrine",
+      "kind": "detail",
+      "id": "endocrine-gonads",
+      "scene": "endocrine",
+      "view": "gonads"
+    },
+    {
+      "system": "lymphatic",
+      "kind": "assembly",
+      "id": "lymphatic-overview",
+      "scene": "lymphatic",
+      "view": "overview"
+    },
+    {
+      "system": "lymphatic",
+      "kind": "detail",
+      "id": "lymphatic-overview",
+      "scene": "lymphatic",
+      "view": "overview"
+    },
+    {
+      "system": "lymphatic",
+      "kind": "detail",
+      "id": "lymphatic-venous-angle",
+      "scene": "lymphatic",
+      "view": "venous-angle"
+    },
+    {
+      "system": "lymphatic",
+      "kind": "detail",
+      "id": "lymphatic-nodal-entry",
+      "scene": "lymphatic",
+      "view": "nodal-entry"
+    },
+    {
+      "system": "lymphatic",
+      "kind": "detail",
+      "id": "lymphatic-node-transit",
+      "scene": "lymphatic",
+      "view": "node-transit"
+    },
+    {
+      "system": "lymphatic",
+      "kind": "detail",
+      "id": "lymphatic-organ-locators",
+      "scene": "lymphatic",
+      "view": "organ-locators"
+    },
+    {
+      "system": "reproductive",
+      "kind": "assembly",
+      "id": "reproductive-female-context",
+      "scene": "reproductive-female",
+      "view": "context"
+    },
+    {
+      "system": "reproductive",
+      "kind": "assembly",
+      "id": "reproductive-male-context",
+      "scene": "reproductive-male",
+      "view": "context"
+    },
+    {
+      "system": "reproductive",
+      "kind": "detail",
+      "id": "reproductive-female-context",
+      "scene": "reproductive-female",
+      "view": "context"
+    },
+    {
+      "system": "reproductive",
+      "kind": "detail",
+      "id": "reproductive-male-context",
+      "scene": "reproductive-male",
+      "view": "context"
+    },
+    {
+      "system": "reproductive",
+      "kind": "detail",
+      "id": "reproductive-female-left-pickup",
+      "scene": "reproductive-female",
+      "view": "left-pickup"
+    },
+    {
+      "system": "reproductive",
+      "kind": "detail",
+      "id": "reproductive-female-uterine-entry",
+      "scene": "reproductive-female",
+      "view": "uterine-entry"
+    },
+    {
+      "system": "reproductive",
+      "kind": "detail",
+      "id": "reproductive-male-route",
+      "scene": "reproductive-male",
+      "view": "route"
+    },
+    {
+      "system": "reproductive",
+      "kind": "detail",
+      "id": "reproductive-male-left-confluence",
+      "scene": "reproductive-male",
+      "view": "left-confluence"
+    },
+    {
+      "system": "integumentary",
+      "kind": "assembly",
+      "id": "skin-assembly",
+      "scene": "skin",
+      "view": "assembly"
+    },
+    {
+      "system": "integumentary",
+      "kind": "detail",
+      "id": "integumentary-combined",
+      "scene": "integumentary",
+      "view": "combined"
+    },
+    {
+      "system": "integumentary",
+      "kind": "detail",
+      "id": "integumentary-skin-block",
+      "scene": "integumentary",
+      "view": "skin-block"
+    },
+    {
+      "system": "integumentary",
+      "kind": "detail",
+      "id": "integumentary-appendages",
+      "scene": "integumentary",
+      "view": "appendages"
+    },
+    {
+      "system": "integumentary",
+      "kind": "detail",
+      "id": "integumentary-nail",
+      "scene": "integumentary",
+      "view": "nail"
+    }
+  ]
+}

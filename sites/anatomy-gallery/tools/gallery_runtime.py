@@ -263,6 +263,9 @@ def prepare_gallery(site: Path, inputs: Path, target: Path, *, offline=True):
                 if stream.read(12)[8:] != b'WEBP':
                     raise ValueError(f'Expected hydrated lesson plate: {plate.name}')
             shutil.copyfile(plate, target / 'part-images' / plate.name)
+    uv_flags = ['--offline'] if offline else []
+    subprocess.run(['uv', 'run', *uv_flags, 'python', '-m', 'assetkit.body_systems'],
+                   cwd=repo, check=True)
     system_index = repo / 'lessons/body-systems/display/index.json'
     stops = json.loads((repo / 'lessons/body-systems/reviewed-stops.json').read_text())
     systems = json.loads(system_index.read_text())
@@ -277,8 +280,15 @@ def prepare_gallery(site: Path, inputs: Path, target: Path, *, offline=True):
                 or check['status'] not in ('passed', 'blocked')):
             raise ValueError(f"Unknown reviewed stop in {system['id']}")
         system['check'] = check
+    deliveries = delivery_by_path(index)
+    plate_paths = {frame['path'] for system in systems
+                   for plate in system['plates'] for frame in plate['frames']}
+    for path in sorted(plate_paths):
+        if path not in deliveries:
+            raise ValueError(f'Body Systems display has no Gallery delivery: {path}')
+        verify_bytes((repo / path).read_bytes(), {**deliveries[path], 'path': path})
     (target / 'body-systems.json').write_text(json.dumps(systems, ensure_ascii=False))
-    prepare_display_images(repo, delivery_by_path(index), offline=offline)
+    prepare_display_images(repo, deliveries, offline=offline)
     teaching = target / 'teaching-inputs'
     teaching.mkdir()
     prepare_teaching_assessments(repo, index, teaching)
