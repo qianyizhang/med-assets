@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:bp3d:skin",
+  "title": "BodyParts3D outer body envelope",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/skin",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:bp3d-4-0:fj2810",
+      "title": "BodyParts3D 4.0 FJ2810 skin OBJ",
+      "sourceType": "external OBJ archive member",
+      "subject": "BodyParts3D 4.0 reference atlas",
+      "url": "https://dbarchive.biosciencedbc.jp/data/bodyparts3d/LATEST/isa_BP3D_4.0_obj_99.zip",
+      "externalMember": "isa_BP3D_4.0_obj_99/FJ2810.obj",
+      "sha256": "682f402206f15592acdeaae8ffb6b34c3e5c3267fa4685e63d2e4920ef2a80e0",
+      "bytes": 14465502,
+      "license": "BodyParts3D © DBCLS, CC BY 4.0; historical OBJ headers retain CC BY-SA 2.1 Japan.",
+      "evidence": [
+        {
+          "path": "models/skin/exports/bp3d-envelope-r01/ATTRIBUTION.md",
+          "sha256": "c126b70825acd2e3bf7ea8a32d1f4755861cb524ce9c6095d6a509542b6c478b"
+        },
+        {
+          "path": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json",
+          "sha256": "b025c166b0e9641be071733d03651558d58eec6f1e53422095dbde5f74ce3484"
+        }
+      ],
+      "limitations": [
+        "One adult male exterior for navigation. Assessment covers the retained body-outline views and recorded limits on hand and foot detail."
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "partId": "skin",
+      "label": "Outer body envelope",
+      "selectors": ["FJ2810 skin"],
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "bp3d-envelope-r01",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "reviews/skin/2026-10-24-bp3d-envelope-r01-bounded-migration/bounded-record.json",
+        "sha256": "01e2803bd4afe35b3299adec371814e1c861790e4c48a5d941f416cd9ac52ec9"
+      },
+      "sourceIds": ["source:bp3d-4-0:fj2810"],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": ["right-handed", "Y-up", "+X atlas left", "+Y superior", "+Z anterior"],
+        "evidence": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json"
+      },
+      "partIds": ["skin"],
+      "exports": [
+        {
+          "id": "envelope",
+          "path": "models/skin/exports/bp3d-envelope-r01/skin_source_frame.glb",
+          "sha256": "d86719833a17dc7b45c8eb970498f1e2feefd352b5812942f4b147a9ffcfbe4f",
+          "bytes": 4901132,
+          "format": "glb",
+          "triangles": 203382,
+          "partIds": ["skin"]
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "The FJ2810 OBJ-to-GLB build environment is external and its replay is unverified. The bounded record preserves the source association and exact GLB.",
+    "Direct placement into s1233 is unverified. The ultrasound sweep applies its local fit to the contact window."
+  ]
+}
