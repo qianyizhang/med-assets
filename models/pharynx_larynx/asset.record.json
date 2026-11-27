@@ -1,0 +1,399 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:bp3d:pharynx-larynx",
+  "title": "BodyParts3D pharynx and larynx",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/pharynx_larynx",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:pharynx-larynx:r03",
+      "title": "BodyParts3D source-frame pharynx and larynx source and replay for r03",
+      "sourceType": "recipe source or retained provenance",
+      "subject": "BodyParts3D source-frame pharynx and larynx",
+      "license": "BodyParts3D © DBCLS, CC BY 4.0. Historical source headers retain CC BY-SA 2.1 Japan.",
+      "evidence": [
+        {
+          "path": "models/pharynx_larynx/exports/r03/README.md",
+          "sha256": "bfe33a5912b5fd07bd8d21e315fad2779e971214aa0c954393a9aa6bbff9330f"
+        },
+        {
+          "path": "models/pharynx_larynx/exports/r03/ATTRIBUTION.md",
+          "sha256": "cfda6f0ff97071d18ee221025dd0cb35be954900897b0e772c7f2b6ea898c723"
+        },
+        {
+          "path": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json",
+          "sha256": "c5f364d6bbfd974e126f6141dd13514c08cb95c98dc01f391f08b4491fc04942"
+        }
+      ]
+    },
+    {
+      "sourceId": "source:pharynx-larynx:teaching-economy-r01",
+      "title": "BodyParts3D source-frame pharynx and larynx source and replay for teaching-economy-r01",
+      "sourceType": "recipe source or retained provenance",
+      "subject": "BodyParts3D source-frame pharynx and larynx",
+      "license": "BodyParts3D © DBCLS, CC BY 4.0. Historical source headers retain CC BY-SA 2.1 Japan.",
+      "evidence": [
+        {
+          "path": "models/pharynx_larynx/exports/teaching-economy-r01/README.md",
+          "sha256": "09887f58780a5a48f1d406d4fb46a1ed65ff044ed1a10fa7d5b1ed62e7870353"
+        },
+        {
+          "path": "models/pharynx_larynx/exports/r03/ATTRIBUTION.md",
+          "sha256": "cfda6f0ff97071d18ee221025dd0cb35be954900897b0e772c7f2b6ea898c723"
+        },
+        {
+          "path": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json",
+          "sha256": "c5f364d6bbfd974e126f6141dd13514c08cb95c98dc01f391f08b4491fc04942"
+        }
+      ],
+      "path": "models/pharynx_larynx/exports/r03/pharynx_larynx.glb",
+      "sha256": "d691a60f12d448b9b36d362270429c672c01c7fae0f10a8789ef188dd4c08530",
+      "bytes": 5050088
+    }
+  ],
+  "parts": [
+    {
+      "partId": "fj2740-left-inferior-pharyngeal-constrictor",
+      "label": "FJ2740 Left inferior pharyngeal constrictor",
+      "selectors": [
+        "FJ2740 Left inferior pharyngeal constrictor"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "fj2752-right-inferior-pharyngeal-constrictor",
+      "label": "FJ2752 Right inferior pharyngeal constrictor",
+      "selectors": [
+        "FJ2752 Right inferior pharyngeal constrictor"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "fj2769-cricoid-cartilage",
+      "label": "FJ2769 Cricoid cartilage",
+      "selectors": [
+        "FJ2769 Cricoid cartilage"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "fj2770-epiglottis",
+      "label": "FJ2770 Epiglottis",
+      "selectors": [
+        "FJ2770 Epiglottis"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "fj2771-hyo-epiglottic-ligament",
+      "label": "FJ2771 Hyo-epiglottic ligament",
+      "selectors": [
+        "FJ2771 Hyo-epiglottic ligament"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "fj2775-left-arytenoid-cartilage",
+      "label": "FJ2775 Left arytenoid cartilage",
+      "selectors": [
+        "FJ2775 Left arytenoid cartilage"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "fj2778-left-lateral-crico-arytenoid",
+      "label": "FJ2778 Left lateral crico-arytenoid",
+      "selectors": [
+        "FJ2778 Left lateral crico-arytenoid"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "fj2780-left-oblique-arytenoid",
+      "label": "FJ2780 Left oblique arytenoid",
+      "selectors": [
+        "FJ2780 Left oblique arytenoid"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "fj2782-left-posterior-crico-arytenoid",
+      "label": "FJ2782 Left posterior crico-arytenoid",
+      "selectors": [
+        "FJ2782 Left posterior crico-arytenoid"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "fj2784-left-thyro-arytenoid",
+      "label": "FJ2784 Left thyro-arytenoid",
+      "selectors": [
+        "FJ2784 Left thyro-arytenoid"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "fj2785-left-thyro-arytenoid",
+      "label": "FJ2785 Left thyro-arytenoid",
+      "selectors": [
+        "FJ2785 Left thyro-arytenoid"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "fj2788-left-vocalis",
+      "label": "FJ2788 Left vocalis",
+      "selectors": [
+        "FJ2788 Left vocalis"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "fj2792-right-arytenoid-cartilage",
+      "label": "FJ2792 Right arytenoid cartilage",
+      "selectors": [
+        "FJ2792 Right arytenoid cartilage"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "fj2796-right-lateral-crico-arytenoid",
+      "label": "FJ2796 Right lateral crico-arytenoid",
+      "selectors": [
+        "FJ2796 Right lateral crico-arytenoid"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "fj2798-right-oblique-arytenoid",
+      "label": "FJ2798 Right oblique arytenoid",
+      "selectors": [
+        "FJ2798 Right oblique arytenoid"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "fj2800-right-posterior-crico-arytenoid",
+      "label": "FJ2800 Right posterior crico-arytenoid",
+      "selectors": [
+        "FJ2800 Right posterior crico-arytenoid"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "fj2802-right-thyro-arytenoid",
+      "label": "FJ2802 Right thyro-arytenoid",
+      "selectors": [
+        "FJ2802 Right thyro-arytenoid"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "fj2803-right-thyro-arytenoid",
+      "label": "FJ2803 Right thyro-arytenoid",
+      "selectors": [
+        "FJ2803 Right thyro-arytenoid"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "fj2806-right-vocalis",
+      "label": "FJ2806 Right vocalis",
+      "selectors": [
+        "FJ2806 Right vocalis"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "fj2807-thyro-epiglottic-ligament",
+      "label": "FJ2807 Thyro-epiglottic ligament",
+      "selectors": [
+        "FJ2807 Thyro-epiglottic ligament"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "fj2808-thyroid-cartilage",
+      "label": "FJ2808 Thyroid cartilage",
+      "selectors": [
+        "FJ2808 Thyroid cartilage"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "fj2809-transverse-arytenoid",
+      "label": "FJ2809 Transverse arytenoid",
+      "selectors": [
+        "FJ2809 Transverse arytenoid"
+      ],
+      "registration": "unknown"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "r03",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "models/pharynx_larynx/exports/r03/README.md",
+        "sha256": "bfe33a5912b5fd07bd8d21e315fad2779e971214aa0c954393a9aa6bbff9330f"
+      },
+      "sourceIds": [
+        "source:pharynx-larynx:r03"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "models/pharynx_larynx/exports/r03/README.md"
+      },
+      "exports": [
+        {
+          "id": "regional",
+          "path": "models/pharynx_larynx/exports/r03/pharynx_larynx.glb",
+          "sha256": "d691a60f12d448b9b36d362270429c672c01c7fae0f10a8789ef188dd4c08530",
+          "bytes": 5050088,
+          "triangles": 278720,
+          "format": "glb",
+          "partIds": [
+            "fj2740-left-inferior-pharyngeal-constrictor",
+            "fj2752-right-inferior-pharyngeal-constrictor",
+            "fj2769-cricoid-cartilage",
+            "fj2770-epiglottis",
+            "fj2771-hyo-epiglottic-ligament",
+            "fj2775-left-arytenoid-cartilage",
+            "fj2778-left-lateral-crico-arytenoid",
+            "fj2780-left-oblique-arytenoid",
+            "fj2782-left-posterior-crico-arytenoid",
+            "fj2784-left-thyro-arytenoid",
+            "fj2785-left-thyro-arytenoid",
+            "fj2788-left-vocalis",
+            "fj2792-right-arytenoid-cartilage",
+            "fj2796-right-lateral-crico-arytenoid",
+            "fj2798-right-oblique-arytenoid",
+            "fj2800-right-posterior-crico-arytenoid",
+            "fj2802-right-thyro-arytenoid",
+            "fj2803-right-thyro-arytenoid",
+            "fj2806-right-vocalis",
+            "fj2807-thyro-epiglottic-ligament",
+            "fj2808-thyroid-cartilage",
+            "fj2809-transverse-arytenoid"
+          ]
+        }
+      ],
+      "qualifications": [],
+      "partIds": [
+        "fj2740-left-inferior-pharyngeal-constrictor",
+        "fj2752-right-inferior-pharyngeal-constrictor",
+        "fj2769-cricoid-cartilage",
+        "fj2770-epiglottis",
+        "fj2771-hyo-epiglottic-ligament",
+        "fj2775-left-arytenoid-cartilage",
+        "fj2778-left-lateral-crico-arytenoid",
+        "fj2780-left-oblique-arytenoid",
+        "fj2782-left-posterior-crico-arytenoid",
+        "fj2784-left-thyro-arytenoid",
+        "fj2785-left-thyro-arytenoid",
+        "fj2788-left-vocalis",
+        "fj2792-right-arytenoid-cartilage",
+        "fj2796-right-lateral-crico-arytenoid",
+        "fj2798-right-oblique-arytenoid",
+        "fj2800-right-posterior-crico-arytenoid",
+        "fj2802-right-thyro-arytenoid",
+        "fj2803-right-thyro-arytenoid",
+        "fj2806-right-vocalis",
+        "fj2807-thyro-epiglottic-ligament",
+        "fj2808-thyroid-cartilage",
+        "fj2809-transverse-arytenoid"
+      ]
+    },
+    {
+      "revisionId": "teaching-economy-r01",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "models/pharynx_larynx/exports/teaching-economy-r01/README.md",
+        "sha256": "09887f58780a5a48f1d406d4fb46a1ed65ff044ed1a10fa7d5b1ed62e7870353"
+      },
+      "sourceIds": [
+        "source:pharynx-larynx:teaching-economy-r01"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "models/pharynx_larynx/exports/teaching-economy-r01/README.md"
+      },
+      "exports": [
+        {
+          "id": "regional",
+          "path": "models/pharynx_larynx/exports/teaching-economy-r01/pharynx_larynx.glb",
+          "sha256": "6145abfa541670441bdc7b61978121dc4f5d2730731b873a76b9fff1428d7bff",
+          "bytes": 3834688,
+          "triangles": 211184,
+          "format": "glb",
+          "partIds": [
+            "fj2740-left-inferior-pharyngeal-constrictor",
+            "fj2752-right-inferior-pharyngeal-constrictor",
+            "fj2769-cricoid-cartilage",
+            "fj2770-epiglottis",
+            "fj2771-hyo-epiglottic-ligament",
+            "fj2775-left-arytenoid-cartilage",
+            "fj2778-left-lateral-crico-arytenoid",
+            "fj2780-left-oblique-arytenoid",
+            "fj2782-left-posterior-crico-arytenoid",
+            "fj2784-left-thyro-arytenoid",
+            "fj2785-left-thyro-arytenoid",
+            "fj2788-left-vocalis",
+            "fj2792-right-arytenoid-cartilage",
+            "fj2796-right-lateral-crico-arytenoid",
+            "fj2798-right-oblique-arytenoid",
+            "fj2800-right-posterior-crico-arytenoid",
+            "fj2802-right-thyro-arytenoid",
+            "fj2803-right-thyro-arytenoid",
+            "fj2806-right-vocalis",
+            "fj2807-thyro-epiglottic-ligament",
+            "fj2808-thyroid-cartilage",
+            "fj2809-transverse-arytenoid"
+          ]
+        }
+      ],
+      "qualifications": [],
+      "recipe": "recipes/teaching-economy-r01.json",
+      "partIds": [
+        "fj2740-left-inferior-pharyngeal-constrictor",
+        "fj2752-right-inferior-pharyngeal-constrictor",
+        "fj2769-cricoid-cartilage",
+        "fj2770-epiglottis",
+        "fj2771-hyo-epiglottic-ligament",
+        "fj2775-left-arytenoid-cartilage",
+        "fj2778-left-lateral-crico-arytenoid",
+        "fj2780-left-oblique-arytenoid",
+        "fj2782-left-posterior-crico-arytenoid",
+        "fj2784-left-thyro-arytenoid",
+        "fj2785-left-thyro-arytenoid",
+        "fj2788-left-vocalis",
+        "fj2792-right-arytenoid-cartilage",
+        "fj2796-right-lateral-crico-arytenoid",
+        "fj2798-right-oblique-arytenoid",
+        "fj2800-right-posterior-crico-arytenoid",
+        "fj2802-right-thyro-arytenoid",
+        "fj2803-right-thyro-arytenoid",
+        "fj2806-right-vocalis",
+        "fj2807-thyro-epiglottic-ligament",
+        "fj2808-thyroid-cartilage",
+        "fj2809-transverse-arytenoid"
+      ]
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "The scoped review supports the selected surface landmarks. Airway and swallowing mechanics have separate evidence."
+  ]
+}

@@ -1,0 +1,351 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:hra:prostate",
+  "title": "HRA male v1.1 prostate",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/prostate",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:prostate:hra-v1-1",
+      "title": "HRA male v1.1 prostate source and replay for hra-v1-1",
+      "sourceType": "recipe source or retained provenance",
+      "subject": "HRA male v1.1 prostate",
+      "license": "CC BY 4.0, with the Human Reference Atlas and named creators credited.",
+      "evidence": [
+        {
+          "path": "models/prostate/README.md",
+          "sha256": "d24e1e4d25dc9fa4dd02c128fba86747262fd54c82e4e16eda996bd62e90a687"
+        },
+        {
+          "path": "models/prostate/ATTRIBUTION.md",
+          "sha256": "67f9689b1ab0f22f7798270b14aa839756b0e0309b44ee235f1d4b2ba3c60cf1"
+        },
+        {
+          "path": "sources/datasets/hra/prostate-v1.1/source.json",
+          "sha256": "47df0197499eda845396a980a6e27cc98b9a19ff8ce15a2df2b4ccdc68774e90"
+        }
+      ]
+    },
+    {
+      "sourceId": "source:prostate:teaching-economy-r01",
+      "title": "HRA male v1.1 prostate source and replay for teaching-economy-r01",
+      "sourceType": "recipe source or retained provenance",
+      "subject": "HRA male v1.1 prostate",
+      "license": "CC BY 4.0, with the Human Reference Atlas and named creators credited.",
+      "evidence": [
+        {
+          "path": "models/prostate/exports/teaching-economy-r01/README.md",
+          "sha256": "36828320b38b59b35383b4cdd2fb94cb3a0415d9c97da1f697737dcb0f4457ce"
+        },
+        {
+          "path": "models/prostate/ATTRIBUTION.md",
+          "sha256": "67f9689b1ab0f22f7798270b14aa839756b0e0309b44ee235f1d4b2ba3c60cf1"
+        },
+        {
+          "path": "sources/datasets/hra/prostate-v1.1/source.json",
+          "sha256": "47df0197499eda845396a980a6e27cc98b9a19ff8ce15a2df2b4ccdc68774e90"
+        }
+      ],
+      "path": "models/prostate/exports/hra-v1.1/VH_M_Prostate.glb",
+      "sha256": "ec1023e0a1b81f71865872bb720404abc7bb6378a54ac71fa9f24579b097f48a",
+      "bytes": 4086328
+    }
+  ],
+  "parts": [
+    {
+      "partId": "vh-m-vas-deferens-l",
+      "label": "VH_M_vas_deferens_L",
+      "selectors": [
+        "VH_M_vas_deferens_L"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "vh-m-vas-deferens-r",
+      "label": "VH_M_vas_deferens_R",
+      "selectors": [
+        "VH_M_vas_deferens_R"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "vh-m-seminal-vesicle",
+      "label": "VH_M_seminal_vesicle",
+      "selectors": [
+        "VH_M_seminal_vesicle"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "vh-m-ejaculatory-duct",
+      "label": "VH_M_ejaculatory_duct",
+      "selectors": [
+        "VH_M_ejaculatory_duct"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "vh-m-prostatic-utricle",
+      "label": "VH_M_prostatic_utricle",
+      "selectors": [
+        "VH_M_prostatic_utricle"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "vh-m-seminal-colliculus",
+      "label": "VH_M_seminal_colliculus",
+      "selectors": [
+        "VH_M_seminal_colliculus"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "vh-m-prostate-duct-r",
+      "label": "VH_M_prostate_duct_R",
+      "selectors": [
+        "VH_M_prostate_duct_R"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "vh-m-prostate-duct-l",
+      "label": "VH_M_prostate_duct_L",
+      "selectors": [
+        "VH_M_prostate_duct_L"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "vh-m-apex-of-prostate",
+      "label": "VH_M_apex_of_prostate",
+      "selectors": [
+        "VH_M_apex_of_prostate"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "vh-m-base-of-prostate",
+      "label": "VH_M_base_of_prostate",
+      "selectors": [
+        "VH_M_base_of_prostate"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "vh-m-peripheral-zone-of-prostate-r",
+      "label": "VH_M_peripheral_zone_of_prostate_R",
+      "selectors": [
+        "VH_M_peripheral_zone_of_prostate_R"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "vh-m-peripheral-zone-of-prostate-l",
+      "label": "VH_M_peripheral_zone_of_prostate_L",
+      "selectors": [
+        "VH_M_peripheral_zone_of_prostate_L"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "vh-m-transition-zone-of-prostate-l",
+      "label": "VH_M_transition_zone__of_prostate_L",
+      "selectors": [
+        "VH_M_transition_zone__of_prostate_L"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "vh-m-transition-zone-of-prostate-r",
+      "label": "VH_M_transition_zone_of_prostate_R",
+      "selectors": [
+        "VH_M_transition_zone_of_prostate_R"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "vh-m-central-zone-of-prostate-r",
+      "label": "VH_M_central_zone_of_prostate_R",
+      "selectors": [
+        "VH_M_central_zone_of_prostate_R"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "vh-m-central-zone-of-prostate-l",
+      "label": "VH_M_central_zone_of_prostate_L",
+      "selectors": [
+        "VH_M_central_zone_of_prostate_L"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "vh-m-anterior-fibromuscular-stroma-l",
+      "label": "VH_M_anterior_fibromuscular_stroma_L",
+      "selectors": [
+        "VH_M_anterior_fibromuscular_stroma_L"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "vh-m-anterior-fibromuscular-stroma-r",
+      "label": "VH_M_anterior_fibromuscular_stroma_R",
+      "selectors": [
+        "VH_M_anterior_fibromuscular_stroma_R"
+      ],
+      "registration": "unknown"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "hra-v1-1",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "models/prostate/README.md",
+        "sha256": "d24e1e4d25dc9fa4dd02c128fba86747262fd54c82e4e16eda996bd62e90a687"
+      },
+      "sourceIds": [
+        "source:prostate:hra-v1-1"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "models/prostate/README.md"
+      },
+      "exports": [
+        {
+          "id": "prostate",
+          "path": "models/prostate/exports/hra-v1.1/VH_M_Prostate.glb",
+          "sha256": "ec1023e0a1b81f71865872bb720404abc7bb6378a54ac71fa9f24579b097f48a",
+          "bytes": 4086328,
+          "triangles": 224676,
+          "format": "glb",
+          "partIds": [
+            "vh-m-vas-deferens-l",
+            "vh-m-vas-deferens-r",
+            "vh-m-seminal-vesicle",
+            "vh-m-ejaculatory-duct",
+            "vh-m-prostatic-utricle",
+            "vh-m-seminal-colliculus",
+            "vh-m-prostate-duct-r",
+            "vh-m-prostate-duct-l",
+            "vh-m-apex-of-prostate",
+            "vh-m-base-of-prostate",
+            "vh-m-peripheral-zone-of-prostate-r",
+            "vh-m-peripheral-zone-of-prostate-l",
+            "vh-m-transition-zone-of-prostate-l",
+            "vh-m-transition-zone-of-prostate-r",
+            "vh-m-central-zone-of-prostate-r",
+            "vh-m-central-zone-of-prostate-l",
+            "vh-m-anterior-fibromuscular-stroma-l",
+            "vh-m-anterior-fibromuscular-stroma-r"
+          ]
+        }
+      ],
+      "qualifications": [],
+      "partIds": [
+        "vh-m-anterior-fibromuscular-stroma-l",
+        "vh-m-anterior-fibromuscular-stroma-r",
+        "vh-m-apex-of-prostate",
+        "vh-m-base-of-prostate",
+        "vh-m-central-zone-of-prostate-l",
+        "vh-m-central-zone-of-prostate-r",
+        "vh-m-ejaculatory-duct",
+        "vh-m-peripheral-zone-of-prostate-l",
+        "vh-m-peripheral-zone-of-prostate-r",
+        "vh-m-prostate-duct-l",
+        "vh-m-prostate-duct-r",
+        "vh-m-prostatic-utricle",
+        "vh-m-seminal-colliculus",
+        "vh-m-seminal-vesicle",
+        "vh-m-transition-zone-of-prostate-l",
+        "vh-m-transition-zone-of-prostate-r",
+        "vh-m-vas-deferens-l",
+        "vh-m-vas-deferens-r"
+      ]
+    },
+    {
+      "revisionId": "teaching-economy-r01",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "models/prostate/exports/teaching-economy-r01/README.md",
+        "sha256": "36828320b38b59b35383b4cdd2fb94cb3a0415d9c97da1f697737dcb0f4457ce"
+      },
+      "sourceIds": [
+        "source:prostate:teaching-economy-r01"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "models/prostate/exports/teaching-economy-r01/README.md"
+      },
+      "exports": [
+        {
+          "id": "prostate",
+          "path": "models/prostate/exports/teaching-economy-r01/VH_M_Prostate.glb",
+          "sha256": "b46de84b02283254f06855274831657641dbd8c3e94f558f3677ecaa8255c700",
+          "bytes": 3013520,
+          "triangles": 165066,
+          "format": "glb",
+          "partIds": [
+            "vh-m-vas-deferens-l",
+            "vh-m-vas-deferens-r",
+            "vh-m-seminal-vesicle",
+            "vh-m-ejaculatory-duct",
+            "vh-m-prostatic-utricle",
+            "vh-m-seminal-colliculus",
+            "vh-m-prostate-duct-r",
+            "vh-m-prostate-duct-l",
+            "vh-m-apex-of-prostate",
+            "vh-m-base-of-prostate",
+            "vh-m-peripheral-zone-of-prostate-r",
+            "vh-m-peripheral-zone-of-prostate-l",
+            "vh-m-transition-zone-of-prostate-l",
+            "vh-m-transition-zone-of-prostate-r",
+            "vh-m-central-zone-of-prostate-r",
+            "vh-m-central-zone-of-prostate-l",
+            "vh-m-anterior-fibromuscular-stroma-l",
+            "vh-m-anterior-fibromuscular-stroma-r"
+          ]
+        }
+      ],
+      "qualifications": [],
+      "recipe": "recipes/teaching-economy-r01.json",
+      "partIds": [
+        "vh-m-anterior-fibromuscular-stroma-l",
+        "vh-m-anterior-fibromuscular-stroma-r",
+        "vh-m-apex-of-prostate",
+        "vh-m-base-of-prostate",
+        "vh-m-central-zone-of-prostate-l",
+        "vh-m-central-zone-of-prostate-r",
+        "vh-m-ejaculatory-duct",
+        "vh-m-peripheral-zone-of-prostate-l",
+        "vh-m-peripheral-zone-of-prostate-r",
+        "vh-m-prostate-duct-l",
+        "vh-m-prostate-duct-r",
+        "vh-m-prostatic-utricle",
+        "vh-m-seminal-colliculus",
+        "vh-m-seminal-vesicle",
+        "vh-m-transition-zone-of-prostate-l",
+        "vh-m-transition-zone-of-prostate-r",
+        "vh-m-vas-deferens-l",
+        "vh-m-vas-deferens-r"
+      ]
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "Source and compact editions retain native atlas coordinates. Adjacent-organ registration has separate evidence."
+  ]
+}

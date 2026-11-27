@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:bp3d:pituitary",
+  "title": "BodyParts3D pituitary exterior",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/pituitary",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:pituitary:source-candidate-01",
+      "title": "BodyParts3D FJ1796 pituitary envelope source and replay for source-candidate-01",
+      "sourceType": "recipe source or retained provenance",
+      "subject": "BodyParts3D FJ1796 pituitary envelope",
+      "license": "BodyParts3D © DBCLS, CC BY 4.0. Historical source headers retain CC BY-SA 2.1 Japan.",
+      "evidence": [
+        {
+          "path": "models/pituitary/README.md",
+          "sha256": "6a67dd210e793cf13b1fcc6aab68ac8a0228d0e336ab9abf0ba5fc7331d00f0b"
+        },
+        {
+          "path": "models/pituitary/ATTRIBUTION.md",
+          "sha256": "9e7dcb5d7527406343f5aca723da50258279b0ee7a106d55444895ce9ae4717e"
+        },
+        {
+          "path": "sources/datasets/bp3d-4.0-glands/SOURCE-FRAME.md",
+          "sha256": "d06160979cd8293bffeacadc892fe626210566fbb3d186e99993d759c2661122"
+        }
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "partId": "fj1796-pituitary-gland",
+      "label": "FJ1796 pituitary gland",
+      "selectors": [
+        "FJ1796 pituitary gland"
+      ],
+      "registration": "unknown"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "source-candidate-01",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "models/pituitary/README.md",
+        "sha256": "6a67dd210e793cf13b1fcc6aab68ac8a0228d0e336ab9abf0ba5fc7331d00f0b"
+      },
+      "sourceIds": [
+        "source:pituitary:source-candidate-01"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "models/pituitary/README.md"
+      },
+      "exports": [
+        {
+          "id": "exterior",
+          "path": "models/pituitary/exports/source-candidate-01/pituitary_source_frame.glb",
+          "sha256": "8eae4c6d05b0c9de5128ae6f574a97265cb392a44567fcac5ea0b9b7f1dbca68",
+          "bytes": 22296,
+          "triangles": 1164,
+          "format": "glb",
+          "partIds": [
+            "fj1796-pituitary-gland"
+          ]
+        }
+      ],
+      "qualifications": [],
+      "partIds": [
+        "fj1796-pituitary-gland"
+      ]
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "The native exterior supplies an orientation landmark and input to the independent joined stalk assembly."
+  ]
+}

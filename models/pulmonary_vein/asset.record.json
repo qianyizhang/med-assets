@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:s1233:pulmonary-vein",
+  "title": "s1233 pulmonary vein component",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/pulmonary_vein",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:pulmonary-vein:metadata-cleanup-r01",
+      "title": "TotalSegmentator v2.0.1 case s1233 source and replay for metadata-cleanup-r01",
+      "sourceType": "recipe source or retained provenance",
+      "subject": "TotalSegmentator v2.0.1 case s1233",
+      "license": "CC BY 4.0. Retain the TotalSegmentator data and label-source notices.",
+      "evidence": [
+        {
+          "path": "reviews/pulmonary_vein/2026-10-23-metadata-cleanup-r01/record.json",
+          "sha256": "71aeeb1620a745f064008fd41691c83ba9776f13daed6b266370e480b9fecec3"
+        },
+        {
+          "path": "models/pulmonary_vein/recipes/metadata/approved-patch.json",
+          "sha256": "a1a86075a9e590b02d4aa70e7d2f9b5b2f8ee51974606a9c5dd6bf9c670b5454"
+        },
+        {
+          "path": "body/anatomy-workshop-r1/docs/licenses/NOTICE.md",
+          "sha256": "87372df39878e0c73903675edc21875fa712a90b22f497ffb55d50a29f210a94"
+        }
+      ],
+      "path": "body/anatomy-workshop-r1/meshes/pulmonary_vein.glb",
+      "sha256": "9dcafbb0fcc625ad7952443e0b6274d200e4a97c9792ccecaa3645bd80214355",
+      "bytes": 1719172
+    }
+  ],
+  "parts": [
+    {
+      "partId": "pulmonary-vein-source-surface",
+      "label": "Pulmonary Vein | source surface",
+      "selectors": [
+        "Pulmonary Vein | source surface"
+      ],
+      "registration": "unknown"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "metadata-cleanup-r01",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "reviews/pulmonary_vein/2026-10-23-metadata-cleanup-r01/record.json",
+        "sha256": "71aeeb1620a745f064008fd41691c83ba9776f13daed6b266370e480b9fecec3"
+      },
+      "sourceIds": [
+        "source:pulmonary-vein:metadata-cleanup-r01"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "reviews/pulmonary_vein/2026-10-23-metadata-cleanup-r01/record.json"
+      },
+      "exports": [
+        {
+          "id": "surface",
+          "path": "models/pulmonary_vein/exports/metadata-cleanup-r01/pulmonary_vein.glb",
+          "sha256": "9e0454c0a920bcd9292d1aced370ff781b97aa8fb87b0439eb1f0ac21517a593",
+          "bytes": 1718704,
+          "triangles": 9600,
+          "format": "glb",
+          "partIds": [
+            "pulmonary-vein-source-surface"
+          ]
+        }
+      ],
+      "qualifications": [],
+      "partIds": [
+        "pulmonary-vein-source-surface"
+      ]
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "The surface has an independent component reader. The joined heart relationship is shown in its separate lesson."
+  ]
+}
