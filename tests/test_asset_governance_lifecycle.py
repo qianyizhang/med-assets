@@ -45,6 +45,20 @@ class LifecycleTests(unittest.TestCase):
             self.assertEqual(revision["geometryDigest"],hashlib.sha256(b"fixture geometry").hexdigest())
             self.assertEqual(maintenance["sourceDeclarations"][0]["sourceId"],"source:fixture")
 
+    def test_refine_can_disposition_only_explicit_unresolved_items(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp); package=self.fixture(root)
+            record_path=package/"asset.record.json"
+            record=json.loads(record_path.read_text())
+            issue="No exact source selector."
+            record["unresolved"]=[issue]
+            record_path.write_text(json.dumps(record,indent=2)+"\\n")
+            plan=self.plan_apply(root,"refine",{"resolveUnresolved":[issue],
+                "addUnresolved":["Rights review pending"]})
+            apply_lifecycle_plan(root,plan)
+            updated=json.loads(record_path.read_text())
+            self.assertEqual(updated["unresolved"],["Rights review pending"])
+
     def test_qualify_promote_and_idempotent_apply(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp); self.fixture(root)
