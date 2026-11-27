@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:s1233:l3-vertebra",
+  "title": "s1233 L3 vertebra",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/vertebrae_L3",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:vertebrae-l3:metadata-cleanup-r01",
+      "title": "TotalSegmentator v2.0.1 case s1233 source and replay for metadata-cleanup-r01",
+      "sourceType": "recipe source or retained provenance",
+      "subject": "TotalSegmentator v2.0.1 case s1233",
+      "license": "CC BY 4.0. Retain the TotalSegmentator data and label-source notices.",
+      "evidence": [
+        {
+          "path": "models/vertebrae_L3/README.md",
+          "sha256": "bfc44b01c6f1d5be167595aa54d5d2a999f5511a739df77c4fb28d91ad372487"
+        },
+        {
+          "path": "models/vertebrae_L3/recipes/metadata/approved-patch.json",
+          "sha256": "2d4d5aa8a06b629e0a38ba818bf40246365e481bc7a8933c82812338ddcf66d5"
+        },
+        {
+          "path": "models/vertebrae_L3/source/ATTRIBUTION.md",
+          "sha256": "27e5ac61149f235a44ecf7299710e6b239584df674932c1a49d4da64139e85d3"
+        }
+      ],
+      "path": "body/anatomy-workshop-r1/meshes/vertebrae_L3.glb",
+      "sha256": "823ab88a4cc7d3f9b7ee58a2039521d8fdc41367bb0913fe034133334d99fec4",
+      "bytes": 2035060
+    }
+  ],
+  "parts": [
+    {
+      "partId": "vertebrae-l3-source-surface",
+      "label": "Vertebrae L3 | source surface",
+      "selectors": [
+        "Vertebrae L3 | source surface"
+      ],
+      "registration": "unknown"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "metadata-cleanup-r01",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "models/vertebrae_L3/README.md",
+        "sha256": "bfc44b01c6f1d5be167595aa54d5d2a999f5511a739df77c4fb28d91ad372487"
+      },
+      "sourceIds": [
+        "source:vertebrae-l3:metadata-cleanup-r01"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "models/vertebrae_L3/README.md"
+      },
+      "exports": [
+        {
+          "id": "surface",
+          "path": "models/vertebrae_L3/exports/metadata-cleanup-r01/vertebrae_L3.glb",
+          "sha256": "ba74f52842207d396bd0e959d40fedc0adf69e787072117e037b0ba9d18eebfe",
+          "bytes": 2034520,
+          "triangles": 9600,
+          "format": "glb",
+          "partIds": [
+            "vertebrae-l3-source-surface"
+          ]
+        }
+      ],
+      "qualifications": [],
+      "partIds": [
+        "vertebrae-l3-source-surface"
+      ]
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "The study covers the named s1233 surface. It stays separate from the BodyParts3D L3–L4 teaching assembly."
+  ]
+}

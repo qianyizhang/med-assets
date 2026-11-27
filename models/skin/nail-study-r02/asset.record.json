@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:authored:nail-unit",
+  "title": "Nail unit longitudinal half-section",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/skin/nail-study-r02",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:skin-nail-study-r02:nail-study-r02",
+      "title": "Authored local nail and distal digit section source and replay for nail-study-r02",
+      "sourceType": "recipe source or retained provenance",
+      "subject": "Authored local nail and distal digit section",
+      "evidence": [
+        {
+          "path": "models/skin/nail-study-r02/README.md",
+          "sha256": "594ced0943a3c8988aadbd3738332a9a3f095fe06977cd59efbb574340de710a"
+        },
+        {
+          "path": "models/skin/teaching-block-r01/README.md",
+          "sha256": "fe51b97f5b60c27a7b2d480ce2a3ed065bda384579cbbb99345e606bc8f185a8"
+        },
+        {
+          "path": "reviews/skin/teaching-block-r01/record.json",
+          "sha256": "84e535711ba207c75dce60edd38d4786e1a03907b2324f353a6e8110bfa4546b"
+        },
+        {
+          "path": "reviews/body-systems/2026-11-20-surface-quality/README.md",
+          "sha256": "2450f0df321323d68f5603c518d086007a47547478ba036888ccc8f06fc1455a"
+        }
+      ],
+      "unresolved": "The owning package has no separately declared redistribution licence for this authored geometry.",
+      "sha256": "3c03ee0cf6d966d7e452b82b253153ac841d217def47abb23bfee79b3d5157e7",
+      "bytes": 1852252,
+      "limitations": [
+        "The r01 whole skin block is recovered through the Body Systems archive for paired comparisons."
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "partId": "nail-distal-digit-tissue",
+      "label": "Nail | Distal digit tissue",
+      "selectors": [
+        "Nail | Distal digit tissue"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "nail-germinal-matrix",
+      "label": "Nail | Germinal matrix",
+      "selectors": [
+        "Nail | Germinal matrix"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "nail-nail-bed",
+      "label": "Nail | Nail bed",
+      "selectors": [
+        "Nail | Nail bed"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "nail-nail-plate-with-free-edge",
+      "label": "Nail | Nail plate with free edge",
+      "selectors": [
+        "Nail | Nail plate with free edge"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "nail-proximal-nail-fold",
+      "label": "Nail | Proximal nail fold",
+      "selectors": [
+        "Nail | Proximal nail fold"
+      ],
+      "registration": "unknown"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "nail-study-r02",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "models/skin/nail-study-r02/README.md",
+        "sha256": "594ced0943a3c8988aadbd3738332a9a3f095fe06977cd59efbb574340de710a"
+      },
+      "sourceIds": [
+        "source:skin-nail-study-r02:nail-study-r02"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "models/skin/nail-study-r02/README.md"
+      },
+      "exports": [
+        {
+          "id": "section",
+          "path": "models/skin/nail-study-r02/nail.glb",
+          "sha256": "677760b2459c6a94828a6d79fbd9b69620d58fc044c8d079bc23cc84ffa54761",
+          "bytes": 94576,
+          "triangles": 4076,
+          "format": "glb",
+          "partIds": [
+            "nail-distal-digit-tissue",
+            "nail-germinal-matrix",
+            "nail-nail-bed",
+            "nail-nail-plate-with-free-edge",
+            "nail-proximal-nail-fold"
+          ]
+        }
+      ],
+      "qualifications": [],
+      "partIds": [
+        "nail-distal-digit-tissue",
+        "nail-germinal-matrix",
+        "nail-nail-bed",
+        "nail-nail-plate-with-free-edge",
+        "nail-proximal-nail-fold"
+      ]
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "The owning package has no separately declared redistribution licence for this authored geometry.",
+    "The local frame supports gross teaching relationships. The whole skin block and native BodyParts3D envelope are distinct studies."
+  ]
+}

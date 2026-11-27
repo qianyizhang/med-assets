@@ -1,0 +1,706 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:s1233:trachea",
+  "title": "s1233 tracheal study and authored airway teaching variants",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/trachea",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:trachea:metadata-cleanup-r01",
+      "title": "TotalSegmentator v2.0.1 case s1233 source and replay for metadata-cleanup-r01",
+      "sourceType": "recipe source or retained provenance",
+      "subject": "TotalSegmentator v2.0.1 case s1233",
+      "license": "CC BY 4.0. Retain the TotalSegmentator data and label-source notices.",
+      "evidence": [
+        {
+          "path": "reviews/trachea/2026-10-23-metadata-cleanup-r01/record.json",
+          "sha256": "55a974f56cf969ee151d257558528f2fde06c76b3972765015548ed0ac14da0c"
+        },
+        {
+          "path": "models/trachea/recipes/metadata/approved-patch.json",
+          "sha256": "64b1fe519fbcf41938fff7f5703551240eedbe7e8b80f97ffadbd2d65a86681c"
+        },
+        {
+          "path": "body/anatomy-workshop-r1/docs/licenses/NOTICE.md",
+          "sha256": "87372df39878e0c73903675edc21875fa712a90b22f497ffb55d50a29f210a94"
+        }
+      ],
+      "path": "body/anatomy-workshop-r1/meshes/trachea.glb",
+      "sha256": "5390537c1e27e9630ec93d4d5437d29081c26f88e87889834091e3fca47ccd45",
+      "bytes": 2858964
+    },
+    {
+      "sourceId": "source:trachea:host-conforming-cbands-r05",
+      "title": "s1233 host and authored host-conforming bands source and replay for host-conforming-cbands-r05",
+      "sourceType": "recipe source or retained provenance",
+      "subject": "s1233 host and authored host-conforming bands",
+      "license": "CC BY 4.0. Retain the TotalSegmentator data and label-source notices.",
+      "evidence": [
+        {
+          "path": "models/trachea/exports/host-conforming-cbands-r05/README.md",
+          "sha256": "e0807bab024f6ceb914fa2ff0b248dcaed09462bc0b57e84ed72bfa5671a9ef3"
+        },
+        {
+          "path": "models/trachea/exports/host-conforming-cbands-r05/ATTRIBUTION.md",
+          "sha256": "c1736928b19b1f1a8b11d20b29a5ad8054e3449c948a313268b1d33c59e09706"
+        },
+        {
+          "path": "reviews/trachea/2026-10-25-host-conforming-cbands-r05/baseline-render-qa.json",
+          "sha256": "b8a58fc5129fea77d61e1611fba5099db72a0c2eb6ebb51fbb8ca8cf8cf81720"
+        }
+      ],
+      "path": "body/anatomy-workshop-r1/meshes/trachea.glb",
+      "sha256": "5390537c1e27e9630ec93d4d5437d29081c26f88e87889834091e3fca47ccd45",
+      "bytes": 2858964
+    },
+    {
+      "sourceId": "source:trachea:open-airway-r06",
+      "title": "s1233 host and authored open teaching airway source and replay for open-airway-r06",
+      "sourceType": "recipe source or retained provenance",
+      "subject": "s1233 host and authored open teaching airway",
+      "license": "CC BY 4.0. Retain the TotalSegmentator data and label-source notices.",
+      "evidence": [
+        {
+          "path": "models/trachea/exports/open-airway-r06/README.md",
+          "sha256": "6e2f7b926fac5a6686d440029b22f8a397d749ca64e68cc9f87c821d0e6446b4"
+        },
+        {
+          "path": "models/trachea/exports/open-airway-r06/ATTRIBUTION.md",
+          "sha256": "f2849d9cb807d3088da297bb2ee7d229a3f4bdb61944236bd09defeb850b5364"
+        },
+        {
+          "path": "models/trachea/recipes/open-airway/README.md",
+          "sha256": "ec90f418199ea08d9e4210b83442d373ddb429068952be0f079e3027741f2c1b"
+        }
+      ],
+      "path": "models/trachea/exports/host-conforming-cbands-r05/trachea_host_conforming_illustration.glb",
+      "sha256": "af54ca254e47910ded53c6b690b475ab17236ba47d314fbdd5357dc67849bf4d",
+      "bytes": 707132
+    },
+    {
+      "sourceId": "source:trachea:teaching-economy-r02",
+      "title": "s1233 host and authored open teaching airway source and replay for teaching-economy-r02",
+      "sourceType": "recipe source or retained provenance",
+      "subject": "s1233 host and authored open teaching airway",
+      "license": "CC BY 4.0. Retain the TotalSegmentator data and label-source notices.",
+      "evidence": [
+        {
+          "path": "models/trachea/exports/teaching-economy-r02/README.md",
+          "sha256": "f6fc96d9a32067946071095a1cbcbfa987c31a0b3cf2fbc6ee476fc5be9cca8f"
+        },
+        {
+          "path": "models/trachea/exports/open-airway-r06/ATTRIBUTION.md",
+          "sha256": "f2849d9cb807d3088da297bb2ee7d229a3f4bdb61944236bd09defeb850b5364"
+        }
+      ],
+      "path": "models/trachea/exports/open-airway-r06/trachea-open.glb",
+      "sha256": "eb3ce52962aacc4d109a9840685aa172ca1d97bfc835367f4e36fd32de6b6cbb",
+      "bytes": 962440
+    }
+  ],
+  "parts": [
+    {
+      "partId": "trachea-source-surface",
+      "label": "Trachea | source surface",
+      "selectors": [
+        "Trachea | source surface"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "tracheal-c-cartilage-1",
+      "label": "Tracheal C cartilage 1",
+      "selectors": [
+        "Tracheal C cartilage 1"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "tracheal-c-cartilage-2",
+      "label": "Tracheal C cartilage 2",
+      "selectors": [
+        "Tracheal C cartilage 2"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "tracheal-c-cartilage-3",
+      "label": "Tracheal C cartilage 3",
+      "selectors": [
+        "Tracheal C cartilage 3"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "tracheal-c-cartilage-4",
+      "label": "Tracheal C cartilage 4",
+      "selectors": [
+        "Tracheal C cartilage 4"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "tracheal-c-cartilage-5",
+      "label": "Tracheal C cartilage 5",
+      "selectors": [
+        "Tracheal C cartilage 5"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "tracheal-c-cartilage-6",
+      "label": "Tracheal C cartilage 6",
+      "selectors": [
+        "Tracheal C cartilage 6"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "tracheal-c-cartilage-7",
+      "label": "Tracheal C cartilage 7",
+      "selectors": [
+        "Tracheal C cartilage 7"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "tracheal-c-cartilage-8",
+      "label": "Tracheal C cartilage 8",
+      "selectors": [
+        "Tracheal C cartilage 8"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "tracheal-c-cartilage-9",
+      "label": "Tracheal C cartilage 9",
+      "selectors": [
+        "Tracheal C cartilage 9"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "tracheal-c-cartilage-10",
+      "label": "Tracheal C cartilage 10",
+      "selectors": [
+        "Tracheal C cartilage 10"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "tracheal-c-cartilage-11",
+      "label": "Tracheal C cartilage 11",
+      "selectors": [
+        "Tracheal C cartilage 11"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "tracheal-c-cartilage-12",
+      "label": "Tracheal C cartilage 12",
+      "selectors": [
+        "Tracheal C cartilage 12"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "tracheal-c-cartilage-13",
+      "label": "Tracheal C cartilage 13",
+      "selectors": [
+        "Tracheal C cartilage 13"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "tracheal-c-cartilage-14",
+      "label": "Tracheal C cartilage 14",
+      "selectors": [
+        "Tracheal C cartilage 14"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "authored-illustrative-c-band-1",
+      "label": "Authored illustrative C-band 1",
+      "selectors": [
+        "Authored illustrative C-band 1"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "authored-illustrative-c-band-2",
+      "label": "Authored illustrative C-band 2",
+      "selectors": [
+        "Authored illustrative C-band 2"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "authored-illustrative-c-band-3",
+      "label": "Authored illustrative C-band 3",
+      "selectors": [
+        "Authored illustrative C-band 3"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "authored-illustrative-c-band-4",
+      "label": "Authored illustrative C-band 4",
+      "selectors": [
+        "Authored illustrative C-band 4"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "authored-illustrative-c-band-5",
+      "label": "Authored illustrative C-band 5",
+      "selectors": [
+        "Authored illustrative C-band 5"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "authored-illustrative-c-band-6",
+      "label": "Authored illustrative C-band 6",
+      "selectors": [
+        "Authored illustrative C-band 6"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "authored-illustrative-c-band-7",
+      "label": "Authored illustrative C-band 7",
+      "selectors": [
+        "Authored illustrative C-band 7"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "authored-illustrative-c-band-8",
+      "label": "Authored illustrative C-band 8",
+      "selectors": [
+        "Authored illustrative C-band 8"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "authored-illustrative-c-band-9",
+      "label": "Authored illustrative C-band 9",
+      "selectors": [
+        "Authored illustrative C-band 9"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "authored-illustrative-c-band-10",
+      "label": "Authored illustrative C-band 10",
+      "selectors": [
+        "Authored illustrative C-band 10"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "authored-illustrative-c-band-11",
+      "label": "Authored illustrative C-band 11",
+      "selectors": [
+        "Authored illustrative C-band 11"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "authored-illustrative-c-band-12",
+      "label": "Authored illustrative C-band 12",
+      "selectors": [
+        "Authored illustrative C-band 12"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "authored-illustrative-c-band-13",
+      "label": "Authored illustrative C-band 13",
+      "selectors": [
+        "Authored illustrative C-band 13"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "authored-illustrative-c-band-14",
+      "label": "Authored illustrative C-band 14",
+      "selectors": [
+        "Authored illustrative C-band 14"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "authored-illustrative-c-band-15",
+      "label": "Authored illustrative C-band 15",
+      "selectors": [
+        "Authored illustrative C-band 15"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "authored-illustrative-c-band-16",
+      "label": "Authored illustrative C-band 16",
+      "selectors": [
+        "Authored illustrative C-band 16"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "authored-illustrative-c-band-17",
+      "label": "Authored illustrative C-band 17",
+      "selectors": [
+        "Authored illustrative C-band 17"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "authored-illustrative-c-band-18",
+      "label": "Authored illustrative C-band 18",
+      "selectors": [
+        "Authored illustrative C-band 18"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "trachea-authored-open-teaching-shell",
+      "label": "Trachea | authored open teaching shell",
+      "selectors": [
+        "Trachea | authored open teaching shell"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "trachea-authored-cutaway-teaching-shell",
+      "label": "Trachea | authored cutaway teaching shell",
+      "selectors": [
+        "Trachea | authored cutaway teaching shell"
+      ],
+      "registration": "unknown"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "metadata-cleanup-r01",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "reviews/trachea/2026-10-23-metadata-cleanup-r01/record.json",
+        "sha256": "55a974f56cf969ee151d257558528f2fde06c76b3972765015548ed0ac14da0c"
+      },
+      "sourceIds": [
+        "source:trachea:metadata-cleanup-r01"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "reviews/trachea/2026-10-23-metadata-cleanup-r01/record.json"
+      },
+      "exports": [
+        {
+          "id": "surface",
+          "path": "models/trachea/exports/metadata-cleanup-r01/trachea.glb",
+          "sha256": "04667b54ff0b71e3841975dc23bae31930898e4917092a42d7d1ad553fd8b3c8",
+          "bytes": 2858536,
+          "triangles": 54440,
+          "format": "glb",
+          "partIds": [
+            "trachea-source-surface",
+            "tracheal-c-cartilage-1",
+            "tracheal-c-cartilage-2",
+            "tracheal-c-cartilage-3",
+            "tracheal-c-cartilage-4",
+            "tracheal-c-cartilage-5",
+            "tracheal-c-cartilage-6",
+            "tracheal-c-cartilage-7",
+            "tracheal-c-cartilage-8",
+            "tracheal-c-cartilage-9",
+            "tracheal-c-cartilage-10",
+            "tracheal-c-cartilage-11",
+            "tracheal-c-cartilage-12",
+            "tracheal-c-cartilage-13",
+            "tracheal-c-cartilage-14"
+          ]
+        }
+      ],
+      "qualifications": [],
+      "partIds": [
+        "trachea-source-surface",
+        "tracheal-c-cartilage-1",
+        "tracheal-c-cartilage-10",
+        "tracheal-c-cartilage-11",
+        "tracheal-c-cartilage-12",
+        "tracheal-c-cartilage-13",
+        "tracheal-c-cartilage-14",
+        "tracheal-c-cartilage-2",
+        "tracheal-c-cartilage-3",
+        "tracheal-c-cartilage-4",
+        "tracheal-c-cartilage-5",
+        "tracheal-c-cartilage-6",
+        "tracheal-c-cartilage-7",
+        "tracheal-c-cartilage-8",
+        "tracheal-c-cartilage-9"
+      ]
+    },
+    {
+      "revisionId": "host-conforming-cbands-r05",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "models/trachea/exports/host-conforming-cbands-r05/README.md",
+        "sha256": "e0807bab024f6ceb914fa2ff0b248dcaed09462bc0b57e84ed72bfa5671a9ef3"
+      },
+      "sourceIds": [
+        "source:trachea:host-conforming-cbands-r05"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "models/trachea/exports/host-conforming-cbands-r05/README.md"
+      },
+      "exports": [
+        {
+          "id": "host",
+          "path": "models/trachea/exports/host-conforming-cbands-r05/trachea_host_conforming_illustration.glb",
+          "sha256": "af54ca254e47910ded53c6b690b475ab17236ba47d314fbdd5357dc67849bf4d",
+          "bytes": 707132,
+          "triangles": 47832,
+          "format": "glb",
+          "partIds": [
+            "trachea-source-surface",
+            "authored-illustrative-c-band-1",
+            "authored-illustrative-c-band-2",
+            "authored-illustrative-c-band-3",
+            "authored-illustrative-c-band-4",
+            "authored-illustrative-c-band-5",
+            "authored-illustrative-c-band-6",
+            "authored-illustrative-c-band-7",
+            "authored-illustrative-c-band-8",
+            "authored-illustrative-c-band-9",
+            "authored-illustrative-c-band-10",
+            "authored-illustrative-c-band-11",
+            "authored-illustrative-c-band-12",
+            "authored-illustrative-c-band-13",
+            "authored-illustrative-c-band-14",
+            "authored-illustrative-c-band-15",
+            "authored-illustrative-c-band-16",
+            "authored-illustrative-c-band-17",
+            "authored-illustrative-c-band-18"
+          ]
+        }
+      ],
+      "qualifications": [],
+      "partIds": [
+        "authored-illustrative-c-band-1",
+        "authored-illustrative-c-band-10",
+        "authored-illustrative-c-band-11",
+        "authored-illustrative-c-band-12",
+        "authored-illustrative-c-band-13",
+        "authored-illustrative-c-band-14",
+        "authored-illustrative-c-band-15",
+        "authored-illustrative-c-band-16",
+        "authored-illustrative-c-band-17",
+        "authored-illustrative-c-band-18",
+        "authored-illustrative-c-band-2",
+        "authored-illustrative-c-band-3",
+        "authored-illustrative-c-band-4",
+        "authored-illustrative-c-band-5",
+        "authored-illustrative-c-band-6",
+        "authored-illustrative-c-band-7",
+        "authored-illustrative-c-band-8",
+        "authored-illustrative-c-band-9",
+        "trachea-source-surface"
+      ]
+    },
+    {
+      "revisionId": "open-airway-r06",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "models/trachea/exports/open-airway-r06/README.md",
+        "sha256": "6e2f7b926fac5a6686d440029b22f8a397d749ca64e68cc9f87c821d0e6446b4"
+      },
+      "sourceIds": [
+        "source:trachea:open-airway-r06"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "models/trachea/exports/open-airway-r06/README.md"
+      },
+      "exports": [
+        {
+          "id": "open",
+          "path": "models/trachea/exports/open-airway-r06/trachea-open.glb",
+          "sha256": "eb3ce52962aacc4d109a9840685aa172ca1d97bfc835367f4e36fd32de6b6cbb",
+          "bytes": 962440,
+          "triangles": 50978,
+          "format": "glb",
+          "partIds": [
+            "trachea-authored-open-teaching-shell",
+            "authored-illustrative-c-band-1",
+            "authored-illustrative-c-band-2",
+            "authored-illustrative-c-band-3",
+            "authored-illustrative-c-band-4",
+            "authored-illustrative-c-band-5",
+            "authored-illustrative-c-band-6",
+            "authored-illustrative-c-band-7",
+            "authored-illustrative-c-band-8",
+            "authored-illustrative-c-band-9",
+            "authored-illustrative-c-band-10",
+            "authored-illustrative-c-band-11",
+            "authored-illustrative-c-band-12",
+            "authored-illustrative-c-band-13",
+            "authored-illustrative-c-band-14",
+            "authored-illustrative-c-band-15",
+            "authored-illustrative-c-band-16",
+            "authored-illustrative-c-band-17",
+            "authored-illustrative-c-band-18"
+          ]
+        },
+        {
+          "id": "cutaway",
+          "path": "models/trachea/exports/open-airway-r06/trachea-cutaway.glb",
+          "sha256": "42b25a9e3de950db1a083da3802d4bb982c9084c425f768824c8973dc08be283",
+          "bytes": 1564740,
+          "triangles": 24942,
+          "format": "glb",
+          "partIds": [
+            "trachea-authored-cutaway-teaching-shell",
+            "authored-illustrative-c-band-1",
+            "authored-illustrative-c-band-2",
+            "authored-illustrative-c-band-3",
+            "authored-illustrative-c-band-4",
+            "authored-illustrative-c-band-5",
+            "authored-illustrative-c-band-6",
+            "authored-illustrative-c-band-7",
+            "authored-illustrative-c-band-8",
+            "authored-illustrative-c-band-9",
+            "authored-illustrative-c-band-10",
+            "authored-illustrative-c-band-11",
+            "authored-illustrative-c-band-12",
+            "authored-illustrative-c-band-13",
+            "authored-illustrative-c-band-14",
+            "authored-illustrative-c-band-15",
+            "authored-illustrative-c-band-16",
+            "authored-illustrative-c-band-17",
+            "authored-illustrative-c-band-18"
+          ]
+        }
+      ],
+      "qualifications": [],
+      "partIds": [
+        "authored-illustrative-c-band-1",
+        "authored-illustrative-c-band-10",
+        "authored-illustrative-c-band-11",
+        "authored-illustrative-c-band-12",
+        "authored-illustrative-c-band-13",
+        "authored-illustrative-c-band-14",
+        "authored-illustrative-c-band-15",
+        "authored-illustrative-c-band-16",
+        "authored-illustrative-c-band-17",
+        "authored-illustrative-c-band-18",
+        "authored-illustrative-c-band-2",
+        "authored-illustrative-c-band-3",
+        "authored-illustrative-c-band-4",
+        "authored-illustrative-c-band-5",
+        "authored-illustrative-c-band-6",
+        "authored-illustrative-c-band-7",
+        "authored-illustrative-c-band-8",
+        "authored-illustrative-c-band-9",
+        "trachea-authored-cutaway-teaching-shell",
+        "trachea-authored-open-teaching-shell"
+      ]
+    },
+    {
+      "revisionId": "teaching-economy-r02",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "models/trachea/exports/teaching-economy-r02/README.md",
+        "sha256": "f6fc96d9a32067946071095a1cbcbfa987c31a0b3cf2fbc6ee476fc5be9cca8f"
+      },
+      "sourceIds": [
+        "source:trachea:teaching-economy-r02"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "models/trachea/exports/teaching-economy-r02/README.md"
+      },
+      "exports": [
+        {
+          "id": "open",
+          "path": "models/trachea/exports/teaching-economy-r02/trachea-open.glb",
+          "sha256": "814dff70dee2f62b7dcb13ee2a3fcde36b6579e440ab10bc38a758be347e97c8",
+          "bytes": 751300,
+          "triangles": 50978,
+          "format": "glb",
+          "partIds": [
+            "trachea-authored-open-teaching-shell",
+            "authored-illustrative-c-band-1",
+            "authored-illustrative-c-band-2",
+            "authored-illustrative-c-band-3",
+            "authored-illustrative-c-band-4",
+            "authored-illustrative-c-band-5",
+            "authored-illustrative-c-band-6",
+            "authored-illustrative-c-band-7",
+            "authored-illustrative-c-band-8",
+            "authored-illustrative-c-band-9",
+            "authored-illustrative-c-band-10",
+            "authored-illustrative-c-band-11",
+            "authored-illustrative-c-band-12",
+            "authored-illustrative-c-band-13",
+            "authored-illustrative-c-band-14",
+            "authored-illustrative-c-band-15",
+            "authored-illustrative-c-band-16",
+            "authored-illustrative-c-band-17",
+            "authored-illustrative-c-band-18"
+          ]
+        }
+      ],
+      "qualifications": [],
+      "recipe": "recipes/teaching-economy-r02.json",
+      "partIds": [
+        "authored-illustrative-c-band-1",
+        "authored-illustrative-c-band-10",
+        "authored-illustrative-c-band-11",
+        "authored-illustrative-c-band-12",
+        "authored-illustrative-c-band-13",
+        "authored-illustrative-c-band-14",
+        "authored-illustrative-c-band-15",
+        "authored-illustrative-c-band-16",
+        "authored-illustrative-c-band-17",
+        "authored-illustrative-c-band-18",
+        "authored-illustrative-c-band-2",
+        "authored-illustrative-c-band-3",
+        "authored-illustrative-c-band-4",
+        "authored-illustrative-c-band-5",
+        "authored-illustrative-c-band-6",
+        "authored-illustrative-c-band-7",
+        "authored-illustrative-c-band-8",
+        "authored-illustrative-c-band-9",
+        "trachea-authored-open-teaching-shell"
+      ]
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "The source credit applies to the scan-derived host. The authored bands, inferred wall and cut are instructional. Separate rights for authored code and geometry are unspecified in the owner’s attribution."
+  ]
+}

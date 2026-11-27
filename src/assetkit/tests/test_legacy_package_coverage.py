@@ -68,8 +68,6 @@ def test_retained_anatomy_paths_remain_discoverable_alongside_native_owners():
     retained = {
         "models/liver/exports/metadata-cleanup-r01/liver.glb",
         "models/liver/exports/hra-female-v1.10-r02/liver.glb",
-        "models/skin/exports/teaching-economy-r01/skin_source_frame.glb",
-        "models/skin/nail-study-r02/nail.glb",
     }
     for path in retained:
         view = workspace.show(path)
@@ -83,6 +81,16 @@ def test_retained_anatomy_paths_remain_discoverable_alongside_native_owners():
     assert skeleton_view.asset.source_manifest == "models/skeleton/asset.record.json"
     skeleton_impact = workspace.impact("anatomy:bp3d:skeleton@source-candidate-03:skeleton")
     assert skeleton_impact.matched_export_paths == (original_skeleton,)
+
+    skin_owners = {
+        "models/skin/exports/teaching-economy-r01/skin_source_frame.glb": "models/skin/asset.record.json",
+        "models/skin/nail-study-r02/nail.glb": "models/skin/nail-study-r02/asset.record.json",
+    }
+    for path, owner in skin_owners.items():
+        view = workspace.show(path)
+        assert isinstance(view, ShowAssetResult)
+        assert view.asset.source_manifest == owner
+        assert workspace.impact(path).matched_export_paths == (path,)
 
     selected = {selection.export_path: selection for selection in workspace.curation.selections}
     r2_paths = {item.path for item in workspace.plan_r2_sync()}
