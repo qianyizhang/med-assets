@@ -25,7 +25,9 @@ def create_backfill_plan(repo:Path)->dict[str,Any]:
           "decision":"defer","assetId":None,"owner":item.path,
           "notes":"Package discovery is not proof of an independent asset lineage. Confirm granularity and ownership."})
     return {"schemaVersion":1,"intent":"asset-record-backfill","repository":str(repo.resolve()),
-      "sourceHashes":catalog.source_hashes,"proposals":proposals,
+      "sourceHashes":catalog.source_hashes,
+      "existingAssetIds":[item.candidate_id for item in catalog.packages if item.record_path],
+      "proposals":proposals,
       "consumerCoverage":{"bodySystemsStops":sum(x.domain=="body-systems" for x in catalog.consumers),
         "ultrasoundRequirements":sum(x.domain=="ultrasound-anatomy" for x in catalog.consumers)}}
 
@@ -37,15 +39,19 @@ def apply_backfill_plan(repo:Path,plan_path:Path):
     if plan.get("schemaVersion")!=1 or plan.get("intent")!="asset-record-backfill": raise GovernanceError("Unsupported backfill plan")
     if Path(plan.get("repository","")).resolve()!=repo: raise GovernanceError("Plan belongs to another checkout")
     if build_catalog(repo).source_hashes!=plan.get("sourceHashes"): raise GovernanceError("Backfill inputs changed; regenerate the plan")
-    applied=[];ids=set()
+    applied=[];ids=set(plan.get("existingAssetIds",[]))
+    current_packages={item.candidate_id:item for item in build_catalog(repo).packages}
     for proposal in plan.get("proposals",[]):
         if proposal.get("decision")!="accept": continue
         asset_id=proposal.get("assetId")
         if not isinstance(asset_id,str) or not asset_id.strip() or asset_id in ids: raise GovernanceError("Accepted proposal needs a unique explicit assetId")
-        ids.add(asset_id);owner=source_path(proposal["owner"])
+        ids.add(asset_id)
+        candidate=current_packages.get(proposal.get("candidateId"))
+        if candidate is None or candidate.path!=proposal.get("packagePath") or list(candidate.exports)!=proposal.get("exports"):
+            raise GovernanceError("Package export inventory changed after planning")
+        owner=source_path(proposal["owner"])
         if owner!=proposal["packagePath"]: raise GovernanceError("Record must be written by its owning package")
         package=owner_path(repo,owner);destination=package/"asset.record.json"
-        if destination.exists(): raise GovernanceError(f"Record already exists: {destination}")
         if _sha(package/"README.md")!=proposal.get("readmeSha256"): raise GovernanceError(f"Package changed: {owner}")
         record={"schemaVersion":1,"assetId":asset_id,"title":proposal["title"],"kind":proposal["kind"],
           "status":"provisional","owner":owner,"concepts":[],"sources":[],"parts":[],"revisions":[],"uses":[],
@@ -54,7 +60,11 @@ def apply_backfill_plan(repo:Path,plan_path:Path):
             "Map stable concepts and named parts to exact source selectors.",
             "Bind revisions, exports, recipes and artifact identities.",
             "Reconcile downstream consumers before qualification or retirement."]}
-        _atomic(destination,(json.dumps(record,ensure_ascii=False,indent=2)+"\\n").encode())
+        encoded=(json.dumps(record,ensure_ascii=False,indent=2)+"\\n").encode()
+        if destination.exists():
+            if destination.read_bytes()!=encoded: raise GovernanceError(f"Conflicting existing asset record: {destination}")
+            continue
+        _atomic(destination,encoded)
         applied.append(destination.relative_to(repo).as_posix())
     return applied
 

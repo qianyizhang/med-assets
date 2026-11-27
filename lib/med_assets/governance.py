@@ -106,6 +106,83 @@ def body_system_consumers(repo:Path):
             "reviewed-"+status,BODY_STOPS,{"observation":observation,"reviewer":data.get("reviewer"),"date":data.get("date")}))
     return tuple(result)
 
+def _javascript_calls(source:str):
+    """Yield function calls with balanced delimiters; ignore strings and comments."""
+    pattern=re.compile(r"\b(gap|rebuild|missingPart)\s*\(")
+    for match in pattern.finditer(source):
+        start=match.end(); depth=1; quote=None; escaped=False; line_comment=False; block_comment=False; i=start
+        while i<len(source) and depth:
+            char=source[i]; nxt=source[i+1] if i+1<len(source) else ""
+            if line_comment:
+                if char=="\n": line_comment=False
+            elif block_comment:
+                if char=="*" and nxt=="/": block_comment=False;i+=1
+            elif quote:
+                if escaped: escaped=False
+                elif char=="\\": escaped=True
+                elif char==quote: quote=None
+            elif char in ("'",'"',"\`"): quote=char
+            elif char=="/" and nxt=="/": line_comment=True;i+=1
+            elif char=="/" and nxt=="*": block_comment=True;i+=1
+            elif char=="(": depth+=1
+            elif char==")": depth-=1
+            i+=1
+        if depth: raise GovernanceError(f"Unclosed ultrasound requirement call at line {source.count(chr(10),0,match.start())+1}")
+        body=source[start:i-1]
+        args=[];begin=0;level=0;quote=None;escaped=False
+        for pos,char in enumerate(body):
+            if quote:
+                if escaped: escaped=False
+                elif char=="\\": escaped=True
+                elif char==quote: quote=None
+            elif char in ("'",'"',"\`"): quote=char
+            elif char in "([{": level+=1
+            elif char in ")]}": level-=1
+            elif char=="," and level==0:
+                args.append(body[begin:pos].strip());begin=pos+1
+        args.append(body[begin:].strip())
+        def literal(value):
+            value=value.strip()
+            if len(value)>=2 and value[0] in ("'",'"') and value[-1]==value[0]:
+                try: return bytes(value[1:-1],"utf-8").decode("unicode_escape")
+                except UnicodeDecodeError: return value[1:-1]
+            return None
+        strings=[literal(arg) for arg in args]
+        yield match.group(1),args,strings,source.count("\n",0,match.start())+1
+
+def ultrasound_gap_requirements(repo:Path):
+    result=[]
+    files=("experiments/ultrasound-sweep/development/assets-abdomen.js",
+           "experiments/ultrasound-sweep/development/assets-exams.js")
+    for filename in files:
+        path=owner_path(repo,filename)
+        if not path.is_file(): continue
+        source=path.read_text(encoding="utf-8")
+        for function,args,strings,line in _javascript_calls(source):
+            if function in ("gap","rebuild"):
+                if len(args)<4: raise GovernanceError(f"Malformed {function} requirement at {filename}:{line}")
+                part=next((strings[i] for i in range(1,len(strings)) if strings[i]),None)
+                # The semantic part and label are the last direct string arguments
+                # before any legacy alias array.
+                direct=[value for value in strings if value]
+                if len(direct)<3:
+                    # Shared resolvers may construct requirements from runtime identities.
+                    continue
+                offset=1 if args and (args[0].strip().startswith("'") or args[0].strip().startswith('"')) else 0
+                if len(direct)<offset+3: continue
+                part,label,reason=direct[offset],direct[offset+1],direct[offset+2]
+                status="rebuild-required" if function=="rebuild" else "missing-required"
+            else:
+                if len(args)<5: raise GovernanceError(f"Malformed missingPart requirement at {filename}:{line}")
+                direct=[value for value in strings if value]
+                if len(direct)<5: raise GovernanceError(f"Incomplete missingPart requirement at {filename}:{line}")
+                part,label,reason=direct[2],direct[3],direct[4]
+                status="missing-required"
+            identity=f"ultrasound:geometry-gap:{Path(filename).stem}:{line}:{part}"
+            result.append(Consumer(identity,"ultrasound-anatomy","geometry-requirement",
+                label,reason,status,filename,{"part":part,"declaration":function,"line":line}))
+    return result
+
 def ultrasound_consumers(repo:Path):
     result=[]; brief=owner_path(repo,US_BRIEF)
     if brief.is_file():

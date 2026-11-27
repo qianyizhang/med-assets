@@ -24,7 +24,7 @@ Concepts form a typed polyhierarchical graph. \`part_of\` and \`is_a\` are hiera
 
 ### Ultrasound Anatomy
 
-The catalog imports scenario requirements from the maintained [Ultrasound Anatomy brief](gallery/use-cases/ultrasound-anatomy.md), plus exact case/part/task/revision evidence from workbench review packages. It preserves distinctions between:
+The catalog imports scenario requirements from the maintained [Ultrasound Anatomy brief](gallery/use-cases/ultrasound-anatomy.md), 32 authored case records and their 163 case-view requirements, 16 top-level sweep-track definitions, source-declared missing/rebuild geometry requirements, and exact case/part/task/revision evidence from workbench review packages. These are separate requirement/evidence records, not 32 or 163 new assets. The wider published workbench target of 32 tours and 410 chapters remains a consumer acceptance target; the current adapter does not claim that every generated tour chapter has been independently reconciled. It preserves distinctions between:
 
 - Original sweep geometry and its source lineage.
 - Exact Gallery assets and named source surfaces.
@@ -91,9 +91,12 @@ The first API is read-only: scan, find, show and impact. Subsequent mutations us
 
 ## Verification
 
+The library uses Python 3.11+ standard-library dataclasses, strict repository-path checks and JSON contracts. It adds no database, service, runtime package dependency or second source of truth. Run its focused suite through unittest discovery, or run the repository's full offline gate:
+
 \`\`\`sh
-PYTHONPATH=lib python -m unittest tests.test_asset_governance
+PYTHONPATH=lib python -m unittest discover -s tests -p 'test_asset_governance.py'
 python tools/asset_governance.py scan >/tmp/asset-catalog.json
+python tools/verify.py offline
 \`\`\`
 
 The catalog is not a completeness claim. Unresolved owners, requirements, registrations, rights and readers remain visible.

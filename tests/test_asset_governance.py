@@ -2,6 +2,7 @@ import json,tempfile,unittest
 from pathlib import Path
 from med_assets.governance import GovernanceError,build_catalog,find,show
 from med_assets.governance_migration import apply_backfill_plan,create_backfill_plan,hydrate_lfs
+from med_assets.domain import Concept,ConceptRelation,GovernanceGraph,RelationType
 
 class GovernanceTests(unittest.TestCase):
     def fixture(self,root):
@@ -32,6 +33,17 @@ class GovernanceTests(unittest.TestCase):
             plan["proposals"][0].update(decision="accept",assetId="anatomy:liver:hra-female")
             path=root/"backfill.json";path.write_text(json.dumps(plan));(root/"models/liver/README.md").write_text("# Changed\\n")
             with self.assertRaises(GovernanceError): apply_backfill_plan(root,path)
+    def test_concept_graph_supports_polyhierarchy_but_rejects_cycles(self):
+        concepts=(Concept("liver","Liver"),Concept("metabolism","Metabolism"),Concept("digestive","Digestive system"))
+        graph=GovernanceGraph(concepts,(
+            ConceptRelation("liver",RelationType.PART_OF,"digestive"),
+            ConceptRelation("liver",RelationType.PARTICIPATES_IN,"metabolism")))
+        graph.validate()
+        cyclic=GovernanceGraph(concepts,(
+            ConceptRelation("liver",RelationType.PART_OF,"digestive"),
+            ConceptRelation("digestive",RelationType.PART_OF,"liver")))
+        with self.assertRaisesRegex(ValueError,"Cycle"):
+            cyclic.validate()
     def test_hydration_defaults_to_dry_run(self):
         with tempfile.TemporaryDirectory() as directory:
             result=hydrate_lfs(Path(directory),["models/liver/liver.glb"])
