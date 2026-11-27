@@ -3,6 +3,7 @@ import hashlib, json, tempfile, unittest
 from pathlib import Path
 from med_assets.governance import GovernanceError, build_catalog
 from med_assets.governance_lifecycle import create_lifecycle_plan, apply_lifecycle_plan
+from med_assets.governance_resolution import resolve_detailed
 
 class LifecycleTests(unittest.TestCase):
     def fixture(self, root):
@@ -30,6 +31,19 @@ class LifecycleTests(unittest.TestCase):
         path=root/f"{action}.plan.json"
         path.write_text(json.dumps(create_lifecycle_plan(root,"fixture:asset",action,self.payload(root,payload))))
         return path
+
+    def test_resolution_exposes_exact_revision_export_and_provenance(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp); self.fixture(root)
+            result=resolve_detailed(build_catalog(root),"lesson:demo")
+            candidate=result["exactExportCandidates"][0]
+            maintenance=candidate["maintenance"]
+            self.assertEqual(maintenance["recordStatus"],"provisional")
+            revision=maintenance["revisionCandidates"][0]
+            self.assertEqual(revision["revisionId"],"r1")
+            self.assertEqual(revision["partId"],"organ")
+            self.assertEqual(revision["geometryDigest"],hashlib.sha256(b"fixture geometry").hexdigest())
+            self.assertEqual(maintenance["sourceDeclarations"][0]["sourceId"],"source:fixture")
 
     def test_qualify_promote_and_idempotent_apply(self):
         with tempfile.TemporaryDirectory() as tmp:
