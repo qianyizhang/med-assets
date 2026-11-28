@@ -17,7 +17,7 @@ The Gallery also opens the three bilingual pathway diagrams and the interactive 
 
 ### Ultrasound Development
 
-From **Use Cases → Ultrasound Anatomy → Development**, open the right kidney comparison. The candidate build packages the review-pinned WebPs and the exact r01 mesh. The Development card, its evidence and the revision download work without the ultrasound study server. See the teaching scope and evidence in the [Wave 1B receipt](../../records/campaigns/ultrasound-refinement/wave-1b/README.md).
+From **Use Cases → Ultrasound Anatomy → Development**, open the right kidney comparison. The card records the orientation-only decision at frame 12 and shows the previous delivered sweep mesh beside r01. The candidate build packages the review-pinned WebPs and the exact r01 mesh. The Development card, its evidence and the revision download work without the ultrasound study server. See the teaching scope and evidence in the [Wave 1B receipt](../../records/campaigns/ultrasound-refinement/wave-1b/README.md).
 
 ### Files in the imported atlas packages
 

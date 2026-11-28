@@ -1,8 +1,10 @@
 """Render the schematic, frozen CT surface and freshly decoded r01 export."""
 
+import argparse
 import json
 import struct
 import sys
+from hashlib import sha256
 from pathlib import Path
 
 import bpy
@@ -26,19 +28,42 @@ def area(name, position, energy, size, target):
     return obj
 
 
+def packed_ras(path, affine, expected):
+    data = path.read_bytes()
+    if expected and (
+        sha256(data).hexdigest() != expected["sha256"] or len(data) != expected["bytes"]
+    ):
+        raise ValueError(f"Packed mesh identity mismatch: {path}")
+    vertices, triangles = struct.unpack_from("<2I", data)
+    if (expected and triangles != expected["triangles"]) or len(data) != 8 + 12 * (
+        vertices + triangles
+    ):
+        raise ValueError(f"Unexpected mesh counts: {path}")
+    xyz = np.frombuffer(data, "<f4", vertices * 3, 8).reshape(-1, 3)
+    faces = np.frombuffer(data, "<u4", triangles * 3, 8 + 12 * vertices).reshape(-1, 3)
+    return np.einsum("vi,ji->vj", xyz, affine[:3, :3]) + affine[:3, 3], faces
+
+
 def main():
-    reference, mesh, output = map(Path, sys.argv[sys.argv.index("--") + 1 :])
-    frozen = json.loads(
-        (Path(__file__).resolve().parent.parent / "wave-1/reference.json").read_text()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("reference", type=Path)
+    parser.add_argument("mesh", type=Path)
+    parser.add_argument("output", type=Path)
+    parser.add_argument(
+        "--previous", type=Path, help="Compare both delivered meshes at matched scale."
     )
-    with np.load(reference, allow_pickle=False) as data:
+    args = parser.parse_args(sys.argv[sys.argv.index("--") + 1 :])
+    folder = Path(__file__).resolve().parent
+    frozen = json.loads((folder.parent / "wave-1/reference.json").read_text())
+    package = (
+        folder.parents[3] / "experiments/ultrasound-sweep/development/asset-reviews/kidney-wave-1b"
+    )
+    receipt = json.loads((package / "measurements.json").read_text()) if args.previous else {}
+    with np.load(args.reference, allow_pickle=False) as data:
         raw, faces = data["vertices"], data["faces"]
-    packed = mesh.read_bytes()
-    n, triangles = struct.unpack_from("<2I", packed)
-    vox = np.frombuffer(packed, "<f4", n * 3, 8).reshape(-1, 3)
-    refined_faces = np.frombuffer(packed, "<u4", triangles * 3, 8 + 12 * n).reshape(-1, 3)
     affine = np.asarray(frozen["source"]["rasMmFromVoxel"])
-    refined = np.einsum("vi,ji->vj", vox, affine[:3, :3]) + affine[:3, 3]
+    refined, refined_faces = packed_ras(args.mesh, affine, receipt.get("export"))
+    output = args.output
     center = (raw.min(0) + raw.max(0)) / 2
 
     bpy.ops.wm.read_factory_settings(use_empty=True)
@@ -62,14 +87,19 @@ def main():
     shader.inputs["Base Color"].default_value = (0.52, 0.52, 0.52, 1)
     shader.inputs["Roughness"].default_value = 0.51
     shader.inputs["Specular IOR Level"].default_value = 0.31
-    bpy.ops.mesh.primitive_uv_sphere_add(segments=48, ring_count=32)
-    schematic = bpy.context.object
-    schematic.scale = (0.024, 0.021, 0.0535)
-    objects = [schematic]
-    for name, vertices, indices in (
-        ("CT mask", raw, faces),
-        ("Refined r01", refined, refined_faces),
-    ):
+    objects = []
+    sources = [("CT mask", raw, faces), ("Refined r01", refined, refined_faces)]
+    if args.previous:
+        sources[0] = (
+            "Previous export",
+            *packed_ras(args.previous, affine, receipt["previousSweep"]),
+        )
+    else:
+        bpy.ops.mesh.primitive_uv_sphere_add(segments=48, ring_count=32)
+        schematic = bpy.context.object
+        schematic.scale = (0.024, 0.021, 0.0535)
+        objects.append(schematic)
+    for name, vertices, indices in sources:
         geometry = bpy.data.meshes.new(name)
         points = (vertices - center) * 0.001
         a, b, c = points[indices].transpose(1, 0, 2)
@@ -96,10 +126,13 @@ def main():
         area("Edge", (0, 0, 0.25), 5, 0.12, (0, 0, 0)),
     ]
     output.mkdir(parents=True, exist_ok=True)
-    for name, direction, target, scale in (
+    views = [
         ("overview", (0.1, -1, 0.14), (0, 0, 0), 0.165),
         ("reverse", (-1, 0.75, 0.25), (0, 0, 0.004), 0.152),
-    ):
+    ]
+    if args.previous:
+        views.append(("inferior", (0.1, -1, 0.14), (0, 0, -0.024), 0.080))
+    for name, direction, target, scale in views:
         forward = Vector(direction).normalized()
         up = Vector((0, 0, 1))
         side = forward.cross(up).normalized()

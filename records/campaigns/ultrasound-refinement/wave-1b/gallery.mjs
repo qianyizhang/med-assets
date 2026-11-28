@@ -29,13 +29,16 @@ try {
   await page.getByRole('heading', { name: 'Right kidney · Before → After' }).waitFor();
   await page.getByText(/23,156 → 4,800/).waitFor();
   await page.getByText(/416,840 → 86,432/).waitFor();
-  const details = page.getByText('CT sections, live frame and proposed scores', { exact: true });
+  const details = page.getByText('CT sections, exact mesh comparison and lead review', { exact: true });
   await details.focus();
   await details.press('Enter');
   assert.equal(await details.locator('..').getAttribute('open'), '');
+  await page.getByText('Teaching readability · 3/4', { exact: true }).waitFor();
+  await page.getByText(/Adopt for orientation at frame 12/).waitFor();
   const figures = page.locator('article figure img');
   assert.equal(await figures.count(), Object.keys(evidenceSha256).length);
-  for (const [i, digest] of Object.values(evidenceSha256).entries()) {
+  const remaining = new Set(Object.values(evidenceSha256));
+  for (let i = 0; i < await figures.count(); i++) {
     const figure = figures.nth(i);
     await figure.scrollIntoViewIfNeeded();
     const data = await figure.evaluate(async (image) => {
@@ -43,8 +46,9 @@ try {
       const bytes = new Uint8Array(await fetch(image.src).then(response => response.arrayBuffer()));
       return bytes.toBase64();
     });
-    assert.equal(hash(Buffer.from(data, 'base64')), digest);
+    assert.ok(remaining.delete(hash(Buffer.from(data, 'base64'))), 'Unexpected or repeated witness');
   }
+  assert.equal(remaining.size, 0);
   for (const width of [1280, 960]) {
     await page.setViewportSize({ width, height: 900 });
     const overflow = await page.evaluate(() => ({
@@ -67,7 +71,7 @@ try {
   await download.click();
   assert.equal(hash(await readFile(await (await pending).path())), pin.sha256);
   assert.deepEqual(denied, []);
-  console.log('Offline development route, three witness digests, keyboard disclosure, revision reload and exact mesh download passed.');
+  console.log('Offline development route, review witness digests, keyboard disclosure, revision reload and exact mesh download passed.');
 } finally {
   await browser.close();
 }

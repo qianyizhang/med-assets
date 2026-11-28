@@ -5,6 +5,7 @@ import record from './ultrasound-progress/record.json';
 import mesh from './ultrasound-progress/kidney-right.mesh?url';
 import surfaces from './ultrasound-progress/matched-surfaces.webp';
 import planes from './ultrasound-progress/protected-planes.webp';
+import pair from './ultrasound-progress/previous-vs-r01.webp';
 import frame from './ultrasound-progress/live-frame-12.webp';
 
 const revisionPath = ultrasoundDevelopment + '/kidney-right-r01';
@@ -25,7 +26,7 @@ export function UltrasoundDevelopment({ showRevision }) {
       </Link>
       {showRevision ? (
         <>
-          <Heading title="s1233 right kidney · r01">AssetKit revision · Lead review pending</Heading>
+          <Heading title="s1233 right kidney · r01">{record.disposition}</Heading>
           <section className="ga-collection-link">
             <p><code>{record.ref}</code></p>
             <dl>
@@ -44,10 +45,10 @@ export function UltrasoundDevelopment({ showRevision }) {
           <Heading title="Ultrasound Development" />
           <article className="ga-collection-link ga-ultrasound-progress" aria-labelledby="right-kidney-progress">
             <h2 id="right-kidney-progress">Right kidney · Before → After</h2>
-            <p>Abdominal survey long axis · s1233 teaching exemplar · Lead review pending</p>
+            <p>Abdominal survey long axis · {record.disposition}</p>
             <figure>
-              <img src={surfaces} width="1304" height="699" alt="At the same physical scale, the schematic ellipsoid becomes an asymmetric CT-derived kidney with rounded poles and a visible medial recess. The lower row shows the reverse angle." />
-              <figcaption>107 mm schematic, CT half-label surface and refined r01.</figcaption>
+              <img src={pair} width="1112" height="1090" loading="lazy" alt="The previous sweep mesh has bands at the lower pole. Under matched lighting r01 has a smoother lower surface and retains the medial recess. Both appear at the same saved sweep pose." />
+              <figcaption>Exact previous sweep export and r01 at matched scale and frame.</figcaption>
             </figure>
             <dl className="ga-progress-metrics">
               <div><dt>Sweep mesh triangles</dt><dd>{number.format(record.previous.triangles)} → {number.format(record.export.triangles)}</dd></div>
@@ -56,7 +57,7 @@ export function UltrasoundDevelopment({ showRevision }) {
             </dl>
             <p><Link to={revisionPath}>Open exact AssetKit revision · s1233 kidney r01 →</Link></p>
             <details>
-              <summary>CT sections, live frame and proposed scores</summary>
+              <summary>CT sections, exact mesh comparison and lead review</summary>
               <figure>
                 <img src={planes} width="1328" height="422" loading="lazy" alt="Gold CT contours and cyan refined contours follow each other in the saved plane and both adjacent planes." />
                 <figcaption>Same-case CT overlay at frame 12 and at ±1.5 mm.</figcaption>
@@ -65,10 +66,15 @@ export function UltrasoundDevelopment({ showRevision }) {
                 <img src={frame} width="1324" height="748" loading="lazy" alt="Live saved frame before and after, with 3D probe contact, grayscale B-mode and tissue overlay. Calipers span the medial hilar recess in s1233." />
                 <figcaption>The worked survey uses a separate s1233 subject for this saved long-axis exemplar.</figcaption>
               </figure>
+              <figure>
+                <img src={surfaces} width="1304" height="699" alt="At the same physical scale, the schematic ellipsoid becomes an asymmetric CT-derived kidney with rounded poles and a visible medial recess. The lower row shows the reverse angle." />
+                <figcaption>107 mm schematic, CT half-label surface and refined r01.</figcaption>
+              </figure>
+              <p>{record.scope}</p>
               <dl className="ga-progress-scores">
                 {Object.entries(axes).map(([key, label]) => (
                   <div key={key}>
-                    <dt>{label} · proposed {record.proposedScores[key]}/4</dt>
+                    <dt>{label} · {record.scores[key]}/4</dt>
                     <dd>{record.observations[key]}</dd>
                   </div>
                 ))}

@@ -1,6 +1,6 @@
 # s1233 right kidney exterior
 
-The provisional r01 export locates both renal poles and the medial hilar recess in the s1233 long-axis ultrasound teaching exemplar. The same exterior serves the standalone `kidney-right` sweep. Its positions are in the original s1233 265 × 265 × 401 voxel-index grid, with 1.5 mm spacing and RAS axes. The [AssetKit record](asset.record.json) pins the affine, source label and exact 4,800-triangle packed payload.
+The r01 export is adopted for orientation at the saved survey frame. It locates both renal poles and the medial hilar recess in the s1233 long-axis ultrasound teaching exemplar. The same exterior serves the standalone `kidney-right` sweep. Its positions are in the original s1233 265 × 265 × 401 voxel-index grid, with 1.5 mm spacing and RAS axes. The [AssetKit record](asset.record.json) pins the affine, source label and exact 4,800-triangle packed payload.
 
 ## Replay
 

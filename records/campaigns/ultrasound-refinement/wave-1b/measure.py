@@ -7,16 +7,26 @@ from hashlib import sha256
 from pathlib import Path
 
 import numpy as np
+from geometry import RASTER_SIZE, SECTOR_DEPTH_MM, SECTOR_HALF_ANGLE_DEG
 from PIL import Image, ImageDraw
 from scipy import ndimage
 from scipy.spatial import cKDTree
 
 HERE = Path(__file__).resolve().parent
 TRIAL = HERE.parent / "wave-1"
+REPO = HERE.parents[3]
+STUDY = REPO / "experiments/ultrasound-sweep"
+REVIEW = STUDY / "development/asset-reviews/kidney-wave-1b/reviews.json"
+SWEEP = "sweeps/kidney-right"
+MESH = f"{SWEEP}/scenes/kidney_right.mesh"
+SOURCE_VOXEL_MM = 1.5
+MAX_DISTANCE_MM = 3.0
 
 
 def wave_one():
     spec = importlib.util.spec_from_file_location("wave_one_measure", TRIAL / "measure.py")
+    if spec is None or spec.loader is None:
+        raise ImportError("Cannot load the Wave 1 measurement methods")
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
@@ -27,6 +37,69 @@ def bidirectional(helper, reference, candidate):
         "referenceToCandidate": helper.compare(reference, candidate),
         "candidateToReference": helper.compare(candidate, reference),
     }
+
+
+def check_distances(region, metrics):
+    for direction, values in metrics.items():
+        if not (values["p95Mm"] <= SOURCE_VOXEL_MM and values["maxMm"] <= MAX_DISTANCE_MM):
+            raise ValueError(f"{region}: {direction} exceeds the CT distance limits: {values}")
+
+
+def check_chord(region, reference_mm, refined_mm):
+    if not abs(refined_mm - reference_mm) <= SOURCE_VOXEL_MM:
+        raise ValueError(
+            f"{region}: pole-to-pole chord differs from the frozen reference by "
+            f"{abs(refined_mm - reference_mm):.2f} mm (limit {SOURCE_VOXEL_MM} mm)"
+        )
+
+
+def verify_delivery(helper, config, frozen, receipt):
+    """Derive the comparison identity and bind the browser receipt to the delivered files."""
+    previous = json.loads((TRIAL / "live-identity.json").read_text())["paths"]
+    baseline_mesh = config.baseline_delivery / MESH
+    previous_identity = helper.identity(baseline_mesh)
+    if previous_identity != previous[f"/{MESH}"]:
+        raise ValueError("Previous sweep mesh differs from the frozen Wave 1 identity")
+    _, previous_faces = helper.mesh(baseline_mesh)
+    for key, relative in (
+        ("page", "tours/abdomen/abdomen-survey.html"),
+        ("plate", "cases/organs/images/abd-right-kidney.svg"),
+    ):
+        if helper.identity(config.baseline_delivery / relative) != frozen["baseline"][key]:
+            raise ValueError(f"Baseline {key} differs from the frozen Wave 1 identity")
+
+    pose = config.study_delivery / SWEEP / "sweep.js"
+    if helper.identity(pose) != frozen["poseScript"]:
+        raise ValueError("Delivered sweep pose differs from the frozen Wave 1 acquisition")
+    torso = config.study_delivery / SWEEP / "scenes/torso.mesh"
+    contact = helper.contact_error(torso, frozen["originRasMm"], frozen["widths"]["beam"])
+    if not abs(contact) <= SOURCE_VOXEL_MM:
+        raise ValueError(f"Delivered first skin hit is {contact:.2f} mm from the saved contact")
+    if helper.identity(torso) != frozen["source"]["context"]:
+        raise ValueError("Delivered torso differs from the frozen Wave 1 context")
+
+    export = {key: receipt["export"][key] for key in ("sha256", "bytes")}
+    frame = receipt["savedChord"]["frame"]
+    served = {f"/{MESH}": export}
+    for kind in ("scan", "section"):
+        path = f"{SWEEP}/media/{kind}-{frame:02}.webp"
+        served[f"/{path}"] = previous[f"/{path}"]
+    for url, expected in served.items():
+        if helper.identity(config.study_delivery / url.removeprefix("/")) != expected:
+            raise ValueError(f"Delivery identity mismatch for {url}")
+
+    browser = json.loads(config.live_identity.read_text())
+    if browser["served"] != served:
+        raise ValueError("Browser did not serve the exact replay mesh and frozen saved scans")
+    if browser["currency"] != {"current": False, "sibling": False, "placement": True}:
+        raise ValueError("Browser review-currency checks did not pass")
+
+    (consumer,) = json.loads((STUDY / "cases/organs/consumer.json").read_text())["consumers"]
+    if consumer["savedChord"] != receipt["savedChord"]:
+        raise ValueError("Authored saved calipers differ from the reimported pole-to-pole chord")
+
+    receipt["previousSweep"] = previous_identity | {"triangles": len(previous_faces)}
+    receipt["liveBrowser"] = served
 
 
 def silhouette(dense, candidate, zoom):
@@ -49,8 +122,8 @@ def silhouette(dense, candidate, zoom):
                 np.einsum("tvi,ji->tvj", triangles, basis) * spacing
                 for triangles in (dense, candidate)
             ]
-            lower = np.floor(projections[0].min(axis=(0, 1))) - 4
-            upper = np.ceil(projections[0].max(axis=(0, 1))) + 5
+            lower = np.floor(np.min([p.min(axis=(0, 1)) for p in projections], axis=0)) - 4
+            upper = np.ceil(np.max([p.max(axis=(0, 1)) for p in projections], axis=0)) + 5
             outlines = []
             for projection in projections:
                 raster = Image.new("1", tuple((upper - lower).astype(int)))
@@ -74,7 +147,12 @@ def main():
     args.add_argument("reference_npz", type=Path)
     args.add_argument("replay", type=Path)
     args.add_argument("output", type=Path)
+    args.add_argument("--baseline-delivery", type=Path, required=True)
+    args.add_argument("--study-delivery", type=Path, required=True)
+    args.add_argument("--live-identity", type=Path, required=True)
     config = args.parse_args()
+    if config.output.exists():
+        args.error("output must be a fresh scratch directory")
     helper = wave_one()
     frozen = json.loads((TRIAL / "reference.json").read_text())
     with np.load(config.reference_npz, allow_pickle=False) as raw:
@@ -118,6 +196,10 @@ def main():
         a, b = [helper.cut(tris, origin, normal) for tris in (reference, candidate)]
         arrays[f"section{index}"] = b
         baseline, refined = [helper.poles(helper.outer_outline(contour)[0]) for contour in (a, b)]
+        region = f"Plane at {section['offsetMm']:+g} mm"
+        reference_chord = float(np.linalg.norm(baseline[0] - baseline[1]))
+        refined_chord = float(np.linalg.norm(refined[0] - refined[1]))
+        check_chord(region, section["chordMm"], refined_chord)
         arrays[f"poles{index}"] = refined
         cap_axis = helper.unit_vector(baseline[0] - baseline[1])
         caps = [
@@ -127,13 +209,18 @@ def main():
             )
             for pole, axis in zip(baseline, [cap_axis, -cap_axis], strict=True)
         ]
+        distances = bidirectional(helper, a, b)
+        check_distances(region, distances)
+        # Apply the existing section limits to the two cap regions as a retrospective guard.
+        for pole, metrics in zip(("superior cap", "inferior cap"), caps, strict=True):
+            check_distances(f"{region}, {pole}", metrics)
         planes.append(
             dict(
                 offsetMm=section["offsetMm"],
-                distances=bidirectional(helper, a, b),
+                distances=distances,
                 capDistances=caps,
-                referenceChordMm=float(np.linalg.norm(baseline[0] - baseline[1])),
-                refinedChordMm=float(np.linalg.norm(refined[0] - refined[1])),
+                referenceChordMm=reference_chord,
+                refinedChordMm=refined_chord,
                 outsideChordMm=helper.chord_outside_outline(b, refined, normal),
             )
         )
@@ -154,28 +241,33 @@ def main():
                 outsideMm=helper.chord_outside_outline(outline, endpoints, normal),
             )
         )
-    endpoints = arrays["poles1"]
-    pitch = 0.41  # Kidney-right 133 mm convex sector at 500 × 350 px.
+    saved_plane = next(i for i, plane in enumerate(planes) if plane["offsetMm"] == 0)
+    endpoints = arrays[f"poles{saved_plane}"]
+    depth, angle = helper.field(endpoints, center, width, beam).T
+    if not np.all((depth >= 0) & (depth <= SECTOR_DEPTH_MM) & (abs(angle) < SECTOR_HALF_ANGLE_DEG)):
+        raise ValueError("A refined pole leaves the saved acquisition sector")
+    raster_width, raster_height = RASTER_SIZE
+    pitch = max(0.41, SECTOR_DEPTH_MM / (raster_height - 21))
     xy = np.column_stack(
         (
-            250 + helper.dot(endpoints - center, width) / pitch,
+            raster_width / 2 + helper.dot(endpoints - center, width) / pitch,
             12 + helper.dot(endpoints - center, beam) / pitch,
         )
     )
+    if not np.all((xy >= 0) & (xy < RASTER_SIZE)):
+        raise ValueError("A refined pole leaves the saved acquisition raster")
     axis = np.linalg.svd(raw_v - raw_v.mean(0), full_matrices=False)[2][0]
     raw_packed_bytes = 8 + 12 * (len(raw_v) + len(raw_f))
     global_distances = bidirectional(helper, reference, candidate)
+    check_distances("Whole surface", global_distances)
     teaching_silhouette = silhouette(dense_v[dense_f], candidate, 3)
     volume_change = (geometry["signedVolumeMm3"] / reference_volume - 1) * 100
-    for metrics in [global_distances, *(p["distances"] for p in planes)]:
-        if any(m["p95Mm"] > 1.5 or m["maxMm"] > 3 for m in metrics.values()):
-            raise ValueError(f"Surface exceeds the CT distance limits: {metrics}")
-    if (
-        abs(volume_change) > 3
-        or teaching_silhouette["maximumDeparturePx"] > 1
-        or not 2000 <= len(faces) <= 5000
-    ):
-        raise ValueError("Export exceeds the volume, silhouette or triangle budget")
+    if not abs(volume_change) <= 3:
+        raise ValueError(f"Export volume changes by {volume_change:.2f}% (limit ±3%)")
+    if not teaching_silhouette["maximumDeparturePx"] <= 1:
+        raise ValueError("Export silhouette departs by more than one pixel at teaching scale")
+    if not 2000 <= len(faces) <= 5000:
+        raise ValueError(f"Export has {len(faces)} triangles (expected 2,000–5,000)")
     receipt = {
         "export": helper.identity(path) | {"triangles": len(faces)},
         "raw": {
@@ -195,15 +287,23 @@ def main():
         "lateralReferenceSections": lateral,
         "silhouette": teaching_silhouette,
         "savedChord": {
-            "frame": 12,
-            "millimetres": planes[1]["refinedChordMm"],
+            "frame": frozen["baseline"]["frame"],
+            "millimetres": planes[saved_plane]["refinedChordMm"],
             "endpointsPx": xy.tolist(),
         },
     }
-    config.output.mkdir(parents=True, exist_ok=True)
-    (config.output / "measurements.json").write_text(json.dumps(receipt, indent=2) + "\n")
+    verify_delivery(helper, config, frozen, receipt)
+    payload = (json.dumps(receipt, indent=2) + "\n").encode()
+    expected = json.loads(REVIEW.read_text())["measurementsSha256"]
+    digest = sha256(payload).hexdigest()
+    if digest != expected:
+        raise ValueError(
+            f"Regenerated receipt SHA-256 {digest} differs from the review pin {expected}"
+        )
+    config.output.mkdir(parents=True)
     np.savez(config.output / "sections.npz", **arrays)
-    print(json.dumps(receipt, indent=2))
+    (config.output / "measurements.json").write_bytes(payload)
+    print(f"Verified and reproduced {config.output / 'measurements.json'} ({digest})")
 
 
 if __name__ == "__main__":

@@ -27,7 +27,7 @@ def prepare_ultrasound_progress(repo, destination):
     destination.mkdir(parents=True, exist_ok=True)
     payload = verify_bytes((repo / export['path']).read_bytes(), export)
     (destination / 'kidney-right.mesh').write_bytes(payload)
-    for name in ('matched-surfaces.webp', 'protected-planes.webp', 'live-frame-12.webp'):
+    for name in ('matched-surfaces.webp', 'protected-planes.webp', 'live-frame-12.webp', 'previous-vs-r01.webp'):
         # validate_reviews has checked that each recorded witness resolves inside the package.
         witness = (repo / REVIEW / name).read_bytes()
         if hashlib.sha256(witness).hexdigest() != package['evidenceSha256'][name]:
@@ -36,6 +36,7 @@ def prepare_ultrasound_progress(repo, destination):
 
     data = dict(ref=ref, export=expected, previous=measurements['previousSweep'],
                 savedChordMm=measurements['savedChord']['millimetres'],
-                proposedScores=review['proposedScores'], observations=review['scoreEvidence'],
+                scores=review['scores'], disposition=review['disposition'], scope=review['note'],
+                observations=review['scoreEvidence'],
                 source=record['sources'][0])
     (destination / 'record.json').write_text(json.dumps(data, ensure_ascii=False) + '\n')

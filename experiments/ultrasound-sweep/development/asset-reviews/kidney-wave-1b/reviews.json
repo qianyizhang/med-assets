@@ -12,23 +12,17 @@
       "revision": "anatomy:s1233:kidney-right@r01:kidney-right",
       "meshSha256": "1b6ac9eed1ae01c2fdff12d203dd82b00dea06f76ffe379be71468eaa7681208",
       "chapterSha256": "1d8480ae4a7e43df0d8697721567466a3d92b51f7c99a6841201b8a2f4a4a3ec",
-      "reviewer": "Codex candidate observations · lead review pending",
+      "reviewer": "Codex campaign lead · independent of the Wave 1B builder",
       "reviewedOn": "2026-11-28",
       "rubric": "docs/guides/asset-quality.md",
       "task": "Locate both poles and the medial hilar recess in 3D, then relate them to the saved s1233 long-axis scan.",
-      "proposedScores": {
-        "fidelity": 4,
-        "form": 3,
-        "readability": 4,
-        "economy": 4
-      },
       "scoreEvidence": {
         "fidelity": "The three protected CT sections agree within 1.21 mm p95 and 2.36 mm maximum. The saved refined chord is 103.3 mm against 104.3 mm from the CT outline.",
-        "form": "The matched clay and reverse views show rounded poles, smooth broad areas and a preserved medial hilar recess. Some relief remains near the lower outer surface, so the finish needs a lead judgment against the CT reference.",
-        "readability": "In reverse oblique, both poles and the recessed medial contour are recognizable. The live B-mode and tissue overlay show the same recess below the source-aligned calipers.",
-        "economy": "4,800 triangles and 86,432 bytes. The projected silhouette departs by 0.71 px at 3 px/mm in 24 views against the pre-decimation surface."
+        "form": "The previous delivered surface showed stacked horizontal bands at the inferior pole. Under the same clay and light, r01 preserves the kidney outline and recessed medial face in reverse oblique. A shallow furrow and uneven relief on the lower outer surface remain of uncertain anatomical significance.",
+        "readability": "Both poles and the medial indentation can be traced in the isolated reverse view and matched to the tissue overlay. In the default oblique scene the recess is hard to distinguish, and the grayscale B-mode alone does not clearly identify its full boundary.",
+        "economy": "Against the prior delivered surface, 23,156 triangles and 416,840 bytes fall to 4,800 and 86,432. The 24-view tessellation check against the smooth pre-decimation surface measured at most 0.71 display pixel at 3 px/mm."
       },
-      "note": "Provisional candidate. s1233 is a separate subject. The bright tissue is simulated and the source label represents an exterior. An independent lead review owns the final scores and disposition.",
+      "note": "Use r01 to locate both poles and the medial hilar recess and relate them to the saved scan. The 103.3 mm outer span crosses about 63 mm of recess. Teaching a continuous-tissue caliper measurement remains on hold. Wave 2 requires separate authorization.",
       "comparison": {
         "label": "Matched neutral clay surfaces",
         "candidate": "asset-reviews/kidney-wave-1b/matched-surfaces.webp",
@@ -43,6 +37,11 @@
             "label": "Live survey frame",
             "candidate": "asset-reviews/kidney-wave-1b/live-frame-12.webp",
             "candidateLabel": "Before and after"
+          },
+          {
+            "label": "Exact previous sweep and r01 at the same physical scale and frame",
+            "candidate": "asset-reviews/kidney-wave-1b/previous-vs-r01.webp",
+            "candidateLabel": "Previous delivered mesh and r01, including inferior detail and frame 12"
           }
         ]
       },
@@ -51,13 +50,21 @@
           "label": "Measured geometry and saved calipers",
           "href": "asset-reviews/kidney-wave-1b/measurements.json"
         }
-      ]
+      ],
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "disposition": "Adopt for orientation at frame 12"
     }
   ],
   "evidenceSha256": {
     "matched-surfaces.webp": "0e7e1c633b3b8a043a1b441ba776b1db45987576197d1bd4598ae539924e5667",
     "protected-planes.webp": "483166c7f6dc02c6fb5459a45b49ee66e1307750ceeae772d45738fa5885d957",
-    "live-frame-12.webp": "80852a6fd6931c812ccc98f42dac988d0aa91bd9ae38ac6a8424bd32cd0c9800"
+    "live-frame-12.webp": "80852a6fd6931c812ccc98f42dac988d0aa91bd9ae38ac6a8424bd32cd0c9800",
+    "previous-vs-r01.webp": "f74546c53a72557990ca10d29984dea5019fdc30ddb5d431bd531e5a3118e751"
   },
   "measurementsSha256": "6c8fb2b7fb5ff27fb0cc48059fe9f1262a3a6f2c4588f8b1c9487a2cdf7d64da"
 }
