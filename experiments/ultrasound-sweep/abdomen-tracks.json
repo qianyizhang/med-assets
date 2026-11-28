@@ -1,4 +1,5 @@
 {
+  "common": {"case": "s1233"},
   "structures": {
     "liver": {
       "label": "Liver",
@@ -183,7 +184,15 @@
       "exterior": "fitted-atlas",
       "landmarks": [
         "extrahepatic-duct"
-      ]
+      ],
+      "sceneAssets": {
+        "portal_vein_and_splenic_vein": {
+          "asset": "anatomy:s1233:portal-splenic-vein",
+          "revision": "r02",
+          "export": "portal-splenic-vein",
+          "registration": "native"
+        }
+      }
     },
     {
       "id": "pancreas",
@@ -362,7 +371,21 @@
         170
       ],
       "focusRadius": 42,
-      "exterior": "fitted-atlas"
+      "exterior": "fitted-atlas",
+      "sceneAssets": {
+        "inferior_vena_cava": {
+          "asset": "anatomy:s1233:ivc",
+          "revision": "r01",
+          "export": "abdominal",
+          "registration": "native"
+        },
+        "aorta": {
+          "asset": "anatomy:s1233:aorta",
+          "revision": "ultrasound-r01",
+          "export": "aorta-abdomen",
+          "registration": "native"
+        }
+      }
     },
     {
       "id": "ivc",
@@ -397,7 +420,21 @@
       "exterior": "fitted-atlas",
       "landmarks": [
         "hepatic-vein"
-      ]
+      ],
+      "sceneAssets": {
+        "inferior_vena_cava": {
+          "asset": "anatomy:s1233:ivc",
+          "revision": "r01",
+          "export": "abdominal",
+          "registration": "native"
+        },
+        "aorta": {
+          "asset": "anatomy:s1233:aorta",
+          "revision": "ultrasound-r01",
+          "export": "aorta-abdomen",
+          "registration": "native"
+        }
+      }
     }
   ]
 }

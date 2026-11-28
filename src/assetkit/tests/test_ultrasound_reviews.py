@@ -239,3 +239,19 @@ def test_malformed_workbench_witness_remains_a_missing_image_error(tmp_path: Pat
     )
     with pytest.raises(ValueError, match="Missing or unbound asset review image"):
         validate_reviews(path)
+
+
+def test_aorta_chapter_reviews_follow_the_selected_port() -> None:
+    registry = AssetRegistry.load_records(REPO, ("models/aorta/asset.record.json",))
+    reviews = load_ultrasound_reviews(REPO, registry)
+    cases = {
+        (review.case, review.chapter): review
+        for review in reviews
+        if review.export_ref and review.chapter_sha256
+    }
+    abdominal = cases["abdomen-survey", "aorta-long"]
+    screening = cases["aaa-negative", "mid-aorta"]
+    assert abdominal.export_ref is not None and abdominal.export_ref.export == "aorta-abdomen"
+    assert screening.export_ref is not None and screening.export_ref.export == "aorta-screening"
+    assert abdominal.mesh_sha256 != screening.mesh_sha256
+    assert abdominal.chapter_sha256 != screening.chapter_sha256

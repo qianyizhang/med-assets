@@ -868,3 +868,38 @@ def test_cardiac_editable_exports_preserve_native_scene_scale() -> None:
             assert (frame.convention, frame.units) == ("glb-y-up-m", "m")
             assert frame.blender_to_glb is None
     assert len(native) == 2
+
+
+@pytest.mark.parametrize(
+    ("manifest", "sweep_id", "part"),
+    [
+        ("abdomen-tracks.json", "aorta", "aorta"),
+        ("aortic-screening-track.json", "aortic-screening", "aorta"),
+        ("thyroid-tracks.json", "thyroid-right", "trachea"),
+        ("carotid-tracks.json", "carotid-left", "common_carotid_artery_left"),
+    ],
+)
+def test_native_sweep_ports_are_indexed(
+    tmp_path: Path, manifest: str, sweep_id: str, part: str
+) -> None:
+    study = Path("experiments/ultrasound-sweep")
+    doc = json.loads((Path(__file__).resolve().parents[3] / study / manifest).read_text())
+    track = next(s for s in doc.get("sweeps", [doc]) if s["id"] == sweep_id)
+    track["sceneAssets"] = {
+        part: {
+            "asset": "anatomy:fixture:part",
+            "revision": "r01",
+            "export": part,
+            "registration": "native",
+        }
+    }
+    target = tmp_path / study / manifest
+    target.parent.mkdir(parents=True)
+    target.write_text(json.dumps(doc))
+    graph = DeliveryGraph.load(tmp_path, include_legacy_adapters=False)
+    consumer = graph.get(f"ultrasound:sweep:{target.stem}:{sweep_id}")
+    assert consumer is not None
+    consumer.validate_invariants()
+    assert consumer.owner_path == (study / manifest).as_posix()
+    assert consumer.pins[0].requirement_id == f"part:{part}"
+    assert consumer.pins[0].registration == "native"

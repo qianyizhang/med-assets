@@ -222,13 +222,13 @@ export function sweepRows() {
   return sweepInventory;
 }
 
-export async function aaaRows() {
+export async function aaaRows(cases) {
   const base = new URL('tours/aaa/', study);
   const { chapters } = await import('../cases/vascular/playable.js');
   const records = await Promise.allSettled(['aaa-negative', 'aaa-positive', 'aaa-indeterminate'].map(async (id) => {
     const record = await read(new URL(id + '.json', base));
     const entry = { id, family: 'aaa', title: record.title, url: 'tours/aaa/' + id + '.html',
-      chapters: chapters(record) };
+      chapters: cases.find((entry) => entry.id === id)?.chapters ?? chapters(record) };
     const scene = await read(new URL(id + '.scene.json', base)).catch(() => ({}));
     const packed = await Promise.all(entry.chapters.map(async (chapter) => {
       const item = scene[chapter.id];
@@ -275,7 +275,8 @@ function gapRow(entry, chapter, detail) {
 
 function referenceRow(entry, chapter, reference, part) {
   const sourceSpace = part.sourceSpace ?? part.assetId.split(':').slice(0, 2).join(':');
-  const usedInExemplar = reference.source === 'sweep' && chapter.sourceSweep === part.case;
+  const usedInExemplar = reference.source === 'sweep' && (chapter.sourceSweep === part.case ||
+    (chapter.exemplar?.sweep === part.case && chapter.exemplar.part === part.part));
   const donor = {
     ...(usedInExemplar ? { registration: 'registered-exact' } : {}),
     source: part.source, case: part.case, part: part.part, chapter: part.chapter, occurrence: part.occurrence,
@@ -284,7 +285,7 @@ function referenceRow(entry, chapter, reference, part) {
   };
   return { ...part, ...rowBase('case', entry, chapter), donor, sourceSpace, legacyParts: reference.legacyParts,
     referenceScope: reference.referenceScope,
-    sourceNotice: usedInExemplar ? 'Delivered in the registered s1233 chapter, a teaching exemplar from a separate subject.' :
+    sourceNotice: usedInExemplar ? `Delivered in the registered ${sourceSpace} chapter, a teaching exemplar from a separate subject.` :
       entry.family === 'abdomen' ? abdomenReferenceNotice :
       'Independent source anatomy in its original coordinates. This reference is separate from the worked acquisition.' };
 }
@@ -301,7 +302,11 @@ async function reconcileRows(entry, retainedRows, references, retainedIssue) {
   const original = new Map(sweeps.map((row) => [row.case + '/' + row.part, row]));
   const extra = new Map(gallery.map((row) => [row.part, row]));
   const rows = entry.chapters.flatMap((chapter) => {
-    const items = references?.get(chapter.id) ?? examRequirements(entry, chapter);
+    const items = [...(references?.get(chapter.id) ?? examRequirements(entry, chapter))];
+    if (chapter.exemplar && !items.some((item) => item.source === 'sweep' &&
+        item.key === chapter.exemplar.sweep && item.part === chapter.exemplar.part)) {
+      items.push({ source: 'sweep', key: chapter.exemplar.sweep, part: chapter.exemplar.part });
+    }
     const acquisitionNotes = items.filter((reference) => reference.source === 'acquisition-note');
     return items.filter((reference) => reference.source !== 'acquisition-note').flatMap((reference) => {
       if (reference.source === 'retained') {

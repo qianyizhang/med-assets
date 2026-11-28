@@ -1,0 +1,174 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:s1233:portal-splenic-vein",
+  "title": "s1233 portal and splenic vein",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/portal_vein_s1233",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:totalsegmentator-v2.0.1:s1233:portal-splenic-vein",
+      "title": "TotalSegmentator v2.0.1 s1233 combined portal vein and splenic vein mask",
+      "sourceType": "external segmentation",
+      "sha256": "b1437b7058628669a6bc9e3b2e142dd019f1a2eeee88307e141f8f7d37e17e60",
+      "license": "CC BY 4.0; retain the Workshop label-source notices",
+      "url": "https://zenodo.org/records/10047263"
+    }
+  ],
+  "parts": [
+    {
+      "partId": "portal-splenic-vein",
+      "label": "Portal and splenic vein exterior",
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "r01",
+      "status": "provisional",
+      "recipe": "rebuild.py",
+      "frame": {
+        "convention": "voxel-index",
+        "units": "voxel",
+        "evidence": "assemblies/workshop-s1233/inputs.json"
+      },
+      "sourceIds": [
+        "source:totalsegmentator-v2.0.1:s1233:portal-splenic-vein"
+      ],
+      "partIds": [
+        "portal-splenic-vein"
+      ],
+      "exports": [
+        {
+          "id": "portal-splenic-vein",
+          "path": "models/portal_vein_s1233/exports/r01/portal_vein_and_splenic_vein.mesh",
+          "sha256": "462d4c54841eb2ad23f2c02d8c8b5e02b17dc41adf8372cffb72bc334d79f97a",
+          "bytes": 108008,
+          "format": "mesh",
+          "triangles": 6000,
+          "partIds": [
+            "portal-splenic-vein"
+          ],
+          "voxelGrid": {
+            "case": "s1233",
+            "shape": [
+              265,
+              265,
+              401
+            ],
+            "rasMmFromVoxel": [
+              [
+                1.5,
+                0.0,
+                0.0,
+                -215.611328125
+              ],
+              [
+                0.0,
+                1.5,
+                0.0,
+                -37.111328125
+              ],
+              [
+                0.0,
+                0.0,
+                1.5,
+                41.20000076293945
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        }
+      ],
+      "qualifications": []
+    },
+    {
+      "revisionId": "r02",
+      "status": "provisional",
+      "recipe": "rebuild.py",
+      "frame": {
+        "convention": "voxel-index",
+        "units": "voxel",
+        "evidence": "assemblies/workshop-s1233/inputs.json"
+      },
+      "sourceIds": [
+        "source:totalsegmentator-v2.0.1:s1233:portal-splenic-vein"
+      ],
+      "partIds": [
+        "portal-splenic-vein"
+      ],
+      "exports": [
+        {
+          "id": "portal-splenic-vein",
+          "path": "models/portal_vein_s1233/exports/r02/portal_vein_and_splenic_vein.mesh",
+          "sha256": "592018e3539ed1eca28b009513fc12922f7d6123a4310ffb33923f900d1c81a5",
+          "bytes": 108008,
+          "format": "mesh",
+          "triangles": 6000,
+          "partIds": [
+            "portal-splenic-vein"
+          ],
+          "voxelGrid": {
+            "case": "s1233",
+            "shape": [
+              265,
+              265,
+              401
+            ],
+            "rasMmFromVoxel": [
+              [
+                1.5,
+                0.0,
+                0.0,
+                -215.611328125
+              ],
+              [
+                0.0,
+                1.5,
+                0.0,
+                -37.111328125
+              ],
+              [
+                0.0,
+                0.0,
+                1.5,
+                41.20000076293945
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "artifacts": [],
+  "exports": [
+    {
+      "path": "models/pancreas_s1233/exports/r01/pancreas.mesh",
+      "sha256": "4f853b98b4ec8048cee6a53562478be63faf4a668c158f34490a7535fd17fda0",
+      "bytes": 104432
+    },
+    {
+      "path": "models/pancreas_s1233/exports/r02/pancreas.mesh",
+      "sha256": "16919fa7975eca4d8e3b2c0de47d30490b823810daa2b8878d6baab432bc6b96",
+      "bytes": 104432
+    }
+  ],
+  "uses": [],
+  "retirement": null,
+  "unresolved": [
+    "The raw label contains three enclosed gaps. Precise section contours, calipers and internal anatomy remain unqualified."
+  ]
+}

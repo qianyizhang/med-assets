@@ -12,7 +12,8 @@ from scipy import ndimage as nd
 from scipy.spatial.transform import Rotation, Slerp
 from skimage.measure import label, marching_cubes
 
-from abdomen_tracks import read_tracks, scene_assets
+from abdomen_tracks import read_tracks
+from scene_assets import scene_assets
 from build_study import (
     CT_SHA, H, LAST, LONG, W, WORKSHOP, body_surface, fine_scatter, material_at, unit, volume,
 )

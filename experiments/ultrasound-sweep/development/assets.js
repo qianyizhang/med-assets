@@ -1454,7 +1454,7 @@ async function start() {
     remaining--;
     refresh();
   });
-  const aaa = aaaRows().then(({ rows, issues }) => {
+  const aaa = aaaRows(manifest.cases).then(({ rows, issues }) => {
     recordRows(rows);
     failures.push(...issues.map((issue) => 'AAA · ' + issue));
   }).finally(() => {

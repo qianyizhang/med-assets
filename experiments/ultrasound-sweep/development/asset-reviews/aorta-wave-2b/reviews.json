@@ -1,0 +1,233 @@
+{
+  "version": 1,
+  "rubricHash": "a38e552869511cd5bceacaa5ea4456f4d0530e58e7dce2bc6855587a98b0e684",
+  "records": [
+    {
+      "source": "sweep",
+      "case": "aorta",
+      "part": "aorta",
+      "occurrence": 1,
+      "revision": "anatomy:s1233:aorta@ultrasound-r01:aorta-abdomen",
+      "meshSha256": "071cc21f07050b02fe860f133f9b46f0111d7e5fd7cc9dd2e523ace072c2824a",
+      "rubric": "docs/guides/asset-quality.md",
+      "reviewer": "Independent campaign lead · agent review",
+      "reviewedOn": "2026-11-28",
+      "task": "Trace the course of the abdominal aorta beside the vena cava.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 4,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "The raw exterior and the three long-axis cuts agree within 1.25 mm. The crop retains the superior rim and the distal taper.",
+        "form": "The lower trunk retains its bend and taper in both views. The reverse close-up loses the raw slice bands. Flat ends mark the sweep crop.",
+        "readability": "In the oblique view the long aorta runs beside the cava. The axial view and grayscale section confirm their relative direction.",
+        "economy": "The abdominal crop falls from 18,320 to 5,790 triangles. The greatest measured turning-silhouette change from the dense field is 0.50 px."
+      },
+      "disposition": "Adopt for the named 3D orientation task",
+      "note": "The native CT exemplar supports 3D exterior course and orientation. The modeled AAA case owns its lumen, wall, measurement and interpretation.",
+      "comparison": {
+        "label": "Previous and new abdominal and screening ports",
+        "candidate": "asset-reviews/aorta-wave-2b/previous-vs-r01.webp",
+        "candidateLabel": "The sweep crops preserve their original limits. Inspect the lower bend in the reverse view.",
+        "views": [
+          {
+            "label": "Complete aorta and the two ports beside the raw label",
+            "candidate": "asset-reviews/aorta-wave-2b/matched-surfaces.webp",
+            "candidateLabel": "The arch and lower trunk lose CT slice terracing. Both crops come from the same reconstructed field."
+          },
+          {
+            "label": "Protected cuts through the aorta",
+            "candidate": "asset-reviews/aorta-wave-2b/protected-planes.webp",
+            "candidateLabel": "Long-axis contours, screening stations and artificial end caps are measured against the raw CT label."
+          },
+          {
+            "label": "The abdominal and screening sweeps at frame 12",
+            "candidate": "asset-reviews/aorta-wave-2b/live-frame-12.webp",
+            "candidateLabel": "The scan and overlay retain their original bytes. The exterior supplies 3D course and orientation."
+          }
+        ]
+      },
+      "links": [
+        {
+          "label": "Source, replay and protected contour measurements",
+          "href": "asset-reviews/aorta-wave-2b/measurements.json"
+        }
+      ]
+    },
+    {
+      "source": "case",
+      "case": "abdomen-survey",
+      "chapter": "aorta-long",
+      "chapterSha256": "15bd89c02399e75998eddfcf8d21cbb646567821c234aa3c0bf678161f3ad0c6",
+      "part": "aorta",
+      "occurrence": 1,
+      "revision": "anatomy:s1233:aorta@ultrasound-r01:aorta-abdomen",
+      "meshSha256": "071cc21f07050b02fe860f133f9b46f0111d7e5fd7cc9dd2e523ace072c2824a",
+      "rubric": "docs/guides/asset-quality.md",
+      "reviewer": "Independent campaign lead · agent review",
+      "reviewedOn": "2026-11-28",
+      "task": "Trace the course of the abdominal aorta beside the vena cava.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 4,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "The raw exterior and the three long-axis cuts agree within 1.25 mm. The crop retains the superior rim and the distal taper.",
+        "form": "The lower trunk retains its bend and taper in both views. The reverse close-up loses the raw slice bands. Flat ends mark the sweep crop.",
+        "readability": "In the oblique view the long aorta runs beside the cava. The axial view and grayscale section confirm their relative direction.",
+        "economy": "The abdominal crop falls from 18,320 to 5,790 triangles. The greatest measured turning-silhouette change from the dense field is 0.50 px."
+      },
+      "disposition": "Adopt for the named 3D orientation task",
+      "note": "The native CT exemplar supports 3D exterior course and orientation. The modeled AAA case owns its lumen, wall, measurement and interpretation.",
+      "comparison": {
+        "label": "Previous and new abdominal and screening ports",
+        "candidate": "asset-reviews/aorta-wave-2b/previous-vs-r01.webp",
+        "candidateLabel": "The sweep crops preserve their original limits. Inspect the lower bend in the reverse view.",
+        "views": [
+          {
+            "label": "Complete aorta and the two ports beside the raw label",
+            "candidate": "asset-reviews/aorta-wave-2b/matched-surfaces.webp",
+            "candidateLabel": "The arch and lower trunk lose CT slice terracing. Both crops come from the same reconstructed field."
+          },
+          {
+            "label": "Protected cuts through the aorta",
+            "candidate": "asset-reviews/aorta-wave-2b/protected-planes.webp",
+            "candidateLabel": "Long-axis contours, screening stations and artificial end caps are measured against the raw CT label."
+          },
+          {
+            "label": "The abdominal and screening sweeps at frame 12",
+            "candidate": "asset-reviews/aorta-wave-2b/live-frame-12.webp",
+            "candidateLabel": "The scan and overlay retain their original bytes. The exterior supplies 3D course and orientation."
+          }
+        ]
+      },
+      "links": [
+        {
+          "label": "Source, replay and protected contour measurements",
+          "href": "asset-reviews/aorta-wave-2b/measurements.json"
+        }
+      ]
+    },
+    {
+      "source": "sweep",
+      "case": "aortic-screening",
+      "part": "aorta",
+      "occurrence": 1,
+      "revision": "anatomy:s1233:aorta@ultrasound-r01:aorta-screening",
+      "meshSha256": "b86b0ddf676f06fdec365a92d569eaaec2947cb4dbb3fefd26f0e47faa7fed6d",
+      "rubric": "docs/guides/asset-quality.md",
+      "reviewer": "Independent campaign lead · agent review",
+      "reviewedOn": "2026-11-28",
+      "task": "Locate the mid aorta in the CT screening sweep. The worked case supplies its own wall and caliper measurement.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "The proximal, mid and distal cuts and the crop rim pass the frozen limits. The centered mid section retains the same location anterior to the spine.",
+        "form": "The lower trunk retains its bend and taper in both views. The reverse close-up loses the raw slice bands. Flat ends mark the sweep crop.",
+        "readability": "At the mid station the transverse overlay locates the aorta anterior to the vertebra. The separate worked case retains its 19 mm AP example.",
+        "economy": "The screening port uses 4,990 triangles and about 90 KB. The largest turning-silhouette change from the dense field is 0.50 px."
+      },
+      "disposition": "Adopt for the named 3D orientation task",
+      "note": "The native CT exemplar supports 3D exterior course and orientation. The modeled AAA case owns its lumen, wall, measurement and interpretation.",
+      "comparison": {
+        "label": "Previous and new abdominal and screening ports",
+        "candidate": "asset-reviews/aorta-wave-2b/previous-vs-r01.webp",
+        "candidateLabel": "The sweep crops preserve their original limits. Inspect the lower bend in the reverse view.",
+        "views": [
+          {
+            "label": "Complete aorta and the two ports beside the raw label",
+            "candidate": "asset-reviews/aorta-wave-2b/matched-surfaces.webp",
+            "candidateLabel": "The arch and lower trunk lose CT slice terracing. Both crops come from the same reconstructed field."
+          },
+          {
+            "label": "Protected cuts through the aorta",
+            "candidate": "asset-reviews/aorta-wave-2b/protected-planes.webp",
+            "candidateLabel": "Long-axis contours, screening stations and artificial end caps are measured against the raw CT label."
+          },
+          {
+            "label": "The abdominal and screening sweeps at frame 12",
+            "candidate": "asset-reviews/aorta-wave-2b/live-frame-12.webp",
+            "candidateLabel": "The scan and overlay retain their original bytes. The exterior supplies 3D course and orientation."
+          }
+        ]
+      },
+      "links": [
+        {
+          "label": "Source, replay and protected contour measurements",
+          "href": "asset-reviews/aorta-wave-2b/measurements.json"
+        }
+      ]
+    },
+    {
+      "source": "case",
+      "case": "aaa-negative",
+      "chapter": "mid-aorta",
+      "chapterSha256": "bea06c32399555772cde7017fa4702e815245ccc61d41659582954a07d9df19a",
+      "part": "aorta",
+      "occurrence": 1,
+      "revision": "anatomy:s1233:aorta@ultrasound-r01:aorta-screening",
+      "meshSha256": "b86b0ddf676f06fdec365a92d569eaaec2947cb4dbb3fefd26f0e47faa7fed6d",
+      "rubric": "docs/guides/asset-quality.md",
+      "reviewer": "Independent campaign lead · agent review",
+      "reviewedOn": "2026-11-28",
+      "task": "Locate the mid aorta in the CT screening sweep. The worked case supplies its own wall and caliper measurement.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "The proximal, mid and distal cuts and the crop rim pass the frozen limits. The centered mid section retains the same location anterior to the spine.",
+        "form": "The lower trunk retains its bend and taper in both views. The reverse close-up loses the raw slice bands. Flat ends mark the sweep crop.",
+        "readability": "At the mid station the transverse overlay locates the aorta anterior to the vertebra. The separate worked case retains its 19 mm AP example.",
+        "economy": "The screening port uses 4,990 triangles and about 90 KB. The largest turning-silhouette change from the dense field is 0.50 px."
+      },
+      "disposition": "Adopt for the named 3D orientation task",
+      "note": "The native CT exemplar supports 3D exterior course and orientation. The modeled AAA case owns its lumen, wall, measurement and interpretation.",
+      "comparison": {
+        "label": "Previous and new abdominal and screening ports",
+        "candidate": "asset-reviews/aorta-wave-2b/previous-vs-r01.webp",
+        "candidateLabel": "The sweep crops preserve their original limits. Inspect the lower bend in the reverse view.",
+        "views": [
+          {
+            "label": "Complete aorta and the two ports beside the raw label",
+            "candidate": "asset-reviews/aorta-wave-2b/matched-surfaces.webp",
+            "candidateLabel": "The arch and lower trunk lose CT slice terracing. Both crops come from the same reconstructed field."
+          },
+          {
+            "label": "Protected cuts through the aorta",
+            "candidate": "asset-reviews/aorta-wave-2b/protected-planes.webp",
+            "candidateLabel": "Long-axis contours, screening stations and artificial end caps are measured against the raw CT label."
+          },
+          {
+            "label": "The abdominal and screening sweeps at frame 12",
+            "candidate": "asset-reviews/aorta-wave-2b/live-frame-12.webp",
+            "candidateLabel": "The scan and overlay retain their original bytes. The exterior supplies 3D course and orientation."
+          }
+        ]
+      },
+      "links": [
+        {
+          "label": "Source, replay and protected contour measurements",
+          "href": "asset-reviews/aorta-wave-2b/measurements.json"
+        }
+      ]
+    }
+  ],
+  "evidenceSha256": {
+    "previous-vs-r01.webp": "0fbf3b3ab0883419eb2baf294a52be3c7ced33cb4c6efc93c255ffa1bed6b4dd",
+    "matched-surfaces.webp": "5097e888e68c2d30835a366770b5be3d84a25f281e43b0d10c21d68625a79e4c",
+    "protected-planes.webp": "fa1893037fa224c82579c2a740aa605a29398d25c0c36ba501ef3c4a8a790eaa",
+    "live-frame-12.webp": "81776fb0720208fcdbc53ac9741d3f58bc88f8e858a9115912bc290c346eca59"
+  },
+  "measurementsSha256": "a3fc2b5f7847a23497e3660a4e074c62517f6d311c98f6a5f49ee6197d133518"
+}

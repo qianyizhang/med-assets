@@ -1,0 +1,67 @@
+{
+  "slug": "thyroid-wave-2b",
+  "exportRef": {
+    "record": "models/thyroid_s1127/asset.record.json",
+    "asset": "anatomy:s1127:thyroid",
+    "revision": "r03",
+    "export": "thyroid"
+  },
+  "review": {
+    "case": "thyroid-normal",
+    "chapter": "thyroid-left-long",
+    "part": "thyroid_gland"
+  },
+  "adopted": true,
+  "cardTitle": "Thyroid lobes and isthmus",
+  "subtitle": "thyroid-normal · CT frame 48",
+  "revisionTitle": "s1127 Thyroid lobes and isthmus · r03",
+  "revisionLinkLabel": "Thyroid lobes and isthmus",
+  "coordinateFrame": "s1127 voxel indices · RAS axes · 1.5 mm grid",
+  "sourceId": "source:totalsegmentator-v2.0.1:s1127:thyroid",
+  "sourceLabel": "TotalSegmentator v2.0.1 · Jakob Wasserthal and contributors · CC BY 4.0",
+  "detailsLabel": "Source sections, saved scan and independent review",
+  "figures": [
+    {
+      "file": "previous-vs-r03.webp",
+      "width": 948,
+      "height": 1175,
+      "alt": "Historical thyroid and selected bilateral port",
+      "caption": "The two lobes and the connecting isthmus remain visible. The left shoulder retains some local relief from the CT label."
+    },
+    {
+      "file": "matched-surfaces.webp",
+      "width": 1414,
+      "height": 814,
+      "alt": "Raw label and packed thyroid in front and reverse views",
+      "caption": "The protected ridge follows the raw source near the grazing left section."
+    },
+    {
+      "file": "protected-planes.webp",
+      "width": 1414,
+      "height": 710,
+      "alt": "Right and left long-axis contour checks",
+      "caption": "R03 recovers the left grazing contours while keeping the original frozen tolerance."
+    },
+    {
+      "file": "live-frame-12.webp",
+      "width": 1354,
+      "height": 720,
+      "alt": "Both transverse acquisitions at frame 12",
+      "caption": "The registered overlay places the same thyroid on both sides."
+    },
+    {
+      "file": "isthmus-cuts.webp",
+      "width": 1414,
+      "height": 710,
+      "alt": "The five protected isthmus cuts",
+      "caption": "The worst sagittal gap is 0.75 mm across the bridge."
+    },
+    {
+      "file": "live-frame-48.webp",
+      "width": 1354,
+      "height": 720,
+      "alt": "The two longitudinal CT views at frame 48",
+      "caption": "The worked cases retain their own frame-12 actions. Both CT companions load the same registered gland."
+    }
+  ]
+}

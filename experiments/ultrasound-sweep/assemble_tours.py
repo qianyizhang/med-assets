@@ -12,7 +12,8 @@ import zipfile
 import numpy as np
 from gallery_reference_sources import mammary_reference, write_gallery_donors
 import build_abdomen
-from abdomen_tracks import read_tracks as read_abdominal_tracks, scene_assets
+from abdomen_tracks import read_tracks as read_abdominal_tracks
+from scene_assets import scene_assets
 import build_aortic_screening
 import build_axilla
 import build_breast
@@ -305,7 +306,7 @@ def configured_tours(output, refs, files, landmark_refs, tracks):
                 for key in ('windows', 'landmarkMinimums', 'requireModelReceipt'):
                     tour.pop(key, None)
         verify_inventory(output / root, inventory + ['verification.json'] if slug == 'gallbladder' else inventory)
-        if tour.pop('sceneAssets', None):
+        if tour.get('sceneAssets'):
             scene_assets(track, output / root / 'scenes')
         for relative in inventory:
             path = root.removeprefix('./') + relative

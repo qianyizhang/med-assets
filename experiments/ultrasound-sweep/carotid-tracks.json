@@ -25,7 +25,89 @@
     "simulationNote": "Modeled probe contact locally displaces tissue, and the arterial echoes follow the segmented vessel. The artery is deeper in this CT than in the acquired comparisons."
   },
   "sweeps": [
-    {"id": "carotid-right", "title": "Right common carotid", "routeLabel": "Right", "region": "Right anterior neck", "sourceNote": "The s1127 CT and same-case carotid, thyroid and trachea masks supply the neck anatomy. The right internal jugular vein is traced from the same CT. An illustrative BodyParts3D exterior is fitted around the probe contact.", "focus": [143, 121, 392], "obliqueDirection": [1, 0.56, 0.6]},
-    {"id": "carotid-left", "title": "Left common carotid", "routeLabel": "Left", "region": "Left anterior neck", "focus": [121, 122, 396], "obliqueDirection": [-1, 0.56, 0.6]}
+    {
+      "id": "carotid-right",
+      "parts": [
+        "thyroid_gland",
+        "trachea",
+        "common_carotid_artery_right",
+        "internal_jugular_vein_right"
+      ],
+      "title": "Right common carotid",
+      "routeLabel": "Right",
+      "region": "Right anterior neck",
+      "sourceNote": "The s1127 CT and same-case carotid, thyroid and trachea masks supply the neck anatomy. The right internal jugular vein is traced from the same CT. An illustrative BodyParts3D exterior is fitted around the probe contact.",
+      "focus": [
+        143,
+        121,
+        392
+      ],
+      "obliqueDirection": [
+        1,
+        0.56,
+        0.6
+      ],
+      "sceneAssets": {
+        "common_carotid_artery_right": {
+          "asset": "anatomy:s1127:carotid-right",
+          "revision": "r01",
+          "export": "neck",
+          "registration": "native"
+        },
+        "thyroid_gland": {
+          "asset": "anatomy:s1127:thyroid",
+          "revision": "r03",
+          "export": "thyroid",
+          "registration": "native"
+        },
+        "trachea": {
+          "asset": "anatomy:s1127:trachea",
+          "revision": "r01",
+          "export": "carotid",
+          "registration": "native"
+        }
+      }
+    },
+    {
+      "id": "carotid-left",
+      "parts": [
+        "thyroid_gland",
+        "trachea",
+        "common_carotid_artery_left"
+      ],
+      "title": "Left common carotid",
+      "routeLabel": "Left",
+      "region": "Left anterior neck",
+      "focus": [
+        121,
+        122,
+        396
+      ],
+      "obliqueDirection": [
+        -1,
+        0.56,
+        0.6
+      ],
+      "sceneAssets": {
+        "common_carotid_artery_left": {
+          "asset": "anatomy:s1127:carotid-left",
+          "revision": "r01",
+          "export": "neck",
+          "registration": "native"
+        },
+        "thyroid_gland": {
+          "asset": "anatomy:s1127:thyroid",
+          "revision": "r03",
+          "export": "thyroid",
+          "registration": "native"
+        },
+        "trachea": {
+          "asset": "anatomy:s1127:trachea",
+          "revision": "r01",
+          "export": "carotid",
+          "registration": "native"
+        }
+      }
+    }
   ]
 }

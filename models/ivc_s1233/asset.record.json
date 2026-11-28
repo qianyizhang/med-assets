@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:s1233:ivc",
+  "title": "s1233 inferior vena cava exterior",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/ivc_s1233",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:totalsegmentator-v2.0.1:s1233:inferior-vena-cava",
+      "title": "TotalSegmentator v2.0.1 s1233 inferior vena cava mask",
+      "sourceType": "external segmentation",
+      "sha256": "44504ba513ec6292a4a030c097948f546054ea36fdfbca7b6896103cf1b488e0",
+      "license": "CC BY 4.0; retain the Workshop label-source notices",
+      "url": "https://zenodo.org/records/10047263"
+    }
+  ],
+  "parts": [
+    {
+      "partId": "inferior-vena-cava",
+      "label": "Inferior vena cava exterior",
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "r01",
+      "status": "provisional",
+      "recipe": "rebuild.py",
+      "recipeEvidence": {
+        "path": "models/ivc_s1233/rebuild.py",
+        "sha256": "017c8c24dd18eb1853592729616a620e34adff0d40e155a561131ae0419c6c05"
+      },
+      "frame": {
+        "convention": "voxel-index",
+        "units": "voxel",
+        "evidence": "assemblies/workshop-s1233/inputs.json"
+      },
+      "sourceIds": [
+        "source:totalsegmentator-v2.0.1:s1233:inferior-vena-cava"
+      ],
+      "partIds": [
+        "inferior-vena-cava"
+      ],
+      "exports": [
+        {
+          "id": "ivc",
+          "path": "models/ivc_s1233/exports/r01/ivc.mesh",
+          "sha256": "940ae26a817491395d6d85c7b9c4cfe6034ee7aaaf13662cd8c3950e9a51e5bf",
+          "bytes": 104396,
+          "format": "mesh",
+          "triangles": 5798,
+          "partIds": [
+            "inferior-vena-cava"
+          ],
+          "voxelGrid": {
+            "case": "s1233",
+            "shape": [
+              265,
+              265,
+              401
+            ],
+            "rasMmFromVoxel": [
+              [
+                1.5,
+                0.0,
+                0.0,
+                -215.611328125
+              ],
+              [
+                0.0,
+                1.5,
+                0.0,
+                -37.111328125
+              ],
+              [
+                0.0,
+                0.0,
+                1.5,
+                41.20000076293945
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        },
+        {
+          "id": "abdominal",
+          "path": "models/ivc_s1233/exports/r01/abdominal.mesh",
+          "sha256": "0ccc3c04dc2528ce211cde5119140a6450ae28172ef5f2b6d02178a786ef3ea0",
+          "bytes": 108032,
+          "format": "mesh",
+          "triangles": 6000,
+          "partIds": [
+            "inferior-vena-cava"
+          ],
+          "voxelGrid": {
+            "case": "s1233",
+            "shape": [
+              265,
+              265,
+              401
+            ],
+            "rasMmFromVoxel": [
+              [
+                1.5,
+                0.0,
+                0.0,
+                -215.611328125
+              ],
+              [
+                0.0,
+                1.5,
+                0.0,
+                -37.111328125
+              ],
+              [
+                0.0,
+                0.0,
+                1.5,
+                41.20000076293945
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "artifacts": [],
+  "exports": [
+    {
+      "path": "models/ivc_s1233/exports/r01/ivc.mesh",
+      "sha256": "940ae26a817491395d6d85c7b9c4cfe6034ee7aaaf13662cd8c3950e9a51e5bf",
+      "bytes": 104396
+    },
+    {
+      "path": "models/ivc_s1233/exports/r01/abdominal.mesh",
+      "sha256": "0ccc3c04dc2528ce211cde5119140a6450ae28172ef5f2b6d02178a786ef3ea0",
+      "bytes": 108032
+    }
+  ],
+  "uses": [],
+  "retirement": null,
+  "unresolved": [
+    "The CT label supports the case-specific outer course and taper. Separate hepatic tributaries and a verified hepatic junction are absent from the source."
+  ]
+}

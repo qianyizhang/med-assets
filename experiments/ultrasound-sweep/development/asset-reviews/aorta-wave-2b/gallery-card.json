@@ -1,0 +1,53 @@
+{
+  "slug": "aorta-wave-2b",
+  "exportRef": {
+    "record": "models/aorta/asset.record.json",
+    "asset": "anatomy:s1233:aorta",
+    "revision": "ultrasound-r01",
+    "export": "aorta-abdomen"
+  },
+  "review": {
+    "case": "abdomen-survey",
+    "chapter": "aorta-long",
+    "part": "aorta"
+  },
+  "adopted": true,
+  "cardTitle": "Aortic course",
+  "subtitle": "abdomen-survey · CT frame 12",
+  "revisionTitle": "s1233 Aortic course · ultrasound-r01",
+  "revisionLinkLabel": "Aortic course",
+  "coordinateFrame": "s1233 voxel indices · RAS axes · 1.5 mm grid",
+  "sourceId": "source:totalsegmentator-v2.0.1:s1233:aorta",
+  "sourceLabel": "TotalSegmentator v2.0.1 · Jakob Wasserthal and contributors · CC BY 4.0",
+  "detailsLabel": "Source sections, saved scan and independent review",
+  "figures": [
+    {
+      "file": "previous-vs-r01.webp",
+      "width": 1608,
+      "height": 1016,
+      "alt": "Previous and new abdominal and screening ports",
+      "caption": "The sweep crops preserve their original limits. Inspect the lower bend in the reverse view."
+    },
+    {
+      "file": "matched-surfaces.webp",
+      "width": 1608,
+      "height": 1486,
+      "alt": "Complete aorta and the two ports beside the raw label",
+      "caption": "The arch and lower trunk lose CT slice terracing. Both crops come from the same reconstructed field."
+    },
+    {
+      "file": "protected-planes.webp",
+      "width": 1508,
+      "height": 1140,
+      "alt": "Protected cuts through the aorta",
+      "caption": "Long-axis contours, screening stations and artificial end caps are measured against the raw CT label."
+    },
+    {
+      "file": "live-frame-12.webp",
+      "width": 1510,
+      "height": 1250,
+      "alt": "The abdominal and screening sweeps at frame 12",
+      "caption": "The scan and overlay retain their original bytes. The exterior supplies 3D course and orientation."
+    }
+  ]
+}

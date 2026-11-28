@@ -12,7 +12,7 @@ import numpy as np
 from PIL import Image
 from scipy import ndimage as nd
 
-from build_abdomen import ImagingGrid, overlay
+from build_abdomen import ImagingGrid, mesh_from_mask, overlay
 from build_aortic_screening import load_masks, read_tracks
 from build_study import CT_SHA, material_at, unit, volume
 from delivery import sha256, validate_mesh
@@ -28,6 +28,9 @@ RECIPE_FILES = (
     'cases/vascular/cases.json', 'cases/vascular/playable.js', 'cases/vascular/playable-model.js',
     'cases/vascular/playable-aorta.js',
 )
+# The worked cases fit to this frozen CT surface. Their saved acquisitions
+# must replay when the separately displayed screening exterior changes.
+REGISTRATION_SHA256 = '8cb4b43ae5b819bbe6f7d0f6fd3b11dd3615bdf06f2f8a7c7132d9c9f445f333'
 PARTS = [
     {'id': 'wall', 'label': 'Aorta and proximal iliacs', 'color': '#c96351', 'opacity': .68},
     {'id': 'lumen', 'label': 'Arterial lumen', 'color': '#dd916d', 'opacity': .82},
@@ -121,7 +124,12 @@ def load_context(case):
     filled = local[tuple(indices)]
     blended = nd.gaussian_filter(filled.astype('f'), .8)
     local[mask] = blended[mask].round().astype(ct.dtype)
-    return ct, vertebrae
+    reference = mesh_from_mask(structures['aorta'], (117, 237))
+    if sha256(reference) != REGISTRATION_SHA256:
+        raise ValueError('Changed s1233 registration surface for the worked AAA cases')
+    count, = struct.unpack_from('<I', reference)
+    vertices = np.frombuffer(reference, '<f4', 3 * count, 8).reshape(-1, 3).astype('d')
+    return ct, vertebrae, vertices
 
 
 def native_frame(sample, registration, torso, grid):
@@ -260,19 +268,19 @@ def write_json(path, value):
 
 def build(study, case, target):
     tour = native_tour(study)
-    meshes = {name: input_mesh(study, tour, name) for name in ('aorta', 'torso', 'vertebrae')}
+    meshes = {name: input_mesh(study, tour, name) for name in ('torso', 'vertebrae')}
     torso = meshes['torso'][1:]
-    ct, vertebrae = load_context(case)
+    ct, vertebrae, reference_vertices = load_context(case)
     source = HERE / 'cases/vascular/cases.json'
     cases = [record for record in json.loads(source.read_text()) if record['family'] == 'aaa']
     exported = subprocess.run(['node', str(HERE / 'aaa_model.mjs')], input=json.dumps(cases),
                               text=True, capture_output=True, check=True)
     model = json.loads(exported.stdout)
-    registration = Registration(meshes['aorta'][1], model['bifurcationMm'])
+    registration = Registration(reference_vertices, model['bifurcationMm'])
     grid = ImagingGrid(tour['sectorDepthMm'])
     assets = target / 'assets'
     assets.mkdir()
-    paths = {name: '../../' + path for name, (path, _, _) in meshes.items() if name != 'aorta'}
+    paths = {name: '../../' + path for name, (path, _, _) in meshes.items()}
     tables = {}
     registrations = {}
     placements = {}
@@ -346,6 +354,7 @@ def build(study, case, target):
         'colorFrameCount': color_frames,
         'maxLensCenterContactErrorMm': max(contact_errors),
         'targetDepthMm': [round(min(depths), 3), round(max(depths), 3)],
+        'registrationSurfaceSha256': REGISTRATION_SHA256,
         'sharedAssets': {name: sha256((study / path).read_bytes()) for name, (path, _, _) in meshes.items()},
         'recipeSha256': acquisition_recipe_sha256(),
         'ctSha256': CT_SHA,

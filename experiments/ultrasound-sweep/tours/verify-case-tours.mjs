@@ -12,8 +12,13 @@ const captures = process.argv[3];
 if (captures) await mkdir(captures, { recursive: true });
 const selected = process.argv.slice(4);
 const expected = new Map();
-const consumers = JSON.parse(await readFile(new URL('../cases/organs/consumer.json', import.meta.url))).consumers;
-const exemplars = new Map(consumers.map(entry => [entry.case + '/' + entry.chapter, entry]));
+const consumers = (await Promise.all(['organs', 'vascular'].map(async family => {
+  const path = new URL('../cases/' + family + '/consumer.json', import.meta.url);
+  return JSON.parse(await readFile(path, 'utf8')).consumers;
+}))).flat();
+const key = entry => entry.case + '/' + entry.chapter;
+const exemplars = new Map(consumers.filter(entry => entry.presentation !== 'companion').map(entry => [key(entry), entry]));
+const companions = new Map(consumers.filter(entry => entry.presentation === 'companion').map(entry => [key(entry), entry]));
 for (const packageName of ['vascular', 'organs', 'pregnancy', 'echo']) {
   const folder = new URL('../cases/' + packageName + '/', import.meta.url);
   const records = JSON.parse(await readFile(new URL('cases.json', folder), 'utf8'));
@@ -383,6 +388,14 @@ try {
         const exemplar = await page.locator('.chapter:not([hidden])').getAttribute('data-source-sweep');
         const consumer = exemplars.get(id + '/' + chapter.id);
         assert.equal(exemplar, consumer?.sweep ?? null, id + '/' + chapter.id);
+        const companion = companions.get(id + '/' + chapter.id);
+        const extra = page.locator('.chapter:not([hidden]) .ct-exemplar iframe');
+        assert.equal(await extra.count(), companion ? 1 : 0);
+        if (companion) {
+          const target = new URL(await extra.getAttribute('data-src'), page.url());
+          assert.equal(target.searchParams.get('sweep'), companion.sweep);
+          assert.equal(target.searchParams.get('frame'), String(companion.frame));
+        }
         if (consumer) {
           const saved = linkedFrame(tourPath(record), chapter.id, chapter.evidenceFrame, '#exam');
           const link = report.nth(index);

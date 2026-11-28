@@ -1,0 +1,385 @@
+{
+  "organ": "inferior_vena_cava",
+  "case": "s1233",
+  "sweep": "ivc",
+  "frame": 12,
+  "chapter": "abdomen-survey/ivc-long",
+  "pose": {
+    "contact": [
+      171.26530613971465,
+      227.00000009953152,
+      194.22448978373083
+    ],
+    "width": [
+      -0.1928004511503815,
+      -0.08624164280412538,
+      -0.9774407220300652
+    ],
+    "beam": [
+      -0.1696863700552425,
+      -0.9781920156125737,
+      0.11977861415664168
+    ],
+    "degrees": 0.0
+  },
+  "sourceRevision": "abe213c44df8",
+  "previousSweep": {
+    "sha256": "87f643b1f05200d4d66d469e6791b13df3f26f08a35864035f1a10f10c8ef131",
+    "bytes": 314600,
+    "triangles": 17476
+  },
+  "compactMeshPath": "sweeps/liver/scenes/inferior_vena_cava.mesh",
+  "previousChapterPage": {
+    "sha256": "a99c4afcefe3befa605550968c8a4ed8de50a785fcc5bc0cb905574e0388f35d",
+    "bytes": 8695
+  },
+  "savedFrameInputs": {
+    "sweep.js": {
+      "sha256": "58adae8e21ca938b363eda50acf728020537c0ab9c2f35619c10eb63feab9bc5",
+      "bytes": 11024
+    },
+    "media/scan-12.webp": {
+      "sha256": "aa7ff265e0fc27f326e98923ec1701ca9dda5dac886dffd2e894da62b5d71550",
+      "bytes": 30138
+    },
+    "media/section-12.webp": {
+      "sha256": "53e827c1c68796bf103e9b09433f73b7be3d2f965368ff50235a43c093c2a988",
+      "bytes": 26908
+    },
+    "media/scan-48.webp": {
+      "sha256": "c0ea9b9a939bb1962d5558dbe10cce5c733760d34556293fad4417dde4f76231",
+      "bytes": 31334
+    },
+    "media/section-48.webp": {
+      "sha256": "2a3ecb5d8ac851cbb895b32ec4fe9e7101ca955a5c08fc978d9ae3710c10ec3f",
+      "bytes": 28926
+    }
+  },
+  "sector": {
+    "depthMm": 166,
+    "halfAngleDeg": 36,
+    "lensRadiusMm": 38
+  },
+  "source": {
+    "ctSha256": "5352376d8fd9c0ab582a7fca1443f28762a66b9782d59c645b976771587c0cfc",
+    "maskSha256": "44504ba513ec6292a4a030c097948f546054ea36fdfbca7b6896103cf1b488e0",
+    "shape": [
+      265,
+      265,
+      401
+    ],
+    "rasMmFromVoxel": [
+      [
+        1.5,
+        0.0,
+        0.0,
+        -215.611328125
+      ],
+      [
+        0.0,
+        1.5,
+        0.0,
+        -37.111328125
+      ],
+      [
+        0.0,
+        0.0,
+        1.5,
+        41.20000076293945
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "workingLabelGridSpacingMm": [
+      1.5,
+      1.5,
+      1.5
+    ],
+    "abdominalZVoxels": [
+      140,
+      271
+    ]
+  },
+  "rawReferences": {
+    "ivc": {
+      "sha256": "ec58c3676f23865ee10dbe42d201df17e62b0ce2635bdf258df85eb4f1a4afb9",
+      "bytes": 785428
+    },
+    "abdominal": {
+      "sha256": "238223e63ac1b922878cbad9f25a439871b465540565d52a6615c5cdff6c7eff",
+      "bytes": 752496
+    }
+  },
+  "rawInventories": {
+    "ivc": {
+      "occupiedBoundsVoxel": [
+        [
+          133,
+          124,
+          140
+        ],
+        [
+          170,
+          146,
+          278
+        ]
+      ],
+      "componentVoxelCounts": [
+        19208
+      ],
+      "enclosedBackgroundVoxels": 0,
+      "volumeMm3": 64520.71874999806,
+      "planes": [
+        {
+          "name": "long-axis -1.5 mm",
+          "originRasMm": [
+            39.836949162848875,
+            303.67209963266686,
+            332.79767818444583
+          ],
+          "normalRas": [
+            0.966454614482069,
+            -0.18895173891302505,
+            -0.1739618306067724
+          ],
+          "segments": 672
+        },
+        {
+          "name": "long-axis +0 mm",
+          "originRasMm": [
+            41.28663108457198,
+            303.3886720242973,
+            332.5367354385357
+          ],
+          "normalRas": [
+            0.966454614482069,
+            -0.18895173891302505,
+            -0.1739618306067724
+          ],
+          "segments": 649
+        },
+        {
+          "name": "long-axis +1.5 mm",
+          "originRasMm": [
+            42.736313006295084,
+            303.10524441592776,
+            332.27579269262554
+          ],
+          "normalRas": [
+            0.966454614482069,
+            -0.18895173891302505,
+            -0.1739618306067724
+          ],
+          "segments": 568
+        },
+        {
+          "name": "axial voxel z=142.25",
+          "originRasMm": [
+            -215.611328125,
+            -37.111328125,
+            254.57500076293945
+          ],
+          "normalRas": [
+            0,
+            0,
+            1
+          ],
+          "segments": 88
+        },
+        {
+          "name": "axial voxel z=209.25",
+          "originRasMm": [
+            -215.611328125,
+            -37.111328125,
+            355.07500076293945
+          ],
+          "normalRas": [
+            0,
+            0,
+            1
+          ],
+          "segments": 132
+        },
+        {
+          "name": "axial voxel z=259.25",
+          "originRasMm": [
+            -215.611328125,
+            -37.111328125,
+            430.07500076293945
+          ],
+          "normalRas": [
+            0,
+            0,
+            1
+          ],
+          "segments": 172
+        },
+        {
+          "name": "axial voxel z=270.25",
+          "originRasMm": [
+            -215.611328125,
+            -37.111328125,
+            446.57500076293945
+          ],
+          "normalRas": [
+            0,
+            0,
+            1
+          ],
+          "segments": 124
+        },
+        {
+          "name": "axial voxel z=276.25",
+          "originRasMm": [
+            -215.611328125,
+            -37.111328125,
+            455.57500076293945
+          ],
+          "normalRas": [
+            0,
+            0,
+            1
+          ],
+          "segments": 92
+        }
+      ]
+    },
+    "abdominal": {
+      "occupiedBoundsVoxel": [
+        [
+          133,
+          124,
+          140
+        ],
+        [
+          170,
+          146,
+          270
+        ]
+      ],
+      "componentVoxelCounts": [
+        18316
+      ],
+      "enclosedBackgroundVoxels": 0,
+      "volumeMm3": 61521.04687500001,
+      "planes": [
+        {
+          "name": "long-axis -1.5 mm",
+          "originRasMm": [
+            39.836949162848875,
+            303.67209963266686,
+            332.79767818444583
+          ],
+          "normalRas": [
+            0.966454614482069,
+            -0.18895173891302505,
+            -0.1739618306067724
+          ],
+          "segments": 672
+        },
+        {
+          "name": "long-axis +0 mm",
+          "originRasMm": [
+            41.28663108457198,
+            303.3886720242973,
+            332.5367354385357
+          ],
+          "normalRas": [
+            0.966454614482069,
+            -0.18895173891302505,
+            -0.1739618306067724
+          ],
+          "segments": 649
+        },
+        {
+          "name": "long-axis +1.5 mm",
+          "originRasMm": [
+            42.736313006295084,
+            303.10524441592776,
+            332.27579269262554
+          ],
+          "normalRas": [
+            0.966454614482069,
+            -0.18895173891302505,
+            -0.1739618306067724
+          ],
+          "segments": 568
+        },
+        {
+          "name": "axial voxel z=142.25",
+          "originRasMm": [
+            -215.611328125,
+            -37.111328125,
+            254.57500076293945
+          ],
+          "normalRas": [
+            0,
+            0,
+            1
+          ],
+          "segments": 88
+        },
+        {
+          "name": "axial voxel z=209.25",
+          "originRasMm": [
+            -215.611328125,
+            -37.111328125,
+            355.07500076293945
+          ],
+          "normalRas": [
+            0,
+            0,
+            1
+          ],
+          "segments": 132
+        },
+        {
+          "name": "axial voxel z=259.25",
+          "originRasMm": [
+            -215.611328125,
+            -37.111328125,
+            430.07500076293945
+          ],
+          "normalRas": [
+            0,
+            0,
+            1
+          ],
+          "segments": 172
+        },
+        {
+          "name": "axial voxel z=270.25",
+          "originRasMm": [
+            -215.611328125,
+            -37.111328125,
+            446.57500076293945
+          ],
+          "normalRas": [
+            0,
+            0,
+            1
+          ],
+          "segments": 105
+        }
+      ]
+    }
+  },
+  "limits": {
+    "p95Mm": 1.5,
+    "maxMm": 3.0,
+    "volumePercent": 3.0,
+    "silhouettePx": 1.0,
+    "silhouetteViews": 24,
+    "teachingZoomPxPerMm": 3.0,
+    "triangleBand": [
+      1500,
+      6000
+    ],
+    "sampleStepMaxMm": 0.5,
+    "endpointSpanDeltaMm": 1.5
+  }
+}

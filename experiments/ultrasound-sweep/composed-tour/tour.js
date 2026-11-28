@@ -23,6 +23,12 @@ const sections = [...document.querySelectorAll('.chapters a[data-chapter]')].map
   totalFrames += end - start + 1;
   return section;
 });
+for (const disclosure of document.querySelectorAll('.ct-exemplar')) {
+  disclosure.addEventListener('toggle', () => {
+    const frame = disclosure.querySelector('iframe');
+    if (disclosure.open && !frame.hasAttribute('src')) frame.src = frame.dataset.src;
+  });
+}
 const last = totalFrames - 1;
 
 for (const section of sections) {

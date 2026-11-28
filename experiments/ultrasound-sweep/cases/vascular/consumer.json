@@ -1,0 +1,100 @@
+{
+  "consumers": [
+    {
+      "id": "ultrasound:case:aaa-negative:mid-aorta",
+      "kind": "ultrasound-case",
+      "title": "Locate the mid aorta in the CT screening sweep. The worked case supplies its own wall and caliper measurement.",
+      "case": "aaa-negative",
+      "chapter": "mid-aorta",
+      "presentation": "companion",
+      "part": "aorta",
+      "sweep": "aortic-screening",
+      "frame": 30,
+      "workedFrame": 14,
+      "observation": "Locate the mid aorta in the CT screening sweep. The worked case supplies its own wall and caliper measurement.",
+      "poseSha256": "8e50b976b4ce5688f528868a1f71cbf90606705de0df2e68d934f333cb89f014",
+      "requirements": [
+        {
+          "id": "part:aorta",
+          "description": "Locate the mid aorta in the CT screening sweep. The worked case supplies its own wall and caliper measurement.",
+          "status": "provisional",
+          "subject": "s1233"
+        }
+      ],
+      "pins": [
+        {
+          "asset": "anatomy:s1233:aorta",
+          "revision": "ultrasound-r01",
+          "export": "aorta-screening",
+          "registration": "native",
+          "requirement": "part:aorta",
+          "sha256": "b86b0ddf676f06fdec365a92d569eaaec2947cb4dbb3fefd26f0e47faa7fed6d"
+        }
+      ]
+    },
+    {
+      "id": "ultrasound:case:carotid-normal:left-cca-gray",
+      "kind": "ultrasound-case",
+      "title": "Follow the left common carotid exterior in the long-axis CT view. The worked case supplies its grayscale and duplex acquisition.",
+      "case": "carotid-normal",
+      "chapter": "left-cca-gray",
+      "presentation": "companion",
+      "part": "common_carotid_artery_left",
+      "sweep": "carotid-left",
+      "frame": 48,
+      "workedFrame": 14,
+      "observation": "Follow the left common carotid exterior in the long-axis CT view. The worked case supplies its grayscale and duplex acquisition.",
+      "poseSha256": "0af078623abb5fa4437885ca4eb3fc30edd50a1356e655a68d732676fdabd2a4",
+      "requirements": [
+        {
+          "id": "part:common_carotid_artery_left",
+          "description": "Follow the left common carotid exterior in the long-axis CT view. The worked case supplies its grayscale and duplex acquisition.",
+          "status": "provisional",
+          "subject": "s1127"
+        }
+      ],
+      "pins": [
+        {
+          "asset": "anatomy:s1127:carotid-left",
+          "revision": "r01",
+          "export": "neck",
+          "registration": "native",
+          "requirement": "part:common_carotid_artery_left",
+          "sha256": "48298238a7f6adcf2f9e260a7f004fd848f0e4c46d6b313ab241f7a00635603d"
+        }
+      ]
+    },
+    {
+      "id": "ultrasound:case:carotid-normal:right-cca-gray",
+      "kind": "ultrasound-case",
+      "title": "Follow the right common carotid exterior in the long-axis CT view. The worked case supplies its grayscale and duplex acquisition.",
+      "case": "carotid-normal",
+      "chapter": "right-cca-gray",
+      "presentation": "companion",
+      "part": "common_carotid_artery_right",
+      "sweep": "carotid-right",
+      "frame": 48,
+      "workedFrame": 14,
+      "observation": "Follow the right common carotid exterior in the long-axis CT view. The worked case supplies its grayscale and duplex acquisition.",
+      "poseSha256": "8b931db6612c2c7370d7abd468695e8357df50f5bec09f1a3f1e3577cc29d9ef",
+      "requirements": [
+        {
+          "id": "part:common_carotid_artery_right",
+          "description": "Follow the right common carotid exterior in the long-axis CT view. The worked case supplies its grayscale and duplex acquisition.",
+          "status": "provisional",
+          "subject": "s1127"
+        }
+      ],
+      "pins": [
+        {
+          "asset": "anatomy:s1127:carotid-right",
+          "revision": "r01",
+          "export": "neck",
+          "registration": "native",
+          "requirement": "part:common_carotid_artery_right",
+          "sha256": "5b4f14f95cabc4e5049e642eba979e0fea32971541eec4ff13dcfe6814835862"
+        }
+      ]
+    }
+  ]
+}

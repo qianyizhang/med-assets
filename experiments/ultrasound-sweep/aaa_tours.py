@@ -5,6 +5,7 @@ from pathlib import Path
 import shutil
 from urllib.parse import urlencode
 
+from survey_exemplars import companion_html
 from tour_timeline import timeline_controls
 
 CASES = {
@@ -128,7 +129,7 @@ def chapter_sections(case_id: str, chapters: list) -> tuple[list[dict], str, str
         panels.append(f'''
     <section class="chapter" id="{key}" aria-labelledby="{key}-title" hidden>
       <div>{phase_name}<h2 id="{key}-title">{title}</h2><p>{cue}</p></div>
-      <div class="evidence">{saved_frame}{value}</div>
+      <div class="evidence">{saved_frame}{value}</div>{companion_html(chapter)}
     </section>''')
         report_link = link(chapter_url(chapter, frame=True, anchor='#exam'), chapter['title'])
         report.append(f'<li>{report_link}{f" · {escape(measurement)}" if measurement else ""}</li>')

@@ -116,6 +116,40 @@ def verify_chapter_mesh_bindings(work):
     print('Chapter mesh binding: sibling edit preserved currency; mesh, placement and pose edits invalidated it; missing and corrupt payloads rejected.')
 
 
+def verify_companions(destination, tours):
+    from copy import deepcopy
+    from survey_exemplars import CASES, bind_consumer
+
+    by_id = {tour['id']: tour for tour in tours}
+    for path in sorted(CASES.glob('*/consumer.json')):
+        for consumer in json.loads(path.read_text())['consumers']:
+            if consumer.get('presentation') != 'companion' or consumer['sweep'] not in by_id:
+                continue
+            case, chapter = consumer['case'], consumer['chapter']
+            def bind(row):
+                worked = dict(id=chapter, evidenceFrame=consumer['workedFrame'],
+                              observation='Original worked task', measurement='Original measurement')
+                bind_consumer(destination, by_id, {case: [worked]}, row)
+                assert worked['observation'] == 'Original worked task' and worked['measurement'] == 'Original measurement'
+                return worked
+
+            original = bind(consumer)
+            assert original['exemplar']['frame'] == consumer['frame'] and 'sourceSweep' not in original
+            for field in ('part', 'poseSha256', 'workedFrame', 'subject', 'sha256', 'revision'):
+                changed = deepcopy(consumer)
+                if field == 'subject':
+                    changed['requirements'][0]['subject'] = 'wrong-case'
+                elif field in ('sha256', 'revision'):
+                    changed['pins'][0][field] = '0' * 64
+                else:
+                    changed[field] = -1 if field == 'workedFrame' else 'wrong-input'
+                try:
+                    bind(changed)
+                except ValueError:
+                    continue
+                raise AssertionError(f'{case}/{chapter}: accepted a changed {field}')
+
+
 def verify_subset(staging, destination, expected):
     """A removed study may change which surviving tour owns a shared mesh."""
     actual = javascript_value(destination / 'abdomen-tours.js', 'abdomenTours')
@@ -200,6 +234,7 @@ def verify(source, aaa_acquisitions=None):
         try:
             assemble_tours.assemble(staging, destination)
             tours = javascript_value(destination / 'abdomen-tours.js', 'abdomenTours')
+            verify_companions(destination, tours)
             references = javascript_value(destination / 'references.js', 'abdomenReferences')
             # All declared per-view comparison IDs resolve in the complete delivered study.
             if len(tours) == 28 and (destination / 'carotid-survey/protocol.json').is_file():
@@ -438,6 +473,7 @@ def verify(source, aaa_acquisitions=None):
                 cases.extend([
                     (seal, None, 'Missing registered AAA acquisition receipt', False),
                     (seal, json.dumps({**data, 'recipeSha256': '0' * 64}).encode(), 'current case and rendering recipes', False),
+                    (seal, json.dumps({**data, 'registrationSurfaceSha256': '0' * 64}).encode(), 'CT registration surface', False),
                     (seal, json.dumps({**data, 'sharedAssets': wrong_torso}).encode(), 'selected normal aortic anatomy', False),
                     (bundle / 'assets/aaa-positive/sac-maximum/scan-14.webp', b'wrong image',
                      'AAA acquisition identity mismatch', False),

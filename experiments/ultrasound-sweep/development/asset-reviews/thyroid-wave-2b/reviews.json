@@ -1,0 +1,275 @@
+{
+  "version": 1,
+  "rubricHash": "a38e552869511cd5bceacaa5ea4456f4d0530e58e7dce2bc6855587a98b0e684",
+  "records": [
+    {
+      "source": "sweep",
+      "case": "thyroid-left",
+      "part": "thyroid_gland",
+      "occurrence": 1,
+      "revision": "anatomy:s1127:thyroid@r03:thyroid",
+      "meshSha256": "ee82ceca2ad9477bd995f8f03c194da88110516fb44cab3ccb6088a3f4d6508c",
+      "rubric": "docs/guides/asset-quality.md",
+      "reviewer": "Independent campaign lead · agent review",
+      "reviewedOn": "2026-11-28",
+      "task": "Follow the left thyroid lobe along its long axis and locate its connection to the isthmus.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "The most vulnerable left long-axis contour improves from 14.98 to 2.33 mm. All five protected isthmus cuts agree within 0.75 mm.",
+        "form": "Both lobes and the isthmus read in the front and reverse views. The bridge is smoother than r02. A slight ridge remains at the left shoulder where a stronger trial lost the grazing contour.",
+        "readability": "At frame 48 the left lobe and its taper can be followed beside the carotid. Switching to the overlay identifies the lobe in the long-axis section. The bridge is clearer from the transverse entry.",
+        "economy": "The selected surface preserves the five isthmus cuts and uses 5,900 triangles, down from 6,248. The worst turning-silhouette departure is 0.50 px."
+      },
+      "disposition": "Adopt for the named 3D orientation task",
+      "note": "Bilateral long-axis exterior orientation. The historical four-axis bridge assessment remains on the original r01 export.",
+      "comparison": {
+        "label": "Historical thyroid and selected bilateral port",
+        "candidate": "asset-reviews/thyroid-wave-2b/previous-vs-r03.webp",
+        "candidateLabel": "The two lobes and the connecting isthmus remain visible. The left shoulder retains some local relief from the CT label.",
+        "views": [
+          {
+            "label": "Raw label and packed thyroid in front and reverse views",
+            "candidate": "asset-reviews/thyroid-wave-2b/matched-surfaces.webp",
+            "candidateLabel": "The protected ridge follows the raw source near the grazing left section."
+          },
+          {
+            "label": "Right and left long-axis contour checks",
+            "candidate": "asset-reviews/thyroid-wave-2b/protected-planes.webp",
+            "candidateLabel": "R03 recovers the left grazing contours while keeping the original frozen tolerance."
+          },
+          {
+            "label": "Both transverse acquisitions at frame 12",
+            "candidate": "asset-reviews/thyroid-wave-2b/live-frame-12.webp",
+            "candidateLabel": "The registered overlay places the same thyroid on both sides."
+          },
+          {
+            "label": "The five protected isthmus cuts",
+            "candidate": "asset-reviews/thyroid-wave-2b/isthmus-cuts.webp",
+            "candidateLabel": "The worst sagittal gap is 0.75 mm across the bridge."
+          },
+          {
+            "label": "The two longitudinal CT views at frame 48",
+            "candidate": "asset-reviews/thyroid-wave-2b/live-frame-48.webp",
+            "candidateLabel": "The worked cases retain their own frame-12 actions. Both CT companions load the same registered gland."
+          }
+        ]
+      },
+      "links": [
+        {
+          "label": "Source, replay and protected contour measurements",
+          "href": "asset-reviews/thyroid-wave-2b/measurements.json"
+        }
+      ]
+    },
+    {
+      "source": "case",
+      "case": "thyroid-normal",
+      "chapter": "thyroid-left-long",
+      "chapterSha256": "4ba2884e69de83904193ff82a2006d0c5920b7d2ac7fc1bcf4bcf9dc9f8b0ef2",
+      "part": "thyroid_gland",
+      "occurrence": 1,
+      "revision": "anatomy:s1127:thyroid@r03:thyroid",
+      "meshSha256": "ee82ceca2ad9477bd995f8f03c194da88110516fb44cab3ccb6088a3f4d6508c",
+      "rubric": "docs/guides/asset-quality.md",
+      "reviewer": "Independent campaign lead · agent review",
+      "reviewedOn": "2026-11-28",
+      "task": "Follow the left thyroid lobe along its long axis and locate its connection to the isthmus.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "The most vulnerable left long-axis contour improves from 14.98 to 2.33 mm. All five protected isthmus cuts agree within 0.75 mm.",
+        "form": "Both lobes and the isthmus read in the front and reverse views. The bridge is smoother than r02. A slight ridge remains at the left shoulder where a stronger trial lost the grazing contour.",
+        "readability": "At frame 48 the left lobe and its taper can be followed beside the carotid. Switching to the overlay identifies the lobe in the long-axis section. The bridge is clearer from the transverse entry.",
+        "economy": "The selected surface preserves the five isthmus cuts and uses 5,900 triangles, down from 6,248. The worst turning-silhouette departure is 0.50 px."
+      },
+      "disposition": "Adopt for the named 3D orientation task",
+      "note": "Bilateral long-axis exterior orientation. The historical four-axis bridge assessment remains on the original r01 export.",
+      "comparison": {
+        "label": "Historical thyroid and selected bilateral port",
+        "candidate": "asset-reviews/thyroid-wave-2b/previous-vs-r03.webp",
+        "candidateLabel": "The two lobes and the connecting isthmus remain visible. The left shoulder retains some local relief from the CT label.",
+        "views": [
+          {
+            "label": "Raw label and packed thyroid in front and reverse views",
+            "candidate": "asset-reviews/thyroid-wave-2b/matched-surfaces.webp",
+            "candidateLabel": "The protected ridge follows the raw source near the grazing left section."
+          },
+          {
+            "label": "Right and left long-axis contour checks",
+            "candidate": "asset-reviews/thyroid-wave-2b/protected-planes.webp",
+            "candidateLabel": "R03 recovers the left grazing contours while keeping the original frozen tolerance."
+          },
+          {
+            "label": "Both transverse acquisitions at frame 12",
+            "candidate": "asset-reviews/thyroid-wave-2b/live-frame-12.webp",
+            "candidateLabel": "The registered overlay places the same thyroid on both sides."
+          },
+          {
+            "label": "The five protected isthmus cuts",
+            "candidate": "asset-reviews/thyroid-wave-2b/isthmus-cuts.webp",
+            "candidateLabel": "The worst sagittal gap is 0.75 mm across the bridge."
+          },
+          {
+            "label": "The two longitudinal CT views at frame 48",
+            "candidate": "asset-reviews/thyroid-wave-2b/live-frame-48.webp",
+            "candidateLabel": "The worked cases retain their own frame-12 actions. Both CT companions load the same registered gland."
+          }
+        ]
+      },
+      "links": [
+        {
+          "label": "Source, replay and protected contour measurements",
+          "href": "asset-reviews/thyroid-wave-2b/measurements.json"
+        }
+      ]
+    },
+    {
+      "source": "sweep",
+      "case": "thyroid-right",
+      "part": "thyroid_gland",
+      "occurrence": 1,
+      "revision": "anatomy:s1127:thyroid@r03:thyroid",
+      "meshSha256": "ee82ceca2ad9477bd995f8f03c194da88110516fb44cab3ccb6088a3f4d6508c",
+      "rubric": "docs/guides/asset-quality.md",
+      "reviewer": "Independent campaign lead · agent review",
+      "reviewedOn": "2026-11-28",
+      "task": "Follow the right thyroid lobe along its long axis and locate its connection to the isthmus.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "The three right long-axis sections stay within 1.31 mm. Five independent sagittal cuts confirm that the source isthmus remains continuous.",
+        "form": "Both lobes and the isthmus read in the front and reverse views. The bridge is smoother than r02. A slight ridge remains at the left shoulder where a stronger trial lost the grazing contour.",
+        "readability": "The oblique and axial views distinguish the right lobe and the bridge. The long-axis overlay identifies the lobe under the probe at frame 48.",
+        "economy": "The selected surface preserves the five isthmus cuts and uses 5,900 triangles, down from 6,248. The worst turning-silhouette departure is 0.50 px."
+      },
+      "disposition": "Adopt for the named 3D orientation task",
+      "note": "Bilateral long-axis exterior orientation. The historical four-axis bridge assessment remains on the original r01 export.",
+      "comparison": {
+        "label": "Historical thyroid and selected bilateral port",
+        "candidate": "asset-reviews/thyroid-wave-2b/previous-vs-r03.webp",
+        "candidateLabel": "The two lobes and the connecting isthmus remain visible. The left shoulder retains some local relief from the CT label.",
+        "views": [
+          {
+            "label": "Raw label and packed thyroid in front and reverse views",
+            "candidate": "asset-reviews/thyroid-wave-2b/matched-surfaces.webp",
+            "candidateLabel": "The protected ridge follows the raw source near the grazing left section."
+          },
+          {
+            "label": "Right and left long-axis contour checks",
+            "candidate": "asset-reviews/thyroid-wave-2b/protected-planes.webp",
+            "candidateLabel": "R03 recovers the left grazing contours while keeping the original frozen tolerance."
+          },
+          {
+            "label": "Both transverse acquisitions at frame 12",
+            "candidate": "asset-reviews/thyroid-wave-2b/live-frame-12.webp",
+            "candidateLabel": "The registered overlay places the same thyroid on both sides."
+          },
+          {
+            "label": "The five protected isthmus cuts",
+            "candidate": "asset-reviews/thyroid-wave-2b/isthmus-cuts.webp",
+            "candidateLabel": "The worst sagittal gap is 0.75 mm across the bridge."
+          },
+          {
+            "label": "The two longitudinal CT views at frame 48",
+            "candidate": "asset-reviews/thyroid-wave-2b/live-frame-48.webp",
+            "candidateLabel": "The worked cases retain their own frame-12 actions. Both CT companions load the same registered gland."
+          }
+        ]
+      },
+      "links": [
+        {
+          "label": "Source, replay and protected contour measurements",
+          "href": "asset-reviews/thyroid-wave-2b/measurements.json"
+        }
+      ]
+    },
+    {
+      "source": "case",
+      "case": "thyroid-normal",
+      "chapter": "thyroid-right-long",
+      "chapterSha256": "1952b234feb14f45a11e7d599ffa5d7a04bc255abf5b8a5b4513d076f5cec9db",
+      "part": "thyroid_gland",
+      "occurrence": 1,
+      "revision": "anatomy:s1127:thyroid@r03:thyroid",
+      "meshSha256": "ee82ceca2ad9477bd995f8f03c194da88110516fb44cab3ccb6088a3f4d6508c",
+      "rubric": "docs/guides/asset-quality.md",
+      "reviewer": "Independent campaign lead · agent review",
+      "reviewedOn": "2026-11-28",
+      "task": "Follow the right thyroid lobe along its long axis and locate its connection to the isthmus.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "The three right long-axis sections stay within 1.31 mm. Five independent sagittal cuts confirm that the source isthmus remains continuous.",
+        "form": "Both lobes and the isthmus read in the front and reverse views. The bridge is smoother than r02. A slight ridge remains at the left shoulder where a stronger trial lost the grazing contour.",
+        "readability": "The oblique and axial views distinguish the right lobe and the bridge. The long-axis overlay identifies the lobe under the probe at frame 48.",
+        "economy": "The selected surface preserves the five isthmus cuts and uses 5,900 triangles, down from 6,248. The worst turning-silhouette departure is 0.50 px."
+      },
+      "disposition": "Adopt for the named 3D orientation task",
+      "note": "Bilateral long-axis exterior orientation. The historical four-axis bridge assessment remains on the original r01 export.",
+      "comparison": {
+        "label": "Historical thyroid and selected bilateral port",
+        "candidate": "asset-reviews/thyroid-wave-2b/previous-vs-r03.webp",
+        "candidateLabel": "The two lobes and the connecting isthmus remain visible. The left shoulder retains some local relief from the CT label.",
+        "views": [
+          {
+            "label": "Raw label and packed thyroid in front and reverse views",
+            "candidate": "asset-reviews/thyroid-wave-2b/matched-surfaces.webp",
+            "candidateLabel": "The protected ridge follows the raw source near the grazing left section."
+          },
+          {
+            "label": "Right and left long-axis contour checks",
+            "candidate": "asset-reviews/thyroid-wave-2b/protected-planes.webp",
+            "candidateLabel": "R03 recovers the left grazing contours while keeping the original frozen tolerance."
+          },
+          {
+            "label": "Both transverse acquisitions at frame 12",
+            "candidate": "asset-reviews/thyroid-wave-2b/live-frame-12.webp",
+            "candidateLabel": "The registered overlay places the same thyroid on both sides."
+          },
+          {
+            "label": "The five protected isthmus cuts",
+            "candidate": "asset-reviews/thyroid-wave-2b/isthmus-cuts.webp",
+            "candidateLabel": "The worst sagittal gap is 0.75 mm across the bridge."
+          },
+          {
+            "label": "The two longitudinal CT views at frame 48",
+            "candidate": "asset-reviews/thyroid-wave-2b/live-frame-48.webp",
+            "candidateLabel": "The worked cases retain their own frame-12 actions. Both CT companions load the same registered gland."
+          }
+        ]
+      },
+      "links": [
+        {
+          "label": "Source, replay and protected contour measurements",
+          "href": "asset-reviews/thyroid-wave-2b/measurements.json"
+        }
+      ]
+    }
+  ],
+  "evidenceSha256": {
+    "previous-vs-r03.webp": "674e23514a6691ae9a4ea0275a0f8ad9c770f4ed0bdc0cc56f04a2102245558a",
+    "matched-surfaces.webp": "b065a4948831f8a80060f149c86a0d03645bdfa1fac2cda6b5d4dd431688108e",
+    "protected-planes.webp": "2c74f0b8e46bf73db70a7ffdce160c747c990716d4e465e1b2029f34cf60c93c",
+    "live-frame-12.webp": "d5de9b9bee5400bcfd359cdd3f03b4b767262c74f9c437745fdfcca86485bc28",
+    "isthmus-cuts.webp": "e048d23e4b6360ebdc5165f9feecd50c30ef762b345777519ee5752a1367b5ad",
+    "live-frame-48.webp": "29b72d6da32f61d2cf4e4aa88aa0e48c234e7f216a0842ba262f2e52efab3490"
+  },
+  "measurementsSha256": "e7c21f8195225fd3ea337cef9c3207a966d4b05c969b8c3beecc224aa3d282a7"
+}

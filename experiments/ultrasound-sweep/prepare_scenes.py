@@ -10,7 +10,8 @@ from pathlib import Path
 
 import numpy as np
 
-from abdomen_tracks import read_tracks, scene_assets
+from abdomen_tracks import read_tracks
+from scene_assets import scene_assets
 from delivery import read_poses, sweep_files, write_manifest
 from display_body import fitted_surface, check_contacts, load_body_atlas
 from geometry import (

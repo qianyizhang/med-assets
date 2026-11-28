@@ -1101,10 +1101,13 @@ def _load_ultrasound_sweep_consumers(
         doc = _read_json(track_file)
         common = doc.get("common", {})
         owner = track_file.resolve().relative_to(repo).as_posix()
-        for sweep in doc.get("sweeps", []):
+        # Single-track files use the root object as the sweep. Only a declared
+        # native port introduces a new consumer for these singletons.
+        sweeps = doc.get("sweeps", [doc] if doc.get("sceneAssets") else [])
+        for sweep in sweeps:
             if not isinstance(sweep, dict) or not sweep.get("id"):
                 continue
-            scene_assets = sweep.get("sceneAssets", {})
+            scene_assets = sweep.get("sceneAssets", common.get("sceneAssets", {}))
             if pinned_only and not scene_assets:
                 continue
             cid = f"ultrasound:sweep:{track_file.stem}:{sweep['id']}"
@@ -1113,7 +1116,8 @@ def _load_ultrasound_sweep_consumers(
             existing_ids.add(cid)
             case = sweep.get("case", common.get("case"))
             parts = tuple(
-                p for p in sweep.get("parts", common.get("parts", [])) if isinstance(p, str)
+                p if isinstance(p, str) else p["id"]
+                for p in sweep.get("parts", common.get("parts", []))
             )
             reqs = tuple(
                 Requirement(

@@ -3,7 +3,7 @@ from hashlib import sha256
 import json
 import shutil
 
-from aaa_acquisition import acquisition_recipe_sha256
+from aaa_acquisition import REGISTRATION_SHA256, acquisition_recipe_sha256
 from build_study import CT_SHA
 
 
@@ -18,8 +18,10 @@ def install_acquisitions(bundle, destination, normal, evidence):
     if (receipt['version'] != 1 or receipt['ctSha256'] != CT_SHA
             or receipt['recipeSha256'] != acquisition_recipe_sha256()):
         raise ValueError('Rebuild AAA acquisitions with the current case and rendering recipes.')
+    if receipt.get('registrationSurfaceSha256') != REGISTRATION_SHA256:
+        raise ValueError('AAA acquisitions require the reviewed CT registration surface.')
     native = {name: normal.get('meshPaths', {}).get(name, normal['assetRoot'] + 'scenes/' + name + '.mesh')
-              for name in ('aorta', 'torso', 'vertebrae')}
+              for name in ('torso', 'vertebrae')}
     if receipt['sharedAssets'] != {name: file_hash(destination / path) for name, path in native.items()}:
         raise ValueError('AAA acquisitions do not match the selected normal aortic anatomy.')
 

@@ -1,0 +1,53 @@
+{
+  "slug": "ivc-wave-2b",
+  "exportRef": {
+    "record": "models/ivc_s1233/asset.record.json",
+    "asset": "anatomy:s1233:ivc",
+    "revision": "r01",
+    "export": "abdominal"
+  },
+  "review": {
+    "case": "abdomen-survey",
+    "chapter": "ivc-long",
+    "part": "inferior_vena_cava"
+  },
+  "adopted": true,
+  "cardTitle": "Inferior vena cava",
+  "subtitle": "abdomen-survey · CT frame 12",
+  "revisionTitle": "s1233 Inferior vena cava · r01",
+  "revisionLinkLabel": "Inferior vena cava",
+  "coordinateFrame": "s1233 voxel indices · RAS axes · 1.5 mm grid",
+  "sourceId": "source:totalsegmentator-v2.0.1:s1233:inferior-vena-cava",
+  "sourceLabel": "TotalSegmentator v2.0.1 · Jakob Wasserthal and contributors · CC BY 4.0",
+  "detailsLabel": "Source sections, saved scan and independent review",
+  "figures": [
+    {
+      "file": "previous-vs-r01.webp",
+      "width": 1114,
+      "height": 1240,
+      "alt": "Previous and refined caval exterior",
+      "caption": "Inspect the lower trunk and the upper shoulder in front, reverse and close views."
+    },
+    {
+      "file": "matched-surfaces.webp",
+      "width": 1114,
+      "height": 1240,
+      "alt": "Raw label and both caval exteriors",
+      "caption": "The raw lower trunk has axial steps. The candidate retains the flare near its superior display limit."
+    },
+    {
+      "file": "protected-planes.webp",
+      "width": 1414,
+      "height": 880,
+      "alt": "Source cuts and grazing contour",
+      "caption": "The small loop is recovered at the +1.5 mm parallel cut. The limits set before shaping still apply."
+    },
+    {
+      "file": "live-frame-12.webp",
+      "width": 1339,
+      "height": 816,
+      "alt": "The IVC sweep at frame 12",
+      "caption": "The liver overlaps part of the upper cava. The simulated section and overlay stay registered to the same CT."
+    }
+  ]
+}

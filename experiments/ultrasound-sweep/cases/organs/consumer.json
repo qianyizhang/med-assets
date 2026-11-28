@@ -187,6 +187,198 @@
           "registration": "native"
         }
       ]
+    },
+    {
+      "id": "ultrasound:case:abdomen-survey:abd-portal-doppler",
+      "kind": "ultrasound-case",
+      "title": "Follow the joined portal and splenic venous exterior in 3D. The worked case supplies the Doppler sample.",
+      "case": "abdomen-survey",
+      "chapter": "abd-portal-doppler",
+      "presentation": "companion",
+      "part": "portal_vein_and_splenic_vein",
+      "sweep": "portal-vein",
+      "frame": 12,
+      "workedFrame": 12,
+      "observation": "Follow the joined portal and splenic venous exterior in 3D. The worked case supplies the Doppler sample.",
+      "poseSha256": "a2f9f8300505cf4861e99c0d113ca8db0a1586502ff2c92a87ffd685cee079b8",
+      "requirements": [
+        {
+          "id": "part:portal_vein_and_splenic_vein",
+          "description": "Follow the joined portal and splenic venous exterior in 3D. The worked case supplies the Doppler sample.",
+          "status": "provisional",
+          "subject": "s1233"
+        }
+      ],
+      "pins": [
+        {
+          "asset": "anatomy:s1233:portal-splenic-vein",
+          "revision": "r02",
+          "export": "portal-splenic-vein",
+          "registration": "native",
+          "requirement": "part:portal_vein_and_splenic_vein",
+          "sha256": "592018e3539ed1eca28b009513fc12922f7d6123a4310ffb33923f900d1c81a5"
+        }
+      ]
+    },
+    {
+      "id": "ultrasound:case:abdomen-survey:ivc-long",
+      "kind": "ultrasound-case",
+      "title": "Follow the caval trunk in 3D beside the aorta. The CT label identifies the caval exterior only.",
+      "case": "abdomen-survey",
+      "chapter": "ivc-long",
+      "presentation": "companion",
+      "part": "inferior_vena_cava",
+      "sweep": "ivc",
+      "frame": 12,
+      "workedFrame": 12,
+      "observation": "Follow the caval trunk in 3D beside the aorta. The CT label identifies the caval exterior only.",
+      "poseSha256": "58adae8e21ca938b363eda50acf728020537c0ab9c2f35619c10eb63feab9bc5",
+      "requirements": [
+        {
+          "id": "part:inferior_vena_cava",
+          "description": "Follow the caval trunk in 3D beside the aorta. The CT label identifies the caval exterior only.",
+          "status": "provisional",
+          "subject": "s1233"
+        }
+      ],
+      "pins": [
+        {
+          "asset": "anatomy:s1233:ivc",
+          "revision": "r01",
+          "export": "abdominal",
+          "registration": "native",
+          "requirement": "part:inferior_vena_cava",
+          "sha256": "0ccc3c04dc2528ce211cde5119140a6450ae28172ef5f2b6d02178a786ef3ea0"
+        }
+      ]
+    },
+    {
+      "id": "ultrasound:case:abdomen-survey:aorta-long",
+      "kind": "ultrasound-case",
+      "title": "Trace the course of the abdominal aorta beside the vena cava.",
+      "case": "abdomen-survey",
+      "chapter": "aorta-long",
+      "presentation": "companion",
+      "part": "aorta",
+      "sweep": "aorta",
+      "frame": 12,
+      "workedFrame": 12,
+      "observation": "Trace the course of the abdominal aorta beside the vena cava.",
+      "poseSha256": "4d35f7cbe7b928289210d0a7e9dd406192ab3c7d33880fc66817a907ff6b0f91",
+      "requirements": [
+        {
+          "id": "part:aorta",
+          "description": "Trace the course of the abdominal aorta beside the vena cava.",
+          "status": "provisional",
+          "subject": "s1233"
+        }
+      ],
+      "pins": [
+        {
+          "asset": "anatomy:s1233:aorta",
+          "revision": "ultrasound-r01",
+          "export": "aorta-abdomen",
+          "registration": "native",
+          "requirement": "part:aorta",
+          "sha256": "071cc21f07050b02fe860f133f9b46f0111d7e5fd7cc9dd2e523ace072c2824a"
+        }
+      ]
+    },
+    {
+      "id": "ultrasound:case:thyroid-normal:thyroid-right-long",
+      "kind": "ultrasound-case",
+      "title": "Follow the right thyroid lobe along its long axis and locate its connection to the isthmus.",
+      "case": "thyroid-normal",
+      "chapter": "thyroid-right-long",
+      "presentation": "companion",
+      "part": "thyroid_gland",
+      "sweep": "thyroid-right",
+      "frame": 48,
+      "workedFrame": 12,
+      "observation": "Follow the right thyroid lobe along its long axis and locate its connection to the isthmus.",
+      "poseSha256": "276f7896928f734dcdbe764819cd9313fe6d1ef37eba688fb652366c87595f41",
+      "requirements": [
+        {
+          "id": "part:thyroid_gland",
+          "description": "Follow the right thyroid lobe along its long axis and locate its connection to the isthmus.",
+          "status": "provisional",
+          "subject": "s1127"
+        }
+      ],
+      "pins": [
+        {
+          "asset": "anatomy:s1127:thyroid",
+          "revision": "r03",
+          "export": "thyroid",
+          "registration": "native",
+          "requirement": "part:thyroid_gland",
+          "sha256": "ee82ceca2ad9477bd995f8f03c194da88110516fb44cab3ccb6088a3f4d6508c"
+        }
+      ]
+    },
+    {
+      "id": "ultrasound:case:thyroid-normal:thyroid-left-long",
+      "kind": "ultrasound-case",
+      "title": "Follow the left thyroid lobe along its long axis and locate its connection to the isthmus.",
+      "case": "thyroid-normal",
+      "chapter": "thyroid-left-long",
+      "presentation": "companion",
+      "part": "thyroid_gland",
+      "sweep": "thyroid-left",
+      "frame": 48,
+      "workedFrame": 12,
+      "observation": "Follow the left thyroid lobe along its long axis and locate its connection to the isthmus.",
+      "poseSha256": "64301dafa210f98ad1fc31fc55a0877f1415604aea406879231c0a70fec1f858",
+      "requirements": [
+        {
+          "id": "part:thyroid_gland",
+          "description": "Follow the left thyroid lobe along its long axis and locate its connection to the isthmus.",
+          "status": "provisional",
+          "subject": "s1127"
+        }
+      ],
+      "pins": [
+        {
+          "asset": "anatomy:s1127:thyroid",
+          "revision": "r03",
+          "export": "thyroid",
+          "registration": "native",
+          "requirement": "part:thyroid_gland",
+          "sha256": "ee82ceca2ad9477bd995f8f03c194da88110516fb44cab3ccb6088a3f4d6508c"
+        }
+      ]
+    },
+    {
+      "id": "ultrasound:case:thyroid-normal:thyroid-axial",
+      "kind": "ultrasound-case",
+      "title": "Locate the tracheal exterior behind the thyroid isthmus in the transverse CT view.",
+      "case": "thyroid-normal",
+      "chapter": "thyroid-axial",
+      "presentation": "companion",
+      "part": "trachea",
+      "sweep": "thyroid-right",
+      "frame": 0,
+      "workedFrame": 12,
+      "observation": "Locate the tracheal exterior behind the thyroid isthmus in the transverse CT view.",
+      "poseSha256": "276f7896928f734dcdbe764819cd9313fe6d1ef37eba688fb652366c87595f41",
+      "requirements": [
+        {
+          "id": "part:trachea",
+          "description": "Locate the tracheal exterior behind the thyroid isthmus in the transverse CT view.",
+          "status": "provisional",
+          "subject": "s1127"
+        }
+      ],
+      "pins": [
+        {
+          "asset": "anatomy:s1127:trachea",
+          "revision": "r01",
+          "export": "thyroid",
+          "registration": "native",
+          "requirement": "part:trachea",
+          "sha256": "d72633f2240dddf7b9702a7e97374b784e5272573911426fd58ba923e80e7e41"
+        }
+      ]
     }
   ]
 }
