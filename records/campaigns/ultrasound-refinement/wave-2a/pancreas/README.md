@@ -1,5 +1,9 @@
 # Wave 2A · s1233 pancreas
 
+**Current decision.** [Pancreas r02](orientation-r02/README.md) is adopted for 3D exterior orientation. Exact scan-section claims remain held.
+
+## Earlier r01 decision
+
 **Lead disposition · Hold the pancreas trial and keep the existing chapter.** See the [wave decision](../README.md) for the final scores and chapter binding. The following receipt records the builder’s trial and proposed scores.
 
 At the saved s1233 frame-12 epigastric stop, use the pancreatic body and the posterior venous landmark to orient the model. Follow the broad head, uncinate curve, body and tapered tail in 3D and relate the visible contour to the simulated scan. The proposed chapter is the abdominal survey’s `abd-pancreas`. The current procedural chapter teaches the head and body in the fictional visit. The limited pancreas assessment and separate tail chapter have their own acquisitions.

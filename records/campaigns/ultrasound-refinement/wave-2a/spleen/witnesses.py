@@ -45,10 +45,10 @@ def save(page, output, name):
     page.save(output / (name + ".webp"), "WEBP", quality=88, method=6)
 
 
-def clay(organ, inputs, output, report):
+def clay(organ, inputs, output, report, revision):
     for filename, indices, views, subtitle in (
         (
-            "previous-vs-r01",
+            f"previous-vs-{revision}",
             (0, 2),
             ("overview", "reverse", "detail"),
             "Exact packed exports · matching physical scale, camera and matte clay within each row",
@@ -66,7 +66,7 @@ def clay(organ, inputs, output, report):
                 label = (
                     f"Previous · {report['previousSweep']['triangles']:,} tris",
                     "CT · unsmoothed half-label",
-                    f"r01 · {report['export']['triangles']:,} tris",
+                    f"{revision} · {report['export']['triangles']:,} tris",
                 )[index]
                 place(
                     page,
@@ -83,13 +83,13 @@ def lanes(projected, lo, zoom, size):
     return (projected - lo) * [zoom, -zoom] + [size[0] / 2, size[1] / 2]
 
 
-def sections(organ, reference, cuts, output, report):
+def sections(organ, reference, cuts, output, report, revision):
     cell = (450, 395)
     diagnostic = report.get("pancreasExteriorDiagnostic")
     subtitle = (
-        "Gold: raw CT   Lavender: previous   Cyan: r01   Green: CT filled exterior   Dotted: sector edge"
+        f"Gold: raw CT   Lavender: previous   Cyan: {revision}   Green: CT filled exterior   Dotted: sector edge"
         if diagnostic
-        else "Gold: CT half-label      Lavender: exact previous      Cyan: r01      Dotted: frame-12 sector footprint"
+        else f"Gold: CT half-label      Lavender: exact previous      Cyan: {revision}      Dotted: frame-12 sector footprint"
     )
     page, draw = canvas(
         f"{organ.title()} · protected scan planes",
@@ -181,7 +181,7 @@ def sections(organ, reference, cuts, output, report):
     save(page, output, "protected-planes")
 
 
-def captured(organ, captures, output):
+def captured(organ, captures, output, revision):
     cell = (425, 318)
     page, draw = canvas(
         f"{organ.title()} · live s1233 sweep at frame 12",
@@ -190,11 +190,11 @@ def captured(organ, captures, output):
         2,
         cell,
     )
-    for row, revision in enumerate(("Previous", "r01")):
+    for row, version_label in enumerate(("Previous", revision)):
         for col, (key, label) in enumerate(
             (
-                ("player", f"{revision}  /  3D oblique"),
-                ("axial", f"{revision}  /  3D axial"),
+                ("player", f"{version_label}  /  3D oblique"),
+                ("axial", f"{version_label}  /  3D axial"),
                 (
                     ("scan" if row == 0 else "overlay"),
                     ("Shared grayscale" if row == 0 else "Shared tissue overlay"),
@@ -217,15 +217,21 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     for arg in ("frozen", "measured", "clay", "captures", "output"):
         parser.add_argument(arg, type=Path)
+    parser.add_argument("--revision", default="r01")
     args = parser.parse_args()
     data = json.loads((args.measured / "measurements.json").read_text())
     organ = data["frozen"]["organ"]
     args.output.mkdir(parents=True, exist_ok=True)
-    clay(organ, args.clay, args.output, data)
+    clay(organ, args.clay, args.output, data, args.revision)
     sections(
-        organ, args.frozen / "reference.npz", args.measured / "sections.npz", args.output, data
+        organ,
+        args.frozen / "reference.npz",
+        args.measured / "sections.npz",
+        args.output,
+        data,
+        args.revision,
     )
-    captured(organ, args.captures, args.output)
+    captured(organ, args.captures, args.output, args.revision)
 
 
 if __name__ == "__main__":

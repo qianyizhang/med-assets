@@ -77,14 +77,39 @@ def reconstruct(mask):
     return ras, faces
 
 
+def anchor_exterior(points):
+    """Fit the two measured source landmarks using smooth, 6 mm-radius patches in RAS mm."""
+    # Each pair is the closest dense r01 point and the corresponding filled-label landmark.
+    anchors = [
+        (
+            [27.230288012510396, 197.44003805225898, 340.043283772072],
+            [27.388671875, 197.460948061, 340.450000763],
+        ),
+        (
+            [-1.8494071960449219, 196.888671875, 353.20000076293945],
+            [-1.111328125, 196.907056481, 353.931616157],
+        ),
+    ]
+    delta = np.zeros_like(points)
+    for origin, landmark in anchors:
+        pull = np.subtract(landmark, origin)
+        radial = np.linalg.norm(points - origin, axis=1)
+        weight = np.clip((6.0 - radial) / 6.0, 0, 1)
+        delta += (weight**2 * (3 - 2 * weight))[:, None] * pull
+    return points + delta
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--case", required=True, type=Path)
     parser.add_argument("--work", required=True, type=Path, help="Fresh replay directory")
     parser.add_argument("--blender", required=True, type=Path)
+    parser.add_argument("--revision", choices=("r01", "r02"), default="r01")
     args = parser.parse_args()
     mask = volume(args.case / "segmentations/pancreas.nii.gz", MASK_SHA, "u1")
     points, faces = reconstruct(mask)
+    if args.revision == "r02":
+        points = anchor_exterior(points)
     args.work.mkdir(parents=True)
     surface = args.work / "smooth.npz"
     export = args.work / "pancreas.mesh"
@@ -108,9 +133,11 @@ def main():
     payload = export.read_bytes()
     record = HERE / "asset.record.json"
     revisions = json.loads(record.read_text())["revisions"]
-    pin = next(revision for revision in revisions if revision["revisionId"] == "r01")["exports"][0]
+    pin = next(revision for revision in revisions if revision["revisionId"] == args.revision)[
+        "exports"
+    ][0]
     if len(payload) != pin["bytes"] or hashlib.sha256(payload).hexdigest() != pin["sha256"]:
-        raise ValueError("Replayed pancreas differs from the r01 identity")
+        raise ValueError(f"Replayed pancreas differs from the {args.revision} identity")
     print(f"{hashlib.sha256(payload).hexdigest()}  {len(payload)} bytes  {export}")
 
 

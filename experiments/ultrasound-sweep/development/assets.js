@@ -1478,8 +1478,10 @@ async function start() {
               (manifest.rubricHash && manifest.rubricHash !== rubricHash)
             : owner && manifest.recipeHashes?.[owner] && manifest.recipeHashes[owner] !== recipeHash;
         }
-        if (record.occurrence) reviews.set(rowID(record), { ...record, prior });
-        else uniqueReviews.set(frameKey({ ...record, chapter: record.chapter ?? '' }), { ...record, prior });
+        const index = record.occurrence ? reviews : uniqueReviews;
+        const key = record.occurrence ? rowID(record) : frameKey({ ...record, chapter: record.chapter ?? '' });
+        // An older revision may finish loading after the review for the served mesh.
+        if (!prior || !index.has(key) || index.get(key).prior) index.set(key, { ...record, prior });
       }
     } catch (cause) {
       failures.push('Assessment · ' + cause.message);

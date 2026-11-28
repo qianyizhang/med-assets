@@ -214,7 +214,15 @@
       "exterior": "fitted-atlas",
       "landmarks": [
         "pancreatic-tail"
-      ]
+      ],
+      "sceneAssets": {
+        "pancreas": {
+          "asset": "anatomy:s1233:pancreas",
+          "revision": "r02",
+          "export": "pancreas",
+          "registration": "native"
+        }
+      }
     },
     {
       "id": "spleen",

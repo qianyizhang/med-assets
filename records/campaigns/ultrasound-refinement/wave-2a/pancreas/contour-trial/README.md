@@ -1,5 +1,9 @@
 # Pancreas contour trial
 
+**Current decision.** [Pancreas r02](../orientation-r02/README.md) is adopted for 3D exterior orientation. Exact scan-section claims remain held.
+
+## Contour-trial outcome before adoption
+
 **Keep the existing survey chapter.** A local correction on the held r01 mesh recovered both targeted intersections of the pancreatic exterior with the scan plane. It left a 10.18 mm maximum discrepancy on the raw saved section. The discrepancy lies around enclosed gaps in the source segmentation. The CT label does not establish their anatomical meaning.
 
 ![Adjacent native CT slices and parallel oblique cuts at the two exterior misses](../../../../../../experiments/ultrasound-sweep/development/asset-reviews/pancreas-wave-2a/adjacent-contours.webp)

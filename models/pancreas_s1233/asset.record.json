@@ -87,6 +87,73 @@
         }
       ],
       "qualifications": []
+    },
+    {
+      "revisionId": "r02",
+      "status": "provisional",
+      "frame": {
+        "convention": "voxel-index",
+        "units": "voxel",
+        "evidence": "assemblies/workshop-s1233/inputs.json"
+      },
+      "sourceIds": [
+        "source:totalsegmentator-v2.0.1:s1233:pancreas"
+      ],
+      "partIds": [
+        "pancreas"
+      ],
+      "exports": [
+        {
+          "id": "pancreas",
+          "path": "models/pancreas_s1233/exports/r02/pancreas.mesh",
+          "sha256": "16919fa7975eca4d8e3b2c0de47d30490b823810daa2b8878d6baab432bc6b96",
+          "bytes": 104432,
+          "format": "mesh",
+          "triangles": 5800,
+          "partIds": [
+            "pancreas"
+          ],
+          "voxelGrid": {
+            "case": "s1233",
+            "shape": [
+              265,
+              265,
+              401
+            ],
+            "rasMmFromVoxel": [
+              [
+                1.5,
+                0.0,
+                0.0,
+                -215.611328125
+              ],
+              [
+                0.0,
+                1.5,
+                0.0,
+                -37.111328125
+              ],
+              [
+                0.0,
+                0.0,
+                1.5,
+                41.20000076293945
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        }
+      ],
+      "qualifications": [],
+      "recipeEvidence": {
+        "path": "models/pancreas_s1233/rebuild.py",
+        "sha256": "6a6ab4cf84fc2ab79423b4a5fae6bceea9d409708368ecd0ed298f87587981cc"
+      }
     }
   ],
   "artifacts": [],
@@ -95,11 +162,16 @@
       "path": "models/pancreas_s1233/exports/r01/pancreas.mesh",
       "sha256": "4f853b98b4ec8048cee6a53562478be63faf4a668c158f34490a7535fd17fda0",
       "bytes": 104432
+    },
+    {
+      "path": "models/pancreas_s1233/exports/r02/pancreas.mesh",
+      "sha256": "16919fa7975eca4d8e3b2c0de47d30490b823810daa2b8878d6baab432bc6b96",
+      "bytes": 104432
     }
   ],
   "uses": [],
   "retirement": null,
   "unresolved": [
-    "Provisional exterior only. Raw CT comparison includes three enclosed mask pockets and exceeds the protected-plane and maximum distance tolerances. Teaching review and chapter binding are pending."
+    "The raw label contains three enclosed gaps. Precise section contours, calipers and internal anatomy remain unqualified."
   ]
 }

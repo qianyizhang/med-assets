@@ -158,6 +158,35 @@
           "registration": "native"
         }
       ]
+    },
+    {
+      "id": "ultrasound:case:abdomen-survey:abd-pancreas",
+      "title": "Pancreas · s1233 teaching exemplar",
+      "kind": "ultrasound-case",
+      "case": "abdomen-survey",
+      "chapter": "abd-pancreas",
+      "sweep": "pancreas",
+      "frame": 12,
+      "observation": "Separate-subject s1233 teaching exemplar. Rotate the 3D exterior to locate the head, uncinate region, body and tail. Exact scan contours, internal anatomy and caliper measurements remain unqualified.",
+      "poseSha256": "b05f13e87cfe1558ec6b23f8b4ac5a9dd5a79c7c60984dfba285c9157b187ad2",
+      "requirements": [
+        {
+          "id": "part:pancreas",
+          "description": "Rotate the 3D exterior to locate the head, uncinate region, body and tail.",
+          "status": "provisional",
+          "subject": "s1233"
+        }
+      ],
+      "pins": [
+        {
+          "asset": "anatomy:s1233:pancreas",
+          "revision": "r02",
+          "export": "pancreas",
+          "requirement": "part:pancreas",
+          "sha256": "16919fa7975eca4d8e3b2c0de47d30490b823810daa2b8878d6baab432bc6b96",
+          "registration": "native"
+        }
+      ]
     }
   ]
 }

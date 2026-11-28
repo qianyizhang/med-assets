@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "rubricHash": "a38e552869511cd5bceacaa5ea4456f4d0530e58e7dce2bc6855587a98b0e684",
+  "records": [
+    {
+      "source": "case",
+      "case": "abdomen-survey",
+      "part": "pancreas",
+      "baseline": "7ba31afffdffbed4d60c5834ab86f3eefb6f784261b519b8bb2f093103a40045",
+      "revision": "anatomy:s1233:pancreas@r02:pancreas",
+      "meshSha256": "16919fa7975eca4d8e3b2c0de47d30490b823810daa2b8878d6baab432bc6b96",
+      "reviewer": "Codex campaign lead · user-approved orientation decision",
+      "reviewedOn": "2026-11-28",
+      "rubric": "docs/guides/asset-quality.md",
+      "task": "Locate the head, uncinate region, body and tail in the 3D exterior.",
+      "scores": {
+        "fidelity": 3,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Against the filled-label exterior, the bidirectional sampled p95 is at most 0.66 mm and the maximum is 2.44 mm. The tail, neck and uncinate-region maxima are 2.09, 1.12 and 2.41 mm. Three enclosed label gaps and grazing sections limit scan agreement.",
+        "form": "The broad head, hooked inferior turn and narrowing body remain recognizable in both clay views. The irregular relief along the inner border persists and its anatomical detail is uncertain.",
+        "readability": "The reverse view separates the uncinate turn from the body. Rotating to axial helps follow the body and tail relative to the venous landmark. The overlying vessels obscure the head in the default oblique view.",
+        "economy": "The primary sweep drops from 16,620 to 5,800 triangles and from 299,240 to 104,432 bytes. Across 24 orthographic views the packed silhouette departs from the dense refined surface by at most 0.79 px at 3 px/mm."
+      },
+      "note": "Adopted for whole-gland orientation in 3D. Raw-label error reaches 10.18 mm on the saved section. Exact scan contours, calipers and internal anatomy remain unqualified.",
+      "disposition": "Adopt for 3D exterior orientation",
+      "comparison": {
+        "label": "Previous sweep and r02",
+        "candidate": "asset-reviews/pancreas-r02/previous-vs-r02.webp",
+        "candidateLabel": "Exact previous and adopted packed surfaces at the same scale.",
+        "views": [
+          {
+            "label": "Raw and exterior contours at three scan planes",
+            "candidate": "asset-reviews/pancreas-r02/protected-planes.webp",
+            "candidateLabel": "The raw-label section fails. The filled exterior stays within 2.65 mm across the three frozen cuts."
+          },
+          {
+            "label": "Saved sweep frame 12",
+            "candidate": "asset-reviews/pancreas-r02/live-frame-12.webp",
+            "candidateLabel": "Rotate the scene to orient the head, uncinate region, body and tail. The overlay supplies scan context."
+          },
+          {
+            "label": "CT reference and refined exterior",
+            "candidate": "asset-reviews/pancreas-r02/matched-surfaces.webp",
+            "candidateLabel": "Held at matched scale and lighting in two directions."
+          }
+        ]
+      },
+      "links": [
+        {
+          "label": "Raw-label failure, 3D orientation checks and delivered mesh identity",
+          "href": "asset-reviews/pancreas-r02/measurements.json"
+        }
+      ],
+      "chapter": "abd-pancreas",
+      "occurrence": 1,
+      "chapterSha256": "5d5ba3444a78a97862cf02214349374e4e16cc19015f90170953a9e68a700e13"
+    }
+  ],
+  "evidenceSha256": {
+    "previous-vs-r02.webp": "efa2dc4357f816743b710a1e76a3e56f6b0c169b1139fbc36e830f9d21826a63",
+    "protected-planes.webp": "757b577c74f64293655fd0eb9d50f0be36cb8bd4c1581b94c1ee35948a82d68e",
+    "live-frame-12.webp": "921b0e86bdf84bffc869fa91b405bfed7fb413d9b587c7594c0ac6a7eb91870e",
+    "matched-surfaces.webp": "dd88b7c87dba3dc52b1be14b4951bfc6c08360be562501989221e908d26166b7"
+  },
+  "measurementsSha256": "47d2d63f04dcf0a3aee45fac9bb1ffac5289437843af08a480df4b060e3c0e85"
+}

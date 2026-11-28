@@ -1,0 +1,53 @@
+{
+  "slug": "pancreas-r02",
+  "exportRef": {
+    "record": "models/pancreas_s1233/asset.record.json",
+    "asset": "anatomy:s1233:pancreas",
+    "revision": "r02",
+    "export": "pancreas"
+  },
+  "review": {
+    "case": "abdomen-survey",
+    "chapter": "abd-pancreas",
+    "part": "pancreas"
+  },
+  "adopted": true,
+  "cardTitle": "Pancreas r02 · 3D orientation",
+  "subtitle": "Abdominal survey · frame 12",
+  "revisionTitle": "s1233 pancreas · r02",
+  "revisionLinkLabel": "pancreas r02",
+  "coordinateFrame": "s1233 voxel indices · RAS axes · 1.5 mm spacing",
+  "sourceId": "source:totalsegmentator-v2.0.1:s1233:pancreas",
+  "sourceLabel": "TotalSegmentator v2.0.1 · Jakob Wasserthal and contributors · CC BY 4.0",
+  "detailsLabel": "Source sections, orientation decision and limits",
+  "figures": [
+    {
+      "file": "previous-vs-r02.webp",
+      "width": 948,
+      "height": 1175,
+      "alt": "Previous sweep and r02",
+      "caption": "Exact previous and adopted packed surfaces at the same scale."
+    },
+    {
+      "file": "protected-planes.webp",
+      "width": 1414,
+      "height": 531,
+      "alt": "Raw and exterior contours at three scan planes",
+      "caption": "The raw-label section fails. The filled exterior stays within 2.65 mm across the three frozen cuts."
+    },
+    {
+      "file": "live-frame-12.webp",
+      "width": 1339,
+      "height": 816,
+      "alt": "Saved sweep frame 12",
+      "caption": "Rotate the scene to orient the head, uncinate region, body and tail. The overlay supplies scan context."
+    },
+    {
+      "file": "matched-surfaces.webp",
+      "width": 1414,
+      "height": 814,
+      "alt": "CT reference and refined exterior",
+      "caption": "Held at matched scale and lighting in two directions."
+    }
+  ]
+}

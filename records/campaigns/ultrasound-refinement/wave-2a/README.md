@@ -1,5 +1,9 @@
 # Wave 2A abdominal survey decisions
 
+**Current decision.** [Pancreas r02](pancreas/orientation-r02/README.md) is adopted for 3D exterior orientation. Exact scan-section claims remain held.
+
+## Wave 2A at close
+
 The left kidney, spleen, liver and gallbladder now open on registered s1233 exteriors in four named survey chapters. The pancreas trial remains held. Each decision compares the exact previous standalone sweep, the raw 1.5 mm CT label and the prior worked chapter. The lead reviewed all twenty matched images, inspected the measurements and opened each trial chapter at frame 12 in Chrome. The s1233 acquisitions represent a separate teaching subject.
 
 | Survey task | Lead scores¹ | Triangles, previous → trial | Decision |
