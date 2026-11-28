@@ -9,19 +9,19 @@
       "baseline": "7ba31afffdffbed4d60c5834ab86f3eefb6f784261b519b8bb2f093103a40045",
       "revision": "anatomy:s1233:pancreas@r02:pancreas",
       "meshSha256": "16919fa7975eca4d8e3b2c0de47d30490b823810daa2b8878d6baab432bc6b96",
-      "reviewer": "Codex campaign lead · user-approved orientation decision",
+      "reviewer": "Independent reviewer · post-patch audit of user-approved orientation decision",
       "reviewedOn": "2026-11-28",
       "rubric": "docs/guides/asset-quality.md",
       "task": "Locate the head, uncinate region, body and tail in the 3D exterior.",
       "scores": {
         "fidelity": 3,
-        "form": 3,
+        "form": 2,
         "readability": 3,
         "economy": 4
       },
       "scoreEvidence": {
         "fidelity": "Against the filled-label exterior, the bidirectional sampled p95 is at most 0.66 mm and the maximum is 2.44 mm. The tail, neck and uncinate-region maxima are 2.09, 1.12 and 2.41 mm. Three enclosed label gaps and grazing sections limit scan agreement.",
-        "form": "The broad head, hooked inferior turn and narrowing body remain recognizable in both clay views. The irregular relief along the inner border persists and its anatomical detail is uncertain.",
+        "form": "The broad head, hooked inferior turn and narrowing body remain recognizable in both clay views, but r02 only applies two 6 mm local grazing-patch pulls on top of r01 and retains the same corrugated inner-border relief. Form remains 2/4 until the exterior is properly faired.",
         "readability": "The reverse view separates the uncinate turn from the body. Rotating to axial helps follow the body and tail relative to the venous landmark. The overlying vessels obscure the head in the default oblique view.",
         "economy": "The primary sweep drops from 16,620 to 5,800 triangles and from 299,240 to 104,432 bytes. Across 24 orthographic views the packed silhouette departs from the dense refined surface by at most 0.79 px at 3 px/mm."
       },
