@@ -1,6 +1,6 @@
 # Refine a scan-derived teaching surface
 
-Refine a CT/MRI segmentation or extracted surface when the shape affects the named learner task or a lighter export could preserve it. Use the scan as the anatomical reference for placement, proportion, orientation and protected landmarks. See [Visual and geometric quality target](visual-quality-target.md) for what to inspect and [Review a teaching asset](asset-quality.md) for scoring.
+Refine a CT/MRI segmentation or extracted surface whenever slice terraces, spurious holes or excess triangles hurt the learner view or delivery budget (for example, turning the `23,156`-triangle terraced s1233 right kidney into a smooth `4,800`-triangle teaching exterior with both poles and medial recess intact). Use the scan as the anatomical reference for placement, proportion, orientation and protected landmarks. See [Visual and geometric quality target](visual-quality-target.md) for what to inspect and [Review a teaching asset](asset-quality.md) for scoring.
 
 ## Before shaping
 
@@ -43,4 +43,5 @@ Retain the matched overview, decisive close-up in neutral clay and finished ligh
 ## Proven reference recipes in this repository
 
 - **Adrenal r05 (`16/16` benchmark):** [gland_field.py](../../assemblies/endocrine-locator/adrenal-study-r05/gland_field.py) (`0.6 mm` SDF, adaptive body/endpoint/cleft smoothing, terminal rounding, volume-preserving threshold, topology check) + [build.py](../../assemblies/endocrine-locator/adrenal-study-r05/build.py) (Blender reduction to `1,500` tris/gland — `500` tris moved the oblique shoulder `2.24 px`; cleft error dropped from `6.55 mm` to `1.23 mm`). [Case sections](../../reviews/endocrine-locator/adrenal-study-r05/case-sections.png) · [Scored review](../../reviews/endocrine-locator/adrenal-study-r05/README.md)
+- **s1233 right kidney r01 (ultrasound SDF + retopology benchmark):** [rebuild.py](../../models/kidney_right_s1233/rebuild.py) + [retopology.py](../../models/kidney_right_s1233/retopology.py) reduced `23,156` terraced triangles (`416 KB`) to `4,800` smooth triangles (`86 KB`, `79%` smaller) with `+0.02%` volume delta and `≤ 0.71 px` silhouette error while preserving poles and medial recess. [Previous vs r01](../../experiments/ultrasound-sweep/development/asset-reviews/kidney-wave-1b/previous-vs-r01.webp) · [Wave 1B review](../../records/campaigns/ultrasound-refinement/wave-1b/README.md)
 - **Bounded Blender decimation.** [mesh_contraction.py](../../lib/med_assets/mesh_contraction.py) and [rebuild_mesh.py](../../tools/rebuild_mesh.py). Use the Blender version pinned by the owning recipe.
