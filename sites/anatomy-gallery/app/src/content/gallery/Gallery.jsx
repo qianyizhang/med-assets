@@ -16,7 +16,8 @@ import { Planning, surveyCoverageId } from './Planning.jsx';
 import { ArmLessons } from './ArmLessons.jsx';
 import { Systems } from './Systems.jsx';
 import { UltrasoundAssetReview, UltrasoundCollection, UltrasoundTour } from './Ultrasound.jsx';
-import { abdomenTourPath, ultrasoundAssets, ultrasoundCollection } from './ultrasound-data.js';
+import { hasUltrasoundProgressRevision, UltrasoundDevelopment } from './UltrasoundDevelopment.jsx';
+import { abdomenTourPath, ultrasoundAssets, ultrasoundCollection, ultrasoundDevelopment } from './ultrasound-data.js';
 import { Compare } from './Compare.jsx';
 import { Refinements, TeachingTarget } from './Refinements.jsx';
 import { BodyPartsReview } from './BodyPartsReview.jsx';
@@ -186,6 +187,8 @@ export function Gallery() {
     else if (surface === 'use-cases' && id === 'right-arm') page = <ArmLessons id={revision || 'elbow'} />;
     else if (surface === 'use-cases' && id === 'systems') page = <Systems id={revision} query={query} localPreview={candidate} />;
     else if (candidate && path === '/' + ultrasoundCollection) page = <UltrasoundCollection />;
+    else if (candidate && surface + '/' + id === ultrasoundDevelopment && (!revision || hasUltrasoundProgressRevision(revision)))
+      page = <UltrasoundDevelopment revision={revision} />;
     else if (candidate && surface + '/' + id === abdomenTourPath) page = <UltrasoundTour stopId={revision} />;
     else if (candidate && surface + '/' + id === ultrasoundAssets) page = <UltrasoundAssetReview partId={revision} query={query} />;
     else if (surface === 'use-cases' && id === 'head-and-neck') page = <SalivaryLesson stop={revision} query={query} localPreview={candidate} />;

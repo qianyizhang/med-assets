@@ -21,7 +21,7 @@ The [contact check](verify-contact.mjs) intersects actual packed skin triangles 
 
 BodyParts3D © The Database Center for Life Science (DBCLS). The adult male [skin envelope](../../../../models/skin/exports/bp3d-envelope-r01/README.md) and [skeletal atlas](../../../../models/skeleton/exports/teaching-economy-r01/README.md) share native coordinates. The packed derivative keeps the upper body's original skin triangles, clusters thoracic bone and cartilage vertices, and uses authored display colors. The strip on the transducer, its cable and the couch are original geometry. [Publisher rights](https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) · [Input and packed identities](geometry.json)
 
-From the repository root with the [ultrasound Python environment](../../README.md#replay) and both source GLBs hydrated, regenerate into a fresh directory. The three packed files use the existing gallery mesh format. The normal cardiac delivery reads them with its shared local Three.js dependency.
+From the repository root with the [ultrasound Python environment](../../README.md#replay) and both [pinned source GLBs](../../exterior-atlas.json) hydrated, regenerate into a fresh directory. The three packed files use the existing gallery mesh format. The normal cardiac delivery reads them with its shared local Three.js dependency.
 
 ```sh
 python experiments/ultrasound-sweep/cardiac/torso/build_torso.py "$TORSO_OUTPUT"

@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:z-anatomy:eye-exterior-courses",
+  "title": "Z-Anatomy globe and extraocular courses",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/eye_exterior",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:z-anatomy:eye-courses-archive",
+      "title": "Pinned eye source archive and inventory",
+      "subject": "Z-Anatomy native bilateral source",
+      "sourceType": "retained source or source receipt",
+      "license": "Z-Anatomy, CC BY-SA 4.0. Retain historical BodyParts3D / DBCLS CC BY-SA 2.1 Japan credit.",
+      "path": "sources/datasets/z-anatomy/eye-exterior-courses/source-inventory.json",
+      "sha256": "44cfae2d8f11a0cac6c603d6a09b31472338d1045269026a7f0423e68757e624",
+      "bytes": 59155,
+      "evidence": [
+        {
+          "path": "sources/datasets/z-anatomy/eye-exterior-courses/ATTRIBUTION.md",
+          "sha256": "1e3d132de149b3e5f86fed8ab3139bf291718df88c6fe4213a328366481f166e"
+        },
+        {
+          "path": "models/eye_exterior/README.md",
+          "sha256": "b4c117648a9c5d62f956dd1fbc806347c6839bbe900187518614946240601859"
+        }
+      ],
+      "limitations": []
+    }
+  ],
+  "parts": [
+    {
+      "partId": "globe-envelopes",
+      "label": "Opaque globe envelopes",
+      "selectors": [
+        "Cornea.l",
+        "Cornea.r",
+        "Sclera.l",
+        "Sclera.r"
+      ],
+      "sourcePath": "models/eye_exterior/README.md",
+      "registration": "native"
+    },
+    {
+      "partId": "rectus-courses",
+      "label": "Bilateral rectus courses",
+      "selectors": [
+        "Inferior rectus muscle.l",
+        "Inferior rectus muscle.r",
+        "Lateral rectus muscle.l",
+        "Lateral rectus muscle.r",
+        "Medial rectus muscle.l",
+        "Medial rectus muscle.r",
+        "Superior rectus muscle.l",
+        "Superior rectus muscle.r"
+      ],
+      "sourcePath": "models/eye_exterior/README.md",
+      "registration": "native"
+    },
+    {
+      "partId": "oblique-courses",
+      "label": "Bilateral oblique courses",
+      "selectors": [
+        "Inferior oblique muscle.l",
+        "Inferior oblique muscle.r",
+        "Superior oblique muscle.l",
+        "Superior oblique muscle.r"
+      ],
+      "sourcePath": "models/eye_exterior/README.md",
+      "registration": "native"
+    },
+    {
+      "partId": "trochlear-turns",
+      "label": "Bilateral trochlear turns",
+      "selectors": [
+        "Trochlea of superior oblique muscle.l",
+        "Trochlea of superior oblique muscle.r"
+      ],
+      "sourcePath": "models/eye_exterior/README.md",
+      "registration": "native"
+    },
+    {
+      "partId": "optic-segments",
+      "label": "Retained optic segments",
+      "selectors": [
+        "Optic nerve (II).l",
+        "Optic nerve (II).r"
+      ],
+      "sourcePath": "models/eye_exterior/README.md",
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "z-native-courses-r01",
+      "status": "provisional",
+      "sourceIds": [
+        "source:z-anatomy:eye-courses-archive"
+      ],
+      "recipeEvidence": {
+        "path": "reviews/eye_exterior/2026-10-30-z-native-courses-r01/README.md",
+        "sha256": "07218425887b91f9d7b3ea13ec458feba585c95fb743d446cd9577e8f1f90dc3"
+      },
+      "frame": {
+        "convention": "glb-y-up-m",
+        "evidence": "models/eye_exterior/README.md",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ]
+      },
+      "partIds": [
+        "globe-envelopes",
+        "rectus-courses",
+        "oblique-courses",
+        "trochlear-turns",
+        "optic-segments"
+      ],
+      "exports": [
+        {
+          "id": "teaching",
+          "path": "models/eye_exterior/exports/z-native-courses-r01/eye-exterior-courses.glb",
+          "sha256": "39fd2cc18b2352b2ac73b46e76f486aa7eb7a8c0cc301a77a9b178a1cb8f70b9",
+          "bytes": 674580,
+          "format": "glb",
+          "partIds": [
+            "globe-envelopes",
+            "rectus-courses",
+            "oblique-courses",
+            "trochlear-turns",
+            "optic-segments"
+          ],
+          "triangles": 35884
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "The respective scene selector retains each side's original location. Apparent optic-segment meeting does not establish pathway continuity."
+  ]
+}

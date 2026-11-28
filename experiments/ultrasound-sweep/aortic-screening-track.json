@@ -34,5 +34,13 @@
     {"id": "iliac_artery_right", "label": "Right iliac artery", "color": "#ce7866", "opacity": 0.8},
     {"id": "vertebrae", "label": "Thoracolumbar vertebrae", "color": "#c5b58d", "opacity": 0.48}
   ],
-  "overlayParts": ["aorta", "inferior_vena_cava", "vertebrae"]
+  "overlayParts": ["aorta", "inferior_vena_cava", "vertebrae"],
+  "sceneAssets": {
+    "aorta": {
+      "asset": "anatomy:s1233:aorta",
+      "revision": "ultrasound-r01",
+      "export": "aorta-screening",
+      "registration": "native"
+    }
+  }
 }

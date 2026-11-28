@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:s1233:heart-body-shell",
+  "title": "s1233 source heart body shell",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/heart",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:workshop:heart-breathing-r1",
+      "title": "Original Workshop heart with illustrative respiratory translation",
+      "subject": "Workshop s1233 frame",
+      "sourceType": "retained source or source receipt",
+      "license": "Jakob Wasserthal and TotalSegmentator contributors, University Hospital Basel. TotalSegmentator v2.0.1, CC BY 4.0. Retain the Apache-2.0 label-source notice.",
+      "path": "body/breathing/heart_breathing.glb",
+      "sha256": "3894d51df42a6e5941f0d2b076992d5359279f5e3ddb3b6d4ff6c00f58328086",
+      "bytes": 2037364,
+      "evidence": [
+        {
+          "path": "body/anatomy-workshop-r1/docs/licenses/NOTICE.md",
+          "sha256": "87372df39878e0c73903675edc21875fa712a90b22f497ffb55d50a29f210a94"
+        },
+        {
+          "path": "models/heart/exports/metadata-cleanup-r01/README.md",
+          "sha256": "bbc09e31b909e5d97558c40a6ee1571c0ae0efcfc2b769403a3e785d71f4bd50"
+        },
+        {
+          "path": "body/breathing/animation-manifest.json",
+          "sha256": "79e105f7b003ff3d9e8c727c620f907aace641f394833d82419285af09ca768f"
+        }
+      ],
+      "limitations": []
+    },
+    {
+      "sourceId": "source:recipe:texture-pack-r02",
+      "title": "Exact retained edition source",
+      "subject": "Workshop s1233 frame",
+      "sourceType": "retained source or source receipt",
+      "license": "Jakob Wasserthal and TotalSegmentator contributors, University Hospital Basel. TotalSegmentator v2.0.1, CC BY 4.0. Retain the Apache-2.0 label-source notice.",
+      "path": "models/heart/exports/metadata-cleanup-r01/heart.glb",
+      "bytes": 2037228,
+      "sha256": "50c86dcab55701ca1418e16cd269ded70027663d58d02270ec6df0c8afd488fb",
+      "evidence": [
+        {
+          "path": "models/heart/exports/texture-pack-r02/README.md",
+          "sha256": "9accb78e3e449a53a9b6affbbb0f07ab74288f31419eaeb46e4938d56763267b"
+        }
+      ],
+      "limitations": []
+    }
+  ],
+  "parts": [
+    {
+      "partId": "heart-shell",
+      "label": "Source-derived heart exterior",
+      "selectors": [
+        "Heart | source surface"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/body-3d-delivery/manifest.json",
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "texture-pack-r02",
+      "status": "provisional",
+      "recipe": "recipes/texture-pack-r02.json",
+      "sourceIds": [
+        "source:recipe:texture-pack-r02"
+      ],
+      "recipeEvidence": {
+        "path": "models/heart/exports/texture-pack-r02/README.md",
+        "sha256": "9accb78e3e449a53a9b6affbbb0f07ab74288f31419eaeb46e4938d56763267b"
+      },
+      "frame": {
+        "convention": "glb-y-up-m",
+        "evidence": "body/anatomy-workshop-r1/body-3d-delivery/manifest.json",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ]
+      },
+      "partIds": [
+        "heart-shell"
+      ],
+      "exports": [
+        {
+          "id": "teaching",
+          "path": "models/heart/exports/texture-pack-r02/heart.glb",
+          "sha256": "3e98b4c78ecc561d8ba1a80135ece91f23cabdd68837b2db4a8c23f6cd3c33f3",
+          "bytes": 1638296,
+          "format": "glb",
+          "partIds": [
+            "heart-shell"
+          ],
+          "triangles": 24000
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "The one-part surface and authored translation stay in Workshop coordinates. No vessel openings or cardiac contraction claim."
+  ]
+}

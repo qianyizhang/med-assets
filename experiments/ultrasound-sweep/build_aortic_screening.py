@@ -11,6 +11,7 @@ from scipy import ndimage as nd
 
 import build_abdomen as abdomen
 from build_study import AFFINE, CT_SHA, body_surface, fine_scatter, material_at, unit, volume
+from scene_assets import scene_assets
 from delivery import sha256, sweep_files, write_manifest
 from geometry import FRAME_COUNT, LENS_RADIUS_MM, SECTOR_HALF_ANGLE_DEG, VOXEL_MM
 
@@ -46,7 +47,7 @@ def pose_recipe_sha256(slug):
 
 def model_recipe_sha256():
     names = ('build_aortic_screening.py', 'build_abdomen.py', 'build_study.py', 'geometry.py',
-             'display_body.py', 'fit_abdomen.py')
+             'display_body.py', 'exterior-atlas.json', 'fit_abdomen.py')
     pins = {name: sha256((HERE / name).read_bytes()) for name in names}
     return sha256(json.dumps(pins, sort_keys=True).encode())
 
@@ -192,8 +193,10 @@ def build(case, output, track):
     media.mkdir()
     scenes.mkdir()
     (scenes / 'torso.mesh').write_bytes(mesh)
+    governed = scene_assets(track)
     for name, mask in masks.items():
-        (scenes / f'{name}.mesh').write_bytes(abdomen.mesh_from_mask(mask, (117, 237)))
+        raw = governed.get(name)
+        (scenes / f'{name}.mesh').write_bytes(abdomen.mesh_from_mask(mask, (117, 237)) if raw is None else raw)
     parts = abdomen.section_palette(track)
     evidence = {}
     stop_frames = {stop['frame'] for stop in track['stops']}

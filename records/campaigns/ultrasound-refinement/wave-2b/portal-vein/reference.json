@@ -1,0 +1,180 @@
+{
+  "organ": "portal-vein",
+  "label": "portal_vein_and_splenic_vein",
+  "frame": 12,
+  "pose": {
+    "contact": [
+      177.84879729911827,
+      226.98017464289822,
+      196.3774781696377
+    ],
+    "width": [
+      -0.9442998452821804,
+      0.22582599105976717,
+      -0.239375069633253
+    ],
+    "beam": [
+      -0.2595332598211025,
+      -0.9582766516471477,
+      0.11978458145589362
+    ],
+    "degrees": 0.0
+  },
+  "normalRas": [
+    0.20233706839499987,
+    -0.17523835387781259,
+    -0.9635098494999996
+  ],
+  "protectedPlanes": [
+    {
+      "offsetMm": -1.5,
+      "originRasMm": [
+        50.858362221084924,
+        303.6217913701641,
+        337.211482791646
+      ],
+      "segments": 347
+    },
+    {
+      "offsetMm": 0.0,
+      "originRasMm": [
+        51.161867823677426,
+        303.35893383934734,
+        335.766218017396
+      ],
+      "segments": 318
+    },
+    {
+      "offsetMm": 1.5,
+      "originRasMm": [
+        51.46537342626993,
+        303.0960763085306,
+        334.320953243146
+      ],
+      "segments": 348
+    }
+  ],
+  "reference": {
+    "sha256": "72fbcc4370921d3106fe0f6f1ee9c24b13f70b79d82d7143513e9dd42f58d1a0",
+    "bytes": 470418
+  },
+  "source": {
+    "case": "s1233",
+    "ctSha256": "5352376d8fd9c0ab582a7fca1443f28762a66b9782d59c645b976771587c0cfc",
+    "maskSha256": "b1437b7058628669a6bc9e3b2e142dd019f1a2eeee88307e141f8f7d37e17e60",
+    "shape": [
+      265,
+      265,
+      401
+    ],
+    "rasMmFromVoxel": [
+      [
+        1.5,
+        0.0,
+        0.0,
+        -215.611328125
+      ],
+      [
+        0.0,
+        1.5,
+        0.0,
+        -37.111328125
+      ],
+      [
+        0.0,
+        0.0,
+        1.5,
+        41.20000076293945
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "workingLabelGridSpacingMm": [
+      1.5,
+      1.5,
+      1.5
+    ],
+    "maskComponents6ConnectedVoxels": [
+      6045
+    ],
+    "enclosedBackgroundVoxels": 0,
+    "occupiedGridMin": [
+      65,
+      114,
+      192
+    ],
+    "occupiedGridMax": [
+      192,
+      175,
+      232
+    ],
+    "minDistanceToCTBoundaryVoxels": 65,
+    "referenceTopology": {
+      "components": 1,
+      "euler": 0,
+      "openEdges": 0,
+      "nonmanifoldEdges": 0,
+      "misorientedSharedEdges": 0,
+      "degenerateTriangles": 0,
+      "signedVolumeMm3": 20008.96875,
+      "intersectingNonincidentPairs": 0
+    }
+  },
+  "previousSweep": {
+    "sha256": "5a511af3ac51d413b92bd58c49f68cc7bfaf6c1b897468a8786b5a5c7c116c77",
+    "bytes": 203720,
+    "triangles": 11316
+  },
+  "previousStageMesh": "sweeps/portal-vein/scenes/portal_vein_and_splenic_vein.mesh",
+  "previousCompactMesh": "sweeps/liver/scenes/portal_vein_and_splenic_vein.mesh",
+  "savedFrameInputs": {
+    "sweep.js": {
+      "sha256": "a2f9f8300505cf4861e99c0d113ca8db0a1586502ff2c92a87ffd685cee079b8",
+      "bytes": 10961
+    },
+    "media/scan-12.webp": {
+      "sha256": "c1f3e37fb465b3d9ae6f0fe111fb075b5f0db9c61a834f45d1b30f49167cd704",
+      "bytes": 32616
+    },
+    "media/section-12.webp": {
+      "sha256": "34d59e095f43cc44c092173f79e2162fa079dea9b6d327acd199f7ac5e5e60d9",
+      "bytes": 29042
+    }
+  },
+  "workedChapterBaseline": {
+    "cases/abdomen-survey.html": {
+      "sha256": "ba87075c801ca92976e1337d613470dc5cd6305c909ef1a2055f6bea4a5b6bb5",
+      "bytes": 25978
+    },
+    "cases/organs/playable-abdomen.js": {
+      "sha256": "fe64b6fd89c863a1f86f3ab7ecd44d57b411a1ae3d3a216409dd593ee1b2cc13",
+      "bytes": 9470
+    }
+  },
+  "limits": {
+    "p95Mm": 1.5,
+    "maxMm": 3.0,
+    "volumePercent": 3.0,
+    "silhouettePx": 1.0,
+    "silhouetteViews": 24,
+    "teachingZoomPxPerMm": 3.0,
+    "triangleBand": [
+      1500,
+      6000
+    ],
+    "extentMm": 1.5
+  },
+  "topologyExpected": {
+    "components": 1,
+    "euler": 0,
+    "openEdges": 0,
+    "nonmanifoldEdges": 0,
+    "misorientedSharedEdges": 0,
+    "degenerateTriangles": 0,
+    "intersectingNonincidentPairs": 0
+  }
+}

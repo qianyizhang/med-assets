@@ -1,0 +1,237 @@
+{
+  "version": 1,
+  "rubricHash": "a38e552869511cd5bceacaa5ea4456f4d0530e58e7dce2bc6855587a98b0e684",
+  "records": [
+    {
+      "source": "sweep",
+      "case": "thyroid-right",
+      "part": "trachea",
+      "occurrence": 1,
+      "revision": "anatomy:s1127:trachea@r01:thyroid",
+      "meshSha256": "d72633f2240dddf7b9702a7e97374b784e5272573911426fd58ba923e80e7e41",
+      "rubric": "docs/guides/asset-quality.md",
+      "reviewer": "Independent campaign lead · agent review",
+      "reviewedOn": "2026-11-28",
+      "task": "Locate the tracheal exterior behind the thyroid isthmus in the transverse CT view.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 4,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "The superior end and inferior display cut agree with the same-subject label. After localized shoulder correction the worst protected thyroid cut is 2.19 mm.",
+        "form": "The two crops show a gently curved shaft with a smooth broad highlight. The flat inferior profiles mark display cuts. The detailed master retains the source-defined distal split.",
+        "readability": "At the transverse entry the dark air column lies immediately behind the thyroid isthmus. Its position is visible in grayscale and confirmed by the axial orbit and labeled overlay.",
+        "economy": "The thyroid port uses 2,900 triangles. Across 24 views the largest turning-silhouette departure from the dense port is 0.50 px."
+      },
+      "disposition": "Adopt for the named 3D orientation task",
+      "note": "Landmark orientation from the traced air-column exterior. The model supplies no airway wall thickness, patency or clinical airway measurement.",
+      "comparison": {
+        "label": "Previous and selected tracheal display crops",
+        "candidate": "asset-reviews/trachea-wave-2b/previous-vs-r01.webp",
+        "candidateLabel": "The two inferior cut levels reproduce the fields used by the thyroid and carotid sweeps.",
+        "views": [
+          {
+            "label": "Full tracheal label and two derived crop exteriors",
+            "candidate": "asset-reviews/trachea-wave-2b/matched-surfaces.webp",
+            "candidateLabel": "Only the full field contains the distal bifurcation."
+          },
+          {
+            "label": "Raw-label cuts at the airway and the two crop caps",
+            "candidate": "asset-reviews/trachea-wave-2b/protected-planes.webp",
+            "candidateLabel": "The localized shoulder correction preserves small grazing contours and the measured position behind the isthmus."
+          },
+          {
+            "label": "Tracheal landmark at thyroid frames 0 and 12",
+            "candidate": "asset-reviews/trachea-wave-2b/live-frame-12.webp",
+            "candidateLabel": "At the transverse entry, the dark air column sits behind the isthmus. The unchanged scan and overlay locate it."
+          }
+        ]
+      },
+      "links": [
+        {
+          "label": "Source, replay and protected contour measurements",
+          "href": "asset-reviews/trachea-wave-2b/measurements.json"
+        }
+      ]
+    },
+    {
+      "source": "case",
+      "case": "thyroid-normal",
+      "chapter": "thyroid-axial",
+      "chapterSha256": "2ad754ac101043ce48dd0977f672d1af0f5170933fc1bce8fc82604c9300662a",
+      "part": "trachea",
+      "occurrence": 1,
+      "revision": "anatomy:s1127:trachea@r01:thyroid",
+      "meshSha256": "d72633f2240dddf7b9702a7e97374b784e5272573911426fd58ba923e80e7e41",
+      "rubric": "docs/guides/asset-quality.md",
+      "reviewer": "Independent campaign lead · agent review",
+      "reviewedOn": "2026-11-28",
+      "task": "Locate the tracheal exterior behind the thyroid isthmus in the transverse CT view.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 4,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "The superior end and inferior display cut agree with the same-subject label. After localized shoulder correction the worst protected thyroid cut is 2.19 mm.",
+        "form": "The two crops show a gently curved shaft with a smooth broad highlight. The flat inferior profiles mark display cuts. The detailed master retains the source-defined distal split.",
+        "readability": "At the transverse entry the dark air column lies immediately behind the thyroid isthmus. Its position is visible in grayscale and confirmed by the axial orbit and labeled overlay.",
+        "economy": "The thyroid port uses 2,900 triangles. Across 24 views the largest turning-silhouette departure from the dense port is 0.50 px."
+      },
+      "disposition": "Adopt for the named 3D orientation task",
+      "note": "Landmark orientation from the traced air-column exterior. The model supplies no airway wall thickness, patency or clinical airway measurement. Rechecked in the running chapter with the r04 thyroid context.",
+      "comparison": {
+        "label": "Previous and selected tracheal display crops",
+        "candidate": "asset-reviews/trachea-wave-2b/previous-vs-r01.webp",
+        "candidateLabel": "The two inferior cut levels reproduce the fields used by the thyroid and carotid sweeps.",
+        "views": [
+          {
+            "label": "Full tracheal label and two derived crop exteriors",
+            "candidate": "asset-reviews/trachea-wave-2b/matched-surfaces.webp",
+            "candidateLabel": "Only the full field contains the distal bifurcation."
+          },
+          {
+            "label": "Raw-label cuts at the airway and the two crop caps",
+            "candidate": "asset-reviews/trachea-wave-2b/protected-planes.webp",
+            "candidateLabel": "The localized shoulder correction preserves small grazing contours and the measured position behind the isthmus."
+          },
+          {
+            "label": "Tracheal landmark at thyroid frames 0 and 12",
+            "candidate": "asset-reviews/trachea-wave-2b/live-frame-12.webp",
+            "candidateLabel": "At the transverse entry, the dark air column sits behind the isthmus. The unchanged scan and overlay locate it."
+          },
+          {
+            "label": "Reviewed neck chapter and both context sweeps with thyroid r04",
+            "candidate": "asset-reviews/trachea-wave-2b/registered-context.webp",
+            "candidateLabel": "The top row shows the worked chapter CT companion. The next two rows show the same registered neck context after the thyroid surface correction."
+          }
+        ]
+      },
+      "links": [
+        {
+          "label": "Source, replay and protected contour measurements",
+          "href": "asset-reviews/trachea-wave-2b/measurements.json"
+        }
+      ]
+    },
+    {
+      "source": "sweep",
+      "case": "carotid-left",
+      "part": "trachea",
+      "occurrence": 1,
+      "revision": "anatomy:s1127:trachea@r01:carotid",
+      "meshSha256": "92f3dcd7d86b9c1fbd56537deaca9e5aad10db3a1f557acf6c68aaa328222267",
+      "rubric": "docs/guides/asset-quality.md",
+      "reviewer": "Independent campaign lead · agent review",
+      "reviewedOn": "2026-11-28",
+      "task": "Use the short tracheal air-column exterior to orient the medial side of the 3D carotid scene.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "The two crop rims and the native end pass the raw checks. The frozen carotid planes are empty on both the label and mesh.",
+        "form": "The short cut keeps the case-specific curvature and superior taper, with the inferior face explicitly cropped.",
+        "readability": "The axial orbit puts the pale tracheal landmark medial to the selected artery. It stays outside the saved carotid image planes.",
+        "economy": "The context crop uses 2,000 triangles and 36,032 bytes. Its 24-view silhouette differs by at most 0.50 px."
+      },
+      "disposition": "Adopt for the named 3D context use",
+      "note": "Both carotid sweeps show the trachea as 3D context. Their frame-12 and frame-48 scan planes do not intersect its label.",
+      "comparison": {
+        "label": "Reviewed neck chapter and both context sweeps with thyroid r04",
+        "candidate": "asset-reviews/trachea-wave-2b/registered-context.webp",
+        "candidateLabel": "The top row shows the worked chapter CT companion. The next two rows show the same registered neck context after the thyroid surface correction.",
+        "views": [
+          {
+            "label": "Full tracheal label and two derived crop exteriors",
+            "candidate": "asset-reviews/trachea-wave-2b/matched-surfaces.webp",
+            "candidateLabel": "Only the full field contains the distal bifurcation."
+          },
+          {
+            "label": "Raw-label cuts at the airway and the two crop caps",
+            "candidate": "asset-reviews/trachea-wave-2b/protected-planes.webp",
+            "candidateLabel": "The localized shoulder correction preserves small grazing contours and the measured position behind the isthmus."
+          },
+          {
+            "label": "Tracheal landmark at thyroid frames 0 and 12",
+            "candidate": "asset-reviews/trachea-wave-2b/live-frame-12.webp",
+            "candidateLabel": "At the transverse entry, the dark air column sits behind the isthmus. The unchanged scan and overlay locate it."
+          }
+        ]
+      },
+      "links": [
+        {
+          "label": "Source, replay and protected contour measurements",
+          "href": "asset-reviews/trachea-wave-2b/measurements.json"
+        }
+      ]
+    },
+    {
+      "source": "sweep",
+      "case": "carotid-right",
+      "part": "trachea",
+      "occurrence": 1,
+      "revision": "anatomy:s1127:trachea@r01:carotid",
+      "meshSha256": "92f3dcd7d86b9c1fbd56537deaca9e5aad10db3a1f557acf6c68aaa328222267",
+      "rubric": "docs/guides/asset-quality.md",
+      "reviewer": "Independent campaign lead · agent review",
+      "reviewedOn": "2026-11-28",
+      "task": "Use the short tracheal air-column exterior to orient the medial side of the 3D carotid scene.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "The two crop rims and the native end pass the raw checks. The frozen carotid planes are empty on both the label and mesh.",
+        "form": "The short cut keeps the case-specific curvature and superior taper, with the inferior face explicitly cropped.",
+        "readability": "The axial orbit puts the pale tracheal landmark medial to the selected artery. It stays outside the saved carotid image planes.",
+        "economy": "The context crop uses 2,000 triangles and 36,032 bytes. Its 24-view silhouette differs by at most 0.50 px."
+      },
+      "disposition": "Adopt for the named 3D context use",
+      "note": "Both carotid sweeps show the trachea as 3D context. Their frame-12 and frame-48 scan planes do not intersect its label.",
+      "comparison": {
+        "label": "Reviewed neck chapter and both context sweeps with thyroid r04",
+        "candidate": "asset-reviews/trachea-wave-2b/registered-context.webp",
+        "candidateLabel": "The top row shows the worked chapter CT companion. The next two rows show the same registered neck context after the thyroid surface correction.",
+        "views": [
+          {
+            "label": "Full tracheal label and two derived crop exteriors",
+            "candidate": "asset-reviews/trachea-wave-2b/matched-surfaces.webp",
+            "candidateLabel": "Only the full field contains the distal bifurcation."
+          },
+          {
+            "label": "Raw-label cuts at the airway and the two crop caps",
+            "candidate": "asset-reviews/trachea-wave-2b/protected-planes.webp",
+            "candidateLabel": "The localized shoulder correction preserves small grazing contours and the measured position behind the isthmus."
+          },
+          {
+            "label": "Tracheal landmark at thyroid frames 0 and 12",
+            "candidate": "asset-reviews/trachea-wave-2b/live-frame-12.webp",
+            "candidateLabel": "At the transverse entry, the dark air column sits behind the isthmus. The unchanged scan and overlay locate it."
+          }
+        ]
+      },
+      "links": [
+        {
+          "label": "Source, replay and protected contour measurements",
+          "href": "asset-reviews/trachea-wave-2b/measurements.json"
+        }
+      ]
+    }
+  ],
+  "evidenceSha256": {
+    "previous-vs-r01.webp": "c1e400238e669218b821f37479277a13a65886c1a84b9e4980bbb1f77e337df1",
+    "matched-surfaces.webp": "7b1244961f3d8d9fb99d0e876777d2192eefe28840feb530f24e4ca6d5f2452b",
+    "protected-planes.webp": "7ffcbace5500a70743639f20e2d48f4f2828d00a41318f0c08d7988737488b25",
+    "live-frame-12.webp": "dcf5582a92468dd5e5ad42ca4ffccda35c9d0e6cab8c3ac01f8d380886a59667",
+    "registered-context.webp": "d609811513330ea2aadc1e68f1c43bd7fc2065d59d90bae6f0aea4d2f7c496d0"
+  },
+  "measurementsSha256": "861c881e0d016b474a3b739b7b0de1df0518fd8c25cc49ebda917b69c3eba67d"
+}

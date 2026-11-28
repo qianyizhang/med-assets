@@ -1,0 +1,1518 @@
+{
+  "frozen": {
+    "organ": "inferior_vena_cava",
+    "case": "s1233",
+    "sweep": "ivc",
+    "frame": 12,
+    "chapter": "abdomen-survey/ivc-long",
+    "pose": {
+      "contact": [
+        171.26530613971465,
+        227.00000009953152,
+        194.22448978373083
+      ],
+      "width": [
+        -0.1928004511503815,
+        -0.08624164280412538,
+        -0.9774407220300652
+      ],
+      "beam": [
+        -0.1696863700552425,
+        -0.9781920156125737,
+        0.11977861415664168
+      ],
+      "degrees": 0.0
+    },
+    "sourceRevision": "abe213c44df8",
+    "previousSweep": {
+      "sha256": "87f643b1f05200d4d66d469e6791b13df3f26f08a35864035f1a10f10c8ef131",
+      "bytes": 314600,
+      "triangles": 17476
+    },
+    "compactMeshPath": "sweeps/liver/scenes/inferior_vena_cava.mesh",
+    "previousChapterPage": {
+      "sha256": "a99c4afcefe3befa605550968c8a4ed8de50a785fcc5bc0cb905574e0388f35d",
+      "bytes": 8695
+    },
+    "savedFrameInputs": {
+      "sweep.js": {
+        "sha256": "58adae8e21ca938b363eda50acf728020537c0ab9c2f35619c10eb63feab9bc5",
+        "bytes": 11024
+      },
+      "media/scan-12.webp": {
+        "sha256": "aa7ff265e0fc27f326e98923ec1701ca9dda5dac886dffd2e894da62b5d71550",
+        "bytes": 30138
+      },
+      "media/section-12.webp": {
+        "sha256": "53e827c1c68796bf103e9b09433f73b7be3d2f965368ff50235a43c093c2a988",
+        "bytes": 26908
+      },
+      "media/scan-48.webp": {
+        "sha256": "c0ea9b9a939bb1962d5558dbe10cce5c733760d34556293fad4417dde4f76231",
+        "bytes": 31334
+      },
+      "media/section-48.webp": {
+        "sha256": "2a3ecb5d8ac851cbb895b32ec4fe9e7101ca955a5c08fc978d9ae3710c10ec3f",
+        "bytes": 28926
+      }
+    },
+    "sector": {
+      "depthMm": 166,
+      "halfAngleDeg": 36,
+      "lensRadiusMm": 38
+    },
+    "source": {
+      "ctSha256": "5352376d8fd9c0ab582a7fca1443f28762a66b9782d59c645b976771587c0cfc",
+      "maskSha256": "44504ba513ec6292a4a030c097948f546054ea36fdfbca7b6896103cf1b488e0",
+      "shape": [
+        265,
+        265,
+        401
+      ],
+      "rasMmFromVoxel": [
+        [
+          1.5,
+          0.0,
+          0.0,
+          -215.611328125
+        ],
+        [
+          0.0,
+          1.5,
+          0.0,
+          -37.111328125
+        ],
+        [
+          0.0,
+          0.0,
+          1.5,
+          41.20000076293945
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "workingLabelGridSpacingMm": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "abdominalZVoxels": [
+        140,
+        271
+      ]
+    },
+    "rawReferences": {
+      "ivc": {
+        "sha256": "ec58c3676f23865ee10dbe42d201df17e62b0ce2635bdf258df85eb4f1a4afb9",
+        "bytes": 785428
+      },
+      "abdominal": {
+        "sha256": "238223e63ac1b922878cbad9f25a439871b465540565d52a6615c5cdff6c7eff",
+        "bytes": 752496
+      }
+    },
+    "rawInventories": {
+      "ivc": {
+        "occupiedBoundsVoxel": [
+          [
+            133,
+            124,
+            140
+          ],
+          [
+            170,
+            146,
+            278
+          ]
+        ],
+        "componentVoxelCounts": [
+          19208
+        ],
+        "enclosedBackgroundVoxels": 0,
+        "volumeMm3": 64520.71874999806,
+        "planes": [
+          {
+            "name": "long-axis -1.5 mm",
+            "originRasMm": [
+              39.836949162848875,
+              303.67209963266686,
+              332.79767818444583
+            ],
+            "normalRas": [
+              0.966454614482069,
+              -0.18895173891302505,
+              -0.1739618306067724
+            ],
+            "segments": 672
+          },
+          {
+            "name": "long-axis +0 mm",
+            "originRasMm": [
+              41.28663108457198,
+              303.3886720242973,
+              332.5367354385357
+            ],
+            "normalRas": [
+              0.966454614482069,
+              -0.18895173891302505,
+              -0.1739618306067724
+            ],
+            "segments": 649
+          },
+          {
+            "name": "long-axis +1.5 mm",
+            "originRasMm": [
+              42.736313006295084,
+              303.10524441592776,
+              332.27579269262554
+            ],
+            "normalRas": [
+              0.966454614482069,
+              -0.18895173891302505,
+              -0.1739618306067724
+            ],
+            "segments": 568
+          },
+          {
+            "name": "axial voxel z=142.25",
+            "originRasMm": [
+              -215.611328125,
+              -37.111328125,
+              254.57500076293945
+            ],
+            "normalRas": [
+              0,
+              0,
+              1
+            ],
+            "segments": 88
+          },
+          {
+            "name": "axial voxel z=209.25",
+            "originRasMm": [
+              -215.611328125,
+              -37.111328125,
+              355.07500076293945
+            ],
+            "normalRas": [
+              0,
+              0,
+              1
+            ],
+            "segments": 132
+          },
+          {
+            "name": "axial voxel z=259.25",
+            "originRasMm": [
+              -215.611328125,
+              -37.111328125,
+              430.07500076293945
+            ],
+            "normalRas": [
+              0,
+              0,
+              1
+            ],
+            "segments": 172
+          },
+          {
+            "name": "axial voxel z=270.25",
+            "originRasMm": [
+              -215.611328125,
+              -37.111328125,
+              446.57500076293945
+            ],
+            "normalRas": [
+              0,
+              0,
+              1
+            ],
+            "segments": 124
+          },
+          {
+            "name": "axial voxel z=276.25",
+            "originRasMm": [
+              -215.611328125,
+              -37.111328125,
+              455.57500076293945
+            ],
+            "normalRas": [
+              0,
+              0,
+              1
+            ],
+            "segments": 92
+          }
+        ]
+      },
+      "abdominal": {
+        "occupiedBoundsVoxel": [
+          [
+            133,
+            124,
+            140
+          ],
+          [
+            170,
+            146,
+            270
+          ]
+        ],
+        "componentVoxelCounts": [
+          18316
+        ],
+        "enclosedBackgroundVoxels": 0,
+        "volumeMm3": 61521.04687500001,
+        "planes": [
+          {
+            "name": "long-axis -1.5 mm",
+            "originRasMm": [
+              39.836949162848875,
+              303.67209963266686,
+              332.79767818444583
+            ],
+            "normalRas": [
+              0.966454614482069,
+              -0.18895173891302505,
+              -0.1739618306067724
+            ],
+            "segments": 672
+          },
+          {
+            "name": "long-axis +0 mm",
+            "originRasMm": [
+              41.28663108457198,
+              303.3886720242973,
+              332.5367354385357
+            ],
+            "normalRas": [
+              0.966454614482069,
+              -0.18895173891302505,
+              -0.1739618306067724
+            ],
+            "segments": 649
+          },
+          {
+            "name": "long-axis +1.5 mm",
+            "originRasMm": [
+              42.736313006295084,
+              303.10524441592776,
+              332.27579269262554
+            ],
+            "normalRas": [
+              0.966454614482069,
+              -0.18895173891302505,
+              -0.1739618306067724
+            ],
+            "segments": 568
+          },
+          {
+            "name": "axial voxel z=142.25",
+            "originRasMm": [
+              -215.611328125,
+              -37.111328125,
+              254.57500076293945
+            ],
+            "normalRas": [
+              0,
+              0,
+              1
+            ],
+            "segments": 88
+          },
+          {
+            "name": "axial voxel z=209.25",
+            "originRasMm": [
+              -215.611328125,
+              -37.111328125,
+              355.07500076293945
+            ],
+            "normalRas": [
+              0,
+              0,
+              1
+            ],
+            "segments": 132
+          },
+          {
+            "name": "axial voxel z=259.25",
+            "originRasMm": [
+              -215.611328125,
+              -37.111328125,
+              430.07500076293945
+            ],
+            "normalRas": [
+              0,
+              0,
+              1
+            ],
+            "segments": 172
+          },
+          {
+            "name": "axial voxel z=270.25",
+            "originRasMm": [
+              -215.611328125,
+              -37.111328125,
+              446.57500076293945
+            ],
+            "normalRas": [
+              0,
+              0,
+              1
+            ],
+            "segments": 105
+          }
+        ]
+      }
+    },
+    "limits": {
+      "p95Mm": 1.5,
+      "maxMm": 3.0,
+      "volumePercent": 3.0,
+      "silhouettePx": 1.0,
+      "silhouetteViews": 24,
+      "teachingZoomPxPerMm": 3.0,
+      "triangleBand": [
+        1500,
+        6000
+      ],
+      "sampleStepMaxMm": 0.5,
+      "endpointSpanDeltaMm": 1.5
+    }
+  },
+  "exports": {
+    "ivc": {
+      "export": {
+        "sha256": "940ae26a817491395d6d85c7b9c4cfe6034ee7aaaf13662cd8c3950e9a51e5bf",
+        "bytes": 104396,
+        "triangles": 5798
+      },
+      "rawVolumeMm3": 64520.71874999806,
+      "volumeDeltaPercent": 0.4257814993646081,
+      "candidate": {
+        "global": {
+          "referenceToMesh": {
+            "p95Mm": 0.4192228811743101,
+            "maxMm": 0.9608198993103167,
+            "maxLocationRasMm": [
+              9.388671875,
+              161.638671875,
+              332.200000763
+            ],
+            "samples": 208059
+          },
+          "meshToReference": {
+            "p95Mm": 0.3239720234864554,
+            "maxMm": 0.7796630859999993,
+            "maxLocationRasMm": [
+              9.033614022,
+              160.859008789,
+              332.749578748
+            ],
+            "samples": 248104
+          }
+        },
+        "protectedPlanes": [
+          {
+            "name": "long-axis -1.5 mm",
+            "referenceToMesh": {
+              "p95Mm": 0.4727698677117534,
+              "maxMm": 1.2389077280165244,
+              "maxLocationRasMm": [
+                28.138671875,
+                161.52762445,
+                422.200000763
+              ],
+              "samples": 1200,
+              "oppositeSurfaceDistanceMm": 0.36049468945743607,
+              "maximumLoopPerimeterMm": 49.46820356301514
+            },
+            "meshToReference": {
+              "p95Mm": 0.3905903553929718,
+              "maxMm": 0.8505853972486498,
+              "maxLocationRasMm": [
+                28.400774238,
+                163.28185912,
+                421.750731788
+              ],
+              "samples": 988,
+              "oppositeSurfaceDistanceMm": 0.26210236300000034,
+              "maximumLoopPerimeterMm": 43.33583644848088
+            },
+            "sectorMidpoints": {
+              "referenceToMesh": {
+                "p95Mm": 0.4533482656302335,
+                "maxMm": 1.2389077280165244,
+                "maxLocationRasMm": [
+                  28.138671875,
+                  161.52762445,
+                  422.200000763
+                ],
+                "samples": 1025
+              },
+              "meshToReference": {
+                "p95Mm": 0.39898279251853586,
+                "maxMm": 1.3308461578949442,
+                "maxLocationRasMm": [
+                  -2.855598042,
+                  155.592992036,
+                  256.455618974
+                ],
+                "samples": 855
+              }
+            }
+          },
+          {
+            "name": "long-axis +0 mm",
+            "referenceToMesh": {
+              "p95Mm": 0.5751621834973354,
+              "maxMm": 1.7731452477786154,
+              "maxLocationRasMm": [
+                25.12725635,
+                153.37725635,
+                405.700000763
+              ],
+              "samples": 1169,
+              "oppositeSurfaceDistanceMm": 0.41345266531512126,
+              "maximumLoopPerimeterMm": 1.7732494508761873
+            },
+            "meshToReference": {
+              "p95Mm": 0.4479225593099255,
+              "maxMm": 1.1642103868007823,
+              "maxLocationRasMm": [
+                25.481796882,
+                157.152189101,
+                403.569459983
+              ],
+              "samples": 942,
+              "oppositeSurfaceDistanceMm": 0.34312500700000115,
+              "maximumLoopPerimeterMm": 353.7944182394646
+            },
+            "sectorMidpoints": {
+              "referenceToMesh": {
+                "p95Mm": 0.5891450532061864,
+                "maxMm": 1.7731452477786154,
+                "maxLocationRasMm": [
+                  25.12725635,
+                  153.37725635,
+                  405.700000763
+                ],
+                "samples": 1101
+              },
+              "meshToReference": {
+                "p95Mm": 0.4709824786179899,
+                "maxMm": 1.1642103868007823,
+                "maxLocationRasMm": [
+                  25.481796882,
+                  157.152189101,
+                  403.569459983
+                ],
+                "samples": 883
+              }
+            }
+          },
+          {
+            "name": "long-axis +1.5 mm",
+            "referenceToMesh": {
+              "p95Mm": 0.4561043572253467,
+              "maxMm": 1.212792285764691,
+              "maxLocationRasMm": [
+                23.638671875,
+                151.756543306,
+                390.567872194
+              ],
+              "samples": 1000,
+              "oppositeSurfaceDistanceMm": 0.5287841752390813,
+              "maximumLoopPerimeterMm": 334.78092863599517
+            },
+            "meshToReference": {
+              "p95Mm": 0.40118122414381613,
+              "maxMm": 0.7401550243607187,
+              "maxLocationRasMm": [
+                23.430191264,
+                167.027123836,
+                372.823233709
+              ],
+              "samples": 831,
+              "oppositeSurfaceDistanceMm": 0.7153692582066008,
+              "maximumLoopPerimeterMm": 314.1073056399546
+            },
+            "sectorMidpoints": {
+              "referenceToMesh": {
+                "p95Mm": 0.4690173154136816,
+                "maxMm": 1.9591787193223433,
+                "maxLocationRasMm": [
+                  33.155444216,
+                  164.405444216,
+                  429.700000763
+                ],
+                "samples": 988
+              },
+              "meshToReference": {
+                "p95Mm": 0.4027487649341653,
+                "maxMm": 0.7401550243607187,
+                "maxLocationRasMm": [
+                  23.430191264,
+                  167.027123836,
+                  372.823233709
+                ],
+                "samples": 819
+              }
+            }
+          },
+          {
+            "name": "axial voxel z=142.25",
+            "referenceToMesh": {
+              "p95Mm": 0.18378098767047768,
+              "maxMm": 0.2683591952213018,
+              "maxLocationRasMm": [
+                -11.611328125,
+                155.638671875,
+                254.575000763
+              ],
+              "samples": 158,
+              "oppositeSurfaceDistanceMm": 0.25007378623957216,
+              "maximumLoopPerimeterMm": 58.09188309203678
+            },
+            "meshToReference": {
+              "p95Mm": 0.16101002299998868,
+              "maxMm": 0.22240716100000668,
+              "maxLocationRasMm": [
+                -11.449472424,
+                155.861079036,
+                254.575000763
+              ],
+              "samples": 141,
+              "oppositeSurfaceDistanceMm": 0.22240716100000668,
+              "maximumLoopPerimeterMm": 56.59167357606529
+            }
+          },
+          {
+            "name": "axial voxel z=209.25",
+            "referenceToMesh": {
+              "p95Mm": 0.2141327135904417,
+              "maxMm": 0.3558527762833436,
+              "maxLocationRasMm": [
+                38.638671875,
+                166.888671875,
+                355.075000763
+              ],
+              "samples": 234,
+              "oppositeSurfaceDistanceMm": 0.3416763939593324,
+              "maximumLoopPerimeterMm": 85.81980515339464
+            },
+            "meshToReference": {
+              "p95Mm": 0.1833548005027049,
+              "maxMm": 0.32823777499999807,
+              "maxLocationRasMm": [
+                38.96690965,
+                167.035079033,
+                355.075000763
+              ],
+              "samples": 213,
+              "oppositeSurfaceDistanceMm": 0.32823777499999807,
+              "maximumLoopPerimeterMm": 83.8533950784933
+            }
+          },
+          {
+            "name": "axial voxel z=259.25",
+            "referenceToMesh": {
+              "p95Mm": 0.20567210787109344,
+              "maxMm": 0.3451191188753316,
+              "maxLocationRasMm": [
+                27.388671875,
+                160.138671875,
+                430.075000763
+              ],
+              "samples": 290,
+              "oppositeSurfaceDistanceMm": 0.3310216632941132,
+              "maximumLoopPerimeterMm": 105.27564927611036
+            },
+            "meshToReference": {
+              "p95Mm": 0.17328473062355837,
+              "maxMm": 0.3159087565603082,
+              "maxLocationRasMm": [
+                27.48925837,
+                159.792495922,
+                430.075000763
+              ],
+              "samples": 258,
+              "oppositeSurfaceDistanceMm": 0.3159087565603032,
+              "maximumLoopPerimeterMm": 101.780261749458
+            }
+          },
+          {
+            "name": "axial voxel z=270.25",
+            "referenceToMesh": {
+              "p95Mm": 0.18309530243995548,
+              "maxMm": 0.2678473522648951,
+              "maxLocationRasMm": [
+                -1.861328125,
+                163.513671875,
+                446.575000763
+              ],
+              "samples": 229,
+              "oppositeSurfaceDistanceMm": 0.26462141904833886,
+              "maximumLoopPerimeterMm": 78.44848480983501
+            },
+            "meshToReference": {
+              "p95Mm": 0.16915997866999152,
+              "maxMm": 0.26254072100000014,
+              "maxLocationRasMm": [
+                -2.123868846,
+                163.35616704,
+                446.575000763
+              ],
+              "samples": 191,
+              "oppositeSurfaceDistanceMm": 0.2425134147935529,
+              "maximumLoopPerimeterMm": 76.64170251287025
+            }
+          },
+          {
+            "name": "axial voxel z=276.25",
+            "referenceToMesh": {
+              "p95Mm": 0.41240860017877634,
+              "maxMm": 0.8469826017505526,
+              "maxLocationRasMm": [
+                0.013671875,
+                163.888671875,
+                455.575000763
+              ],
+              "samples": 196,
+              "oppositeSurfaceDistanceMm": 0.42018582824626977,
+              "maximumLoopPerimeterMm": 65.698484809835
+            },
+            "meshToReference": {
+              "p95Mm": 0.3115197087704073,
+              "maxMm": 0.4731568619999962,
+              "maxLocationRasMm": [
+                0.854947548,
+                163.986828737,
+                455.575000763
+              ],
+              "samples": 150,
+              "oppositeSurfaceDistanceMm": 0.33457242564233775,
+              "maximumLoopPerimeterMm": 61.068945458420245
+            }
+          }
+        ],
+        "endpointDeviationMm": {
+          "inferior": -0.0316314697265625,
+          "superior": -0.02178955078125
+        }
+      },
+      "silhouette": {
+        "views": 24,
+        "pixelsPerMm": 3.0,
+        "supersample": 4,
+        "maximumDeparturePx": 0.7905694150420949
+      },
+      "topology": {
+        "components": 1,
+        "euler": 2,
+        "openEdges": 0,
+        "nonmanifoldEdges": 0,
+        "misorientedSharedEdges": 0,
+        "degenerateTriangles": 0,
+        "signedVolumeMm3": 64795.43603369262,
+        "intersectingNonincidentPairs": 0
+      },
+      "failures": []
+    },
+    "abdominal": {
+      "export": {
+        "sha256": "0ccc3c04dc2528ce211cde5119140a6450ae28172ef5f2b6d02178a786ef3ea0",
+        "bytes": 108032,
+        "triangles": 6000
+      },
+      "rawVolumeMm3": 61521.04687500001,
+      "volumeDeltaPercent": 0.4486604312221365,
+      "candidate": {
+        "global": {
+          "referenceToMesh": {
+            "p95Mm": 0.4228562306274269,
+            "maxMm": 0.9582767500894029,
+            "maxLocationRasMm": [
+              9.388671875,
+              161.638671875,
+              332.200000763
+            ],
+            "samples": 199619
+          },
+          "meshToReference": {
+            "p95Mm": 0.33582688220689394,
+            "maxMm": 0.8276595469101816,
+            "maxLocationRasMm": [
+              -2.503479004,
+              164.371910095,
+              446.722171783
+            ],
+            "samples": 245632
+          }
+        },
+        "protectedPlanes": [
+          {
+            "name": "long-axis -1.5 mm",
+            "referenceToMesh": {
+              "p95Mm": 0.4765100567443666,
+              "maxMm": 1.2388754053792386,
+              "maxLocationRasMm": [
+                28.138671875,
+                161.52762445,
+                422.200000763
+              ],
+              "samples": 1200,
+              "oppositeSurfaceDistanceMm": 0.36048402183160916,
+              "maximumLoopPerimeterMm": 49.46820356301514
+            },
+            "meshToReference": {
+              "p95Mm": 0.39581978106419935,
+              "maxMm": 0.8505590434432431,
+              "maxLocationRasMm": [
+                28.4007676,
+                163.281810989,
+                421.750747191
+              ],
+              "samples": 997,
+              "oppositeSurfaceDistanceMm": 0.2620957249999982,
+              "maximumLoopPerimeterMm": 43.31935689448421
+            },
+            "sectorMidpoints": {
+              "referenceToMesh": {
+                "p95Mm": 0.4546595765386531,
+                "maxMm": 1.2388754053792386,
+                "maxLocationRasMm": [
+                  28.138671875,
+                  161.52762445,
+                  422.200000763
+                ],
+                "samples": 1025
+              },
+              "meshToReference": {
+                "p95Mm": 0.3982005287140048,
+                "maxMm": 1.3242028749099306,
+                "maxLocationRasMm": [
+                  -2.854526725,
+                  155.592411228,
+                  256.46220159
+                ],
+                "samples": 863
+              }
+            }
+          },
+          {
+            "name": "long-axis +0 mm",
+            "referenceToMesh": {
+              "p95Mm": 0.5776944678477548,
+              "maxMm": 1.7690992645597643,
+              "maxLocationRasMm": [
+                25.12725635,
+                153.37725635,
+                405.700000763
+              ],
+              "samples": 1169,
+              "oppositeSurfaceDistanceMm": 0.4075071475319364,
+              "maximumLoopPerimeterMm": 1.7732494508761873
+            },
+            "meshToReference": {
+              "p95Mm": 0.45364257286782655,
+              "maxMm": 1.1642198142863827,
+              "maxLocationRasMm": [
+                25.481796191,
+                157.15219346,
+                403.569451407
+              ],
+              "samples": 947,
+              "oppositeSurfaceDistanceMm": 0.3431243160000008,
+              "maximumLoopPerimeterMm": 353.86091811027586
+            },
+            "sectorMidpoints": {
+              "referenceToMesh": {
+                "p95Mm": 0.5862044425026833,
+                "maxMm": 1.7690992645597643,
+                "maxLocationRasMm": [
+                  25.12725635,
+                  153.37725635,
+                  405.700000763
+                ],
+                "samples": 1101
+              },
+              "meshToReference": {
+                "p95Mm": 0.4732193175816287,
+                "maxMm": 1.1642198142863827,
+                "maxLocationRasMm": [
+                  25.481796191,
+                  157.15219346,
+                  403.569451407
+                ],
+                "samples": 888
+              }
+            }
+          },
+          {
+            "name": "long-axis +1.5 mm",
+            "referenceToMesh": {
+              "p95Mm": 0.45292581953165273,
+              "maxMm": 1.1840633645866945,
+              "maxLocationRasMm": [
+                23.638671875,
+                151.756543306,
+                390.567872194
+              ],
+              "samples": 1000,
+              "oppositeSurfaceDistanceMm": 0.5179449703709554,
+              "maximumLoopPerimeterMm": 334.78092863599517
+            },
+            "meshToReference": {
+              "p95Mm": 0.3820724031814649,
+              "maxMm": 0.6896838266056969,
+              "maxLocationRasMm": [
+                23.415713442,
+                166.894295673,
+                372.887075042
+              ],
+              "samples": 832,
+              "oppositeSurfaceDistanceMm": 0.6665882029010171,
+              "maximumLoopPerimeterMm": 314.0752954656856
+            },
+            "sectorMidpoints": {
+              "referenceToMesh": {
+                "p95Mm": 0.46140459431603814,
+                "maxMm": 1.9790457234592518,
+                "maxLocationRasMm": [
+                  33.155444216,
+                  164.405444216,
+                  429.700000763
+                ],
+                "samples": 988
+              },
+              "meshToReference": {
+                "p95Mm": 0.38589612205515855,
+                "maxMm": 0.6896838266056969,
+                "maxLocationRasMm": [
+                  23.415713442,
+                  166.894295673,
+                  372.887075042
+                ],
+                "samples": 820
+              }
+            }
+          },
+          {
+            "name": "axial voxel z=142.25",
+            "referenceToMesh": {
+              "p95Mm": 0.1855504641517872,
+              "maxMm": 0.2692354030868696,
+              "maxLocationRasMm": [
+                -11.611328125,
+                155.638671875,
+                254.575000763
+              ],
+              "samples": 158,
+              "oppositeSurfaceDistanceMm": 0.25234915520599904,
+              "maximumLoopPerimeterMm": 58.09188309203678
+            },
+            "meshToReference": {
+              "p95Mm": 0.16210549100000549,
+              "maxMm": 0.22844528124723334,
+              "maxLocationRasMm": [
+                2.375420666,
+                159.448491081,
+                254.575000763
+              ],
+              "samples": 141,
+              "oppositeSurfaceDistanceMm": 0.22844528124724214,
+              "maximumLoopPerimeterMm": 56.57099728341362
+            }
+          },
+          {
+            "name": "axial voxel z=209.25",
+            "referenceToMesh": {
+              "p95Mm": 0.21409038203535874,
+              "maxMm": 0.3558527762833436,
+              "maxLocationRasMm": [
+                38.638671875,
+                166.888671875,
+                355.075000763
+              ],
+              "samples": 234,
+              "oppositeSurfaceDistanceMm": 0.3416763939593324,
+              "maximumLoopPerimeterMm": 85.81980515339464
+            },
+            "meshToReference": {
+              "p95Mm": 0.19066193371846726,
+              "maxMm": 0.32823777499999807,
+              "maxLocationRasMm": [
+                38.96690965,
+                167.035079033,
+                355.075000763
+              ],
+              "samples": 215,
+              "oppositeSurfaceDistanceMm": 0.32823777499999807,
+              "maximumLoopPerimeterMm": 83.78813773721468
+            }
+          },
+          {
+            "name": "axial voxel z=259.25",
+            "referenceToMesh": {
+              "p95Mm": 0.21314554835154073,
+              "maxMm": 0.3451191188753316,
+              "maxLocationRasMm": [
+                27.388671875,
+                160.138671875,
+                430.075000763
+              ],
+              "samples": 290,
+              "oppositeSurfaceDistanceMm": 0.3310216632941132,
+              "maximumLoopPerimeterMm": 105.27564927611036
+            },
+            "meshToReference": {
+              "p95Mm": 0.17605623056124617,
+              "maxMm": 0.3159087565603082,
+              "maxLocationRasMm": [
+                27.48925837,
+                159.792495922,
+                430.075000763
+              ],
+              "samples": 261,
+              "oppositeSurfaceDistanceMm": 0.3159087565603032,
+              "maximumLoopPerimeterMm": 101.70180589556186
+            }
+          },
+          {
+            "name": "axial voxel z=270.25",
+            "referenceToMesh": {
+              "p95Mm": 0.45905939448639926,
+              "maxMm": 0.8933459190984312,
+              "maxLocationRasMm": [
+                -1.486328125,
+                164.638671875,
+                446.575000763
+              ],
+              "samples": 221,
+              "oppositeSurfaceDistanceMm": 0.3746659446553137,
+              "maximumLoopPerimeterMm": 76.45584412271572
+            },
+            "meshToReference": {
+              "p95Mm": 0.4700361787391362,
+              "maxMm": 0.9315969580000001,
+              "maxLocationRasMm": [
+                -2.417925083,
+                164.308412823,
+                446.575000763
+              ],
+              "samples": 186,
+              "oppositeSurfaceDistanceMm": 0.6711372241950654,
+              "maximumLoopPerimeterMm": 76.55855473446802
+            }
+          }
+        ],
+        "endpointDeviationMm": {
+          "inferior": -0.0316314697265625,
+          "superior": -4.57763671875e-05
+        }
+      },
+      "silhouette": {
+        "views": 24,
+        "pixelsPerMm": 3.0,
+        "supersample": 4,
+        "maximumDeparturePx": 0.9013878188659973
+      },
+      "topology": {
+        "components": 1,
+        "euler": 2,
+        "openEdges": 0,
+        "nonmanifoldEdges": 0,
+        "misorientedSharedEdges": 0,
+        "degenerateTriangles": 0,
+        "signedVolumeMm3": 61797.06746920176,
+        "intersectingNonincidentPairs": 0
+      },
+      "baseline": {
+        "global": {
+          "referenceToMesh": {
+            "p95Mm": 0.5454584223994909,
+            "maxMm": 1.7345951524585184,
+            "maxLocationRasMm": [
+              -14.611328125,
+              163.888671875,
+              250.450000763
+            ],
+            "samples": 199619
+          },
+          "meshToReference": {
+            "p95Mm": 0.46707121317540573,
+            "maxMm": 1.2826995850605272,
+            "maxLocationRasMm": [
+              38.643606567,
+              165.988671875,
+              352.232700348
+            ],
+            "samples": 200290
+          }
+        },
+        "protectedPlanes": [
+          {
+            "name": "long-axis -1.5 mm",
+            "referenceToMesh": {
+              "p95Mm": 0.6558080734424598,
+              "maxMm": 2.00116751766167,
+              "maxLocationRasMm": [
+                26.638671875,
+                157.888671875,
+                417.819180544
+              ],
+              "samples": 1200,
+              "oppositeSurfaceDistanceMm": 0.47457878471479914,
+              "maximumLoopPerimeterMm": 380.4960654863855
+            },
+            "meshToReference": {
+              "p95Mm": 0.5263320585713117,
+              "maxMm": 1.3738284762784176,
+              "maxLocationRasMm": [
+                27.743796984,
+                160.11415066,
+                421.541521086
+              ],
+              "samples": 1147,
+              "oppositeSurfaceDistanceMm": 0.3948748910000006,
+              "maximumLoopPerimeterMm": 39.927820170561716
+            },
+            "sectorMidpoints": {
+              "referenceToMesh": {
+                "p95Mm": 0.5979322347273692,
+                "maxMm": 1.1973326672019993,
+                "maxLocationRasMm": [
+                  27.388671875,
+                  159.763010672,
+                  419.950000763
+                ],
+                "samples": 1025
+              },
+              "meshToReference": {
+                "p95Mm": 0.5141522305807895,
+                "maxMm": 1.406040541096955,
+                "maxLocationRasMm": [
+                  26.277548001,
+                  157.888671875,
+                  415.812936801
+                ],
+                "samples": 991
+              }
+            }
+          },
+          {
+            "name": "long-axis +0 mm",
+            "referenceToMesh": {
+              "p95Mm": 0.7684432348653288,
+              "maxMm": 2.031369793061746,
+              "maxLocationRasMm": [
+                25.12725635,
+                153.37725635,
+                405.700000763
+              ],
+              "samples": 1169,
+              "oppositeSurfaceDistanceMm": 0.47326582490933355,
+              "maximumLoopPerimeterMm": 1.7732494508761873
+            },
+            "meshToReference": {
+              "p95Mm": 0.5462632608070359,
+              "maxMm": 1.0179723625224937,
+              "maxLocationRasMm": [
+                30.644114398,
+                164.68069016,
+                424.071786303
+              ],
+              "samples": 1080,
+              "oppositeSurfaceDistanceMm": 0.49455747700000074,
+              "maximumLoopPerimeterMm": 27.297396526022816
+            },
+            "sectorMidpoints": {
+              "referenceToMesh": {
+                "p95Mm": 0.7133946159936078,
+                "maxMm": 2.031369793061746,
+                "maxLocationRasMm": [
+                  25.12725635,
+                  153.37725635,
+                  405.700000763
+                ],
+                "samples": 1101
+              },
+              "meshToReference": {
+                "p95Mm": 0.5448391953795962,
+                "maxMm": 1.4967596790284001,
+                "maxLocationRasMm": [
+                  -1.35970414,
+                  156.001362403,
+                  255.700000763
+                ],
+                "samples": 1040
+              }
+            }
+          },
+          {
+            "name": "long-axis +1.5 mm",
+            "referenceToMesh": {
+              "p95Mm": 0.7637677162454494,
+              "maxMm": 15.483306262192409,
+              "maxLocationRasMm": [
+                28.138671875,
+                157.888671875,
+                408.907351594
+              ],
+              "samples": 1000,
+              "oppositeSurfaceDistanceMm": 0.7668224873825797,
+              "maximumLoopPerimeterMm": 0.7657906837781514
+            },
+            "meshToReference": {
+              "p95Mm": 0.5770342185132413,
+              "maxMm": 1.201808525854379,
+              "maxLocationRasMm": [
+                33.506997211,
+                166.000992483,
+                429.920039807
+              ],
+              "samples": 927,
+              "oppositeSurfaceDistanceMm": 0.6316746640000019,
+              "maximumLoopPerimeterMm": 11.093205126893269
+            },
+            "sectorMidpoints": {
+              "referenceToMesh": {
+                "p95Mm": 0.7618929459360391,
+                "maxMm": 15.483306262192409,
+                "maxLocationRasMm": [
+                  28.138671875,
+                  157.888671875,
+                  408.907351594
+                ],
+                "samples": 988
+              },
+              "meshToReference": {
+                "p95Mm": 0.587713131211261,
+                "maxMm": 1.2501413431266093,
+                "maxLocationRasMm": [
+                  33.486746776,
+                  165.694832179,
+                  430.140078852
+                ],
+                "samples": 926
+              }
+            }
+          },
+          {
+            "name": "axial voxel z=142.25",
+            "referenceToMesh": {
+              "p95Mm": 0.7551846981622048,
+              "maxMm": 1.0341197779473261,
+              "maxLocationRasMm": [
+                -15.361328125,
+                157.888671875,
+                254.575000763
+              ],
+              "samples": 158,
+              "oppositeSurfaceDistanceMm": 0.8887659482038373,
+              "maximumLoopPerimeterMm": 58.09188309203678
+            },
+            "meshToReference": {
+              "p95Mm": 0.6864452362000008,
+              "maxMm": 0.97952740438686,
+              "maxLocationRasMm": [
+                -14.337246031,
+                158.249850721,
+                254.575000763
+              ],
+              "samples": 153,
+              "oppositeSurfaceDistanceMm": 0.9795274043868526,
+              "maximumLoopPerimeterMm": 53.12637243595077
+            }
+          },
+          {
+            "name": "axial voxel z=209.25",
+            "referenceToMesh": {
+              "p95Mm": 0.5923007951536153,
+              "maxMm": 1.1782250134681655,
+              "maxLocationRasMm": [
+                40.138671875,
+                163.888671875,
+                355.075000763
+              ],
+              "samples": 234,
+              "oppositeSurfaceDistanceMm": 1.1278050778722084,
+              "maximumLoopPerimeterMm": 85.81980515339464
+            },
+            "meshToReference": {
+              "p95Mm": 0.5348668095000022,
+              "maxMm": 1.087230893486752,
+              "maxLocationRasMm": [
+                38.9760952,
+                164.263671875,
+                355.075000763
+              ],
+              "samples": 231,
+              "oppositeSurfaceDistanceMm": 1.0606601718226283,
+              "maximumLoopPerimeterMm": 80.55171160138482
+            }
+          },
+          {
+            "name": "axial voxel z=259.25",
+            "referenceToMesh": {
+              "p95Mm": 0.6003242758572038,
+              "maxMm": 0.8120854149213733,
+              "maxLocationRasMm": [
+                4.888671875,
+                182.638671875,
+                430.075000763
+              ],
+              "samples": 290,
+              "oppositeSurfaceDistanceMm": 0.8114052085091616,
+              "maximumLoopPerimeterMm": 105.27564927611036
+            },
+            "meshToReference": {
+              "p95Mm": 0.5169975309621048,
+              "maxMm": 0.7907581329999971,
+              "maxLocationRasMm": [
+                5.263671875,
+                181.847913742,
+                430.075000763
+              ],
+              "samples": 281,
+              "oppositeSurfaceDistanceMm": 0.7907581329999971,
+              "maximumLoopPerimeterMm": 97.68968529461932
+            }
+          },
+          {
+            "name": "axial voxel z=270.25",
+            "referenceToMesh": {
+              "p95Mm": 1.2742332531056855,
+              "maxMm": 1.3852594151621476,
+              "maxLocationRasMm": [
+                -1.486328125,
+                162.388671875,
+                446.575000763
+              ],
+              "samples": 221,
+              "oppositeSurfaceDistanceMm": 0.8588697185027337,
+              "maximumLoopPerimeterMm": 76.45584412271572
+            },
+            "meshToReference": {
+              "p95Mm": 1.1713999841863756,
+              "maxMm": 1.2806411295907265,
+              "maxLocationRasMm": [
+                5.606721902,
+                173.670621848,
+                446.575000763
+              ],
+              "samples": 188,
+              "oppositeSurfaceDistanceMm": 0.37499999993946176,
+              "maximumLoopPerimeterMm": 68.19538062451898
+            }
+          }
+        ],
+        "endpointDeviationMm": {
+          "inferior": 0.3537139892578125,
+          "superior": 0.053375244140625
+        }
+      },
+      "failures": []
+    }
+  },
+  "initialTrial": {
+    "abdominal": {
+      "export": {
+        "sha256": "8ce7f0664f7e07d172cf430283e8faf1792b8cafd55d1ed1b341f57679741233",
+        "bytes": 97232,
+        "triangles": 5400
+      },
+      "silhouette": {
+        "views": 24,
+        "pixelsPerMm": 3.0,
+        "supersample": 4,
+        "maximumDeparturePx": 1.0307764064044151
+      },
+      "failedParallelCut": {
+        "name": "long-axis +1.5 mm",
+        "referenceToMesh": {
+          "p95Mm": 0.47719460940603836,
+          "maxMm": 14.672140705543539,
+          "maxLocationRasMm": [
+            28.138671875,
+            157.888671875,
+            408.907351594
+          ],
+          "samples": 1000,
+          "oppositeSurfaceDistanceMm": 0.703226242338456,
+          "maximumLoopPerimeterMm": 0.7657906837781514
+        },
+        "meshToReference": {
+          "p95Mm": 0.37365881953415947,
+          "maxMm": 0.7401550243607187,
+          "maxLocationRasMm": [
+            23.430191264,
+            167.027123836,
+            372.823233709
+          ],
+          "samples": 816,
+          "oppositeSurfaceDistanceMm": 0.7153692582066008,
+          "maximumLoopPerimeterMm": 314.25880487874576
+        },
+        "sectorMidpoints": {
+          "referenceToMesh": {
+            "p95Mm": 0.4830164133468744,
+            "maxMm": 14.672140705543539,
+            "maxLocationRasMm": [
+              28.138671875,
+              157.888671875,
+              408.907351594
+            ],
+            "samples": 988
+          },
+          "meshToReference": {
+            "p95Mm": 0.37396702536695,
+            "maxMm": 0.7401550243607187,
+            "maxLocationRasMm": [
+              23.430191264,
+              167.027123836,
+              372.823233709
+            ],
+            "samples": 804
+          }
+        }
+      },
+      "failures": [
+        "long-axis +1.5 mm referenceToMesh maxMm: 14.672 > 3.0 mm",
+        "Decimation silhouette differs by over one teaching pixel"
+      ]
+    },
+    "ivc": {
+      "export": {
+        "sha256": "b33a8bf31948eeaededc28643a5b1872e97b99c5b4a0d96f31d75c27ae7b823c",
+        "bytes": 100832,
+        "triangles": 5600
+      },
+      "failures": [
+        "long-axis +1.5 mm referenceToMesh maxMm: 14.672 > 3.0 mm"
+      ]
+    },
+    "adjacentNativeSlices": {
+      "sourceVoxels": [
+        243,
+        244,
+        245,
+        246,
+        247
+      ],
+      "rawPresenceAtPeripheralSourceVoxelsX162Y130And131": [
+        false,
+        false,
+        true,
+        true,
+        false
+      ],
+      "axialNearestRawContourMmAtWorstXY": [
+        1.5,
+        1.5,
+        0,
+        0,
+        1.5
+      ],
+      "axialNearestInitialCandidateContourMmAtWorstXY": [
+        1.876,
+        1.233,
+        0.796,
+        0.798,
+        1.123
+      ]
+    }
+  },
+  "negativeControl": {
+    "operation": "Compress both exports by 14% along voxel X about each export centroid.",
+    "exit": 1,
+    "exports": {
+      "ivc": {
+        "globalMaximumMm": 4.438354490001281,
+        "volumeDeltaPercent": -13.633825838995485
+      },
+      "abdominal": {
+        "globalMaximumMm": 4.474116483706519,
+        "volumeDeltaPercent": -13.614152077019737
+      }
+    }
+  },
+  "replay": {
+    "bothFreshOutputsMatchGovernedBytes": true,
+    "toolchain": "Python 3.12, NumPy 2.2.6, SciPy 1.16.1, scikit-image 0.25.2, Blender 5.2.3 (fab76e95306d)"
+  },
+  "liveBrowser": {
+    "scope": "Disposable compact study with the sealed Wave 2A context, the fixed camera presets and the exact IVC port from the Wave 2B track builder.",
+    "previous": {
+      "frame": 12,
+      "served": {
+        "/sweeps/ivc/sweep.js": {
+          "sha256": "58adae8e21ca938b363eda50acf728020537c0ab9c2f35619c10eb63feab9bc5",
+          "bytes": 11024
+        },
+        "/sweeps/ivc/media/scan-12.webp": {
+          "sha256": "aa7ff265e0fc27f326e98923ec1701ca9dda5dac886dffd2e894da62b5d71550",
+          "bytes": 30138
+        },
+        "/sweeps/ivc/media/section-12.webp": {
+          "sha256": "53e827c1c68796bf103e9b09433f73b7be3d2f965368ff50235a43c093c2a988",
+          "bytes": 26908
+        },
+        "/sweeps/liver/scenes/inferior_vena_cava.mesh": {
+          "sha256": "87f643b1f05200d4d66d469e6791b13df3f26f08a35864035f1a10f10c8ef131",
+          "bytes": 314600
+        }
+      },
+      "cameraPresets": [
+        "oblique",
+        "axial"
+      ]
+    },
+    "candidate": {
+      "frame": 12,
+      "served": {
+        "/sweeps/ivc/sweep.js": {
+          "sha256": "58adae8e21ca938b363eda50acf728020537c0ab9c2f35619c10eb63feab9bc5",
+          "bytes": 11024
+        },
+        "/sweeps/ivc/media/scan-12.webp": {
+          "sha256": "aa7ff265e0fc27f326e98923ec1701ca9dda5dac886dffd2e894da62b5d71550",
+          "bytes": 30138
+        },
+        "/sweeps/ivc/media/section-12.webp": {
+          "sha256": "53e827c1c68796bf103e9b09433f73b7be3d2f965368ff50235a43c093c2a988",
+          "bytes": 26908
+        },
+        "/sweeps/ivc/scenes/inferior_vena_cava.mesh": {
+          "sha256": "0ccc3c04dc2528ce211cde5119140a6450ae28172ef5f2b6d02178a786ef3ea0",
+          "bytes": 108032
+        }
+      },
+      "cameraPresets": [
+        "oblique",
+        "axial"
+      ]
+    }
+  },
+  "witnessSha256": {
+    "live-frame-12.webp": "8a4779c8711fb9bc649434c02683ee76d4e54471536b4019755399ff064adc19",
+    "matched-surfaces.webp": "c5d04aa33f6899a064c36716090f8b5d1ab753af7936132905e92eb7d9f236b7",
+    "previous-vs-r01.webp": "73f5c87a525cab0f3850e236d56a533ef9f5ffad7d4e21e3d4ffc590670e1f38",
+    "protected-planes.webp": "dedf4118eb7210f0dfb4bfd456609144d1a24b3f18998f9c3916f87adf27cafa"
+  },
+  "export": {
+    "sha256": "0ccc3c04dc2528ce211cde5119140a6450ae28172ef5f2b6d02178a786ef3ea0",
+    "bytes": 108032,
+    "triangles": 6000
+  },
+  "previousSweep": {
+    "sha256": "87f643b1f05200d4d66d469e6791b13df3f26f08a35864035f1a10f10c8ef131",
+    "bytes": 314600,
+    "triangles": 17476
+  }
+}

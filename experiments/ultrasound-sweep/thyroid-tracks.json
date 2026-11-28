@@ -59,7 +59,33 @@
       "Transverse",
       "Longitudinal"
     ],
-    "sourceNote": "The BodyParts3D head and shoulders are fitted at the s1127 CT probe contact, with clearance possible at the flat probe edges over curved skin. The CT supplies the thyroid, trachea and carotids and places the gland deeper than in the acquired comparisons."
+    "sourceNote": "The BodyParts3D head and shoulders are fitted at the s1127 CT probe contact, with clearance possible at the flat probe edges over curved skin. The CT supplies the thyroid, trachea and carotids and places the gland deeper than in the acquired comparisons.",
+    "sceneAssets": {
+      "common_carotid_artery_left": {
+        "asset": "anatomy:s1127:carotid-left",
+        "revision": "r01",
+        "export": "carotid",
+        "registration": "native"
+      },
+      "common_carotid_artery_right": {
+        "asset": "anatomy:s1127:carotid-right",
+        "revision": "r01",
+        "export": "carotid",
+        "registration": "native"
+      },
+      "thyroid_gland": {
+        "asset": "anatomy:s1127:thyroid",
+        "revision": "r04",
+        "export": "thyroid",
+        "registration": "native"
+      },
+      "trachea": {
+        "asset": "anatomy:s1127:trachea",
+        "revision": "r01",
+        "export": "thyroid",
+        "registration": "native"
+      }
+    }
   },
   "sweeps": [
     {

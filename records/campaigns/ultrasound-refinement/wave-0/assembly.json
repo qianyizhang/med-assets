@@ -1,0 +1,588 @@
+{
+  "schemaVersion": 1,
+  "sourceRevision": "72617cad1aa4ce8bc5e10ba98ec3eaec7a0a4d01",
+  "initialAssemblyRevision": "199d2836e55186fe6cd255b9d618327ae5afdaf8",
+  "revisionNote": "The intervening commit added the refinement spec and earlier pretrial evidence. Assembly inputs and runtime source agree at both revisions.",
+  "testedOn": "2026-11-28",
+  "environment": {
+    "python": "3.12.13",
+    "numpy": "2.2.6",
+    "scipy": "1.16.1",
+    "scikitImage": "0.25.2",
+    "pillow": "11.3.0",
+    "node": "24.21.0 for audit and geometry checks; initial assembly used 25.9.0"
+  },
+  "stage": {
+    "directory": ".artifacts/us-wave0/browser-stage",
+    "assemblyInputs": [
+      {
+        "directory": ".artifacts/assetkit-liver-final/stage",
+        "contents": "Gallbladder, 16 other regional sweeps, shared probes and vendor, registered AAA"
+      },
+      {
+        "directory": ".artifacts/ultrasound-integration/stage/sweeps/pregnancy-*",
+        "contents": "11 pregnancy sweep stages across all four gestational windows"
+      },
+      {
+        "directory": ".artifacts/us-wave0/browser-stage/carotid-survey/data",
+        "contents": "Fresh paired carotid acquisition, reconstruction and volume replay"
+      }
+    ],
+    "seal": {
+      "manifest": "browser-stage.sha256",
+      "sha256": "5113eeef9598c0630a6fb21d0f19edd627108b312d940d9d8f16e4727a9f3dd4",
+      "files": 5135,
+      "bytes": 386674168
+    },
+    "registeredAaa": {
+      "stageVerificationSha256": "c889a0f4f269b291d953101a4360849841b8133f042b351bbec15356f014326e",
+      "acquisitionRecipeSha256": "1efb710555929608755257a5db7818391366b093fc5df0f7edc9d2f9dff8089d",
+      "frames": 580,
+      "colorFrames": 87
+    },
+    "sweepFamilies": {
+      "abdomen": [
+        {
+          "id": "gallbladder",
+          "stageRoot": "./",
+          "stageDeliverySha256": "924ccba5bb7e7ffa1d31703c654879ab787882c18ed178a696f22f724b8174ca",
+          "stageVerificationSha256": "6feb469063b21f63be23659b6c3d5571ff44cae81d4f755283e7c6a4750d20ac",
+          "emittedMeshParts": 4
+        },
+        {
+          "id": "liver",
+          "stageRoot": "sweeps/liver/",
+          "stageDeliverySha256": "11d00191c6a87383ee33877b60be463aaa5fb211eb2cbadcba6fc98554a6a971",
+          "stageVerificationSha256": "d7270e34f4585974f860ab27ecd1be7747bd6a8565800c7e2c01b326ea72154c",
+          "emittedMeshParts": 5
+        },
+        {
+          "id": "portal-vein",
+          "stageRoot": "sweeps/portal-vein/",
+          "stageDeliverySha256": "5a95270c48aa8b2ed761fcd3c0d6611cc85a0619b351649af24797246649c626",
+          "stageVerificationSha256": "869d319b1ba0b4ca2fe25deca613f5c9c89dfa81f4a7ec29f42facdccb6605ab",
+          "emittedMeshParts": 4
+        },
+        {
+          "id": "pancreas",
+          "stageRoot": "sweeps/pancreas/",
+          "stageDeliverySha256": "292b6eb387f5f39872daaea43dc6b3be1171c12b213559bddc3c2c3d9e66dc0f",
+          "stageVerificationSha256": "db8b5ba145512d231a1982d7c3329e52804ae1af1a67e85605348ed7b9663f7f",
+          "emittedMeshParts": 5
+        },
+        {
+          "id": "spleen",
+          "stageRoot": "sweeps/spleen/",
+          "stageDeliverySha256": "17cb318ddef7f5578187be443ba182edc873875e75c293bc6645e00dfb4946ea",
+          "stageVerificationSha256": "7ead0c4b3f07bd616f2feb4dc6738df1f3ddc87159c2bd77db6748dad7031ed4",
+          "emittedMeshParts": 4
+        },
+        {
+          "id": "kidney-right",
+          "stageRoot": "sweeps/kidney-right/",
+          "stageDeliverySha256": "2ce338cf71f372176cec1015825e5a2b33342e85cc8377474ea009467868fac6",
+          "stageVerificationSha256": "49fd9acccadf0132ac5da32413cbd085d2987004314769687e0183028002b906",
+          "emittedMeshParts": 4
+        },
+        {
+          "id": "kidney-left",
+          "stageRoot": "sweeps/kidney-left/",
+          "stageDeliverySha256": "e5e66008061579d93dcffa1c1cc6437b452a4df06a73f89d991a639e78d86348",
+          "stageVerificationSha256": "0395c66c6ecafe8feb67bc070921cab6d5bd912d6a5eed2080df5d430fdaf9d2",
+          "emittedMeshParts": 4
+        },
+        {
+          "id": "aorta",
+          "stageRoot": "sweeps/aorta/",
+          "stageDeliverySha256": "57ef1c166d2485ef13143e12be864c2a0799d0e8476d52bca45b7015dd611581",
+          "stageVerificationSha256": "021cdda16e7b5bdf31f1916c536ede7a0922ec16b065447949e2c41ea06ffdad",
+          "emittedMeshParts": 3
+        },
+        {
+          "id": "ivc",
+          "stageRoot": "sweeps/ivc/",
+          "stageDeliverySha256": "27ecb9e1f8cef229313b04ddf6f79e1f7930ca7824368cecc6de87559d2b6b96",
+          "stageVerificationSha256": "ee33d2ec092ac5257e08763216dbda549af2735be6d6b1f7de78979e037f2d26",
+          "emittedMeshParts": 4
+        }
+      ],
+      "thyroid": [
+        {
+          "id": "thyroid-right",
+          "stageRoot": "sweeps/thyroid-right/",
+          "stageDeliverySha256": "ba3a58f94b8c7e84fabb34e476de8c51c4a27e89bb24baf4d9998bc6a993b34b",
+          "stageVerificationSha256": "129d69f78de1e1b7e25d7a347a4c2ec3232ab8a3ccca90d5b2974f711acc672a",
+          "emittedMeshParts": 5
+        },
+        {
+          "id": "thyroid-left",
+          "stageRoot": "sweeps/thyroid-left/",
+          "stageDeliverySha256": "9616884b2a69e5e5cbb06eb6c9eed54a558897f6f5262df8d304f9247ebedc78",
+          "stageVerificationSha256": "e24aac0c2e093537336f76a7bd626feaad31eb780efe28d1858cdeb02dacd3bc",
+          "emittedMeshParts": 5
+        }
+      ],
+      "carotid": [
+        {
+          "id": "carotid-right",
+          "stageRoot": "sweeps/carotid-right/",
+          "stageDeliverySha256": "eb3427d09298c851029736b6a45428e3ab647aabecc8b59e70165a62ac5f0f40",
+          "stageVerificationSha256": "36164e483a430d9ab7d0af9459cf0aa71f9d095ce4d63bbb4bd97bd119844da4",
+          "emittedMeshParts": 5
+        },
+        {
+          "id": "carotid-left",
+          "stageRoot": "sweeps/carotid-left/",
+          "stageDeliverySha256": "e61e9f13285000c8e4e8fb2c03368dfb3924a8bcb0e78bce1085b278ee95b19d",
+          "stageVerificationSha256": "6a0af7297ac5cf87e5eadac3c12b38771b95d5a16853c33fbad7eb3bd83738c9",
+          "emittedMeshParts": 4
+        }
+      ],
+      "breast": [
+        {
+          "id": "breast",
+          "stageRoot": "sweeps/breast/",
+          "stageDeliverySha256": "53a9938eac956018d32fdc78f8334185987ec6862abf3a6504d00bb4706e8c3b",
+          "stageVerificationSha256": "6649660d3e18ffd490fe4daf9bfbca575ba71a59cd2eefbc11c119acccb36641",
+          "emittedMeshParts": 11
+        },
+        {
+          "id": "breast-subareolar",
+          "stageRoot": "sweeps/breast-subareolar/",
+          "stageDeliverySha256": "76a26cdb5c0363daf2eb3fa9b5bfbca786a82ed4c9d66131c2946c4c74ea5379",
+          "stageVerificationSha256": "4620c63a3cdad6afb941272c33f599dc8197d83cf9e099e0fe197db2fbd105b8",
+          "emittedMeshParts": 10
+        },
+        {
+          "id": "axilla",
+          "stageRoot": "sweeps/axilla/",
+          "stageDeliverySha256": "673ba4d873b6e7fb62f5e95d6e418565fd3435767be4c5fb8e3999c9c00e4b99",
+          "stageVerificationSha256": "aab4abd5e68470d4be0c2e8f9daaa83a722f3e82731eeb628357864a30c08433",
+          "emittedMeshParts": 6
+        }
+      ],
+      "pregnancy-early": [
+        {
+          "id": "pregnancy-early",
+          "stageRoot": "sweeps/pregnancy-early/",
+          "stageDeliverySha256": "8624bb77ef27177e7c5e99c8e0b2da08cf20d094af0ba95a5dc74903de75e44c",
+          "stageVerificationSha256": "4a7bfc9cd90d01fde49fc2766e114f0325d0ca781d1261b762b2ecbf9f85e11f",
+          "emittedMeshParts": 9
+        }
+      ],
+      "pregnancy-first": [
+        {
+          "id": "pregnancy-placenta",
+          "stageRoot": "sweeps/pregnancy-placenta/",
+          "stageDeliverySha256": "e54e0b9bc393f7c1469ebef9558a31af355f6678e3649d90bec9f902880dd57c",
+          "stageVerificationSha256": "ba60814f34e6ba5fa98e98aa78c716d7689377a827808bb96501970a96a7aabf",
+          "emittedMeshParts": 14
+        },
+        {
+          "id": "pregnancy-fetus",
+          "stageRoot": "sweeps/pregnancy-fetus/",
+          "stageDeliverySha256": "249b6bd6c69938fbbbeb68b38004b616e6dd76718178ffb93bbceca7c5bef0a0",
+          "stageVerificationSha256": "793b5b4da5914baf36afec45f954139adbfd36b3b4cc133472344f8d4706b978",
+          "emittedMeshParts": 14
+        }
+      ],
+      "pregnancy-mid-and-late": [
+        {
+          "id": "pregnancy-mid-brain",
+          "stageRoot": "sweeps/pregnancy-mid-brain/",
+          "stageDeliverySha256": "6fad4f6e1cac2affd97bad41ceef0c6c9c6e022d78be41b3d6eafb914967eb33",
+          "stageVerificationSha256": "39e2a0002baa5843342d8af4837fb3d5261265026b75e24a3ad42b2bd756ec93",
+          "emittedMeshParts": 17
+        },
+        {
+          "id": "pregnancy-mid-heart",
+          "stageRoot": "sweeps/pregnancy-mid-heart/",
+          "stageDeliverySha256": "967617b315c75e7895a040f30330e97f86b3dfcd46de88e3029cb9e17337489c",
+          "stageVerificationSha256": "2b27bdce1811836eabd54c8fe2ad185d89ff6ed4c12476a18cd6bfafe2ef9fb2",
+          "emittedMeshParts": 17
+        },
+        {
+          "id": "pregnancy-mid-abdomen",
+          "stageRoot": "sweeps/pregnancy-mid-abdomen/",
+          "stageDeliverySha256": "948f3b306d817dfe77e8341c3fc3a8d90ab77578d7bd01c68174ed8e52248211",
+          "stageVerificationSha256": "16292d9d8acba7181573342c5a438bad3b055b96bf2947fd891df2ec09e43258",
+          "emittedMeshParts": 13
+        },
+        {
+          "id": "pregnancy-mid-spine-limbs",
+          "stageRoot": "sweeps/pregnancy-mid-spine-limbs/",
+          "stageDeliverySha256": "e7e0c785a038f660021fb8f81b6997fcc074366b283cf1aa4c6ec1a3753d9b41",
+          "stageVerificationSha256": "f43cb6d71585c7b943986e53d1836c5ed08c9bef1bb0c585dbd3c3782084ad39",
+          "emittedMeshParts": 9
+        },
+        {
+          "id": "pregnancy-late-presentation",
+          "stageRoot": "sweeps/pregnancy-late-presentation/",
+          "stageDeliverySha256": "81409933258dd5fed3f592495e077b5c2185971d5ecafe08f5a58f337bcb7de1",
+          "stageVerificationSha256": "013691c5315453ff46a10cec442920a11629b6565f623fe57eb7c00452f50dd6",
+          "emittedMeshParts": 10
+        },
+        {
+          "id": "pregnancy-late-biometry",
+          "stageRoot": "sweeps/pregnancy-late-biometry/",
+          "stageDeliverySha256": "ab3b83a08bc67304afce468d0e089aeaf1e1ec375c661c4285c81efc63bf6f4a",
+          "stageVerificationSha256": "d4490a820c42cedf53800eaf916b2a75f01be8bba539e390ae4ed8ae1bd2770f",
+          "emittedMeshParts": 13
+        },
+        {
+          "id": "pregnancy-late-cord",
+          "stageRoot": "sweeps/pregnancy-late-cord/",
+          "stageDeliverySha256": "060cae33fb4bb04114e68715609603998bddea993558aa77544c0280adde2f4b",
+          "stageVerificationSha256": "4d41f746988db0927f1f5bc4a0c4f4026ad12978c36b8c0ef7c7d538c946041a",
+          "emittedMeshParts": 7
+        },
+        {
+          "id": "pregnancy-mid-placenta",
+          "stageRoot": "sweeps/pregnancy-mid-placenta/",
+          "stageDeliverySha256": "bec6dd63c0408272a5e6d22554c6d1dc79e0961d360f22f6e5bea77a5393e741",
+          "stageVerificationSha256": "5cebeddf2f80bb400ed4f2af09d6cf4f6bf6c5b774d8a35cf762aca6a2170c4e",
+          "emittedMeshParts": 8
+        }
+      ],
+      "aortic-screening": [
+        {
+          "id": "aortic-screening",
+          "stageRoot": "sweeps/aortic-screening/",
+          "stageDeliverySha256": "94fd1178d622a80573754f2bc59d53f1cb8592d45383232ce18c6a7d25b494cf",
+          "stageVerificationSha256": "29c215c0ebce40377f1545329ae28986fee3beec1410ee82704100640d4c3413",
+          "emittedMeshParts": 6
+        }
+      ]
+    },
+    "bilateralCarotidSurvey": {
+      "included": true,
+      "origin": "Fresh local replay of retained hash-pinned atlas extraction",
+      "atlasManifest": ".artifacts/carotid-survey/source/z-neck-final/atlas.json",
+      "atlasManifestSha256": "6a113ef8a7b46c3a647a83dd7df6430de26643cb40f9cf2add8964730bcd6158",
+      "deliveryInventorySha256": "bea7438ae9de626846034dbbcbaed82e62fbe22c3613d542be07d41f3831df24",
+      "examinedEarlierCopies": 27,
+      "requiredRecipeSha256": "b681c259048ace3770f0a03af088d9b95b8f713fa358bdb064f0701fda42d756",
+      "testedStage": ".artifacts/carotid-survey/delivery-stage",
+      "testedRecipeSha256": "9100c058ff71ede512d5a7d19105da0983df4b845b8e474a845fad27656682bf",
+      "rejection": "Rebuild the carotid survey with the current acquisition recipe"
+    }
+  },
+  "delivery": {
+    "directory": ".artifacts/us-wave0/browser-delivery",
+    "inventory": "development/asset-inventory.json",
+    "inventorySha256": "0f24450cc378ec5476131771c8e224387518e205aea391907dea5bb926c7ead8",
+    "sweepCatalogueSha256": "b975a3182845fa9816b6b0187ca5a851eec0ee12d6b69e0a5b5e1e9b13a9b32e",
+    "referenceCatalogueSha256": "3205db341d7bf791b29a6328047677b5fb19ddddce7996b4622968840cdbf116",
+    "rubricSha256": "a38e552869511cd5bceacaa5ea4456f4d0530e58e7dce2bc6855587a98b0e684",
+    "seal": {
+      "manifest": "browser-delivery.sha256",
+      "sha256": "48946f902695b429bc5f51da14cad0e4336cb41264a6bf61a9ef96e977b1ce8d",
+      "files": 6068,
+      "bytes": 354656395
+    },
+    "standaloneSweeps": 28,
+    "acquiredSweepBindings": 83,
+    "caseTours": 32,
+    "caseChapters": 410,
+    "teachingTours": 34,
+    "composedTours": [
+      "liver-orientation",
+      "thyroid-orientation"
+    ],
+    "caseFamilies": {
+      "aaa": {
+        "cases": {
+          "aaa-negative": 6,
+          "aaa-indeterminate": 4,
+          "aaa-positive": 10
+        },
+        "chapters": 20
+      },
+      "carotid": {
+        "cases": {
+          "carotid-normal": 22,
+          "carotid-limited": 23,
+          "carotid-plaque": 25
+        },
+        "chapters": 70
+      },
+      "abdomen": {
+        "cases": {
+          "abdomen-survey": 20,
+          "abdomen-biliary-stone": 4,
+          "abdomen-renal-obstruction": 9,
+          "abdomen-limited-pancreas": 16
+        },
+        "chapters": 49
+      },
+      "thyroid": {
+        "cases": {
+          "thyroid-normal": 6,
+          "thyroid-nodule": 8,
+          "thyroid-limited": 7
+        },
+        "chapters": 21
+      },
+      "breast": {
+        "cases": {
+          "breast-supplemental-screening": 7,
+          "breast-retroareolar-cyst": 2,
+          "breast-axillary-node": 4,
+          "breast-limited": 3
+        },
+        "chapters": 16
+      },
+      "pregnancy-early": {
+        "cases": {
+          "pregnancy-early-normal": 7,
+          "pregnancy-early-abnormal": 6,
+          "pregnancy-early-limited": 6
+        },
+        "chapters": 19
+      },
+      "pregnancy-first": {
+        "cases": {
+          "pregnancy-first-normal": 15,
+          "pregnancy-first-abnormal": 15,
+          "pregnancy-first-limited": 16
+        },
+        "chapters": 46
+      },
+      "pregnancy-mid": {
+        "cases": {
+          "pregnancy-mid-normal": 33,
+          "pregnancy-mid-abnormal": 34,
+          "pregnancy-mid-limited": 37
+        },
+        "chapters": 104
+      },
+      "pregnancy-late": {
+        "cases": {
+          "pregnancy-late-normal": 8,
+          "pregnancy-late-abnormal": 9,
+          "pregnancy-late-limited": 11
+        },
+        "chapters": 28
+      },
+      "echo": {
+        "cases": {
+          "echo-normal": 27,
+          "echo-aortic-stenosis": 6,
+          "echo-limited": 4
+        },
+        "chapters": 37
+      }
+    },
+    "galleryDonorExports": 10,
+    "galleryDonorMeshes": 43,
+    "governedLiver": {
+      "export": "anatomy:s1233:liver-window@r01:liver",
+      "record": "models/liver_s1233/asset.record.json",
+      "sha256": "27862cad9d34d1d7a7b86a1ce8d92014f5d7db534788c45cb4ef9fd1cce20089",
+      "bytes": 2217704
+    }
+  },
+  "reviewAudit": {
+    "total": {
+      "authored": 71,
+      "earlierIdentity": 0,
+      "current": 71,
+      "retainedFourTopScores": 15,
+      "currentFourTopScores": 15,
+      "missingReadabilityObservation": 11,
+      "additionalUses": 80
+    },
+    "families": {
+      "echo": {
+        "authored": 1,
+        "earlierIdentity": 0,
+        "current": 1,
+        "retainedFourTopScores": 0,
+        "currentFourTopScores": 0,
+        "missingReadabilityObservation": 0,
+        "additionalUses": 0,
+        "sourceReviewSha256": "247ad2002822449d2b26bdf1a30f4cd48ed9842ebe96dca64768a8189b821947",
+        "deliveryReviewSha256": "c98378f5c8eba1fae161ea94cbd159181a790044f625e4e5ec4428beb19c6f9d",
+        "retainedRecipeSha256": "80f5885a9577c09534edc72958c58941e6da5c419de85dc430fa0e3a3ff0bf95",
+        "emittedRecipeSha256": "80f5885a9577c09534edc72958c58941e6da5c419de85dc430fa0e3a3ff0bf95"
+      },
+      "organs": {
+        "authored": 19,
+        "earlierIdentity": 0,
+        "current": 19,
+        "retainedFourTopScores": 1,
+        "currentFourTopScores": 1,
+        "missingReadabilityObservation": 11,
+        "additionalUses": 45,
+        "sourceReviewSha256": "9a5e22b22c0074ad0d1008813fcf99874d7b0aeef9b7a4858690d3625645b65e",
+        "deliveryReviewSha256": "d23bddfde1b925d69ebc6b304eff485a3884ec193d60bd3d9f9c1dfb9ba85301",
+        "retainedRecipeSha256": "ede5364aace853336fb39de5d501f7e85ffb64429addaa9b382418926b1e523b",
+        "emittedRecipeSha256": "ede5364aace853336fb39de5d501f7e85ffb64429addaa9b382418926b1e523b"
+      },
+      "originals": {
+        "authored": 7,
+        "earlierIdentity": 0,
+        "current": 7,
+        "retainedFourTopScores": 1,
+        "currentFourTopScores": 1,
+        "missingReadabilityObservation": 0,
+        "additionalUses": 0,
+        "sourceReviewSha256": "7102ac5cf34fb593adf026c1b011713374d261eeeaa87dbbd324fb440ed83477",
+        "deliveryReviewSha256": "a29108e03ebbc51b3d33e19a849d4161084354f0340a064a3dfd1fff87a0ae33",
+        "retainedRecipeSha256": null,
+        "emittedRecipeSha256": null
+      },
+      "pregnancy": {
+        "authored": 18,
+        "earlierIdentity": 0,
+        "current": 18,
+        "retainedFourTopScores": 13,
+        "currentFourTopScores": 13,
+        "missingReadabilityObservation": 0,
+        "additionalUses": 0,
+        "sourceReviewSha256": "69544b4d4aafed538cd3128e24c1fc3c346572186fbf70d3ee621b8e8b3c317a",
+        "deliveryReviewSha256": "93c9740a3890c5075f34059e4c66911250a506840760bfef6aad6c1feac92d41",
+        "retainedRecipeSha256": "3fa1dab5dc0076db1ee3e854f8f3f710c3ea0c1ccadde9ce2bc98032d8e073d7",
+        "emittedRecipeSha256": "3fa1dab5dc0076db1ee3e854f8f3f710c3ea0c1ccadde9ce2bc98032d8e073d7"
+      },
+      "vascular": {
+        "authored": 26,
+        "earlierIdentity": 0,
+        "current": 26,
+        "retainedFourTopScores": 0,
+        "currentFourTopScores": 0,
+        "missingReadabilityObservation": 0,
+        "additionalUses": 35,
+        "sourceReviewSha256": "76efad69d3932c0b3d03d64f45c3e16f596cd20dcee2603eff1d48120ece57ab",
+        "deliveryReviewSha256": "074cd2bfb8e826ae75229aca46e21ff4d7401ef332f03fb3f17ba7b9c681c174",
+        "retainedRecipeSha256": "ea9f8b85b729df62a86399606821ca961cec3190ee475411738575097bb9fb8f",
+        "emittedRecipeSha256": "ea9f8b85b729df62a86399606821ca961cec3190ee475411738575097bb9fb8f"
+      }
+    }
+  },
+  "assemblyLineage": {
+    "identityInterpretation": "Modeled family fingerprints include their packed regional meshes. Adding pregnancy and then the rebuilt bilateral exam restored retained recipe identities without editing review packages.",
+    "inventoryComparison": {
+      "pretrialToCanonicalCaseAndTeachingTourRecordsIdentical": true,
+      "pretrialToCanonicalSharedSweepMeshHashesIdentical": true,
+      "intermediateToCanonicalChangedKeys": [
+        "recipeHashes"
+      ],
+      "intermediateToCanonicalChangedRecipeHashes": [
+        "organs",
+        "vascular"
+      ],
+      "intermediateToCanonicalCommonFilesChanged": [
+        "abdomen-tours.js",
+        "cases/carotid-limited.html",
+        "cases/carotid-normal.html",
+        "cases/carotid-plaque.html",
+        "development/asset-inventory.json",
+        "references.js"
+      ],
+      "intermediateToCanonicalAddedFiles": 678,
+      "intermediateToCanonicalAddedDirectory": "carotid-survey/",
+      "intermediateToCanonicalRemovedFiles": 0
+    },
+    "stages": [
+      {
+        "label": "Retained regional pretrial",
+        "inventorySha256": "909623fe4414b08f0b4dd44eaccb6847c41ac7975a2b268785b1de129afbf09c",
+        "standaloneSweeps": 17,
+        "caseTours": 32,
+        "caseChapters": 410,
+        "teachingTours": 34,
+        "acquiredSweepBindings": 38,
+        "currentAuthoredReviews": 8,
+        "currentAuthoredFourTopScores": 1
+      },
+      {
+        "label": "Regional plus gestational standalone sweeps",
+        "inventorySha256": "1f3a29e81b7bc35018951567521228d189cd6051697780a793f6efc70124bf41",
+        "standaloneSweeps": 28,
+        "caseTours": 32,
+        "caseChapters": 410,
+        "teachingTours": 34,
+        "acquiredSweepBindings": 76,
+        "currentAuthoredReviews": 26,
+        "currentAuthoredFourTopScores": 14
+      },
+      {
+        "label": "Canonical full baseline including separate bilateral carotid exam",
+        "inventorySha256": "0f24450cc378ec5476131771c8e224387518e205aea391907dea5bb926c7ead8",
+        "standaloneSweeps": 28,
+        "caseTours": 32,
+        "caseChapters": 410,
+        "teachingTours": 34,
+        "acquiredSweepBindings": 83,
+        "currentAuthoredReviews": 71,
+        "currentAuthoredFourTopScores": 15
+      }
+    ]
+  },
+  "checks": {
+    "scope": "Assembly, inventory and owner geometry checks. Runtime, repository-level checks and clinical limits are recorded by their respective owners.",
+    "compactAssemblyAndRejections": {
+      "status": "passed",
+      "independentFailurePaths": 46,
+      "log": "verify-assembly-browser.log"
+    },
+    "caseIdentityAndSavedFrames": {
+      "status": "passed",
+      "caseTours": 32,
+      "chapters": 410
+    },
+    "localFileIdentity": {
+      "status": "passed",
+      "logFiles": [
+        "verify-browser-stage-seal.log",
+        "verify-browser-delivery-seal.log"
+      ]
+    },
+    "exactCompactReplay": {
+      "status": "passed",
+      "files": 6068,
+      "log": "verify-browser-replay.log"
+    },
+    "registeredCaseGeometry": {
+      "status": "passed",
+      "poses": 1147,
+      "log": "verify-case-geometry-browser.log"
+    },
+    "pregnancyMeshAndSectionAlignment": {
+      "status": "passed",
+      "logFiles": [
+        "verify-early-pregnancy.log",
+        "verify-pregnancy.log",
+        "verify-gestational.log"
+      ]
+    },
+    "deformedBreastAndAxillaContact": {
+      "status": "passed",
+      "log": "verify-breast-contact.log"
+    },
+    "nativeAorticScreening": {
+      "status": "passed",
+      "sourceCase": "TotalSegmentator v2.0.1 s1233",
+      "log": "verify-aortic-screening.log"
+    },
+    "nativeCarotidSweeps": {
+      "status": "passed",
+      "sourceCase": "TotalSegmentator v2.0.1 s1127",
+      "log": "verify-carotid.log"
+    },
+    "echoTorsoContact": {
+      "status": "passed",
+      "log": "verify-echo-contact.log"
+    },
+    "bilateralCarotidAcquisitionAndVolume": {
+      "status": "passed",
+      "pairedArterialStations": 18,
+      "logFiles": [
+        "verify-carotid-survey.log",
+        "verify-carotid-volume.log",
+        "verify-carotid-duplex.log"
+      ]
+    }
+  }
+}

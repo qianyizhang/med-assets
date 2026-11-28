@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "assetId": "assembly:bp3d:l3-l4-disc",
+  "title": "L3–L4 disc with vertebral context",
+  "kind": "assembly",
+  "status": "provisional",
+  "owner": "assemblies/skeletal-teaching/l3-l4-disc",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:bp3d-4-0:l3-l4-disc",
+      "title": "BodyParts3D bounded source members",
+      "sourceType": "external OBJ archive members",
+      "subject": "BodyParts3D 4.0 reference atlas",
+      "license": "BodyParts3D © DBCLS, CC BY 4.0. Historical OBJ headers retain CC BY-SA 2.1 Japan.",
+      "evidence": [
+        {
+          "path": "assemblies/skeletal-teaching/README.md",
+          "sha256": "3bb24c670c13efac3b8d8b2083676c5bca2928990653b3ef7eecf9c3feb023b6"
+        },
+        {
+          "path": "assemblies/skeletal-teaching/source/dependencies.json",
+          "sha256": "3d076edb5075db964a3985708c6f17965dd9c8073d99c702e5771c2a11d5e4b0"
+        },
+        {
+          "path": "reviews/skeletal_teaching/2026-10-23/source-roundtrip.json",
+          "sha256": "5812dcb1b4252ed3cd6b7b5685d6380d7ed871aa88964d6325f6b8cdab1c5b66"
+        },
+        {
+          "path": "reviews/skeletal_teaching/2026-10-23/record.json",
+          "sha256": "e7764603e5ab1f61cadd1b20243eb5d0884d3d9540ec17938e711d579b03bd8f"
+        }
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "partId": "l3-l4-disc",
+      "label": "L3–L4 disc exterior",
+      "selectors": [
+        "FJ3215 intervertebral disk of third lumbar vertebra"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "l3-vertebra",
+      "label": "Third lumbar vertebra",
+      "selectors": [
+        "FJ3162 third lumbar vertebra"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "l4-vertebra",
+      "label": "Fourth lumbar vertebra",
+      "selectors": [
+        "FJ3165 fourth lumbar vertebra"
+      ],
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "l3-l4-disc-2026-10-23",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "assemblies/skeletal-teaching/README.md",
+        "sha256": "3bb24c670c13efac3b8d8b2083676c5bca2928990653b3ef7eecf9c3feb023b6"
+      },
+      "sourceIds": [
+        "source:bp3d-4-0:l3-l4-disc"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up",
+          "+X atlas left",
+          "+Y superior",
+          "+Z anterior"
+        ],
+        "evidence": "assemblies/skeletal-teaching/README.md"
+      },
+      "partIds": [
+        "l3-l4-disc",
+        "l3-vertebra",
+        "l4-vertebra"
+      ],
+      "exports": [
+        {
+          "id": "context",
+          "path": "assemblies/skeletal-teaching/2026-10-23/L3-L4-disc.glb",
+          "sha256": "d476f7efe89cea84fa3a7670b505e557c328ddae10526cc4083e4c95313b80d5",
+          "bytes": 256144,
+          "format": "glb",
+          "triangles": 10238,
+          "partIds": [
+            "l3-l4-disc",
+            "l3-vertebra",
+            "l4-vertebra"
+          ]
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "The review covers static regional teaching readability. Mechanics, histology and the archived knee motion replay have separate evidence."
+  ]
+}

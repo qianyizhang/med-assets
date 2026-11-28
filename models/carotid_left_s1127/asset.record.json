@@ -1,0 +1,166 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:s1127:carotid-left",
+  "title": "s1127 left common carotid exterior",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/carotid_left_s1127",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:totalsegmentator-v2.0.1:s1127:common-carotid-artery-left",
+      "title": "TotalSegmentator v2.0.1 s1127 left common carotid artery mask",
+      "sourceType": "external segmentation",
+      "sha256": "1afcd7bef5e969daa5b4f09788dfabbd05d4a8fd260a140b90370e957e70fb10",
+      "license": "CC BY 4.0; retain the Workshop label-source notices",
+      "url": "https://zenodo.org/records/10047263"
+    }
+  ],
+  "parts": [
+    {
+      "partId": "common-carotid-artery-left",
+      "label": "Left common carotid artery exterior",
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "r01",
+      "status": "provisional",
+      "recipe": "rebuild.py",
+      "recipeEvidence": {
+        "path": "models/carotid_s1127/reconstruct.py",
+        "sha256": "f7c64b58e4562ad0684e667db1abe41f4e96ef0a0521cd291bbcb83a3d02004a",
+        "bytes": 5729
+      },
+      "frame": {
+        "convention": "voxel-index",
+        "units": "voxel",
+        "evidence": "experiments/ultrasound-sweep/build_thyroid.py"
+      },
+      "sourceIds": [
+        "source:totalsegmentator-v2.0.1:s1127:common-carotid-artery-left"
+      ],
+      "partIds": [
+        "common-carotid-artery-left"
+      ],
+      "exports": [
+        {
+          "id": "carotid",
+          "path": "models/carotid_left_s1127/exports/r01/carotid.mesh",
+          "sha256": "272c8fb5002da9d9d834223cc2c63584050e17786bb8cbdbe7fa0a48688a7bd4",
+          "bytes": 34232,
+          "format": "mesh",
+          "triangles": 1900,
+          "partIds": [
+            "common-carotid-artery-left"
+          ],
+          "voxelGrid": {
+            "case": "s1127",
+            "shape": [
+              275,
+              275,
+              409
+            ],
+            "rasMmFromVoxel": [
+              [
+                1.5,
+                0.0,
+                0.0,
+                -191.59765625
+              ],
+              [
+                0.0,
+                1.5,
+                0.0,
+                -35.09765625
+              ],
+              [
+                0.0,
+                0.0,
+                1.5,
+                -311.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        },
+        {
+          "id": "neck",
+          "path": "models/carotid_left_s1127/exports/r01/neck.mesh",
+          "sha256": "48298238a7f6adcf2f9e260a7f004fd848f0e4c46d6b313ab241f7a00635603d",
+          "bytes": 29732,
+          "format": "mesh",
+          "triangles": 1650,
+          "partIds": [
+            "common-carotid-artery-left"
+          ],
+          "voxelGrid": {
+            "case": "s1127",
+            "shape": [
+              275,
+              275,
+              409
+            ],
+            "rasMmFromVoxel": [
+              [
+                1.5,
+                0.0,
+                0.0,
+                -191.59765625
+              ],
+              [
+                0.0,
+                1.5,
+                0.0,
+                -35.09765625
+              ],
+              [
+                0.0,
+                0.0,
+                1.5,
+                -311.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "models/carotid_s1127/retopology.py",
+      "sha256": "aa3817758293e32a6e73cacf31f93b99110246d26d86804a4c5eac2ff7d83a42",
+      "bytes": 1804
+    }
+  ],
+  "exports": [
+    {
+      "path": "models/carotid_left_s1127/exports/r01/carotid.mesh",
+      "sha256": "272c8fb5002da9d9d834223cc2c63584050e17786bb8cbdbe7fa0a48688a7bd4",
+      "bytes": 34232
+    },
+    {
+      "path": "models/carotid_left_s1127/exports/r01/neck.mesh",
+      "sha256": "48298238a7f6adcf2f9e260a7f004fd848f0e4c46d6b313ab241f7a00635603d",
+      "bytes": 29732
+    }
+  ],
+  "uses": [],
+  "retirement": null,
+  "unresolved": [
+    "The case exterior supports the left common carotid course and long-axis orientation. Separate vessel walls, plaque and flow are unverified."
+  ]
+}

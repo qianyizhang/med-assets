@@ -1,0 +1,1116 @@
+{
+  "export": {
+    "sha256": "5b4f14f95cabc4e5049e642eba979e0fea32971541eec4ff13dcfe6814835862",
+    "bytes": 29732,
+    "triangles": 1650
+  },
+  "previousSweep": {
+    "sha256": "b292022299a085998f2e5a986dcdcc04c635ee2b5d8c8b5ec75b857bfc01cc90",
+    "bytes": 42152,
+    "triangles": 2340
+  },
+  "frozenInputs": {
+    "path": "records/campaigns/ultrasound-refinement/wave-2b/carotid-right/frozen.json",
+    "sha256": "389cd5926ed7847e857aec7ded6e8bcd00e90aeb1c3ec4a99e020098c5754e04",
+    "bytes": 16335
+  },
+  "exports": {
+    "carotid-right": {
+      "candidate": {
+        "export": {
+          "sha256": "5b4f14f95cabc4e5049e642eba979e0fea32971541eec4ff13dcfe6814835862",
+          "bytes": 29732,
+          "triangles": 1650,
+          "vertices": 827
+        },
+        "topology": {
+          "components": 1,
+          "euler": 2,
+          "openEdges": 0,
+          "nonmanifoldEdges": 0,
+          "misorientedSharedEdges": 0,
+          "degenerateTriangles": 0,
+          "signedVolumeMm3": 3480.334311115758,
+          "intersectingNonincidentPairs": 0
+        },
+        "referenceVolumeMm3": 3491.296875,
+        "volumeDeltaPercent": -0.3139968979075203,
+        "globalDistances": {
+          "referenceToCandidate": {
+            "p95Mm": 0.375876551338629,
+            "maxMm": 1.3920175287955217,
+            "maxLocationRasMm": [
+              22.90234375,
+              151.65234375,
+              281.5
+            ],
+            "samples": 28089
+          },
+          "candidateToReference": {
+            "p95Mm": 0.3324704953793325,
+            "maxMm": 0.7029876710000167,
+            "maxLocationRasMm": [
+              17.214561462,
+              147.548069,
+              281.452987671
+            ],
+            "samples": 31932
+          }
+        },
+        "protectedPlanes": [
+          {
+            "plane": "Frame 12 offset -1.5 mm",
+            "distances": {
+              "referenceToCandidate": {
+                "p95Mm": 0.4693677567134421,
+                "maxMm": 0.5344443967572008,
+                "maxLocationRasMm": [
+                  17.67035743,
+                  146.40234375,
+                  278.48198632
+                ],
+                "samples": 96
+              },
+              "candidateToReference": {
+                "p95Mm": 0.4363979094241122,
+                "maxMm": 0.45710060424578897,
+                "maxLocationRasMm": [
+                  22.092112492,
+                  149.109414542,
+                  278.451067186
+                ],
+                "samples": 90
+              }
+            },
+            "referenceLoops": 1,
+            "exportedLoops": 1
+          },
+          {
+            "plane": "Frame 12 offset +0 mm",
+            "distances": {
+              "referenceToCandidate": {
+                "p95Mm": 0.4050665003489288,
+                "maxMm": 0.5241361310042413,
+                "maxLocationRasMm": [
+                  25.15234375,
+                  146.420466586,
+                  279.981877164
+                ],
+                "samples": 106
+              },
+              "candidateToReference": {
+                "p95Mm": 0.37144336723694055,
+                "maxMm": 0.4508073064725424,
+                "maxLocationRasMm": [
+                  25.669169162,
+                  146.538880625,
+                  279.980524684
+                ],
+                "samples": 94
+              }
+            },
+            "referenceLoops": 1,
+            "exportedLoops": 1
+          },
+          {
+            "plane": "Frame 12 offset +1.5 mm",
+            "distances": {
+              "referenceToCandidate": {
+                "p95Mm": 0.9769411619164772,
+                "maxMm": 1.3291265451885559,
+                "maxLocationRasMm": [
+                  22.90234375,
+                  151.575440597,
+                  281.423096847
+                ],
+                "samples": 120
+              },
+              "candidateToReference": {
+                "p95Mm": 0.8279661528555368,
+                "maxMm": 0.9790997047462271,
+                "maxLocationRasMm": [
+                  17.189101296,
+                  147.516023154,
+                  281.46946197
+                ],
+                "samples": 90
+              }
+            },
+            "referenceLoops": 1,
+            "exportedLoops": 1
+          },
+          {
+            "plane": "Frame 48 offset -1.5 mm",
+            "distances": {
+              "referenceToCandidate": {
+                "p95Mm": 0.5766634261449795,
+                "maxMm": 0.8960174454414155,
+                "maxLocationRasMm": [
+                  25.15234375,
+                  145.272259391,
+                  287.5
+                ],
+                "samples": 209
+              },
+              "candidateToReference": {
+                "p95Mm": 0.44135821694623045,
+                "maxMm": 0.6163166732966981,
+                "maxLocationRasMm": [
+                  24.814015576,
+                  144.668267866,
+                  286.922437806
+                ],
+                "samples": 177
+              }
+            },
+            "referenceLoops": 1,
+            "exportedLoops": 1
+          },
+          {
+            "plane": "Frame 48 offset +0 mm",
+            "distances": {
+              "referenceToCandidate": {
+                "p95Mm": 0.5447236665285188,
+                "maxMm": 0.7898686566604817,
+                "maxLocationRasMm": [
+                  23.65234375,
+                  145.942271884,
+                  289.0
+                ],
+                "samples": 297
+              },
+              "candidateToReference": {
+                "p95Mm": 0.42496355006495196,
+                "maxMm": 0.6151759646454429,
+                "maxLocationRasMm": [
+                  24.057327723,
+                  146.602718054,
+                  289.258691741
+                ],
+                "samples": 253
+              }
+            },
+            "referenceLoops": 1,
+            "exportedLoops": 1
+          },
+          {
+            "plane": "Frame 48 offset +1.5 mm",
+            "distances": {
+              "referenceToCandidate": {
+                "p95Mm": 0.3644588961328153,
+                "maxMm": 0.5607900140372579,
+                "maxLocationRasMm": [
+                  23.65234375,
+                  149.091931674,
+                  291.689587924
+                ],
+                "samples": 303
+              },
+              "candidateToReference": {
+                "p95Mm": 0.3606264455855463,
+                "maxMm": 0.5103381469582413,
+                "maxLocationRasMm": [
+                  23.971923764,
+                  149.572454975,
+                  291.612533238
+                ],
+                "samples": 264
+              }
+            },
+            "referenceLoops": 1,
+            "exportedLoops": 1
+          },
+          {
+            "plane": "Just inside inferior cap",
+            "distances": {
+              "referenceToCandidate": {
+                "p95Mm": 0.24611858925570554,
+                "maxMm": 0.3366334175672313,
+                "maxLocationRasMm": [
+                  17.29234375,
+                  150.15234375,
+                  245.89
+                ],
+                "samples": 108
+              },
+              "candidateToReference": {
+                "p95Mm": 0.21599729993214828,
+                "maxMm": 0.2632583230000023,
+                "maxLocationRasMm": [
+                  17.503608127,
+                  149.889085427,
+                  245.89
+                ],
+                "samples": 98
+              }
+            },
+            "referenceLoops": 2,
+            "exportedLoops": 2
+          },
+          {
+            "plane": "Just inside superior cap",
+            "distances": {
+              "referenceToCandidate": {
+                "p95Mm": 0.18864180117730894,
+                "maxMm": 0.30397411910129823,
+                "maxLocationRasMm": [
+                  20.26234375,
+                  153.15234375,
+                  297.64
+                ],
+                "samples": 82
+              },
+              "candidateToReference": {
+                "p95Mm": 0.18042345486261094,
+                "maxMm": 0.2617728013998074,
+                "maxLocationRasMm": [
+                  20.187174672,
+                  153.447377318,
+                  297.64
+                ],
+                "samples": 77
+              }
+            },
+            "referenceLoops": 1,
+            "exportedLoops": 1
+          }
+        ],
+        "protectedEmptyPlanes": [
+          {
+            "plane": "Above superior crop or source image",
+            "segments": 0
+          }
+        ],
+        "turningSilhouette": {
+          "views": 24,
+          "pixelsPerMm": 3.0,
+          "supersample": 4,
+          "maximumDeparturePx": 0.5
+        },
+        "upperCapDeltaMm": -0.0003204345703125,
+        "lowerCapDeltaMm": -9.1552734375e-05,
+        "failures": []
+      },
+      "doubleReplay": [
+        {
+          "sha256": "5b4f14f95cabc4e5049e642eba979e0fea32971541eec4ff13dcfe6814835862",
+          "bytes": 29732
+        },
+        {
+          "sha256": "5b4f14f95cabc4e5049e642eba979e0fea32971541eec4ff13dcfe6814835862",
+          "bytes": 29732
+        }
+      ],
+      "prior": {
+        "export": {
+          "sha256": "b292022299a085998f2e5a986dcdcc04c635ee2b5d8c8b5ec75b857bfc01cc90",
+          "bytes": 42152,
+          "triangles": 2340,
+          "vertices": 1172
+        },
+        "topology": {
+          "components": 1,
+          "euler": 2,
+          "openEdges": 0,
+          "nonmanifoldEdges": 0,
+          "misorientedSharedEdges": 0,
+          "degenerateTriangles": 0,
+          "signedVolumeMm3": 3258.6748071081984,
+          "intersectingNonincidentPairs": 0
+        },
+        "referenceVolumeMm3": 3491.296875,
+        "volumeDeltaPercent": -6.662912843577695,
+        "globalDistances": {
+          "referenceToCandidate": {
+            "p95Mm": 0.44763435224972603,
+            "maxMm": 1.3616180419921875,
+            "maxLocationRasMm": [
+              10.90234375,
+              159.90234375,
+              244.75
+            ],
+            "samples": 28089
+          },
+          "candidateToReference": {
+            "p95Mm": 0.34851156833892527,
+            "maxMm": 0.7885843946571994,
+            "maxLocationRasMm": [
+              7.067570496,
+              159.60234375,
+              248.8
+            ],
+            "samples": 26408
+          }
+        },
+        "protectedPlanes": [
+          {
+            "plane": "Frame 12 offset -1.5 mm",
+            "distances": {
+              "referenceToCandidate": {
+                "p95Mm": 0.47714631497871207,
+                "maxMm": 0.5875531084972329,
+                "maxLocationRasMm": [
+                  17.67035743,
+                  146.40234375,
+                  278.48198632
+                ],
+                "samples": 96
+              },
+              "candidateToReference": {
+                "p95Mm": 0.4065244606932994,
+                "maxMm": 0.535604144834755,
+                "maxLocationRasMm": [
+                  18.199863521,
+                  145.865381031,
+                  278.488119304
+                ],
+                "samples": 91
+              }
+            },
+            "referenceLoops": 1,
+            "exportedLoops": 1
+          },
+          {
+            "plane": "Frame 12 offset +0 mm",
+            "distances": {
+              "referenceToCandidate": {
+                "p95Mm": 0.4001758612109467,
+                "maxMm": 0.4876750249257015,
+                "maxLocationRasMm": [
+                  24.343163658,
+                  139.65234375,
+                  280.059180092
+                ],
+                "samples": 106
+              },
+              "candidateToReference": {
+                "p95Mm": 0.35307566331251644,
+                "maxMm": 0.4025866638261178,
+                "maxLocationRasMm": [
+                  23.987333768,
+                  140.054904157,
+                  280.0545822
+                ],
+                "samples": 101
+              }
+            },
+            "referenceLoops": 1,
+            "exportedLoops": 1
+          },
+          {
+            "plane": "Frame 12 offset +1.5 mm",
+            "distances": {
+              "referenceToCandidate": {
+                "p95Mm": 0.8850405619589544,
+                "maxMm": 1.2443066396284324,
+                "maxLocationRasMm": [
+                  22.90234375,
+                  151.575440597,
+                  281.423096847
+                ],
+                "samples": 120
+              },
+              "candidateToReference": {
+                "p95Mm": 0.7297798367451457,
+                "maxMm": 0.9025733313034645,
+                "maxLocationRasMm": [
+                  17.084848736,
+                  147.45777948,
+                  281.470127208
+                ],
+                "samples": 108
+              }
+            },
+            "referenceLoops": 1,
+            "exportedLoops": 1
+          },
+          {
+            "plane": "Frame 48 offset -1.5 mm",
+            "distances": {
+              "referenceToCandidate": {
+                "p95Mm": 0.5625303478161956,
+                "maxMm": 0.9200484383273699,
+                "maxLocationRasMm": [
+                  25.15234375,
+                  145.272259391,
+                  287.5
+                ],
+                "samples": 209
+              },
+              "candidateToReference": {
+                "p95Mm": 0.4823910524830069,
+                "maxMm": 0.6071672034323815,
+                "maxLocationRasMm": [
+                  24.819038194,
+                  144.663605624,
+                  286.836728062
+                ],
+                "samples": 195
+              }
+            },
+            "referenceLoops": 1,
+            "exportedLoops": 1
+          },
+          {
+            "plane": "Frame 48 offset +0 mm",
+            "distances": {
+              "referenceToCandidate": {
+                "p95Mm": 0.6502110159249529,
+                "maxMm": 1.0741247390773334,
+                "maxLocationRasMm": [
+                  24.688133886,
+                  147.90234375,
+                  291.535790136
+                ],
+                "samples": 297
+              },
+              "candidateToReference": {
+                "p95Mm": 0.4654422750119242,
+                "maxMm": 0.947843758533786,
+                "maxLocationRasMm": [
+                  24.40234375,
+                  147.619027856,
+                  292.617500197
+                ],
+                "samples": 290
+              }
+            },
+            "referenceLoops": 1,
+            "exportedLoops": 1
+          },
+          {
+            "plane": "Frame 48 offset +1.5 mm",
+            "distances": {
+              "referenceToCandidate": {
+                "p95Mm": 0.44089796682090243,
+                "maxMm": 0.575370473260496,
+                "maxLocationRasMm": [
+                  22.244034224,
+                  143.310653276,
+                  266.683380947
+                ],
+                "samples": 303
+              },
+              "candidateToReference": {
+                "p95Mm": 0.3567854508244853,
+                "maxMm": 0.5772300728904609,
+                "maxLocationRasMm": [
+                  22.546043398,
+                  143.807313437,
+                  266.904969687
+                ],
+                "samples": 294
+              }
+            },
+            "referenceLoops": 1,
+            "exportedLoops": 1
+          },
+          {
+            "plane": "Just inside inferior cap",
+            "distances": {
+              "referenceToCandidate": {
+                "p95Mm": 2.76338290652742,
+                "maxMm": 3.288515762613781,
+                "maxLocationRasMm": [
+                  10.90234375,
+                  161.04234375,
+                  245.89
+                ],
+                "samples": 108
+              },
+              "candidateToReference": {
+                "p95Mm": 0.30470225659191774,
+                "maxMm": 0.4746689480714478,
+                "maxLocationRasMm": [
+                  11.496702118,
+                  157.807985382,
+                  245.89
+                ],
+                "samples": 76
+              }
+            },
+            "referenceLoops": 2,
+            "exportedLoops": 1,
+            "diagnostics": {
+              "distanceTo3dSurfaceAtWorstSectionPointMm": {
+                "referenceToCandidate": 0.9390761654839096,
+                "candidateToReference": 0.36000000000001364
+              },
+              "parallelCuts": [
+                {
+                  "offsetMm": -3,
+                  "referenceLoops": 0,
+                  "candidateLoops": 0,
+                  "distances": {}
+                },
+                {
+                  "offsetMm": -1.5,
+                  "referenceLoops": 0,
+                  "candidateLoops": 0,
+                  "distances": {}
+                },
+                {
+                  "offsetMm": -0.75,
+                  "referenceLoops": 2,
+                  "candidateLoops": 1,
+                  "distances": {
+                    "referenceToCandidate": {
+                      "p95Mm": 4.538418887608578,
+                      "maxMm": 5.020541050922237,
+                      "maxLocationRasMm": [
+                        10.90234375,
+                        160.29234375,
+                        245.14
+                      ],
+                      "samples": 84
+                    },
+                    "candidateToReference": {
+                      "p95Mm": 0.6243583815312272,
+                      "maxMm": 0.9297510100197389,
+                      "maxLocationRasMm": [
+                        12.95491258,
+                        155.424908432,
+                        245.14
+                      ],
+                      "samples": 59
+                    }
+                  }
+                },
+                {
+                  "offsetMm": 0.75,
+                  "referenceLoops": 1,
+                  "candidateLoops": 1,
+                  "distances": {
+                    "referenceToCandidate": {
+                      "p95Mm": 0.9315005257579739,
+                      "maxMm": 1.3225754425289438,
+                      "maxLocationRasMm": [
+                        10.90234375,
+                        161.79234375,
+                        246.64
+                      ],
+                      "samples": 122
+                    },
+                    "candidateToReference": {
+                      "p95Mm": 0.5398229774969111,
+                      "maxMm": 0.8320276903761881,
+                      "maxLocationRasMm": [
+                        11.199728199,
+                        160.318294457,
+                        246.64
+                      ],
+                      "samples": 97
+                    }
+                  }
+                },
+                {
+                  "offsetMm": 1.5,
+                  "referenceLoops": 1,
+                  "candidateLoops": 1,
+                  "distances": {
+                    "referenceToCandidate": {
+                      "p95Mm": 0.8459978675941932,
+                      "maxMm": 1.1974868774414062,
+                      "maxLocationRasMm": [
+                        10.51234375,
+                        162.15234375,
+                        247.39
+                      ],
+                      "samples": 126
+                    },
+                    "candidateToReference": {
+                      "p95Mm": 0.4064748023172593,
+                      "maxMm": 0.6890654487606243,
+                      "maxLocationRasMm": [
+                        14.29234375,
+                        148.126829453,
+                        247.39
+                      ],
+                      "samples": 103
+                    }
+                  }
+                },
+                {
+                  "offsetMm": 3,
+                  "referenceLoops": 1,
+                  "candidateLoops": 1,
+                  "distances": {
+                    "referenceToCandidate": {
+                      "p95Mm": 0.8168866037308362,
+                      "maxMm": 1.1004009805048087,
+                      "maxLocationRasMm": [
+                        6.04234375,
+                        159.90234375,
+                        248.89
+                      ],
+                      "samples": 140
+                    },
+                    "candidateToReference": {
+                      "p95Mm": 0.6615416926465217,
+                      "maxMm": 1.0049221042790886,
+                      "maxLocationRasMm": [
+                        7.073518219,
+                        159.51234375,
+                        248.89
+                      ],
+                      "samples": 113
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "plane": "Just inside superior cap",
+            "distances": {
+              "referenceToCandidate": {
+                "p95Mm": 0.3389382305601274,
+                "maxMm": 0.3737419999281563,
+                "maxLocationRasMm": [
+                  22.90234375,
+                  154.29234375,
+                  297.64
+                ],
+                "samples": 82
+              },
+              "candidateToReference": {
+                "p95Mm": 0.2773718505262476,
+                "maxMm": 0.35589056599999935,
+                "maxLocationRasMm": [
+                  22.523923964,
+                  153.936453184,
+                  297.64
+                ],
+                "samples": 73
+              }
+            },
+            "referenceLoops": 1,
+            "exportedLoops": 1
+          }
+        ],
+        "protectedEmptyPlanes": [
+          {
+            "plane": "Above superior crop or source image",
+            "segments": 0
+          }
+        ]
+      },
+      "negative": {
+        "exit": 1,
+        "displacement": "6 mm toward RAS right",
+        "failures": [
+          "Global raw half-label distance exceeds limits",
+          "Frame 12 offset -1.5 mm contour distance exceeds limits",
+          "Frame 12 offset +0 mm contour distance exceeds limits",
+          "Frame 12 offset +1.5 mm contour distance exceeds limits",
+          "Frame 48 offset -1.5 mm contour distance exceeds limits",
+          "Frame 48 offset +0 mm contour distance exceeds limits",
+          "Frame 48 offset +1.5 mm contour distance exceeds limits",
+          "Just inside inferior cap contour distance exceeds limits",
+          "Just inside superior cap contour distance exceeds limits",
+          "Turning silhouette exceeds limit"
+        ],
+        "globalDistances": {
+          "referenceToCandidate": {
+            "p95Mm": 5.781239530366154,
+            "maxMm": 6.624839156294506,
+            "maxLocationRasMm": [
+              16.15234375,
+              147.90234375,
+              281.5
+            ],
+            "samples": 28089
+          },
+          "candidateToReference": {
+            "p95Mm": 5.718111305250002,
+            "maxMm": 6.082710802108929,
+            "maxLocationRasMm": [
+              25.215309143,
+              151.667221069,
+              245.010284424
+            ],
+            "samples": 31930
+          }
+        },
+        "export": {
+          "sha256": "9d6173f25fac777f3622e5e5391936d01ff4ef6c5d9411ed04a74d31c8b0a502",
+          "bytes": 29732,
+          "triangles": 1650,
+          "vertices": 827
+        }
+      }
+    },
+    "carotid-right-full": {
+      "candidate": {
+        "export": {
+          "sha256": "b86a6c92ef56ae03fcb8d8b3d784424125a2acd145f60d27ace4f69419b82c98",
+          "bytes": 34232,
+          "triangles": 1900,
+          "vertices": 952
+        },
+        "topology": {
+          "components": 1,
+          "euler": 2,
+          "openEdges": 0,
+          "nonmanifoldEdges": 0,
+          "misorientedSharedEdges": 0,
+          "degenerateTriangles": 0,
+          "signedVolumeMm3": 3723.625516654373,
+          "intersectingNonincidentPairs": 0
+        },
+        "referenceVolumeMm3": 3735.5625000000005,
+        "volumeDeltaPercent": -0.31954982270080423,
+        "globalDistances": {
+          "referenceToCandidate": {
+            "p95Mm": 0.3688780697255585,
+            "maxMm": 1.3920183639911825,
+            "maxLocationRasMm": [
+              22.90234375,
+              151.65234375,
+              281.5
+            ],
+            "samples": 30145
+          },
+          "candidateToReference": {
+            "p95Mm": 0.31470943698608184,
+            "maxMm": 0.7029876710000167,
+            "maxLocationRasMm": [
+              17.214561462,
+              147.548069,
+              281.452987671
+            ],
+            "samples": 34533
+          }
+        },
+        "protectedPlanes": [
+          {
+            "plane": "Just inside inferior cap",
+            "distances": {
+              "referenceToCandidate": {
+                "p95Mm": 0.2382480913087426,
+                "maxMm": 0.26447683317934256,
+                "maxLocationRasMm": [
+                  14.62234375,
+                  152.76234375,
+                  242.89
+                ],
+                "samples": 55
+              },
+              "candidateToReference": {
+                "p95Mm": 0.2261302131320918,
+                "maxMm": 0.2725662334571262,
+                "maxLocationRasMm": [
+                  14.518139927,
+                  153.043606791,
+                  242.89
+                ],
+                "samples": 56
+              }
+            },
+            "referenceLoops": 1,
+            "exportedLoops": 1
+          },
+          {
+            "plane": "Just inside superior cap",
+            "distances": {
+              "referenceToCandidate": {
+                "p95Mm": 0.18453448846531176,
+                "maxMm": 0.2906743019811698,
+                "maxLocationRasMm": [
+                  21.04234375,
+                  147.15234375,
+                  300.64
+                ],
+                "samples": 81
+              },
+              "candidateToReference": {
+                "p95Mm": 0.17122735745675263,
+                "maxMm": 0.27548228525418045,
+                "maxLocationRasMm": [
+                  20.937652122,
+                  146.867444594,
+                  300.64
+                ],
+                "samples": 76
+              }
+            },
+            "referenceLoops": 1,
+            "exportedLoops": 1
+          }
+        ],
+        "protectedEmptyPlanes": [
+          {
+            "plane": "Above superior crop or source image",
+            "segments": 0
+          }
+        ],
+        "turningSilhouette": {
+          "views": 24,
+          "pixelsPerMm": 3.0,
+          "supersample": 4,
+          "maximumDeparturePx": 0.5
+        },
+        "upperCapDeltaMm": -0.000732421875,
+        "lowerCapDeltaMm": -0.049163818359375,
+        "failures": []
+      },
+      "doubleReplay": [
+        {
+          "sha256": "b86a6c92ef56ae03fcb8d8b3d784424125a2acd145f60d27ace4f69419b82c98",
+          "bytes": 34232
+        },
+        {
+          "sha256": "b86a6c92ef56ae03fcb8d8b3d784424125a2acd145f60d27ace4f69419b82c98",
+          "bytes": 34232
+        }
+      ],
+      "prior": {
+        "export": {
+          "sha256": "3c1480cd986d98a0c4a35daa7a26ecabce22d369d47887c71568a7d12524e9c9",
+          "bytes": 43232,
+          "triangles": 2400,
+          "vertices": 1202
+        },
+        "topology": {
+          "components": 1,
+          "euler": 2,
+          "openEdges": 0,
+          "nonmanifoldEdges": 0,
+          "misorientedSharedEdges": 0,
+          "degenerateTriangles": 0,
+          "signedVolumeMm3": 3291.45380155758,
+          "intersectingNonincidentPairs": 0
+        },
+        "referenceVolumeMm3": 3735.5625000000005,
+        "volumeDeltaPercent": -11.888670004649116,
+        "globalDistances": {
+          "referenceToCandidate": {
+            "p95Mm": 0.7329607374829455,
+            "maxMm": 1.8432009880973428,
+            "maxLocationRasMm": [
+              5.65234375,
+              159.90234375,
+              248.5
+            ],
+            "samples": 30145
+          },
+          "candidateToReference": {
+            "p95Mm": 0.5451362890575129,
+            "maxMm": 1.1019973749999998,
+            "maxLocationRasMm": [
+              18.050346375,
+              151.65234375,
+              242.998939514
+            ],
+            "samples": 27711
+          }
+        },
+        "protectedPlanes": [
+          {
+            "plane": "Just inside inferior cap",
+            "distances": {
+              "referenceToCandidate": {
+                "p95Mm": 1.24816174700129,
+                "maxMm": 1.3685319161344014,
+                "maxLocationRasMm": [
+                  16.51234375,
+                  148.65234375,
+                  242.89
+                ],
+                "samples": 55
+              },
+              "candidateToReference": {
+                "p95Mm": 1.1918763901962275,
+                "maxMm": 1.2650685879999912,
+                "maxLocationRasMm": [
+                  15.79234375,
+                  149.917412338,
+                  242.89
+                ],
+                "samples": 36
+              }
+            },
+            "referenceLoops": 1,
+            "exportedLoops": 1
+          },
+          {
+            "plane": "Just inside superior cap",
+            "distances": {
+              "referenceToCandidate": {
+                "p95Mm": 1.2029516601562484,
+                "maxMm": 1.2676989283032147,
+                "maxLocationRasMm": [
+                  26.29234375,
+                  152.40234375,
+                  300.64
+                ],
+                "samples": 81
+              },
+              "candidateToReference": {
+                "p95Mm": 0.9918994967937104,
+                "maxMm": 1.2290441889999855,
+                "maxLocationRasMm": [
+                  25.063299561,
+                  151.66234375,
+                  300.64
+                ],
+                "samples": 67
+              }
+            },
+            "referenceLoops": 1,
+            "exportedLoops": 1
+          }
+        ],
+        "protectedEmptyPlanes": [
+          {
+            "plane": "Above superior crop or source image",
+            "segments": 0
+          }
+        ]
+      },
+      "negative": {
+        "exit": 1,
+        "displacement": "6 mm toward RAS right",
+        "failures": [
+          "Global raw half-label distance exceeds limits",
+          "Just inside inferior cap contour distance exceeds limits",
+          "Just inside superior cap contour distance exceeds limits",
+          "Turning silhouette exceeds limit"
+        ],
+        "globalDistances": {
+          "referenceToCandidate": {
+            "p95Mm": 5.783170478720735,
+            "maxMm": 6.624839156294506,
+            "maxLocationRasMm": [
+              16.15234375,
+              147.90234375,
+              281.5
+            ],
+            "samples": 30145
+          },
+          "candidateToReference": {
+            "p95Mm": 5.737994794638626,
+            "maxMm": 6.074958801000001,
+            "maxLocationRasMm": [
+              25.227302551,
+              151.664971161,
+              245.929501343
+            ],
+            "samples": 34532
+          }
+        },
+        "export": {
+          "sha256": "345b0a68247420b5729d8ce1eba0b509205b3de4c0502344e8326ca714555a08",
+          "bytes": 34232,
+          "triangles": 1900,
+          "vertices": 952
+        }
+      }
+    }
+  },
+  "browser": {
+    "browser": "158.0.8127.18",
+    "runs": {
+      "carotid-right-previous-12": {
+        "served": {
+          "sweeps/carotid-right/media/scan-12.webp": {
+            "sha256": "255d24d28ea92cbfdaa8e7645133fedde131ef418f65ed51e9d66e7a0e6357b5",
+            "bytes": 12442
+          },
+          "sweeps/carotid-right/media/section-12.webp": {
+            "sha256": "87a3fccd9c10da913df9265510a23d490d310380d4cdde6db8a16841246fcc9f",
+            "bytes": 11606
+          },
+          "sweeps/carotid-right/sweep.js": {
+            "sha256": "8b931db6612c2c7370d7abd468695e8357df50f5bec09f1a3f1e3577cc29d9ef",
+            "bytes": 648815
+          },
+          "sweeps/carotid-right/scenes/common_carotid_artery_right.mesh": {
+            "sha256": "b292022299a085998f2e5a986dcdcc04c635ee2b5d8c8b5ec75b857bfc01cc90",
+            "bytes": 42152
+          }
+        },
+        "frame": 12,
+        "cameraPresets": [
+          "oblique",
+          "axial"
+        ]
+      },
+      "carotid-right-previous-48": {
+        "served": {
+          "sweeps/carotid-right/media/scan-48.webp": {
+            "sha256": "a40b052601ca7cd8c1ec9ff1fae51b0e1cdca3d3bba57ada37728f4186d45eb1",
+            "bytes": 10052
+          },
+          "sweeps/carotid-right/media/section-48.webp": {
+            "sha256": "73728fd4765b58688089e70403e03afe46887b989ce87053e459ff87d6036bb8",
+            "bytes": 9106
+          },
+          "sweeps/carotid-right/sweep.js": {
+            "sha256": "8b931db6612c2c7370d7abd468695e8357df50f5bec09f1a3f1e3577cc29d9ef",
+            "bytes": 648815
+          },
+          "sweeps/carotid-right/scenes/common_carotid_artery_right.mesh": {
+            "sha256": "b292022299a085998f2e5a986dcdcc04c635ee2b5d8c8b5ec75b857bfc01cc90",
+            "bytes": 42152
+          }
+        },
+        "frame": 48,
+        "cameraPresets": [
+          "oblique",
+          "axial"
+        ]
+      },
+      "carotid-right-candidate-12": {
+        "served": {
+          "sweeps/carotid-right/media/scan-12.webp": {
+            "sha256": "255d24d28ea92cbfdaa8e7645133fedde131ef418f65ed51e9d66e7a0e6357b5",
+            "bytes": 12442
+          },
+          "sweeps/carotid-right/media/section-12.webp": {
+            "sha256": "87a3fccd9c10da913df9265510a23d490d310380d4cdde6db8a16841246fcc9f",
+            "bytes": 11606
+          },
+          "sweeps/carotid-right/sweep.js": {
+            "sha256": "8b931db6612c2c7370d7abd468695e8357df50f5bec09f1a3f1e3577cc29d9ef",
+            "bytes": 648815
+          },
+          "sweeps/carotid-right/scenes/common_carotid_artery_right.mesh": {
+            "sha256": "5b4f14f95cabc4e5049e642eba979e0fea32971541eec4ff13dcfe6814835862",
+            "bytes": 29732
+          }
+        },
+        "frame": 12,
+        "cameraPresets": [
+          "oblique",
+          "axial"
+        ]
+      },
+      "carotid-right-candidate-48": {
+        "served": {
+          "sweeps/carotid-right/media/scan-48.webp": {
+            "sha256": "a40b052601ca7cd8c1ec9ff1fae51b0e1cdca3d3bba57ada37728f4186d45eb1",
+            "bytes": 10052
+          },
+          "sweeps/carotid-right/media/section-48.webp": {
+            "sha256": "73728fd4765b58688089e70403e03afe46887b989ce87053e459ff87d6036bb8",
+            "bytes": 9106
+          },
+          "sweeps/carotid-right/sweep.js": {
+            "sha256": "8b931db6612c2c7370d7abd468695e8357df50f5bec09f1a3f1e3577cc29d9ef",
+            "bytes": 648815
+          },
+          "sweeps/carotid-right/scenes/common_carotid_artery_right.mesh": {
+            "sha256": "5b4f14f95cabc4e5049e642eba979e0fea32971541eec4ff13dcfe6814835862",
+            "bytes": 29732
+          }
+        },
+        "frame": 48,
+        "cameraPresets": [
+          "oblique",
+          "axial"
+        ]
+      }
+    }
+  }
+}

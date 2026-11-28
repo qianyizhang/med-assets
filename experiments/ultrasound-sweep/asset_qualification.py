@@ -5,93 +5,13 @@ import json
 from pathlib import Path
 import shutil
 
+from med_assets.ultrasound_review import RUBRIC_PATH, chapter_mesh_bindings, recipe_hashes, validate_reviews
+
+from delivery import validate_mesh
+
 
 HERE = Path(__file__).resolve().parent
-RUBRIC = HERE.parents[1] / 'docs/guides/asset-quality.md'
-
-
-def recipe_hashes(destination, owners, records):
-    """Invalidate scores if the modeled family, a fitted surface or the rubric changes."""
-    hashes = {}
-
-    def digest(paths):
-        for path in paths:
-            if path not in hashes:
-                hashes[path] = sha256(path.read_bytes()).hexdigest()
-        return sorted((str(path.relative_to(destination)), hashes[path]) for path in paths)
-
-    regional_meshes = {}
-    for path in destination.rglob('*.mesh'):
-        relative = path.relative_to(destination)
-        group = relative.parts[1] if relative.parts[0] == 'sweeps' else relative.parts[0]
-        regional_meshes.setdefault(group, []).append(path)
-
-    result = {}
-    for owner in sorted(owners):
-        modules = list((destination / 'cases' / owner).glob('playable*.js'))
-        inputs = [destination / 'case-scene.js', destination / 'scene.js']
-        if owner == 'echo':
-            inputs += list((destination / 'cardiac').rglob('*.js'))
-            inputs += list((destination / 'cardiac/torso').glob('*.raw'))
-        else:
-            groups = {
-                'organs': ('scenes', 'liver', 'breast', 'axilla', 'thyroid', 'carotid', 'kidney'),
-                'vascular': ('thyroid', 'carotid', 'scenes'),
-                'pregnancy': ('pregnancy', 'scenes'),
-            }[owner]
-            for group, paths in regional_meshes.items():
-                if group.startswith(groups):
-                    inputs.extend(paths)
-            if owner == 'vascular':
-                inputs.append(destination / 'cases/organs/playable-scene-skin.js')
-        fingerprint = dict(modules=digest(set(modules + inputs)), rubric=sha256(RUBRIC.read_bytes()).hexdigest(),
-                           cases=[row['record'] for row in records if row['owner'] == owner])
-        result[owner] = sha256(json.dumps(fingerprint, sort_keys=True).encode()).hexdigest()
-    return result
-
-
-AXES = {'fidelity', 'form', 'readability', 'economy'}
-
-
-def validate_reviews(path):
-    """Validate retained assessments and their witnesses, independent of qualification status."""
-    document = json.loads(path.read_text())
-    if document.get('version') != 1 or not isinstance(document.get('records'), list):
-        raise ValueError(f'Invalid asset review package: {path}')
-    files = {}
-    bindings = []
-    for record in document['records']:
-        if not all(record.get(key) for key in ('case', 'part', 'task', 'revision', 'rubric', 'reviewer', 'reviewedOn')):
-            raise ValueError(f'Incomplete asset review identity: {path}')
-        extra = record.get('additionalUses', [])
-        base = {key: value for key, value in record.items() if key != 'additionalUses'}
-        bindings.append(base)
-        for use in extra:
-            if not use.get('case') or use.keys() - {'case', 'chapter'}:
-                raise ValueError(f'Invalid additional asset review use: {path}')
-            bindings.append(base | use)
-        scores = record.get('scores', {})
-        if scores.keys() - AXES:
-            raise ValueError(f'Unknown asset review axis: {path}')
-        for axis, grade in scores.items():
-            if grade is not None and (type(grade) is not int or grade not in range(5)
-                                      or not record.get('scoreEvidence', {}).get(axis)):
-                raise ValueError(f'Unsubstantiated asset review score: {path} / {axis}')
-        comparison = record.get('comparison', {})
-        for view in [comparison, *comparison.get('views', [])]:
-            for field in ('baseline', 'candidate', 'original'):
-                if field not in view:
-                    continue
-                media = (path.parents[2] / view[field]).resolve()
-                if not media.is_relative_to(path.parent.resolve()) or not media.is_file():
-                    raise ValueError(f'Missing or unbound asset review image: {view[field]}')
-                if media not in files:
-                    files[media] = sha256(media.read_bytes()).hexdigest()
-    expected = document.get('evidenceSha256', {})
-    actual = {f.relative_to(path.parent.resolve()).as_posix(): digest for f, digest in files.items()}
-    if expected != actual:
-        raise ValueError(f'Asset review evidence identity mismatch: {path}')
-    return document | {'records': bindings}
+RUBRIC = HERE.parents[1] / RUBRIC_PATH
 
 
 class OrientationSections(HTMLParser):
@@ -151,7 +71,7 @@ def write_asset_inventory(destination, grouped, families, evidence, tours):
     for family, cases in grouped.items():
         for case in cases:
             key = case['id']
-            chapters = [{k: chapter[k] for k in ('id', 'title', 'evidenceFrame')} for chapter in evidence[key]]
+            chapters = [{k: chapter[k] for k in ('id', 'title', 'evidenceFrame', 'sourceSweep', 'exemplar') if k in chapter} for chapter in evidence[key]]
             records.append(dict(id=key, family=family, owner=families[family][1], title=case['title'],
                                 url=f'tours/{family}/{key}.html', chapters=chapters, record=case))
     reviews = []
@@ -177,5 +97,8 @@ def write_asset_inventory(destination, grouped, families, evidence, tours):
     manifest = dict(version=1, cases=records, teachingTours=teaching_tours(destination, records, tours),
                     reviews=reviews, sweepHashes=sweep_hashes,
                     rubricHash=sha256(RUBRIC.read_bytes()).hexdigest(),
-                    recipeHashes=recipe_hashes(destination, {row['owner'] for row in records}, records))
+                    recipeHashes=recipe_hashes(destination, {row['owner'] for row in records}, records, rubric=RUBRIC))
+    chapter_meshes = chapter_mesh_bindings(destination, evidence, validate_mesh=validate_mesh)
+    if chapter_meshes:
+        manifest['chapterMeshBindings'] = chapter_meshes
     (target / 'asset-inventory.json').write_text(json.dumps(manifest, separators=(',', ':')) + '\n')

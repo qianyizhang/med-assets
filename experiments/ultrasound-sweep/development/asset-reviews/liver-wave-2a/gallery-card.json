@@ -1,0 +1,53 @@
+{
+  "slug": "liver-r02",
+  "exportRef": {
+    "record": "models/liver_s1233/asset.record.json",
+    "asset": "anatomy:s1233:liver-window",
+    "revision": "r02",
+    "export": "liver"
+  },
+  "review": {
+    "case": "abdomen-survey",
+    "chapter": "abd-liver",
+    "part": "liver"
+  },
+  "adopted": true,
+  "cardTitle": "Liver · Before → After",
+  "subtitle": "Abdominal survey · frame 12",
+  "revisionTitle": "s1233 liver · r02",
+  "revisionLinkLabel": "liver r02",
+  "coordinateFrame": "s1233 voxel indices · RAS axes · 1.5 mm spacing",
+  "sourceId": "source:totalsegmentator-v2.0.1:s1233:liver",
+  "sourceLabel": "TotalSegmentator v2.0.1 · Jakob Wasserthal and contributors · CC BY 4.0",
+  "detailsLabel": "Source sections, saved scan and lead review",
+  "figures": [
+    {
+      "file": "previous-vs-r02.webp",
+      "width": 1182,
+      "height": 1282,
+      "alt": "The concentric bands on the dome and inferior surface soften. The two unequal lobes and inferior cleft remain distinct in both clay views. A narrow crease at the dome margin and shallow inferior relief persist.",
+      "caption": "Previous delivered sweep and candidate in matched neutral clay."
+    },
+    {
+      "file": "protected-planes.webp",
+      "width": 1182,
+      "height": 742,
+      "alt": "The global and three frozen axial measurements stay within 2.95 mm, including 1.08 mm at the cropped cleft. The saved oblique section has a local 8.45 mm discrepancy against 7.87 mm previously. That limits how precisely I can relate the reviewed exterior to the scan.",
+      "caption": "Frozen source sections and measured contours."
+    },
+    {
+      "file": "live-frame-12.webp",
+      "width": 1182,
+      "height": 742,
+      "alt": "I could distinguish the broad lobe from the narrower extension in the 3D view, then locate the liver around the vessels on the tissue overlay. The inferior cleft is clearest from the isolated underside.",
+      "caption": "Saved sweep frame 12 with probe, simulated scan and tissue overlay."
+    },
+    {
+      "file": "matched-surfaces.webp",
+      "width": 1182,
+      "height": 1282,
+      "alt": "Liver CT half-label and interpreted exterior viewed under the same light.",
+      "caption": "CT reference and reimported surface at matched scale."
+    }
+  ]
+}

@@ -19,10 +19,16 @@ const sections = [...document.querySelectorAll('.chapters a[data-chapter]')].map
   const end = Number(link.dataset.end ?? (chapterParam === 'chapter' ? 28 : 48));
   const content = document.getElementById(id);
   const label = link.dataset.label ?? content.querySelector('h2').textContent;
-  const section = { id, start, end, link, content, label, sweep: link.dataset.sweep ?? id, offset: totalFrames };
+  const section = { id, start, end, link, content, label, sourceSweep: content.dataset.sourceSweep, sweep: link.dataset.sweep ?? id, offset: totalFrames };
   totalFrames += end - start + 1;
   return section;
 });
+for (const disclosure of document.querySelectorAll('.ct-exemplar')) {
+  disclosure.addEventListener('toggle', () => {
+    const frame = disclosure.querySelector('iframe');
+    if (disclosure.open && !frame.hasAttribute('src')) frame.src = frame.dataset.src;
+  });
+}
 const last = totalFrames - 1;
 
 for (const section of sections) {
@@ -82,8 +88,8 @@ function updateHistory(action, hash = location.hash) {
 }
 
 function standalone(section, index) {
-  const url = new URL(sweepURL);
-  url.searchParams.set(chapterParam, section.sweep);
+  const url = new URL(section.sourceSweep ? '../../index.html' : sweepURL, location.href);
+  url.searchParams.set(section.sourceSweep ? 'sweep' : chapterParam, section.sourceSweep ?? section.sweep);
   url.searchParams.set('frame', sourceFrame(section, index));
   return url;
 }
@@ -122,8 +128,12 @@ function activate(section) {
   if (player) player.title = section.label + ' · Probe and scan';
 }
 
+function playerKey(section) {
+  return section.sourceSweep ?? (casePlayer ? 'worked-case' : section.sweep);
+}
+
 function mount(section) {
-  mountedSweep = section.sweep;
+  mountedSweep = playerKey(section);
   ready = false;
   displayed = -1;
   pending = null;
@@ -137,7 +147,8 @@ function mount(section) {
   const url = standalone(section, target);
   url.searchParams.set('embed', '1');
   url.searchParams.set('transport', 'tour');
-  if (container.dataset.embedLayout) url.searchParams.set('layout', container.dataset.embedLayout);
+  const layout = section.sourceSweep ? 'probe-scan' : container.dataset.embedLayout;
+  if (layout) url.searchParams.set('layout', layout);
   viewer.src = url.href;
   viewer.addEventListener('load', () => {
     if (viewer !== player) return;
@@ -167,7 +178,7 @@ function seek(index) {
   target = Math.max(0, Math.min(last, index));
   const section = sectionAt(target);
   activate(section);
-  if (!mountedSweep || (!casePlayer && section.sweep !== mountedSweep)) mount(section);
+  if (playerKey(section) !== mountedSweep) mount(section);
   if (displayed !== target) {
     container.setAttribute('aria-busy', 'true');
   }

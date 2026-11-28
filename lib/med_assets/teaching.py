@@ -278,8 +278,10 @@ class CurrentTeaching:
         self.resolved[path, task_id] = record
         return record
 
-    def selected(self):
+    def selected(self, *, paths=None):
         for path, selection in self.selections.items():
+            if paths is not None and path not in paths:
+                continue
             assessment = self.resolve(path, selection.task_id)
             require(assessment.sha256 == selection.assessment_sha256, f"Stale maintained assessment pin: {path}")
             require(assessment.row.get("target", {}).get("status") != "blocked",

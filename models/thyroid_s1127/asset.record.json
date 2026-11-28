@@ -1,0 +1,287 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:s1127:thyroid",
+  "title": "s1127 bilateral thyroid",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/thyroid_s1127",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:totalsegmentator-v2.0.1:s1127:thyroid",
+      "title": "TotalSegmentator v2.0.1 s1127 thyroid label",
+      "sourceType": "external segmentation",
+      "sha256": "90e46bd16d3395fab1bad27506a05211ca7e17660380e69ff90e456a61ca5fc0",
+      "license": "CC BY 4.0; retain the Workshop label-source notices",
+      "url": "https://zenodo.org/records/10047263"
+    }
+  ],
+  "parts": [
+    {
+      "partId": "thyroid",
+      "label": "Bilateral thyroid and isthmus exterior",
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "r01",
+      "status": "provisional",
+      "recipe": "rebuild.py",
+      "frame": {
+        "convention": "voxel-index",
+        "units": "voxel",
+        "evidence": "models/thyroid_s1127/README.md"
+      },
+      "sourceIds": [
+        "source:totalsegmentator-v2.0.1:s1127:thyroid"
+      ],
+      "partIds": [
+        "thyroid"
+      ],
+      "qualifications": [],
+      "exports": [
+        {
+          "id": "thyroid",
+          "path": "models/thyroid_s1127/exports/r01/thyroid_gland.mesh",
+          "format": "mesh",
+          "sha256": "73207b41254e7baff0bfaee4c0d65e0cb1533832b0dd476921994d13d7d89f25",
+          "bytes": 112496,
+          "triangles": 6248,
+          "partIds": [
+            "thyroid"
+          ],
+          "voxelGrid": {
+            "case": "s1127",
+            "shape": [
+              275,
+              275,
+              409
+            ],
+            "rasMmFromVoxel": [
+              [
+                1.5,
+                0.0,
+                0.0,
+                -191.59765625
+              ],
+              [
+                0.0,
+                1.5,
+                0.0,
+                -35.09765625
+              ],
+              [
+                0.0,
+                0.0,
+                1.5,
+                -311.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "revisionId": "r02",
+      "status": "provisional",
+      "recipe": "rebuild.py",
+      "frame": {
+        "convention": "voxel-index",
+        "units": "voxel",
+        "evidence": "models/thyroid_s1127/README.md"
+      },
+      "sourceIds": [
+        "source:totalsegmentator-v2.0.1:s1127:thyroid"
+      ],
+      "partIds": [
+        "thyroid"
+      ],
+      "qualifications": [],
+      "exports": [
+        {
+          "id": "thyroid",
+          "path": "models/thyroid_s1127/exports/r02/thyroid_gland.mesh",
+          "format": "mesh",
+          "sha256": "eb1871678165a17236ae8205e360c3049d9654ea705fad958b51b4bc7750823a",
+          "bytes": 106232,
+          "triangles": 5900,
+          "partIds": [
+            "thyroid"
+          ],
+          "voxelGrid": {
+            "case": "s1127",
+            "shape": [
+              275,
+              275,
+              409
+            ],
+            "rasMmFromVoxel": [
+              [
+                1.5,
+                0.0,
+                0.0,
+                -191.59765625
+              ],
+              [
+                0.0,
+                1.5,
+                0.0,
+                -35.09765625
+              ],
+              [
+                0.0,
+                0.0,
+                1.5,
+                -311.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "revisionId": "r03",
+      "status": "provisional",
+      "recipe": "rebuild.py",
+      "frame": {
+        "convention": "voxel-index",
+        "units": "voxel",
+        "evidence": "models/thyroid_s1127/README.md"
+      },
+      "sourceIds": [
+        "source:totalsegmentator-v2.0.1:s1127:thyroid"
+      ],
+      "partIds": [
+        "thyroid"
+      ],
+      "qualifications": [],
+      "exports": [
+        {
+          "id": "thyroid",
+          "path": "models/thyroid_s1127/exports/r03/thyroid_gland.mesh",
+          "format": "mesh",
+          "sha256": "ee82ceca2ad9477bd995f8f03c194da88110516fb44cab3ccb6088a3f4d6508c",
+          "bytes": 106232,
+          "triangles": 5900,
+          "partIds": [
+            "thyroid"
+          ],
+          "voxelGrid": {
+            "case": "s1127",
+            "shape": [
+              275,
+              275,
+              409
+            ],
+            "rasMmFromVoxel": [
+              [
+                1.5,
+                0.0,
+                0.0,
+                -191.59765625
+              ],
+              [
+                0.0,
+                1.5,
+                0.0,
+                -35.09765625
+              ],
+              [
+                0.0,
+                0.0,
+                1.5,
+                -311.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "revisionId": "r04",
+      "status": "provisional",
+      "recipe": "rebuild.py",
+      "frame": {
+        "convention": "voxel-index",
+        "units": "voxel",
+        "evidence": "models/thyroid_s1127/README.md"
+      },
+      "sourceIds": [
+        "source:totalsegmentator-v2.0.1:s1127:thyroid"
+      ],
+      "partIds": [
+        "thyroid"
+      ],
+      "qualifications": [],
+      "exports": [
+        {
+          "id": "thyroid",
+          "path": "models/thyroid_s1127/exports/r04/thyroid_gland.mesh",
+          "format": "mesh",
+          "sha256": "ae8733964ac06a2e1eab11cd1198e15d2e6375e88716db493909fcd5826b3da5",
+          "bytes": 106232,
+          "triangles": 5900,
+          "partIds": [
+            "thyroid"
+          ],
+          "voxelGrid": {
+            "case": "s1127",
+            "shape": [
+              275,
+              275,
+              409
+            ],
+            "rasMmFromVoxel": [
+              [
+                1.5,
+                0.0,
+                0.0,
+                -191.59765625
+              ],
+              [
+                0.0,
+                1.5,
+                0.0,
+                -35.09765625
+              ],
+              [
+                0.0,
+                0.0,
+                1.5,
+                -311.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "unresolved": [
+    "The static s1127 exterior supports bilateral lobe and isthmus orientation. Nodules, parenchymal echotexture, Doppler flow and clinical volume calipers require separate evidence."
+  ]
+}

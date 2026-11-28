@@ -1,0 +1,347 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:z-anatomy:major-salivary-glands",
+  "title": "Major salivary gland pairs and regional context",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/salivary_glands",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:salivary-glands:z-native-scoped-r02",
+      "title": "Z-Anatomy native salivary gland and duct study source and replay for z-native-scoped-r02",
+      "sourceType": "recipe source or retained provenance",
+      "subject": "Z-Anatomy native salivary gland and duct study",
+      "license": "CC BY-SA 4.0, with Z-Anatomy and inherited BodyParts3D attribution as recorded.",
+      "evidence": [
+        {
+          "path": "models/salivary_glands/exports/z-native-scoped-r02/README.md",
+          "sha256": "c5162686cefedbc95b61ded538342ebceb6eba9b7e1817ef1b21adafa930514e"
+        },
+        {
+          "path": "sources/datasets/z-anatomy/small-static-studies/ATTRIBUTION.md",
+          "sha256": "3a822fc26456a514be1b58c09fe41bf0e6889d549b1affd523cba18b2f602615"
+        },
+        {
+          "path": "reviews/salivary_glands/2026-10-26-native-scoped-r02/README.md",
+          "sha256": "795d25c13df33484ea478eb81cddfb24461b87bf90164cf2ed916c1ade6cf7a0"
+        }
+      ]
+    },
+    {
+      "sourceId": "source:salivary-glands:z-native-shared-r01",
+      "title": "Z-Anatomy native salivary gland and duct study source and replay for z-native-shared-r01",
+      "sourceType": "recipe source or retained provenance",
+      "subject": "Z-Anatomy native salivary gland and duct study",
+      "license": "CC BY-SA 4.0, with Z-Anatomy and inherited BodyParts3D attribution as recorded.",
+      "evidence": [
+        {
+          "path": "models/salivary_glands/exports/z-native-shared-r01/README.md",
+          "sha256": "08f7568752cc086dfb9dc9553af226a369a159a434a0c690af3fb0c69ed7398d"
+        },
+        {
+          "path": "sources/datasets/z-anatomy/small-static-studies/ATTRIBUTION.md",
+          "sha256": "3a822fc26456a514be1b58c09fe41bf0e6889d549b1affd523cba18b2f602615"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-23-salivary-shared-source/checks.json",
+          "sha256": "920470e73d3ecc527cadf770b9a13be0b710cbc6b8531df6fb46dbcaf1d8ddb5"
+        }
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "partId": "parotid-gland-r-source-display",
+      "label": "Parotid gland.r source display",
+      "selectors": [
+        "Parotid gland.r source display"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "parotid-gland-l-source-display",
+      "label": "Parotid gland.l source display",
+      "selectors": [
+        "Parotid gland.l source display"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "submandibular-gland-r-source-display",
+      "label": "Submandibular gland.r source display",
+      "selectors": [
+        "Submandibular gland.r source display"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "submandibular-gland-l-source-display",
+      "label": "Submandibular gland.l source display",
+      "selectors": [
+        "Submandibular gland.l source display"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "sublingual-gland-r-source-display",
+      "label": "Sublingual gland.r source display",
+      "selectors": [
+        "Sublingual gland.r source display"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "sublingual-gland-l-source-display",
+      "label": "Sublingual gland.l source display",
+      "selectors": [
+        "Sublingual gland.l source display"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "parotid-duct-r-source-display",
+      "label": "Parotid duct.r source display",
+      "selectors": [
+        "Parotid duct.r source display"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "parotid-duct-l-source-display",
+      "label": "Parotid duct.l source display",
+      "selectors": [
+        "Parotid duct.l source display"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "mandible-source-display",
+      "label": "Mandible source display",
+      "selectors": [
+        "Mandible source display"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "mylohyoid-muscle-r-source-display",
+      "label": "Mylohyoid muscle.r source display",
+      "selectors": [
+        "Mylohyoid muscle.r source display"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "mylohyoid-muscle-l-source-display",
+      "label": "Mylohyoid muscle.l source display",
+      "selectors": [
+        "Mylohyoid muscle.l source display"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "superficial-part-of-masseter-r-source-display",
+      "label": "Superficial part of masseter.r source display",
+      "selectors": [
+        "Superficial part of masseter.r source display"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "superficial-part-of-masseter-l-source-display",
+      "label": "Superficial part of masseter.l source display",
+      "selectors": [
+        "Superficial part of masseter.l source display"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "genioglossus-muscle-r-source-display",
+      "label": "Genioglossus muscle.r source display",
+      "selectors": [
+        "Genioglossus muscle.r source display"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "genioglossus-muscle-l-source-display",
+      "label": "Genioglossus muscle.l source display",
+      "selectors": [
+        "Genioglossus muscle.l source display"
+      ],
+      "registration": "unknown"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "z-native-scoped-r02",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "models/salivary_glands/exports/z-native-scoped-r02/README.md",
+        "sha256": "c5162686cefedbc95b61ded538342ebceb6eba9b7e1817ef1b21adafa930514e"
+      },
+      "sourceIds": [
+        "source:salivary-glands:z-native-scoped-r02"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "models/salivary_glands/exports/z-native-scoped-r02/README.md"
+      },
+      "exports": [
+        {
+          "id": "glands-and-ducts",
+          "path": "models/salivary_glands/exports/z-native-scoped-r02/glands-and-parotid-ducts.glb",
+          "sha256": "a53134ec91195f5c42b8be4cde3536343e62857a7ecf5ab5d11bf3eba6ead515",
+          "bytes": 129736,
+          "triangles": 7144,
+          "format": "glb",
+          "partIds": [
+            "parotid-gland-r-source-display",
+            "parotid-gland-l-source-display",
+            "submandibular-gland-r-source-display",
+            "submandibular-gland-l-source-display",
+            "sublingual-gland-r-source-display",
+            "sublingual-gland-l-source-display",
+            "parotid-duct-r-source-display",
+            "parotid-duct-l-source-display"
+          ]
+        },
+        {
+          "id": "gross-context",
+          "path": "models/salivary_glands/exports/z-native-scoped-r02/same-source-context.glb",
+          "sha256": "1764c63011e698b9047d1abe79c647b8b609b7d8f9b18b740b17cdc65db930f8",
+          "bytes": 763124,
+          "triangles": 38522,
+          "format": "glb",
+          "partIds": [
+            "parotid-gland-r-source-display",
+            "parotid-gland-l-source-display",
+            "submandibular-gland-r-source-display",
+            "submandibular-gland-l-source-display",
+            "sublingual-gland-r-source-display",
+            "sublingual-gland-l-source-display",
+            "parotid-duct-r-source-display",
+            "parotid-duct-l-source-display",
+            "mandible-source-display",
+            "mylohyoid-muscle-r-source-display",
+            "mylohyoid-muscle-l-source-display",
+            "superficial-part-of-masseter-r-source-display",
+            "superficial-part-of-masseter-l-source-display",
+            "genioglossus-muscle-r-source-display",
+            "genioglossus-muscle-l-source-display"
+          ]
+        }
+      ],
+      "qualifications": [],
+      "partIds": [
+        "genioglossus-muscle-l-source-display",
+        "genioglossus-muscle-r-source-display",
+        "mandible-source-display",
+        "mylohyoid-muscle-l-source-display",
+        "mylohyoid-muscle-r-source-display",
+        "parotid-duct-l-source-display",
+        "parotid-duct-r-source-display",
+        "parotid-gland-l-source-display",
+        "parotid-gland-r-source-display",
+        "sublingual-gland-l-source-display",
+        "sublingual-gland-r-source-display",
+        "submandibular-gland-l-source-display",
+        "submandibular-gland-r-source-display",
+        "superficial-part-of-masseter-l-source-display",
+        "superficial-part-of-masseter-r-source-display"
+      ]
+    },
+    {
+      "revisionId": "z-native-shared-r01",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "models/salivary_glands/exports/z-native-shared-r01/README.md",
+        "sha256": "08f7568752cc086dfb9dc9553af226a369a159a434a0c690af3fb0c69ed7398d"
+      },
+      "sourceIds": [
+        "source:salivary-glands:z-native-shared-r01"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "models/salivary_glands/exports/z-native-shared-r01/README.md"
+      },
+      "exports": [
+        {
+          "id": "glands-and-ducts",
+          "path": "models/salivary_glands/exports/z-native-shared-r01/glands-and-parotid-ducts.glb",
+          "sha256": "ef588f09db83560185c486a15dacbba929967bfefda0cbee4a0dc16495ce16da",
+          "bytes": 116896,
+          "triangles": 7144,
+          "format": "glb",
+          "partIds": [
+            "parotid-gland-r-source-display",
+            "parotid-gland-l-source-display",
+            "submandibular-gland-r-source-display",
+            "submandibular-gland-l-source-display",
+            "sublingual-gland-r-source-display",
+            "sublingual-gland-l-source-display",
+            "parotid-duct-r-source-display",
+            "parotid-duct-l-source-display"
+          ]
+        },
+        {
+          "id": "gross-context",
+          "path": "models/salivary_glands/exports/z-native-shared-r01/same-source-context.glb",
+          "sha256": "22406f58d0d2852a7cc5dee93f307a5240ca2004d4eb34259cb46749cb630501",
+          "bytes": 654988,
+          "triangles": 38522,
+          "format": "glb",
+          "partIds": [
+            "parotid-gland-r-source-display",
+            "parotid-gland-l-source-display",
+            "submandibular-gland-r-source-display",
+            "submandibular-gland-l-source-display",
+            "sublingual-gland-r-source-display",
+            "sublingual-gland-l-source-display",
+            "parotid-duct-r-source-display",
+            "parotid-duct-l-source-display",
+            "mandible-source-display",
+            "mylohyoid-muscle-r-source-display",
+            "mylohyoid-muscle-l-source-display",
+            "superficial-part-of-masseter-r-source-display",
+            "superficial-part-of-masseter-l-source-display",
+            "genioglossus-muscle-r-source-display",
+            "genioglossus-muscle-l-source-display"
+          ]
+        }
+      ],
+      "qualifications": [],
+      "partIds": [
+        "genioglossus-muscle-l-source-display",
+        "genioglossus-muscle-r-source-display",
+        "mandible-source-display",
+        "mylohyoid-muscle-l-source-display",
+        "mylohyoid-muscle-r-source-display",
+        "parotid-duct-l-source-display",
+        "parotid-duct-r-source-display",
+        "parotid-gland-l-source-display",
+        "parotid-gland-r-source-display",
+        "sublingual-gland-l-source-display",
+        "sublingual-gland-r-source-display",
+        "submandibular-gland-l-source-display",
+        "submandibular-gland-r-source-display",
+        "superficial-part-of-masseter-l-source-display",
+        "superficial-part-of-masseter-r-source-display"
+      ]
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "The parent gland/duct pair and added context use the same native atlas frame. Duct lumen continuity remains outside scope."
+  ]
+}

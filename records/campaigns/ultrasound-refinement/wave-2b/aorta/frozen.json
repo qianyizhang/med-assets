@@ -1,0 +1,1139 @@
+{
+  "baselineRevision": "abe213c44df81a1510558b5595b2d14ffed74d78",
+  "baselineAssembly": ".artifacts/us-pancreas-r02",
+  "compactIndex": {
+    "path": "abdomen-tours.js",
+    "sha256": "c44db8f6deb2e6259b8e76da3300dc9dfab3b92e0e6a49276b7d7ffac6011845",
+    "bytes": 112806
+  },
+  "source": {
+    "case": "s1233",
+    "ctSha256": "5352376d8fd9c0ab582a7fca1443f28762a66b9782d59c645b976771587c0cfc",
+    "mask": {
+      "sha256": "c2751ba8bb12ed2091db7e0446f3f333acf47db5d35e8f75c96fab4c6564ab2e",
+      "bytes": 39071
+    },
+    "shape": [
+      265,
+      265,
+      401
+    ],
+    "rasMmFromVoxel": [
+      [
+        1.5,
+        0.0,
+        0.0,
+        -215.611328125
+      ],
+      [
+        0.0,
+        1.5,
+        0.0,
+        -37.111328125
+      ],
+      [
+        0.0,
+        0.0,
+        1.5,
+        41.20000076293945
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "acquisitionSliceNormalRas": [
+      0,
+      0,
+      1
+    ],
+    "workingSpacingMm": [
+      1.5,
+      1.5,
+      1.5
+    ],
+    "occupiedVoxelBounds": [
+      [
+        116,
+        85,
+        147
+      ],
+      [
+        165,
+        160,
+        349
+      ]
+    ],
+    "license": "TotalSegmentator v2.0.1, CC BY 4.0. Retain the label-source notice.",
+    "sourceUrl": "https://zenodo.org/records/10047263"
+  },
+  "tasks": {
+    "aorta": "Orient the single connected source-labeled aorta from distal trunk through the arch and the two source terminations.",
+    "aorta-abdomen": "Follow abdominal aortic exterior in 3D and rotate from the long-axis field to the transverse field alongside the cava. For the survey chapter aorta-long, relate the frame-12 source exemplar to the same exterior.",
+    "aorta-screening": "Orient the aortic trunk anterior to the vertebrae through the proximal, mid and distal transverse stations. The saved simulated scan and mask-derived AP chord retain their own evidence.",
+    "aaa-negative/mid-aorta": "Keep the separate worked model and its measured wall/lumen report. A native s1233 exterior would need a separately identified and bound exemplar."
+  },
+  "anatomy": "One 6-connected solid aortic label, no separate components or enclosed voids. Distal bifurcation and adjacent branches have independent masks. Each legacy crop cuts only the superior end because the first occupied aorta voxel is z=147. Visual and protected sections distinguish the source endpoint from the artificial crop cap. Exterior orientation is the supported task.",
+  "method": "Smooth one CT mask in physical signed-distance space with heavier filtering along RAS superior, taper it at the distal end and thoracic arch/end, and derive separate crop caps from that one field. Preserve raw topology and registration.",
+  "gates": {
+    "p95Mm": 1.5,
+    "maxMm": 3.0,
+    "volumePercent": 3.0,
+    "silhouettePx": 1.0,
+    "silhouetteViews": 24,
+    "teachingZoomPxPerMm": 3.0,
+    "triangleBand": [
+      1500,
+      6000
+    ],
+    "sampleSpacingMm": 0.5,
+    "topology": "one outward Euler-2 shell with no boundary, nonmanifold edges, degeneracy or nonincident self-intersections",
+    "dose": "No clinical AP-caliper measurement is derived from the exterior."
+  },
+  "exports": {
+    "aorta": {
+      "cropZVoxelHalfOpen": null,
+      "halfLabelSurfaceSha256": "94b61d81e4a7890dded91ee04632a3178672cc0eb57ed104c9c5ba227830d562",
+      "labelEuler": 1,
+      "componentVoxels": [
+        77857
+      ],
+      "enclosedVoidVoxels": [],
+      "capZVoxel": null,
+      "planes": [
+        {
+          "name": "distal label end",
+          "originRasMm": [
+            -215.611328125,
+            -37.111328125,
+            263.20000076293945
+          ],
+          "width": [
+            1,
+            0,
+            0
+          ],
+          "beam": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "outlineSha256": "d899ba38bc637d3e9700a31ca04e06e7cd23936b516a3d019517b05cd99766c8",
+          "bounds": [
+            [
+              177.0,
+              190.0
+            ],
+            [
+              206.0,
+              216.0
+            ]
+          ],
+          "loops": null
+        },
+        {
+          "name": "abdominal transition",
+          "originRasMm": [
+            -215.611328125,
+            -37.111328125,
+            446.59000076293944
+          ],
+          "width": [
+            1,
+            0,
+            0
+          ],
+          "beam": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "outlineSha256": "1b21c61766661d0a7972c8ed004106a814b9df6ea004f53da28d2cb34cb57532",
+          "bounds": [
+            [
+              178.0,
+              142.0
+            ],
+            [
+              216.0,
+              182.0
+            ]
+          ],
+          "loops": 1
+        },
+        {
+          "name": "upper thoracic limb",
+          "originRasMm": [
+            -215.611328125,
+            -37.111328125,
+            535.0900007629394
+          ],
+          "width": [
+            1,
+            0,
+            0
+          ],
+          "beam": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "outlineSha256": "198e4e536b83bb6cd51c2dc2560d85eb56d82162af4edec403a1ef950b122745",
+          "bounds": [
+            [
+              168.0,
+              124.0
+            ],
+            [
+              251.0,
+              231.0
+            ]
+          ],
+          "loops": 2
+        },
+        {
+          "name": "aortic arch transition",
+          "originRasMm": [
+            -215.611328125,
+            -37.111328125,
+            554.5900007629394
+          ],
+          "width": [
+            1,
+            0,
+            0
+          ],
+          "beam": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "outlineSha256": "f5c68c6cfbf12b4b20e7161224d466195155979b13f960e5dae33684e8d3bfb4",
+          "bounds": [
+            [
+              174.0,
+              138.0
+            ],
+            [
+              242.0,
+              218.0
+            ]
+          ],
+          "loops": 1
+        },
+        {
+          "name": "superior label end",
+          "originRasMm": [
+            -215.611328125,
+            -37.111328125,
+            563.5900007629394
+          ],
+          "width": [
+            1,
+            0,
+            0
+          ],
+          "beam": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "outlineSha256": "5a1d8eabdc7d62a3a8b03af1ff9130d21d744503f823afdbcfc834944935b8b6",
+          "bounds": [
+            [
+              186.0,
+              158.0
+            ],
+            [
+              216.0,
+              189.0
+            ]
+          ],
+          "loops": 1
+        }
+      ]
+    },
+    "aorta-abdomen": {
+      "cropZVoxelHalfOpen": [
+        140,
+        271
+      ],
+      "halfLabelSurfaceSha256": "e2fcccd9ea8d1e98f5d854567d324f983722c66234456f6bdbe435a2fec8a77a",
+      "labelEuler": 1,
+      "componentVoxels": [
+        23351
+      ],
+      "enclosedVoidVoxels": [],
+      "capZVoxel": 270.5,
+      "sweep": "aorta",
+      "prior": {
+        "stage": {
+          "path": "sweeps/aorta/scenes/aorta.mesh",
+          "sha256": "c96c7710d56f90d03edc96a12a958c07d453a382cc1cc3caf84bb058025ad0e4",
+          "bytes": 329792
+        },
+        "compact": {
+          "path": "sweeps/pancreas/scenes/aorta.mesh",
+          "sha256": "c96c7710d56f90d03edc96a12a958c07d453a382cc1cc3caf84bb058025ad0e4",
+          "bytes": 329792
+        },
+        "triangles": 18320
+      },
+      "savedPoseScript": {
+        "path": "sweeps/aorta/sweep.js",
+        "sha256": "4d35f7cbe7b928289210d0a7e9dd406192ab3c7d33880fc66817a907ff6b0f91",
+        "bytes": 11137
+      },
+      "savedFrames": {
+        "12": {
+          "pose": {
+            "contact": [
+              137.78671080291002,
+              222.9808306956491,
+              165.79254355232217
+            ],
+            "width": [
+              -0.008603617451441531,
+              -0.049648618920449195,
+              -0.9987296893584577
+            ],
+            "beam": [
+              -0.04498810222023597,
+              -0.9977361336843471,
+              0.04998678024470701
+            ],
+            "degrees": 0.0
+          },
+          "scan": {
+            "path": "sweeps/aorta/media/scan-12.webp",
+            "sha256": "f0a3935adc8717b9882ecf2e799aef820e9e15f629a44c96d61bb05b6d3e2659",
+            "bytes": 30304
+          },
+          "section": {
+            "path": "sweeps/aorta/media/section-12.webp",
+            "sha256": "54e37a3e1beaf1f3ef92510f46e174f1ef24884aabeb8de20a65d243187233b2",
+            "bytes": 28584
+          }
+        },
+        "48": {
+          "pose": {
+            "contact": [
+              138.10459123945103,
+              223.0152822788849,
+              167.7397985464155
+            ],
+            "width": [
+              -0.9996901562058848,
+              0.02474176215681806,
+              -0.002727047933115779
+            ],
+            "beam": [
+              -0.024891596675465904,
+              -0.9936725392845973,
+              0.10952302537204975
+            ],
+            "degrees": 89.4
+          },
+          "scan": {
+            "path": "sweeps/aorta/media/scan-48.webp",
+            "sha256": "8a429f15a530875d6bcf67650268bb95dedbbbf1c65dc3ce7ebce7454bb7f2cc",
+            "bytes": 31294
+          },
+          "section": {
+            "path": "sweeps/aorta/media/section-48.webp",
+            "sha256": "5d6e4dea5878cdb40fedda9198739d4a8ea74fca6d35cd7f2155d21393d4e7c5",
+            "bytes": 28682
+          }
+        }
+      },
+      "planes": [
+        {
+          "frame": 12,
+          "offsetMm": -1.5,
+          "originRasMm": [
+            -7.432836210445407,
+            297.2918763877385,
+            289.87929027711976
+          ],
+          "width": [
+            -0.00860361745144153,
+            -0.04964861892044919,
+            -0.9987296893584575
+          ],
+          "beam": [
+            -0.044988102220235957,
+            -0.9977361336843469,
+            0.049986780244707
+          ],
+          "normal": [
+            -0.9989504734597061,
+            0.04536102049009753,
+            0.006350542868613737
+          ],
+          "outlineSha256": "0cae5ba49e15ab952df926895ec5ced511c8accb17f3b0928347d9c69a4d7a2e",
+          "bounds": [
+            [
+              -154.0,
+              111.0
+            ],
+            [
+              29.0,
+              197.0
+            ]
+          ],
+          "loops": 1
+        },
+        {
+          "frame": 12,
+          "offsetMm": 0.0,
+          "originRasMm": [
+            -8.931261920634967,
+            297.3599179184737,
+            289.8888160914227
+          ],
+          "width": [
+            -0.00860361745144153,
+            -0.04964861892044919,
+            -0.9987296893584575
+          ],
+          "beam": [
+            -0.044988102220235957,
+            -0.9977361336843469,
+            0.049986780244707
+          ],
+          "normal": [
+            -0.9989504734597061,
+            0.04536102049009753,
+            0.006350542868613737
+          ],
+          "outlineSha256": "efa1863758632b91dabfea3a33af83cec7e3c81e8c7572606c1383cfe6da3428",
+          "bounds": [
+            [
+              -154.0,
+              111.0
+            ],
+            [
+              35.0,
+              198.0
+            ]
+          ],
+          "loops": 1
+        },
+        {
+          "frame": 12,
+          "offsetMm": 1.5,
+          "originRasMm": [
+            -10.429687630824526,
+            297.42795944920886,
+            289.89834190572566
+          ],
+          "width": [
+            -0.00860361745144153,
+            -0.04964861892044919,
+            -0.9987296893584575
+          ],
+          "beam": [
+            -0.044988102220235957,
+            -0.9977361336843469,
+            0.049986780244707
+          ],
+          "normal": [
+            -0.9989504734597061,
+            0.04536102049009753,
+            0.006350542868613737
+          ],
+          "outlineSha256": "c390386cf8b20a1ef5780a9184fbfe49236d0a4fa8365181a826644b01ab88e2",
+          "bounds": [
+            [
+              -154.0,
+              110.0
+            ],
+            [
+              40.0,
+              199.0
+            ]
+          ],
+          "loops": 1
+        },
+        {
+          "name": "distal label end",
+          "originRasMm": [
+            -215.611328125,
+            -37.111328125,
+            263.59000076293944
+          ],
+          "width": [
+            1,
+            0,
+            0
+          ],
+          "beam": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "outlineSha256": "f26762d3d55084b5463c9958bc8801cf29d81563a2030713166ef26b3b1ae790",
+          "bounds": [
+            [
+              177.0,
+              190.0
+            ],
+            [
+              206.0,
+              217.0
+            ]
+          ],
+          "loops": 1
+        },
+        {
+          "name": "abdominal cap rim",
+          "originRasMm": [
+            -215.611328125,
+            -37.111328125,
+            446.59000076293944
+          ],
+          "width": [
+            1,
+            0,
+            0
+          ],
+          "beam": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "outlineSha256": "6f7d302e9ea1b802e2a8ee097eed53f04c11d95d840c5f7f238a12138b2b1944",
+          "bounds": [
+            [
+              179.0,
+              143.0
+            ],
+            [
+              216.0,
+              181.0
+            ]
+          ],
+          "loops": 1
+        }
+      ]
+    },
+    "aorta-screening": {
+      "cropZVoxelHalfOpen": [
+        117,
+        237
+      ],
+      "halfLabelSurfaceSha256": "86bfea3c7d1e5e2106c375d2bc2e1649edf2f01e78a84b575613d0658ea79431",
+      "labelEuler": 1,
+      "componentVoxels": [
+        14927
+      ],
+      "enclosedVoidVoxels": [],
+      "capZVoxel": 236.5,
+      "sweep": "aortic-screening",
+      "prior": {
+        "stage": {
+          "path": "sweeps/aortic-screening/scenes/aorta.mesh",
+          "sha256": "8cb4b43ae5b819bbe6f7d0f6fd3b11dd3615bdf06f2f8a7c7132d9c9f445f333",
+          "bytes": 232088
+        },
+        "compact": {
+          "path": "sweeps/aortic-screening/scenes/aorta.mesh",
+          "sha256": "8cb4b43ae5b819bbe6f7d0f6fd3b11dd3615bdf06f2f8a7c7132d9c9f445f333",
+          "bytes": 232088
+        },
+        "triangles": 12892
+      },
+      "savedPoseScript": {
+        "path": "sweeps/aortic-screening/sweep.js",
+        "sha256": "8e50b976b4ce5688f528868a1f71cbf90606705de0df2e68d934f333cb89f014",
+        "bytes": 15134
+      },
+      "savedFrames": {
+        "12": {
+          "pose": {
+            "contact": [
+              110.9045615414143,
+              220.62440976642478,
+              256.9730280740094
+            ],
+            "width": [
+              -0.9753478764092118,
+              -0.17803865483516837,
+              -0.1303792827427909
+            ],
+            "beam": [
+              0.21610696978708627,
+              -0.8901932741758416,
+              -0.40106572057648904
+            ],
+            "degrees": 2.62,
+            "apSpan": {
+              "millimetres": 23.93,
+              "endpointsPx": [
+                [
+                  252.815,
+                  278.122
+                ],
+                [
+                  245.732,
+                  242.708
+                ]
+              ]
+            }
+          },
+          "scan": {
+            "path": "sweeps/aortic-screening/media/scan-12.webp",
+            "sha256": "9bf67c7a1284ad76e2dde7a5845990918d998672a6abf49d38b2eb60bb274a63",
+            "bytes": 27242
+          },
+          "section": {
+            "path": "sweeps/aortic-screening/media/section-12.webp",
+            "sha256": "6371f1eb6543ff08db55355391535a5616076e9a59311b05f09b18800048571f",
+            "bytes": 25694
+          }
+        },
+        "30": {
+          "pose": {
+            "contact": [
+              118.65261594588168,
+              223.1312385047951,
+              216.13394098616646
+            ],
+            "width": [
+              -0.9772679865689912,
+              -0.2109811854598573,
+              0.02083798957057304
+            ],
+            "beam": [
+              0.19058236168070153,
+              -0.9173095019993796,
+              -0.3496021180683218
+            ],
+            "degrees": 7.3,
+            "apSpan": {
+              "millimetres": 19.123,
+              "endpointsPx": [
+                [
+                  252.701,
+                  239.977
+                ],
+                [
+                  246.232,
+                  211.851
+                ]
+              ]
+            }
+          },
+          "scan": {
+            "path": "sweeps/aortic-screening/media/scan-30.webp",
+            "sha256": "191d1d752916a05c5ab8646dcd6e34f0dccfcf3abb6e44d0c402633971cbf8ce",
+            "bytes": 25522
+          },
+          "section": {
+            "path": "sweeps/aortic-screening/media/section-30.webp",
+            "sha256": "6b2b4513b478e9126f9118c646b45cafc47031b6fdadc8b6496c6c0dde218b3f",
+            "bytes": 24716
+          }
+        },
+        "48": {
+          "pose": {
+            "contact": [
+              118.65154826063986,
+              219.00790030597216,
+              137.01345667724112
+            ],
+            "width": [
+              -0.9737651335119359,
+              -0.0783512076233924,
+              0.21364117819474257
+            ],
+            "beam": [
+              0.11520222062597849,
+              -0.9793900952924051,
+              0.16590204822719132
+            ],
+            "degrees": 37.98,
+            "apSpan": {
+              "millimetres": 16.794,
+              "endpointsPx": [
+                [
+                  254.476,
+                  216.219
+                ],
+                [
+                  252.455,
+                  190.955
+                ]
+              ]
+            }
+          },
+          "scan": {
+            "path": "sweeps/aortic-screening/media/scan-48.webp",
+            "sha256": "3a37a0cd85a75b4bec9d991fba3d197b2e5fea8d374aef1b4e645a2caf4d7222",
+            "bytes": 26344
+          },
+          "section": {
+            "path": "sweeps/aortic-screening/media/section-48.webp",
+            "sha256": "617a360e89e4107c4f7e3b44e7927f014e3b93e517d6fc8f79b56f441bf4103f",
+            "bytes": 25772
+          }
+        }
+      },
+      "planes": [
+        {
+          "frame": 12,
+          "offsetMm": -1.5,
+          "originRasMm": [
+            -49.18749947408221,
+            294.45431823050916,
+            425.2994576033097
+          ],
+          "width": [
+            -0.975347876409212,
+            -0.1780386548351684,
+            -0.13037928274279093
+          ],
+          "beam": [
+            0.21610696978708624,
+            -0.8901932741758416,
+            -0.401065720576489
+          ],
+          "normal": [
+            -0.044657559197567226,
+            -0.4193544705813672,
+            0.9067235137625677
+          ],
+          "outlineSha256": "04405b7be26785b9a4f7a123143d77b0b279eadd4e26eebec7686a41b1d92750",
+          "bounds": [
+            [
+              -17.0,
+              146.0
+            ],
+            [
+              17.0,
+              182.0
+            ]
+          ],
+          "loops": 1
+        },
+        {
+          "frame": 12,
+          "offsetMm": 0.0,
+          "originRasMm": [
+            -49.254485812878556,
+            293.82528652463714,
+            426.65954287395357
+          ],
+          "width": [
+            -0.975347876409212,
+            -0.1780386548351684,
+            -0.13037928274279093
+          ],
+          "beam": [
+            0.21610696978708624,
+            -0.8901932741758416,
+            -0.401065720576489
+          ],
+          "normal": [
+            -0.044657559197567226,
+            -0.4193544705813672,
+            0.9067235137625677
+          ],
+          "outlineSha256": "47d9b14a5f392d7739915d5895d2fd4c024b85ba92c93606dd48b2a705f76bd0",
+          "bounds": [
+            [
+              -17.0,
+              146.0
+            ],
+            [
+              18.0,
+              182.0
+            ]
+          ],
+          "loops": 1
+        },
+        {
+          "frame": 12,
+          "offsetMm": 1.5,
+          "originRasMm": [
+            -49.321472151674904,
+            293.1962548187651,
+            428.01962814459745
+          ],
+          "width": [
+            -0.975347876409212,
+            -0.1780386548351684,
+            -0.13037928274279093
+          ],
+          "beam": [
+            0.21610696978708624,
+            -0.8901932741758416,
+            -0.401065720576489
+          ],
+          "normal": [
+            -0.044657559197567226,
+            -0.4193544705813672,
+            0.9067235137625677
+          ],
+          "outlineSha256": "b27f30ca3babfaa60b96d86a22de3d634743f6f7e9241c5e65d089bae9531d51",
+          "bounds": [
+            [
+              -17.0,
+              147.0
+            ],
+            [
+              18.0,
+              182.0
+            ]
+          ],
+          "loops": 1
+        },
+        {
+          "frame": 30,
+          "offsetMm": -1.5,
+          "originRasMm": [
+            -37.771715738894954,
+            298.0920550393324,
+            363.99591248817717
+          ],
+          "width": [
+            -0.9772679865689913,
+            -0.21098118545985733,
+            0.02083798957057305
+          ],
+          "beam": [
+            0.1905823616807015,
+            -0.9173095019993794,
+            -0.34960211806832175
+          ],
+          "normal": [
+            0.09287435514498216,
+            -0.33768360475984593,
+            0.9366665026746713
+          ],
+          "outlineSha256": "b1386b1fb03dc4c2738325232f55f63bfb5b40ab6513a3dcc5335553eb5d7c36",
+          "bounds": [
+            [
+              -16.0,
+              127.0
+            ],
+            [
+              15.0,
+              157.0
+            ]
+          ],
+          "loops": 1
+        },
+        {
+          "frame": 30,
+          "offsetMm": 0.0,
+          "originRasMm": [
+            -37.63240420617748,
+            297.5855296321927,
+            365.4009122421892
+          ],
+          "width": [
+            -0.9772679865689913,
+            -0.21098118545985733,
+            0.02083798957057305
+          ],
+          "beam": [
+            0.1905823616807015,
+            -0.9173095019993794,
+            -0.34960211806832175
+          ],
+          "normal": [
+            0.09287435514498216,
+            -0.33768360475984593,
+            0.9366665026746713
+          ],
+          "outlineSha256": "978b1846084243ec982bfb54361cc7375bb81e1ad3b6af45fe60bc863a8c41ab",
+          "bounds": [
+            [
+              -16.0,
+              127.0
+            ],
+            [
+              15.0,
+              157.0
+            ]
+          ],
+          "loops": 1
+        },
+        {
+          "frame": 30,
+          "offsetMm": 1.5,
+          "originRasMm": [
+            -37.49309267346001,
+            297.0790042250529,
+            366.8059119962012
+          ],
+          "width": [
+            -0.9772679865689913,
+            -0.21098118545985733,
+            0.02083798957057305
+          ],
+          "beam": [
+            0.1905823616807015,
+            -0.9173095019993794,
+            -0.34960211806832175
+          ],
+          "normal": [
+            0.09287435514498216,
+            -0.33768360475984593,
+            0.9366665026746713
+          ],
+          "outlineSha256": "bb772ecbac8c2de3b0e4ddeaad2e1474008addcc2ef713987e53b4f79c92f68f",
+          "bounds": [
+            [
+              -16.0,
+              127.0
+            ],
+            [
+              15.0,
+              157.0
+            ]
+          ],
+          "loops": 1
+        },
+        {
+          "frame": 48,
+          "offsetMm": -1.5,
+          "originRasMm": [
+            -37.92836487610732,
+            291.12127998152766,
+            245.2761025387867
+          ],
+          "width": [
+            -0.9737651335119358,
+            -0.07835120762339239,
+            0.21364117819474254
+          ],
+          "beam": [
+            0.11520222062597846,
+            -0.979390095292405,
+            0.1659020482271913
+          ],
+          "normal": [
+            0.1962394280447359,
+            0.18616156828703928,
+            0.9627221600096183
+          ],
+          "outlineSha256": "5861376f0c24851ab097d7e56b4db0718783e0e6e7a98864c1dd99ab60cf2057",
+          "bounds": [
+            [
+              -14.0,
+              113.0
+            ],
+            [
+              15.0,
+              141.0
+            ]
+          ],
+          "loops": 1
+        },
+        {
+          "frame": 48,
+          "offsetMm": 0.0,
+          "originRasMm": [
+            -37.634005734040215,
+            291.40052233395824,
+            246.72018577880112
+          ],
+          "width": [
+            -0.9737651335119358,
+            -0.07835120762339239,
+            0.21364117819474254
+          ],
+          "beam": [
+            0.11520222062597846,
+            -0.979390095292405,
+            0.1659020482271913
+          ],
+          "normal": [
+            0.1962394280447359,
+            0.18616156828703928,
+            0.9627221600096183
+          ],
+          "outlineSha256": "1cb1c4332b12b1d330e60fd1bf58c1cc65501ccdadcbdaf88ca365b2f2e62805",
+          "bounds": [
+            [
+              -14.0,
+              113.0
+            ],
+            [
+              15.0,
+              141.0
+            ]
+          ],
+          "loops": 1
+        },
+        {
+          "frame": 48,
+          "offsetMm": 1.5,
+          "originRasMm": [
+            -37.339646591973114,
+            291.6797646863888,
+            248.16426901881556
+          ],
+          "width": [
+            -0.9737651335119358,
+            -0.07835120762339239,
+            0.21364117819474254
+          ],
+          "beam": [
+            0.11520222062597846,
+            -0.979390095292405,
+            0.1659020482271913
+          ],
+          "normal": [
+            0.1962394280447359,
+            0.18616156828703928,
+            0.9627221600096183
+          ],
+          "outlineSha256": "e3fbbc009579ceea901110cf62e9f3cdfe81cfc5d1bc587492b2a1111586ae19",
+          "bounds": [
+            [
+              -14.0,
+              113.0
+            ],
+            [
+              15.0,
+              141.0
+            ]
+          ],
+          "loops": 1
+        },
+        {
+          "name": "distal label end",
+          "originRasMm": [
+            -215.611328125,
+            -37.111328125,
+            263.59000076293944
+          ],
+          "width": [
+            1,
+            0,
+            0
+          ],
+          "beam": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "outlineSha256": "f26762d3d55084b5463c9958bc8801cf29d81563a2030713166ef26b3b1ae790",
+          "bounds": [
+            [
+              177.0,
+              190.0
+            ],
+            [
+              206.0,
+              217.0
+            ]
+          ],
+          "loops": 1
+        },
+        {
+          "name": "screening cap rim",
+          "originRasMm": [
+            -215.611328125,
+            -37.111328125,
+            395.59000076293944
+          ],
+          "width": [
+            1,
+            0,
+            0
+          ],
+          "beam": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "outlineSha256": "93617f857d53d821af13182b83f4ee5088eaf5dc5ee32da061a4d08d4255c0d3",
+          "bounds": [
+            [
+              186.0,
+              153.0
+            ],
+            [
+              222.0,
+              189.0
+            ]
+          ],
+          "loops": 1
+        }
+      ]
+    }
+  },
+  "proceduralChapter": {
+    "path": "tours/abdomen/abdomen-survey.html",
+    "sha256": "bb896ba09fa5d1528e1dca7ffd2a0a65bf7f77712753fe013072c856f6db0544",
+    "bytes": 24407
+  },
+  "aaaChapter": {
+    "page": {
+      "path": "tours/aaa/aaa-negative.html",
+      "sha256": "529df1f1e472e642597fa0707c60049748afe5dd5d316f734622b8d4506827a6",
+      "bytes": 7572
+    },
+    "scene": {
+      "path": "aaa-acquisitions/aaa-negative.scene.json",
+      "sha256": "2bdbd30e9f0edce877018ad3958874a2d198de724acb07dde7319a9dada34e46",
+      "bytes": 65220
+    },
+    "modelWall": {
+      "path": "aaa-acquisitions/assets/normal/wall.mesh",
+      "sha256": "63d412695425ae798e5696db3e6ddf9e6ae31eec57c1fba87d4e13cba35b629b",
+      "bytes": 203492
+    }
+  }
+}

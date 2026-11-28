@@ -4,11 +4,16 @@ import argparse
 import json
 from pathlib import Path
 import shutil
+import struct
 import tempfile
+
+from assetkit import AssetKitError, AssetRegistry
+from assetkit.ultrasound import GALLERY_REFERENCE_CONFIG, read_gallery_references
+from med_assets.ultrasound_review import chapter_mesh_bindings
 
 import assemble_tours
 from gallery_reference_sources import write_gallery_donors
-from delivery import read_poses, sha256
+from delivery import read_poses, sha256, validate_mesh
 from asset_qualification import validate_reviews
 
 
@@ -58,6 +63,93 @@ def verify_review_failures(work):
     must_fail('Missing or unbound')
 
 
+def verify_chapter_mesh_bindings(work):
+    mesh = work / 'parts'
+    mesh.mkdir()
+    reviewed = mesh / 'rim.mesh'
+    sibling = mesh / 'wall.mesh'
+    pose = mesh / 'pose.json'
+
+    def triangle(x):
+        return struct.pack('<2I9f3I', 3, 1, x, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
+
+    reviewed.write_bytes(triangle(1))
+    sibling.write_bytes(triangle(1))
+    pose.write_text('[1, 0, 0]')
+    placement = {'millimetresPerUnit': 1.5}
+    chapter = dict(id='saved', evidenceFrame=12, observation='Trace the rim',
+                   reviewMeshes={
+                       'rim': dict(path='parts/rim.mesh', placement=placement, inputs=['parts/pose.json']),
+                       'wall': dict(path='parts/wall.mesh', placement=placement, inputs=[]),
+                   })
+
+    def bindings():
+        return chapter_mesh_bindings(work, {'worked': [chapter]}, validate_mesh=validate_mesh)['worked']['saved']
+
+    original = bindings()
+    sibling.write_bytes(triangle(2))
+    assert bindings()['rim'] == original['rim']
+    assert bindings()['wall']['meshSha256'] != original['wall']['meshSha256']
+    reviewed.write_bytes(triangle(2))
+    assert bindings()['rim']['meshSha256'] != original['rim']['meshSha256']
+    reviewed.write_bytes(triangle(1))
+    placement['millimetresPerUnit'] = 1
+    assert bindings()['rim']['chapterSha256'] != original['rim']['chapterSha256']
+    placement['millimetresPerUnit'] = 1.5
+    pose.write_text('[0, 1, 0]')
+    assert bindings()['rim']['chapterSha256'] != original['rim']['chapterSha256']
+    pose.write_text('[1, 0, 0]')
+    assert bindings()['rim'] == original['rim']
+
+    for bad_bytes, message in ((None, 'Missing artifact file'), (b'corrupt', 'Invalid packed mesh')):
+        reviewed.unlink()
+        if bad_bytes is not None:
+            reviewed.write_bytes(bad_bytes)
+        try:
+            bindings()
+        except ValueError as error:
+            assert message in str(error), error
+        else:
+            raise AssertionError(f'Chapter mesh accepted {message}')
+        if not reviewed.exists():
+            reviewed.write_bytes(triangle(1))
+    print('Chapter mesh binding: sibling edit preserved currency; mesh, placement and pose edits invalidated it; missing and corrupt payloads rejected.')
+
+
+def verify_companions(destination, tours):
+    from copy import deepcopy
+    from survey_exemplars import CASES, bind_consumer
+
+    by_id = {tour['id']: tour for tour in tours}
+    for path in sorted(CASES.glob('*/consumer.json')):
+        for consumer in json.loads(path.read_text())['consumers']:
+            if consumer.get('presentation') != 'companion' or consumer['sweep'] not in by_id:
+                continue
+            case, chapter = consumer['case'], consumer['chapter']
+            def bind(row):
+                worked = dict(id=chapter, evidenceFrame=consumer['workedFrame'],
+                              observation='Original worked task', measurement='Original measurement')
+                bind_consumer(destination, by_id, {case: [worked]}, row)
+                assert worked['observation'] == 'Original worked task' and worked['measurement'] == 'Original measurement'
+                return worked
+
+            original = bind(consumer)
+            assert original['exemplar']['frame'] == consumer['frame'] and 'sourceSweep' not in original
+            for field in ('part', 'poseSha256', 'workedFrame', 'subject', 'sha256', 'revision'):
+                changed = deepcopy(consumer)
+                if field == 'subject':
+                    changed['requirements'][0]['subject'] = 'wrong-case'
+                elif field in ('sha256', 'revision'):
+                    changed['pins'][0][field] = '0' * 64
+                else:
+                    changed[field] = -1 if field == 'workedFrame' else 'wrong-input'
+                try:
+                    bind(changed)
+                except ValueError:
+                    continue
+                raise AssertionError(f'{case}/{chapter}: accepted a changed {field}')
+
+
 def verify_subset(staging, destination, expected):
     """A removed study may change which surviving tour owns a shared mesh."""
     actual = javascript_value(destination / 'abdomen-tours.js', 'abdomenTours')
@@ -75,17 +167,35 @@ def verify(source, aaa_acquisitions=None):
     with tempfile.TemporaryDirectory() as work:
         work = Path(work)
         verify_review_failures(work)
+        verify_chapter_mesh_bindings(work)
         source_root = work / 'gallery-inputs'
-        bladder = source_root / 'models/bladder/exports/pelvic-base-r01/bladder-pelvic-base.glb'
+        repo = assemble_tours.HERE.parents[1]
+        donor = next(donor for donor in read_gallery_references(repo).donors if donor.slot == 'bladder')
+        _, _, export = AssetRegistry.load_records(repo, (donor.ref.record,)).require_record_export(donor.ref)
+        config = source_root / GALLERY_REFERENCE_CONFIG
+        config.parent.mkdir(parents=True)
+        config.write_text(json.dumps({'schemaVersion': 1, 'donors': [donor.to_dict()]}))
+        record = source_root / donor.ref.record
+        record.parent.mkdir(parents=True)
+        shutil.copyfile(repo / donor.ref.record, record)
+        bladder = source_root / export.path
         bladder.parent.mkdir(parents=True)
-        bladder.write_text('version https://git-lfs.github.com/spec/v1\n')
+        pointer = f'version https://git-lfs.github.com/spec/v1\noid sha256:{export.sha256}\nsize {export.bytes}\n'
+        bladder.write_text(pointer)
         write_gallery_donors(work, source_root)
         assert json.loads((work / 'development/gallery-donors.json').read_text()) == []
+        bladder.write_text(pointer.replace(export.sha256, 'a' * 64))
+        try:
+            write_gallery_donors(work, source_root)
+        except AssetKitError as exc:
+            assert 'Gallery donor pointer identity mismatch' in str(exc)
+        else:
+            raise AssertionError('Workbench skipped a pointer with an unexpected digest')
         bladder.write_bytes(b'corrupt donor')
         try:
             write_gallery_donors(work, source_root)
-        except ValueError as exc:
-            assert 'Unexpected atlas input' in str(exc)
+        except AssetKitError as exc:
+            assert 'Export size or SHA-256 mismatch' in str(exc)
         else:
             raise AssertionError('Workbench accepted a donor with an unexpected digest')
         staging = work / 'staging'
@@ -124,6 +234,7 @@ def verify(source, aaa_acquisitions=None):
         try:
             assemble_tours.assemble(staging, destination)
             tours = javascript_value(destination / 'abdomen-tours.js', 'abdomenTours')
+            verify_companions(destination, tours)
             references = javascript_value(destination / 'references.js', 'abdomenReferences')
             # All declared per-view comparison IDs resolve in the complete delivered study.
             if len(tours) == 28 and (destination / 'carotid-survey/protocol.json').is_file():
@@ -362,6 +473,7 @@ def verify(source, aaa_acquisitions=None):
                 cases.extend([
                     (seal, None, 'Missing registered AAA acquisition receipt', False),
                     (seal, json.dumps({**data, 'recipeSha256': '0' * 64}).encode(), 'current case and rendering recipes', False),
+                    (seal, json.dumps({**data, 'registrationSurfaceSha256': '0' * 64}).encode(), 'CT registration surface', False),
                     (seal, json.dumps({**data, 'sharedAssets': wrong_torso}).encode(), 'selected normal aortic anatomy', False),
                     (bundle / 'assets/aaa-positive/sac-maximum/scan-14.webp', b'wrong image',
                      'AAA acquisition identity mismatch', False),

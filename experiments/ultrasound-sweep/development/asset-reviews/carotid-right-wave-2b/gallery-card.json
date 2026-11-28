@@ -1,0 +1,60 @@
+{
+  "slug": "carotid-right-wave-2b",
+  "exportRef": {
+    "record": "models/carotid_right_s1127/asset.record.json",
+    "asset": "anatomy:s1127:carotid-right",
+    "revision": "r01",
+    "export": "neck"
+  },
+  "review": {
+    "case": "carotid-normal",
+    "chapter": "right-cca-gray",
+    "part": "common_carotid_artery_right"
+  },
+  "adopted": true,
+  "cardTitle": "Right common carotid",
+  "subtitle": "carotid-normal · CT frame 48",
+  "revisionTitle": "s1127 Right common carotid · r01",
+  "revisionLinkLabel": "Right common carotid",
+  "coordinateFrame": "s1127 voxel indices · RAS axes · 1.5 mm grid",
+  "sourceId": "source:totalsegmentator-v2.0.1:s1127:carotid-right",
+  "sourceLabel": "TotalSegmentator v2.0.1 · Jakob Wasserthal and contributors · CC BY 4.0",
+  "detailsLabel": "Source sections, saved scan and independent review",
+  "figures": [
+    {
+      "file": "previous-vs-r01.webp",
+      "width": 1380,
+      "height": 1010,
+      "alt": "Right common carotid before and after refinement",
+      "caption": "The long neck port and the full thyroid-context port preserve their original extents."
+    },
+    {
+      "file": "matched-surfaces.webp",
+      "width": 1380,
+      "height": 1010,
+      "alt": "Raw half-label against both carotid ports",
+      "caption": "Matched overview and reverse close-ups show the axial steps and the retained bend."
+    },
+    {
+      "file": "protected-planes.webp",
+      "width": 1440,
+      "height": 1120,
+      "alt": "Protected carotid sections at frames 12 and 48",
+      "caption": "The transverse and longitudinal cuts follow the same CT grid. The cap marks the cropped extent."
+    },
+    {
+      "file": "live-frame-12.webp",
+      "width": 1438,
+      "height": 1130,
+      "alt": "Transverse and longitudinal frames in the carotid sweep",
+      "caption": "The scan and overlay come from the original acquisition. The worked case opens this subject separately."
+    },
+    {
+      "file": "registered-context.webp",
+      "width": 1100,
+      "height": 960,
+      "alt": "Reviewed neck chapter and both context sweeps with thyroid r04",
+      "caption": "The top row shows the worked chapter CT companion. The next two rows show the same registered neck context after the thyroid surface correction."
+    }
+  ]
+}

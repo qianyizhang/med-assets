@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "assets": [
+    {
+      "id": "liver-hra",
+      "title": "Liver · HRA Female v1.10",
+      "kind": "model",
+      "families": ["digestive"],
+      "concepts": ["liver"],
+      "revisions": [
+        {
+          "id": "teaching-economy-r02",
+          "status": "active",
+          "provenance": {
+            "source": "Human Reference Atlas v1.10",
+            "subject": "hra-female-v1.10",
+            "license": "CC-BY-4.0",
+            "units": "m",
+            "laterality": "right",
+            "registration": "native"
+          },
+          "capabilities": ["isolate-parts"],
+          "exports": [
+            {
+              "id": "mesh",
+              "role": "teaching-mesh",
+              "variant": "normal",
+              "format": "glb",
+              "path": "exports/teaching-economy-r02/liver.glb",
+              "sha256": "5978654a1e5b8ac608735dde82434e3fe67c1e1883930c4fa1b60d53fe85dd7d",
+              "bytes": 595352,
+              "triangles": 41470,
+              "parts": [
+                { "id": "liver-capsule", "selector": "VH_F_capsule_of_the_liver", "concepts": ["liver"] },
+                { "id": "falciform-ligament", "selector": "VH_F_falciform_ligament", "concepts": ["liver"] }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "liver-s1233",
+      "title": "Liver · s1233 (Modular Ultrasound Lineage)",
+      "kind": "model",
+      "families": ["digestive", "ultrasound-abdomen"],
+      "concepts": ["liver"],
+      "revisions": [
+        {
+          "id": "r03",
+          "status": "active",
+          "provenance": {
+            "source": "TotalSegmentator",
+            "subject": "s1233",
+            "license": "CC-BY-4.0",
+            "units": "m",
+            "laterality": "right",
+            "registration": "native"
+          },
+          "capabilities": ["isolate-parts", "bmode-slice"],
+          "exports": [
+            {
+              "id": "surface",
+              "role": "teaching-mesh",
+              "variant": "normal",
+              "format": "glb",
+              "path": "exports/r03/liver-surface.glb",
+              "bytes": 320000,
+              "triangles": 14000,
+              "parts": [
+                { "id": "liver-outer", "selector": "Liver_Outer", "concepts": ["liver"], "bytes": 320000 }
+              ]
+            },
+            {
+              "id": "vessels",
+              "role": "detail-overlay",
+              "variant": "normal",
+              "format": "glb",
+              "path": "exports/r03/liver-vessels.glb",
+              "bytes": 680000,
+              "triangles": 28000,
+              "parts": [
+                { "id": "portal-vein", "selector": "PortalVein", "concepts": ["portal-vein"], "bytes": 360000 },
+                { "id": "hepatic-vein", "selector": "HepaticVein", "concepts": ["hepatic-vein"], "bytes": 320000 }
+              ]
+            },
+            {
+              "id": "focal-lesion",
+              "role": "pathology-overlay",
+              "variant": "focal-lesion",
+              "format": "glb",
+              "path": "exports/r03/liver-focal-lesion.glb",
+              "bytes": 75000,
+              "triangles": 2400,
+              "parts": [
+                {
+                  "id": "focal-lesion-01",
+                  "selector": "FocalLesion_01",
+                  "concepts": ["hepatic-focal-lesion"],
+                  "bytes": 75000,
+                  "provenance": {
+                    "source": "authored-pathology-v1",
+                    "subject": "synthetic",
+                    "registration": "illustrative",
+                    "limits": ["Authored teaching lesion fitted to s1233 right lobe"]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

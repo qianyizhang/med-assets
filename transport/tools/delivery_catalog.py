@@ -1,8 +1,6 @@
 """Path bindings for immutable Anatomy Gallery delivery routes."""
 from pathlib import Path
-import sys
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "lib"))
 from med_assets.artifacts import source_path
 
 DELIVERY_INDEX = Path('sites/anatomy-gallery/app/src/content/assets/delivery-index.json')

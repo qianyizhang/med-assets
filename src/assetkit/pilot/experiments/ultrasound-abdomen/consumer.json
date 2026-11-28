@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "consumers": [
+    {
+      "id": "body-systems:digestive:liver-overview",
+      "title": "Body Systems · Liver Localization",
+      "kind": "lesson-stop",
+      "requirements": [
+        { "id": "liver-exterior", "concepts": ["liver"], "subject": "s1233", "status": "satisfied" }
+      ],
+      "pins": [
+        {
+          "requirement": "liver-exterior",
+          "asset": "liver-s1233",
+          "revision": "r03",
+          "export": "surface",
+          "parts": ["liver-outer"],
+          "registration": "native"
+        }
+      ]
+    },
+    {
+      "id": "ultrasound:sweep:abdomen:liver",
+      "title": "Ultrasound Abdomen · Normal Liver Sweep",
+      "kind": "ultrasound-sweep",
+      "requirements": [
+        { "id": "parenchyma", "concepts": ["liver"], "subject": "s1233", "status": "satisfied" },
+        { "id": "vessels", "concepts": ["portal-vein", "hepatic-vein"], "subject": "s1233", "status": "satisfied" },
+        {
+          "id": "caval-junction",
+          "description": "Separately registered hepatic-vein/IVC confluence",
+          "concepts": ["hepatic-vein-ivc-junction"],
+          "subject": "s1233",
+          "status": "open-gap"
+        }
+      ],
+      "pins": [
+        {
+          "requirement": "parenchyma",
+          "asset": "liver-s1233",
+          "revision": "r03",
+          "export": "surface",
+          "parts": ["liver-outer"],
+          "registration": "native"
+        },
+        {
+          "requirement": "vessels",
+          "asset": "liver-s1233",
+          "revision": "r03",
+          "export": "vessels",
+          "parts": ["portal-vein", "hepatic-vein"],
+          "registration": "native"
+        }
+      ]
+    },
+    {
+      "id": "ultrasound:case:abdomen:focal-lesion",
+      "title": "Ultrasound Abdomen · Focal Liver Lesion",
+      "kind": "ultrasound-case",
+      "requirements": [
+        { "id": "parenchyma", "concepts": ["liver"], "subject": "s1233", "status": "satisfied" },
+        { "id": "vessels", "concepts": ["portal-vein", "hepatic-vein"], "subject": "s1233", "status": "satisfied" },
+        { "id": "lesion", "concepts": ["hepatic-focal-lesion"], "variant": "focal-lesion", "status": "satisfied" }
+      ],
+      "pins": [
+        {
+          "requirement": "parenchyma",
+          "asset": "liver-s1233",
+          "revision": "r03",
+          "export": "surface",
+          "parts": ["liver-outer"],
+          "registration": "native"
+        },
+        {
+          "requirement": "vessels",
+          "asset": "liver-s1233",
+          "revision": "r03",
+          "export": "vessels",
+          "parts": ["portal-vein", "hepatic-vein"],
+          "registration": "native"
+        },
+        {
+          "requirement": "lesion",
+          "asset": "liver-s1233",
+          "revision": "r03",
+          "export": "focal-lesion",
+          "parts": ["focal-lesion-01"],
+          "registration": "illustrative"
+        }
+      ]
+    }
+  ]
+}

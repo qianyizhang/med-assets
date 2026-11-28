@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:hra:kidney-left",
+  "title": "Female HRA left kidney",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/kidney_left",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:hra-kidney-female-left-v1-3:matte-r02",
+      "title": "Female HRA left kidney v1.3 matte source",
+      "sourceType": "atlas-derived GLB",
+      "subject": "HRA female left kidney v1.3 reference organ",
+      "path": "models/kidney_left/exports/hra-female-v1.3-r02/kidney_left.glb",
+      "bytes": 1378060,
+      "sha256": "8e55b5ae48821f067f41bd23ffdd668f68c7ff705cf49e9a40287042fee469fc",
+      "license": "Kristen Browne and Heidi Schlehlein, HRA, CC BY 4.0.",
+      "evidence": [
+        {
+          "path": "models/kidney_left/ATTRIBUTION.md",
+          "sha256": "e9b9a76266feddb6483319a5deaa7a89837d1a8c80c22d2316534ab03baaa316"
+        },
+        {
+          "path": "sources/datasets/hra/kidney-female-left-v1.3/metadata.json",
+          "sha256": "d0a53168e67232f9756770f50cc902645889ad8434529ca3bf994d854c3ffbb1"
+        },
+        {
+          "path": "sources/datasets/hra/kidney-female-left-v1.3/provenance.json",
+          "sha256": "57a5d06011c771defe8bc7273090d8516cb00423f06285a1a0c2be33802e7b7f"
+        },
+        {
+          "path": "reviews/kidney_left/2026-10-23-hra-female-v1.3-r02/record.json",
+          "sha256": "99003183e95638c0e4c3d2b7266c165e4c3fea35a37238201366446d10e3ee1d"
+        },
+        {
+          "path": "assemblies/kidney-pair/recipes/README.md",
+          "sha256": "4993ce0300d57bc4ca848e80d845b9a4f2b714c7c0f6fad04d71cebbc8a8abcf"
+        }
+      ],
+      "limitations": [
+        "The source exterior is organ-local. Renal pelvis, calyces, ureter and vasculature are absent."
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "partId": "kidney-left-cortex",
+      "label": "Left outer renal cortex",
+      "selectors": [
+        "VH_F_outer_cortex_of_kidney_L"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "kidney-left-hilum",
+      "label": "Left renal hilum",
+      "selectors": [
+        "VH_F_hilum_of_kidney_L"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "kidney-left-capsule",
+      "label": "Left renal capsule",
+      "selectors": [
+        "VH_F_kidney_capsule_L"
+      ],
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "teaching-economy-r01",
+      "status": "provisional",
+      "recipe": "recipes/teaching-economy-r01.json",
+      "recipeEvidence": {
+        "path": "models/kidney_left/exports/teaching-economy-r01/README.md",
+        "sha256": "ef809b9e195a2fc4631269bf9f2cca5985877b4b9e898159558f3bbc9228ccfd"
+      },
+      "sourceIds": [
+        "source:hra-kidney-female-left-v1-3:matte-r02"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "reviews/kidney_left/2026-10-23-hra-female-v1.3-r02/record.json"
+      },
+      "partIds": [
+        "kidney-left-cortex",
+        "kidney-left-hilum",
+        "kidney-left-capsule"
+      ],
+      "exports": [
+        {
+          "id": "reference",
+          "path": "models/kidney_left/exports/teaching-economy-r01/kidney_left.glb",
+          "bytes": 560708,
+          "sha256": "e000c2b4408caf1bbbbf2a5649c5e0e3ceaf94b3c2bf794da3a2f30587bb3778",
+          "format": "glb",
+          "triangles": 30561,
+          "partIds": [
+            "kidney-left-cortex",
+            "kidney-left-hilum",
+            "kidney-left-capsule"
+          ]
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "Placement in the body or across cases is unverified. The edition supports only native-frame exterior and hilar reference."
+  ]
+}

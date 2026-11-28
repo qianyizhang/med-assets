@@ -1,4 +1,5 @@
 {
+  "common": {"case": "s1233"},
   "structures": {
     "liver": {
       "label": "Liver",
@@ -53,9 +54,68 @@
   },
   "sweeps": [
     {
+      "id": "gallbladder",
+      "title": "Gallbladder",
+      "organ": "gallbladder",
+      "region": "Right upper abdomen",
+      "exterior": "fitted-atlas",
+      "sectorDepthMm": 133,
+      "keyframeLabels": [
+        "Long axis",
+        "Short axis"
+      ],
+      "phaseLabels": [
+        "Find window",
+        "Rotate probe"
+      ],
+      "parts": [
+        "gallbladder",
+        "liver",
+        "ribs"
+      ],
+      "overlayParts": [
+        "gallbladder",
+        "liver",
+        "portal_vein_and_splenic_vein"
+      ],
+      "landmarks": [
+        "extrahepatic-duct"
+      ],
+      "partStyles": {
+        "gallbladder": {
+          "color": "#3fbf9e",
+          "opacity": 1
+        },
+        "liver": {
+          "color": "#ad6155",
+          "opacity": 0.58
+        },
+        "ribs": {
+          "color": "#dacaad",
+          "opacity": 0.78
+        }
+      },
+      "sceneAssets": {
+        "gallbladder": {
+          "asset": "anatomy:s1233:gallbladder",
+          "revision": "r01",
+          "export": "gallbladder",
+          "registration": "native"
+        }
+      }
+    },
+    {
       "id": "liver",
       "title": "Liver",
       "organ": "liver",
+      "sceneAssets": {
+        "liver": {
+          "asset": "anatomy:s1233:liver-window",
+          "revision": "r02",
+          "export": "liver",
+          "registration": "native"
+        }
+      },
       "parts": [
         "liver",
         "portal_vein_and_splenic_vein",
@@ -124,7 +184,15 @@
       "exterior": "fitted-atlas",
       "landmarks": [
         "extrahepatic-duct"
-      ]
+      ],
+      "sceneAssets": {
+        "portal_vein_and_splenic_vein": {
+          "asset": "anatomy:s1233:portal-splenic-vein",
+          "revision": "r02",
+          "export": "portal-splenic-vein",
+          "registration": "native"
+        }
+      }
     },
     {
       "id": "pancreas",
@@ -155,7 +223,15 @@
       "exterior": "fitted-atlas",
       "landmarks": [
         "pancreatic-tail"
-      ]
+      ],
+      "sceneAssets": {
+        "pancreas": {
+          "asset": "anatomy:s1233:pancreas",
+          "revision": "r02",
+          "export": "pancreas",
+          "registration": "native"
+        }
+      }
     },
     {
       "id": "spleen",
@@ -185,12 +261,28 @@
         "pancreatic-tail"
       ],
       "requirePoseReceipt": true,
-      "requirePaletteReceipt": true
+      "requirePaletteReceipt": true,
+      "sceneAssets": {
+        "spleen": {
+          "asset": "anatomy:s1233:spleen",
+          "revision": "r01",
+          "export": "spleen",
+          "registration": "native"
+        }
+      }
     },
     {
       "id": "kidney-right",
       "title": "Right kidney",
       "organ": "kidney_right",
+      "sceneAssets": {
+        "kidney_right": {
+          "asset": "anatomy:s1233:kidney-right",
+          "revision": "r01",
+          "export": "kidney-right",
+          "registration": "native"
+        }
+      },
       "parts": [
         "kidney_right",
         "liver",
@@ -239,7 +331,15 @@
       ],
       "sectorDepthMm": 133,
       "exterior": "fitted-atlas",
-      "requirePaletteReceipt": true
+      "requirePaletteReceipt": true,
+      "sceneAssets": {
+        "kidney_left": {
+          "asset": "anatomy:s1233:kidney-left",
+          "revision": "r01",
+          "export": "kidney-left",
+          "registration": "native"
+        }
+      }
     },
     {
       "id": "aorta",
@@ -271,7 +371,21 @@
         170
       ],
       "focusRadius": 42,
-      "exterior": "fitted-atlas"
+      "exterior": "fitted-atlas",
+      "sceneAssets": {
+        "inferior_vena_cava": {
+          "asset": "anatomy:s1233:ivc",
+          "revision": "r01",
+          "export": "abdominal",
+          "registration": "native"
+        },
+        "aorta": {
+          "asset": "anatomy:s1233:aorta",
+          "revision": "ultrasound-r01",
+          "export": "aorta-abdomen",
+          "registration": "native"
+        }
+      }
     },
     {
       "id": "ivc",
@@ -306,7 +420,21 @@
       "exterior": "fitted-atlas",
       "landmarks": [
         "hepatic-vein"
-      ]
+      ],
+      "sceneAssets": {
+        "inferior_vena_cava": {
+          "asset": "anatomy:s1233:ivc",
+          "revision": "r01",
+          "export": "abdominal",
+          "registration": "native"
+        },
+        "aorta": {
+          "asset": "anatomy:s1233:aorta",
+          "revision": "ultrasound-r01",
+          "export": "aorta-abdomen",
+          "registration": "native"
+        }
+      }
     }
   ]
 }

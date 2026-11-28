@@ -1,0 +1,40 @@
+repos:
+  - repo: local
+    hooks:
+      - id: ruff
+        name: ruff (lint)
+        entry: uv run ruff check --fix
+        language: system
+        types: [python]
+        files: ^src/assetkit/
+      - id: ruff-format
+        name: ruff (format)
+        entry: uv run ruff format
+        language: system
+        types: [python]
+        files: ^src/assetkit/
+      - id: ty
+        name: ty (type check)
+        entry: uv run ty check
+        language: system
+        types: [python]
+        files: ^src/assetkit/
+      - id: check-json
+        name: check json
+        entry: >-
+          uv run python -c "import json, sys; [json.load(open(p, encoding='utf-8')) for p in sys.argv[1:]]"
+        language: system
+        types: [json]
+        exclude: ^sites/.*/tsconfig.*\.json$
+      - id: check-toml
+        name: check toml
+        entry: >-
+          uv run python -c "import sys, tomllib; [tomllib.load(open(p, 'rb')) for p in sys.argv[1:]]"
+        language: system
+        types: [toml]
+      - id: check-merge-conflict
+        name: check merge conflict markers
+        entry: >-
+          uv run python -c "import pathlib, sys; bad=[p for p in sys.argv[1:] if any(line.startswith(('<<<<<<< ', '=======', '>>>>>>> ')) for line in pathlib.Path(p).read_text(encoding='utf-8', errors='ignore').splitlines())]; sys.exit(1 if bad else 0)"
+        language: system
+        types: [text]

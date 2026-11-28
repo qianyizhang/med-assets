@@ -7,10 +7,10 @@ import subprocess
 import sys
 import unittest
 
+from med_assets.artifacts import parse_pointer, repo_file, source_path
+
 ROOT = Path(__file__).resolve().parents[1]
 PACKAGE = Path('experiments/dental-video-treatments')
-sys.path.insert(0, str(ROOT / 'lib'))
-from med_assets.artifacts import parse_pointer, repo_file, source_path
 
 spec = importlib.util.spec_from_file_location('dental_video_replay', ROOT / PACKAGE / 'replay.py')
 replay = importlib.util.module_from_spec(spec)

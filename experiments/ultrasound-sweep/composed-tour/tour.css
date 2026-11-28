@@ -121,3 +121,7 @@
 .caseTimeline .chapters a span { position: absolute; clip-path: inset(50%); width: 1px; height: 1px; overflow: hidden; }
 .acquisitionPicker { display: flex; align-items: center; gap: .65rem; padding-block: .35rem .55rem; font-size: .9rem; }
 .acquisitionPicker select { min-width: 0; max-width: 100%; }
+
+.ct-exemplar { grid-column: 1 / -1; }
+.ct-exemplar summary { cursor: pointer; color: var(--teal); }
+.ct-exemplar iframe { display: block; width: 100%; height: min(70vh, 42rem); border: 0; }

@@ -1,0 +1,123 @@
+{
+  "version": 1,
+  "rubricHash": "a38e552869511cd5bceacaa5ea4456f4d0530e58e7dce2bc6855587a98b0e684",
+  "records": [
+    {
+      "source": "sweep",
+      "case": "portal-vein",
+      "part": "portal_vein_and_splenic_vein",
+      "occurrence": 1,
+      "revision": "anatomy:s1233:portal-splenic-vein@r02:portal-splenic-vein",
+      "meshSha256": "592018e3539ed1eca28b009513fc12922f7d6123a4310ffb33923f900d1c81a5",
+      "rubric": "docs/guides/asset-quality.md",
+      "reviewer": "Independent campaign lead · agent review",
+      "reviewedOn": "2026-11-28",
+      "task": "Follow the joined portal and splenic venous exterior in 3D. The worked case supplies the Doppler sample.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "The single connected shell preserves the small handle in the source label. The raw maximum is 0.99 mm globally and 2.63 mm across the three saved cuts.",
+        "form": "The confluence and curved venous course survive the reverse view. The upright branch has fewer axial bands than the first trial. A low shelf beneath the junction is also visible in the raw label.",
+        "readability": "The liver partly hides the junction in the oblique view. Rotating to axial and opening the overlay locates the venous segment beneath the liver. The worked chapter retains its color and spectral example.",
+        "economy": "The joined exterior uses 6,000 triangles, down from 11,316. The 24-view silhouette departs from the dense surface by at most 0.56 px."
+      },
+      "disposition": "Adopt for the named 3D orientation task",
+      "note": "Orientation of the combined exterior from a separate CT subject. The Doppler signal, velocity and direction belong to the worked case.",
+      "comparison": {
+        "label": "Joined portal and splenic exterior before and after refinement",
+        "candidate": "asset-reviews/portal-vein-wave-2b/previous-vs-r02.webp",
+        "candidateLabel": "The matched close-up shows the underside shelf and the short upright limb.",
+        "views": [
+          {
+            "label": "Raw CT label, previous mesh and selected r02",
+            "candidate": "asset-reviews/portal-vein-wave-2b/matched-surfaces.webp",
+            "candidateLabel": "The narrow terminal geometry and source junction are preserved. The label combines both veins."
+          },
+          {
+            "label": "Full protected portal contours",
+            "candidate": "asset-reviews/portal-vein-wave-2b/protected-planes.webp",
+            "candidateLabel": "The worst sampled gap is 2.63 mm on the adjacent cut and 0.88 mm on the saved one."
+          },
+          {
+            "label": "Frame 12 in the CT venous sweep",
+            "candidate": "asset-reviews/portal-vein-wave-2b/live-frame-12.webp",
+            "candidateLabel": "The liver partly obscures the junction. The axial view and labeled overlay show the course."
+          }
+        ]
+      },
+      "links": [
+        {
+          "label": "Source, replay and protected contour measurements",
+          "href": "asset-reviews/portal-vein-wave-2b/measurements.json"
+        }
+      ]
+    },
+    {
+      "source": "case",
+      "case": "abdomen-survey",
+      "chapter": "abd-portal-doppler",
+      "chapterSha256": "4667ec29abc430479f4a7b3c73a9d6932e88a7e278e9b4dc9a967b252efe4c73",
+      "part": "portal_vein_and_splenic_vein",
+      "occurrence": 1,
+      "revision": "anatomy:s1233:portal-splenic-vein@r02:portal-splenic-vein",
+      "meshSha256": "592018e3539ed1eca28b009513fc12922f7d6123a4310ffb33923f900d1c81a5",
+      "rubric": "docs/guides/asset-quality.md",
+      "reviewer": "Independent campaign lead · agent review",
+      "reviewedOn": "2026-11-28",
+      "task": "Follow the joined portal and splenic venous exterior in 3D. The worked case supplies the Doppler sample.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "The single connected shell preserves the small handle in the source label. The raw maximum is 0.99 mm globally and 2.63 mm across the three saved cuts.",
+        "form": "The confluence and curved venous course survive the reverse view. The upright branch has fewer axial bands than the first trial. A low shelf beneath the junction is also visible in the raw label.",
+        "readability": "The liver partly hides the junction in the oblique view. Rotating to axial and opening the overlay locates the venous segment beneath the liver. The worked chapter retains its color and spectral example.",
+        "economy": "The joined exterior uses 6,000 triangles, down from 11,316. The 24-view silhouette departs from the dense surface by at most 0.56 px."
+      },
+      "disposition": "Adopt for the named 3D orientation task",
+      "note": "Orientation of the combined exterior from a separate CT subject. The Doppler signal, velocity and direction belong to the worked case.",
+      "comparison": {
+        "label": "Joined portal and splenic exterior before and after refinement",
+        "candidate": "asset-reviews/portal-vein-wave-2b/previous-vs-r02.webp",
+        "candidateLabel": "The matched close-up shows the underside shelf and the short upright limb.",
+        "views": [
+          {
+            "label": "Raw CT label, previous mesh and selected r02",
+            "candidate": "asset-reviews/portal-vein-wave-2b/matched-surfaces.webp",
+            "candidateLabel": "The narrow terminal geometry and source junction are preserved. The label combines both veins."
+          },
+          {
+            "label": "Full protected portal contours",
+            "candidate": "asset-reviews/portal-vein-wave-2b/protected-planes.webp",
+            "candidateLabel": "The worst sampled gap is 2.63 mm on the adjacent cut and 0.88 mm on the saved one."
+          },
+          {
+            "label": "Frame 12 in the CT venous sweep",
+            "candidate": "asset-reviews/portal-vein-wave-2b/live-frame-12.webp",
+            "candidateLabel": "The liver partly obscures the junction. The axial view and labeled overlay show the course."
+          }
+        ]
+      },
+      "links": [
+        {
+          "label": "Source, replay and protected contour measurements",
+          "href": "asset-reviews/portal-vein-wave-2b/measurements.json"
+        }
+      ]
+    }
+  ],
+  "evidenceSha256": {
+    "previous-vs-r02.webp": "f27654d97d61f8bb6459471eb2e84e3e3a9a8379b384bcb3e615c0cd98eeb4d1",
+    "matched-surfaces.webp": "5f378a189510ab90bf6a0c4a15b777d43e896f258149fe4db848737e2c2769ce",
+    "protected-planes.webp": "1e2d498c88b5bb199fe81c85dc50decf6cbe28a27f6c538ae9319d5a164fbaa2",
+    "live-frame-12.webp": "abfad39ad1a5f35b6b7325ad30d5a280884dc2f0e7dbc31a2a78090b1446cd83"
+  },
+  "measurementsSha256": "c1bd94d528e5d79130dfcdf0a9381a02b49c37acdd0f519dabdb5671e7a3b1a6"
+}

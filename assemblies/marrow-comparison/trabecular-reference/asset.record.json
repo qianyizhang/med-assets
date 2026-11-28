@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:kuczynski:trabecular-reference",
+  "title": "Independent trabecular micro-CT reference",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "assemblies/marrow-comparison/trabecular-reference",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:kuczynski:bmlpl-001-ref-17",
+      "title": "Kuczynski 2024 selected binary micro-CT segmentation",
+      "sourceType": "original NIfTI",
+      "subject": "Independent micro-CT specimen BMLPL_001_REF_17",
+      "license": "CC BY 4.0",
+      "evidence": [
+        {
+          "path": "sources/datasets/marrow-comparison-v1/selected-file.json",
+          "sha256": "147b250a37e54697d61f9fcd0de1958245514caf13d10f1d7ac29096ee2b8108"
+        },
+        {
+          "path": "reviews/draft_bone/2026-10-23-marrow-comparison/LICENSES.md",
+          "sha256": "cad852c6a71c4581810fb93f53b0a073e3a1e32dc449cf173e7b34e69f65d73f"
+        },
+        {
+          "path": "reviews/draft_bone/2026-10-23-marrow-comparison/evidence/reference-extraction.json",
+          "sha256": "f6270f0edba1b220dd78e2c4bb8ae661e7665ee4e1aaf07b22c7578a9b9e6e1f"
+        }
+      ],
+      "doi": "10.5281/zenodo.11061947",
+      "path": "sources/datasets/marrow-comparison-v1/BMLPL_001_REF_17_SEG_SUB.nii",
+      "sha256": "b52e275cb5e56b58393626fcaf6d81b1ae9b1fd039d20db09f38a60b0db3ff7c",
+      "bytes": 2000352
+    }
+  ],
+  "parts": [
+    {
+      "partId": "trabecular-reference",
+      "label": "Measured trabecular segmentation",
+      "selectors": [
+        "Measured_microCT_segmentation_reference__site_unspecified"
+      ],
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "comparison-2026-10-23",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "assemblies/marrow-comparison/2026-10-23/README.md",
+        "sha256": "fb0581c674b4dc0194111ab8312ce0b72888f55d09cc579f690a3300c630be0f"
+      },
+      "sourceIds": [
+        "source:kuczynski:bmlpl-001-ref-17"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "reviews/draft_bone/2026-10-23-marrow-comparison/LICENSES.md"
+      },
+      "partIds": [
+        "trabecular-reference"
+      ],
+      "exports": [
+        {
+          "id": "reference",
+          "path": "assemblies/marrow-comparison/2026-10-23/independent-measured-trabecular-reference.glb",
+          "sha256": "5b4f9c8c4e0aa3738213e32a0e19f293580acf8a17f29c4c59200bd38be89fca",
+          "bytes": 5323328,
+          "format": "glb",
+          "triangles": 219606,
+          "partIds": [
+            "trabecular-reference"
+          ]
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "Anatomical site, donor details and source-to-atlas registration remain unspecified. The specimen glTF uses its own metre scale."
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:bp3d:small-intestine",
+  "title": "BodyParts3D small bowel surface",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/small-intestine",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:small-intestine:source-candidate-v4",
+      "title": "BodyParts3D native small bowel source and replay for source-candidate-v4",
+      "sourceType": "recipe source or retained provenance",
+      "subject": "BodyParts3D native small bowel",
+      "license": "BodyParts3D © DBCLS, CC BY 4.0. Historical source headers retain CC BY-SA 2.1 Japan.",
+      "evidence": [
+        {
+          "path": "models/small-intestine/exports/source-candidate-v4/README.md",
+          "sha256": "b34b53d242e4a7aabdfc313a47f5be88e888eaae980d0780b0000d7d6d989b95"
+        }
+      ]
+    },
+    {
+      "sourceId": "source:small-intestine:teaching-economy-r01",
+      "title": "BodyParts3D native small bowel source and replay for teaching-economy-r01",
+      "sourceType": "recipe source or retained provenance",
+      "subject": "BodyParts3D native small bowel",
+      "license": "BodyParts3D © DBCLS, CC BY 4.0. Historical source headers retain CC BY-SA 2.1 Japan.",
+      "evidence": [
+        {
+          "path": "models/small-intestine/exports/teaching-economy-r01/README.md",
+          "sha256": "1e278ba8dc9e164c9c41cb1a61e0b18df80382d74f4ed338fa594055e2cff65d"
+        }
+      ],
+      "path": "models/small-intestine/exports/source-candidate-v4/small-intestine.glb",
+      "sha256": "a9459afc67cb13c28084b518615fdbb5e05c135a47eafa3036908139aece94da",
+      "bytes": 2366552
+    }
+  ],
+  "parts": [
+    {
+      "partId": "small-intestine-bodyparts3d-surface",
+      "label": "small-intestine · BodyParts3D surface",
+      "selectors": [
+        "small-intestine · BodyParts3D surface"
+      ],
+      "registration": "unknown"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "source-candidate-v4",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "models/small-intestine/exports/source-candidate-v4/README.md",
+        "sha256": "b34b53d242e4a7aabdfc313a47f5be88e888eaae980d0780b0000d7d6d989b95"
+      },
+      "sourceIds": [
+        "source:small-intestine:source-candidate-v4"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "models/small-intestine/exports/source-candidate-v4/README.md"
+      },
+      "exports": [
+        {
+          "id": "surface",
+          "path": "models/small-intestine/exports/source-candidate-v4/small-intestine.glb",
+          "sha256": "a9459afc67cb13c28084b518615fdbb5e05c135a47eafa3036908139aece94da",
+          "bytes": 2366552,
+          "triangles": 96240,
+          "format": "glb",
+          "partIds": [
+            "small-intestine-bodyparts3d-surface"
+          ]
+        }
+      ],
+      "qualifications": [],
+      "partIds": [
+        "small-intestine-bodyparts3d-surface"
+      ]
+    },
+    {
+      "revisionId": "teaching-economy-r01",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "models/small-intestine/exports/teaching-economy-r01/README.md",
+        "sha256": "1e278ba8dc9e164c9c41cb1a61e0b18df80382d74f4ed338fa594055e2cff65d"
+      },
+      "sourceIds": [
+        "source:small-intestine:teaching-economy-r01"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "models/small-intestine/exports/teaching-economy-r01/README.md"
+      },
+      "exports": [
+        {
+          "id": "surface",
+          "path": "models/small-intestine/exports/teaching-economy-r01/small-intestine.glb",
+          "sha256": "b5bb67aae18a3fa305cbf29f7d1464cdfdc9d9d22b8dbb6de6c48efb03f0b190",
+          "bytes": 2140672,
+          "triangles": 86616,
+          "format": "glb",
+          "partIds": [
+            "small-intestine-bodyparts3d-surface"
+          ]
+        }
+      ],
+      "qualifications": [],
+      "recipe": "recipes/teaching-economy-r01.json",
+      "partIds": [
+        "small-intestine-bodyparts3d-surface"
+      ]
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "The original bowel-context plate uses the source edition. The compact Library edition preserves the gross exterior task."
+  ]
+}

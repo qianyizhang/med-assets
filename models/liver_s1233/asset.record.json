@@ -1,0 +1,183 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:s1233:liver-window",
+  "title": "s1233 liver surface",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/liver_s1233",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:totalsegmentator-v2.0.1:s1233:liver",
+      "title": "TotalSegmentator v2.0.1 s1233 liver mask",
+      "sourceType": "external segmentation",
+      "sha256": "0e37697cde4bf2f6042fa89d338cfbe71d85b4b44e42801840be5612c4785980",
+      "license": "CC BY 4.0; retain the Workshop label-source notices",
+      "url": "https://zenodo.org/records/10047263"
+    }
+  ],
+  "parts": [
+    {
+      "partId": "liver",
+      "label": "Liver",
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "r01",
+      "status": "provisional",
+      "recipe": "rebuild.py",
+      "frame": {
+        "convention": "voxel-index",
+        "units": "voxel",
+        "evidence": "assemblies/workshop-s1233/inputs.json"
+      },
+      "sourceIds": [
+        "source:totalsegmentator-v2.0.1:s1233:liver"
+      ],
+      "partIds": [
+        "liver"
+      ],
+      "exports": [
+        {
+          "id": "liver",
+          "path": "models/liver_s1233/exports/r01/liver.mesh",
+          "sha256": "27862cad9d34d1d7a7b86a1ce8d92014f5d7db534788c45cb4ef9fd1cce20089",
+          "bytes": 2217704,
+          "format": "mesh",
+          "triangles": 123204,
+          "partIds": [
+            "liver"
+          ],
+          "voxelGrid": {
+            "case": "s1233",
+            "shape": [
+              265,
+              265,
+              401
+            ],
+            "rasMmFromVoxel": [
+              [
+                1.5,
+                0.0,
+                0.0,
+                -215.611328125
+              ],
+              [
+                0.0,
+                1.5,
+                0.0,
+                -37.111328125
+              ],
+              [
+                0.0,
+                0.0,
+                1.5,
+                41.20000076293945
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        }
+      ],
+      "qualifications": []
+    },
+    {
+      "revisionId": "r02",
+      "status": "provisional",
+      "frame": {
+        "convention": "voxel-index",
+        "units": "voxel",
+        "evidence": "assemblies/workshop-s1233/inputs.json"
+      },
+      "sourceIds": [
+        "source:totalsegmentator-v2.0.1:s1233:liver"
+      ],
+      "partIds": [
+        "liver"
+      ],
+      "exports": [
+        {
+          "id": "liver",
+          "path": "models/liver_s1233/exports/r02/liver.mesh",
+          "sha256": "711014c7f2fe14381640a98abe46155fa2fec541bab773ab10c9d72370ecb9a1",
+          "bytes": 216032,
+          "format": "mesh",
+          "triangles": 12000,
+          "partIds": [
+            "liver"
+          ],
+          "voxelGrid": {
+            "case": "s1233",
+            "shape": [
+              265,
+              265,
+              401
+            ],
+            "rasMmFromVoxel": [
+              [
+                1.5,
+                0.0,
+                0.0,
+                -215.611328125
+              ],
+              [
+                0.0,
+                1.5,
+                0.0,
+                -37.111328125
+              ],
+              [
+                0.0,
+                0.0,
+                1.5,
+                41.20000076293945
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        }
+      ],
+      "qualifications": [],
+      "recipeEvidence": {
+        "path": "models/liver_s1233/rebuild.py",
+        "sha256": "f68f91512f295ce0adf276775e3b7f41036183a9bcf1e366a044d23b2dc6785f"
+      }
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "models/liver_s1233/retopology.py",
+      "sha256": "39d8ec42268db783269eb7a093c2dce4dcd0267ed2bcbe1e7b778a2e44223c25",
+      "bytes": 1623
+    }
+  ],
+  "exports": [
+    {
+      "path": "models/liver_s1233/exports/r01/liver.mesh",
+      "sha256": "27862cad9d34d1d7a7b86a1ce8d92014f5d7db534788c45cb4ef9fd1cce20089",
+      "bytes": 2217704
+    },
+    {
+      "path": "models/liver_s1233/exports/r02/liver.mesh",
+      "sha256": "711014c7f2fe14381640a98abe46155fa2fec541bab773ab10c9d72370ecb9a1",
+      "bytes": 216032
+    }
+  ],
+  "uses": [],
+  "retirement": null,
+  "unresolved": [
+    "Teaching qualification remains open. The pilot verifies delivery identity and the source grid."
+  ]
+}

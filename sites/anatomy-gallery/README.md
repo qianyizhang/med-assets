@@ -15,6 +15,12 @@ Use Cases also opens the bilingual oral-spaces cutaways and four regional locato
 
 The Gallery also opens the three bilingual pathway diagrams and the interactive dental arch. Experiments & Archive contains the left kidney outline trial and both dental film collections. The [collection ledger](../../records/work-items/items/AG-GAL-013-reconcile-gallery-coverage.md#collection-ledger) records the collection destinations and the public Head & Neck and Airway handoffs.
 
+### Ultrasound Development
+
+**Use Cases → Ultrasound Anatomy → Development** shows the independent review for each selected comparison, including held trials. Open a card to inspect the previous sweep, protected source sections, saved acquisition and exact downloadable mesh. The chapter counter counts distinct worked chapters with native runtime pins against the 410 audited chapters. Several chapters can use one asset. Savings count each selected previous/current export pair once. The cards work with the study server stopped. [Wave 2B ports and chapter decisions](../../records/campaigns/ultrasound-refinement/wave-2b/README.md) · [Pancreas 3D orientation and held scan-section claim](../../records/campaigns/ultrasound-refinement/wave-2a/pancreas/orientation-r02/README.md)
+
+To add a card, place a `gallery-card.json` beside its workbench `reviews.json`, pinned `measurements.json` and WebPs. Use a unique slug, an exact native export reference and a case, chapter and part selector. Set `adopted` when the chapter has an exact runtime pin. List the lead comparison first, followed by the witnesses to show under the disclosure. The build discovers these declarations and generates `ultrasound-progress/index.json`, with each card's record and payloads in its slug folder. [Right kidney declaration](../../experiments/ultrasound-sweep/development/asset-reviews/kidney-wave-1b/gallery-card.json)
+
 ### Files in the imported atlas packages
 
 The Static Cardiac Atlas entry attaches the ten RAS-mm STL exports and editable Blender file to its [static ED delivery](../../docs/gallery/routes-and-api.md#page-links). The original **All indexed files** disclosure is available on the family overview. For the original texture study, use the [retained UV layout and texture maps](../../heart/Cardiac_Atlas/textures/), [normal-map measurements](../../heart/Cardiac_Atlas/textures/Normal_QA.json) and [diagnostic render recipe](../../heart/Cardiac_Atlas/render_normal_diagnostic.py). The imported guide’s render paths refer to its original distribution.
@@ -132,6 +138,35 @@ preview checks the cache at request time, so a restored file becomes available
 on reload. The tracked WebPs preserve the reviewed pixels. Public cutover of
 these exact routes needs a separate delivery decision.
 
+## Candidate Library admission
+
+The candidate compiler checks each listed 3D file and its family, revision and
+recommendation routes against [Library admission](library-admission.json).
+Package records own native exports. The maintained register and accepted
+assessment store still own selection and review evidence. The admission records
+why retained history, replay sources, frozen deliveries, external dental tools and
+unavailable originals keep their routes. AssetKit `impact` uses the native
+admissions to find candidate Library readers. The catalog pins carry zero
+runtime bundle weight.
+
+After updating a package, selection or Library route, use the current compiler
+to plan the admission refresh. Run from the repository root with Node 24, uv
+and the hydrated teaching evidence used by candidate assembly.
+
+```sh
+proposal=$(mktemp)
+uv run --offline python sites/anatomy-gallery/tools/framework.py --plan-library-admission > "$proposal" &&
+  diff -u sites/anatomy-gallery/library-admission.json "$proposal"
+```
+
+Review the native refs, identities and reader changes, then put the reviewed
+JSON in `library-admission.json` and run the normal candidate bootstrap. The plan
+derives routes and byte pins from the compiler and package records. For a newly
+listed file retained outside native scope, add its path with a `disposition`
+containing its kind, owning evidence path and reason before rerunning the plan.
+Remove its disposition when retiring the last route or admitting a native export
+for the file. The planner writes only its proposal to standard output.
+
 ## Publish
 
 | Goal | Acceptance |
@@ -165,7 +200,7 @@ captures and any case receipts in case directories under `.artifacts/gallery-ver
 Set `MODEL_SURVEY_CAPTURE_DIR` for a dedicated run. Set `MODEL_SURVEY_APP_DIR` to the preview's generated app
 directory when it differs from `.local/gallery-candidate`. The Library verifier compares the built
 catalog with the pinned AG-GAL-018 Git baseline and checks exact downloads and teaching evidence.
-The build assembles the dated pilot, owner-held `reviews/<asset>/<review>/teaching-assessment.json` files and the [current teaching assessments](../../reviews/teaching-assessments/current-assessments.json). Each current record pins its base assessment and carries accepted changes and reviewer attribution. The [maintained selections](../../docs/gallery/maintained-selections.json) bind each export and stable learner task ID to that accepted record. The [shared resolver](../../lib/med_assets/teaching.py) supplies those records to the Gallery and [scorecard](../../records/campaigns/teaching-asset-review/current-coverage.md). Run `python3.12 tools/maintained_teaching.py` from the repository root to print the generated Markdown to stdout. Its tracked destination is the [Teaching register](../../docs/gallery/maintained-models.md). Pass `--check` to validate all accepted tasks and verify the register and scorecard. Use the [promotion workflow](../../docs/guides/teaching-assessments.md) to update the accepted state.
+The build assembles the dated pilot, owner-held `reviews/<asset>/<review>/teaching-assessment.json` files and the [current teaching assessments](../../reviews/teaching-assessments/current-assessments.json). Each current record pins its base assessment and carries accepted changes and reviewer attribution. The [maintained selections](../../docs/gallery/maintained-selections.json) bind each export and stable learner task ID to that accepted record. The [shared resolver](../../lib/med_assets/teaching.py) supplies those records to the Gallery and [scorecard](../../records/campaigns/teaching-asset-review/current-coverage.md). Run `uv run assetkit review` from the repository root to print the generated Markdown to stdout. Its tracked destination is the [Teaching register](../../docs/gallery/maintained-models.md). Run `uv run assetkit review check` to validate all accepted tasks and verify the register and scorecard. Use the [promotion workflow](../../docs/guides/teaching-assessments.md) to update the accepted state.
 
 Bind each review to the exact export's path, size and SHA-256. Use a local source path or HTTPS reference and give every reviewed image a digest and size. An optional `teachingView` selects one image for the learner. Preview verifies evidence bytes before delivery. An accepted local review can declare its exact `library/<family>/<revision>` route. Files that share a route keep their own tasks, views and scores. When a refinement candidate matches a maintained export in SHA-256 and size, the download uses that export's filename and verified bytes.
 

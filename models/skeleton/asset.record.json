@@ -1,0 +1,208 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:bp3d:skeleton",
+  "title": "BodyParts3D skeletal atlas",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/skeleton",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:bp3d-4-0:skeleton-source-candidate-03",
+      "title": "BodyParts3D 4.0 skeletal source-frame GLB",
+      "sourceType": "atlas-derived GLB",
+      "subject": "BodyParts3D 4.0 reference atlas",
+      "path": "models/skeleton/exports/source-candidate-03/skeleton_source_frame.glb",
+      "sha256": "d224985628cc62d0c9c4284019b73505c9ebf14d78d30a040d74a7b33c68620e",
+      "bytes": 12705356,
+      "license": "BodyParts3D © DBCLS, CC BY 4.0; historical OBJ headers retain CC BY-SA 2.1 Japan.",
+      "evidence": [
+        {
+          "path": "models/skeleton/exports/source-candidate-03/ATTRIBUTION.md",
+          "sha256": "c126b70825acd2e3bf7ea8a32d1f4755861cb524ce9c6095d6a509542b6c478b"
+        },
+        {
+          "path": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json",
+          "sha256": "b025c166b0e9641be071733d03651558d58eec6f1e53422095dbde5f74ce3484"
+        },
+        {
+          "path": "reviews/skeleton/2026-10-24-source-candidate-03-bounded-migration/bounded-record.json",
+          "sha256": "d5d974f17dfb1d20de719045b244df727e52a9a537c13477ea9887a2a806cc60"
+        }
+      ],
+      "limitations": [
+        "Reduced-resolution static atlas with 271 representation meshes, including cartilage, discs, and 28 dental context meshes. The representation count carries no anatomical completeness claim."
+      ]
+    },
+    {
+      "sourceId": "source:bp3d-4-0:skeletal-obj-members",
+      "title": "BodyParts3D 4.0 skeleton source archive members",
+      "sourceType": "external OBJ archive members",
+      "subject": "BodyParts3D 4.0 reference atlas",
+      "license": "BodyParts3D © DBCLS, CC BY 4.0; historical OBJ headers retain CC BY-SA 2.1 Japan.",
+      "evidence": [
+        {
+          "path": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json",
+          "sha256": "b025c166b0e9641be071733d03651558d58eec6f1e53422095dbde5f74ce3484"
+        },
+        {
+          "path": "models/skeleton/exports/source-candidate-03/ATTRIBUTION.md",
+          "sha256": "c126b70825acd2e3bf7ea8a32d1f4755861cb524ce9c6095d6a509542b6c478b"
+        },
+        {
+          "path": "reviews/skeleton/2026-10-24-source-candidate-03-bounded-migration/bounded-record.json",
+          "sha256": "d5d974f17dfb1d20de719045b244df727e52a9a537c13477ea9887a2a806cc60"
+        }
+      ],
+      "limitations": [
+        "External archive and original authoring environment are required for the source replay."
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "partId": "right-sixth-rib",
+      "label": "Right sixth rib",
+      "selectors": [
+        "FJ3344 right sixth rib"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "right-seventh-rib",
+      "label": "Right seventh rib",
+      "selectors": [
+        "FJ3346 right seventh rib"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "right-eighth-rib",
+      "label": "Right eighth rib",
+      "selectors": [
+        "FJ3347 right eighth rib"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "right-ninth-rib",
+      "label": "Right ninth rib",
+      "selectors": [
+        "FJ3348 right ninth rib"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "right-tenth-rib",
+      "label": "Right tenth rib",
+      "selectors": [
+        "FJ3330 right tenth rib"
+      ],
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "source-candidate-03",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "models/skeleton/exports/source-candidate-03/README.md",
+        "sha256": "c543f3d1656163e9cdae3932194aadbc58423dce02459f90ca354da82401f431"
+      },
+      "sourceIds": [
+        "source:bp3d-4-0:skeletal-obj-members"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up",
+          "+X atlas left",
+          "+Y superior",
+          "+Z anterior"
+        ],
+        "evidence": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json"
+      },
+      "partIds": [
+        "right-sixth-rib",
+        "right-seventh-rib",
+        "right-eighth-rib",
+        "right-ninth-rib",
+        "right-tenth-rib"
+      ],
+      "exports": [
+        {
+          "id": "skeleton",
+          "path": "models/skeleton/exports/source-candidate-03/skeleton_source_frame.glb",
+          "sha256": "d224985628cc62d0c9c4284019b73505c9ebf14d78d30a040d74a7b33c68620e",
+          "bytes": 12705356,
+          "format": "glb",
+          "triangles": 622754,
+          "partIds": [
+            "right-sixth-rib",
+            "right-seventh-rib",
+            "right-eighth-rib",
+            "right-ninth-rib",
+            "right-tenth-rib"
+          ]
+        }
+      ],
+      "qualifications": []
+    },
+    {
+      "revisionId": "teaching-economy-r01",
+      "status": "provisional",
+      "recipe": "recipes/teaching-economy-r01.json",
+      "recipeEvidence": {
+        "path": "models/skeleton/exports/teaching-economy-r01/README.md",
+        "sha256": "60a0147346f2ab87ed300fc604859bd11faaeb7664365f6beb984b2d1276ad0b"
+      },
+      "sourceIds": [
+        "source:bp3d-4-0:skeleton-source-candidate-03"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up",
+          "+X atlas left",
+          "+Y superior",
+          "+Z anterior"
+        ],
+        "evidence": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json"
+      },
+      "partIds": [
+        "right-sixth-rib",
+        "right-seventh-rib",
+        "right-eighth-rib",
+        "right-ninth-rib",
+        "right-tenth-rib"
+      ],
+      "exports": [
+        {
+          "id": "skeleton",
+          "path": "models/skeleton/exports/teaching-economy-r01/skeleton_source_frame.glb",
+          "sha256": "ca10c44878ec836c63882855b9af29193e637773059dbc33b15daff044c2bb3c",
+          "bytes": 11048256,
+          "format": "glb",
+          "triangles": 530642,
+          "partIds": [
+            "right-sixth-rib",
+            "right-seventh-rib",
+            "right-eighth-rib",
+            "right-ninth-rib",
+            "right-tenth-rib"
+          ]
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "The source-candidate-03 GLB preserves upstream member provenance. Its historical OBJ-to-GLB replay is unverified.",
+    "Direct placement into s1233 is unverified. The ultrasound sweep uses the five right rib landmarks to bound its local display fit."
+  ]
+}

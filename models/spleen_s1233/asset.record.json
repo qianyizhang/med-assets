@@ -1,0 +1,170 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:s1233:spleen",
+  "title": "s1233 spleen surfaces",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/spleen_s1233",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:spleen-s1233:metadata-cleanup-r01",
+      "title": "TotalSegmentator v2.0.1 case s1233 source and replay for metadata-cleanup-r01",
+      "sourceType": "recipe source or retained provenance",
+      "subject": "TotalSegmentator v2.0.1 case s1233",
+      "license": "CC BY 4.0. Retain the TotalSegmentator data and label-source notices.",
+      "evidence": [
+        {
+          "path": "reviews/spleen/2026-10-23-metadata-cleanup-r01/record.json",
+          "sha256": "8486d7485c2e76da846f3cedb1b7e1f40ca3063be947e63ee61272a69ddfb477"
+        },
+        {
+          "path": "models/spleen/recipes/metadata/approved-patch.json",
+          "sha256": "da30eb906f89a843e79f357015764682b62961b48a61eb1b749c4bdcbeb516d8"
+        },
+        {
+          "path": "body/anatomy-workshop-r1/docs/licenses/NOTICE.md",
+          "sha256": "87372df39878e0c73903675edc21875fa712a90b22f497ffb55d50a29f210a94"
+        }
+      ],
+      "sha256": "a645df334901e46f24ad44b756d30234ce18bfa74e821d9a1b7ae432a045181b",
+      "bytes": 1856780,
+      "url": {
+        "url": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/motion/spleen_breathing.glb",
+        "sha256": "a645df334901e46f24ad44b756d30234ce18bfa74e821d9a1b7ae432a045181b",
+        "bytes": 1856780
+      }
+    },
+    {
+      "sourceId": "source:totalsegmentator-v2.0.1:s1233:spleen",
+      "title": "TotalSegmentator v2.0.1 s1233 spleen mask",
+      "sourceType": "external segmentation",
+      "sha256": "760eb489a2f6821ce25e7565e4d73709cab5a1ef0af6537d193b2ce036213573",
+      "license": "CC BY 4.0; retain the Workshop label-source notices",
+      "url": "https://zenodo.org/records/10047263"
+    }
+  ],
+  "parts": [
+    {
+      "partId": "spleen-source-surface",
+      "label": "Spleen | source surface",
+      "selectors": [
+        "Spleen | source surface"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "spleen",
+      "label": "Spleen exterior",
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "metadata-cleanup-r01",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "reviews/spleen/2026-10-23-metadata-cleanup-r01/record.json",
+        "sha256": "8486d7485c2e76da846f3cedb1b7e1f40ca3063be947e63ee61272a69ddfb477"
+      },
+      "sourceIds": [
+        "source:spleen-s1233:metadata-cleanup-r01"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "reviews/spleen/2026-10-23-metadata-cleanup-r01/record.json"
+      },
+      "exports": [
+        {
+          "id": "surface",
+          "path": "models/spleen/exports/metadata-cleanup-r01/spleen.glb",
+          "sha256": "1bfc1c7b38c18a6eb7fbd4a05e9a7ec0444cc411ef60a45b2d0fa49317cbfefd",
+          "bytes": 1856468,
+          "triangles": 7200,
+          "format": "glb",
+          "partIds": [
+            "spleen-source-surface"
+          ]
+        }
+      ],
+      "qualifications": [],
+      "partIds": [
+        "spleen-source-surface"
+      ]
+    },
+    {
+      "revisionId": "r01",
+      "status": "provisional",
+      "recipe": "rebuild.py",
+      "frame": {
+        "convention": "voxel-index",
+        "units": "voxel",
+        "evidence": "assemblies/workshop-s1233/inputs.json"
+      },
+      "sourceIds": [
+        "source:totalsegmentator-v2.0.1:s1233:spleen"
+      ],
+      "partIds": [
+        "spleen"
+      ],
+      "exports": [
+        {
+          "id": "spleen",
+          "path": "models/spleen_s1233/exports/r01/spleen.mesh",
+          "sha256": "76e01c95fe395952d2bfae3333fb9d228b75ff2016e736a5ebe67bd1a02b5a03",
+          "bytes": 86432,
+          "format": "mesh",
+          "triangles": 4800,
+          "partIds": [
+            "spleen"
+          ],
+          "voxelGrid": {
+            "case": "s1233",
+            "shape": [
+              265,
+              265,
+              401
+            ],
+            "rasMmFromVoxel": [
+              [
+                1.5,
+                0.0,
+                0.0,
+                -215.611328125
+              ],
+              [
+                0.0,
+                1.5,
+                0.0,
+                -37.111328125
+              ],
+              [
+                0.0,
+                0.0,
+                1.5,
+                41.20000076293945
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "Historical Library revision retains the earlier case-derived geometry. The original byte pin differs from the current Workshop path. The HRA spleen has its own frame.",
+    "Adopted for convex-face and hilar-indentation exterior orientation at survey frame 12. Teaching qualification (4/4/4/4) and internal vascular claims remain open."
+  ]
+}

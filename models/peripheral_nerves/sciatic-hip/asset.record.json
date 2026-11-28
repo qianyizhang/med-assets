@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:z-anatomy:sciatic-hip",
+  "title": "Right sciatic nerve at the hip",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/peripheral_nerves/sciatic-hip",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:peripheral-nerves-sciatic-hip:sciatic-hip-r01",
+      "title": "Z-Anatomy native sciatic hip localization source and replay for sciatic-hip-r01",
+      "sourceType": "recipe source or retained provenance",
+      "subject": "Z-Anatomy native sciatic hip localization",
+      "license": "CC BY-SA 4.0, with Z-Anatomy and inherited BodyParts3D attribution as recorded.",
+      "evidence": [
+        {
+          "path": "models/peripheral_nerves/exports/sciatic-hip-r01/README.md",
+          "sha256": "4f662338687c04943e87cc995eef81253ef9e75c55e3b292a91a3de75a009f0e"
+        },
+        {
+          "path": "sources/datasets/z-anatomy/sciatic-hip/provenance.json",
+          "sha256": "0565b5379877d15420189ddded8a1cc8dd3c685f12f3b7d38e42ac0aced575f0"
+        },
+        {
+          "path": "models/peripheral_nerves/recipes/sciatic-hip-r01/README.md",
+          "sha256": "88eddc43bb48d1bdf25d7e77ced229e3c9172368eddcb89cee9c3373c21865a9"
+        }
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "partId": "sciatic-nerve-r-001",
+      "label": "Sciatic nerve.r.001",
+      "selectors": [
+        "Sciatic nerve.r.001"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "hip-bone-r-001",
+      "label": "Hip bone.r.001",
+      "selectors": [
+        "Hip bone.r.001"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "sacrum-001",
+      "label": "Sacrum.001",
+      "selectors": [
+        "Sacrum.001"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "femur-r-001",
+      "label": "Femur.r.001",
+      "selectors": [
+        "Femur.r.001"
+      ],
+      "registration": "unknown"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "sciatic-hip-r01",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "models/peripheral_nerves/exports/sciatic-hip-r01/README.md",
+        "sha256": "4f662338687c04943e87cc995eef81253ef9e75c55e3b292a91a3de75a009f0e"
+      },
+      "sourceIds": [
+        "source:peripheral-nerves-sciatic-hip:sciatic-hip-r01"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "models/peripheral_nerves/exports/sciatic-hip-r01/README.md"
+      },
+      "exports": [
+        {
+          "id": "regional",
+          "path": "models/peripheral_nerves/exports/sciatic-hip-r01/right-sciatic-hip.glb",
+          "sha256": "72077a97a8a935a7a4623443c1c0fd61ab48a9bf4ad895af058345b7a372abd6",
+          "bytes": 559144,
+          "triangles": 24154,
+          "format": "glb",
+          "partIds": [
+            "sciatic-nerve-r-001",
+            "hip-bone-r-001",
+            "sacrum-001",
+            "femur-r-001"
+          ]
+        }
+      ],
+      "qualifications": [],
+      "partIds": [
+        "femur-r-001",
+        "hip-bone-r-001",
+        "sacrum-001",
+        "sciatic-nerve-r-001"
+      ]
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "The selected native surfaces support regional skeletal localization. Nerve continuity, passage clearance and clinical use remain outside scope."
+  ]
+}

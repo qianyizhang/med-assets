@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:z-anatomy:male-urethral-context",
+  "title": "Male urethral context",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/urethra_male",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:urethra-male:z-native-context-r01",
+      "title": "Z-Anatomy native male urethral context source and replay for z-native-context-r01",
+      "sourceType": "recipe source or retained provenance",
+      "subject": "Z-Anatomy native male urethral context",
+      "license": "CC BY-SA 4.0, with Z-Anatomy and inherited BodyParts3D attribution as recorded.",
+      "evidence": [
+        {
+          "path": "models/urethra_male/exports/z-native-context-r01/README.md",
+          "sha256": "1bdb069466b43dedfba405eb784557abea7fca09247d1a1ed6187d1a91b8c46e"
+        },
+        {
+          "path": "sources/datasets/z-anatomy/urethral-context/provenance.json",
+          "sha256": "8386de6f52b0af1cd7d1804102bf26b3ebc8f585a768e662a762645b26dd86d3"
+        },
+        {
+          "path": "models/urethra_male/recipes/native-context-r01/README.md",
+          "sha256": "515755d3377d5b63f0587bfbac6ed4ba24c36f7ac64af9f76de2e09a3df8dd0f"
+        }
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "partId": "urethra-source-display",
+      "label": "Urethra source display",
+      "selectors": [
+        "Urethra source display"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "urinary-bladder-source-display",
+      "label": "Urinary bladder source display",
+      "selectors": [
+        "Urinary bladder source display"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "prostate-source-display",
+      "label": "Prostate source display",
+      "selectors": [
+        "Prostate source display"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "corpus-spongiosum-of-penis-source-display",
+      "label": "Corpus spongiosum of penis source display",
+      "selectors": [
+        "Corpus spongiosum of penis source display"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "corpus-cavernosum-of-penis-source-display",
+      "label": "Corpus cavernosum of penis source display",
+      "selectors": [
+        "Corpus cavernosum of penis source display"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "glans-penis-source-display",
+      "label": "Glans penis source display",
+      "selectors": [
+        "Glans penis source display"
+      ],
+      "registration": "unknown"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "z-native-context-r01",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "models/urethra_male/exports/z-native-context-r01/README.md",
+        "sha256": "1bdb069466b43dedfba405eb784557abea7fca09247d1a1ed6187d1a91b8c46e"
+      },
+      "sourceIds": [
+        "source:urethra-male:z-native-context-r01"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "models/urethra_male/exports/z-native-context-r01/README.md"
+      },
+      "exports": [
+        {
+          "id": "context",
+          "path": "models/urethra_male/exports/z-native-context-r01/urethral-context.glb",
+          "sha256": "d2d88c936287f4ea5978aba1f17e86975c587a102e498595dd7a58aa07c269e7",
+          "bytes": 195932,
+          "triangles": 9623,
+          "format": "glb",
+          "partIds": [
+            "urethra-source-display",
+            "urinary-bladder-source-display",
+            "prostate-source-display",
+            "corpus-spongiosum-of-penis-source-display",
+            "corpus-cavernosum-of-penis-source-display",
+            "glans-penis-source-display"
+          ]
+        }
+      ],
+      "qualifications": [],
+      "partIds": [
+        "corpus-cavernosum-of-penis-source-display",
+        "corpus-spongiosum-of-penis-source-display",
+        "glans-penis-source-display",
+        "prostate-source-display",
+        "urethra-source-display",
+        "urinary-bladder-source-display"
+      ]
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "The source surfaces support named exterior relationships. They do not establish a validated lumen or functional study."
+  ]
+}

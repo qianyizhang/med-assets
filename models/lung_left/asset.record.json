@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:s1233:left-lung-display",
+  "title": "s1233 left lung lobes",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/lung_left",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:workshop:left-lung-breathing-r1",
+      "title": "Original Workshop left lung with respiratory morphs",
+      "subject": "Workshop s1233 frame",
+      "sourceType": "retained source or source receipt",
+      "license": "Jakob Wasserthal and TotalSegmentator contributors, University Hospital Basel. TotalSegmentator v2.0.1, CC BY 4.0. Retain the Apache-2.0 label-source notice.",
+      "path": "body/breathing/lung_left_breathing.glb",
+      "sha256": "e3439ed20ea7e5f022b71accd9d474e5bd0a8625498d1398ada402d0c035cee0",
+      "bytes": 2525316,
+      "evidence": [
+        {
+          "path": "body/anatomy-workshop-r1/docs/licenses/NOTICE.md",
+          "sha256": "87372df39878e0c73903675edc21875fa712a90b22f497ffb55d50a29f210a94"
+        },
+        {
+          "path": "body/breathing/animation-manifest.json",
+          "sha256": "79e105f7b003ff3d9e8c727c620f907aace641f394833d82419285af09ca768f"
+        },
+        {
+          "path": "reviews/lung_left/2026-10-23-metadata-cleanup-r01/verification.json",
+          "sha256": "0c387fd1fcac0161b06c2b5893ac204049276a321d5b113e4eec1d743072368d"
+        }
+      ],
+      "limitations": []
+    },
+    {
+      "sourceId": "source:recipe:teaching-economy-r01",
+      "title": "Exact retained edition source",
+      "subject": "Workshop s1233 frame",
+      "sourceType": "retained source or source receipt",
+      "license": "Jakob Wasserthal and TotalSegmentator contributors, University Hospital Basel. TotalSegmentator v2.0.1, CC BY 4.0. Retain the Apache-2.0 label-source notice.",
+      "path": "models/lung_left/exports/metadata-cleanup-r01/lung_left.glb",
+      "bytes": 2524996,
+      "sha256": "6d3a6150dc47dba0d16162738caabc1bef3fcd8cf5ab4af492dd1121c1cb8533",
+      "evidence": [
+        {
+          "path": "models/lung_left/exports/teaching-economy-r01/README.md",
+          "sha256": "5029f078cb07345d667b8f0f56629c26ff4256434911b34ee124fe33f5ccdc80"
+        }
+      ],
+      "limitations": []
+    }
+  ],
+  "parts": [
+    {
+      "partId": "left-upper-lobe",
+      "label": "Left upper lobe",
+      "selectors": [
+        "Lung Upper Lobe Left | source surface"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/body-3d-delivery/manifest.json",
+      "registration": "native"
+    },
+    {
+      "partId": "left-lower-lobe",
+      "label": "Left lower lobe",
+      "selectors": [
+        "Lung Lower Lobe Left | source surface"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/body-3d-delivery/manifest.json",
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "teaching-economy-r01",
+      "status": "provisional",
+      "recipe": "recipes/teaching-economy-r01.json",
+      "sourceIds": [
+        "source:recipe:teaching-economy-r01"
+      ],
+      "recipeEvidence": {
+        "path": "models/lung_left/exports/teaching-economy-r01/README.md",
+        "sha256": "5029f078cb07345d667b8f0f56629c26ff4256434911b34ee124fe33f5ccdc80"
+      },
+      "frame": {
+        "convention": "glb-y-up-m",
+        "evidence": "body/anatomy-workshop-r1/body-3d-delivery/manifest.json",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ]
+      },
+      "partIds": [
+        "left-upper-lobe",
+        "left-lower-lobe"
+      ],
+      "exports": [
+        {
+          "id": "teaching",
+          "path": "models/lung_left/exports/teaching-economy-r01/lung_left.glb",
+          "sha256": "4cb7524a3843fda941d50adc060d2a3c9d08135bea6cddc99d03284d25bb683c",
+          "bytes": 2093088,
+          "format": "glb",
+          "partIds": [
+            "left-upper-lobe",
+            "left-lower-lobe"
+          ],
+          "triangles": 31200
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "Source-derived display contours retain the Workshop frame. Authored breathing is illustrative."
+  ]
+}

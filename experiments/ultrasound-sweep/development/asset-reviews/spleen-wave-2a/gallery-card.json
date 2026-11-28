@@ -1,0 +1,53 @@
+{
+  "slug": "spleen-r01",
+  "exportRef": {
+    "record": "models/spleen_s1233/asset.record.json",
+    "asset": "anatomy:s1233:spleen",
+    "revision": "r01",
+    "export": "spleen"
+  },
+  "review": {
+    "case": "abdomen-survey",
+    "chapter": "abd-spleen",
+    "part": "spleen"
+  },
+  "adopted": true,
+  "cardTitle": "Spleen · Before → After",
+  "subtitle": "Abdominal survey · frame 12",
+  "revisionTitle": "s1233 spleen · r01",
+  "revisionLinkLabel": "spleen r01",
+  "coordinateFrame": "s1233 voxel indices · RAS axes · 1.5 mm spacing",
+  "sourceId": "source:totalsegmentator-v2.0.1:s1233:spleen",
+  "sourceLabel": "TotalSegmentator v2.0.1 · Jakob Wasserthal and contributors · CC BY 4.0",
+  "detailsLabel": "Source sections, saved scan and lead review",
+  "figures": [
+    {
+      "file": "previous-vs-r01.webp",
+      "width": 948,
+      "height": 1175,
+      "alt": "The broad diaphragmatic face loses its stacked bands. A stepped cap and shallow ridges remain near the upper edge. The reverse close-up preserves the curved medial indentation.",
+      "caption": "Previous delivered sweep and candidate in matched neutral clay."
+    },
+    {
+      "file": "protected-planes.webp",
+      "width": 1414,
+      "height": 531,
+      "alt": "The three protected outlines retain the sharp turn at the medial indentation. Their largest measured departure is 2.81 mm. Whole-surface bidirectional p95 is at most 0.76 mm.",
+      "caption": "Frozen source sections and measured contours."
+    },
+    {
+      "file": "live-frame-12.webp",
+      "width": 1339,
+      "height": 816,
+      "alt": "I could follow the convex border in grayscale and the notch in the overlay. Ribs and the probe obscure much of the purple surface in the default view. The reverse clay view resolves the notch.",
+      "caption": "Saved sweep frame 12 with probe, simulated scan and tissue overlay."
+    },
+    {
+      "file": "matched-surfaces.webp",
+      "width": 1414,
+      "height": 814,
+      "alt": "Spleen CT half-label and interpreted exterior viewed under the same light.",
+      "caption": "CT reference and reimported surface at matched scale."
+    }
+  ]
+}

@@ -1,0 +1,237 @@
+{
+  "version": 1,
+  "rubricHash": "a38e552869511cd5bceacaa5ea4456f4d0530e58e7dce2bc6855587a98b0e684",
+  "records": [
+    {
+      "source": "sweep",
+      "case": "carotid-left",
+      "part": "common_carotid_artery_left",
+      "occurrence": 1,
+      "revision": "anatomy:s1127:carotid-left@r01:neck",
+      "meshSha256": "48298238a7f6adcf2f9e260a7f004fd848f0e4c46d6b313ab241f7a00635603d",
+      "rubric": "docs/guides/asset-quality.md",
+      "reviewer": "Independent campaign lead · agent review",
+      "reviewedOn": "2026-11-28",
+      "task": "Follow the left common carotid exterior in the long-axis CT view. The worked case supplies its grayscale and duplex acquisition.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "At the saved left crop the whole-surface maximum is 0.77 mm. The protected cuts agree within 0.74 mm, including the long-axis section and the terminal crop rims.",
+        "form": "The section changes from near-round to longitudinal without a new pinch. The reverse clay view shows smoother highlight flow along the straight segment. The source retains an irregular lower bend in the full extent.",
+        "readability": "The long-axis strip sits lateral to the thyroid. Rotating from the oblique view and matching the grayscale strip to the overlay makes this small structure easier to follow.",
+        "economy": "The neck port falls from 1,984 to 1,650 triangles. Its worst turning-silhouette change is 0.50 px at 3 px/mm."
+      },
+      "disposition": "Adopt for the named 3D orientation task",
+      "note": "The exterior supports side-specific course and orientation. Duplex signals, plaque, luminal patency and wall measurements require separate evidence.",
+      "comparison": {
+        "label": "Left common carotid before and after refinement",
+        "candidate": "asset-reviews/carotid-left-wave-2b/previous-vs-r01.webp",
+        "candidateLabel": "The long neck port and the full thyroid-context port preserve their original extents.",
+        "views": [
+          {
+            "label": "Raw half-label against both carotid ports",
+            "candidate": "asset-reviews/carotid-left-wave-2b/matched-surfaces.webp",
+            "candidateLabel": "Matched overview and reverse close-ups show the axial steps and the retained bend."
+          },
+          {
+            "label": "Protected carotid sections at frames 12 and 48",
+            "candidate": "asset-reviews/carotid-left-wave-2b/protected-planes.webp",
+            "candidateLabel": "The transverse and longitudinal cuts follow the same CT grid. The cap marks the cropped extent."
+          },
+          {
+            "label": "Transverse and longitudinal frames in the carotid sweep",
+            "candidate": "asset-reviews/carotid-left-wave-2b/live-frame-12.webp",
+            "candidateLabel": "The scan and overlay come from the original acquisition. The worked case opens this subject separately."
+          }
+        ]
+      },
+      "links": [
+        {
+          "label": "Source, replay and protected contour measurements",
+          "href": "asset-reviews/carotid-left-wave-2b/measurements.json"
+        }
+      ]
+    },
+    {
+      "source": "case",
+      "case": "carotid-normal",
+      "chapter": "left-cca-gray",
+      "chapterSha256": "64c901635ae5f5a3add49c30437718b19e229751c488a7310b2f06065cf9aa53",
+      "part": "common_carotid_artery_left",
+      "occurrence": 1,
+      "revision": "anatomy:s1127:carotid-left@r01:neck",
+      "meshSha256": "48298238a7f6adcf2f9e260a7f004fd848f0e4c46d6b313ab241f7a00635603d",
+      "rubric": "docs/guides/asset-quality.md",
+      "reviewer": "Independent campaign lead · agent review",
+      "reviewedOn": "2026-11-28",
+      "task": "Follow the left common carotid exterior in the long-axis CT view. The worked case supplies its grayscale and duplex acquisition.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "At the saved left crop the whole-surface maximum is 0.77 mm. The protected cuts agree within 0.74 mm, including the long-axis section and the terminal crop rims.",
+        "form": "The section changes from near-round to longitudinal without a new pinch. The reverse clay view shows smoother highlight flow along the straight segment. The source retains an irregular lower bend in the full extent.",
+        "readability": "The long-axis strip sits lateral to the thyroid. Rotating from the oblique view and matching the grayscale strip to the overlay makes this small structure easier to follow.",
+        "economy": "The neck port falls from 1,984 to 1,650 triangles. Its worst turning-silhouette change is 0.50 px at 3 px/mm."
+      },
+      "disposition": "Adopt for the named 3D orientation task",
+      "note": "The exterior supports side-specific course and orientation. Duplex signals, plaque, luminal patency and wall measurements require separate evidence. Rechecked in the running chapter with the r04 thyroid context.",
+      "comparison": {
+        "label": "Left common carotid before and after refinement",
+        "candidate": "asset-reviews/carotid-left-wave-2b/previous-vs-r01.webp",
+        "candidateLabel": "The long neck port and the full thyroid-context port preserve their original extents.",
+        "views": [
+          {
+            "label": "Raw half-label against both carotid ports",
+            "candidate": "asset-reviews/carotid-left-wave-2b/matched-surfaces.webp",
+            "candidateLabel": "Matched overview and reverse close-ups show the axial steps and the retained bend."
+          },
+          {
+            "label": "Protected carotid sections at frames 12 and 48",
+            "candidate": "asset-reviews/carotid-left-wave-2b/protected-planes.webp",
+            "candidateLabel": "The transverse and longitudinal cuts follow the same CT grid. The cap marks the cropped extent."
+          },
+          {
+            "label": "Transverse and longitudinal frames in the carotid sweep",
+            "candidate": "asset-reviews/carotid-left-wave-2b/live-frame-12.webp",
+            "candidateLabel": "The scan and overlay come from the original acquisition. The worked case opens this subject separately."
+          },
+          {
+            "label": "Reviewed neck chapter and both context sweeps with thyroid r04",
+            "candidate": "asset-reviews/carotid-left-wave-2b/registered-context.webp",
+            "candidateLabel": "The top row shows the worked chapter CT companion. The next two rows show the same registered neck context after the thyroid surface correction."
+          }
+        ]
+      },
+      "links": [
+        {
+          "label": "Source, replay and protected contour measurements",
+          "href": "asset-reviews/carotid-left-wave-2b/measurements.json"
+        }
+      ]
+    },
+    {
+      "source": "sweep",
+      "case": "thyroid-left",
+      "part": "common_carotid_artery_left",
+      "occurrence": 1,
+      "revision": "anatomy:s1127:carotid-left@r01:carotid",
+      "meshSha256": "272c8fb5002da9d9d834223cc2c63584050e17786bb8cbdbe7fa0a48688a7bd4",
+      "rubric": "docs/guides/asset-quality.md",
+      "reviewer": "Independent campaign lead · agent review",
+      "reviewedOn": "2026-11-28",
+      "task": "Locate the left common carotid beside the thyroid in the transverse neck scene.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "The full traced course and its scan-limited superior rim pass the raw-label and protected-section checks on the s1127 grid.",
+        "form": "The curved lower extent is preserved. The broad highlight follows the trunk in neutral clay and the reverse view.",
+        "readability": "The vessel flanks the gland laterally. The axial orbit separates it from the thyroid and the trachea.",
+        "economy": "The complete registered exterior uses 1,900 triangles and 34,232 bytes. Its 24 turning silhouettes stay within 1 px of the dense field."
+      },
+      "disposition": "Adopt for the named 3D context use",
+      "note": "Both thyroid scenes render the full left common carotid port at frame 0. The neck crop has a separately reviewed export.",
+      "comparison": {
+        "label": "Reviewed neck chapter and both context sweeps with thyroid r04",
+        "candidate": "asset-reviews/carotid-left-wave-2b/registered-context.webp",
+        "candidateLabel": "The top row shows the worked chapter CT companion. The next two rows show the same registered neck context after the thyroid surface correction.",
+        "views": [
+          {
+            "label": "Raw half-label against both carotid ports",
+            "candidate": "asset-reviews/carotid-left-wave-2b/matched-surfaces.webp",
+            "candidateLabel": "Matched overview and reverse close-ups show the axial steps and the retained bend."
+          },
+          {
+            "label": "Protected carotid sections at frames 12 and 48",
+            "candidate": "asset-reviews/carotid-left-wave-2b/protected-planes.webp",
+            "candidateLabel": "The transverse and longitudinal cuts follow the same CT grid. The cap marks the cropped extent."
+          },
+          {
+            "label": "Transverse and longitudinal frames in the carotid sweep",
+            "candidate": "asset-reviews/carotid-left-wave-2b/live-frame-12.webp",
+            "candidateLabel": "The scan and overlay come from the original acquisition. The worked case opens this subject separately."
+          }
+        ]
+      },
+      "links": [
+        {
+          "label": "Source, replay and protected contour measurements",
+          "href": "asset-reviews/carotid-left-wave-2b/measurements.json"
+        }
+      ]
+    },
+    {
+      "source": "sweep",
+      "case": "thyroid-right",
+      "part": "common_carotid_artery_left",
+      "occurrence": 1,
+      "revision": "anatomy:s1127:carotid-left@r01:carotid",
+      "meshSha256": "272c8fb5002da9d9d834223cc2c63584050e17786bb8cbdbe7fa0a48688a7bd4",
+      "rubric": "docs/guides/asset-quality.md",
+      "reviewer": "Independent campaign lead · agent review",
+      "reviewedOn": "2026-11-28",
+      "task": "Locate the left common carotid beside the thyroid in the transverse neck scene.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "The full traced course and its scan-limited superior rim pass the raw-label and protected-section checks on the s1127 grid.",
+        "form": "The curved lower extent is preserved. The broad highlight follows the trunk in neutral clay and the reverse view.",
+        "readability": "The vessel flanks the gland laterally. The axial orbit separates it from the thyroid and the trachea.",
+        "economy": "The complete registered exterior uses 1,900 triangles and 34,232 bytes. Its 24 turning silhouettes stay within 1 px of the dense field."
+      },
+      "disposition": "Adopt for the named 3D context use",
+      "note": "Both thyroid scenes render the full left common carotid port at frame 0. The neck crop has a separately reviewed export.",
+      "comparison": {
+        "label": "Reviewed neck chapter and both context sweeps with thyroid r04",
+        "candidate": "asset-reviews/carotid-left-wave-2b/registered-context.webp",
+        "candidateLabel": "The top row shows the worked chapter CT companion. The next two rows show the same registered neck context after the thyroid surface correction.",
+        "views": [
+          {
+            "label": "Raw half-label against both carotid ports",
+            "candidate": "asset-reviews/carotid-left-wave-2b/matched-surfaces.webp",
+            "candidateLabel": "Matched overview and reverse close-ups show the axial steps and the retained bend."
+          },
+          {
+            "label": "Protected carotid sections at frames 12 and 48",
+            "candidate": "asset-reviews/carotid-left-wave-2b/protected-planes.webp",
+            "candidateLabel": "The transverse and longitudinal cuts follow the same CT grid. The cap marks the cropped extent."
+          },
+          {
+            "label": "Transverse and longitudinal frames in the carotid sweep",
+            "candidate": "asset-reviews/carotid-left-wave-2b/live-frame-12.webp",
+            "candidateLabel": "The scan and overlay come from the original acquisition. The worked case opens this subject separately."
+          }
+        ]
+      },
+      "links": [
+        {
+          "label": "Source, replay and protected contour measurements",
+          "href": "asset-reviews/carotid-left-wave-2b/measurements.json"
+        }
+      ]
+    }
+  ],
+  "evidenceSha256": {
+    "previous-vs-r01.webp": "53def42d6e5339a0408d58ef1a002a46593e1d16a295ea41c670c4708592550e",
+    "matched-surfaces.webp": "992e9a76ca14e2d28cd7c135d2cee4358bbe3b9e54bc3a352a41f8dc2980613a",
+    "protected-planes.webp": "83f3e6df16588e42f0bd09a2c28efdde7a402a01d0de841aa261b082a1564c1a",
+    "live-frame-12.webp": "6a17f773c25f900cd3f5105e85c36d4902fc70260d1acd4be5d69c40cddb50f0",
+    "registered-context.webp": "faedcc4861d469971bbf12483cc226ff08147b816167fec8ed02894069461825"
+  },
+  "measurementsSha256": "7f8668efa0954d0977500b18be3545b050d152e1448e024a3ab66c6b5370cfc3"
+}

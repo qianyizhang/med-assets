@@ -1,0 +1,24 @@
+{
+  "urinary-left-vesical": {
+    "system": "urinary",
+    "ref": {
+      "record": "models/bladder/asset.record.json",
+      "asset": "anatomy:hra:bladder",
+      "revision": "pelvic-base-r01",
+      "export": "reference"
+    },
+    "taskId": "hra-female-pelvis-bladder-base",
+    "assessmentSha256": "f6df051327ac8f93637653540cbaced0c6f22d0326f5513efee445c314c5a6da"
+  },
+  "reproductive-female-context": {
+    "system": "reproductive",
+    "ref": {
+      "record": "models/vagina_hra/asset.record.json",
+      "asset": "anatomy:hra:vagina",
+      "revision": "teaching-context-r03",
+      "export": "teaching"
+    },
+    "taskId": "hra-female-pelvis-cervical-context",
+    "assessmentSha256": "a2fe0dcf3341f1970467b4004dd47b1a0a4de4aa694604901d94a3bf72155597"
+  }
+}

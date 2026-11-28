@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "assetId": "assembly:bp3d:second-costal",
+  "title": "Second costal cartilage with thoracic context",
+  "kind": "assembly",
+  "status": "provisional",
+  "owner": "assemblies/skeletal-teaching/second-costal",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:bp3d-4-0:second-costal",
+      "title": "BodyParts3D bounded source members",
+      "sourceType": "external OBJ archive members",
+      "subject": "BodyParts3D 4.0 reference atlas",
+      "license": "BodyParts3D © DBCLS, CC BY 4.0. Historical OBJ headers retain CC BY-SA 2.1 Japan.",
+      "evidence": [
+        {
+          "path": "assemblies/skeletal-teaching/README.md",
+          "sha256": "3bb24c670c13efac3b8d8b2083676c5bca2928990653b3ef7eecf9c3feb023b6"
+        },
+        {
+          "path": "assemblies/skeletal-teaching/source/dependencies.json",
+          "sha256": "3d076edb5075db964a3985708c6f17965dd9c8073d99c702e5771c2a11d5e4b0"
+        },
+        {
+          "path": "reviews/skeletal_teaching/2026-10-23/source-roundtrip.json",
+          "sha256": "5812dcb1b4252ed3cd6b7b5685d6380d7ed871aa88964d6325f6b8cdab1c5b66"
+        },
+        {
+          "path": "reviews/skeletal_teaching/2026-10-23/record.json",
+          "sha256": "e7764603e5ab1f61cadd1b20243eb5d0884d3d9540ec17938e711d579b03bd8f"
+        }
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "partId": "sternum",
+      "label": "Sternum",
+      "selectors": [
+        "FJ3153 sternum",
+        "FJ3178 sternum",
+        "FJ3290 sternum"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "second-costal-cartilage",
+      "label": "Second costal cartilage",
+      "selectors": [
+        "FJ3335 right second costal cartilage",
+        "FJ3242 left second costal cartilage"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "thoracic-vertebrae",
+      "label": "T1 and T2 vertebrae",
+      "selectors": [
+        "FJ3158 first thoracic vertebra",
+        "FJ3160 second thoracic vertebra"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "second-ribs",
+      "label": "Second ribs",
+      "selectors": [
+        "FJ3229 left second rib",
+        "FJ3336 right second rib"
+      ],
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "second-costal-2026-10-23",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "assemblies/skeletal-teaching/README.md",
+        "sha256": "3bb24c670c13efac3b8d8b2083676c5bca2928990653b3ef7eecf9c3feb023b6"
+      },
+      "sourceIds": [
+        "source:bp3d-4-0:second-costal"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up",
+          "+X atlas left",
+          "+Y superior",
+          "+Z anterior"
+        ],
+        "evidence": "assemblies/skeletal-teaching/README.md"
+      },
+      "partIds": [
+        "sternum",
+        "second-costal-cartilage",
+        "thoracic-vertebrae",
+        "second-ribs"
+      ],
+      "exports": [
+        {
+          "id": "context",
+          "path": "assemblies/skeletal-teaching/2026-10-23/second-costal.glb",
+          "sha256": "181d3e175e93702bb52f98535f2ebfe1d9387425dd432f19318161db7db99f05",
+          "bytes": 497332,
+          "format": "glb",
+          "triangles": 24186,
+          "partIds": [
+            "sternum",
+            "second-costal-cartilage",
+            "thoracic-vertebrae",
+            "second-ribs"
+          ]
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "The review covers static regional teaching readability. Mechanics, histology and the archived knee motion replay have separate evidence."
+  ]
+}

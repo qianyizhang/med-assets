@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:z-anatomy:right-rotator-cuff",
+  "title": "Right rotator cuff muscle localization",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/joints/rotator-cuff",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:z-anatomy:rotator-cuff-study",
+      "title": "Z-Anatomy Right rotator cuff muscle localization source binding",
+      "subject": "Z-Anatomy right-sided reference atlas",
+      "sourceType": "retained source or source receipt",
+      "license": "Z-Anatomy, CC BY-SA 4.0. Retain historical BodyParts3D / DBCLS CC BY-SA 2.1 Japan credit.",
+      "path": "models/joints/exports/z-rotator-cuff-r01/inventory.json",
+      "sha256": "5122d25f95a107fe43be476afeffbe47c8a6afbbcadc51cee0be428fc244a745",
+      "bytes": 6145,
+      "evidence": [
+        {
+          "path": "models/joints/exports/z-rotator-cuff-r01/README.md",
+          "sha256": "6147d84b055f9176f49a2fbade9119e54b9948c7ec9d125306fe75a5801539b7"
+        },
+        {
+          "path": "models/joints/recipes/z-right-arm/README.md",
+          "sha256": "cec52a91d0b12100746426b2694eb59a315cd29f8333dd87902ab4d5ab2e3b7f"
+        }
+      ],
+      "limitations": []
+    }
+  ],
+  "parts": [
+    {
+      "partId": "cuff-bones",
+      "label": "Right humerus and scapula",
+      "selectors": [
+        "Humerus.r",
+        "Scapula.r"
+      ],
+      "sourcePath": "models/joints/exports/z-rotator-cuff-r01/README.md",
+      "registration": "native"
+    },
+    {
+      "partId": "posterior-cuff",
+      "label": "Supraspinatus, infraspinatus and teres minor",
+      "selectors": [
+        "Supraspinatus muscle.r",
+        "Infraspinatus muscle.r",
+        "Teres minor muscle.r"
+      ],
+      "sourcePath": "models/joints/exports/z-rotator-cuff-r01/README.md",
+      "registration": "native"
+    },
+    {
+      "partId": "subscapularis",
+      "label": "Right subscapularis surface",
+      "selectors": [
+        "Subscapularis muscle.r"
+      ],
+      "sourcePath": "models/joints/exports/z-rotator-cuff-r01/README.md",
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "z-rotator-cuff-r01",
+      "status": "provisional",
+      "sourceIds": [
+        "source:z-anatomy:rotator-cuff-study"
+      ],
+      "recipeEvidence": {
+        "path": "models/joints/recipes/z-right-arm/README.md",
+        "sha256": "cec52a91d0b12100746426b2694eb59a315cd29f8333dd87902ab4d5ab2e3b7f"
+      },
+      "frame": {
+        "convention": "glb-y-up-m",
+        "evidence": "models/joints/exports/z-rotator-cuff-r01/README.md",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ]
+      },
+      "partIds": [
+        "cuff-bones",
+        "posterior-cuff",
+        "subscapularis"
+      ],
+      "exports": [
+        {
+          "id": "teaching",
+          "path": "models/joints/exports/z-rotator-cuff-r01/right-rotator-cuff.glb",
+          "sha256": "edf5c2fc5322adc1c75703143b3fba5a2be3ecd87d5559bce1441c1977a4eb30",
+          "bytes": 703536,
+          "format": "glb",
+          "partIds": [
+            "cuff-bones",
+            "posterior-cuff",
+            "subscapularis"
+          ],
+          "triangles": 38678
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "Muscle surfaces preserve their source positioning. Tendon continuity, actions and patient placement are unverified."
+  ]
+}

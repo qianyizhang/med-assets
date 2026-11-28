@@ -1,0 +1,400 @@
+{
+  "sourceBaseline": "abe213c44df81a1510558b5595b2d14ffed74d78",
+  "branch": "asset-governance-v1",
+  "rubricSha256": "a38e552869511cd5bceacaa5ea4456f4d0530e58e7dce2bc6855587a98b0e684",
+  "inventory": {
+    "standalone": 28,
+    "workedTours": 32,
+    "auditedChapters": 410,
+    "governedStandalone": 14,
+    "previousGovernedChapters": 6,
+    "governedChapters": 15,
+    "reviewedStructures": 7,
+    "adoptedStructures": 7,
+    "activeNewPorts": 11,
+    "checkedNativeMeshExports": 17
+  },
+  "matchedBaseline": {
+    "sealedChapterBindings": 6,
+    "sweepPosesAndMedia": 2930,
+    "aaaFrames": 580,
+    "aaaFiles": 1256,
+    "aaaRegistrationSurfaceSha256": "8cb4b43ae5b819bbe6f7d0f6fd3b11dd3615bdf06f2f8a7c7132d9c9f445f333"
+  },
+  "studyIndexSha256": "d96fad4bdb2002ce98bc114281042d8176c2ebd472cf731c4e08d44a1f7eab70",
+  "packets": {
+    "aorta": {
+      "task": "Trace the course of the abdominal aorta beside the vena cava.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 4,
+        "economy": 4
+      },
+      "review": "experiments/ultrasound-sweep/development/asset-reviews/aorta-wave-2b/reviews.json",
+      "reviewSha256": "eed60e23ddcea9e932a94e166429876ecb867dc9854bb43515a78bc87f5b98c8",
+      "measurementsSha256": "a3fc2b5f7847a23497e3660a4e074c62517f6d311c98f6a5f49ee6197d133518",
+      "previousTriangles": 18320,
+      "selectedTriangles": 5790,
+      "figures": 4
+    },
+    "carotid-left": {
+      "task": "Follow the left common carotid exterior in the long-axis CT view. The worked case supplies its grayscale and duplex acquisition.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "review": "experiments/ultrasound-sweep/development/asset-reviews/carotid-left-wave-2b/reviews.json",
+      "reviewSha256": "40f81c915c4b373aa479ee402128e35f2a513299116328e9bcc2dc64e75b6fc1",
+      "measurementsSha256": "7f8668efa0954d0977500b18be3545b050d152e1448e024a3ab66c6b5370cfc3",
+      "previousTriangles": 1984,
+      "selectedTriangles": 1650,
+      "figures": 5
+    },
+    "carotid-right": {
+      "task": "Follow the right common carotid exterior in the long-axis CT view. The worked case supplies its grayscale and duplex acquisition.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "review": "experiments/ultrasound-sweep/development/asset-reviews/carotid-right-wave-2b/reviews.json",
+      "reviewSha256": "eaf4c63f960d7f1c70c9b4e9f8395ccf0cc316fbc86aa60baae6fb89121c9c36",
+      "measurementsSha256": "ce6424346b86d7bd8bf481ac005eb25ae39dd693eaed2267cb6fe0c52e639c05",
+      "previousTriangles": 2340,
+      "selectedTriangles": 1650,
+      "figures": 5
+    },
+    "ivc": {
+      "task": "Follow the caval trunk in 3D beside the aorta. The CT label identifies the caval exterior only.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "review": "experiments/ultrasound-sweep/development/asset-reviews/ivc-wave-2b/reviews.json",
+      "reviewSha256": "5262ea419d4b4f77c8b30b184206f24babaf090717381fadd208fa944edca6b0",
+      "measurementsSha256": "f40f73f0365c5c05e1e5b8c386b7f710eb6a780e74bf863c7caf13efddc27349",
+      "previousTriangles": 17476,
+      "selectedTriangles": 6000,
+      "figures": 4
+    },
+    "portal-vein": {
+      "task": "Follow the joined portal and splenic venous exterior in 3D. The worked case supplies the Doppler sample.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "review": "experiments/ultrasound-sweep/development/asset-reviews/portal-vein-wave-2b/reviews.json",
+      "reviewSha256": "553c2b8627bdb4d1e08e49d37f5c8473cc815d87d5f1166d3e05788a1cb3b175",
+      "measurementsSha256": "c1bd94d528e5d79130dfcdf0a9381a02b49c37acdd0f519dabdb5671e7a3b1a6",
+      "previousTriangles": 11316,
+      "selectedTriangles": 6000,
+      "figures": 4
+    },
+    "thyroid": {
+      "task": "Follow the left thyroid lobe along its long axis and locate its connection to the isthmus.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "review": "experiments/ultrasound-sweep/development/asset-reviews/thyroid-wave-2b/reviews.json",
+      "reviewSha256": "89c6e53729fb01296c3fae31158759fad6b7095baeb8d5f2528dd95b3e0e841f",
+      "measurementsSha256": "e7c21f8195225fd3ea337cef9c3207a966d4b05c969b8c3beecc224aa3d282a7",
+      "previousTriangles": 6248,
+      "selectedTriangles": 5900,
+      "figures": 6
+    },
+    "trachea": {
+      "task": "Locate the tracheal exterior behind the thyroid isthmus in the transverse CT view.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 4,
+        "economy": 4
+      },
+      "review": "experiments/ultrasound-sweep/development/asset-reviews/trachea-wave-2b/reviews.json",
+      "reviewSha256": "440bf874b3b0b2031205183f46330e00d87a055a30fac17582a4e5e975f25f03",
+      "measurementsSha256": "861c881e0d016b474a3b739b7b0de1df0518fd8c25cc49ebda917b69c3eba67d",
+      "previousTriangles": 6012,
+      "selectedTriangles": 2900,
+      "figures": 5
+    }
+  },
+  "affectedSweeps": {
+    "aorta": {
+      "inferior_vena_cava": "anatomy:s1233:ivc@r01:abdominal",
+      "aorta": "anatomy:s1233:aorta@ultrasound-r01:aorta-abdomen"
+    },
+    "aortic-screening": {
+      "aorta": "anatomy:s1233:aorta@ultrasound-r01:aorta-screening"
+    },
+    "carotid-left": {
+      "common_carotid_artery_left": "anatomy:s1127:carotid-left@r01:neck",
+      "thyroid_gland": "anatomy:s1127:thyroid@r03:thyroid",
+      "trachea": "anatomy:s1127:trachea@r01:carotid"
+    },
+    "carotid-right": {
+      "common_carotid_artery_right": "anatomy:s1127:carotid-right@r01:neck",
+      "thyroid_gland": "anatomy:s1127:thyroid@r03:thyroid",
+      "trachea": "anatomy:s1127:trachea@r01:carotid"
+    },
+    "ivc": {
+      "inferior_vena_cava": "anatomy:s1233:ivc@r01:abdominal",
+      "aorta": "anatomy:s1233:aorta@ultrasound-r01:aorta-abdomen"
+    },
+    "portal-vein": {
+      "portal_vein_and_splenic_vein": "anatomy:s1233:portal-splenic-vein@r02:portal-splenic-vein"
+    },
+    "thyroid-left": {
+      "common_carotid_artery_left": "anatomy:s1127:carotid-left@r01:carotid",
+      "common_carotid_artery_right": "anatomy:s1127:carotid-right@r01:carotid",
+      "thyroid_gland": "anatomy:s1127:thyroid@r03:thyroid",
+      "trachea": "anatomy:s1127:trachea@r01:thyroid"
+    },
+    "thyroid-right": {
+      "common_carotid_artery_left": "anatomy:s1127:carotid-left@r01:carotid",
+      "common_carotid_artery_right": "anatomy:s1127:carotid-right@r01:carotid",
+      "thyroid_gland": "anatomy:s1127:thyroid@r03:thyroid",
+      "trachea": "anatomy:s1127:trachea@r01:thyroid"
+    }
+  },
+  "newChapters": [
+    {
+      "case": "aaa-negative",
+      "chapter": "mid-aorta",
+      "sweep": "aortic-screening",
+      "ctFrame": 30,
+      "part": "aorta",
+      "path": "sweeps/aortic-screening/scenes/aorta.mesh",
+      "meshSha256": "b86b0ddf676f06fdec365a92d569eaaec2947cb4dbb3fefd26f0e47faa7fed6d",
+      "chapterSha256": "bea06c32399555772cde7017fa4702e815245ccc61d41659582954a07d9df19a"
+    },
+    {
+      "case": "carotid-normal",
+      "chapter": "right-cca-gray",
+      "sweep": "carotid-right",
+      "ctFrame": 48,
+      "part": "common_carotid_artery_right",
+      "path": "sweeps/carotid-right/scenes/common_carotid_artery_right.mesh",
+      "meshSha256": "5b4f14f95cabc4e5049e642eba979e0fea32971541eec4ff13dcfe6814835862",
+      "chapterSha256": "f37ed617d4e44ebc44020e3f92b7b4ddea2af4f6df11c4c249cbb31f0a9833cd"
+    },
+    {
+      "case": "carotid-normal",
+      "chapter": "left-cca-gray",
+      "sweep": "carotid-left",
+      "ctFrame": 48,
+      "part": "common_carotid_artery_left",
+      "path": "sweeps/carotid-left/scenes/common_carotid_artery_left.mesh",
+      "meshSha256": "48298238a7f6adcf2f9e260a7f004fd848f0e4c46d6b313ab241f7a00635603d",
+      "chapterSha256": "104893824d467e086707241641c37a7e32c7f95c6a6f818922d57059c24f1875"
+    },
+    {
+      "case": "abdomen-survey",
+      "chapter": "abd-portal-doppler",
+      "sweep": "portal-vein",
+      "ctFrame": 12,
+      "part": "portal_vein_and_splenic_vein",
+      "path": "sweeps/portal-vein/scenes/portal_vein_and_splenic_vein.mesh",
+      "meshSha256": "592018e3539ed1eca28b009513fc12922f7d6123a4310ffb33923f900d1c81a5",
+      "chapterSha256": "4667ec29abc430479f4a7b3c73a9d6932e88a7e278e9b4dc9a967b252efe4c73"
+    },
+    {
+      "case": "abdomen-survey",
+      "chapter": "aorta-long",
+      "sweep": "aorta",
+      "ctFrame": 12,
+      "part": "aorta",
+      "path": "sweeps/aorta/scenes/aorta.mesh",
+      "meshSha256": "071cc21f07050b02fe860f133f9b46f0111d7e5fd7cc9dd2e523ace072c2824a",
+      "chapterSha256": "15bd89c02399e75998eddfcf8d21cbb646567821c234aa3c0bf678161f3ad0c6"
+    },
+    {
+      "case": "abdomen-survey",
+      "chapter": "ivc-long",
+      "sweep": "ivc",
+      "ctFrame": 12,
+      "part": "inferior_vena_cava",
+      "path": "sweeps/aorta/scenes/inferior_vena_cava.mesh",
+      "meshSha256": "0ccc3c04dc2528ce211cde5119140a6450ae28172ef5f2b6d02178a786ef3ea0",
+      "chapterSha256": "77b581b2ad4856b84f6e0ad22f717ee50c7b53263e4968f1a2d113926de07f86"
+    },
+    {
+      "case": "thyroid-normal",
+      "chapter": "thyroid-axial",
+      "sweep": "thyroid-right",
+      "ctFrame": 0,
+      "part": "trachea",
+      "path": "sweeps/thyroid-right/scenes/trachea.mesh",
+      "meshSha256": "d72633f2240dddf7b9702a7e97374b784e5272573911426fd58ba923e80e7e41",
+      "chapterSha256": "af68cdfe3a7987be09a336620627a2532ab38822f933f000b9043025662f003b"
+    },
+    {
+      "case": "thyroid-normal",
+      "chapter": "thyroid-right-long",
+      "sweep": "thyroid-right",
+      "ctFrame": 48,
+      "part": "thyroid_gland",
+      "path": "sweeps/thyroid-right/scenes/thyroid_gland.mesh",
+      "meshSha256": "ee82ceca2ad9477bd995f8f03c194da88110516fb44cab3ccb6088a3f4d6508c",
+      "chapterSha256": "1952b234feb14f45a11e7d599ffa5d7a04bc255abf5b8a5b4513d076f5cec9db"
+    },
+    {
+      "case": "thyroid-normal",
+      "chapter": "thyroid-left-long",
+      "sweep": "thyroid-left",
+      "ctFrame": 48,
+      "part": "thyroid_gland",
+      "path": "sweeps/thyroid-right/scenes/thyroid_gland.mesh",
+      "meshSha256": "ee82ceca2ad9477bd995f8f03c194da88110516fb44cab3ccb6088a3f4d6508c",
+      "chapterSha256": "4ba2884e69de83904193ff82a2006d0c5920b7d2ac7fc1bcf4bcf9dc9f8b0ef2"
+    }
+  ],
+  "checks": {
+    "lint": {
+      "result": "passed",
+      "logSha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "format": {
+      "result": "passed",
+      "logSha256": "6ed8d1cb172b51dddf192664f6e4b2a6c56db357a990dcce6f028de11201bd61"
+    },
+    "ty": {
+      "result": "passed",
+      "logSha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "pytest": {
+      "result": "passed",
+      "logSha256": "e6545b30361831a93e8e8ab68675da367016855ee5ce5d25eb4262f1f4ddee3b"
+    },
+    "validate": {
+      "result": "passed",
+      "logSha256": "fc4c5580e68942f8ebb42ad008707bae3bc7930e01d4cbe171a5987354e64203"
+    },
+    "economy": {
+      "result": "passed",
+      "logSha256": "11d4633a842c2886e240d333294d24f34b3311a9a6da2e02adf487e2b3ac699c"
+    },
+    "review": {
+      "result": "passed",
+      "logSha256": "657a9f268964eb475260ed43e2d3531b3e54ab17e252cef059da70fe310045d8"
+    },
+    "ports": {
+      "result": "passed",
+      "logSha256": "1f31f824666132a9c9497039d3b67861135b0617aee075d52e2bdaeceffdb02a"
+    },
+    "cases": {
+      "result": "passed",
+      "logSha256": "3a50a6287332eb92008cee94f6534af81a5b0ce15694a93ce420f3452ca66bdf"
+    },
+    "case-geometry": {
+      "result": "passed",
+      "logSha256": "30905d41da550e45a5072b9f6059e3587782c43dc848049744d724b54a43180d"
+    },
+    "aortic-verification": {
+      "result": "passed",
+      "logSha256": "4fc48faa8c895477b6c9b2c4975084ea17f135843b06d2b85f81db364fdd4296"
+    },
+    "carotid-verification": {
+      "result": "passed",
+      "logSha256": "7cc9f622cfedad92f182055f5c7e7e3894b15dc4b65eda02f77f72144a53e852"
+    },
+    "assembly": {
+      "result": "passed",
+      "logSha256": "0dea3401c83ca345ef5979cbe82ce0636eb5169f8454631320e16527f6d13190"
+    },
+    "chapters-final": {
+      "result": "passed",
+      "logSha256": "fc486bbe3e7e5049485665eda5a59e5f31447f18b18c7b9bb577ee94c40c6bfc"
+    },
+    "sweeps-final": {
+      "result": "passed",
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "playback": {
+      "result": "passed",
+      "logSha256": "c746b7d550fa3488e141140a5b92c5bd8bede7b5a56fb807f2332514a6ab31b8"
+    },
+    "case-tours": {
+      "result": "passed",
+      "logSha256": "5a18743ddf5964a0030fed929e8cd5050ee83f2f748c2ee34476e2fe6c59ef2f"
+    },
+    "aaa-tours": {
+      "result": "passed",
+      "logSha256": "b9144ec28f7426dcbf816d4696119c0f4c4ce9384a1b382fe17cb81b1bfc8be1"
+    },
+    "cases-browser": {
+      "result": "passed",
+      "logSha256": "a230c164d9dfcf8c2c53cac9fc8dd00acf7c22ba7e5c4b4576aa9a3a32e43fa2"
+    },
+    "workbench": {
+      "result": "passed",
+      "logSha256": "979a2256b97262ea00dd21bc196fa114a02496e156a1446bd20ce13c85bb0286"
+    },
+    "workbench-earlier": {
+      "result": "passed",
+      "logSha256": "e17bdbd8c54396e0a3de3250364c1489890e1e3673436a7effa2ac6d5deab870"
+    },
+    "offline": {
+      "result": "passed",
+      "logSha256": "b335f9ab40ad21bc61fb9f082225a7c918f32ef82a0ddd809e84ebbcd309487d"
+    },
+    "payload-integrity": {
+      "result": "passed",
+      "logSha256": "3192aafa16b0779021a214cae90ad0e2ce5b11b05b0ce35b9b83ab5fb8689ed8"
+    }
+  },
+  "economy": {
+    "candidateHardFlags": 75,
+    "baselineHardFlags": 75,
+    "newHardFlagTargets": 0
+  },
+  "limit": "Agent-reviewed CT exterior orientation on two named subjects. Human specialist assessment, clinical qualification, publication and off-machine recovery are separate.",
+  "gallery": {
+    "browser": "158.0.8127.18",
+    "studyServersStopped": [
+      "http://127.0.0.1:8893/",
+      "http://127.0.0.1:8894/",
+      "http://127.0.0.1:8895/"
+    ],
+    "metrics": {
+      "Governed chapters": "15 / 410",
+      "Adopted": "13",
+      "Reviewed": "14",
+      "Qualified": "0",
+      "Triangles saved": "209766",
+      "Bytes saved": "3775860"
+    },
+    "downloadedMeshes": 14,
+    "decodedFigures": 62,
+    "htmlSha256": "bc9d86ba980417439c9756ef1425c971222a2551a56b6b2599931407a5fff3c4",
+    "externalRequests": 0,
+    "pageErrors": 0,
+    "receiptSha256": "2d05e9dd45b795841f5b7ab7c8cd7efebe8474c01e130bb29840c351a969c1c5"
+  },
+  "testedIndex": {
+    "sha256": "078daa37d74bc790619664ee778a39b7d0db0c26dd6fbbac734f4fd71a46b0f9",
+    "method": "SHA-256 of git ls-files --stage -z, excluding this receipt, preserving index order and NUL terminators."
+  },
+  "stagedHooks": {
+    "ruff": "passed",
+    "ruff-format": "passed",
+    "ty": "passed",
+    "check-json": "passed",
+    "check-toml": "no staged TOML",
+    "check-merge-conflict": "passed"
+  },
+  "verificationNotes": [
+    "The original tour test treated every native consumer as the primary acquisition. It was adapted to verify both the original player and each declared companion, then replayed across all 29 non-AAA tours.",
+    "Gallery compilation rejected three new context figures missing from the selected chapter review. The selected reviews now declare them and their SHA-256 values; the fresh build and offline browser run passed."
+  ]
+}

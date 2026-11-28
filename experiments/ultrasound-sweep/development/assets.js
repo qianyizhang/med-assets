@@ -1,6 +1,6 @@
 import * as THREE from '../vendor/build/three.module.js';
 import { viewport } from '../scene.js';
-import { aaaRows, axes, assessmentScore, bufferBytes, caseRows, dispose, isolatedMesh, meshTopology, read, rowID, setTeachingTours, sweepRows } from './assets-data.js';
+import { aaaRows, axes, assessmentScore, bufferBytes, caseRows, chapterMeshReviewPrior, dispose, isolatedMesh, meshTopology, read, rowID, setTeachingTours, sweepRows } from './assets-data.js';
 
 import { acquireScene } from './assets-scene.js';
 import { illustrationFor } from './assets-illustrations.js';
@@ -1454,7 +1454,7 @@ async function start() {
     remaining--;
     refresh();
   });
-  const aaa = aaaRows().then(({ rows, issues }) => {
+  const aaa = aaaRows(manifest.cases).then(({ rows, issues }) => {
     recordRows(rows);
     failures.push(...issues.map((issue) => 'AAA · ' + issue));
   }).finally(() => {
@@ -1462,18 +1462,26 @@ async function start() {
     refresh();
   });
   refresh();
+  const chapterMeshHashes = new Map();
   await Promise.allSettled((manifest.reviews ?? []).map(async (path) => {
     try {
       const { records, recipeHash, rubricHash } = await read(path);
       for (const record of records) {
         const owner = entries.get(record.case)?.owner ?? (record.source === 'aaa' ? 'vascular' : undefined);
         const emittedMesh = manifest.sweepHashes?.[record.case]?.[record.part];
-        const prior = record.source === 'sweep'
-          ? (manifest.sweepHashes && (!emittedMesh || emittedMesh !== record.meshSha256)) ||
-            (manifest.rubricHash && manifest.rubricHash !== rubricHash)
-          : owner && manifest.recipeHashes?.[owner] && manifest.recipeHashes[owner] !== recipeHash;
-        if (record.occurrence) reviews.set(rowID(record), { ...record, prior });
-        else uniqueReviews.set(frameKey({ ...record, chapter: record.chapter ?? '' }), { ...record, prior });
+        let prior;
+        if (record.source !== 'sweep' && ('meshSha256' in record || 'chapterSha256' in record)) {
+          prior = await chapterMeshReviewPrior(manifest, record, rubricHash, chapterMeshHashes);
+        } else {
+          prior = record.source === 'sweep'
+            ? (manifest.sweepHashes && (!emittedMesh || emittedMesh !== record.meshSha256)) ||
+              (manifest.rubricHash && manifest.rubricHash !== rubricHash)
+            : owner && manifest.recipeHashes?.[owner] && manifest.recipeHashes[owner] !== recipeHash;
+        }
+        const index = record.occurrence ? reviews : uniqueReviews;
+        const key = record.occurrence ? rowID(record) : frameKey({ ...record, chapter: record.chapter ?? '' });
+        // An older revision may finish loading after the review for the served mesh.
+        if (!prior || !index.has(key) || index.get(key).prior) index.set(key, { ...record, prior });
       }
     } catch (cause) {
       failures.push('Assessment · ' + cause.message);

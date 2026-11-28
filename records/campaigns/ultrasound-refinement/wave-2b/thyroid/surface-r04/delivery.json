@@ -1,0 +1,99 @@
+{
+  "baseRevision": "b2d0552620953608cf0fc0417af369e032c54d57",
+  "asset": "anatomy:s1127:thyroid@r04:thyroid",
+  "meshSha256": "ae8733964ac06a2e1eab11cd1198e15d2e6375e88716db493909fcd5826b3da5",
+  "triangles": 5900,
+  "bytes": 106232,
+  "preservedHistoricalControl": "r01",
+  "replaces": "r03",
+  "originalFrozenGates": "passed",
+  "negativeControlExit": 1,
+  "reviewSha256": "34d247e76bc6055d9ac31a37dfc15cd4f2f2dfe437feb8a4a05ab59b1994d538",
+  "measurementsSha256": "48e6f1e534112e918de99b4f803a30eef701e98b57cfa18d546f85effa844936",
+  "blindedSheetSha256": "60774dff434d0f39f4b421ef038b1a233998897c0aedc1caa5c2b052556d0a3d",
+  "studyInventorySha256": "7d1efe3f6fa3eb3834a7a6cd928413e78fc5beb13617f2ea7f61ba3459137036",
+  "unchangedAcquisitionWebpsAndPoseScripts": 4549,
+  "changedSceneSlots": [
+    [
+      "thyroid-right",
+      "thyroid_gland"
+    ],
+    [
+      "thyroid-left",
+      "thyroid_gland"
+    ],
+    [
+      "carotid-right",
+      "thyroid_gland"
+    ],
+    [
+      "carotid-left",
+      "thyroid_gland"
+    ]
+  ],
+  "verifiedChapterBindings": [
+    {
+      "case": "carotid-normal",
+      "chapter": "right-cca-gray",
+      "part": "common_carotid_artery_right",
+      "meshSha256": "5b4f14f95cabc4e5049e642eba979e0fea32971541eec4ff13dcfe6814835862",
+      "chapterSha256": "4a1428133b863f501b0142c4b6f8bc48e1a99d33c5b2e195b1f93928f4cf8d1c"
+    },
+    {
+      "case": "carotid-normal",
+      "chapter": "left-cca-gray",
+      "part": "common_carotid_artery_left",
+      "meshSha256": "48298238a7f6adcf2f9e260a7f004fd848f0e4c46d6b313ab241f7a00635603d",
+      "chapterSha256": "64c901635ae5f5a3add49c30437718b19e229751c488a7310b2f06065cf9aa53"
+    },
+    {
+      "case": "thyroid-normal",
+      "chapter": "thyroid-axial",
+      "part": "trachea",
+      "meshSha256": "d72633f2240dddf7b9702a7e97374b784e5272573911426fd58ba923e80e7e41",
+      "chapterSha256": "2ad754ac101043ce48dd0977f672d1af0f5170933fc1bce8fc82604c9300662a"
+    },
+    {
+      "case": "thyroid-normal",
+      "chapter": "thyroid-right-long",
+      "part": "thyroid_gland",
+      "meshSha256": "ae8733964ac06a2e1eab11cd1198e15d2e6375e88716db493909fcd5826b3da5",
+      "chapterSha256": "ebab0fcd3a3f406f304c0eb9b48312f09e80a56645d685226054c463c7719828"
+    },
+    {
+      "case": "thyroid-normal",
+      "chapter": "thyroid-left-long",
+      "part": "thyroid_gland",
+      "meshSha256": "ae8733964ac06a2e1eab11cd1198e15d2e6375e88716db493909fcd5826b3da5",
+      "chapterSha256": "941022fe07692682d4487245fe5f110188079d4d57d76594829dd1dbc6458ecf"
+    }
+  ],
+  "study": {
+    "sweeps": 28,
+    "workedCases": 32,
+    "chapters": 410,
+    "governedChapters": 15
+  },
+  "gallery": {
+    "cards": 15,
+    "figures": 68,
+    "meshesDownloaded": 15,
+    "studyServersStopped": [
+      "http://127.0.0.1:8913/",
+      "http://127.0.0.1:8914/"
+    ],
+    "externalRequests": 0,
+    "pageErrors": 0
+  },
+  "checks": {
+    "offline": "8ce2394e349f77e68375fd3ada20114946b2eb186bdfcf3f0565125d7bcf37de",
+    "payload": "b49f6845e2e9aeb8e86683fde2d69534e8b07f4ce2f61f0f0e8374ede4ff2335",
+    "assembly-negative": "0dea3401c83ca345ef5979cbe82ce0636eb5169f8454631320e16527f6d13190",
+    "assetkit-tests": "95df5451e26ae34765f466ed780e1373b458d0b454cdf6013a0c13bbe7adea9f",
+    "workbench": "979a2256b97262ea00dd21bc196fa114a02496e156a1446bd20ce13c85bb0286",
+    "affected-tours": "f36d0c20872f6b261a72d479493e9984bdf001286e9fdd4eb4f850389c97e90a",
+    "playback": "c746b7d550fa3488e141140a5b92c5bd8bede7b5a56fb807f2332514a6ab31b8",
+    "case-geometry": "30905d41da550e45a5072b9f6059e3587782c43dc848049744d724b54a43180d"
+  },
+  "scope": "Agent-reviewed 3D exterior orientation. Seven of eight additional parallel cuts stay below 3 mm. The left +0.75 mm cut reaches 4.13 mm in-plane and 0.64 mm in 3D."
+}

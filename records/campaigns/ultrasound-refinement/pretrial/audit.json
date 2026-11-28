@@ -1,0 +1,78 @@
+{
+  "source": "199d2836",
+  "inventorySha256": "909623fe4414b08f0b4dd44eaccb6847c41ac7975a2b268785b1de129afbf09c",
+  "sweeps": [
+    "gallbladder",
+    "liver",
+    "portal-vein",
+    "pancreas",
+    "spleen",
+    "kidney-right",
+    "kidney-left",
+    "aorta",
+    "ivc",
+    "thyroid-right",
+    "thyroid-left",
+    "carotid-right",
+    "carotid-left",
+    "breast",
+    "breast-subareolar",
+    "axilla",
+    "aortic-screening"
+  ],
+  "caseTours": 32,
+  "chapters": 410,
+  "teachingTours": 34,
+  "families": {
+    "echo": {
+      "retained": 1,
+      "historicalFourTopScores": 0,
+      "matching": 1,
+      "matchingFourTopScores": 0,
+      "missingReadability": 0,
+      "extraUses": 0,
+      "retainedRecipe": "80f5885a9577c09534edc72958c58941e6da5c419de85dc430fa0e3a3ff0bf95",
+      "assembledRecipe": "80f5885a9577c09534edc72958c58941e6da5c419de85dc430fa0e3a3ff0bf95"
+    },
+    "organs": {
+      "retained": 19,
+      "historicalFourTopScores": 1,
+      "matching": 0,
+      "matchingFourTopScores": 0,
+      "missingReadability": 11,
+      "extraUses": 45,
+      "retainedRecipe": "ede5364aace853336fb39de5d501f7e85ffb64429addaa9b382418926b1e523b",
+      "assembledRecipe": "08e83fc1bab3873a478047fd32d949624d9ebd73a091921b6c72ec6efe2e8c2b"
+    },
+    "originals": {
+      "retained": 7,
+      "historicalFourTopScores": 1,
+      "matching": 7,
+      "matchingFourTopScores": 1,
+      "missingReadability": 0,
+      "extraUses": 0,
+      "retainedRecipe": null,
+      "assembledRecipe": null
+    },
+    "pregnancy": {
+      "retained": 18,
+      "historicalFourTopScores": 13,
+      "matching": 0,
+      "matchingFourTopScores": 0,
+      "missingReadability": 0,
+      "extraUses": 0,
+      "retainedRecipe": "3fa1dab5dc0076db1ee3e854f8f3f710c3ea0c1ccadde9ce2bc98032d8e073d7",
+      "assembledRecipe": "8e95bcbc5b2506cb4e09cfa6bd7275b0d1090b019804e20939d761bf74f0a091"
+    },
+    "vascular": {
+      "retained": 26,
+      "historicalFourTopScores": 0,
+      "matching": 0,
+      "matchingFourTopScores": 0,
+      "missingReadability": 0,
+      "extraUses": 35,
+      "retainedRecipe": "ea9f8b85b729df62a86399606821ca961cec3190ee475411738575097bb9fb8f",
+      "assembledRecipe": "3ff788823db344621d802d577fcff67ccf4554b8432c9f87eb3a99cf18456ca7"
+    }
+  }
+}

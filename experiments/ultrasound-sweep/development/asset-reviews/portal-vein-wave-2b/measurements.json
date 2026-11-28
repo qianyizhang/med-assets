@@ -1,0 +1,504 @@
+{
+  "frozen": {
+    "organ": "portal-vein",
+    "label": "portal_vein_and_splenic_vein",
+    "frame": 12,
+    "pose": {
+      "contact": [
+        177.84879729911827,
+        226.98017464289822,
+        196.3774781696377
+      ],
+      "width": [
+        -0.9442998452821804,
+        0.22582599105976717,
+        -0.239375069633253
+      ],
+      "beam": [
+        -0.2595332598211025,
+        -0.9582766516471477,
+        0.11978458145589362
+      ],
+      "degrees": 0.0
+    },
+    "normalRas": [
+      0.20233706839499987,
+      -0.17523835387781259,
+      -0.9635098494999996
+    ],
+    "protectedPlanes": [
+      {
+        "offsetMm": -1.5,
+        "originRasMm": [
+          50.858362221084924,
+          303.6217913701641,
+          337.211482791646
+        ],
+        "segments": 347
+      },
+      {
+        "offsetMm": 0.0,
+        "originRasMm": [
+          51.161867823677426,
+          303.35893383934734,
+          335.766218017396
+        ],
+        "segments": 318
+      },
+      {
+        "offsetMm": 1.5,
+        "originRasMm": [
+          51.46537342626993,
+          303.0960763085306,
+          334.320953243146
+        ],
+        "segments": 348
+      }
+    ],
+    "reference": {
+      "sha256": "72fbcc4370921d3106fe0f6f1ee9c24b13f70b79d82d7143513e9dd42f58d1a0",
+      "bytes": 470418
+    },
+    "source": {
+      "case": "s1233",
+      "ctSha256": "5352376d8fd9c0ab582a7fca1443f28762a66b9782d59c645b976771587c0cfc",
+      "maskSha256": "b1437b7058628669a6bc9e3b2e142dd019f1a2eeee88307e141f8f7d37e17e60",
+      "shape": [
+        265,
+        265,
+        401
+      ],
+      "rasMmFromVoxel": [
+        [
+          1.5,
+          0.0,
+          0.0,
+          -215.611328125
+        ],
+        [
+          0.0,
+          1.5,
+          0.0,
+          -37.111328125
+        ],
+        [
+          0.0,
+          0.0,
+          1.5,
+          41.20000076293945
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "workingLabelGridSpacingMm": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "maskComponents6ConnectedVoxels": [
+        6045
+      ],
+      "enclosedBackgroundVoxels": 0,
+      "occupiedGridMin": [
+        65,
+        114,
+        192
+      ],
+      "occupiedGridMax": [
+        192,
+        175,
+        232
+      ],
+      "minDistanceToCTBoundaryVoxels": 65,
+      "referenceTopology": {
+        "components": 1,
+        "euler": 0,
+        "openEdges": 0,
+        "nonmanifoldEdges": 0,
+        "misorientedSharedEdges": 0,
+        "degenerateTriangles": 0,
+        "signedVolumeMm3": 20008.96875,
+        "intersectingNonincidentPairs": 0
+      }
+    },
+    "previousSweep": {
+      "sha256": "5a511af3ac51d413b92bd58c49f68cc7bfaf6c1b897468a8786b5a5c7c116c77",
+      "bytes": 203720,
+      "triangles": 11316
+    },
+    "previousStageMesh": "sweeps/portal-vein/scenes/portal_vein_and_splenic_vein.mesh",
+    "previousCompactMesh": "sweeps/liver/scenes/portal_vein_and_splenic_vein.mesh",
+    "savedFrameInputs": {
+      "sweep.js": {
+        "sha256": "a2f9f8300505cf4861e99c0d113ca8db0a1586502ff2c92a87ffd685cee079b8",
+        "bytes": 10961
+      },
+      "media/scan-12.webp": {
+        "sha256": "c1f3e37fb465b3d9ae6f0fe111fb075b5f0db9c61a834f45d1b30f49167cd704",
+        "bytes": 32616
+      },
+      "media/section-12.webp": {
+        "sha256": "34d59e095f43cc44c092173f79e2162fa079dea9b6d327acd199f7ac5e5e60d9",
+        "bytes": 29042
+      }
+    },
+    "workedChapterBaseline": {
+      "cases/abdomen-survey.html": {
+        "sha256": "ba87075c801ca92976e1337d613470dc5cd6305c909ef1a2055f6bea4a5b6bb5",
+        "bytes": 25978
+      },
+      "cases/organs/playable-abdomen.js": {
+        "sha256": "fe64b6fd89c863a1f86f3ab7ecd44d57b411a1ae3d3a216409dd593ee1b2cc13",
+        "bytes": 9470
+      }
+    },
+    "limits": {
+      "p95Mm": 1.5,
+      "maxMm": 3.0,
+      "volumePercent": 3.0,
+      "silhouettePx": 1.0,
+      "silhouetteViews": 24,
+      "teachingZoomPxPerMm": 3.0,
+      "triangleBand": [
+        1500,
+        6000
+      ],
+      "extentMm": 1.5
+    },
+    "topologyExpected": {
+      "components": 1,
+      "euler": 0,
+      "openEdges": 0,
+      "nonmanifoldEdges": 0,
+      "misorientedSharedEdges": 0,
+      "degenerateTriangles": 0,
+      "intersectingNonincidentPairs": 0
+    }
+  },
+  "export": {
+    "sha256": "592018e3539ed1eca28b009513fc12922f7d6123a4310ffb33923f900d1c81a5",
+    "bytes": 108008,
+    "triangles": 6000
+  },
+  "previousSweep": {
+    "sha256": "5a511af3ac51d413b92bd58c49f68cc7bfaf6c1b897468a8786b5a5c7c116c77",
+    "bytes": 203720,
+    "triangles": 11316
+  },
+  "volumeDeltaPercent": 0.869795426389075,
+  "candidate": {
+    "global": {
+      "referenceToMesh": {
+        "p95Mm": 0.46486415520591146,
+        "maxMm": 0.9907506812402052,
+        "maxLocationRasMm": [
+          18.388671875,
+          191.638671875,
+          344.200000763
+        ],
+        "samples": 132598
+      },
+      "meshToReference": {
+        "p95Mm": 0.40444564806057315,
+        "maxMm": 0.8560775292848983,
+        "maxLocationRasMm": [
+          18.601591492,
+          192.791384888,
+          344.082863617
+        ],
+        "samples": 136241
+      }
+    },
+    "protectedPlanes": [
+      {
+        "offsetMm": -1.5,
+        "referenceToMesh": {
+          "p95Mm": 0.7754449951687112,
+          "maxMm": 2.6338391256214546,
+          "maxLocationRasMm": [
+            8.256549664,
+            195.388671875,
+            347.950000763
+          ],
+          "samples": 609
+        },
+        "meshToReference": {
+          "p95Mm": 0.5722231886311464,
+          "maxMm": 1.286020214157522,
+          "maxLocationRasMm": [
+            10.816093983,
+            196.451333452,
+            348.294233496
+          ],
+          "samples": 489
+        }
+      },
+      {
+        "offsetMm": 0.0,
+        "referenceToMesh": {
+          "p95Mm": 0.5291284009981123,
+          "maxMm": 0.8842938034705697,
+          "maxLocationRasMm": [
+            49.888671875,
+            187.50792095,
+            356.569249838
+          ],
+          "samples": 557
+        },
+        "meshToReference": {
+          "p95Mm": 0.48964252076030584,
+          "maxMm": 0.8046800944634179,
+          "maxLocationRasMm": [
+            50.047608858,
+            188.369040358,
+            356.446010511
+          ],
+          "samples": 486
+        }
+      },
+      {
+        "offsetMm": 1.5,
+        "referenceToMesh": {
+          "p95Mm": 0.7786817766202376,
+          "maxMm": 2.059318052752658,
+          "maxLocationRasMm": [
+            43.888671875,
+            186.421685405,
+            353.950000763
+          ],
+          "samples": 600
+        },
+        "meshToReference": {
+          "p95Mm": 0.6268081802621461,
+          "maxMm": 1.1920129033289724,
+          "maxLocationRasMm": [
+            54.784868619,
+            184.262349825,
+            356.630931238
+          ],
+          "samples": 508
+        }
+      }
+    ]
+  },
+  "baseline": {
+    "global": {
+      "referenceToMesh": {
+        "p95Mm": 0.7090040027396489,
+        "maxMm": 1.7227744745122313,
+        "maxLocationRasMm": [
+          71.638671875,
+          183.388671875,
+          365.200000763
+        ],
+        "samples": 132598
+      },
+      "meshToReference": {
+        "p95Mm": 0.5899314879394524,
+        "maxMm": 1.3499999999999943,
+        "maxLocationRasMm": [
+          70.288671875,
+          172.008900452,
+          361.300000763
+        ],
+        "samples": 131539
+      }
+    },
+    "protectedPlanes": [
+      {
+        "offsetMm": -1.5,
+        "referenceToMesh": {
+          "p95Mm": 0.9332455420380634,
+          "maxMm": 1.9938922159532122,
+          "maxLocationRasMm": [
+            10.85476395,
+            198.388671875,
+            347.950000763
+          ],
+          "samples": 609
+        },
+        "meshToReference": {
+          "p95Mm": 0.6587763164937683,
+          "maxMm": 1.2632046776374006,
+          "maxLocationRasMm": [
+            10.572770503,
+            196.203961188,
+            348.288126395
+          ],
+          "samples": 558
+        }
+      },
+      {
+        "offsetMm": 0.0,
+        "referenceToMesh": {
+          "p95Mm": 0.6311685886722361,
+          "maxMm": 0.9671754843777794,
+          "maxLocationRasMm": [
+            54.388671875,
+            188.307497893,
+            357.368826781
+          ],
+          "samples": 557
+        },
+        "meshToReference": {
+          "p95Mm": 0.5587056406189668,
+          "maxMm": 0.8269881719260385,
+          "maxLocationRasMm": [
+            54.388671875,
+            187.313322361,
+            357.549642456
+          ],
+          "samples": 548
+        }
+      },
+      {
+        "offsetMm": 1.5,
+        "referenceToMesh": {
+          "p95Mm": 1.0600687762670549,
+          "maxMm": 2.0313668985015627,
+          "maxLocationRasMm": [
+            52.949365514,
+            180.388671875,
+            356.950000763
+          ],
+          "samples": 600
+        },
+        "meshToReference": {
+          "p95Mm": 0.7662366283495244,
+          "maxMm": 1.2806495237142488,
+          "maxLocationRasMm": [
+            53.255974719,
+            182.627479174,
+            356.607205619
+          ],
+          "samples": 561
+        }
+      }
+    ]
+  },
+  "silhouette": {
+    "views": 24,
+    "pixelsPerMm": 3.0,
+    "supersample": 4,
+    "maximumDeparturePx": 0.5590169943749475
+  },
+  "topology": {
+    "components": 1,
+    "euler": 0,
+    "openEdges": 0,
+    "nonmanifoldEdges": 0,
+    "misorientedSharedEdges": 0,
+    "degenerateTriangles": 0,
+    "signedVolumeMm3": 20183.00584505512,
+    "intersectingNonincidentPairs": 0
+  },
+  "largestRasBoundsChangeMm": 0.697174072265625,
+  "failedCutDiagnostics": [],
+  "failures": [],
+  "liveBrowser": {
+    "previous": {
+      "served": {
+        "/sweeps/portal-vein/sweep.js": {
+          "bytes": 10961,
+          "sha256": "a2f9f8300505cf4861e99c0d113ca8db0a1586502ff2c92a87ffd685cee079b8"
+        },
+        "/sweeps/portal-vein/media/scan-12.webp": {
+          "bytes": 32616,
+          "sha256": "c1f3e37fb465b3d9ae6f0fe111fb075b5f0db9c61a834f45d1b30f49167cd704"
+        },
+        "/sweeps/portal-vein/media/section-12.webp": {
+          "bytes": 29042,
+          "sha256": "34d59e095f43cc44c092173f79e2162fa079dea9b6d327acd199f7ac5e5e60d9"
+        },
+        "/sweeps/liver/scenes/portal_vein_and_splenic_vein.mesh": {
+          "bytes": 203720,
+          "sha256": "5a511af3ac51d413b92bd58c49f68cc7bfaf6c1b897468a8786b5a5c7c116c77"
+        }
+      },
+      "frame": 12,
+      "torsoOpacityPercent": 15,
+      "cameraPresets": [
+        "oblique",
+        "axial"
+      ]
+    },
+    "candidate": {
+      "served": {
+        "/sweeps/portal-vein/sweep.js": {
+          "bytes": 10961,
+          "sha256": "a2f9f8300505cf4861e99c0d113ca8db0a1586502ff2c92a87ffd685cee079b8"
+        },
+        "/sweeps/portal-vein/media/scan-12.webp": {
+          "bytes": 32616,
+          "sha256": "c1f3e37fb465b3d9ae6f0fe111fb075b5f0db9c61a834f45d1b30f49167cd704"
+        },
+        "/sweeps/portal-vein/media/section-12.webp": {
+          "bytes": 29042,
+          "sha256": "34d59e095f43cc44c092173f79e2162fa079dea9b6d327acd199f7ac5e5e60d9"
+        },
+        "/sweeps/liver/scenes/portal_vein_and_splenic_vein.mesh": {
+          "bytes": 108008,
+          "sha256": "592018e3539ed1eca28b009513fc12922f7d6123a4310ffb33923f900d1c81a5"
+        }
+      },
+      "frame": 12,
+      "torsoOpacityPercent": 15,
+      "cameraPresets": [
+        "oblique",
+        "axial"
+      ]
+    }
+  },
+  "doubleReplay": {
+    "r02-replay-a": "592018e3539ed1eca28b009513fc12922f7d6123a4310ffb33923f900d1c81a5",
+    "r02-replay-b": "592018e3539ed1eca28b009513fc12922f7d6123a4310ffb33923f900d1c81a5"
+  },
+  "negativeControl": {
+    "translationRasMm": [
+      9,
+      0,
+      0
+    ],
+    "export": {
+      "sha256": "d4413d9910fbda717d837214ed75621bfc400578849a736cb3df7eb49d439f1b",
+      "bytes": 108008,
+      "triangles": 6000
+    },
+    "exitCode": 1,
+    "failures": [
+      "global referenceToMesh p95Mm 7.586 > 1.5 mm",
+      "global referenceToMesh maxMm 9.359 > 3.0 mm",
+      "global meshToReference p95Mm 6.957 > 1.5 mm",
+      "global meshToReference maxMm 9.019 > 3.0 mm",
+      "plane -1.5 mm referenceToMesh p95Mm 5.577 > 1.5 mm",
+      "plane -1.5 mm referenceToMesh maxMm 7.911 > 3.0 mm",
+      "plane -1.5 mm meshToReference p95Mm 7.769 > 1.5 mm",
+      "plane -1.5 mm meshToReference maxMm 9.185 > 3.0 mm",
+      "plane +0 mm referenceToMesh p95Mm 6.271 > 1.5 mm",
+      "plane +0 mm referenceToMesh maxMm 7.349 > 3.0 mm",
+      "plane +0 mm meshToReference p95Mm 8.389 > 1.5 mm",
+      "plane +0 mm meshToReference maxMm 11.159 > 3.0 mm",
+      "plane +1.5 mm referenceToMesh p95Mm 6.626 > 1.5 mm",
+      "plane +1.5 mm referenceToMesh maxMm 8.999 > 3.0 mm",
+      "plane +1.5 mm meshToReference p95Mm 6.862 > 1.5 mm",
+      "plane +1.5 mm meshToReference maxMm 8.585 > 3.0 mm",
+      "turning silhouette (px): 27.250 > 1.0",
+      "RAS bounds change (mm): 9.000 > 1.5"
+    ]
+  },
+  "earlierTrial": {
+    "revision": "r01",
+    "export": {
+      "sha256": "462d4c54841eb2ad23f2c02d8c8b5e02b17dc41adf8372cffb72bc334d79f97a",
+      "bytes": 108008,
+      "triangles": 6000
+    },
+    "volumeDeltaPercent": 1.857387527345189,
+    "maxRawCutDistanceMm": 2.556379723049293,
+    "observation": "More axial steps remain on the upper limb and at the margin of the source relief."
+  }
+}

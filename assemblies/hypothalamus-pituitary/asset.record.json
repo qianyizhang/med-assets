@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "assetId": "assembly:bp3d:hypothalamus-pituitary",
+  "title": "Hypothalamus, stalk and pituitary teaching assembly",
+  "kind": "assembly",
+  "status": "provisional",
+  "owner": "assemblies/hypothalamus-pituitary",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:bp3d:hypothalamus-source-candidate-01",
+      "title": "BodyParts3D hypothalamus source-frame GLB",
+      "sourceType": "atlas-derived GLB",
+      "subject": "BodyParts3D 4.0 reference atlas",
+      "license": "BodyParts3D © DBCLS, CC BY 4.0. Historical OBJ headers retain CC BY-SA 2.1 Japan.",
+      "evidence": [
+        {
+          "path": "assemblies/hypothalamus-pituitary/teaching-stalk-r01/ATTRIBUTION.md",
+          "sha256": "cc32b4c361a5a3479d9fa9ff48a6a49e92a26d9dc093f77580dd1554e4249932"
+        },
+        {
+          "path": "sources/datasets/bp3d-4.0-glands/SOURCE-FRAME.md",
+          "sha256": "d06160979cd8293bffeacadc892fe626210566fbb3d186e99993d759c2661122"
+        },
+        {
+          "path": "reviews/hypothalamus_pituitary/2026-10-29-teaching-stalk-r01/export-check.json",
+          "sha256": "2c682b58990675cad8271a1b4a60c4870baf64b424476151512cec3900ec8c66"
+        }
+      ],
+      "path": "models/hypothalamus/exports/source-candidate-01/hypothalamus_source_frame.glb",
+      "sha256": "b6d73d6b5a33006391a743c650ccc06b65b9b9afaaaebbcf1d05102d4399274c",
+      "bytes": 75720
+    },
+    {
+      "sourceId": "source:bp3d:pituitary-source-candidate-01",
+      "title": "BodyParts3D pituitary source-frame GLB",
+      "sourceType": "atlas-derived GLB",
+      "subject": "BodyParts3D 4.0 reference atlas",
+      "license": "BodyParts3D © DBCLS, CC BY 4.0. Historical OBJ headers retain CC BY-SA 2.1 Japan.",
+      "evidence": [
+        {
+          "path": "assemblies/hypothalamus-pituitary/teaching-stalk-r01/ATTRIBUTION.md",
+          "sha256": "cc32b4c361a5a3479d9fa9ff48a6a49e92a26d9dc093f77580dd1554e4249932"
+        },
+        {
+          "path": "sources/datasets/bp3d-4.0-glands/SOURCE-FRAME.md",
+          "sha256": "d06160979cd8293bffeacadc892fe626210566fbb3d186e99993d759c2661122"
+        },
+        {
+          "path": "reviews/hypothalamus_pituitary/2026-10-29-teaching-stalk-r01/export-check.json",
+          "sha256": "2c682b58990675cad8271a1b4a60c4870baf64b424476151512cec3900ec8c66"
+        }
+      ],
+      "path": "models/pituitary/exports/source-candidate-01/pituitary_source_frame.glb",
+      "sha256": "8eae4c6d05b0c9de5128ae6f574a97265cb392a44567fcac5ea0b9b7f1dbca68",
+      "bytes": 22296
+    }
+  ],
+  "parts": [
+    {
+      "partId": "continuous-envelope",
+      "label": "Hypothalamus, stalk and pituitary teaching envelope",
+      "selectors": [
+        "Hypothalamus–single stalk–pituitary teaching envelope"
+      ],
+      "registration": "illustrative"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "teaching-stalk-r01",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "assemblies/hypothalamus-pituitary/teaching-stalk-r01/README.md",
+        "sha256": "d00b1eb5dc0d4e8a1618dbe413c239372bd63a5931d420135577ddb351e80f24"
+      },
+      "sourceIds": [
+        "source:bp3d:hypothalamus-source-candidate-01",
+        "source:bp3d:pituitary-source-candidate-01"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up",
+          "+X atlas left",
+          "+Y superior",
+          "+Z anterior"
+        ],
+        "evidence": "sources/datasets/bp3d-4.0-glands/SOURCE-FRAME.md"
+      },
+      "partIds": [
+        "continuous-envelope"
+      ],
+      "exports": [
+        {
+          "id": "stalk",
+          "path": "assemblies/hypothalamus-pituitary/teaching-stalk-r01/hypothalamus-pituitary-teaching.glb",
+          "sha256": "31ddd537a8aa3ac7dcd75a9a9789132fb10bcfeccb4149e14443d845fd7fb373",
+          "bytes": 130668,
+          "format": "glb",
+          "triangles": 5370,
+          "partIds": [
+            "continuous-envelope"
+          ]
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "The joined stalk is an editorial exterior. Internal divisions, tissue boundaries and measured joins remain outside its evidence."
+  ]
+}

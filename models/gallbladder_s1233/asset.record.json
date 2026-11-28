@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:s1233:gallbladder",
+  "title": "s1233 gallbladder",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/gallbladder_s1233",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:totalsegmentator-v2.0.1:s1233:gallbladder",
+      "title": "TotalSegmentator v2.0.1 s1233 gallbladder mask",
+      "sourceType": "external segmentation",
+      "sha256": "c5dd1e8886ed87d29dac8225acbac49dfc308c0ead9116690c818e49b1addcc7",
+      "license": "CC BY 4.0; retain the Workshop label-source notices",
+      "url": "https://zenodo.org/records/10047263"
+    }
+  ],
+  "parts": [
+    {
+      "partId": "gallbladder",
+      "label": "Gallbladder exterior",
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "r01",
+      "status": "provisional",
+      "recipe": "rebuild.py",
+      "frame": {
+        "convention": "voxel-index",
+        "units": "voxel",
+        "evidence": "assemblies/workshop-s1233/inputs.json"
+      },
+      "sourceIds": [
+        "source:totalsegmentator-v2.0.1:s1233:gallbladder"
+      ],
+      "partIds": [
+        "gallbladder"
+      ],
+      "exports": [
+        {
+          "id": "gallbladder",
+          "path": "models/gallbladder_s1233/exports/r01/gallbladder.mesh",
+          "sha256": "81c30eed83a085371ec5ce2468743cf4197fc3d73753e1548203e1c0f61200b8",
+          "bytes": 34952,
+          "format": "mesh",
+          "triangles": 1940,
+          "partIds": [
+            "gallbladder"
+          ],
+          "voxelGrid": {
+            "case": "s1233",
+            "shape": [
+              265,
+              265,
+              401
+            ],
+            "rasMmFromVoxel": [
+              [
+                1.5,
+                0.0,
+                0.0,
+                -215.611328125
+              ],
+              [
+                0.0,
+                1.5,
+                0.0,
+                -37.111328125
+              ],
+              [
+                0.0,
+                0.0,
+                1.5,
+                41.20000076293945
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "artifacts": [],
+  "exports": [
+    {
+      "path": "models/gallbladder_s1233/exports/r01/gallbladder.mesh",
+      "sha256": "81c30eed83a085371ec5ce2468743cf4197fc3d73753e1548203e1c0f61200b8",
+      "bytes": 34952
+    }
+  ],
+  "uses": [],
+  "retirement": null,
+  "unresolved": [
+    "Adopted for fundus, body and neck-taper exterior orientation at survey frame 12. Teaching qualification (4/4/4/4) and internal wall or lumen claims remain open."
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "slug": "thyroid-r04",
+  "exportRef": {
+    "record": "models/thyroid_s1127/asset.record.json",
+    "asset": "anatomy:s1127:thyroid",
+    "revision": "r04",
+    "export": "thyroid"
+  },
+  "review": {
+    "case": "thyroid-normal",
+    "chapter": "thyroid-left-long",
+    "part": "thyroid_gland"
+  },
+  "adopted": true,
+  "cardTitle": "Thyroid lobes and isthmus · r04",
+  "subtitle": "thyroid-normal · CT frame 48",
+  "revisionTitle": "s1127 thyroid lobes and isthmus · r04",
+  "revisionLinkLabel": "Thyroid lobes and isthmus",
+  "coordinateFrame": "s1127 voxel indices · RAS axes · 1.5 mm grid",
+  "sourceId": "source:totalsegmentator-v2.0.1:s1127:thyroid",
+  "sourceLabel": "TotalSegmentator v2.0.1 · Jakob Wasserthal and contributors · CC BY 4.0",
+  "detailsLabel": "Shoulder correction, measured cuts and live chapters",
+  "figures": [
+    {
+      "file": "previous-vs-r04.webp",
+      "alt": "Thyroid shoulder before and after the correction",
+      "caption": "Matched front, reverse and bridge views compare the shipped r03 and r04 exports.",
+      "width": 948,
+      "height": 1175
+    },
+    {
+      "file": "matched-surfaces.webp",
+      "alt": "R03, raw CT label and r04",
+      "caption": "R04 follows the lobe outline without reproducing raw axial terraces. The reverse view retains the lower lobe indentation.",
+      "width": 1414,
+      "height": 814
+    },
+    {
+      "file": "protected-planes.webp",
+      "alt": "Protected bilateral long-axis cuts",
+      "caption": "The left trio stays within 2.32 mm. An additional parallel section 0.75 mm from the center has a 4.13 mm in-plane miss and a 0.64 mm local 3D distance.",
+      "width": 1414,
+      "height": 710
+    },
+    {
+      "file": "isthmus-cuts.webp",
+      "alt": "Isthmus sections and transverse entry",
+      "caption": "Five sagittal sections stay within 0.84 mm. The transverse entry preserves the connection between lobes.",
+      "width": 1414,
+      "height": 710
+    },
+    {
+      "file": "live-frame-12.webp",
+      "alt": "Bilateral thyroid sweeps at frame 12",
+      "caption": "R03 and r04 use the same pose and scan images. The overlay shows the gland above the tracheal air column.",
+      "width": 1354,
+      "height": 720
+    },
+    {
+      "file": "live-frame-48.webp",
+      "alt": "Bilateral long-axis CT companions",
+      "caption": "The probe and grid partly obscure the gland in the default view. The axial orbit and overlay help locate the lobe and its bridge.",
+      "width": 1354,
+      "height": 720
+    }
+  ]
+}

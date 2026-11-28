@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "rubricHash": "a38e552869511cd5bceacaa5ea4456f4d0530e58e7dce2bc6855587a98b0e684",
+  "records": [
+    {
+      "source": "case",
+      "case": "abdomen-survey",
+      "part": "spleen",
+      "baseline": "6c5ecf67f894ceb581bfc4a64be704cb6bd0b1c3ab8d588bbebe47e0396a99c9",
+      "revision": "anatomy:s1233:spleen@r01:spleen",
+      "meshSha256": "76e01c95fe395952d2bfae3333fb9d228b75ff2016e736a5ebe67bd1a02b5a03",
+      "reviewer": "Codex campaign lead · independent of the builder",
+      "reviewedOn": "2026-11-28",
+      "rubric": "docs/guides/asset-quality.md",
+      "task": "Identify the convex diaphragmatic face and medial hilar indentation, then orient the model to the saved s1233 long-axis scan.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "The three protected outlines retain the sharp turn at the medial indentation. Their largest measured departure is 2.81 mm. Whole-surface bidirectional p95 is at most 0.76 mm.",
+        "form": "The broad diaphragmatic face loses its stacked bands. A stepped cap and shallow ridges remain near the upper edge. The reverse close-up preserves the curved medial indentation.",
+        "readability": "I could follow the convex border in grayscale and the notch in the overlay. Ribs and the probe obscure much of the purple surface in the default view. The reverse clay view resolves the notch.",
+        "economy": "The matched packed mesh falls from 19,232 triangles and 346,208 bytes to 4,800 and 86,432. Across 24 full masks at 3 px/mm, the worst silhouette difference against the smoothed density input is 0.71 px."
+      },
+      "note": "Use the long-axis chapter to locate the splenic exterior above the left kidney. Use the isolated reverse view and saved section to trace the medial indentation.",
+      "disposition": "Adopt for splenic face and hilum orientation",
+      "comparison": {
+        "label": "Matched three-way neutral clay surfaces",
+        "candidate": "asset-reviews/spleen-wave-2a/matched-surfaces.webp",
+        "candidateLabel": "Exact prior export, CT half-label and r01",
+        "views": [
+          {
+            "label": "Exact previous sweep and r01 at the same physical scale",
+            "candidate": "asset-reviews/spleen-wave-2a/previous-vs-r01.webp"
+          },
+          {
+            "label": "Three protected scan-plane contours",
+            "candidate": "asset-reviews/spleen-wave-2a/protected-planes.webp"
+          },
+          {
+            "label": "Actual s1233 study player at frame 12",
+            "candidate": "asset-reviews/spleen-wave-2a/live-frame-12.webp"
+          }
+        ]
+      },
+      "links": [
+        {
+          "label": "Geometry and browser verification",
+          "href": "asset-reviews/spleen-wave-2a/measurements.json"
+        }
+      ],
+      "chapter": "abd-spleen",
+      "occurrence": 1,
+      "chapterSha256": "847dbe3258aa8fa9aa64514ac8c33e556d6d53db7566221da32871b30621c98f"
+    }
+  ],
+  "evidenceSha256": {
+    "matched-surfaces.webp": "6e15cab149d437e7476dc406c51324ff70be1de5f008008d1ca0f73936fa6796",
+    "previous-vs-r01.webp": "d8edfb99c9e45eb0427e4ce638613052c3cbe1b6d26ddfb8cf1f51b1d6d0d674",
+    "protected-planes.webp": "15bc06d5a9e33f023be09cd70f26b1007b5bc2aaa676811eb3d3b7bfd7be132a",
+    "live-frame-12.webp": "43cec10be320e90ec5328cb8f9a4223569e38e51fcd126a3798acfc2214f38b1"
+  },
+  "measurementsSha256": "d45020f12f2d1581e3bcf43419f1aa5b89dadfb1e8584140bb55e16ebf4fae76"
+}

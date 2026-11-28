@@ -10,8 +10,10 @@ import tempfile
 import zipfile
 
 import numpy as np
-from gallery_reference_sources import write_gallery_donors
+from gallery_reference_sources import mammary_reference, write_gallery_donors
 import build_abdomen
+from abdomen_tracks import read_tracks as read_abdominal_tracks
+from scene_assets import scene_assets
 import build_aortic_screening
 import build_axilla
 import build_breast
@@ -20,48 +22,21 @@ import build_early_pregnancy
 import build_gestational
 import build_pregnancy
 import build_thyroid
-from breast_anatomy import FEMALE_SKIN_SHA, MAMMARY_SHA
+from breast_anatomy import FEMALE_SKIN_SHA
 from breast_compression import SETTLE_DEPTH_MM
 from case_library import write_case_library
 from delivery import detail_files, read_poses, sha256, sweep_files, validate_image, validate_mesh, verify_inventory
-from geometry import FRAME_COUNT, KEYFRAMES, RASTER_SIZE, SECTOR_DEPTH_MM, SECTOR_HALF_ANGLE_DEG, LENS_RADIUS_MM, VOXEL_MM
+from display_body import expected_source_digests
+from geometry import FRAME_COUNT, KEYFRAMES, RASTER_SIZE, SECTOR_HALF_ANGLE_DEG, LENS_RADIUS_MM, VOXEL_MM
 from prepare_scenes import read_vendor, shared_geometry
 from survey_delivery import STUDY, survey_files
 
 HERE = Path(__file__).resolve().parent
 RESEARCH = HERE / 'research'
-GALLBLADDER = {
-    'id': 'gallbladder', 'title': 'Gallbladder', 'organ': 'gallbladder',
-    'region': 'Right upper abdomen', 'exterior': 'fitted-atlas',
-    'sectorDepthMm': SECTOR_DEPTH_MM, 'keyframeLabels': ['Long axis', 'Short axis'],
-    'phaseLabels': ['Find window', 'Rotate probe'],
-    'parts': [
-        {'id': 'gallbladder', 'label': 'Gallbladder', 'color': '#3fbf9e', 'opacity': 1},
-        {'id': 'liver', 'label': 'Liver', 'color': '#ad6155', 'opacity': .58},
-        {'id': 'ribs', 'label': 'Ribs', 'color': '#dacaad', 'opacity': .78},
-    ],
-    'overlayParts': ['gallbladder', 'liver', 'portal_vein_and_splenic_vein'],
-    'landmarks': ['extrahepatic-duct'],
-}
-GALLBLADDER_REFERENCES = {
-    'gallbladder-12': {
-        'path': 'media/acquired-long.webp', 'title': 'Gallbladder in long axis',
-        'credit': 'Claudia Lucius et al., Life (2025), figure 2', 'url': 'https://doi.org/10.3390/life15060941',
-        'license': 'CC BY 4.0', 'licenseUrl': 'https://creativecommons.org/licenses/by/4.0/',
-        'note': 'Claudia Lucius’s own collection. Complete still resized and converted to WebP.',
-    },
-    'gallbladder-48': {
-        'path': 'media/acquired-short.webp', 'title': 'Normal Gallbladder, Short Axis',
-        'credit': 'Kathryn Pade, MD, Rady Children’s Hospital San Diego · The POCUS Atlas',
-        'url': 'https://www.thepocusatlas.com/pedsbiliary', 'license': 'CC BY-NC 4.0',
-        'licenseUrl': 'https://creativecommons.org/licenses/by-nc/4.0/',
-        'note': 'Adolescent case. Full cine frame at 1.2 seconds converted to WebP.',
-    },
-}
 
 
 def reference_sources(regional_sources):
-    refs = dict(GALLBLADDER_REFERENCES)
+    refs = json.loads((RESEARCH / 'gallbladder.json').read_text())
     files = {}
     landmarks = set()
     sources = ['hepatopancreatic.json', 'renal-splenic.json', 'great-vessels.json', 'normal-landmarks.json']
@@ -137,11 +112,13 @@ def verify_ap_spans(root, receipt):
             raise ValueError(f'Invalid modeled AP span at frame {i}')
 
 
-def verify_track(root, track, stops, builder):
+def verify_track(root, track, stops, builder, atlas_digests):
     slug = track['id']
     case = track.get('case', 's1233')
     linear = track.get('probeType') == 'linear'
     receipt = json.loads((root / 'verification.json').read_text())
+    if track['exterior'] == 'fitted-atlas' and any(receipt.get(key) != value for key, value in atlas_digests.items()):
+        raise ValueError(f'Rebuild {slug} for the current BodyParts3D exterior atlas.')
     recipe = Path(builder.__file__).name
     if builder is build_aortic_screening:
         if (not (root / 'delivery.json').is_file()
@@ -173,7 +150,7 @@ def verify_track(root, track, stops, builder):
                 or receipt.get('compressionMm') != track.get('compressionMm')
                 or receipt.get('compressionSettleDepthMm') != SETTLE_DEPTH_MM):
             raise ValueError(f'Rebuild {slug} for the configured steering and compression.')
-    if builder is build_breast and (receipt.get('mammaryAtlasSha256') != MAMMARY_SHA
+    if builder is build_breast and (receipt.get('mammaryAtlasSha256') != mammary_reference().sha256
                                     or receipt.get('femaleSkinSha256') != FEMALE_SKIN_SHA):
         raise ValueError(f'Rebuild {slug} for the current breast atlas inputs.')
     if builder is build_axilla and receipt.get('femaleSkinSha256') != FEMALE_SKIN_SHA:
@@ -240,6 +217,7 @@ def configure_timeline(tour):
 def configured_tours(output, refs, files, landmark_refs, tracks):
     tours, identities, used_references = [], {}, set()
     pregnancy_stages = json.loads((HERE / 'pregnancy-stages.json').read_text())
+    atlas_digests = expected_source_digests()
     for track, builder in tracks:
         tour = track.copy()
         slug = tour['id']
@@ -316,15 +294,20 @@ def configured_tours(output, refs, files, landmark_refs, tracks):
             inventory.extend(f'media/press-{kind}-{frame:02}.webp'
                              for kind in ('scan', 'section') for frame in range(FRAME_COUNT))
         if slug == 'gallbladder':
-            inventory += [ref['path'] for ref in GALLBLADDER_REFERENCES.values()]
+            inventory += [refs[stop['referenceId']]['path'] for stop in stops]
+            receipt = output / 'verification.json'
+            if not receipt.is_file() or json.loads(receipt.read_text()) != atlas_digests:
+                raise ValueError('Run prepare_scenes.py for the current gallbladder BodyParts3D exterior atlas.')
         else:
-            verify_track(output / root, track, stops, builder)
+            verify_track(output / root, track, stops, builder, atlas_digests)
             tour.pop('requirePoseReceipt', None)
             tour.pop('requirePaletteReceipt', None)
             if tour.get('pregnancyStage'):
                 for key in ('windows', 'landmarkMinimums', 'requireModelReceipt'):
                     tour.pop(key, None)
-        verify_inventory(output / root, inventory)
+        verify_inventory(output / root, inventory + ['verification.json'] if slug == 'gallbladder' else inventory)
+        if tour.get('sceneAssets'):
+            scene_assets(track, output / root / 'scenes')
         for relative in inventory:
             path = root.removeprefix('./') + relative
             source = output / path
@@ -350,8 +333,6 @@ def write_catalogue(destination, refs, tours, survey=None, aaa_acquisitions=None
         protocol, skin = survey
         (study / protocol['displaySkinPath']).write_bytes(skin)
         (study / 'protocol.json').write_text(json.dumps(protocol, indent=2) + '\n')
-    for name, variable, content in [('references.js', 'abdomenReferences', refs), ('abdomen-tours.js', 'abdomenTours', tours)]:
-        (destination / name).write_text(f'const {variable} = ' + json.dumps(content, ensure_ascii=False, indent=2) + ';\n')
     for name in ('index.html', 'study.css', 'study.js', 'study-picker.js', 'scene.js', 'case-scene.js', 'probe-steering.js'):
         shutil.copyfile(HERE / name, destination / name)
     for folder, names in (
@@ -368,6 +349,8 @@ def write_catalogue(destination, refs, tours, survey=None, aaa_acquisitions=None
     write_gallery_donors(destination)
     copy_cardiac_study(HERE / 'cardiac', destination)
     write_case_library(destination, tours, refs, aaa_acquisitions=aaa_acquisitions)
+    for name, variable, content in [('references.js', 'abdomenReferences', refs), ('abdomen-tours.js', 'abdomenTours', tours)]:
+        (destination / name).write_text(f'const {variable} = ' + json.dumps(content, ensure_ascii=False, indent=2) + ';\n')
 
 
 def copy_cardiac_study(source, destination):
@@ -421,7 +404,7 @@ def assemble(output, delivery=None, *, aaa_acquisitions=None):
         raise ValueError(f'Missing registered AAA acquisition receipt: {aaa_acquisitions}')
     if delivery is not None and delivery.exists():
         raise ValueError(f'Choose a fresh delivery directory: {delivery}')
-    tracks = [(track, build_abdomen) for track in [GALLBLADDER, *build_abdomen.read_tracks()]]
+    tracks = [(track, build_abdomen) for track in read_abdominal_tracks()]
     regional_sources = []
     for region, builder, group in [('thyroid', build_thyroid, build_thyroid.read_thyroid_tracks()),
                                    ('carotid', build_carotid, build_carotid.read_tracks()),

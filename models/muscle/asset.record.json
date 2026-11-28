@@ -1,0 +1,190 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:z-anatomy:muscle",
+  "title": "Z-Anatomy musculature atlas",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/muscle",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:z-anatomy:bounded-muscle-members",
+      "title": "External Z-Anatomy atlas and bounded selection",
+      "sourceType": "external Blender archive",
+      "subject": "Z-Anatomy native musculature atlas",
+      "license": "CC BY-SA 4.0, with excluded kidney and inner-ear noncommercial source material.",
+      "evidence": [
+        {
+          "path": "sources/datasets/muscle-bounded/external-source-map.json",
+          "sha256": "3dc20e328d73136d0a5ff6336103d8c1f2b34391e4fd36a632a2ab6d83ebb800"
+        },
+        {
+          "path": "reviews/muscle/2026-10-24-bounded-migration/bounded-record.json",
+          "sha256": "33be2228fd35e9d6b13fb0a208ff2b3d96dd3955693428cf1c84adb7de67eb71"
+        },
+        {
+          "path": "models/muscle/exports/z-anatomy-r02/ATTRIBUTION.md",
+          "sha256": "2c6b7ac117a7d4a0d614435387e07d3a81bc6c990a3f05fd68df26500acea26a"
+        }
+      ],
+      "limitations": [
+        "Static illustrative surfaces in the Z-Anatomy native frame. The atlas is independent of CT and BodyParts3D coordinates.",
+        "The raw archive, source scenes and original export environment are external."
+      ]
+    },
+    {
+      "sourceId": "source:z-anatomy:muscle-z-anatomy-r02",
+      "title": "Native muscle atlas GLB and portable recipe input",
+      "sourceType": "atlas-derived GLB",
+      "subject": "Z-Anatomy native musculature atlas",
+      "path": "models/muscle/exports/z-anatomy-r02/muscle_z_native_frame.glb",
+      "sha256": "7081144bdbca0d2d871311a3568a0aedb1c8e125f7709ae8e7d55345a54bdfb7",
+      "bytes": 30517312,
+      "license": "CC BY-SA 4.0, with excluded kidney and inner-ear noncommercial source material.",
+      "evidence": [
+        {
+          "path": "models/muscle/exports/z-anatomy-r02/ATTRIBUTION.md",
+          "sha256": "2c6b7ac117a7d4a0d614435387e07d3a81bc6c990a3f05fd68df26500acea26a"
+        },
+        {
+          "path": "reviews/teaching-assessments/reopen-economy/campaign-assessments.json",
+          "sha256": "e31486e30fa03c78b87f7c96274c8dfbb73aaeb38c2a2d879c2a6d77ad2cddb1"
+        }
+      ],
+      "limitations": [
+        "Static illustrative surfaces in the Z-Anatomy native frame. The atlas is independent of CT and BodyParts3D coordinates."
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "partId": "clavicular-pectoralis",
+      "label": "Clavicular pectoralis major",
+      "selectors": [
+        "Clavicular head of pectoralis major muscle.r [candidate]",
+        "Clavicular head of pectoralis major muscle.l [candidate]"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "rectus-abdominis",
+      "label": "Rectus abdominis",
+      "selectors": [
+        "Rectus abdominis muscle.r [candidate]",
+        "Rectus abdominis muscle.l [candidate]"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "descending-trapezius",
+      "label": "Descending trapezius",
+      "selectors": [
+        "Descending part of trapezius muscle.r [candidate]",
+        "Descending part of trapezius muscle.l [candidate]"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "latissimus-dorsi",
+      "label": "Latissimus dorsi",
+      "selectors": [
+        "Latissimus dorsi muscle.r [candidate]",
+        "Latissimus dorsi muscle.l [candidate]"
+      ],
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "z-anatomy-r02",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "models/muscle/exports/z-anatomy-r02/README.md",
+        "sha256": "18bf9414c4c2070e98c41ec7599ce50e6c5e480a3e4abf35f0de213fbd658671"
+      },
+      "sourceIds": [
+        "source:z-anatomy:bounded-muscle-members"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "models/muscle/exports/z-anatomy-r02/ATTRIBUTION.md"
+      },
+      "partIds": [
+        "clavicular-pectoralis",
+        "rectus-abdominis",
+        "descending-trapezius",
+        "latissimus-dorsi"
+      ],
+      "exports": [
+        {
+          "id": "muscle",
+          "path": "models/muscle/exports/z-anatomy-r02/muscle_z_native_frame.glb",
+          "sha256": "7081144bdbca0d2d871311a3568a0aedb1c8e125f7709ae8e7d55345a54bdfb7",
+          "bytes": 30517312,
+          "format": "glb",
+          "triangles": 1993160,
+          "partIds": [
+            "clavicular-pectoralis",
+            "rectus-abdominis",
+            "descending-trapezius",
+            "latissimus-dorsi"
+          ]
+        }
+      ],
+      "qualifications": []
+    },
+    {
+      "revisionId": "teaching-economy-r02",
+      "status": "provisional",
+      "recipe": "recipes/teaching-economy-r02.json",
+      "recipeEvidence": {
+        "path": "models/muscle/exports/teaching-economy-r02/README.md",
+        "sha256": "cb9b0fb65e30effa5033cb4b1fe6aaa059c23cefdf6a36b4389c033c8ddf32c9"
+      },
+      "sourceIds": [
+        "source:z-anatomy:muscle-z-anatomy-r02"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "models/muscle/exports/z-anatomy-r02/ATTRIBUTION.md"
+      },
+      "partIds": [
+        "clavicular-pectoralis",
+        "rectus-abdominis",
+        "descending-trapezius",
+        "latissimus-dorsi"
+      ],
+      "exports": [
+        {
+          "id": "muscle",
+          "path": "models/muscle/exports/teaching-economy-r02/muscle_z_native_frame.glb",
+          "sha256": "5bd6e93d1daee826f05f9578a036f06480203517f5c3817127277b8e5c934ac3",
+          "bytes": 22558848,
+          "format": "glb",
+          "triangles": 1993160,
+          "partIds": [
+            "clavicular-pectoralis",
+            "rectus-abdominis",
+            "descending-trapezius",
+            "latissimus-dorsi"
+          ]
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "The atlas has inherited topology warnings. Scope excludes validated attachments, rigging, and clinical interpretation."
+  ]
+}

@@ -41,10 +41,21 @@ def extract_project(source, commit, output, *, omit_overlay=False):
                 target.chmod(member.mode & 0o777)
 
 
-def compile_library(site, project, selection):
+def compile_library(site, project, selection, *, offline=True, plan_inputs=None):
     reference = json.loads((site / 'snapshot-reference.json').read_text())
     subprocess.run(['node', str(site / 'tools/compile_library.mjs'), str(project), selection,
-                    reference['sourceSnapshotSha256']], check=True)
+                    reference['sourceSnapshotSha256'], '--offline' if offline else '--online',
+                    *([str(plan_inputs)] if plan_inputs else [])], check=True)
+
+
+def plan_gallery_admission(site):
+    from gallery_runtime import prepare_library_inputs
+
+    with tempfile.TemporaryDirectory(prefix='gallery-admission-') as temporary:
+        teaching = Path(temporary) / 'teaching-inputs'
+        index = site / 'app/src/content/assets/delivery-index.json'
+        prepare_library_inputs(site.parents[1], index, teaching)
+        compile_library(site, site / 'app', 'candidate', plan_inputs=teaching)
 
 
 def read_seed(site, reference, seed_path):
@@ -164,6 +175,10 @@ def prepare(site, source, output, viewer_inputs=None, *, seed_path=None, offline
         gallery = staged / 'src/content/gallery'
         if gallery.is_dir():
             from gallery_runtime import prepare_gallery
+            if (gallery / 'UltrasoundDevelopment.jsx').is_file():
+                from ultrasound_progress import prepare_ultrasound_progress
+
+                prepare_ultrasound_progress(site.parents[1], gallery / 'ultrasound-progress')
             prepare_gallery(site, viewer_inputs or site / '.local/viewer-inputs', gallery, offline=offline)
             # The protected Worker at the pinned framework revision still imports this filename.
             index = gallery.parent / 'assets/delivery-index.json'
@@ -173,7 +188,7 @@ def prepare(site, source, output, viewer_inputs=None, *, seed_path=None, offline
             raw = (json.dumps(seed, ensure_ascii=False, indent=2) + '\n').encode()
         (staged / 'src/data.json').write_bytes(raw)
         if gallery.is_dir():
-            compile_library(site, staged, 'candidate')
+            compile_library(site, staged, 'candidate', offline=offline)
         # rename refuses an existing nonempty project; no source/history is replaced.
         if output.exists() or output.is_symlink():
             raise ValueError('Output was created meanwhile; refusing to replace it.')
@@ -188,9 +203,16 @@ if __name__ == '__main__':
     parser.add_argument('--viewer-inputs', type=Path, help='Directory restored by tools/gallery_runtime.py')
     parser.add_argument('--selection', choices=('candidate', 'published'), default='candidate')
     parser.add_argument('--publication-source', type=Path, help='Owner Site Git checkout containing the approved release')
+    parser.add_argument('--plan-library-admission', action='store_true',
+                        help='Print proposed candidate Library admission without writing a build or modifying the catalog')
     args = parser.parse_args()
     try:
-        if args.selection == 'published':
+        if args.plan_library_admission:
+            if args.selection != 'candidate':
+                parser.error('--plan-library-admission applies to the candidate.')
+            plan_gallery_admission(SITE)
+            sys.exit(0)
+        elif args.selection == 'published':
             result = prepare_published(SITE, args.publication_source or args.source, args.output)
         else:
             result = prepare(SITE, args.source, args.output, args.viewer_inputs)

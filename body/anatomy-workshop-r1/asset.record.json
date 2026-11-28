@@ -1,0 +1,1370 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:workshop:s1233-body",
+  "title": "Anatomy Workshop s1233",
+  "kind": "assembly",
+  "status": "provisional",
+  "owner": "body/anatomy-workshop-r1",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:workshop:s1233-surfaces",
+      "title": "s1233 surface derivation manifest",
+      "sourceType": "retained package input",
+      "subject": "s1233",
+      "path": "body/anatomy-workshop-r1/body-3d-source/tb3/presentation/task-explorer/anatomy/manifest.json",
+      "sha256": "31d9696f77ded3e075d7c921fadcdc2258eeab6212f4720c5ee67a27d28fafec",
+      "bytes": 17760,
+      "license": "TotalSegmentator v2.0.1, University Hospital Basel, CC BY 4.0. Retain the Apache-2.0 label-source notice and Workshop authored-material attribution.",
+      "evidence": [
+        {
+          "path": "body/anatomy-workshop-r1/docs/licenses/NOTICE.md",
+          "sha256": "87372df39878e0c73903675edc21875fa712a90b22f497ffb55d50a29f210a94"
+        },
+        {
+          "path": "body/anatomy-workshop-r1/docs/coordinate-check.json",
+          "sha256": "0a0d0a6659f49814732b182e13844e9ded2440b0c87d1fe3cf93a44f3c4a7bea"
+        }
+      ],
+      "limitations": [
+        "The retained display geometry is smoothed and repaired; it is unsuitable for clinical measurement."
+      ]
+    },
+    {
+      "sourceId": "source:workshop:authored-details",
+      "title": "Workshop schematic source and build",
+      "sourceType": "retained package input",
+      "subject": "Workshop teaching illustrations",
+      "path": "body/anatomy-workshop-r1/body-3d-assets/build_collection.py",
+      "sha256": "3ba4e8886ca2939d4026cd9c77dc75c8957cebf7c2b6329df179e7919623f147",
+      "bytes": 23378,
+      "license": "Workshop authored detail and material notices retained by the package.",
+      "evidence": [
+        {
+          "path": "body/anatomy-workshop-r1/README.md",
+          "sha256": "44ecc5254f65866b8b8cf7d16d3cd7b7b309a3753a3dfdfdc74b30eaca51049f"
+        },
+        {
+          "path": "body/anatomy-workshop-r1/body-3d-assets/author_clean_sections.py",
+          "sha256": "8544f31b7ff8324d0f43fe391f3115fbfdbc0c6880e7e5dbcb972588fa59e7ca"
+        }
+      ],
+      "limitations": [
+        "Authored parts use pedagogical placement in Workshop coordinates."
+      ]
+    },
+    {
+      "sourceId": "source:cardiac-atlas:full-ed",
+      "title": "Original authored Cardiac Atlas full ED",
+      "sourceType": "retained package input",
+      "subject": "Project-authored cardiac atlas",
+      "path": "heart/Cardiac_Atlas/exports/Cardiac_Atlas_Clinical_Full_ED.glb",
+      "sha256": "32802a9a36963c2f8935f632f28ba3602d1ce004919e5e203ff87bbdcb52fa2f",
+      "bytes": 4864488,
+      "license": "Project-authored Cardiac Atlas. Retain the original project notice. The exterior package declares no separate public reuse license.",
+      "evidence": [
+        {
+          "path": "heart/Cardiac_Atlas/docs/README.md",
+          "sha256": "6fd10b99941ac566542ae66a4e5d875ccfa5b7a17aa27bb840e53922865d74e0"
+        },
+        {
+          "path": "heart/exterior-presentation-r01/visibility-spec.json",
+          "sha256": "09783d389fec56375a7ebef6796cb63f6c062a69887eeec4081b1223c5e1700e"
+        }
+      ],
+      "limitations": [
+        "Workshop uses a separately documented uniform teaching fit."
+      ]
+    },
+    {
+      "sourceId": "source:cardiac-atlas:cutaway-ed",
+      "title": "Original authored Cardiac Atlas cutaway ED",
+      "sourceType": "retained package input",
+      "subject": "Project-authored cardiac atlas",
+      "path": "heart/Cardiac_Atlas/exports/Cardiac_Atlas_Clinical_Cutaway_ED.glb",
+      "sha256": "ca35a510737041d538a43cb24f494a1463605bf6b9bd511a01abf52c15bed12a",
+      "bytes": 3778568,
+      "license": "Project-authored Cardiac Atlas. Retain the original project notice. The exterior package declares no separate public reuse license.",
+      "evidence": [
+        {
+          "path": "heart/Cardiac_Atlas/docs/README.md",
+          "sha256": "6fd10b99941ac566542ae66a4e5d875ccfa5b7a17aa27bb840e53922865d74e0"
+        },
+        {
+          "path": "heart/exterior-presentation-r01/visibility-spec.json",
+          "sha256": "09783d389fec56375a7ebef6796cb63f6c062a69887eeec4081b1223c5e1700e"
+        }
+      ],
+      "limitations": [
+        "Workshop uses a separately documented uniform teaching fit."
+      ]
+    },
+    {
+      "sourceId": "source:workshop:editable-r1",
+      "title": "Frozen editable Anatomy Workshop",
+      "sourceType": "retained package input",
+      "subject": "Workshop s1233 assembly and authored alternatives",
+      "path": "body/anatomy-workshop-r1/Anatomy_Workshop.blend",
+      "sha256": "c773480a49471e697e12ca1a710a4c93314217a8683e6ab224b3fa83d9a12fbc",
+      "bytes": 17571351,
+      "license": "TotalSegmentator v2.0.1, University Hospital Basel, CC BY 4.0. Retain the Apache-2.0 label-source notice and Workshop authored-material attribution.",
+      "evidence": [
+        {
+          "path": "body/anatomy-workshop-r1/COMPACT.md",
+          "sha256": "91b7ed0c977e1036afe4b7762079c5c1ef088b589668a8b2d36b5fdd2fc4fcde"
+        },
+        {
+          "path": "body/anatomy-workshop-r1/docs/licenses/NOTICE.md",
+          "sha256": "87372df39878e0c73903675edc21875fa712a90b22f497ffb55d50a29f210a94"
+        }
+      ],
+      "limitations": []
+    }
+  ],
+  "parts": [
+    {
+      "partId": "liver-surface",
+      "label": "Liver | source surface",
+      "selectors": [
+        "Liver | source surface"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/body-3d-source/tb3/presentation/task-explorer/anatomy/liver.json",
+      "sourceFrame": "s1233 RAS millimetres",
+      "frame": "Workshop GLB metres",
+      "registration": "native"
+    },
+    {
+      "partId": "kidney-left-surface",
+      "label": "Kidney Left | source surface",
+      "selectors": [
+        "Kidney Left | source surface"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/body-3d-source/tb3/presentation/task-explorer/anatomy/kidney_left.json",
+      "sourceFrame": "s1233 RAS millimetres",
+      "frame": "Workshop GLB metres",
+      "registration": "native"
+    },
+    {
+      "partId": "kidney-left-cutaway",
+      "label": "kidney_left | authored closed-back teaching section",
+      "selectors": [
+        "kidney_left | authored closed-back teaching section"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "kidney-left-pyramids",
+      "label": "Illustrative renal pyramids",
+      "selectors": [
+        "kidney_left medullary pyramid section 1",
+        "kidney_left medullary pyramid section 2",
+        "kidney_left medullary pyramid section 3",
+        "kidney_left medullary pyramid section 4",
+        "kidney_left medullary pyramid section 5",
+        "kidney_left medullary pyramid section 6",
+        "kidney_left medullary pyramid section 7"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "kidney-left-calyxes",
+      "label": "Illustrative minor calyces",
+      "selectors": [
+        "kidney_left minor calyx 1",
+        "kidney_left minor calyx 2",
+        "kidney_left minor calyx 3",
+        "kidney_left minor calyx 4",
+        "kidney_left minor calyx 5",
+        "kidney_left minor calyx 6",
+        "kidney_left minor calyx 7"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "kidney-left-major-calyx-upper",
+      "label": "kidney_left upper major calyx",
+      "selectors": [
+        "kidney_left upper major calyx"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "kidney-left-major-calyx-lower",
+      "label": "kidney_left lower major calyx",
+      "selectors": [
+        "kidney_left lower major calyx"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "kidney-left-pelvis",
+      "label": "kidney_left renal pelvis funnel",
+      "selectors": [
+        "kidney_left renal pelvis funnel"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "kidney-left-ureter-origin",
+      "label": "kidney_left single ureter origin",
+      "selectors": [
+        "kidney_left single ureter origin"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "kidney-right-surface",
+      "label": "Kidney Right | source surface",
+      "selectors": [
+        "Kidney Right | source surface"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/body-3d-source/tb3/presentation/task-explorer/anatomy/kidney_right.json",
+      "sourceFrame": "s1233 RAS millimetres",
+      "frame": "Workshop GLB metres",
+      "registration": "native"
+    },
+    {
+      "partId": "kidney-right-cutaway",
+      "label": "kidney_right | authored closed-back teaching section",
+      "selectors": [
+        "kidney_right | authored closed-back teaching section"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "kidney-right-pyramids",
+      "label": "Illustrative renal pyramids",
+      "selectors": [
+        "kidney_right medullary pyramid section 1",
+        "kidney_right medullary pyramid section 2",
+        "kidney_right medullary pyramid section 3",
+        "kidney_right medullary pyramid section 4",
+        "kidney_right medullary pyramid section 5",
+        "kidney_right medullary pyramid section 6",
+        "kidney_right medullary pyramid section 7"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "kidney-right-calyxes",
+      "label": "Illustrative minor calyces",
+      "selectors": [
+        "kidney_right minor calyx 1",
+        "kidney_right minor calyx 2",
+        "kidney_right minor calyx 3",
+        "kidney_right minor calyx 4",
+        "kidney_right minor calyx 5",
+        "kidney_right minor calyx 6",
+        "kidney_right minor calyx 7"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "kidney-right-major-calyx-upper",
+      "label": "kidney_right upper major calyx",
+      "selectors": [
+        "kidney_right upper major calyx"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "kidney-right-major-calyx-lower",
+      "label": "kidney_right lower major calyx",
+      "selectors": [
+        "kidney_right lower major calyx"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "kidney-right-pelvis",
+      "label": "kidney_right renal pelvis funnel",
+      "selectors": [
+        "kidney_right renal pelvis funnel"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "kidney-right-ureter-origin",
+      "label": "kidney_right single ureter origin",
+      "selectors": [
+        "kidney_right single ureter origin"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "spleen-surface",
+      "label": "Spleen | source surface",
+      "selectors": [
+        "Spleen | source surface"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/body-3d-source/tb3/presentation/task-explorer/anatomy/spleen.json",
+      "sourceFrame": "s1233 RAS millimetres",
+      "frame": "Workshop GLB metres",
+      "registration": "native"
+    },
+    {
+      "partId": "pancreas-surface",
+      "label": "Pancreas | source surface",
+      "selectors": [
+        "Pancreas | source surface"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/body-3d-source/tb3/presentation/task-explorer/anatomy/pancreas.json",
+      "sourceFrame": "s1233 RAS millimetres",
+      "frame": "Workshop GLB metres",
+      "registration": "native"
+    },
+    {
+      "partId": "pancreatic-duct",
+      "label": "Pancreatic duct · illustrative internal route",
+      "selectors": [
+        "Pancreatic duct · illustrative internal route"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "stomach-surface",
+      "label": "Stomach | source surface",
+      "selectors": [
+        "Stomach | source surface"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/body-3d-source/tb3/presentation/task-explorer/anatomy/stomach.json",
+      "sourceFrame": "s1233 RAS millimetres",
+      "frame": "Workshop GLB metres",
+      "registration": "native"
+    },
+    {
+      "partId": "stomach-cutaway",
+      "label": "stomach | authored closed-back teaching section",
+      "selectors": [
+        "stomach | authored closed-back teaching section"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "gastric-rugae",
+      "label": "Illustrative gastric folds",
+      "selectors": [
+        "Gastric mucosal fold 1",
+        "Gastric mucosal fold 2",
+        "Gastric mucosal fold 3",
+        "Gastric mucosal fold 4",
+        "Gastric mucosal fold 5",
+        "Gastric mucosal fold 6",
+        "Gastric mucosal fold 7",
+        "Gastric mucosal fold 8",
+        "Gastric mucosal fold 9",
+        "Gastric mucosal fold 10",
+        "Gastric mucosal fold 11"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "gallbladder-surface",
+      "label": "Gallbladder | source surface",
+      "selectors": [
+        "Gallbladder | source surface"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/body-3d-source/tb3/presentation/task-explorer/anatomy/gallbladder.json",
+      "sourceFrame": "s1233 RAS millimetres",
+      "frame": "Workshop GLB metres",
+      "registration": "native"
+    },
+    {
+      "partId": "gallbladder-cutaway",
+      "label": "gallbladder | anterior teaching section",
+      "selectors": [
+        "gallbladder | anterior teaching section"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/body-3d-source/tb3/presentation/task-explorer/anatomy/gallbladder.json",
+      "sourceFrame": "s1233 RAS millimetres",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "cystic-duct",
+      "label": "Cystic duct · schematic",
+      "selectors": [
+        "Cystic duct · schematic"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "heart-surface",
+      "label": "Heart | source surface",
+      "selectors": [
+        "Heart | source surface"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/body-3d-source/tb3/presentation/task-explorer/anatomy/heart.json",
+      "sourceFrame": "s1233 RAS millimetres",
+      "frame": "Workshop GLB metres",
+      "registration": "native"
+    },
+    {
+      "partId": "left-lower-lobe",
+      "label": "Lung Lower Lobe Left | source surface",
+      "selectors": [
+        "Lung Lower Lobe Left | source surface"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/body-3d-source/tb3/presentation/task-explorer/anatomy/lung_lower_lobe_left.json",
+      "sourceFrame": "s1233 RAS millimetres",
+      "frame": "Workshop GLB metres",
+      "registration": "native"
+    },
+    {
+      "partId": "left-upper-lobe",
+      "label": "Lung Upper Lobe Left | source surface",
+      "selectors": [
+        "Lung Upper Lobe Left | source surface"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/body-3d-source/tb3/presentation/task-explorer/anatomy/lung_upper_lobe_left.json",
+      "sourceFrame": "s1233 RAS millimetres",
+      "frame": "Workshop GLB metres",
+      "registration": "native"
+    },
+    {
+      "partId": "right-lower-lobe",
+      "label": "Lung Lower Lobe Right | source surface",
+      "selectors": [
+        "Lung Lower Lobe Right | source surface"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/body-3d-source/tb3/presentation/task-explorer/anatomy/lung_lower_lobe_right.json",
+      "sourceFrame": "s1233 RAS millimetres",
+      "frame": "Workshop GLB metres",
+      "registration": "native"
+    },
+    {
+      "partId": "right-middle-lobe",
+      "label": "Lung Middle Lobe Right | source surface",
+      "selectors": [
+        "Lung Middle Lobe Right | source surface"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/body-3d-source/tb3/presentation/task-explorer/anatomy/lung_middle_lobe_right.json",
+      "sourceFrame": "s1233 RAS millimetres",
+      "frame": "Workshop GLB metres",
+      "registration": "native"
+    },
+    {
+      "partId": "right-upper-lobe",
+      "label": "Lung Upper Lobe Right | source surface",
+      "selectors": [
+        "Lung Upper Lobe Right | source surface"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/body-3d-source/tb3/presentation/task-explorer/anatomy/lung_upper_lobe_right.json",
+      "sourceFrame": "s1233 RAS millimetres",
+      "frame": "Workshop GLB metres",
+      "registration": "native"
+    },
+    {
+      "partId": "aorta-surface",
+      "label": "Aorta | source surface",
+      "selectors": [
+        "Aorta | source surface"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/body-3d-source/tb3/presentation/task-explorer/anatomy/aorta.json",
+      "sourceFrame": "s1233 RAS millimetres",
+      "frame": "Workshop GLB metres",
+      "registration": "native"
+    },
+    {
+      "partId": "trachea-surface",
+      "label": "Trachea | source surface",
+      "selectors": [
+        "Trachea | source surface"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/body-3d-source/tb3/presentation/task-explorer/anatomy/trachea.json",
+      "sourceFrame": "s1233 RAS millimetres",
+      "frame": "Workshop GLB metres",
+      "registration": "native"
+    },
+    {
+      "partId": "tracheal-cartilage",
+      "label": "Illustrative tracheal C-rings",
+      "selectors": [
+        "Tracheal C cartilage 1",
+        "Tracheal C cartilage 2",
+        "Tracheal C cartilage 3",
+        "Tracheal C cartilage 4",
+        "Tracheal C cartilage 5",
+        "Tracheal C cartilage 6",
+        "Tracheal C cartilage 7",
+        "Tracheal C cartilage 8",
+        "Tracheal C cartilage 9",
+        "Tracheal C cartilage 10",
+        "Tracheal C cartilage 11",
+        "Tracheal C cartilage 12",
+        "Tracheal C cartilage 13",
+        "Tracheal C cartilage 14"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "pulmonary-vein-surface",
+      "label": "Pulmonary Vein | source surface",
+      "selectors": [
+        "Pulmonary Vein | source surface"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/body-3d-source/tb3/presentation/task-explorer/anatomy/pulmonary_vein.json",
+      "sourceFrame": "s1233 RAS millimetres",
+      "frame": "Workshop GLB metres",
+      "registration": "native"
+    },
+    {
+      "partId": "vertebrae-l3-surface",
+      "label": "Vertebrae L3 | source surface",
+      "selectors": [
+        "Vertebrae L3 | source surface"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/body-3d-source/tb3/presentation/task-explorer/anatomy/vertebrae_L3.json",
+      "sourceFrame": "s1233 RAS millimetres",
+      "frame": "Workshop GLB metres",
+      "registration": "native"
+    },
+    {
+      "partId": "distal-tracheal-axis",
+      "label": "Distal tracheal teaching axis",
+      "selectors": [
+        "Distal tracheal teaching axis"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "right-main-bronchus",
+      "label": "Right Main",
+      "selectors": [
+        "Right Main"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "left-main-bronchus",
+      "label": "Left Main",
+      "selectors": [
+        "Left Main"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "right-upper-lobar-bronchus",
+      "label": "lung_upper_lobe_right lobar bronchus",
+      "selectors": [
+        "lung_upper_lobe_right lobar bronchus"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "distal-bronchial-illustrations",
+      "label": "Distal bronchial illustrations",
+      "selectors": [
+        "lung_upper_lobe_right distal illustration 1",
+        "lung_upper_lobe_right distal illustration 2",
+        "lung_upper_lobe_right distal illustration 3",
+        "lung_middle_lobe_right distal illustration 1",
+        "lung_middle_lobe_right distal illustration 2",
+        "lung_middle_lobe_right distal illustration 3",
+        "lung_lower_lobe_right distal illustration 1",
+        "lung_lower_lobe_right distal illustration 2",
+        "lung_lower_lobe_right distal illustration 3",
+        "lung_upper_lobe_left distal illustration 1",
+        "lung_upper_lobe_left distal illustration 2",
+        "lung_upper_lobe_left distal illustration 3",
+        "lung_lower_lobe_left distal illustration 1",
+        "lung_lower_lobe_left distal illustration 2",
+        "lung_lower_lobe_left distal illustration 3"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "right-middle-lobar-bronchus",
+      "label": "lung_middle_lobe_right lobar bronchus",
+      "selectors": [
+        "lung_middle_lobe_right lobar bronchus"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "right-lower-lobar-bronchus",
+      "label": "lung_lower_lobe_right lobar bronchus",
+      "selectors": [
+        "lung_lower_lobe_right lobar bronchus"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "left-upper-lobar-bronchus",
+      "label": "lung_upper_lobe_left lobar bronchus",
+      "selectors": [
+        "lung_upper_lobe_left lobar bronchus"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "left-lower-lobar-bronchus",
+      "label": "lung_lower_lobe_left lobar bronchus",
+      "selectors": [
+        "lung_lower_lobe_left lobar bronchus"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "bladder-surface",
+      "label": "Urinary bladder | authored surface",
+      "selectors": [
+        "Urinary bladder | authored surface"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "bladder-cutaway",
+      "label": "bladder | anterior teaching section",
+      "selectors": [
+        "bladder | anterior teaching section"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "bladder-trigone",
+      "label": "Bladder trigone · schematic",
+      "selectors": [
+        "Bladder trigone · schematic"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "kidney-left-ureter",
+      "label": "kidney_left ureter to bladder",
+      "selectors": [
+        "kidney_left ureter to bladder"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "kidney-right-ureter",
+      "label": "kidney_right ureter to bladder",
+      "selectors": [
+        "kidney_right ureter to bladder"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "urethral-outlet",
+      "label": "Single urethral outlet · schematic",
+      "selectors": [
+        "Single urethral outlet · schematic"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "hemisphere-right",
+      "label": "Right cerebral hemisphere | schematic folds",
+      "selectors": [
+        "Right cerebral hemisphere | schematic folds"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "hemisphere-right-cutaway",
+      "label": "Right cerebral hemisphere | schematic folds | cutaway",
+      "selectors": [
+        "Right cerebral hemisphere | schematic folds | cutaway"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "hemisphere-left",
+      "label": "Left cerebral hemisphere | schematic folds",
+      "selectors": [
+        "Left cerebral hemisphere | schematic folds"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "hemisphere-left-cutaway",
+      "label": "Left cerebral hemisphere | schematic folds | cutaway",
+      "selectors": [
+        "Left cerebral hemisphere | schematic folds | cutaway"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "white-matter-core",
+      "label": "White matter teaching core",
+      "selectors": [
+        "White matter teaching core"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "lateral-ventricle",
+      "label": "Lateral ventricle · schematic C",
+      "selectors": [
+        "Lateral ventricle · schematic C"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "corpus-callosum",
+      "label": "Corpus callosum · schematic arch",
+      "selectors": [
+        "Corpus callosum · schematic arch"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "cerebellum",
+      "label": "Cerebellum | schematic folia",
+      "selectors": [
+        "Cerebellum | schematic folia"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "cerebellum-cutaway",
+      "label": "Cerebellum | section context",
+      "selectors": [
+        "Cerebellum | section context"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "brainstem",
+      "label": "Brainstem | schematic",
+      "selectors": [
+        "Brainstem | schematic"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "brainstem-cutaway",
+      "label": "Brainstem | section context",
+      "selectors": [
+        "Brainstem | section context"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/README.md",
+      "sourceFrame": "Pedagogic placement in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "detailed-aorta",
+      "label": "Aorta | root, ascending, arch and descending",
+      "selectors": [
+        "Aorta | root, ascending, arch and descending"
+      ],
+      "sourcePath": "heart/Cardiac_Atlas/exports/Cardiac_Atlas_Clinical_Full_ED.glb",
+      "sourceFrame": "Procedural Cardiac Atlas, uniformly arranged in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "detailed-left-ventricular-wall",
+      "label": "LV | complete wall",
+      "selectors": [
+        "LV | complete wall"
+      ],
+      "sourcePath": "heart/Cardiac_Atlas/exports/Cardiac_Atlas_Clinical_Full_ED.glb",
+      "sourceFrame": "Procedural Cardiac Atlas, uniformly arranged in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "detailed-pulmonary-trunk",
+      "label": "Pulmonary trunk",
+      "selectors": [
+        "Pulmonary trunk"
+      ],
+      "sourcePath": "heart/Cardiac_Atlas/exports/Cardiac_Atlas_Clinical_Full_ED.glb",
+      "sourceFrame": "Procedural Cardiac Atlas, uniformly arranged in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "detailed-right-ventricular-wall",
+      "label": "RV | complete wall",
+      "selectors": [
+        "RV | complete wall"
+      ],
+      "sourcePath": "heart/Cardiac_Atlas/exports/Cardiac_Atlas_Clinical_Full_ED.glb",
+      "sourceFrame": "Procedural Cardiac Atlas, uniformly arranged in Workshop",
+      "frame": "Workshop GLB metres",
+      "registration": "illustrative"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "r1",
+      "status": "provisional",
+      "sourceIds": [
+        "source:workshop:s1233-surfaces",
+        "source:workshop:authored-details",
+        "source:cardiac-atlas:full-ed",
+        "source:cardiac-atlas:cutaway-ed"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up",
+          "+X patient left",
+          "+Y superior",
+          "+Z anterior"
+        ],
+        "evidence": "body/anatomy-workshop-r1/body-3d-delivery/manifest.json"
+      },
+      "recipeEvidence": {
+        "path": "body/anatomy-workshop-r1/REBUILD.md",
+        "sha256": "844bcb2130c5b7931d33b8f117bd2360434cb44b89486bf245dc0da58e2dfcac"
+      },
+      "partIds": [
+        "liver-surface",
+        "kidney-left-surface",
+        "kidney-left-cutaway",
+        "kidney-left-pyramids",
+        "kidney-left-calyxes",
+        "kidney-left-major-calyx-upper",
+        "kidney-left-major-calyx-lower",
+        "kidney-left-pelvis",
+        "kidney-left-ureter-origin",
+        "kidney-right-surface",
+        "kidney-right-cutaway",
+        "kidney-right-pyramids",
+        "kidney-right-calyxes",
+        "kidney-right-major-calyx-upper",
+        "kidney-right-major-calyx-lower",
+        "kidney-right-pelvis",
+        "kidney-right-ureter-origin",
+        "spleen-surface",
+        "pancreas-surface",
+        "pancreatic-duct",
+        "stomach-surface",
+        "stomach-cutaway",
+        "gastric-rugae",
+        "gallbladder-surface",
+        "gallbladder-cutaway",
+        "cystic-duct",
+        "heart-surface",
+        "left-lower-lobe",
+        "left-upper-lobe",
+        "right-lower-lobe",
+        "right-middle-lobe",
+        "right-upper-lobe",
+        "aorta-surface",
+        "trachea-surface",
+        "tracheal-cartilage",
+        "pulmonary-vein-surface",
+        "vertebrae-l3-surface",
+        "distal-tracheal-axis",
+        "right-main-bronchus",
+        "left-main-bronchus",
+        "right-upper-lobar-bronchus",
+        "distal-bronchial-illustrations",
+        "right-middle-lobar-bronchus",
+        "right-lower-lobar-bronchus",
+        "left-upper-lobar-bronchus",
+        "left-lower-lobar-bronchus",
+        "bladder-surface",
+        "bladder-cutaway",
+        "bladder-trigone",
+        "kidney-left-ureter",
+        "kidney-right-ureter",
+        "urethral-outlet",
+        "hemisphere-right",
+        "hemisphere-right-cutaway",
+        "hemisphere-left",
+        "hemisphere-left-cutaway",
+        "white-matter-core",
+        "lateral-ventricle",
+        "corpus-callosum",
+        "cerebellum",
+        "cerebellum-cutaway",
+        "brainstem",
+        "brainstem-cutaway",
+        "detailed-aorta",
+        "detailed-left-ventricular-wall",
+        "detailed-pulmonary-trunk",
+        "detailed-right-ventricular-wall"
+      ],
+      "exports": [
+        {
+          "id": "liver",
+          "path": "body/anatomy-workshop-r1/meshes/liver.glb",
+          "sha256": "78e27dd417702c4f872162ef78b2d044f1cc0aba944c9ac672b00e12b6678362",
+          "bytes": 1861060,
+          "format": "glb",
+          "role": "teaching-mesh",
+          "partIds": [
+            "liver-surface"
+          ],
+          "triangles": 23998
+        },
+        {
+          "id": "kidney-left",
+          "path": "body/anatomy-workshop-r1/meshes/kidney_left.glb",
+          "sha256": "1e99499c4afb6b920475065cb72319e4fcf71426eaa6ea118f6d6fc4b1d78cab",
+          "bytes": 2502280,
+          "format": "glb",
+          "role": "teaching-mesh",
+          "partIds": [
+            "kidney-left-surface",
+            "kidney-left-cutaway",
+            "kidney-left-pyramids",
+            "kidney-left-calyxes",
+            "kidney-left-major-calyx-upper",
+            "kidney-left-major-calyx-lower",
+            "kidney-left-pelvis",
+            "kidney-left-ureter-origin"
+          ],
+          "triangles": 19248
+        },
+        {
+          "id": "kidney-right",
+          "path": "body/anatomy-workshop-r1/meshes/kidney_right.glb",
+          "sha256": "02d26dad6603db7426b6b7eca8c7ad851163f064c24a68cde83f9f4e0149d97c",
+          "bytes": 2522628,
+          "format": "glb",
+          "role": "teaching-mesh",
+          "partIds": [
+            "kidney-right-surface",
+            "kidney-right-cutaway",
+            "kidney-right-pyramids",
+            "kidney-right-calyxes",
+            "kidney-right-major-calyx-upper",
+            "kidney-right-major-calyx-lower",
+            "kidney-right-pelvis",
+            "kidney-right-ureter-origin"
+          ],
+          "triangles": 19248
+        },
+        {
+          "id": "spleen",
+          "path": "body/anatomy-workshop-r1/meshes/spleen.glb",
+          "sha256": "de7a5e45c0cecca51c639fee6ba2114a5776e5578781e9705b5c7ca6751f8619",
+          "bytes": 1854852,
+          "format": "glb",
+          "role": "teaching-mesh",
+          "partIds": [
+            "spleen-surface"
+          ],
+          "triangles": 7200
+        },
+        {
+          "id": "pancreas",
+          "path": "body/anatomy-workshop-r1/meshes/pancreas.glb",
+          "sha256": "a5c3519a56a5edab37ee4f5808cfb884080e1b2b156a5559b650993b3d9ec591",
+          "bytes": 1937248,
+          "format": "glb",
+          "role": "teaching-mesh",
+          "partIds": [
+            "pancreas-surface",
+            "pancreatic-duct"
+          ],
+          "triangles": 11876
+        },
+        {
+          "id": "stomach",
+          "path": "body/anatomy-workshop-r1/meshes/stomach.glb",
+          "sha256": "cc4a9c4bee03d921b9985fa39b8a96021e31dade3237a285a2cac20ff670a8a6",
+          "bytes": 3385504,
+          "format": "glb",
+          "role": "teaching-mesh",
+          "partIds": [
+            "stomach-surface",
+            "stomach-cutaway",
+            "gastric-rugae"
+          ],
+          "triangles": 60456
+        },
+        {
+          "id": "gallbladder",
+          "path": "body/anatomy-workshop-r1/meshes/gallbladder.glb",
+          "sha256": "97f24edd4a5770629d959e11ff74d50d0be5d92866a3e937cd44a3f9510d4bad",
+          "bytes": 2120780,
+          "format": "glb",
+          "role": "teaching-mesh",
+          "partIds": [
+            "gallbladder-surface",
+            "gallbladder-cutaway",
+            "cystic-duct"
+          ],
+          "triangles": 9596
+        },
+        {
+          "id": "heart",
+          "path": "body/anatomy-workshop-r1/meshes/heart.glb",
+          "sha256": "8c2ac314c97400f3989dbc5e706827dd5134814ae9b6793768fac60b20198a7e",
+          "bytes": 2035436,
+          "format": "glb",
+          "role": "teaching-mesh",
+          "partIds": [
+            "heart-surface"
+          ],
+          "triangles": 24000
+        },
+        {
+          "id": "lung-left",
+          "path": "body/anatomy-workshop-r1/meshes/lung_left.glb",
+          "sha256": "6ec2acc585e59f4d11dcc11bbf6bbfdf880a171c8733587bb858fe72476dba9c",
+          "bytes": 2293040,
+          "format": "glb",
+          "role": "teaching-mesh",
+          "partIds": [
+            "left-lower-lobe",
+            "left-upper-lobe"
+          ],
+          "triangles": 31200
+        },
+        {
+          "id": "lung-right",
+          "path": "body/anatomy-workshop-r1/meshes/lung_right.glb",
+          "sha256": "232166f23bff9c4c7142147e4e5f51cdb4519bc183c5aeb81ed1b264659f9b8f",
+          "bytes": 2384572,
+          "format": "glb",
+          "role": "teaching-mesh",
+          "partIds": [
+            "right-lower-lobe",
+            "right-middle-lobe",
+            "right-upper-lobe"
+          ],
+          "triangles": 36000
+        },
+        {
+          "id": "aorta",
+          "path": "body/anatomy-workshop-r1/meshes/aorta.glb",
+          "sha256": "1a20d6322cefb6c6c85c7c8ed95295e8314e568a12420434ccda40beb4f8cc31",
+          "bytes": 1189864,
+          "format": "glb",
+          "role": "teaching-mesh",
+          "partIds": [
+            "aorta-surface"
+          ],
+          "triangles": 9600
+        },
+        {
+          "id": "trachea",
+          "path": "body/anatomy-workshop-r1/meshes/trachea.glb",
+          "sha256": "5390537c1e27e9630ec93d4d5437d29081c26f88e87889834091e3fca47ccd45",
+          "bytes": 2858964,
+          "format": "glb",
+          "role": "teaching-mesh",
+          "partIds": [
+            "trachea-surface",
+            "tracheal-cartilage"
+          ],
+          "triangles": 54440
+        },
+        {
+          "id": "pulmonary-vein",
+          "path": "body/anatomy-workshop-r1/meshes/pulmonary_vein.glb",
+          "sha256": "9dcafbb0fcc625ad7952443e0b6274d200e4a97c9792ccecaa3645bd80214355",
+          "bytes": 1719172,
+          "format": "glb",
+          "role": "teaching-mesh",
+          "partIds": [
+            "pulmonary-vein-surface"
+          ],
+          "triangles": 9600
+        },
+        {
+          "id": "vertebrae-l3",
+          "path": "body/anatomy-workshop-r1/meshes/vertebrae_L3.glb",
+          "sha256": "823ab88a4cc7d3f9b7ee58a2039521d8fdc41367bb0913fe034133334d99fec4",
+          "bytes": 2035060,
+          "format": "glb",
+          "role": "teaching-mesh",
+          "partIds": [
+            "vertebrae-l3-surface"
+          ],
+          "triangles": 9600
+        },
+        {
+          "id": "bronchial-tree",
+          "path": "body/anatomy-workshop-r1/meshes/bronchial_tree.glb",
+          "sha256": "2d2d4e269995f11179cfa423a302f144d9d163883ccde0995a2987e83dd2e898",
+          "bytes": 1640504,
+          "format": "glb",
+          "role": "teaching-mesh",
+          "partIds": [
+            "distal-tracheal-axis",
+            "right-main-bronchus",
+            "left-main-bronchus",
+            "right-upper-lobar-bronchus",
+            "distal-bronchial-illustrations",
+            "right-middle-lobar-bronchus",
+            "right-lower-lobar-bronchus",
+            "left-upper-lobar-bronchus",
+            "left-lower-lobar-bronchus"
+          ],
+          "triangles": 15088
+        },
+        {
+          "id": "bladder",
+          "path": "body/anatomy-workshop-r1/meshes/bladder.glb",
+          "sha256": "798329114cfcd241d7f8342fc8faa70ff33fdbded6029bb128d82c3d6f50d8c5",
+          "bytes": 1524184,
+          "format": "glb",
+          "role": "teaching-mesh",
+          "partIds": [
+            "bladder-surface",
+            "bladder-cutaway",
+            "bladder-trigone",
+            "kidney-left-ureter",
+            "kidney-right-ureter",
+            "urethral-outlet"
+          ],
+          "triangles": 10357
+        },
+        {
+          "id": "brain",
+          "path": "body/anatomy-workshop-r1/meshes/brain.glb",
+          "sha256": "51b7ddc3b0564f767bbd5842dee6e05ad0c0505665cc2c5670040af705b4afc5",
+          "bytes": 3142576,
+          "format": "glb",
+          "role": "teaching-mesh",
+          "partIds": [
+            "hemisphere-right",
+            "hemisphere-right-cutaway",
+            "hemisphere-left",
+            "hemisphere-left-cutaway",
+            "white-matter-core",
+            "lateral-ventricle",
+            "corpus-callosum",
+            "cerebellum",
+            "cerebellum-cutaway",
+            "brainstem",
+            "brainstem-cutaway"
+          ],
+          "triangles": 69208
+        },
+        {
+          "id": "heart-detailed",
+          "path": "body/anatomy-workshop-r1/meshes/heart_detailed.glb",
+          "sha256": "83dd48731d0cc67e8aa61abbd7b03163fb01bcba78f501e9d2c939927aaecf6e",
+          "bytes": 9056304,
+          "format": "glb",
+          "role": "teaching-mesh",
+          "partIds": [
+            "detailed-aorta",
+            "detailed-left-ventricular-wall",
+            "detailed-pulmonary-trunk",
+            "detailed-right-ventricular-wall"
+          ],
+          "triangles": 379272
+        }
+      ],
+      "qualifications": []
+    },
+    {
+      "revisionId": "native-r1",
+      "status": "provisional",
+      "sourceIds": [
+        "source:workshop:s1233-surfaces",
+        "source:workshop:authored-details",
+        "source:cardiac-atlas:full-ed",
+        "source:cardiac-atlas:cutaway-ed"
+      ],
+      "frame": {
+        "convention": "blender-z-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Z-up",
+          "+X patient left",
+          "+Y posterior",
+          "+Z superior"
+        ],
+        "evidence": "body/anatomy-workshop-r1/README.md"
+      },
+      "recipeEvidence": {
+        "path": "body/anatomy-workshop-r1/REBUILD.md",
+        "sha256": "844bcb2130c5b7931d33b8f117bd2360434cb44b89486bf245dc0da58e2dfcac"
+      },
+      "partIds": [],
+      "exports": [
+        {
+          "id": "editable",
+          "path": "body/anatomy-workshop-r1/Anatomy_Workshop.blend",
+          "sha256": "c773480a49471e697e12ca1a710a4c93314217a8683e6ab224b3fa83d9a12fbc",
+          "bytes": 17571351,
+          "format": "blend",
+          "role": "editable-master",
+          "partIds": []
+        }
+      ],
+      "qualifications": []
+    },
+    {
+      "revisionId": "compact-r1",
+      "status": "provisional",
+      "recipe": "recipes/compact.json",
+      "sourceIds": [
+        "source:workshop:editable-r1"
+      ],
+      "frame": {
+        "convention": "blender-z-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Z-up",
+          "+X patient left",
+          "+Y posterior",
+          "+Z superior"
+        ],
+        "evidence": "body/anatomy-workshop-r1/README.md"
+      },
+      "recipeEvidence": {
+        "path": "body/anatomy-workshop-r1/COMPACT.md",
+        "sha256": "91b7ed0c977e1036afe4b7762079c5c1ef088b589668a8b2d36b5fdd2fc4fcde"
+      },
+      "partIds": [],
+      "exports": [
+        {
+          "id": "editable",
+          "path": "body/anatomy-workshop-r1/Anatomy_Workshop_compact.blend",
+          "sha256": "8903a92dbae60c24a0c9933724d1ec8078628fcf6f3d170fa589371b158077ba",
+          "bytes": 13596421,
+          "format": "blend",
+          "role": "editable-master",
+          "partIds": []
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "Static source surfaces use the s1233 RAS-to-Workshop conversion in the delivery manifest. Schematic additions and the detailed heart have pedagogic placement.",
+    "The selected Blender edition retains editable states. Its source recipe and scoped evaluation own the Blender object and control checks."
+  ]
+}

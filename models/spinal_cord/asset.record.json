@@ -1,0 +1,280 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:authored:spinal-roots",
+  "title": "Authored spinal cord and root relationships",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/spinal_cord",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:spinal-cord:authored-relationships-r03",
+      "title": "Authored spinal cord and nerve root relationship model source and replay for authored-relationships-r03",
+      "sourceType": "recipe source or retained provenance",
+      "subject": "Authored spinal cord and nerve root relationship model",
+      "evidence": [
+        {
+          "path": "models/spinal_cord/exports/authored-relationships-r03/README.md",
+          "sha256": "9b7a8b2cd13a4a29d4540f0760b4b54883758332715c1a7c5fd69b3551909887"
+        }
+      ],
+      "unresolved": "The owning package has no separately declared redistribution licence for this authored geometry."
+    },
+    {
+      "sourceId": "source:spinal-cord:authored-roots-r04",
+      "title": "Authored spinal cord and nerve root relationship model source and replay for authored-roots-r04",
+      "sourceType": "recipe source or retained provenance",
+      "subject": "Authored spinal cord and nerve root relationship model",
+      "evidence": [
+        {
+          "path": "models/spinal_cord/exports/authored-roots-r04/README.md",
+          "sha256": "a181a85a970c7bc81e8ccdf69938ee5972ddc0d494797860e90b5390b9f21e02"
+        }
+      ],
+      "unresolved": "The owning package has no separately declared redistribution licence for this authored geometry.",
+      "path": "models/spinal_cord/exports/authored-relationships-r03/spinal_relationships.glb",
+      "sha256": "5d9f0f88ff8498f611aea583e080558691d592a3ce50c89ecb847cf18b4d1471",
+      "bytes": 1561260
+    },
+    {
+      "sourceId": "source:spinal-cord:teaching-economy-r02",
+      "title": "Authored spinal cord and nerve root relationship model source and replay for teaching-economy-r02",
+      "sourceType": "recipe source or retained provenance",
+      "subject": "Authored spinal cord and nerve root relationship model",
+      "evidence": [
+        {
+          "path": "models/spinal_cord/exports/teaching-economy-r02/README.md",
+          "sha256": "36dd5f4b125d3090133c56d2d937229f858e927a6dd1fa2f37ca0bdc6b171d51"
+        }
+      ],
+      "unresolved": "The owning package has no separately declared redistribution licence for this authored geometry.",
+      "path": "models/spinal_cord/exports/authored-roots-r04/candidate.glb",
+      "sha256": "a37783fbd1ad25ba9a2bcfbed1419a2d3f655b42cec643bf32a77266ca82a9d0",
+      "bytes": 2663288
+    }
+  ],
+  "parts": [
+    {
+      "partId": "authored-cord-with-two-enlargements-and-one-conus",
+      "label": "Authored cord with two enlargements and one conus",
+      "selectors": [
+        "Authored cord with two enlargements and one conus"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "representative-dorsal-root-upper-1-side-1",
+      "label": "Representative dorsal root upper 1 side-1",
+      "selectors": [
+        "Representative dorsal root upper 1 side-1"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "representative-ventral-root-upper-1-side-1",
+      "label": "Representative ventral root upper 1 side-1",
+      "selectors": [
+        "Representative ventral root upper 1 side-1"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "representative-mixed-nerve-upper-1-side-1",
+      "label": "Representative mixed nerve upper 1 side-1",
+      "selectors": [
+        "Representative mixed nerve upper 1 side-1"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "representative-dorsal-root-upper-1-side1",
+      "label": "Representative dorsal root upper 1 side1",
+      "selectors": [
+        "Representative dorsal root upper 1 side1"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "representative-ventral-root-upper-1-side1",
+      "label": "Representative ventral root upper 1 side1",
+      "selectors": [
+        "Representative ventral root upper 1 side1"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "representative-mixed-nerve-upper-1-side1",
+      "label": "Representative mixed nerve upper 1 side1",
+      "selectors": [
+        "Representative mixed nerve upper 1 side1"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "representative-dorsal-root-upper-2-side-1",
+      "label": "Representative dorsal root upper 2 side-1",
+      "selectors": [
+        "Representative dorsal root upper 2 side-1"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "filum-terminale-nonneural-teaching-strand",
+      "label": "Filum terminale - nonneural teaching strand",
+      "selectors": [
+        "Filum terminale - nonneural teaching strand"
+      ],
+      "registration": "unknown"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "authored-relationships-r03",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "models/spinal_cord/exports/authored-relationships-r03/README.md",
+        "sha256": "9b7a8b2cd13a4a29d4540f0760b4b54883758332715c1a7c5fd69b3551909887"
+      },
+      "sourceIds": [
+        "source:spinal-cord:authored-relationships-r03"
+      ],
+      "frame": {
+        "convention": "unverified-frame",
+        "evidence": "models/spinal_cord/exports/authored-relationships-r03/README.md",
+        "unresolved": "The authored display has no measured patient or atlas registration."
+      },
+      "exports": [
+        {
+          "id": "relationships",
+          "path": "models/spinal_cord/exports/authored-relationships-r03/spinal_relationships.glb",
+          "sha256": "5d9f0f88ff8498f611aea583e080558691d592a3ce50c89ecb847cf18b4d1471",
+          "bytes": 1561260,
+          "triangles": 76624,
+          "format": "glb",
+          "partIds": [
+            "authored-cord-with-two-enlargements-and-one-conus",
+            "representative-dorsal-root-upper-1-side-1",
+            "representative-ventral-root-upper-1-side-1",
+            "representative-mixed-nerve-upper-1-side-1",
+            "representative-dorsal-root-upper-1-side1",
+            "representative-ventral-root-upper-1-side1",
+            "representative-mixed-nerve-upper-1-side1",
+            "representative-dorsal-root-upper-2-side-1"
+          ]
+        }
+      ],
+      "qualifications": [],
+      "partIds": [
+        "authored-cord-with-two-enlargements-and-one-conus",
+        "representative-dorsal-root-upper-1-side-1",
+        "representative-dorsal-root-upper-1-side1",
+        "representative-dorsal-root-upper-2-side-1",
+        "representative-mixed-nerve-upper-1-side-1",
+        "representative-mixed-nerve-upper-1-side1",
+        "representative-ventral-root-upper-1-side-1",
+        "representative-ventral-root-upper-1-side1"
+      ]
+    },
+    {
+      "revisionId": "authored-roots-r04",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "models/spinal_cord/exports/authored-roots-r04/README.md",
+        "sha256": "a181a85a970c7bc81e8ccdf69938ee5972ddc0d494797860e90b5390b9f21e02"
+      },
+      "sourceIds": [
+        "source:spinal-cord:authored-roots-r04"
+      ],
+      "frame": {
+        "convention": "unverified-frame",
+        "evidence": "models/spinal_cord/exports/authored-roots-r04/README.md",
+        "unresolved": "The authored display has no measured patient or atlas registration."
+      },
+      "exports": [
+        {
+          "id": "relationships",
+          "path": "models/spinal_cord/exports/authored-roots-r04/candidate.glb",
+          "sha256": "a37783fbd1ad25ba9a2bcfbed1419a2d3f655b42cec643bf32a77266ca82a9d0",
+          "bytes": 2663288,
+          "triangles": 178960,
+          "format": "glb",
+          "partIds": [
+            "authored-cord-with-two-enlargements-and-one-conus",
+            "filum-terminale-nonneural-teaching-strand",
+            "representative-dorsal-root-upper-1-side-1",
+            "representative-ventral-root-upper-1-side-1",
+            "representative-mixed-nerve-upper-1-side-1",
+            "representative-dorsal-root-upper-1-side1",
+            "representative-ventral-root-upper-1-side1",
+            "representative-mixed-nerve-upper-1-side1"
+          ]
+        }
+      ],
+      "qualifications": [],
+      "partIds": [
+        "authored-cord-with-two-enlargements-and-one-conus",
+        "filum-terminale-nonneural-teaching-strand",
+        "representative-dorsal-root-upper-1-side-1",
+        "representative-dorsal-root-upper-1-side1",
+        "representative-mixed-nerve-upper-1-side-1",
+        "representative-mixed-nerve-upper-1-side1",
+        "representative-ventral-root-upper-1-side-1",
+        "representative-ventral-root-upper-1-side1"
+      ]
+    },
+    {
+      "revisionId": "teaching-economy-r02",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "models/spinal_cord/exports/teaching-economy-r02/README.md",
+        "sha256": "36dd5f4b125d3090133c56d2d937229f858e927a6dd1fa2f37ca0bdc6b171d51"
+      },
+      "sourceIds": [
+        "source:spinal-cord:teaching-economy-r02"
+      ],
+      "frame": {
+        "convention": "unverified-frame",
+        "evidence": "models/spinal_cord/exports/teaching-economy-r02/README.md",
+        "unresolved": "The authored display has no measured patient or atlas registration."
+      },
+      "exports": [
+        {
+          "id": "relationships",
+          "path": "models/spinal_cord/exports/teaching-economy-r02/candidate.glb",
+          "sha256": "eba3e49c05e2f1a4f2c08b107eefa48eb32d14796dd1ce5bac9413138b404ca9",
+          "bytes": 1948852,
+          "triangles": 178960,
+          "format": "glb",
+          "partIds": [
+            "authored-cord-with-two-enlargements-and-one-conus",
+            "filum-terminale-nonneural-teaching-strand",
+            "representative-dorsal-root-upper-1-side-1",
+            "representative-ventral-root-upper-1-side-1",
+            "representative-mixed-nerve-upper-1-side-1",
+            "representative-dorsal-root-upper-1-side1",
+            "representative-ventral-root-upper-1-side1",
+            "representative-mixed-nerve-upper-1-side1"
+          ]
+        }
+      ],
+      "qualifications": [],
+      "recipe": "recipes/teaching-economy-r02.json",
+      "partIds": [
+        "authored-cord-with-two-enlargements-and-one-conus",
+        "filum-terminale-nonneural-teaching-strand",
+        "representative-dorsal-root-upper-1-side-1",
+        "representative-dorsal-root-upper-1-side1",
+        "representative-mixed-nerve-upper-1-side-1",
+        "representative-mixed-nerve-upper-1-side1",
+        "representative-ventral-root-upper-1-side-1",
+        "representative-ventral-root-upper-1-side1"
+      ]
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "The owning package has no separately declared redistribution licence for this authored geometry.",
+    "The authored display has no measured patient or atlas registration.",
+    "Root topology and the filum are instructional geometry. Branches, cord segments and connections are representative."
+  ]
+}

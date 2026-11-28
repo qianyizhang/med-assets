@@ -1,0 +1,282 @@
+{
+  "schemaVersion": 1,
+  "assetId": "assembly:s1233:adrenal-locator",
+  "title": "s1233 adrenal locator",
+  "kind": "assembly",
+  "status": "provisional",
+  "owner": "assemblies/endocrine-locator",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:totalsegmentator:s1233-adrenal-case-reference",
+      "title": "s1233 r02 case-label surface reference",
+      "sourceType": "case-derived replay output",
+      "subject": "s1233",
+      "license": "CC BY 4.0. Retain the TotalSegmentator v2.0.1 source and label-source notices.",
+      "evidence": [
+        {
+          "path": "assemblies/endocrine-locator/r02/README.md",
+          "sha256": "02be46c97f1bdf69a64c1f4010925ddeea90e90be07ff81be232643d8490a08d"
+        },
+        {
+          "path": "assemblies/endocrine-locator/r02/inputs.json",
+          "sha256": "e972e12f08f2719639ccdfa35b260dd3091b1704796abfe26184e6889f1ce151"
+        },
+        {
+          "path": "reviews/body-systems/2026-11-20-surface-quality/views/adrenal/geometry.json",
+          "sha256": "a86315a02fc1bdf167fb63f1f51babff2638ba7115ace8b46d4a478f1de73059"
+        },
+        {
+          "path": "body/anatomy-workshop-r1/docs/licenses/NOTICE.md",
+          "sha256": "87372df39878e0c73903675edc21875fa712a90b22f497ffb55d50a29f210a94"
+        }
+      ],
+      "sha256": "84b8af5ad628ae328a2b32fb366c0e77fe84c33633df75fb01832a689659c32f",
+      "bytes": 1346372,
+      "limitations": [
+        "The r02 reference materializes through its replay or backup. There is no tracked r02 GLB."
+      ]
+    },
+    {
+      "sourceId": "source:s1233:adrenal-study-r03",
+      "title": "Smoothed s1233 preservation reference r03",
+      "sourceType": "case-derived GLB",
+      "subject": "s1233",
+      "license": "CC BY 4.0. Retain the TotalSegmentator v2.0.1 source and label-source notices.",
+      "evidence": [
+        {
+          "path": "body/anatomy-workshop-r1/docs/licenses/NOTICE.md",
+          "sha256": "87372df39878e0c73903675edc21875fa712a90b22f497ffb55d50a29f210a94"
+        },
+        {
+          "path": "reviews/body-systems/2026-11-20-surface-quality/views/adrenal/geometry.json",
+          "sha256": "a86315a02fc1bdf167fb63f1f51babff2638ba7115ace8b46d4a478f1de73059"
+        }
+      ],
+      "path": "assemblies/endocrine-locator/adrenal-study-r03/s1233-adrenals-teaching.glb",
+      "sha256": "e2bcc2e93a73c027480418109e4db06ce38ea7923b671e5dfe53cfd7d288caa4",
+      "bytes": 254452
+    },
+    {
+      "sourceId": "source:s1233:adrenal-study-r04",
+      "title": "Illustrative r04 same-case context",
+      "sourceType": "case-derived GLB",
+      "subject": "s1233",
+      "license": "CC BY 4.0. Retain the TotalSegmentator v2.0.1 source and label-source notices.",
+      "evidence": [
+        {
+          "path": "body/anatomy-workshop-r1/docs/licenses/NOTICE.md",
+          "sha256": "87372df39878e0c73903675edc21875fa712a90b22f497ffb55d50a29f210a94"
+        },
+        {
+          "path": "reviews/endocrine-locator/adrenal-study-r04/geometry.json",
+          "sha256": "b3b13498f0e5b2f19aec9bfc4bf86630efe9670e555e6f382c7ea46ddaa88a11"
+        },
+        {
+          "path": "reviews/endocrine-locator/adrenal-study-r05/geometry.json",
+          "sha256": "1661aeb7d1b111ce18ae373077a9bafffdde35b8be2896ba3b2c2ddedff523f8"
+        }
+      ],
+      "path": "assemblies/endocrine-locator/adrenal-study-r04/s1233-adrenals-illustrative.glb",
+      "sha256": "892a803078e586d6886da23a0435f35ec3792ed604a3acd85cea448ec10b8489",
+      "bytes": 258696,
+      "limitations": [
+        "Includes editorial surface adjustments. The fit remains in the s1233 case frame."
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "partId": "left-adrenal",
+      "label": "Left adrenal gland",
+      "selectors": [
+        "Left adrenal gland"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "right-adrenal",
+      "label": "Right adrenal gland",
+      "selectors": [
+        "Right adrenal gland"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "left-kidney",
+      "label": "Left kidney context",
+      "selectors": [
+        "Left kidney context"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "right-kidney",
+      "label": "Right kidney context",
+      "selectors": [
+        "Right kidney context"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "pancreas",
+      "label": "Pancreas context",
+      "selectors": [
+        "Pancreas context"
+      ],
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "r03",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "assemblies/endocrine-locator/adrenal-study-r03/README.md",
+        "sha256": "eb462fcfa2912262385a5ef43e7031421155bc3cdb351a3b27ae38f6119beaae"
+      },
+      "sourceIds": [
+        "source:totalsegmentator:s1233-adrenal-case-reference"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up",
+          "+X left",
+          "+Y superior",
+          "+Z anterior"
+        ],
+        "evidence": "assemblies/endocrine-locator/r02/README.md"
+      },
+      "partIds": [
+        "left-adrenal",
+        "right-adrenal",
+        "left-kidney",
+        "right-kidney",
+        "pancreas"
+      ],
+      "exports": [
+        {
+          "id": "regional",
+          "path": "assemblies/endocrine-locator/adrenal-study-r03/s1233-adrenals-teaching.glb",
+          "sha256": "e2bcc2e93a73c027480418109e4db06ce38ea7923b671e5dfe53cfd7d288caa4",
+          "bytes": 254452,
+          "format": "glb",
+          "triangles": 13804,
+          "partIds": [
+            "left-adrenal",
+            "right-adrenal",
+            "left-kidney",
+            "right-kidney",
+            "pancreas"
+          ]
+        }
+      ],
+      "qualifications": []
+    },
+    {
+      "revisionId": "r04",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "assemblies/endocrine-locator/adrenal-study-r04/README.md",
+        "sha256": "629f4740da049626fa450521ef722a71afff4c85a2e1875edf70c85e51dea604"
+      },
+      "sourceIds": [
+        "source:s1233:adrenal-study-r03"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up",
+          "+X left",
+          "+Y superior",
+          "+Z anterior"
+        ],
+        "evidence": "assemblies/endocrine-locator/r02/README.md"
+      },
+      "partIds": [
+        "left-adrenal",
+        "right-adrenal",
+        "left-kidney",
+        "right-kidney",
+        "pancreas"
+      ],
+      "exports": [
+        {
+          "id": "regional",
+          "path": "assemblies/endocrine-locator/adrenal-study-r04/s1233-adrenals-illustrative.glb",
+          "sha256": "892a803078e586d6886da23a0435f35ec3792ed604a3acd85cea448ec10b8489",
+          "bytes": 258696,
+          "format": "glb",
+          "triangles": 13960,
+          "partIds": [
+            "left-adrenal",
+            "right-adrenal",
+            "left-kidney",
+            "right-kidney",
+            "pancreas"
+          ]
+        }
+      ],
+      "qualifications": []
+    },
+    {
+      "revisionId": "r05",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "assemblies/endocrine-locator/adrenal-study-r05/README.md",
+        "sha256": "6ee76782f558ac3f3bbffe211e816fe5f7860c56f298bd67c2d9ed4d59c3ea97"
+      },
+      "sourceIds": [
+        "source:totalsegmentator:s1233-adrenal-case-reference",
+        "source:s1233:adrenal-study-r04"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up",
+          "+X left",
+          "+Y superior",
+          "+Z anterior"
+        ],
+        "evidence": "assemblies/endocrine-locator/r02/README.md"
+      },
+      "partIds": [
+        "left-adrenal",
+        "right-adrenal",
+        "left-kidney",
+        "right-kidney",
+        "pancreas"
+      ],
+      "exports": [
+        {
+          "id": "regional",
+          "path": "assemblies/endocrine-locator/adrenal-study-r05/s1233-adrenals-regional.glb",
+          "sha256": "20ad1b99a09e13dbbe240ed122bf70e648d8f2c526a79030040fee58472ff118",
+          "bytes": 286832,
+          "format": "glb",
+          "triangles": 13760,
+          "partIds": [
+            "left-adrenal",
+            "right-adrenal",
+            "left-kidney",
+            "right-kidney",
+            "pancreas"
+          ]
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "Viewer lessons cover the named regional location. Mask-derived shapes, illustrative surface closures and case-specific placement have their own limits.",
+    "The dated Body Systems whole endocrine locator uses an archived r01 scene from the survey backup. It is a separate replay dependency from these regional Library exports."
+  ]
+}

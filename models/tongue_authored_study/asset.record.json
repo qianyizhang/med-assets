@@ -1,0 +1,183 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:hra-hybrid:tongue",
+  "title": "HRA-derived and authored tongue exterior",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/tongue_authored_study",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:tongue-authored-study:authored-p11",
+      "title": "HRA female mouth v1.0 surface patches and authored tongue geometry source and replay for authored-p11",
+      "sourceType": "recipe source or retained provenance",
+      "subject": "HRA female mouth v1.0 surface patches and authored tongue geometry",
+      "license": "CC BY 4.0, with the Human Reference Atlas and named creators credited.",
+      "evidence": [
+        {
+          "path": "models/tongue_authored_study/README.md",
+          "sha256": "2dd4219b0a355d9bf4ae28f682a52ba6a0cb9863e1c34c82abc3928eb8b6e600"
+        },
+        {
+          "path": "models/tongue_authored_study/source/ATTRIBUTION.md",
+          "sha256": "522bbb8524be31d1b24f18928890dd911f2e190e5a1a50dad99ea4c75015a973"
+        },
+        {
+          "path": "models/tongue_authored_study/recipes/optional_recipe/DEPENDENCIES.json",
+          "sha256": "d81242498686282225d44f13f0c3f95115dba16d18b620d4801f5e17a71279ea"
+        }
+      ]
+    },
+    {
+      "sourceId": "source:tongue-authored-study:teaching-economy-r01",
+      "title": "HRA female mouth v1.0 surface patches and authored tongue geometry source and replay for teaching-economy-r01",
+      "sourceType": "recipe source or retained provenance",
+      "subject": "HRA female mouth v1.0 surface patches and authored tongue geometry",
+      "license": "CC BY 4.0, with the Human Reference Atlas and named creators credited.",
+      "evidence": [
+        {
+          "path": "models/tongue_authored_study/exports/teaching-economy-r01/README.md",
+          "sha256": "9d8af372c6b919690c1ba0b46d0e686003313d39e5f05c851c53550ca234535d"
+        },
+        {
+          "path": "models/tongue_authored_study/source/ATTRIBUTION.md",
+          "sha256": "522bbb8524be31d1b24f18928890dd911f2e190e5a1a50dad99ea4c75015a973"
+        },
+        {
+          "path": "models/tongue_authored_study/recipes/optional_recipe/DEPENDENCIES.json",
+          "sha256": "d81242498686282225d44f13f0c3f95115dba16d18b620d4801f5e17a71279ea"
+        }
+      ],
+      "path": "models/tongue_authored_study/exports/authored-p11/tongue-authored-hra-hybrid-p11.glb",
+      "sha256": "efabd58b235b72682f067113cf079e3f70fbaceac47062f2b937f09540c1ee1a",
+      "bytes": 4983044
+    }
+  ],
+  "parts": [
+    {
+      "partId": "hra-derived-external-dorsal-surface-original-triangles",
+      "label": "HRA-derived external dorsal surface — original triangles",
+      "selectors": [
+        "HRA-derived external dorsal surface — original triangles"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "hra-derived-papilla-surface-patches-original-triangles",
+      "label": "HRA-derived papilla surface patches — original triangles",
+      "selectors": [
+        "HRA-derived papilla surface patches — original triangles"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "authored-seam-transitions-and-small-closure-patches",
+      "label": "AUTHORED seam transitions and small closure patches",
+      "selectors": [
+        "AUTHORED seam transitions and small closure patches"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "authored-body-and-ventral-surface",
+      "label": "AUTHORED body and ventral surface",
+      "selectors": [
+        "AUTHORED body and ventral surface"
+      ],
+      "registration": "unknown"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "authored-p11",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "models/tongue_authored_study/README.md",
+        "sha256": "2dd4219b0a355d9bf4ae28f682a52ba6a0cb9863e1c34c82abc3928eb8b6e600"
+      },
+      "sourceIds": [
+        "source:tongue-authored-study:authored-p11"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "models/tongue_authored_study/README.md"
+      },
+      "exports": [
+        {
+          "id": "hybrid",
+          "path": "models/tongue_authored_study/exports/authored-p11/tongue-authored-hra-hybrid-p11.glb",
+          "sha256": "efabd58b235b72682f067113cf079e3f70fbaceac47062f2b937f09540c1ee1a",
+          "bytes": 4983044,
+          "triangles": 204316,
+          "format": "glb",
+          "partIds": [
+            "hra-derived-external-dorsal-surface-original-triangles",
+            "hra-derived-papilla-surface-patches-original-triangles",
+            "authored-seam-transitions-and-small-closure-patches",
+            "authored-body-and-ventral-surface"
+          ]
+        }
+      ],
+      "qualifications": [],
+      "partIds": [
+        "authored-body-and-ventral-surface",
+        "authored-seam-transitions-and-small-closure-patches",
+        "hra-derived-external-dorsal-surface-original-triangles",
+        "hra-derived-papilla-surface-patches-original-triangles"
+      ]
+    },
+    {
+      "revisionId": "teaching-economy-r01",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "models/tongue_authored_study/exports/teaching-economy-r01/README.md",
+        "sha256": "9d8af372c6b919690c1ba0b46d0e686003313d39e5f05c851c53550ca234535d"
+      },
+      "sourceIds": [
+        "source:tongue-authored-study:teaching-economy-r01"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "models/tongue_authored_study/exports/teaching-economy-r01/README.md"
+      },
+      "exports": [
+        {
+          "id": "hybrid",
+          "path": "models/tongue_authored_study/exports/teaching-economy-r01/tongue-authored-hra-hybrid-p11.glb",
+          "sha256": "44ece7903283ba0eadf045b588bcfb3fb02dba86566d4468c760e36352af7a8f",
+          "bytes": 3245136,
+          "triangles": 145480,
+          "format": "glb",
+          "partIds": [
+            "hra-derived-external-dorsal-surface-original-triangles",
+            "hra-derived-papilla-surface-patches-original-triangles",
+            "authored-seam-transitions-and-small-closure-patches",
+            "authored-body-and-ventral-surface"
+          ]
+        }
+      ],
+      "qualifications": [],
+      "recipe": "recipes/teaching-economy-r01.json",
+      "partIds": [
+        "authored-body-and-ventral-surface",
+        "authored-seam-transitions-and-small-closure-patches",
+        "hra-derived-external-dorsal-surface-original-triangles",
+        "hra-derived-papilla-surface-patches-original-triangles"
+      ]
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "Authentic dorsal patches and authored closures remain separately named. The optional source extraction has its own toolchain and external inputs."
+  ]
+}

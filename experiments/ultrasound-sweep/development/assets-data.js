@@ -26,6 +26,21 @@ export async function read(url, type = 'json') {
   return response[type]();
 }
 
+export async function chapterMeshReviewPrior(manifest, record, rubricHash, meshHashes) {
+  const binding = manifest.chapterMeshBindings?.[record.case]?.[record.chapter]?.[record.part];
+  if (!binding?.path || !record.meshSha256 || !record.chapterSha256 || !rubricHash ||
+      binding.meshSha256 !== record.meshSha256 || binding.chapterSha256 !== record.chapterSha256 ||
+      manifest.rubricHash !== rubricHash) return true;
+  if (!meshHashes.has(binding.path)) {
+    const check = read(studyURL(binding.path), 'arrayBuffer')
+      .then((bytes) => crypto.subtle.digest('SHA-256', bytes))
+      .then((digest) => Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, '0')).join(''))
+      .catch(() => null);
+    meshHashes.set(binding.path, check);
+  }
+  return await meshHashes.get(binding.path) !== record.meshSha256;
+}
+
 export function dispose(object) {
   const geometries = new Set(), materials = new Set();
   object?.traverse((node) => {
@@ -207,13 +222,13 @@ export function sweepRows() {
   return sweepInventory;
 }
 
-export async function aaaRows() {
+export async function aaaRows(cases) {
   const base = new URL('tours/aaa/', study);
   const { chapters } = await import('../cases/vascular/playable.js');
   const records = await Promise.allSettled(['aaa-negative', 'aaa-positive', 'aaa-indeterminate'].map(async (id) => {
     const record = await read(new URL(id + '.json', base));
     const entry = { id, family: 'aaa', title: record.title, url: 'tours/aaa/' + id + '.html',
-      chapters: chapters(record) };
+      chapters: cases.find((entry) => entry.id === id)?.chapters ?? chapters(record) };
     const scene = await read(new URL(id + '.scene.json', base)).catch(() => ({}));
     const packed = await Promise.all(entry.chapters.map(async (chapter) => {
       const item = scene[chapter.id];
@@ -260,14 +275,18 @@ function gapRow(entry, chapter, detail) {
 
 function referenceRow(entry, chapter, reference, part) {
   const sourceSpace = part.sourceSpace ?? part.assetId.split(':').slice(0, 2).join(':');
+  const usedInExemplar = reference.source === 'sweep' && (chapter.sourceSweep === part.case ||
+    (chapter.exemplar?.sweep === part.case && chapter.exemplar.part === part.part));
   const donor = {
+    ...(usedInExemplar ? { registration: 'registered-exact' } : {}),
     source: part.source, case: part.case, part: part.part, chapter: part.chapter, occurrence: part.occurrence,
     url: part.url, label: part.title ?? part.label, sourceSpace, assetId: part.assetId, assetRevision: part.assetRevision,
     sourceNode: part.sourceNode, sourceSha256: part.sourceSha256, meshDigest: part.meshDigest,
   };
   return { ...part, ...rowBase('case', entry, chapter), donor, sourceSpace, legacyParts: reference.legacyParts,
     referenceScope: reference.referenceScope,
-    sourceNotice: entry.family === 'abdomen' ? abdomenReferenceNotice :
+    sourceNotice: usedInExemplar ? `Delivered in the registered ${sourceSpace} chapter, a teaching exemplar from a separate subject.` :
+      entry.family === 'abdomen' ? abdomenReferenceNotice :
       'Independent source anatomy in its original coordinates. This reference is separate from the worked acquisition.' };
 }
 
@@ -283,7 +302,11 @@ async function reconcileRows(entry, retainedRows, references, retainedIssue) {
   const original = new Map(sweeps.map((row) => [row.case + '/' + row.part, row]));
   const extra = new Map(gallery.map((row) => [row.part, row]));
   const rows = entry.chapters.flatMap((chapter) => {
-    const items = references?.get(chapter.id) ?? examRequirements(entry, chapter);
+    const items = [...(references?.get(chapter.id) ?? examRequirements(entry, chapter))];
+    if (chapter.exemplar && !items.some((item) => item.source === 'sweep' &&
+        item.key === chapter.exemplar.sweep && item.part === chapter.exemplar.part)) {
+      items.push({ source: 'sweep', key: chapter.exemplar.sweep, part: chapter.exemplar.part });
+    }
     const acquisitionNotes = items.filter((reference) => reference.source === 'acquisition-note');
     return items.filter((reference) => reference.source !== 'acquisition-note').flatMap((reference) => {
       if (reference.source === 'retained') {

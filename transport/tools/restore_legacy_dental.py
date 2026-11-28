@@ -6,9 +6,9 @@ import subprocess
 import sys
 import tempfile
 
-ROOT = Path(__file__).resolve().parents[2]
-sys.path.insert(0, str(ROOT / 'lib'))
 from med_assets.artifacts import claim_identity, install_verified, regular_path, verify_payload
+
+ROOT = Path(__file__).resolve().parents[2]
 
 SITE = ROOT / 'sites/anatomy-gallery'
 

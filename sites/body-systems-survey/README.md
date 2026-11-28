@@ -10,6 +10,8 @@ build and check commands, source attribution, and scope of review.
 
 The ordinary Site reads the [Body Systems collection export](../../lessons/body-systems/README.md). Rebuild this report and use its export command when the collection adopts a new reviewed plate. This directory owns the dated report, its local 3D replay and archive recovery.
 
+The exporter keeps the [maintained plate bindings](../../lessons/body-systems/display/replay-bindings.json) tied to the verified render plan and receipts. When adding a new replay input, record its exact path, digest and byte count with its native record reference, teaching archive membership or Workshop recipe. Run the exporter with `--check-replay-bindings` to compare the retained index and bindings to the local survey without rewriting any files.
+
 ## Outcome
 
 The original teaching revision was

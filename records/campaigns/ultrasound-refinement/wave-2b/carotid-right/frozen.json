@@ -1,0 +1,670 @@
+{
+  "baselineRevision": "abe213c44df81a1510558b5595b2d14ffed74d78",
+  "baselineAssembly": ".artifacts/us-pancreas-r02",
+  "compactIndex": {
+    "path": "abdomen-tours.js",
+    "sha256": "c44db8f6deb2e6259b8e76da3300dc9dfab3b92e0e6a49276b7d7ffac6011845",
+    "bytes": 112806
+  },
+  "scope": "Orient the right common carotid exterior in 3D and relate it to the transverse and longitudinal s1127 acquisitions.",
+  "chapter": {
+    "case": "carotid-normal",
+    "chapter": "right-cca-gray",
+    "workedFrame": 14,
+    "companionFrame": 48,
+    "page": {
+      "path": "tours/carotid/carotid-normal.html",
+      "sha256": "0b578a91bf1cfe240e718b3fc1861e9be7741e24f713d5cf59ac37a603af9e6a",
+      "bytes": 24707
+    }
+  },
+  "source": {
+    "case": "s1127",
+    "ctSha256": "4367b68d8c8e339ef52edbb819b53f199cf807b7475e0693190b5427e3f1c032",
+    "mask": {
+      "sha256": "b96238f9bac2dab4a3467d5036816972dfc49529f2ba526fe8659a443c5281e2",
+      "bytes": 136036
+    },
+    "shape": [
+      275,
+      275,
+      409
+    ],
+    "rasMmFromVoxel": [
+      [
+        1.5,
+        0.0,
+        0.0,
+        -191.59765625
+      ],
+      [
+        0.0,
+        1.5,
+        0.0,
+        -35.09765625
+      ],
+      [
+        0.0,
+        0.0,
+        1.5,
+        -311.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "acquisitionSliceNormalRas": [
+      0,
+      0,
+      1
+    ],
+    "workingSpacingMm": [
+      1.5,
+      1.5,
+      1.5
+    ],
+    "occupiedVoxelBounds": [
+      [
+        132,
+        117,
+        369
+      ],
+      [
+        147,
+        131,
+        408
+      ]
+    ],
+    "label": "common_carotid_artery_right",
+    "license": "TotalSegmentator v2.0.1, CC BY 4.0. Retain label-source notice."
+  },
+  "gates": {
+    "p95Mm": 1.5,
+    "maxMm": 3.0,
+    "volumePercent": 3.0,
+    "silhouettePx": 1.0,
+    "silhouetteViews": 24,
+    "teachingZoomPxPerMm": 3.0,
+    "triangleBand": [
+      1500,
+      6000
+    ],
+    "sampleSpacingMm": 0.5,
+    "topology": "One outward Euler-2 solid shell with two scan-cut closures; no introduced gaps, winding errors or intersections."
+  },
+  "exports": {
+    "carotid-right-full": {
+      "sweep": "thyroid-right",
+      "halfLabelSurfaceSha256": "cbbe28d3d313dbdde98fdd8932e5080c82af01956500bd54fb1c8e52b56bd848",
+      "cropZVoxelHalfOpen": [
+        344,
+        409
+      ],
+      "capZVoxel": 408.5,
+      "lowerCapZVoxel": 368.5,
+      "labelEuler": 1,
+      "componentVoxels": [
+        1136
+      ],
+      "enclosedVoidVoxels": 0,
+      "prior": {
+        "stage": {
+          "path": "sweeps/thyroid-right/scenes/common_carotid_artery_right.mesh",
+          "sha256": "3c1480cd986d98a0c4a35daa7a26ecabce22d369d47887c71568a7d12524e9c9",
+          "bytes": 43232
+        },
+        "compact": {
+          "path": "sweeps/thyroid-right/scenes/common_carotid_artery_right.mesh",
+          "sha256": "3c1480cd986d98a0c4a35daa7a26ecabce22d369d47887c71568a7d12524e9c9",
+          "bytes": 43232
+        },
+        "triangles": 2400
+      },
+      "savedPoseScript": {
+        "path": "sweeps/thyroid-right/sweep.js",
+        "sha256": "276f7896928f734dcdbe764819cd9313fe6d1ef37eba688fb652366c87595f41",
+        "bytes": 11062
+      },
+      "savedFrames": {
+        "12": {
+          "pose": {
+            "contact": [
+              129.51649233013092,
+              165.76672514794296,
+              387.2567939885225
+            ],
+            "width": [
+              -0.9876839420792278,
+              -0.15525018843915744,
+              -0.01943732359258249
+            ],
+            "beam": [
+              0.15646223365028591,
+              -0.9800327820249665,
+              -0.12270010430952569
+            ],
+            "degrees": 15.1
+          },
+          "scan": {
+            "path": "sweeps/thyroid-right/media/scan-12.webp",
+            "sha256": "8ac3919ee0389bafae802bed0f6dd314f5645dc2180eb48b721be387ea1de8fe",
+            "bytes": 16550
+          },
+          "section": {
+            "path": "sweeps/thyroid-right/media/section-12.webp",
+            "sha256": "52247d513adaf173d1a75247a07299e59af933af0a0e6a545e68afd41d84ec12",
+            "bytes": 15314
+          }
+        }
+      },
+      "planes": [
+        {
+          "name": "Just inside inferior cap",
+          "originRasMm": [
+            -191.59765625,
+            -35.09765625,
+            242.89
+          ],
+          "width": [
+            1,
+            0,
+            0
+          ],
+          "beam": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "outlineSha256": "496e02736b0dcf54fe96904221ef91e8ceaf2a7c8117359ee032e2fab57f5ed5",
+          "bounds": [
+            [
+              199.0,
+              178.0
+            ],
+            [
+              216.0,
+              194.0
+            ]
+          ],
+          "loops": 1
+        },
+        {
+          "name": "Just inside superior cap",
+          "originRasMm": [
+            -191.59765625,
+            -35.09765625,
+            300.64
+          ],
+          "width": [
+            1,
+            0,
+            0
+          ],
+          "beam": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "outlineSha256": "97df3a61ac22bda0aa4af771c38b40ec843b0c541079527f82fefd8f99ed7417",
+          "bounds": [
+            [
+              204.0,
+              176.0
+            ],
+            [
+              223.0,
+              195.0
+            ]
+          ],
+          "loops": 1
+        }
+      ],
+      "expectedEmptyPlanes": [
+        {
+          "name": "Above superior crop or source image",
+          "originRasMm": [
+            -191.59765625,
+            -35.09765625,
+            302.125
+          ],
+          "width": [
+            1,
+            0,
+            0
+          ],
+          "beam": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    "carotid-right": {
+      "sweep": "carotid-right",
+      "halfLabelSurfaceSha256": "029d9cf86d8a2664ebb3bbcc1a1d093ebd3252ca17a6c9d6385f53030a588f1e",
+      "cropZVoxelHalfOpen": [
+        371,
+        407
+      ],
+      "capZVoxel": 406.5,
+      "lowerCapZVoxel": 370.5,
+      "labelEuler": 1,
+      "componentVoxels": [
+        1062
+      ],
+      "enclosedVoidVoxels": 0,
+      "prior": {
+        "stage": {
+          "path": "sweeps/carotid-right/scenes/common_carotid_artery_right.mesh",
+          "sha256": "b292022299a085998f2e5a986dcdcc04c635ee2b5d8c8b5ec75b857bfc01cc90",
+          "bytes": 42152
+        },
+        "compact": {
+          "path": "sweeps/carotid-right/scenes/common_carotid_artery_right.mesh",
+          "sha256": "b292022299a085998f2e5a986dcdcc04c635ee2b5d8c8b5ec75b857bfc01cc90",
+          "bytes": 42152
+        },
+        "triangles": 2340
+      },
+      "savedPoseScript": {
+        "path": "sweeps/carotid-right/sweep.js",
+        "sha256": "8b931db6612c2c7370d7abd468695e8357df50f5bec09f1a3f1e3577cc29d9ef",
+        "bytes": 648815
+      },
+      "savedFrames": {
+        "12": {
+          "pose": {
+            "contact": [
+              153.46276721741458,
+              156.19561796575658,
+              393.5860651304196
+            ],
+            "width": [
+              -0.9569138472388594,
+              0.29035304562301684,
+              -0.003316302152009093
+            ],
+            "beam": [
+              -0.29037198377688767,
+              -0.9568514370109702,
+              0.010928793506896652
+            ],
+            "degrees": 6.19
+          },
+          "scan": {
+            "path": "sweeps/carotid-right/media/scan-12.webp",
+            "sha256": "255d24d28ea92cbfdaa8e7645133fedde131ef418f65ed51e9d66e7a0e6357b5",
+            "bytes": 12442
+          },
+          "section": {
+            "path": "sweeps/carotid-right/media/section-12.webp",
+            "sha256": "87a3fccd9c10da913df9265510a23d490d310380d4cdde6db8a16841246fcc9f",
+            "bytes": 11606
+          }
+        },
+        "48": {
+          "pose": {
+            "contact": [
+              162.93584692482497,
+              150.49092487756167,
+              399.2828538639156
+            ],
+            "width": [
+              0.21392865426982288,
+              0.1906322654254317,
+              -0.9580677795756781
+            ],
+            "beam": [
+              -0.5055518351553218,
+              -0.8176056036367478,
+              -0.2755692632948664
+            ],
+            "degrees": 100.47
+          },
+          "scan": {
+            "path": "sweeps/carotid-right/media/scan-48.webp",
+            "sha256": "a40b052601ca7cd8c1ec9ff1fae51b0e1cdca3d3bba57ada37728f4186d45eb1",
+            "bytes": 10052
+          },
+          "section": {
+            "path": "sweeps/carotid-right/media/section-48.webp",
+            "sha256": "73728fd4765b58688089e70403e03afe46887b989ce87053e459ff87d6036bb8",
+            "bytes": 9106
+          }
+        }
+      },
+      "planes": [
+        {
+          "frame": 12,
+          "offsetMm": -1.5,
+          "originRasMm": [
+            38.59649457612187,
+            199.1786393860223,
+            277.87919552611027
+          ],
+          "width": [
+            -0.9569138472388593,
+            0.29035304562301684,
+            -0.003316302152009093
+          ],
+          "beam": [
+            -0.2903719837768876,
+            -0.9568514370109701,
+            0.010928793506896649
+          ],
+          "normal": [
+            1.951563910473908e-17,
+            0.011420875075045979,
+            0.999934779679415
+          ],
+          "outlineSha256": "836d921f9253e4086414180bc139e9c49c40719b9c60c745dd3ec1ec424debf4",
+          "bounds": [
+            [
+              -11.0,
+              47.0
+            ],
+            [
+              10.0,
+              67.0
+            ]
+          ],
+          "loops": 1
+        },
+        {
+          "frame": 12,
+          "offsetMm": 0.0,
+          "originRasMm": [
+            38.59649457612187,
+            199.19577069863487,
+            279.3790976956294
+          ],
+          "width": [
+            -0.9569138472388593,
+            0.29035304562301684,
+            -0.003316302152009093
+          ],
+          "beam": [
+            -0.2903719837768876,
+            -0.9568514370109701,
+            0.010928793506896649
+          ],
+          "normal": [
+            1.951563910473908e-17,
+            0.011420875075045979,
+            0.999934779679415
+          ],
+          "outlineSha256": "d1fd6c1a3affdb67a3b8e32faf5b88ff2b7a2b0db53b8c86639d0eb19180e743",
+          "bounds": [
+            [
+              -10.0,
+              46.0
+            ],
+            [
+              10.0,
+              67.0
+            ]
+          ],
+          "loops": 1
+        },
+        {
+          "frame": 12,
+          "offsetMm": 1.5,
+          "originRasMm": [
+            38.59649457612187,
+            199.21290201124745,
+            280.87899986514856
+          ],
+          "width": [
+            -0.9569138472388593,
+            0.29035304562301684,
+            -0.003316302152009093
+          ],
+          "beam": [
+            -0.2903719837768876,
+            -0.9568514370109701,
+            0.010928793506896649
+          ],
+          "normal": [
+            1.951563910473908e-17,
+            0.011420875075045979,
+            0.999934779679415
+          ],
+          "outlineSha256": "de77636649da111ed384ba1d36973c46d2a01f053c150fecba581dd548f45eba",
+          "bounds": [
+            [
+              -10.0,
+              45.0
+            ],
+            [
+              12.0,
+              67.0
+            ]
+          ],
+          "loops": 1
+        },
+        {
+          "frame": 48,
+          "offsetMm": -1.5,
+          "originRasMm": [
+            54.05989510452006,
+            189.8237734376088,
+            288.04208295819916
+          ],
+          "width": [
+            0.21392865426982288,
+            0.19063226542543169,
+            -0.9580677795756781
+          ],
+          "beam": [
+            -0.5055518351553218,
+            -0.8176056036367478,
+            -0.2755692632948665
+          ],
+          "normal": [
+            -0.8358539781884088,
+            0.5433050858224658,
+            -0.0785347748838323
+          ],
+          "outlineSha256": "c5d9d472ecc9fd6e0783e4bca939026523f575255292160d4284c4d0fb89a939",
+          "bounds": [
+            [
+              -20.0,
+              46.0
+            ],
+            [
+              21.0,
+              66.0
+            ]
+          ],
+          "loops": 1
+        },
+        {
+          "frame": 48,
+          "offsetMm": 0.0,
+          "originRasMm": [
+            52.806114137237444,
+            190.6387310663425,
+            287.9242807958734
+          ],
+          "width": [
+            0.21392865426982288,
+            0.19063226542543169,
+            -0.9580677795756781
+          ],
+          "beam": [
+            -0.5055518351553218,
+            -0.8176056036367478,
+            -0.2755692632948665
+          ],
+          "normal": [
+            -0.8358539781884088,
+            0.5433050858224658,
+            -0.0785347748838323
+          ],
+          "outlineSha256": "47719dc56240cc1aff571127ef2a6166d97c915ab06bcb91c7bcc370b46fe90e",
+          "bounds": [
+            [
+              -31.0,
+              39.0
+            ],
+            [
+              23.0,
+              66.0
+            ]
+          ],
+          "loops": 1
+        },
+        {
+          "frame": 48,
+          "offsetMm": 1.5,
+          "originRasMm": [
+            51.55233316995483,
+            191.4536886950762,
+            287.80647863354767
+          ],
+          "width": [
+            0.21392865426982288,
+            0.19063226542543169,
+            -0.9580677795756781
+          ],
+          "beam": [
+            -0.5055518351553218,
+            -0.8176056036367478,
+            -0.2755692632948665
+          ],
+          "normal": [
+            -0.8358539781884088,
+            0.5433050858224658,
+            -0.0785347748838323
+          ],
+          "outlineSha256": "9d42be78146db281cb3491d930f1ee9535ae85a08642b697f56f7009c00a6239",
+          "bounds": [
+            [
+              -31.0,
+              37.0
+            ],
+            [
+              24.0,
+              67.0
+            ]
+          ],
+          "loops": 1
+        },
+        {
+          "name": "Just inside inferior cap",
+          "originRasMm": [
+            -191.59765625,
+            -35.09765625,
+            245.89
+          ],
+          "width": [
+            1,
+            0,
+            0
+          ],
+          "beam": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "outlineSha256": "00f2345f3aa68b3a235be6701bd588bb6f97687eee344bb1f2f273a92257fa0b",
+          "bounds": [
+            [
+              196.0,
+              178.0
+            ],
+            [
+              216.0,
+              202.0
+            ]
+          ],
+          "loops": 2
+        },
+        {
+          "name": "Just inside superior cap",
+          "originRasMm": [
+            -191.59765625,
+            -35.09765625,
+            297.64
+          ],
+          "width": [
+            1,
+            0,
+            0
+          ],
+          "beam": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ],
+          "outlineSha256": "3b873eeab6db6bc4310a0409727841db0fb8e46cafc8e34cfd348405788f7ddb",
+          "bounds": [
+            [
+              203.0,
+              175.0
+            ],
+            [
+              222.0,
+              195.0
+            ]
+          ],
+          "loops": 1
+        }
+      ],
+      "expectedEmptyPlanes": [
+        {
+          "name": "Above superior crop or source image",
+          "originRasMm": [
+            -191.59765625,
+            -35.09765625,
+            299.125
+          ],
+          "width": [
+            1,
+            0,
+            0
+          ],
+          "beam": [
+            0,
+            1,
+            0
+          ],
+          "normal": [
+            0,
+            0,
+            1
+          ]
+        }
+      ]
+    }
+  }
+}

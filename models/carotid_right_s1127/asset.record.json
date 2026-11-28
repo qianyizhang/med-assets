@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:s1127:carotid-right",
+  "title": "s1127 right common carotid",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/carotid_right_s1127",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:totalsegmentator-v2.0.1:s1127:carotid-right",
+      "title": "TotalSegmentator v2.0.1 s1127 right common carotid label",
+      "subject": "s1127",
+      "sourceType": "external segmentation",
+      "sha256": "b96238f9bac2dab4a3467d5036816972dfc49529f2ba526fe8659a443c5281e2",
+      "bytes": 136036,
+      "license": "CC BY 4.0. Retain the Workshop label-source notices.",
+      "url": "https://zenodo.org/records/10047263",
+      "evidence": [
+        {
+          "path": "records/campaigns/ultrasound-refinement/wave-2b/carotid-right/frozen.json",
+          "sha256": "389cd5926ed7847e857aec7ded6e8bcd00e90aeb1c3ec4a99e020098c5754e04"
+        }
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "partId": "carotid-right",
+      "label": "Right common carotid exterior",
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "r01",
+      "status": "provisional",
+      "recipe": "rebuild.py",
+      "frame": {
+        "convention": "voxel-index",
+        "units": "voxel",
+        "evidence": "records/campaigns/ultrasound-refinement/wave-2b/carotid-right/frozen.json"
+      },
+      "sourceIds": [
+        "source:totalsegmentator-v2.0.1:s1127:carotid-right"
+      ],
+      "partIds": [
+        "carotid-right"
+      ],
+      "exports": [
+        {
+          "id": "carotid",
+          "path": "models/carotid_right_s1127/exports/r01/carotid.mesh",
+          "sha256": "b86a6c92ef56ae03fcb8d8b3d784424125a2acd145f60d27ace4f69419b82c98",
+          "bytes": 34232,
+          "format": "mesh",
+          "triangles": 1900,
+          "partIds": [
+            "carotid-right"
+          ],
+          "voxelGrid": {
+            "case": "s1127",
+            "shape": [
+              275,
+              275,
+              409
+            ],
+            "rasMmFromVoxel": [
+              [
+                1.5,
+                0.0,
+                0.0,
+                -191.59765625
+              ],
+              [
+                0.0,
+                1.5,
+                0.0,
+                -35.09765625
+              ],
+              [
+                0.0,
+                0.0,
+                1.5,
+                -311.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        },
+        {
+          "id": "neck",
+          "path": "models/carotid_right_s1127/exports/r01/neck.mesh",
+          "sha256": "5b4f14f95cabc4e5049e642eba979e0fea32971541eec4ff13dcfe6814835862",
+          "bytes": 29732,
+          "format": "mesh",
+          "triangles": 1650,
+          "partIds": [
+            "carotid-right"
+          ],
+          "voxelGrid": {
+            "case": "s1127",
+            "shape": [
+              275,
+              275,
+              409
+            ],
+            "rasMmFromVoxel": [
+              [
+                1.5,
+                0.0,
+                0.0,
+                -191.59765625
+              ],
+              [
+                0.0,
+                1.5,
+                0.0,
+                -35.09765625
+              ],
+              [
+                0.0,
+                0.0,
+                1.5,
+                -311.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "The scan reaches its upper boundary while the vessel continues. Artificial crop caps delimit the displayed exterior. Plaque, wall thickness, lumen patency, Doppler and clinical calipers require their own evidence."
+  ]
+}

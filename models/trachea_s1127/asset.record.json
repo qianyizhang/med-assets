@@ -1,0 +1,216 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:s1127:trachea",
+  "title": "s1127 tracheal air-column exterior",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/trachea_s1127",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:totalsegmentator-v2.0.1:s1127:trachea",
+      "title": "TotalSegmentator v2.0.1 s1127 trachea mask",
+      "sourceType": "external segmentation",
+      "sha256": "f7f88b8117b623a0b8c8eb7dba46498627da5afa115002ba879a664e02a624fe",
+      "license": "CC BY 4.0; retain the Workshop label-source notices",
+      "url": "https://zenodo.org/records/10047263"
+    }
+  ],
+  "parts": [
+    {
+      "partId": "trachea",
+      "label": "Tracheal air-column exterior",
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "r01",
+      "status": "provisional",
+      "recipe": "rebuild.py",
+      "recipeEvidence": {
+        "path": "models/trachea_s1127/rebuild.py",
+        "sha256": "bb3a515fd77f5124134e338ff6d80c6dfbdb0c8471eaa4c4c88927c9fd1c373e",
+        "bytes": 5304
+      },
+      "frame": {
+        "convention": "voxel-index",
+        "units": "voxel",
+        "evidence": "experiments/ultrasound-sweep/build_thyroid.py"
+      },
+      "sourceIds": [
+        "source:totalsegmentator-v2.0.1:s1127:trachea"
+      ],
+      "partIds": [
+        "trachea"
+      ],
+      "exports": [
+        {
+          "id": "trachea",
+          "path": "models/trachea_s1127/exports/r01/trachea.mesh",
+          "sha256": "6f5731a0bb259e8d3136e0916473903b20efb0247540c51469be24de52730948",
+          "bytes": 68432,
+          "format": "mesh",
+          "triangles": 3800,
+          "partIds": [
+            "trachea"
+          ],
+          "voxelGrid": {
+            "case": "s1127",
+            "shape": [
+              275,
+              275,
+              409
+            ],
+            "rasMmFromVoxel": [
+              [
+                1.5,
+                0.0,
+                0.0,
+                -191.59765625
+              ],
+              [
+                0.0,
+                1.5,
+                0.0,
+                -35.09765625
+              ],
+              [
+                0.0,
+                0.0,
+                1.5,
+                -311.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        },
+        {
+          "id": "thyroid",
+          "path": "models/trachea_s1127/exports/r01/thyroid.mesh",
+          "sha256": "d72633f2240dddf7b9702a7e97374b784e5272573911426fd58ba923e80e7e41",
+          "bytes": 52232,
+          "format": "mesh",
+          "triangles": 2900,
+          "partIds": [
+            "trachea"
+          ],
+          "voxelGrid": {
+            "case": "s1127",
+            "shape": [
+              275,
+              275,
+              409
+            ],
+            "rasMmFromVoxel": [
+              [
+                1.5,
+                0.0,
+                0.0,
+                -191.59765625
+              ],
+              [
+                0.0,
+                1.5,
+                0.0,
+                -35.09765625
+              ],
+              [
+                0.0,
+                0.0,
+                1.5,
+                -311.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        },
+        {
+          "id": "carotid",
+          "path": "models/trachea_s1127/exports/r01/carotid.mesh",
+          "sha256": "92f3dcd7d86b9c1fbd56537deaca9e5aad10db3a1f557acf6c68aaa328222267",
+          "bytes": 36032,
+          "format": "mesh",
+          "triangles": 2000,
+          "partIds": [
+            "trachea"
+          ],
+          "voxelGrid": {
+            "case": "s1127",
+            "shape": [
+              275,
+              275,
+              409
+            ],
+            "rasMmFromVoxel": [
+              [
+                1.5,
+                0.0,
+                0.0,
+                -191.59765625
+              ],
+              [
+                0.0,
+                1.5,
+                0.0,
+                -35.09765625
+              ],
+              [
+                0.0,
+                0.0,
+                1.5,
+                -311.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "models/trachea_s1127/retopology.py",
+      "sha256": "168f6c9603dfd59ea2dc0958fbf3fbca34c56e889172c41245d6f0ea29826b27",
+      "bytes": 1812
+    }
+  ],
+  "exports": [
+    {
+      "path": "models/trachea_s1127/exports/r01/trachea.mesh",
+      "sha256": "6f5731a0bb259e8d3136e0916473903b20efb0247540c51469be24de52730948",
+      "bytes": 68432
+    },
+    {
+      "path": "models/trachea_s1127/exports/r01/thyroid.mesh",
+      "sha256": "d72633f2240dddf7b9702a7e97374b784e5272573911426fd58ba923e80e7e41",
+      "bytes": 52232
+    },
+    {
+      "path": "models/trachea_s1127/exports/r01/carotid.mesh",
+      "sha256": "92f3dcd7d86b9c1fbd56537deaca9e5aad10db3a1f557acf6c68aaa328222267",
+      "bytes": 36032
+    }
+  ],
+  "uses": [],
+  "retirement": null,
+  "unresolved": [
+    "The static exterior supports orientation to the air column. Airway wall thickness, cartilage, obstruction and clinical measurements require separate evidence."
+  ]
+}

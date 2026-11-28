@@ -1,0 +1,158 @@
+{
+  "schemaVersion": 1,
+  "assetId": "assembly:z-anatomy:achilles-context",
+  "title": "Right calf, Achilles and heel context",
+  "kind": "assembly",
+  "status": "provisional",
+  "owner": "assemblies/musculoskeletal-teaching",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:z-anatomy:achilles-native-members",
+      "title": "Eight Z-Anatomy native right-sided meshes",
+      "sourceType": "external Blender archive",
+      "subject": "Z-Anatomy native atlas",
+      "license": "CC BY-SA 4.0",
+      "evidence": [
+        {
+          "path": "reviews/draft_muscle/2026-10-23-achilles-context/ATTRIBUTION.md",
+          "sha256": "120200bfb5e98dc77eecdd294bb9b1de0f9e60d72900f0559d74cbc4cfe14c2c"
+        },
+        {
+          "path": "reviews/draft_muscle/2026-10-23-achilles-context/dependency-manifest.json",
+          "sha256": "64e0cdde5832e8ca40cd954e274740994b64ef624092140c9040bfa7907b729c"
+        },
+        {
+          "path": "reviews/draft_muscle/2026-10-23-achilles-context/independent-export-replay.json",
+          "sha256": "61b6c2650cef1a356c657dae4e61eb55da3f25c66887078962f679c0da5c0699"
+        }
+      ],
+      "limitations": [
+        "Replay requires the separately pinned Z-Anatomy archive and Blender source member."
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "partId": "achilles-tendon",
+      "label": "Calcaneal tendon",
+      "selectors": [
+        "Calcaneal tendon.r diagnostic"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "soleus",
+      "label": "Soleus",
+      "selectors": [
+        "Soleus muscle.r diagnostic"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "medial-gastrocnemius",
+      "label": "Medial gastrocnemius",
+      "selectors": [
+        "Medial head of gastrocnemius.r diagnostic"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "lateral-gastrocnemius",
+      "label": "Lateral gastrocnemius",
+      "selectors": [
+        "Lateral head of gastrocnemius.r diagnostic"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "calcaneus",
+      "label": "Calcaneus",
+      "selectors": [
+        "Calcaneus.r diagnostic"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "tibia",
+      "label": "Tibia",
+      "selectors": [
+        "Tibia.r diagnostic"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "fibula",
+      "label": "Fibula",
+      "selectors": [
+        "Fibula.r diagnostic"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "talus",
+      "label": "Talus",
+      "selectors": [
+        "Talus.r diagnostic"
+      ],
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "context-20261023",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "assemblies/musculoskeletal-teaching/2026-10-23/README.md",
+        "sha256": "7874eb7e9bf288b9f24c12d3858f6aa190342c778bded158cc24a65262dab061"
+      },
+      "sourceIds": [
+        "source:z-anatomy:achilles-native-members"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "assemblies/musculoskeletal-teaching/2026-10-23/README.md"
+      },
+      "partIds": [
+        "achilles-tendon",
+        "soleus",
+        "medial-gastrocnemius",
+        "lateral-gastrocnemius",
+        "calcaneus",
+        "tibia",
+        "fibula",
+        "talus"
+      ],
+      "exports": [
+        {
+          "id": "context",
+          "path": "assemblies/musculoskeletal-teaching/2026-10-23/achilles-right-context.glb",
+          "sha256": "e38e33c1d0ceb791e4a2ad676dedd7923f53b5ad8d7dc8b195202565609354ea",
+          "bytes": 517676,
+          "format": "glb",
+          "triangles": 28251,
+          "partIds": [
+            "achilles-tendon",
+            "soleus",
+            "medial-gastrocnemius",
+            "lateral-gastrocnemius",
+            "calcaneus",
+            "tibia",
+            "fibula",
+            "talus"
+          ]
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "The distal tendon seam is unvalidated. This static context is separate from the archived plantarflexion motion scene used by the Body Systems review."
+  ]
+}

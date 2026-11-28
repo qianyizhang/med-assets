@@ -1,0 +1,241 @@
+{
+  "case": "s1233",
+  "chapter": "abdomen-survey / abd-left-kidney",
+  "sweep": "kidney-left",
+  "part": "kidney_left",
+  "frame": 12,
+  "learnerAction": "Relate both poles and the medial hilar recess in the s1233 exterior to the saved left flank long-axis field.",
+  "priorMesh": {
+    "sha256": "c863c681ee3b6ea9ce42944292c205a097eceeb46d28c6cdaeaf7c6650b0eb69",
+    "bytes": 463568,
+    "path": ".artifacts/us-wave1b/stage/sweeps/kidney-left/scenes/kidney_left.mesh",
+    "triangles": 25752
+  },
+  "priorProceduralChapter": {
+    "sha256": "58a7b6fee3bcca2a111f127426ffa6ea5fbe7be3b3046c11d976a229d51b8ed4",
+    "bytes": 23106
+  },
+  "priorSchematicPlate": {
+    "sha256": "b3ce4af77548fd28c39991a5e1bc0a18f39248bd46c68d47d41d78fdffa7046d",
+    "bytes": 2599
+  },
+  "source": {
+    "ctSha256": "5352376d8fd9c0ab582a7fca1443f28762a66b9782d59c645b976771587c0cfc",
+    "maskSha256": "e0c7e53f00a20cedbe3e13d687ffc6d5e03a33824d4e4c7124f25335179b794e",
+    "shape": [
+      265,
+      265,
+      401
+    ],
+    "rasMmFromVoxel": [
+      [
+        1.5,
+        0.0,
+        0.0,
+        -215.611328125
+      ],
+      [
+        0.0,
+        1.5,
+        0.0,
+        -37.111328125
+      ],
+      [
+        0.0,
+        0.0,
+        1.5,
+        41.20000076293945
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "sourceUrl": "https://zenodo.org/records/10047263",
+    "license": "CC BY 4.0",
+    "occupiedVoxels": 35513,
+    "components": 1,
+    "componentSizes": [
+      35513
+    ],
+    "enclosedBackgroundVoxels": 0,
+    "labelEuler": 1,
+    "halfLabelSurfaceSha256": "d75b7d1f969e88986cac14ea1a4b207ee91ac85e5deeba7012cb33c00cd296da",
+    "acquisitionSliceNormalRas": [
+      0,
+      0,
+      1
+    ]
+  },
+  "savedAcquisition": {
+    "pose": {
+      "contact": [
+        33.12791562782241,
+        143.6156846616154,
+        178.9110117987574
+      ],
+      "width": [
+        0.15877062785621826,
+        0.5851974500776813,
+        -0.7951954678899535
+      ],
+      "beam": [
+        0.9862829084439753,
+        -0.13083344703848648,
+        0.10064111310652807
+      ],
+      "degrees": 0.0
+    },
+    "script": {
+      "sha256": "7363a7c097b1f38981fbd409a5051df7e2f65f6572963ab3144b4e8ceca2c012",
+      "bytes": 10931,
+      "path": ".artifacts/us-wave1b/delivery/sweeps/kidney-left/sweep.js"
+    },
+    "scans": {
+      "scan": {
+        "sha256": "cd894cd5d669c04aeb0b3998facfd2f776b3ada0a99031238c7bd469b6adf8b1",
+        "bytes": 34486
+      },
+      "section": {
+        "sha256": "03384f66cb9c915c2e59b22fefabd78d00bd7566e2d05778d0666ea42b9b8930",
+        "bytes": 28188
+      }
+    },
+    "originRasMm": [
+      -165.9194546832664,
+      178.3121988674231,
+      309.56651846107553
+    ],
+    "width": [
+      0.15877062785621823,
+      0.5851974500776812,
+      -0.7951954678899534
+    ],
+    "beam": [
+      0.9862829084439751,
+      -0.13083344703848646,
+      0.10064111310652805
+    ],
+    "normal": [
+      -0.04514324137050496,
+      -0.800266551568043,
+      -0.5979427516075071
+    ],
+    "sectorDepthMm": 133,
+    "sectorHalfAngleDeg": 36
+  },
+  "gates": {
+    "maxP95Mm": 1.5,
+    "maxMm": 3.0,
+    "maxAbsVolumePercent": 3,
+    "topology": "One Euler 2 closed outward manifold",
+    "triangles": [
+      2500,
+      5000
+    ],
+    "maxDegenerateFaces": 0,
+    "maxIntersectingNonincidentPairs": 0,
+    "maxTurningSilhouettePx": 1,
+    "orthographicViews": 24,
+    "silhouetteZoomPxPerMm": 3,
+    "sampleSpacingMm": 0.5
+  },
+  "protectedPlanes": [
+    {
+      "offsetMm": -1.5,
+      "originRasMm": [
+        -165.85173982121063,
+        179.51259869477516,
+        310.4634325884868
+      ],
+      "sampleExtentMm": [
+        [
+          -56.0,
+          40.0
+        ],
+        [
+          61.0,
+          118.0
+        ]
+      ],
+      "referenceOutlineSha256": "bb5dd1c76ffc3844ccacdd230547d6e8d63ceeb7545ea81351d5fcfbb221f780",
+      "referenceBoundsInPlaneMm": [
+        [
+          -50.88383452315447,
+          45.94347522874583
+        ],
+        [
+          55.75605062477244,
+          112.44310608907783
+        ]
+      ]
+    },
+    {
+      "offsetMm": 0.0,
+      "originRasMm": [
+        -165.9194546832664,
+        178.3121988674231,
+        309.56651846107553
+      ],
+      "sampleExtentMm": [
+        [
+          -57.0,
+          41.0
+        ],
+        [
+          63.0,
+          117.0
+        ]
+      ],
+      "referenceOutlineSha256": "c6abed54d31a717d98fbebaea2fe2e18461a81b90b9088d57f53e9e895688022",
+      "referenceBoundsInPlaneMm": [
+        [
+          -51.63023180246205,
+          46.18870623355692
+        ],
+        [
+          57.0394217089935,
+          111.79234544284873
+        ]
+      ]
+    },
+    {
+      "offsetMm": 1.5,
+      "originRasMm": [
+        -165.98716954532216,
+        177.11179904007102,
+        308.66960433366427
+      ],
+      "sampleExtentMm": [
+        [
+          -56.0,
+          42.0
+        ],
+        [
+          62.0,
+          117.0
+        ]
+      ],
+      "referenceOutlineSha256": "988c95d2f955792eb741e06270eccc0e65d15b3346e4d83d58a08a2a64720a65",
+      "referenceBoundsInPlaneMm": [
+        [
+          -50.65240664540928,
+          47.46893050435296
+        ],
+        [
+          56.70327485712731,
+          111.1059135368103
+        ]
+      ]
+    }
+  ],
+  "protectedLandmarks": [
+    "Superior and inferior poles",
+    "Medial hilar depression"
+  ],
+  "referenceLimit": "The s1233 label resolves the renal exterior and medial recess. A left renal length or internal tissue/collecting-system claim requires its own acquisition evidence.",
+  "observedDefect": "The exact previous export shows stacked horizontal bands on the inferior convex surface.",
+  "method": "Use mirrored adaptive signed-distance smoothing and Blender quadric decimation. Finer field samples interpolate the 1.5 mm label. Aim for one closed exterior without editorial repairs to components or holes."
+}

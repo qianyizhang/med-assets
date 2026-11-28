@@ -1,0 +1,53 @@
+{
+  "slug": "portal-vein-wave-2b",
+  "exportRef": {
+    "record": "models/portal_vein_s1233/asset.record.json",
+    "asset": "anatomy:s1233:portal-splenic-vein",
+    "revision": "r02",
+    "export": "portal-splenic-vein"
+  },
+  "review": {
+    "case": "abdomen-survey",
+    "chapter": "abd-portal-doppler",
+    "part": "portal_vein_and_splenic_vein"
+  },
+  "adopted": true,
+  "cardTitle": "Portal and splenic vein course",
+  "subtitle": "abdomen-survey · CT frame 12",
+  "revisionTitle": "s1233 Portal and splenic vein course · r02",
+  "revisionLinkLabel": "Portal and splenic vein course",
+  "coordinateFrame": "s1233 voxel indices · RAS axes · 1.5 mm grid",
+  "sourceId": "source:totalsegmentator-v2.0.1:s1233:portal-splenic-vein",
+  "sourceLabel": "TotalSegmentator v2.0.1 · Jakob Wasserthal and contributors · CC BY 4.0",
+  "detailsLabel": "Source sections, saved scan and independent review",
+  "figures": [
+    {
+      "file": "previous-vs-r02.webp",
+      "width": 948,
+      "height": 1175,
+      "alt": "Joined portal and splenic exterior before and after refinement",
+      "caption": "The matched close-up shows the underside shelf and the short upright limb."
+    },
+    {
+      "file": "matched-surfaces.webp",
+      "width": 1414,
+      "height": 814,
+      "alt": "Raw CT label, previous mesh and selected r02",
+      "caption": "The narrow terminal geometry and source junction are preserved. The label combines both veins."
+    },
+    {
+      "file": "protected-planes.webp",
+      "width": 1414,
+      "height": 511,
+      "alt": "Full protected portal contours",
+      "caption": "The worst sampled gap is 2.63 mm on the adjacent cut and 0.88 mm on the saved one."
+    },
+    {
+      "file": "live-frame-12.webp",
+      "width": 1339,
+      "height": 816,
+      "alt": "Frame 12 in the CT venous sweep",
+      "caption": "The liver partly obscures the junction. The axial view and labeled overlay show the course."
+    }
+  ]
+}

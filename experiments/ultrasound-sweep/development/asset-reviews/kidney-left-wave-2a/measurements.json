@@ -1,0 +1,560 @@
+{
+  "testedRevision": "e3961e616c8ef71ea2d9b49b8cb94358c0ad3373",
+  "source": {
+    "ctSha256": "5352376d8fd9c0ab582a7fca1443f28762a66b9782d59c645b976771587c0cfc",
+    "maskSha256": "e0c7e53f00a20cedbe3e13d687ffc6d5e03a33824d4e4c7124f25335179b794e",
+    "shape": [
+      265,
+      265,
+      401
+    ],
+    "rasMmFromVoxel": [
+      [
+        1.5,
+        0.0,
+        0.0,
+        -215.611328125
+      ],
+      [
+        0.0,
+        1.5,
+        0.0,
+        -37.111328125
+      ],
+      [
+        0.0,
+        0.0,
+        1.5,
+        41.20000076293945
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "sourceUrl": "https://zenodo.org/records/10047263",
+    "license": "CC BY 4.0",
+    "occupiedVoxels": 35513,
+    "components": 1,
+    "componentSizes": [
+      35513
+    ],
+    "enclosedBackgroundVoxels": 0,
+    "labelEuler": 1,
+    "halfLabelSurfaceSha256": "d75b7d1f969e88986cac14ea1a4b207ee91ac85e5deeba7012cb33c00cd296da",
+    "acquisitionSliceNormalRas": [
+      0,
+      0,
+      1
+    ]
+  },
+  "export": {
+    "sha256": "a991e63e71cc712ee749e5accffe4d561992e88f6f59311323625fb838d95f21",
+    "bytes": 86432,
+    "triangles": 4800
+  },
+  "previousSweep": {
+    "sha256": "c863c681ee3b6ea9ce42944292c205a097eceeb46d28c6cdaeaf7c6650b0eb69",
+    "bytes": 463568,
+    "triangles": 25752
+  },
+  "previous": {
+    "export": {
+      "sha256": "c863c681ee3b6ea9ce42944292c205a097eceeb46d28c6cdaeaf7c6650b0eb69",
+      "bytes": 463568,
+      "triangles": 25752,
+      "vertices": 12878
+    },
+    "topology": {
+      "components": 1,
+      "euler": 2,
+      "openEdges": 0,
+      "nonmanifoldEdges": 0,
+      "misorientedSharedEdges": 0,
+      "degenerateTriangles": 0,
+      "signedVolumeMm3": 119059.06962942501,
+      "intersectingNonincidentPairs": 0
+    },
+    "referenceVolumeMm3": 119711.671875,
+    "volumeDeltaPercent": -0.5451450433809235,
+    "globalDistances": {
+      "referenceToCandidate": {
+        "p95Mm": 0.6286939782142843,
+        "maxMm": 1.9192688906698143,
+        "maxLocationRasMm": [
+          -92.611328125,
+          154.888671875,
+          350.950000763
+        ],
+        "samples": 297588
+      },
+      "candidateToReference": {
+        "p95Mm": 0.5497735196126422,
+        "maxMm": 1.3911712649394303,
+        "maxLocationRasMm": [
+          -81.511328125,
+          154.13846817,
+          343.558829498
+        ],
+        "samples": 297184
+      }
+    },
+    "planes": [
+      {
+        "offsetMm": -1.5,
+        "distances": {
+          "referenceToCandidate": {
+            "p95Mm": 0.686720327420207,
+            "maxMm": 1.1516537450096218,
+            "maxLocationRasMm": [
+              -85.495657163,
+              138.004342837,
+              359.950000763
+            ],
+            "samples": 1244
+          },
+          "candidateToReference": {
+            "p95Mm": 0.5791225895547022,
+            "maxMm": 0.9112370827475413,
+            "maxLocationRasMm": [
+              -91.461022553,
+              184.888671875,
+              297.651955855
+            ],
+            "samples": 1182
+          }
+        },
+        "verticesInAcquisitionSector": 1468,
+        "projectedVertices": 1468,
+        "zSpanMm": 86.13509741172732
+      },
+      {
+        "offsetMm": 0.0,
+        "distances": {
+          "referenceToCandidate": {
+            "p95Mm": 0.7257274143506307,
+            "maxMm": 1.5123690581016163,
+            "maxLocationRasMm": [
+              -87.262686821,
+              136.790030571,
+              359.200000763
+            ],
+            "samples": 1266
+          },
+          "candidateToReference": {
+            "p95Mm": 0.6117459371783746,
+            "maxMm": 0.9887444551023495,
+            "maxLocationRasMm": [
+              -85.866729135,
+              137.200991787,
+              358.544592584
+            ],
+            "samples": 1201
+          }
+        },
+        "verticesInAcquisitionSector": 1476,
+        "projectedVertices": 1476,
+        "zSpanMm": 86.8839110000593
+      },
+      {
+        "offsetMm": 1.5,
+        "distances": {
+          "referenceToCandidate": {
+            "p95Mm": 0.7038629919258991,
+            "maxMm": 0.9912190188512683,
+            "maxLocationRasMm": [
+              -88.111328125,
+              188.638671875,
+              287.362984852
+            ],
+            "samples": 1288
+          },
+          "candidateToReference": {
+            "p95Mm": 0.6109692997045326,
+            "maxMm": 0.8970927884941099,
+            "maxLocationRasMm": [
+              -87.002783203,
+              146.23082957,
+              344.036528129
+            ],
+            "samples": 1211
+          }
+        },
+        "verticesInAcquisitionSector": 1504,
+        "projectedVertices": 1504,
+        "zSpanMm": 86.39134722402542
+      }
+    ]
+  },
+  "candidate": {
+    "export": {
+      "sha256": "a991e63e71cc712ee749e5accffe4d561992e88f6f59311323625fb838d95f21",
+      "bytes": 86432,
+      "triangles": 4800,
+      "vertices": 2402
+    },
+    "topology": {
+      "components": 1,
+      "euler": 2,
+      "openEdges": 0,
+      "nonmanifoldEdges": 0,
+      "misorientedSharedEdges": 0,
+      "degenerateTriangles": 0,
+      "signedVolumeMm3": 119651.87578800344,
+      "intersectingNonincidentPairs": 0
+    },
+    "referenceVolumeMm3": 119711.671875,
+    "volumeDeltaPercent": -0.04995008929371547,
+    "globalDistances": {
+      "referenceToCandidate": {
+        "p95Mm": 0.8574482272927842,
+        "maxMm": 2.470261774115374,
+        "maxLocationRasMm": [
+          -80.611328125,
+          154.888671875,
+          344.950000763
+        ],
+        "samples": 297588
+      },
+      "candidateToReference": {
+        "p95Mm": 0.696484207418135,
+        "maxMm": 1.5782385768205294,
+        "maxLocationRasMm": [
+          -82.552818298,
+          152.965215302,
+          343.32803421
+        ],
+        "samples": 240825
+      }
+    },
+    "planes": [
+      {
+        "offsetMm": -1.5,
+        "distances": {
+          "referenceToCandidate": {
+            "p95Mm": 1.0211067620152978,
+            "maxMm": 1.6209919564322963,
+            "maxLocationRasMm": [
+              -90.361328125,
+              184.790739661,
+              297.700000763
+            ],
+            "samples": 1244
+          },
+          "candidateToReference": {
+            "p95Mm": 0.8523745189992475,
+            "maxMm": 1.2584763962095438,
+            "maxLocationRasMm": [
+              -96.604134715,
+              179.125697408,
+              305.753220473
+            ],
+            "samples": 913
+          }
+        },
+        "verticesInAcquisitionSector": 618,
+        "projectedVertices": 618,
+        "zSpanMm": 86.07459079947841
+      },
+      {
+        "offsetMm": 0.0,
+        "distances": {
+          "referenceToCandidate": {
+            "p95Mm": 0.9893285713159434,
+            "maxMm": 1.6331971275207169,
+            "maxLocationRasMm": [
+              -90.361328125,
+              182.916364183,
+              297.700000763
+            ],
+            "samples": 1266
+          },
+          "candidateToReference": {
+            "p95Mm": 0.8374148074028284,
+            "maxMm": 1.479500322767387,
+            "maxLocationRasMm": [
+              -91.839320133,
+              183.384002673,
+              297.185713917
+            ],
+            "samples": 919
+          }
+        },
+        "verticesInAcquisitionSector": 618,
+        "projectedVertices": 618,
+        "zSpanMm": 86.65472225963191
+      },
+      {
+        "offsetMm": 1.5,
+        "distances": {
+          "referenceToCandidate": {
+            "p95Mm": 0.9536737187764565,
+            "maxMm": 1.5043913807973697,
+            "maxLocationRasMm": [
+              -86.611328125,
+              145.681221866,
+              344.742550754
+            ],
+            "samples": 1288
+          },
+          "candidateToReference": {
+            "p95Mm": 0.8071979577678592,
+            "maxMm": 1.402432540081153,
+            "maxLocationRasMm": [
+              -87.167392258,
+              146.538623273,
+              343.637014933
+            ],
+            "samples": 921
+          }
+        },
+        "verticesInAcquisitionSector": 630,
+        "projectedVertices": 630,
+        "zSpanMm": 86.41193107407167
+      }
+    ],
+    "turningSilhouette": {
+      "views": 24,
+      "pixelsPerMm": 3.0,
+      "supersample": 4,
+      "maximumDeparturePx": 0.7071067811865476
+    },
+    "failures": []
+  },
+  "negative": {
+    "transform": "Displace the candidate by +6 mm along RAS superior without changing its triangulation.",
+    "exitCode": 1,
+    "export": {
+      "sha256": "c65d818c087d84f97504c9c837cc5aa9cbde1a2a97f9c8a6c16cb513cee5c2b4",
+      "bytes": 86432,
+      "triangles": 4800,
+      "vertices": 2402
+    },
+    "topology": {
+      "components": 1,
+      "euler": 2,
+      "openEdges": 0,
+      "nonmanifoldEdges": 0,
+      "misorientedSharedEdges": 0,
+      "degenerateTriangles": 0,
+      "signedVolumeMm3": 119651.87578800348,
+      "intersectingNonincidentPairs": 0
+    },
+    "referenceVolumeMm3": 119711.671875,
+    "volumeDeltaPercent": -0.049950089293682165,
+    "globalDistances": {
+      "referenceToCandidate": {
+        "p95Mm": 5.632084473825096,
+        "maxMm": 6.798186136919468,
+        "maxLocationRasMm": [
+          -88.111328125,
+          187.888671875,
+          286.450000763
+        ],
+        "samples": 297588
+      },
+      "candidateToReference": {
+        "p95Mm": 5.174656904250162,
+        "maxMm": 6.226806239060522,
+        "maxLocationRasMm": [
+          -97.885954004,
+          144.629032135,
+          360.176807002
+        ],
+        "samples": 240825
+      }
+    },
+    "planes": [
+      {
+        "offsetMm": -1.5,
+        "distances": {
+          "referenceToCandidate": {
+            "p95Mm": 6.303532503443445,
+            "maxMm": 8.227556539284608,
+            "maxLocationRasMm": [
+              -95.611328125,
+              143.058047353,
+              353.950000763
+            ],
+            "samples": 1244
+          },
+          "candidateToReference": {
+            "p95Mm": 6.3886046387152025,
+            "maxMm": 7.585792923824567,
+            "maxLocationRasMm": [
+              -92.344224358,
+              136.089129734,
+              363.030308205
+            ],
+            "samples": 933
+          }
+        },
+        "verticesInAcquisitionSector": 634,
+        "projectedVertices": 634,
+        "zSpanMm": 86.41639146227266
+      },
+      {
+        "offsetMm": 0.0,
+        "distances": {
+          "referenceToCandidate": {
+            "p95Mm": 6.199893936676718,
+            "maxMm": 8.617607193644435,
+            "maxLocationRasMm": [
+              -94.38547861,
+              141.11452139,
+              353.950000763
+            ],
+            "samples": 1266
+          },
+          "candidateToReference": {
+            "p95Mm": 6.004237116649315,
+            "maxMm": 7.543805718061219,
+            "maxLocationRasMm": [
+              -93.466777334,
+              134.303223616,
+              362.99665383
+            ],
+            "samples": 913
+          }
+        },
+        "verticesInAcquisitionSector": 596,
+        "projectedVertices": 596,
+        "zSpanMm": 86.89597939594466
+      },
+      {
+        "offsetMm": 1.5,
+        "distances": {
+          "referenceToCandidate": {
+            "p95Mm": 6.4998413587811985,
+            "maxMm": 7.5100036876847485,
+            "maxLocationRasMm": [
+              -96.159766077,
+              139.340233923,
+              353.950000763
+            ],
+            "samples": 1288
+          },
+          "candidateToReference": {
+            "p95Mm": 6.272659255676759,
+            "maxMm": 8.012559050776805,
+            "maxLocationRasMm": [
+              -72.36247529,
+              174.667615791,
+              304.872377819
+            ],
+            "samples": 932
+          }
+        },
+        "verticesInAcquisitionSector": 646,
+        "projectedVertices": 646,
+        "zSpanMm": 87.67331684871084
+      }
+    ],
+    "turningSilhouette": {
+      "views": 24,
+      "pixelsPerMm": 3.0,
+      "supersample": 4,
+      "maximumDeparturePx": 18.386476008196894
+    },
+    "failures": [
+      "global, referenceToCandidate: p95 5.632 mm, max 6.798 mm",
+      "global, candidateToReference: p95 5.175 mm, max 6.227 mm",
+      "-1.5 mm plane, referenceToCandidate: p95 6.304 mm, max 8.228 mm",
+      "-1.5 mm plane, candidateToReference: p95 6.389 mm, max 7.586 mm",
+      "+0 mm plane, referenceToCandidate: p95 6.200 mm, max 8.618 mm",
+      "+0 mm plane, candidateToReference: p95 6.004 mm, max 7.544 mm",
+      "+1.5 mm plane, referenceToCandidate: p95 6.500 mm, max 7.510 mm",
+      "+1.5 mm plane, candidateToReference: p95 6.273 mm, max 8.013 mm",
+      "Silhouette differs by more than 1 teaching pixel"
+    ]
+  },
+  "liveBrowser": [
+    {
+      "route": "index.html?sweep=kidney-left&frame=12",
+      "frame": 12,
+      "served": {
+        "/sweeps/spleen/scenes/kidney_left.mesh": {
+          "bytes": 463568,
+          "sha256": "c863c681ee3b6ea9ce42944292c205a097eceeb46d28c6cdaeaf7c6650b0eb69"
+        },
+        "/sweeps/kidney-left/media/scan-12.webp": {
+          "bytes": 34486,
+          "sha256": "cd894cd5d669c04aeb0b3998facfd2f776b3ada0a99031238c7bd469b6adf8b1"
+        },
+        "/sweeps/kidney-left/media/section-12.webp": {
+          "bytes": 28188,
+          "sha256": "03384f66cb9c915c2e59b22fefabd78d00bd7566e2d05778d0666ea42b9b8930"
+        },
+        "/sweeps/kidney-left/sweep.js": {
+          "bytes": 10931,
+          "sha256": "7363a7c097b1f38981fbd409a5051df7e2f65f6572963ab3144b4e8ceca2c012"
+        }
+      },
+      "scene": "edbbed93074484c595cd2765e410c35690d43b669ff13f7818600a69209758e6",
+      "orbit": "a45e831fa55bd60322e35cdec15e76ae0b1877cf748c36cefb4cfaf6cc2c5c4e"
+    },
+    {
+      "route": "index.html?sweep=kidney-left&frame=12",
+      "frame": 12,
+      "served": {
+        "/sweeps/kidney-left/scenes/kidney_left.mesh": {
+          "bytes": 86432,
+          "sha256": "a991e63e71cc712ee749e5accffe4d561992e88f6f59311323625fb838d95f21"
+        },
+        "/sweeps/kidney-left/media/scan-12.webp": {
+          "bytes": 34486,
+          "sha256": "cd894cd5d669c04aeb0b3998facfd2f776b3ada0a99031238c7bd469b6adf8b1"
+        },
+        "/sweeps/kidney-left/media/section-12.webp": {
+          "bytes": 28188,
+          "sha256": "03384f66cb9c915c2e59b22fefabd78d00bd7566e2d05778d0666ea42b9b8930"
+        },
+        "/sweeps/kidney-left/sweep.js": {
+          "bytes": 10931,
+          "sha256": "7363a7c097b1f38981fbd409a5051df7e2f65f6572963ab3144b4e8ceca2c012"
+        }
+      },
+      "scene": "0c9349aa6e500821320d5d05b615381863ce893951ba6a76d180ab2ef1e10e62",
+      "orbit": "5c3791f232feb8b7a00f648255359f9b84ee8cab1c3ff1c768881c4a7c27a755"
+    }
+  ],
+  "replays": [
+    {
+      "run": "replay-a",
+      "sha256": "a991e63e71cc712ee749e5accffe4d561992e88f6f59311323625fb838d95f21"
+    },
+    {
+      "run": "replay-b",
+      "sha256": "a991e63e71cc712ee749e5accffe4d561992e88f6f59311323625fb838d95f21"
+    }
+  ],
+  "requiredChecks": {
+    "geometry": "pass",
+    "distortedNegative": "pass",
+    "cleanReplays": "pass",
+    "assetkitSync": "pass",
+    "assetkitHydratedCheckPort": "pass",
+    "assetkitValidate": "pass",
+    "actualStandalonePlayer": "pass",
+    "namedChapterIntegration": "Lead-owned",
+    "independentAssessment": "pending"
+  },
+  "limits": {
+    "maxP95Mm": 1.5,
+    "maxMm": 3.0,
+    "maxAbsVolumePercent": 3,
+    "topology": "One Euler 2 closed outward manifold",
+    "triangles": [
+      2500,
+      5000
+    ],
+    "maxDegenerateFaces": 0,
+    "maxIntersectingNonincidentPairs": 0,
+    "maxTurningSilhouettePx": 1,
+    "orthographicViews": 24,
+    "silhouetteZoomPxPerMm": 3,
+    "sampleSpacingMm": 0.5
+  }
+}

@@ -15,6 +15,7 @@ from build_abdomen import (
     axes, contact_point, measure_landmark, mesh_from_mask, overlay, section_palette, section_palette_sha256,
 )
 from build_study import body_surface, fine_scatter, material_at, volume
+from scene_assets import scene_assets
 from delivery import sha256, sweep_files, write_manifest
 from display_neck import fitted_neck
 from fit_abdomen import outer_contact_offsets
@@ -185,7 +186,7 @@ def build_one(track, out, ct, frames, case_body, display_body, display_receipt, 
     media.mkdir()
     scenes = out / 'scenes'
     scenes.mkdir()
-    for name, raw in meshes.items():
+    for name, raw in (meshes | scene_assets(track)).items():
         (scenes / f'{name}.mesh').write_bytes(raw)
     for i, frame in enumerate(frames):
         gray, labels, xyz = sample(frame, ct, masks, grid)

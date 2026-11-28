@@ -1,0 +1,73 @@
+{
+  "version": 1,
+  "rubricHash": "a38e552869511cd5bceacaa5ea4456f4d0530e58e7dce2bc6855587a98b0e684",
+  "records": [
+    {
+      "source": "case",
+      "case": "abdomen-survey",
+      "part": "pancreas",
+      "baseline": "7ba31afffdffbed4d60c5834ab86f3eefb6f784261b519b8bb2f093103a40045",
+      "revision": "anatomy:s1233:pancreas@r01:pancreas",
+      "meshSha256": "4f853b98b4ec8048cee6a53562478be63faf4a668c158f34490a7535fd17fda0",
+      "reviewer": "Codex campaign lead · independent of the builder",
+      "reviewedOn": "2026-11-28",
+      "rubric": "docs/guides/asset-quality.md",
+      "task": "Follow the broad head, uncinate turn, body and tapered tail in 3D and orient the visible body toward the posterior venous landmark at the saved s1233 frame.",
+      "scores": {
+        "fidelity": 2,
+        "form": 2,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "The saved cut loses raw-label loops and reaches 10.18 mm error against a 3.0 mm limit. Three enclosed mask voids account for much of the difference. Even the filled exterior has a 6.81 mm miss on a small tangential loop.",
+        "form": "The head and hooked uncinate contour remain distinct in reverse. The close-up still has uneven lobulated relief along the inner margin. The matched previous view looks similar at this scale.",
+        "readability": "The registered overlay locates the body anterior to the venous landmark. I used the axial scene and reverse surface to follow the head-to-tail curve. The default oblique scene and grayscale alone leave the ends hard to identify.",
+        "economy": "The packed mesh falls from 16,620 triangles and 299,240 bytes to 5,800 and 104,432. The worst 24-view silhouette departure against the smoothed density input is 0.79 px at 3 px/mm."
+      },
+      "note": "The trial can illustrate whole-organ orientation. Its raw CT and full-section deviations exceed the frozen limits. At this r01 decision the survey retained its worked acquisition. The later r02 review covers 3D exterior orientation.",
+      "disposition": "Hold · keep the existing sweep and chapter",
+      "comparison": {
+        "label": "Matched three-way neutral clay surfaces",
+        "candidate": "asset-reviews/pancreas-wave-2a/matched-surfaces.webp",
+        "candidateLabel": "Exact prior export, CT half-label and r01",
+        "views": [
+          {
+            "label": "Exact previous sweep and r01 at the same physical scale",
+            "candidate": "asset-reviews/pancreas-wave-2a/previous-vs-r01.webp"
+          },
+          {
+            "label": "Three protected scan-plane contours",
+            "candidate": "asset-reviews/pancreas-wave-2a/protected-planes.webp"
+          },
+          {
+            "label": "Actual s1233 study player at frame 12",
+            "candidate": "asset-reviews/pancreas-wave-2a/live-frame-12.webp"
+          },
+          {
+            "label": "Adjacent CT slices and local correction trial",
+            "candidate": "asset-reviews/pancreas-wave-2a/adjacent-contours.webp",
+            "candidateLabel": "Held r01 and unadopted source-anchored trial at two grazing intersections"
+          }
+        ]
+      },
+      "links": [
+        {
+          "label": "Geometry and browser verification",
+          "href": "asset-reviews/pancreas-wave-2a/measurements.json"
+        }
+      ],
+      "chapter": "abd-pancreas",
+      "occurrence": 1,
+      "chapterSha256": "ff16b97ea235862f14bc6e759fe6b1bd2e49694b78a6034937500efb8fa32799"
+    }
+  ],
+  "evidenceSha256": {
+    "matched-surfaces.webp": "c8defd50b2d76cf65d91824d2f4406d500da4f9aec250254d73c6f941870bf4a",
+    "previous-vs-r01.webp": "1fc12740b7969d52985e740a3616e36fd641f905a1c6e5d7654be48847b0ff9a",
+    "protected-planes.webp": "3717bd64bcf962ff3d099385dc9b3b6495a9c4f43240f14c6cf10800b724b09e",
+    "live-frame-12.webp": "d6627a3b4251272a491d8d5d369e61731697f1b0a3cf4a569b62336477612fa6",
+    "adjacent-contours.webp": "1b9f26685cf80cde80d8081a81993b621a04c8532d924e75a237d1fddb668926"
+  },
+  "measurementsSha256": "46c1223aee4118065817b533a8c8aff3c5bb62ed2be48ae5e2a98730c20d21a7"
+}

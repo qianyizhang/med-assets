@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:authored:lymph-collecting-routes",
+  "title": "Illustrative lymph collecting-route traces",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/lymph-collecting-routes",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:commissioned:network-systems-collecting-routes",
+      "title": "Commissioned route reconstruction with exact source paths",
+      "subject": "Commissioned procedural collecting scaffold",
+      "sourceType": "retained source or source receipt",
+      "license": "Commissioned procedural source geometry. No CC or repository-wide license is declared by this package.",
+      "path": "models/lymph-collecting-routes/source-context-r01/selected-source-routes.glb",
+      "sha256": "ff8c1e9cecc86b4287520d97e71e81792d26eb0b3017e6f302e213f64819b4ca",
+      "bytes": 11476,
+      "evidence": [
+        {
+          "path": "models/lymph-collecting-routes/source-context-r01/README.md",
+          "sha256": "cf67ffbd2106f45d57727211bd2efcc0504309f346b4f7ea0db7dd3d600cc4af"
+        },
+        {
+          "path": "models/lymph-collecting-routes/source-context-r01/source-identity.json",
+          "sha256": "e7c108a57ada2998bcd080cffe0ededab8afa28d259c603ad1533108fee94959"
+        },
+        {
+          "path": "models/lymph-collecting-routes/source-context-r01/replay-verification.json",
+          "sha256": "6716b6d66443a10cd4bbda7c4daa24df55b185d1f90f5b48eeaa698cef76b4d8"
+        }
+      ],
+      "limitations": []
+    }
+  ],
+  "parts": [
+    {
+      "partId": "central-trace",
+      "label": "Central collecting diagram",
+      "selectors": [
+        "Central collecting trace (diagram)"
+      ],
+      "sourcePath": "models/lymph-collecting-routes/source-trace-r02/README.md",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "source-limits",
+      "label": "Editorial symbols at the two sampled source caps",
+      "selectors": [
+        "Lower source limit (symbol)",
+        "Upper source limit (symbol)"
+      ],
+      "sourcePath": "models/lymph-collecting-routes/source-trace-r02/README.md",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "context-traces",
+      "label": "Peripheral guide traces",
+      "selectors": [
+        "Cervical collecting lymphatic 1 (diagram)",
+        "Cervical collecting lymphatic -1 (diagram)",
+        "Leg and pelvic collecting lymphatic 1 (diagram)",
+        "Leg and pelvic collecting lymphatic -1 (diagram)",
+        "Upper limb collecting lymphatic 1 (diagram)",
+        "Upper limb collecting lymphatic -1 (diagram)"
+      ],
+      "sourcePath": "models/lymph-collecting-routes/source-trace-r02/README.md",
+      "registration": "illustrative"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "source-trace-r02",
+      "status": "provisional",
+      "sourceIds": [
+        "source:commissioned:network-systems-collecting-routes"
+      ],
+      "recipeEvidence": {
+        "path": "reviews/teaching-assessments/reopen-regional/README.md",
+        "sha256": "1bf1b5436e21307a5fb0b0f5f61c856ea7ef4476d8111b669dfd30a510e5527e"
+      },
+      "frame": {
+        "convention": "glb-y-up-m",
+        "evidence": "models/lymph-collecting-routes/source-trace-r02/README.md",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ]
+      },
+      "partIds": [
+        "central-trace",
+        "source-limits",
+        "context-traces"
+      ],
+      "exports": [
+        {
+          "id": "teaching",
+          "path": "models/lymph-collecting-routes/source-trace-r02/route-diagram.glb",
+          "sha256": "bebe11ea3241799e83d69f70ea1cccc59283f9ec72eca0dc45877cdd6fc8fd64",
+          "bytes": 31592,
+          "format": "glb",
+          "partIds": [
+            "central-trace",
+            "source-limits",
+            "context-traces"
+          ],
+          "triangles": 644
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "Source-ring positions remain in the authored scene frame. Physical registration, flow and venous contact remain unverified."
+  ]
+}

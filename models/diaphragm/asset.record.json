@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:z-anatomy:diaphragm",
+  "title": "Z-Anatomy static diaphragm",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/diaphragm",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:z-anatomy:diaphragm-static-r01",
+      "title": "Isolated native Z-Anatomy diaphragm GLB",
+      "sourceType": "atlas-derived GLB",
+      "subject": "Z-Anatomy reference atlas",
+      "path": "models/diaphragm/exports/z-native-static-r01/diaphragm_z_native_static.glb",
+      "bytes": 701128,
+      "sha256": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29",
+      "license": "Z-Anatomy, CC BY-SA 4.0, with historical BodyParts3D CC BY-SA 2.1 Japan credit.",
+      "evidence": [
+        {
+          "path": "models/diaphragm/exports/z-native-static-r01/ATTRIBUTION.md",
+          "sha256": "7476f4da99d253925678fa7fb97d3f8e78cd140844751cf859a38917b7e1c1db"
+        },
+        {
+          "path": "sources/datasets/z-anatomy/diaphragm-static-study/external-source-map.json",
+          "sha256": "b2f417388646c52060f7dd677a806d720eae1efd94be4493bbf2d1343a846c5a"
+        },
+        {
+          "path": "reviews/diaphragm/2026-10-24-z-static-study/record.json",
+          "sha256": "516916fff6c24cd688fe60a807c0ee8c123ff8842782f99469955d44e7ba4981"
+        }
+      ],
+      "limitations": [
+        "The native static diaphragm retains four source boundary edges. Central tendon and muscle fibres are undifferentiated."
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "partId": "diaphragm",
+      "label": "Diaphragm",
+      "selectors": [
+        "Diaphragm"
+      ],
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "normal-pack-r02",
+      "status": "provisional",
+      "recipe": "recipes/normal-pack-r02.json",
+      "recipeEvidence": {
+        "path": "models/diaphragm/exports/normal-pack-r02/README.md",
+        "sha256": "54ff6f77c6e1ada88e02394f5dd646be7fa1d53054cf6c6409f485fe79023bb7"
+      },
+      "sourceIds": [
+        "source:z-anatomy:diaphragm-static-r01"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "models/diaphragm/exports/z-native-static-r01/README.md"
+      },
+      "partIds": [
+        "diaphragm"
+      ],
+      "exports": [
+        {
+          "id": "reference",
+          "path": "models/diaphragm/exports/normal-pack-r02/diaphragm.glb",
+          "bytes": 623504,
+          "sha256": "9857d670bd761ed28b4ce534594ad6b0ad2fc05636ca2a66a86a62db1d9bb8d7",
+          "format": "glb",
+          "triangles": 38868,
+          "partIds": [
+            "diaphragm"
+          ]
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "The source archive-to-static GLB rebuild environment is external. The normal-pack recipe replays from the retained exact GLB.",
+    "Patient or cross-atlas registration, breathing motion and detailed opening assignments remain unverified."
+  ]
+}

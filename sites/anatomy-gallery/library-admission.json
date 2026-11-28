@@ -1,0 +1,4176 @@
+{
+  "schemaVersion": 1,
+  "paths": {
+    "assemblies/endocrine-locator/adrenal-study-r03/s1233-adrenals-teaching.glb": {
+      "sha256": "e2bcc2e93a73c027480418109e4db06ce38ea7923b671e5dfe53cfd7d288caa4",
+      "bytes": 254452,
+      "readers": [
+        {
+          "family": "s1233-adrenal",
+          "route": "library/s1233-adrenal/r03",
+          "role": "listed-revision"
+        }
+      ],
+      "ref": {
+        "asset": "assembly:s1233:adrenal-locator",
+        "revision": "r03",
+        "export": "regional",
+        "record": "assemblies/endocrine-locator/asset.record.json"
+      }
+    },
+    "assemblies/endocrine-locator/adrenal-study-r04/s1233-adrenals-illustrative.glb": {
+      "sha256": "892a803078e586d6886da23a0435f35ec3792ed604a3acd85cea448ec10b8489",
+      "bytes": 258696,
+      "readers": [
+        {
+          "family": "s1233-adrenal",
+          "route": "library/s1233-adrenal/r04",
+          "role": "listed-revision"
+        }
+      ],
+      "ref": {
+        "asset": "assembly:s1233:adrenal-locator",
+        "revision": "r04",
+        "export": "regional",
+        "record": "assemblies/endocrine-locator/asset.record.json"
+      }
+    },
+    "assemblies/endocrine-locator/adrenal-study-r05/s1233-adrenals-regional.glb": {
+      "sha256": "20ad1b99a09e13dbbe240ed122bf70e648d8f2c526a79030040fee58472ff118",
+      "bytes": 286832,
+      "readers": [
+        {
+          "family": "s1233-adrenal",
+          "route": "library/s1233-adrenal/r05",
+          "role": "listed-revision"
+        }
+      ],
+      "ref": {
+        "asset": "assembly:s1233:adrenal-locator",
+        "revision": "r05",
+        "export": "regional",
+        "record": "assemblies/endocrine-locator/asset.record.json"
+      }
+    },
+    "assemblies/hypothalamus-pituitary/teaching-stalk-r01/hypothalamus-pituitary-teaching.glb": {
+      "sha256": "31ddd537a8aa3ac7dcd75a9a9789132fb10bcfeccb4149e14443d845fd7fb373",
+      "bytes": 130668,
+      "readers": [
+        {
+          "family": "stalk-assembly",
+          "route": "library/stalk-assembly/teaching-stalk-r01",
+          "role": "family-media"
+        },
+        {
+          "family": "stalk-assembly",
+          "route": "library/stalk-assembly/teaching-stalk-r01",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "assembly:bp3d:hypothalamus-pituitary",
+        "revision": "teaching-stalk-r01",
+        "export": "stalk",
+        "record": "assemblies/hypothalamus-pituitary/asset.record.json"
+      }
+    },
+    "assemblies/marrow-comparison/2026-10-23/bp3d-right-femur-exterior.glb": {
+      "sha256": "3dc45bb8496f9796cf418257a39aa88afc2cc60cbd3738335a391eaec9632745",
+      "bytes": 57812,
+      "readers": [
+        {
+          "family": "marrow-assembly",
+          "route": "library/marrow-assembly/comparison-20261023",
+          "role": "family-media"
+        },
+        {
+          "family": "marrow-assembly",
+          "route": "library/marrow-assembly/comparison-20261023",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:bp3d:right-femur-exterior",
+        "revision": "comparison-2026-10-23",
+        "export": "exterior",
+        "record": "assemblies/marrow-comparison/femur-exterior/asset.record.json"
+      }
+    },
+    "assemblies/marrow-comparison/2026-10-23/illustrative-container-r03.glb": {
+      "sha256": "17d3b2a45d4bc369cbb3ca770a48c550e0bf5438f8112b7a7bd31d2cbd12a02c",
+      "bytes": 64456,
+      "readers": [
+        {
+          "family": "marrow-assembly",
+          "route": "library/marrow-assembly/comparison-20261023",
+          "role": "family-media"
+        },
+        {
+          "family": "marrow-assembly",
+          "route": "library/marrow-assembly/comparison-20261023",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "assembly:bp3d:marrow-container",
+        "revision": "illustrative-r03",
+        "export": "container",
+        "record": "assemblies/marrow-comparison/illustrative-container/asset.record.json"
+      }
+    },
+    "assemblies/marrow-comparison/2026-10-23/independent-measured-trabecular-reference.glb": {
+      "sha256": "5b4f9c8c4e0aa3738213e32a0e19f293580acf8a17f29c4c59200bd38be89fca",
+      "bytes": 5323328,
+      "readers": [
+        {
+          "family": "marrow-assembly",
+          "route": "library/marrow-assembly/comparison-20261023",
+          "role": "family-media"
+        },
+        {
+          "family": "marrow-assembly",
+          "route": "library/marrow-assembly/comparison-20261023",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:kuczynski:trabecular-reference",
+        "revision": "comparison-2026-10-23",
+        "export": "reference",
+        "record": "assemblies/marrow-comparison/trabecular-reference/asset.record.json"
+      }
+    },
+    "assemblies/musculoskeletal-teaching/2026-10-23/achilles-right-context.glb": {
+      "sha256": "e38e33c1d0ceb791e4a2ad676dedd7923f53b5ad8d7dc8b195202565609354ea",
+      "bytes": 517676,
+      "readers": [
+        {
+          "family": "achilles-assembly",
+          "route": "library/achilles-assembly/context-20261023",
+          "role": "family-media"
+        },
+        {
+          "family": "achilles-assembly",
+          "route": "library/achilles-assembly/context-20261023",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "assembly:z-anatomy:achilles-context",
+        "revision": "context-20261023",
+        "export": "context",
+        "record": "assemblies/musculoskeletal-teaching/asset.record.json"
+      }
+    },
+    "assemblies/skeletal-teaching/2026-10-23/L3-L4-disc.glb": {
+      "sha256": "d476f7efe89cea84fa3a7670b505e557c328ddae10526cc4083e4c95313b80d5",
+      "bytes": 256144,
+      "readers": [
+        {
+          "family": "cartilage-assembly",
+          "route": "library/cartilage-assembly/l3-l4-disc-2026-10-23",
+          "role": "listed-revision"
+        },
+        {
+          "family": "cartilage-assembly",
+          "route": "library/cartilage-assembly/second-costal-2026-10-23",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "assembly:bp3d:l3-l4-disc",
+        "revision": "l3-l4-disc-2026-10-23",
+        "export": "context",
+        "record": "assemblies/skeletal-teaching/l3-l4-disc/asset.record.json"
+      }
+    },
+    "assemblies/skeletal-teaching/2026-10-23/second-costal.glb": {
+      "sha256": "181d3e175e93702bb52f98535f2ebfe1d9387425dd432f19318161db7db99f05",
+      "bytes": 497332,
+      "readers": [
+        {
+          "family": "cartilage-assembly",
+          "route": "library/cartilage-assembly/second-costal-2026-10-23",
+          "role": "family-media"
+        },
+        {
+          "family": "cartilage-assembly",
+          "route": "library/cartilage-assembly/second-costal-2026-10-23",
+          "role": "listed-revision"
+        }
+      ],
+      "ref": {
+        "asset": "assembly:bp3d:second-costal",
+        "revision": "second-costal-2026-10-23",
+        "export": "context",
+        "record": "assemblies/skeletal-teaching/second-costal/asset.record.json"
+      }
+    },
+    "body/3d/assets/motion/heart_animated_clinical.glb": {
+      "sha256": "17b26d1459c0fbbbc71d051452c4074d1237683ffe02c1a8021d7ac83583857a",
+      "bytes": 8180452,
+      "readers": [
+        {
+          "family": "cardiac-atlas",
+          "route": "library/cardiac-animated/fitted-canonical",
+          "role": "listed-revision"
+        }
+      ],
+      "disposition": {
+        "kind": "unavailable",
+        "evidence": "reviews/heart_exterior/2026-11-01-fitted-applicability/README.md",
+        "reason": "The exact fitted Site animation is unavailable at this delivery path. The retained review verifies historic fitted-to-source correspondence and the pedagogical transform."
+      },
+      "unavailable": "Exact fitted GLB unavailable in the Library. No tracked repository export was identified."
+    },
+    "body/anatomy-workshop-r1/Anatomy_Workshop.blend": {
+      "sha256": "c773480a49471e697e12ca1a710a4c93314217a8683e6ab224b3fa83d9a12fbc",
+      "bytes": 17571351,
+      "readers": [
+        {
+          "family": "body-atlas",
+          "route": "library/body-atlas/anatomy-workshop-r1",
+          "role": "family-media"
+        },
+        {
+          "family": "body-atlas",
+          "route": "library/body-atlas/workshop-r1",
+          "role": "listed-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:workshop:s1233-body",
+        "revision": "native-r1",
+        "export": "editable",
+        "record": "body/anatomy-workshop-r1/asset.record.json"
+      }
+    },
+    "body/anatomy-workshop-r1/Anatomy_Workshop_compact.blend": {
+      "sha256": "8903a92dbae60c24a0c9933724d1ec8078628fcf6f3d170fa589371b158077ba",
+      "bytes": 13596421,
+      "readers": [
+        {
+          "family": "body-atlas",
+          "route": "library/body-atlas/anatomy-workshop-r1",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:workshop:s1233-body",
+        "revision": "compact-r1",
+        "export": "editable",
+        "record": "body/anatomy-workshop-r1/asset.record.json"
+      }
+    },
+    "body/anatomy-workshop-r1/meshes/aorta.glb": {
+      "sha256": "1a20d6322cefb6c6c85c7c8ed95295e8314e568a12420434ccda40beb4f8cc31",
+      "bytes": 1189864,
+      "readers": [
+        {
+          "family": "body-atlas",
+          "route": "library/body-atlas/anatomy-workshop-r1",
+          "role": "family-media"
+        },
+        {
+          "family": "body-atlas",
+          "route": "library/body-atlas/workshop-r1",
+          "role": "listed-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:workshop:s1233-body",
+        "revision": "r1",
+        "export": "aorta",
+        "record": "body/anatomy-workshop-r1/asset.record.json"
+      }
+    },
+    "body/anatomy-workshop-r1/meshes/bladder.glb": {
+      "sha256": "798329114cfcd241d7f8342fc8faa70ff33fdbded6029bb128d82c3d6f50d8c5",
+      "bytes": 1524184,
+      "readers": [
+        {
+          "family": "body-atlas",
+          "route": "library/body-atlas/anatomy-workshop-r1",
+          "role": "family-media"
+        },
+        {
+          "family": "body-atlas",
+          "route": "library/body-atlas/workshop-r1",
+          "role": "listed-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:workshop:s1233-body",
+        "revision": "r1",
+        "export": "bladder",
+        "record": "body/anatomy-workshop-r1/asset.record.json"
+      }
+    },
+    "body/anatomy-workshop-r1/meshes/brain.glb": {
+      "sha256": "51b7ddc3b0564f767bbd5842dee6e05ad0c0505665cc2c5670040af705b4afc5",
+      "bytes": 3142576,
+      "readers": [
+        {
+          "family": "body-atlas",
+          "route": "library/body-atlas/anatomy-workshop-r1",
+          "role": "family-media"
+        },
+        {
+          "family": "body-atlas",
+          "route": "library/body-atlas/workshop-r1",
+          "role": "listed-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:workshop:s1233-body",
+        "revision": "r1",
+        "export": "brain",
+        "record": "body/anatomy-workshop-r1/asset.record.json"
+      }
+    },
+    "body/anatomy-workshop-r1/meshes/bronchial_tree.glb": {
+      "sha256": "2d2d4e269995f11179cfa423a302f144d9d163883ccde0995a2987e83dd2e898",
+      "bytes": 1640504,
+      "readers": [
+        {
+          "family": "body-atlas",
+          "route": "library/body-atlas/anatomy-workshop-r1",
+          "role": "family-media"
+        },
+        {
+          "family": "body-atlas",
+          "route": "library/body-atlas/workshop-r1",
+          "role": "listed-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:workshop:s1233-body",
+        "revision": "r1",
+        "export": "bronchial-tree",
+        "record": "body/anatomy-workshop-r1/asset.record.json"
+      }
+    },
+    "body/anatomy-workshop-r1/meshes/gallbladder.glb": {
+      "sha256": "97f24edd4a5770629d959e11ff74d50d0be5d92866a3e937cd44a3f9510d4bad",
+      "bytes": 2120780,
+      "readers": [
+        {
+          "family": "body-atlas",
+          "route": "library/body-atlas/anatomy-workshop-r1",
+          "role": "family-media"
+        },
+        {
+          "family": "body-atlas",
+          "route": "library/body-atlas/workshop-r1",
+          "role": "listed-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:workshop:s1233-body",
+        "revision": "r1",
+        "export": "gallbladder",
+        "record": "body/anatomy-workshop-r1/asset.record.json"
+      }
+    },
+    "body/anatomy-workshop-r1/meshes/heart.glb": {
+      "sha256": "8c2ac314c97400f3989dbc5e706827dd5134814ae9b6793768fac60b20198a7e",
+      "bytes": 2035436,
+      "readers": [
+        {
+          "family": "body-atlas",
+          "route": "library/body-atlas/anatomy-workshop-r1",
+          "role": "family-media"
+        },
+        {
+          "family": "body-atlas",
+          "route": "library/body-atlas/workshop-r1",
+          "role": "listed-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:workshop:s1233-body",
+        "revision": "r1",
+        "export": "heart",
+        "record": "body/anatomy-workshop-r1/asset.record.json"
+      }
+    },
+    "body/anatomy-workshop-r1/meshes/heart_detailed.glb": {
+      "sha256": "83dd48731d0cc67e8aa61abbd7b03163fb01bcba78f501e9d2c939927aaecf6e",
+      "bytes": 9056304,
+      "readers": [
+        {
+          "family": "body-atlas",
+          "route": "library/body-atlas/anatomy-workshop-r1",
+          "role": "family-media"
+        },
+        {
+          "family": "body-atlas",
+          "route": "library/body-atlas/workshop-r1",
+          "role": "listed-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:workshop:s1233-body",
+        "revision": "r1",
+        "export": "heart-detailed",
+        "record": "body/anatomy-workshop-r1/asset.record.json"
+      }
+    },
+    "body/anatomy-workshop-r1/meshes/kidney_left.glb": {
+      "sha256": "1e99499c4afb6b920475065cb72319e4fcf71426eaa6ea118f6d6fc4b1d78cab",
+      "bytes": 2502280,
+      "readers": [
+        {
+          "family": "body-atlas",
+          "route": "library/body-atlas/anatomy-workshop-r1",
+          "role": "family-media"
+        },
+        {
+          "family": "body-atlas",
+          "route": "library/body-atlas/workshop-r1",
+          "role": "listed-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:workshop:s1233-body",
+        "revision": "r1",
+        "export": "kidney-left",
+        "record": "body/anatomy-workshop-r1/asset.record.json"
+      }
+    },
+    "body/anatomy-workshop-r1/meshes/kidney_right.glb": {
+      "sha256": "02d26dad6603db7426b6b7eca8c7ad851163f064c24a68cde83f9f4e0149d97c",
+      "bytes": 2522628,
+      "readers": [
+        {
+          "family": "body-atlas",
+          "route": "library/body-atlas/anatomy-workshop-r1",
+          "role": "family-media"
+        },
+        {
+          "family": "body-atlas",
+          "route": "library/body-atlas/workshop-r1",
+          "role": "listed-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:workshop:s1233-body",
+        "revision": "r1",
+        "export": "kidney-right",
+        "record": "body/anatomy-workshop-r1/asset.record.json"
+      }
+    },
+    "body/anatomy-workshop-r1/meshes/liver.glb": {
+      "sha256": "78e27dd417702c4f872162ef78b2d044f1cc0aba944c9ac672b00e12b6678362",
+      "bytes": 1861060,
+      "readers": [
+        {
+          "family": "body-atlas",
+          "route": "library/body-atlas/anatomy-workshop-r1",
+          "role": "family-media"
+        },
+        {
+          "family": "body-atlas",
+          "route": "library/body-atlas/workshop-r1",
+          "role": "listed-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:workshop:s1233-body",
+        "revision": "r1",
+        "export": "liver",
+        "record": "body/anatomy-workshop-r1/asset.record.json"
+      }
+    },
+    "body/anatomy-workshop-r1/meshes/lung_left.glb": {
+      "sha256": "6ec2acc585e59f4d11dcc11bbf6bbfdf880a171c8733587bb858fe72476dba9c",
+      "bytes": 2293040,
+      "readers": [
+        {
+          "family": "body-atlas",
+          "route": "library/body-atlas/anatomy-workshop-r1",
+          "role": "family-media"
+        },
+        {
+          "family": "body-atlas",
+          "route": "library/body-atlas/workshop-r1",
+          "role": "listed-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:workshop:s1233-body",
+        "revision": "r1",
+        "export": "lung-left",
+        "record": "body/anatomy-workshop-r1/asset.record.json"
+      }
+    },
+    "body/anatomy-workshop-r1/meshes/lung_right.glb": {
+      "sha256": "232166f23bff9c4c7142147e4e5f51cdb4519bc183c5aeb81ed1b264659f9b8f",
+      "bytes": 2384572,
+      "readers": [
+        {
+          "family": "body-atlas",
+          "route": "library/body-atlas/anatomy-workshop-r1",
+          "role": "family-media"
+        },
+        {
+          "family": "body-atlas",
+          "route": "library/body-atlas/workshop-r1",
+          "role": "listed-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:workshop:s1233-body",
+        "revision": "r1",
+        "export": "lung-right",
+        "record": "body/anatomy-workshop-r1/asset.record.json"
+      }
+    },
+    "body/anatomy-workshop-r1/meshes/pancreas.glb": {
+      "sha256": "a5c3519a56a5edab37ee4f5808cfb884080e1b2b156a5559b650993b3d9ec591",
+      "bytes": 1937248,
+      "readers": [
+        {
+          "family": "body-atlas",
+          "route": "library/body-atlas/anatomy-workshop-r1",
+          "role": "family-media"
+        },
+        {
+          "family": "body-atlas",
+          "route": "library/body-atlas/workshop-r1",
+          "role": "listed-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:workshop:s1233-body",
+        "revision": "r1",
+        "export": "pancreas",
+        "record": "body/anatomy-workshop-r1/asset.record.json"
+      }
+    },
+    "body/anatomy-workshop-r1/meshes/pulmonary_vein.glb": {
+      "sha256": "9dcafbb0fcc625ad7952443e0b6274d200e4a97c9792ccecaa3645bd80214355",
+      "bytes": 1719172,
+      "readers": [
+        {
+          "family": "body-atlas",
+          "route": "library/body-atlas/anatomy-workshop-r1",
+          "role": "family-media"
+        },
+        {
+          "family": "body-atlas",
+          "route": "library/body-atlas/workshop-r1",
+          "role": "listed-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:workshop:s1233-body",
+        "revision": "r1",
+        "export": "pulmonary-vein",
+        "record": "body/anatomy-workshop-r1/asset.record.json"
+      }
+    },
+    "body/anatomy-workshop-r1/meshes/spleen.glb": {
+      "sha256": "de7a5e45c0cecca51c639fee6ba2114a5776e5578781e9705b5c7ca6751f8619",
+      "bytes": 1854852,
+      "readers": [
+        {
+          "family": "body-atlas",
+          "route": "library/body-atlas/anatomy-workshop-r1",
+          "role": "family-media"
+        },
+        {
+          "family": "body-atlas",
+          "route": "library/body-atlas/workshop-r1",
+          "role": "listed-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:workshop:s1233-body",
+        "revision": "r1",
+        "export": "spleen",
+        "record": "body/anatomy-workshop-r1/asset.record.json"
+      }
+    },
+    "body/anatomy-workshop-r1/meshes/stomach.glb": {
+      "sha256": "cc4a9c4bee03d921b9985fa39b8a96021e31dade3237a285a2cac20ff670a8a6",
+      "bytes": 3385504,
+      "readers": [
+        {
+          "family": "body-atlas",
+          "route": "library/body-atlas/anatomy-workshop-r1",
+          "role": "family-media"
+        },
+        {
+          "family": "body-atlas",
+          "route": "library/body-atlas/workshop-r1",
+          "role": "listed-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:workshop:s1233-body",
+        "revision": "r1",
+        "export": "stomach",
+        "record": "body/anatomy-workshop-r1/asset.record.json"
+      }
+    },
+    "body/anatomy-workshop-r1/meshes/trachea.glb": {
+      "sha256": "5390537c1e27e9630ec93d4d5437d29081c26f88e87889834091e3fca47ccd45",
+      "bytes": 2858964,
+      "readers": [
+        {
+          "family": "body-atlas",
+          "route": "library/body-atlas/anatomy-workshop-r1",
+          "role": "family-media"
+        },
+        {
+          "family": "body-atlas",
+          "route": "library/body-atlas/workshop-r1",
+          "role": "listed-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:workshop:s1233-body",
+        "revision": "r1",
+        "export": "trachea",
+        "record": "body/anatomy-workshop-r1/asset.record.json"
+      }
+    },
+    "body/anatomy-workshop-r1/meshes/vertebrae_L3.glb": {
+      "sha256": "823ab88a4cc7d3f9b7ee58a2039521d8fdc41367bb0913fe034133334d99fec4",
+      "bytes": 2035060,
+      "readers": [
+        {
+          "family": "body-atlas",
+          "route": "library/body-atlas/anatomy-workshop-r1",
+          "role": "family-media"
+        },
+        {
+          "family": "body-atlas",
+          "route": "library/body-atlas/workshop-r1",
+          "role": "listed-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:workshop:s1233-body",
+        "revision": "r1",
+        "export": "vertebrae-l3",
+        "record": "body/anatomy-workshop-r1/asset.record.json"
+      }
+    },
+    "body/breathing/Breathing_Assembly.blend": {
+      "sha256": "fc68b49ca75d02d50330e9d5b5d5182843e6d0e7ca4d43d665cbde48ac23b841",
+      "bytes": 42497262,
+      "readers": [
+        {
+          "family": "breathing",
+          "route": "library/breathing/breathing-assembly",
+          "role": "listed-revision"
+        },
+        {
+          "family": "breathing",
+          "route": "library/breathing/dome-motion-r01",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "assembly:workshop:breathing",
+        "revision": "native-r1",
+        "export": "editable",
+        "record": "body/breathing/asset.record.json"
+      }
+    },
+    "body/breathing/diaphragm_breathing.glb": {
+      "sha256": "7aa24dcf98016381c87857c7ec31a7733a78c5b590f56ff6f2f617a342ae4d33",
+      "bytes": 74140,
+      "readers": [
+        {
+          "family": "breathing",
+          "route": "library/breathing/breathing-assembly",
+          "role": "listed-revision"
+        },
+        {
+          "family": "breathing",
+          "route": "library/breathing/dome-motion-r01",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "assembly:workshop:breathing",
+        "revision": "r1",
+        "export": "diaphragm",
+        "record": "body/breathing/asset.record.json"
+      }
+    },
+    "body/breathing/exports/dome-motion-r01/Breathing_Dome.blend": {
+      "sha256": "8dfebe7e811000e8dc1c60333fa91e9ac1a2247224d93ff4893db35c34cdb526",
+      "bytes": 8340874,
+      "readers": [
+        {
+          "family": "breathing",
+          "route": "library/breathing/dome-motion-r01",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "assembly:workshop:breathing",
+        "revision": "dome-motion-r01",
+        "export": "editable",
+        "record": "body/breathing/asset.record.json"
+      }
+    },
+    "body/breathing/gallbladder_breathing.glb": {
+      "sha256": "5c403eeb19149ae9989dd3f26b63f002359c1184a9d22bffd868ac0be45cff4f",
+      "bytes": 2125208,
+      "readers": [
+        {
+          "family": "breathing",
+          "route": "library/breathing/breathing-assembly",
+          "role": "listed-revision"
+        },
+        {
+          "family": "breathing",
+          "route": "library/breathing/dome-motion-r01",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "assembly:workshop:breathing",
+        "revision": "r1",
+        "export": "gallbladder",
+        "record": "body/breathing/asset.record.json"
+      }
+    },
+    "body/breathing/heart_breathing.glb": {
+      "sha256": "3894d51df42a6e5941f0d2b076992d5359279f5e3ddb3b6d4ff6c00f58328086",
+      "bytes": 2037364,
+      "readers": [
+        {
+          "family": "breathing",
+          "route": "library/breathing/breathing-assembly",
+          "role": "listed-revision"
+        },
+        {
+          "family": "breathing",
+          "route": "library/breathing/dome-motion-r01",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "assembly:workshop:breathing",
+        "revision": "r1",
+        "export": "heart",
+        "record": "body/breathing/asset.record.json"
+      }
+    },
+    "body/breathing/kidney_left_breathing.glb": {
+      "sha256": "af69ae49a012f8d5ccc469eb78adaec8fb563b45594de2a4583302cede50262c",
+      "bytes": 2527980,
+      "readers": [
+        {
+          "family": "breathing",
+          "route": "library/breathing/breathing-assembly",
+          "role": "listed-revision"
+        },
+        {
+          "family": "breathing",
+          "route": "library/breathing/dome-motion-r01",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "assembly:workshop:breathing",
+        "revision": "r1",
+        "export": "kidney-left",
+        "record": "body/breathing/asset.record.json"
+      }
+    },
+    "body/breathing/kidney_right_breathing.glb": {
+      "sha256": "819bc96e46a99a0735df1b2ffc802d4e4fed03f888ec5eb73716b33c07ae0ec3",
+      "bytes": 2548328,
+      "readers": [
+        {
+          "family": "breathing",
+          "route": "library/breathing/breathing-assembly",
+          "role": "listed-revision"
+        },
+        {
+          "family": "breathing",
+          "route": "library/breathing/dome-motion-r01",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "assembly:workshop:breathing",
+        "revision": "r1",
+        "export": "kidney-right",
+        "record": "body/breathing/asset.record.json"
+      }
+    },
+    "body/breathing/liver_breathing.glb": {
+      "sha256": "1bc31b52f4b9d326cca6adb339c01a11d497cb0880ede682c8bb52889f5dc49f",
+      "bytes": 1862988,
+      "readers": [
+        {
+          "family": "breathing",
+          "route": "library/breathing/breathing-assembly",
+          "role": "listed-revision"
+        },
+        {
+          "family": "breathing",
+          "route": "library/breathing/dome-motion-r01",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "assembly:workshop:breathing",
+        "revision": "r1",
+        "export": "liver",
+        "record": "body/breathing/asset.record.json"
+      }
+    },
+    "body/breathing/lung_left_breathing.glb": {
+      "sha256": "e3439ed20ea7e5f022b71accd9d474e5bd0a8625498d1398ada402d0c035cee0",
+      "bytes": 2525316,
+      "readers": [
+        {
+          "family": "breathing",
+          "route": "library/breathing/breathing-assembly",
+          "role": "listed-revision"
+        },
+        {
+          "family": "breathing",
+          "route": "library/breathing/dome-motion-r01",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "assembly:workshop:breathing",
+        "revision": "r1",
+        "export": "lung-left",
+        "record": "body/breathing/asset.record.json"
+      }
+    },
+    "body/breathing/lung_right_breathing.glb": {
+      "sha256": "450f49c0733697d3d05f16c4a1f24a28b1ae5f9b09b77f3bf470a00a4386e9b4",
+      "bytes": 2653988,
+      "readers": [
+        {
+          "family": "breathing",
+          "route": "library/breathing/breathing-assembly",
+          "role": "listed-revision"
+        },
+        {
+          "family": "breathing",
+          "route": "library/breathing/dome-motion-r01",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "assembly:workshop:breathing",
+        "revision": "r1",
+        "export": "lung-right",
+        "record": "body/breathing/asset.record.json"
+      }
+    },
+    "body/breathing/pancreas_breathing.glb": {
+      "sha256": "df8b88d8fe5dac619ac5840ddcb57c2968dab0db76086dee2b7925f0c5f53d80",
+      "bytes": 1940428,
+      "readers": [
+        {
+          "family": "breathing",
+          "route": "library/breathing/breathing-assembly",
+          "role": "listed-revision"
+        },
+        {
+          "family": "breathing",
+          "route": "library/breathing/dome-motion-r01",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "assembly:workshop:breathing",
+        "revision": "r1",
+        "export": "pancreas",
+        "record": "body/breathing/asset.record.json"
+      }
+    },
+    "body/breathing/spleen_breathing.glb": {
+      "sha256": "a645df334901e46f24ad44b756d30234ce18bfa74e821d9a1b7ae432a045181b",
+      "bytes": 1856780,
+      "readers": [
+        {
+          "family": "breathing",
+          "route": "library/breathing/breathing-assembly",
+          "role": "listed-revision"
+        },
+        {
+          "family": "breathing",
+          "route": "library/breathing/dome-motion-r01",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "assembly:workshop:breathing",
+        "revision": "r1",
+        "export": "spleen",
+        "record": "body/breathing/asset.record.json"
+      }
+    },
+    "body/breathing/stomach_breathing.glb": {
+      "sha256": "f1e8dfe7918361822503e9f6e5232204960f8c74b45bf9b294556c10d024ca82",
+      "bytes": 3402440,
+      "readers": [
+        {
+          "family": "breathing",
+          "route": "library/breathing/breathing-assembly",
+          "role": "listed-revision"
+        },
+        {
+          "family": "breathing",
+          "route": "library/breathing/dome-motion-r01",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "assembly:workshop:breathing",
+        "revision": "r1",
+        "export": "stomach",
+        "record": "body/breathing/asset.record.json"
+      }
+    },
+    "dental-review/cotton-tweezers-r04/cotton-tweezers.glb": {
+      "sha256": "39627b9d8494033be47285aa61ecfa872f5f4172a987f95b42fa61252cf77a31",
+      "bytes": 591460,
+      "readers": [
+        {
+          "family": "cotton_tweezers",
+          "route": "library/cotton_tweezers/r04",
+          "role": "family-media"
+        },
+        {
+          "family": "cotton_tweezers",
+          "route": "library/cotton_tweezers/r04",
+          "role": "listed-revision"
+        }
+      ],
+      "disposition": {
+        "kind": "external",
+        "evidence": "sites/anatomy-gallery/app/src/content/assets/legacy-dental-assets.json",
+        "reason": "Original cotton tweezers object from the external Dental Review Studio. Its existing delivery receipt owns recovery and the Library route."
+      }
+    },
+    "dental-review/mouth-mirror-r01/mouth-mirror.glb": {
+      "sha256": "8b8d04e835fc33f69625f37f31476a35f6d20cec1b8f60005a99f3ad716a7553",
+      "bytes": 1410928,
+      "readers": [
+        {
+          "family": "mouth_mirror",
+          "route": "library/mouth_mirror/r01",
+          "role": "family-media"
+        },
+        {
+          "family": "mouth_mirror",
+          "route": "library/mouth_mirror/r01",
+          "role": "listed-revision"
+        }
+      ],
+      "disposition": {
+        "kind": "external",
+        "evidence": "sites/anatomy-gallery/app/src/content/assets/legacy-dental-assets.json",
+        "reason": "Original mouth mirror object from the external Dental Review Studio. Its existing delivery receipt owns recovery and the Library route."
+      }
+    },
+    "heart/Cardiac_Atlas/Cardiac_Atlas.blend": {
+      "sha256": "9655499d29c8498de84c172c2e160d329950ecedf06bee86c2668e0f42b9c837",
+      "bytes": 42381432,
+      "readers": [
+        {
+          "family": "cardiac-atlas",
+          "route": "library/cardiac-atlas/great-vessels-ed-r01",
+          "role": "family-media"
+        },
+        {
+          "family": "cardiac-atlas",
+          "route": "library/cardiac-static/static-ed",
+          "role": "listed-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:heart:cardiac-atlas-static",
+        "revision": "native-r01",
+        "export": "editable",
+        "record": "heart/Cardiac_Atlas/asset.record.json"
+      }
+    },
+    "heart/Cardiac_Atlas/exports/Cardiac_Atlas_Clinical_Cutaway_ED.glb": {
+      "sha256": "ca35a510737041d538a43cb24f494a1463605bf6b9bd511a01abf52c15bed12a",
+      "bytes": 3778568,
+      "readers": [
+        {
+          "family": "cardiac-atlas",
+          "route": "library/cardiac-atlas/great-vessels-ed-r01",
+          "role": "family-media"
+        },
+        {
+          "family": "cardiac-atlas",
+          "route": "library/cardiac-static/static-ed",
+          "role": "listed-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:heart:cardiac-atlas-static",
+        "revision": "static-ed-r01",
+        "export": "clinical-cutaway",
+        "record": "heart/Cardiac_Atlas/asset.record.json"
+      }
+    },
+    "heart/Cardiac_Atlas/exports/Cardiac_Atlas_Clinical_Full_ED.glb": {
+      "sha256": "32802a9a36963c2f8935f632f28ba3602d1ce004919e5e203ff87bbdcb52fa2f",
+      "bytes": 4864488,
+      "readers": [
+        {
+          "family": "cardiac-atlas",
+          "route": "library/cardiac-atlas/great-vessels-ed-r01",
+          "role": "family-media"
+        },
+        {
+          "family": "cardiac-atlas",
+          "route": "library/cardiac-static/static-ed",
+          "role": "listed-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:heart:cardiac-atlas-static",
+        "revision": "static-ed-r01",
+        "export": "clinical-full",
+        "record": "heart/Cardiac_Atlas/asset.record.json"
+      }
+    },
+    "heart/Cardiac_Atlas/exports/Cardiac_Walls_Baked_PBR_ED.glb": {
+      "sha256": "b157375af19ff503580b67004d5b9c342266beb68f249ef86ecbc47061b4d945",
+      "bytes": 8642164,
+      "readers": [
+        {
+          "family": "cardiac-atlas",
+          "route": "library/cardiac-atlas/great-vessels-ed-r01",
+          "role": "family-media"
+        },
+        {
+          "family": "cardiac-atlas",
+          "route": "library/cardiac-static/static-ed",
+          "role": "listed-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:heart:cardiac-atlas-static",
+        "revision": "static-ed-r01",
+        "export": "wall-pbr",
+        "record": "heart/Cardiac_Atlas/asset.record.json"
+      }
+    },
+    "heart/Cardiac_Atlas/exports/STL_RAS_mm/bloodpool_LA.stl": {
+      "sha256": "cf5275f235a0c8dd95c9c9ea47d810b107c99cf8ca30553a3083400370d523bd",
+      "bytes": 566484,
+      "readers": [
+        {
+          "family": "cardiac-atlas",
+          "route": "library/cardiac-atlas/great-vessels-ed-r01",
+          "role": "family-media"
+        },
+        {
+          "family": "cardiac-atlas",
+          "route": "library/cardiac-static/static-ed",
+          "role": "listed-revision"
+        }
+      ],
+      "disposition": {
+        "kind": "frozen",
+        "evidence": "heart/Cardiac_Atlas/docs/README.md",
+        "reason": "Original RAS-millimetre Cardiac Atlas reference mesh. Keep the exact legacy STL delivery; the governed Gallery static and motion lessons use distinct exports."
+      }
+    },
+    "heart/Cardiac_Atlas/exports/STL_RAS_mm/bloodpool_LV.stl": {
+      "sha256": "ca6c06345a8c31f26bc836227fe72fbbeca27cd81de5a64d7a2eb9d1734c1cf9",
+      "bytes": 566484,
+      "readers": [
+        {
+          "family": "cardiac-atlas",
+          "route": "library/cardiac-atlas/great-vessels-ed-r01",
+          "role": "family-media"
+        },
+        {
+          "family": "cardiac-atlas",
+          "route": "library/cardiac-static/static-ed",
+          "role": "listed-revision"
+        }
+      ],
+      "disposition": {
+        "kind": "frozen",
+        "evidence": "heart/Cardiac_Atlas/docs/README.md",
+        "reason": "Original RAS-millimetre Cardiac Atlas reference mesh. Keep the exact legacy STL delivery; the governed Gallery static and motion lessons use distinct exports."
+      }
+    },
+    "heart/Cardiac_Atlas/exports/STL_RAS_mm/bloodpool_RA.stl": {
+      "sha256": "66e74244006b7710e047918857350f203c61e083d8264bb3c577d24a33e0f483",
+      "bytes": 566484,
+      "readers": [
+        {
+          "family": "cardiac-atlas",
+          "route": "library/cardiac-atlas/great-vessels-ed-r01",
+          "role": "family-media"
+        },
+        {
+          "family": "cardiac-atlas",
+          "route": "library/cardiac-static/static-ed",
+          "role": "listed-revision"
+        }
+      ],
+      "disposition": {
+        "kind": "frozen",
+        "evidence": "heart/Cardiac_Atlas/docs/README.md",
+        "reason": "Original RAS-millimetre Cardiac Atlas reference mesh. Keep the exact legacy STL delivery; the governed Gallery static and motion lessons use distinct exports."
+      }
+    },
+    "heart/Cardiac_Atlas/exports/STL_RAS_mm/bloodpool_RV.stl": {
+      "sha256": "ccf619776d4ccf36a5264ff3d2a5cfa63364f282a9b291c51c77c51b0bcc6e27",
+      "bytes": 566484,
+      "readers": [
+        {
+          "family": "cardiac-atlas",
+          "route": "library/cardiac-atlas/great-vessels-ed-r01",
+          "role": "family-media"
+        },
+        {
+          "family": "cardiac-atlas",
+          "route": "library/cardiac-static/static-ed",
+          "role": "listed-revision"
+        }
+      ],
+      "disposition": {
+        "kind": "frozen",
+        "evidence": "heart/Cardiac_Atlas/docs/README.md",
+        "reason": "Original RAS-millimetre Cardiac Atlas reference mesh. Keep the exact legacy STL delivery; the governed Gallery static and motion lessons use distinct exports."
+      }
+    },
+    "heart/Cardiac_Atlas/exports/STL_RAS_mm/interatrial_septum.stl": {
+      "sha256": "4c627f3a666df8e78783c9feed1607c38fd33ba49d78f65e1634cb23b9722476",
+      "bytes": 92084,
+      "readers": [
+        {
+          "family": "cardiac-atlas",
+          "route": "library/cardiac-atlas/great-vessels-ed-r01",
+          "role": "family-media"
+        },
+        {
+          "family": "cardiac-atlas",
+          "route": "library/cardiac-static/static-ed",
+          "role": "listed-revision"
+        }
+      ],
+      "disposition": {
+        "kind": "frozen",
+        "evidence": "heart/Cardiac_Atlas/docs/README.md",
+        "reason": "Original RAS-millimetre Cardiac Atlas reference mesh. Keep the exact legacy STL delivery; the governed Gallery static and motion lessons use distinct exports."
+      }
+    },
+    "heart/Cardiac_Atlas/exports/STL_RAS_mm/interventricular_septum.stl": {
+      "sha256": "865e4c50bc5813c9e7f9f7ad9a8c08c23a7e2d2c0155a798a201c07f1f3a5a4d",
+      "bytes": 440884,
+      "readers": [
+        {
+          "family": "cardiac-atlas",
+          "route": "library/cardiac-atlas/great-vessels-ed-r01",
+          "role": "family-media"
+        },
+        {
+          "family": "cardiac-atlas",
+          "route": "library/cardiac-static/static-ed",
+          "role": "listed-revision"
+        }
+      ],
+      "disposition": {
+        "kind": "frozen",
+        "evidence": "heart/Cardiac_Atlas/docs/README.md",
+        "reason": "Original RAS-millimetre Cardiac Atlas reference mesh. Keep the exact legacy STL delivery; the governed Gallery static and motion lessons use distinct exports."
+      }
+    },
+    "heart/Cardiac_Atlas/exports/STL_RAS_mm/wall_LA.stl": {
+      "sha256": "4dafb92b3f535147bd98de3210e7c5ac73d5bc8bbd618a030bfadc2deea65e62",
+      "bytes": 1132884,
+      "readers": [
+        {
+          "family": "cardiac-atlas",
+          "route": "library/cardiac-atlas/great-vessels-ed-r01",
+          "role": "family-media"
+        },
+        {
+          "family": "cardiac-atlas",
+          "route": "library/cardiac-static/static-ed",
+          "role": "listed-revision"
+        }
+      ],
+      "disposition": {
+        "kind": "frozen",
+        "evidence": "heart/Cardiac_Atlas/docs/README.md",
+        "reason": "Original RAS-millimetre Cardiac Atlas reference mesh. Keep the exact legacy STL delivery; the governed Gallery static and motion lessons use distinct exports."
+      }
+    },
+    "heart/Cardiac_Atlas/exports/STL_RAS_mm/wall_LV.stl": {
+      "sha256": "c84b508c15618d54cc7ba34c307cfdd96b9d52852bc43a28d73e08b20a2fbe73",
+      "bytes": 1212384,
+      "readers": [
+        {
+          "family": "cardiac-atlas",
+          "route": "library/cardiac-atlas/great-vessels-ed-r01",
+          "role": "family-media"
+        },
+        {
+          "family": "cardiac-atlas",
+          "route": "library/cardiac-static/static-ed",
+          "role": "listed-revision"
+        }
+      ],
+      "disposition": {
+        "kind": "frozen",
+        "evidence": "heart/Cardiac_Atlas/docs/README.md",
+        "reason": "Original RAS-millimetre Cardiac Atlas reference mesh. Keep the exact legacy STL delivery; the governed Gallery static and motion lessons use distinct exports."
+      }
+    },
+    "heart/Cardiac_Atlas/exports/STL_RAS_mm/wall_RA.stl": {
+      "sha256": "d093e91752b4a30eff920e9a29101e460ee8f2a9f0600dc5a6af3f5b4c5defd5",
+      "bytes": 1132884,
+      "readers": [
+        {
+          "family": "cardiac-atlas",
+          "route": "library/cardiac-atlas/great-vessels-ed-r01",
+          "role": "family-media"
+        },
+        {
+          "family": "cardiac-atlas",
+          "route": "library/cardiac-static/static-ed",
+          "role": "listed-revision"
+        }
+      ],
+      "disposition": {
+        "kind": "frozen",
+        "evidence": "heart/Cardiac_Atlas/docs/README.md",
+        "reason": "Original RAS-millimetre Cardiac Atlas reference mesh. Keep the exact legacy STL delivery; the governed Gallery static and motion lessons use distinct exports."
+      }
+    },
+    "heart/Cardiac_Atlas/exports/STL_RAS_mm/wall_RV.stl": {
+      "sha256": "571a03206ccd1d08bda4848afdfd19882ddff361b33f3682c0b2cdcc32b4bac0",
+      "bytes": 1132884,
+      "readers": [
+        {
+          "family": "cardiac-atlas",
+          "route": "library/cardiac-atlas/great-vessels-ed-r01",
+          "role": "family-media"
+        },
+        {
+          "family": "cardiac-atlas",
+          "route": "library/cardiac-static/static-ed",
+          "role": "listed-revision"
+        }
+      ],
+      "disposition": {
+        "kind": "frozen",
+        "evidence": "heart/Cardiac_Atlas/docs/README.md",
+        "reason": "Original RAS-millimetre Cardiac Atlas reference mesh. Keep the exact legacy STL delivery; the governed Gallery static and motion lessons use distinct exports."
+      }
+    },
+    "heart/Cardiac_Atlas/exports/teaching-economy-r01/Cardiac_Atlas_Clinical_Full_ED.glb": {
+      "sha256": "342e445b8d460458d322a7e5db875d462867b1e7f99043c711bce73c34c9a813",
+      "bytes": 4248224,
+      "readers": [
+        {
+          "family": "cardiac-atlas",
+          "route": "library/cardiac-static/teaching-economy-r01",
+          "role": "listed-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:heart:cardiac-atlas-static",
+        "revision": "teaching-economy-r01",
+        "export": "clinical-full",
+        "record": "heart/Cardiac_Atlas/asset.record.json"
+      }
+    },
+    "heart/Cardiac_Atlas_Animated/Cardiac_Atlas_Animated_Source.blend": {
+      "sha256": "6c8051cc269c9ca8af392ac58f19e22c24cde678b4c95159f5e3a6a19c20d01b",
+      "bytes": 42393708,
+      "readers": [
+        {
+          "family": "cardiac-atlas",
+          "route": "library/cardiac-animated/repository-source",
+          "role": "listed-revision"
+        },
+        {
+          "family": "cardiac-atlas",
+          "route": "library/cardiac-atlas/great-vessels-ed-r01",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:heart:cardiac-atlas",
+        "revision": "native-r01",
+        "export": "editable",
+        "record": "heart/Cardiac_Atlas_Animated/asset.record.json"
+      }
+    },
+    "heart/Cardiac_Atlas_Animated/Heart_Clinical_Animated.glb": {
+      "sha256": "6912d439271c3525230a90fe403d586000e6a66ab37f82bf0419604181e52263",
+      "bytes": 8180224,
+      "readers": [
+        {
+          "family": "cardiac-atlas",
+          "route": "library/cardiac-animated/repository-source",
+          "role": "listed-revision"
+        },
+        {
+          "family": "cardiac-atlas",
+          "route": "library/cardiac-atlas/great-vessels-ed-r01",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:heart:cardiac-atlas",
+        "revision": "portable-motion-r01",
+        "export": "clinical",
+        "record": "heart/Cardiac_Atlas_Animated/asset.record.json"
+      }
+    },
+    "heart/Cardiac_Atlas_Animated/Heart_Cutaway_Animated.glb": {
+      "sha256": "98523f91fd04e2a801b8024a3f36039675832a2d2e1d163c6f053d849be4902f",
+      "bytes": 5543020,
+      "readers": [
+        {
+          "family": "cardiac-atlas",
+          "route": "library/cardiac-animated/repository-source",
+          "role": "listed-revision"
+        },
+        {
+          "family": "cardiac-atlas",
+          "route": "library/cardiac-atlas/great-vessels-ed-r01",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:heart:cardiac-atlas",
+        "revision": "portable-motion-r01",
+        "export": "cutaway",
+        "record": "heart/Cardiac_Atlas_Animated/asset.record.json"
+      }
+    },
+    "heart/Cardiac_Atlas_Animated/Heart_Tissue_Animated.glb": {
+      "sha256": "b167fddf2ede85db82306b37d7455db51148c0f81b386e7c4d2e7edf01f52cb1",
+      "bytes": 14657880,
+      "readers": [
+        {
+          "family": "cardiac-atlas",
+          "route": "library/cardiac-animated/repository-source",
+          "role": "listed-revision"
+        },
+        {
+          "family": "cardiac-atlas",
+          "route": "library/cardiac-atlas/great-vessels-ed-r01",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:heart:cardiac-atlas",
+        "revision": "portable-motion-r01",
+        "export": "tissue",
+        "record": "heart/Cardiac_Atlas_Animated/asset.record.json"
+      }
+    },
+    "heart/Cardiac_Atlas_Animated/exports/shared-source-r01/cardiac-static-ed.glb": {
+      "sha256": "cd392e97d472c10fc4ab0b6f8679b3496f09d27ce527f257e434b1dc998e4480",
+      "bytes": 3501292,
+      "readers": [
+        {
+          "family": "cardiac-atlas",
+          "route": "library/cardiac-atlas/great-vessels-ed-r01",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:heart:cardiac-atlas",
+        "revision": "shared-source-r01",
+        "export": "cardiac-static-ed",
+        "record": "heart/Cardiac_Atlas_Animated/asset.record.json"
+      }
+    },
+    "heart/Cardiac_Atlas_Animated/exports/shared-source-r01/ventricular-wall-motion.glb": {
+      "sha256": "9c6ac294f4080165770824b61d2d813b6a7f537261d80c7177fc387336866413",
+      "bytes": 850364,
+      "readers": [
+        {
+          "family": "cardiac-atlas",
+          "route": "library/cardiac-atlas/wall-motion-shared-r01",
+          "role": "listed-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:heart:cardiac-atlas",
+        "revision": "shared-source-r01",
+        "export": "ventricular-wall-motion",
+        "record": "heart/Cardiac_Atlas_Animated/asset.record.json"
+      }
+    },
+    "heart/Cardiac_Atlas_Animated/exports/wall-motion-r01/ventricular-wall-motion.glb": {
+      "sha256": "a57fc0eec4cb8d26dfc50ff0db9360fea346a12096236b64f9d4492695c72905",
+      "bytes": 1158724,
+      "readers": [
+        {
+          "family": "cardiac-atlas",
+          "route": "library/cardiac-animated/wall-motion-r01",
+          "role": "listed-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:heart:cardiac-atlas",
+        "revision": "wall-motion-r01",
+        "export": "ventricular-wall-motion",
+        "record": "heart/Cardiac_Atlas_Animated/asset.record.json"
+      }
+    },
+    "heart/exterior-presentation-r01/exports/animated-source-opaque-exterior.glb": {
+      "sha256": "aec9c13d3b9a0fa919bdc362ed17c582f895f77fc44f5e29cd184cea57599e0f",
+      "bytes": 8158708,
+      "readers": [
+        {
+          "family": "cardiac-exterior",
+          "route": "library/cardiac-exterior/animated-source-opaque-exterior",
+          "role": "listed-revision"
+        },
+        {
+          "family": "cardiac-exterior",
+          "route": "library/cardiac-exterior/static-opaque-exterior-r02",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:heart:opaque-exterior",
+        "revision": "animated-source-r01",
+        "export": "exterior",
+        "record": "heart/exterior-presentation-r01/asset.record.json"
+      }
+    },
+    "heart/exterior-presentation-r01/exports/static-opaque-exterior.glb": {
+      "sha256": "595380d0aff153db4494fc5f9e8ffba062d0732c2bf0886242ebe1a188d3806f",
+      "bytes": 8951936,
+      "readers": [
+        {
+          "family": "cardiac-exterior",
+          "route": "library/cardiac-exterior/static-opaque-exterior",
+          "role": "listed-revision"
+        },
+        {
+          "family": "cardiac-exterior",
+          "route": "library/cardiac-exterior/static-opaque-exterior-r02",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:heart:opaque-exterior",
+        "revision": "static-r01",
+        "export": "exterior",
+        "record": "heart/exterior-presentation-r01/asset.record.json"
+      }
+    },
+    "heart/exterior-presentation-r02/exports/static-opaque-exterior-repacked.glb": {
+      "sha256": "221c8be48c44f49ebbc4a52b2ce4094a5c4b15ea1be01db39038ac8a8f4a52b5",
+      "bytes": 3408256,
+      "readers": [
+        {
+          "family": "cardiac-exterior",
+          "route": "library/cardiac-exterior/static-opaque-exterior-r02",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:heart:opaque-exterior",
+        "revision": "static-r02",
+        "export": "exterior",
+        "record": "heart/exterior-presentation-r01/asset.record.json"
+      }
+    },
+    "lessons/one-breath/terminal-study-r02/terminal-airspaces.glb": {
+      "sha256": "77f19cc2b261b6d11413c8bb78c949ab8d9c78091f33c47a3dc82a9543781158",
+      "bytes": 171748,
+      "readers": [
+        {
+          "family": "terminal-airspaces-r02",
+          "route": "library/terminal-airspaces-r02",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:authored:terminal-airspaces",
+        "revision": "terminal-study-r02",
+        "export": "cutaway",
+        "record": "lessons/one-breath/terminal-study-r02/asset.record.json"
+      }
+    },
+    "models/adipose-context/r01/selected-source-pads.glb": {
+      "sha256": "e56010adfe8aa587db77c0cd847c0dcdfbb8951bc90c92eddb27643512a38531",
+      "bytes": 49724,
+      "readers": [
+        {
+          "family": "adipose-context",
+          "route": "library/adipose-context/r01",
+          "role": "family-media"
+        },
+        {
+          "family": "adipose-context",
+          "route": "library/adipose-context/r01",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:authored:adipose-pads",
+        "revision": "r01",
+        "export": "teaching",
+        "record": "models/adipose-context/asset.record.json"
+      }
+    },
+    "models/adrenals/exports/atlas-locator-r02/atlas-profiles.glb": {
+      "sha256": "de52cd888b8e169e2b729376d749975db05fa4cbca13a65a5e2f943aaf233afa",
+      "bytes": 213016,
+      "readers": [
+        {
+          "family": "adrenals",
+          "route": "library/adrenals/atlas-locator-r02",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:bp3d:adrenals",
+        "revision": "atlas-locator-r02",
+        "export": "teaching",
+        "record": "models/adrenals/asset.record.json"
+      }
+    },
+    "models/adrenals/exports/source-candidate-01/adrenals_source_frame.glb": {
+      "sha256": "c7de1afa5394a7f64b106a62ff979eaa9e0b428db23a13fa34340c2d38ba13a7",
+      "bytes": 115440,
+      "readers": [
+        {
+          "family": "adrenals",
+          "route": "library/adrenals/atlas-locator-r02",
+          "role": "family-media"
+        },
+        {
+          "family": "adrenals",
+          "route": "library/adrenals/source-candidate-01",
+          "role": "listed-revision"
+        }
+      ],
+      "disposition": {
+        "kind": "replay-only",
+        "evidence": "models/adrenals/asset.record.json",
+        "reason": "Exact unedited gland geometry supplies the selected interpreted edition. Preserve its older Library route."
+      }
+    },
+    "models/aorta/exports/metadata-cleanup-r01/aorta.glb": {
+      "sha256": "f3c68980cbdbfbc1142751062e79d15f96e4d0dc6690e12d42d294c9d4d3b4ef",
+      "bytes": 1189384,
+      "readers": [
+        {
+          "family": "aorta",
+          "route": "library/aorta/metadata-cleanup-r01",
+          "role": "family-media"
+        },
+        {
+          "family": "aorta",
+          "route": "library/aorta/metadata-cleanup-r01",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:s1233:aorta",
+        "revision": "metadata-cleanup-r01",
+        "export": "teaching",
+        "record": "models/aorta/asset.record.json"
+      }
+    },
+    "models/aortic_tree_z/exports/r02/aortic_tree_z_source_frame.glb": {
+      "sha256": "d4b3dbd2d09fd76795f47bb96844acdeba5f1b4f48dd630f2a294f33816deaeb",
+      "bytes": 881168,
+      "readers": [
+        {
+          "family": "aortic_tree_z",
+          "route": "library/aortic_tree_z/r02",
+          "role": "listed-revision"
+        },
+        {
+          "family": "aortic_tree_z",
+          "route": "library/aortic_tree_z/teaching-economy-r01",
+          "role": "family-media"
+        }
+      ],
+      "disposition": {
+        "kind": "replay-only",
+        "evidence": "models/aortic_tree_z/asset.record.json",
+        "reason": "Original scoped r02 study supplies the selected edition and retains its Library route."
+      }
+    },
+    "models/aortic_tree_z/exports/teaching-economy-r01/aortic_tree_z_source_frame.glb": {
+      "sha256": "a5835c72254467451cd295b7bcae5115a93c7a3df8de87e593a857a8929998b6",
+      "bytes": 700032,
+      "readers": [
+        {
+          "family": "aortic_tree_z",
+          "route": "library/aortic_tree_z/teaching-economy-r01",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:z-anatomy:aortic-tree",
+        "revision": "teaching-economy-r01",
+        "export": "teaching",
+        "record": "models/aortic_tree_z/asset.record.json"
+      }
+    },
+    "models/bladder/exports/hra-female-context-r03/bladder_hra_female_context_r03.glb": {
+      "sha256": "91f04d1c831a61944da116184f389461517587c90c91fd94e199fba1619aa6b9",
+      "bytes": 2449600,
+      "readers": [
+        {
+          "family": "bladder",
+          "route": "library/bladder/hra-female-context-r03",
+          "role": "listed-revision"
+        },
+        {
+          "family": "bladder",
+          "route": "library/bladder/pelvic-base-r01",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:hra:bladder",
+        "revision": "hra-female-context-r03",
+        "export": "pelvic-context",
+        "record": "models/bladder/asset.record.json"
+      }
+    },
+    "models/bladder/exports/metadata-cleanup-r01/bladder.glb": {
+      "sha256": "6ee9d015de96057953452403bcfd2f2d9aac991fd218bfb3cf5f0e4c57c6841a",
+      "bytes": 1523484,
+      "readers": [
+        {
+          "family": "bladder",
+          "route": "library/bladder/metadata-cleanup-r01",
+          "role": "listed-revision"
+        },
+        {
+          "family": "bladder",
+          "route": "library/bladder/pelvic-base-r01",
+          "role": "family-media"
+        }
+      ],
+      "disposition": {
+        "kind": "historical",
+        "evidence": "reviews/bladder/2026-10-23-metadata-cleanup-r01/record.json",
+        "reason": "Earlier TotalSegmentator metadata-cleanup study. Its reviewed role remains distinct from the maintained HRA pelvic export."
+      }
+    },
+    "models/bladder/exports/pelvic-base-r01/bladder-pelvic-base.glb": {
+      "sha256": "07de72fc8f3b152291be30f24e24369a08af1232bb1a18f1cb90cdd2440aa15a",
+      "bytes": 1271856,
+      "readers": [
+        {
+          "family": "bladder",
+          "route": "library/bladder/pelvic-base-r01",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:hra:bladder",
+        "revision": "pelvic-base-r01",
+        "export": "reference",
+        "record": "models/bladder/asset.record.json"
+      }
+    },
+    "models/blood_cell_study/exports/authored-r05/blood-cell-authored-study-r05.glb": {
+      "sha256": "4c7c738b3ca6ae6cc7e44a449be0f7d26d04ceb9975e43d3b834a2caad96618c",
+      "bytes": 3461004,
+      "readers": [
+        {
+          "family": "blood_cell_study",
+          "route": "library/blood_cell_study/authored-r05",
+          "role": "listed-revision"
+        },
+        {
+          "family": "blood_cell_study",
+          "route": "library/blood_cell_study/teaching-economy-r01",
+          "role": "family-media"
+        }
+      ],
+      "disposition": {
+        "kind": "replay-only",
+        "evidence": "models/blood_cell_study/asset.record.json",
+        "reason": "Original authored r05 supplies the selected teaching economy output. Preserve its exact Library route."
+      }
+    },
+    "models/blood_cell_study/exports/teaching-economy-r01/blood-cell-authored-study-r05.glb": {
+      "sha256": "cd34b007869be3d77a0e8493b21c51f5bd99fc86c0e496aee9716f698055d4b6",
+      "bytes": 2722128,
+      "readers": [
+        {
+          "family": "blood_cell_study",
+          "route": "library/blood_cell_study/teaching-economy-r01",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:authored:blood-cell-forms",
+        "revision": "teaching-economy-r01",
+        "export": "teaching",
+        "record": "models/blood_cell_study/asset.record.json"
+      }
+    },
+    "models/blood_cell_study/source/blood-cell-authored-study-r05-public.blend": {
+      "sha256": "f3123f0c84444ada60a2c0abe81520b166da4a4be69ba447211c11ada2191ad1",
+      "bytes": 8560432,
+      "readers": [
+        {
+          "family": "blood_cell_study",
+          "route": "library/blood_cell_study/authored-r05",
+          "role": "listed-revision"
+        },
+        {
+          "family": "blood_cell_study",
+          "route": "library/blood_cell_study/teaching-economy-r01",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:authored:blood-cell-forms",
+        "revision": "native-r05",
+        "export": "editable",
+        "record": "models/blood_cell_study/asset.record.json"
+      }
+    },
+    "models/bone_marrow/exports/authored-source-cutaway-r05/marrow_cutaway.glb": {
+      "sha256": "7b21b74fb3712b2816801337bd4d0732ef8bb035a999ad36558b8235609cfe02",
+      "bytes": 8770012,
+      "readers": [
+        {
+          "family": "bone_marrow",
+          "route": "library/bone_marrow/authored-source-cutaway-r05",
+          "role": "listed-revision"
+        },
+        {
+          "family": "bone_marrow",
+          "route": "library/bone_marrow/teaching-economy-r01",
+          "role": "family-media"
+        }
+      ],
+      "disposition": {
+        "kind": "replay-only",
+        "evidence": "models/bone_marrow/asset.record.json",
+        "reason": "Exact control for the selected teaching lattice. Preserves its independently reviewed crop and old route."
+      }
+    },
+    "models/bone_marrow/exports/teaching-economy-r01/marrow_cutaway.glb": {
+      "sha256": "98c2e5ababce25387867803659b77f04ff1849d29c48fab65ad09b387e75b3d7",
+      "bytes": 4218116,
+      "readers": [
+        {
+          "family": "bone_marrow",
+          "route": "library/bone_marrow/teaching-economy-r01",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:bp3d:femoral-marrow-cutaway",
+        "revision": "teaching-economy-r01",
+        "export": "teaching",
+        "record": "models/bone_marrow/asset.record.json"
+      }
+    },
+    "models/brain/exports/bodyparts3d-4.0-atlas-r2/brain-source-frame.glb": {
+      "sha256": "26d39768e2882daee034f997a8d594e915283b5f8a176a8bb60003944a45b886",
+      "bytes": 4415384,
+      "readers": [
+        {
+          "family": "brain",
+          "route": "library/brain/bodyparts3d-4.0-atlas-r2",
+          "role": "listed-revision"
+        },
+        {
+          "family": "brain",
+          "route": "library/brain/teaching-economy-r02",
+          "role": "family-media"
+        }
+      ],
+      "disposition": {
+        "kind": "replay-only",
+        "evidence": "models/brain/asset.record.json",
+        "reason": "Underlying original atlas GLB for the selected normal repack. Preserve its older route."
+      }
+    },
+    "models/brain/exports/metadata-cleanup-r01/brain.glb": {
+      "sha256": "22c0740411c3ef80ed40ca2637dda47e4271bd877ab200602c154c7a2893494a",
+      "bytes": 3141876,
+      "readers": [
+        {
+          "family": "brain",
+          "route": "library/brain/metadata-cleanup-r01",
+          "role": "listed-revision"
+        },
+        {
+          "family": "brain",
+          "route": "library/brain/teaching-economy-r02",
+          "role": "family-media"
+        }
+      ],
+      "disposition": {
+        "kind": "historical",
+        "evidence": "models/brain/recipes/metadata/approved-patch.json",
+        "reason": "Old metadata-cleanup derivative is an independently authored Workshop presentation, not a BP3D derivative."
+      }
+    },
+    "models/brain/exports/teaching-economy-r02/brain-source-frame.glb": {
+      "sha256": "fbd8034279b9119ffb8e7ee5e99208c06c5851d18be753283e8a871a6f1aec3a",
+      "bytes": 3446724,
+      "readers": [
+        {
+          "family": "brain",
+          "route": "library/brain/teaching-economy-r02",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:bp3d:brain-exterior",
+        "revision": "teaching-economy-r02",
+        "export": "teaching",
+        "record": "models/brain/asset.record.json"
+      }
+    },
+    "models/breasts_hra/exports/source-candidate-02/breasts_hra_native_frame.glb": {
+      "sha256": "905865c4382fb109d14fca74c8ffe809e190f44e9d3086144c3d1d7c3be53964",
+      "bytes": 37499672,
+      "readers": [
+        {
+          "family": "breasts_hra",
+          "route": "library/breasts_hra/source-candidate-02",
+          "role": "listed-revision"
+        },
+        {
+          "family": "breasts_hra",
+          "route": "library/breasts_hra/teaching-economy-r01",
+          "role": "family-media"
+        }
+      ],
+      "disposition": {
+        "kind": "replay-only",
+        "evidence": "models/breasts_hra/asset.record.json",
+        "reason": "Exact retained package replay input. Preserve its existing Library route and byte identity."
+      }
+    },
+    "models/breasts_hra/exports/teaching-economy-r01/breasts_hra_native_frame.glb": {
+      "sha256": "2a7d6d05e06fa8d86adffdf0fd324389cf23ac736b3b659f7c227b96e499fe51",
+      "bytes": 32567624,
+      "readers": [
+        {
+          "family": "breasts_hra",
+          "route": "library/breasts_hra/teaching-economy-r01",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:hra:breasts",
+        "revision": "teaching-economy-r01",
+        "export": "reference",
+        "record": "models/breasts_hra/asset.record.json"
+      }
+    },
+    "models/bronchial_tree/exports/authored-central-fairing-r13/bronchial_central_fairing.glb": {
+      "sha256": "c9e2eb595d677203b52aa870a9f0203f059a8f686a65056983fcc59ccd607587",
+      "bytes": 10655808,
+      "readers": [
+        {
+          "family": "bronchial_tree",
+          "route": "library/bronchial_tree/authored-central-fairing-r13",
+          "role": "listed-revision"
+        },
+        {
+          "family": "bronchial_tree",
+          "route": "library/bronchial_tree/first-fork-fairing-r15",
+          "role": "family-media"
+        }
+      ],
+      "disposition": {
+        "kind": "historical",
+        "evidence": "models/bronchial_tree/recipes/authored-central-fairing-r13/README.md",
+        "reason": "r13 is the retained r14 control with its own review."
+      }
+    },
+    "models/bronchial_tree/exports/authored-junction-repair-r07/bronchial_authored_junction_repair.glb": {
+      "sha256": "3408ca8e8f394dd268b1dbeafdc59fdc8cc104c0976628e455dbc070ae0a7993",
+      "bytes": 10655840,
+      "readers": [
+        {
+          "family": "bronchial_tree",
+          "route": "library/bronchial_tree/authored-junction-repair-r07",
+          "role": "listed-revision"
+        },
+        {
+          "family": "bronchial_tree",
+          "route": "library/bronchial_tree/first-fork-fairing-r15",
+          "role": "family-media"
+        }
+      ],
+      "disposition": {
+        "kind": "historical",
+        "evidence": "models/bronchial_tree/recipes/authored-junction-repair-r07/README.md",
+        "reason": "r07 is an earlier junction repair with its own export and replay."
+      }
+    },
+    "models/bronchial_tree/exports/authored-lobar-fairing-r09/bronchial_lobar_fairing.glb": {
+      "sha256": "8820a14b820239c0ea53a3597ad7731b7c66eb41f05b197fde2e90ee08fb47e4",
+      "bytes": 10655808,
+      "readers": [
+        {
+          "family": "bronchial_tree",
+          "route": "library/bronchial_tree/authored-lobar-fairing-r09",
+          "role": "listed-revision"
+        },
+        {
+          "family": "bronchial_tree",
+          "route": "library/bronchial_tree/first-fork-fairing-r15",
+          "role": "family-media"
+        }
+      ],
+      "disposition": {
+        "kind": "historical",
+        "evidence": "models/bronchial_tree/recipes/authored-lobar-fairing-r09/README.md",
+        "reason": "r09 is an intermediate lobar fairing in the recorded r13 chain."
+      }
+    },
+    "models/bronchial_tree/exports/distal-sampling-r14/bronchial_distal_sampling.glb": {
+      "sha256": "f8d78751f47cf14311138a3c7e2e35d6e28415c9f6e1d2a0e4f6ca2bf1a07fc9",
+      "bytes": 7401328,
+      "readers": [
+        {
+          "family": "bronchial_tree",
+          "route": "library/bronchial_tree/distal-sampling-r14",
+          "role": "listed-revision"
+        }
+      ],
+      "disposition": {
+        "kind": "replay-only",
+        "evidence": "models/bronchial_tree/asset.record.json",
+        "reason": "Prior assessed r14 remains at its own route and supplies the r15 recipe."
+      }
+    },
+    "models/bronchial_tree/exports/first-fork-fairing-r15/bronchial-first-fork.glb": {
+      "sha256": "dec2886f07745086e56a31676b96005e0741d4475782fd879f47faf15769a42e",
+      "bytes": 7401468,
+      "readers": [
+        {
+          "family": "bronchial_tree",
+          "route": "library/bronchial_tree/first-fork-fairing-r15",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:workshop:bronchial-first-fork",
+        "revision": "first-fork-fairing-r15",
+        "export": "teaching",
+        "record": "models/bronchial_tree/asset.record.json"
+      }
+    },
+    "models/bronchial_tree/exports/metadata-cleanup-r01/bronchial_tree.glb": {
+      "sha256": "e3bd69d8ded88d09f22d1171c524849ba6ad11b314fdfb948d663ef22c40c640",
+      "bytes": 1639756,
+      "readers": [
+        {
+          "family": "bronchial_tree",
+          "route": "library/bronchial_tree/first-fork-fairing-r15",
+          "role": "family-media"
+        },
+        {
+          "family": "bronchial_tree",
+          "route": "library/bronchial_tree/metadata-cleanup-r01",
+          "role": "listed-revision"
+        }
+      ],
+      "disposition": {
+        "kind": "historical",
+        "evidence": "models/bronchial_tree/recipes/metadata/approved-patch.json",
+        "reason": "Earlier Workshop mesh remains an independent historical export."
+      }
+    },
+    "models/dental-root-support/v3/molar-support-v3.glb": {
+      "sha256": "4989befb8409d951d2a0220948c97a9afaf4ac62193fdfa3b97450201e457a02",
+      "bytes": 3078744,
+      "readers": [
+        {
+          "family": "dental-root-support",
+          "route": "library/dental-root-support/v3",
+          "role": "family-media"
+        },
+        {
+          "family": "dental-root-support",
+          "route": "library/dental-root-support/v3",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:synthetic:molar-root-support",
+        "revision": "v3",
+        "export": "molar-support",
+        "record": "models/dental-root-support/asset.record.json"
+      }
+    },
+    "models/dental-root-support/v3/synthetic-pdl-v3.glb": {
+      "sha256": "0d53613e1fa392657c20e597e04c3945d18150bf41c707f022d73acb37bc7463",
+      "bytes": 3305740,
+      "readers": [
+        {
+          "family": "dental-root-support",
+          "route": "library/dental-root-support/v3",
+          "role": "family-media"
+        },
+        {
+          "family": "dental-root-support",
+          "route": "library/dental-root-support/v3",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:synthetic:molar-root-support",
+        "revision": "v3-pdl",
+        "export": "synthetic-pdl",
+        "record": "models/dental-root-support/asset.record.json"
+      }
+    },
+    "models/dental_specimens/uff_tomo1b/exports/r01/uff-tomo1b-display.glb": {
+      "sha256": "46694985ff0162a4220d959528847446ffe48b3be41e481f5890429500e2d3b3",
+      "bytes": 20434544,
+      "readers": [
+        {
+          "family": "uff_tomo1b",
+          "route": "library/uff_tomo1b/r01",
+          "role": "family-media"
+        },
+        {
+          "family": "uff_tomo1b",
+          "route": "library/uff_tomo1b/r01",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:uff:tomo1b",
+        "revision": "r01",
+        "export": "teaching",
+        "record": "models/dental_specimens/uff_tomo1b/asset.record.json"
+      }
+    },
+    "models/diaphragm/exports/normal-pack-r02/diaphragm.glb": {
+      "sha256": "9857d670bd761ed28b4ce534594ad6b0ad2fc05636ca2a66a86a62db1d9bb8d7",
+      "bytes": 623504,
+      "readers": [
+        {
+          "family": "diaphragm",
+          "route": "library/diaphragm/normal-pack-r02",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:z-anatomy:diaphragm",
+        "revision": "normal-pack-r02",
+        "export": "reference",
+        "record": "models/diaphragm/asset.record.json"
+      }
+    },
+    "models/diaphragm/exports/z-native-static-r01/diaphragm_z_context_static.glb": {
+      "sha256": "07dd35e532eb8a971d97b072ed2be5c5c49e5bfda113997e6d1231e26c3951a9",
+      "bytes": 2247876,
+      "readers": [
+        {
+          "family": "diaphragm",
+          "route": "library/diaphragm/normal-pack-r02",
+          "role": "family-media"
+        },
+        {
+          "family": "diaphragm",
+          "route": "library/diaphragm/z-native-static-r01",
+          "role": "listed-revision"
+        }
+      ],
+      "disposition": {
+        "kind": "historical",
+        "evidence": "models/diaphragm/exports/z-native-static-r01/README.md",
+        "reason": "Auxiliary same-source partial skeletal context. The independently reviewed isolated diaphragm and its maintained compact edition have separate roles."
+      }
+    },
+    "models/diaphragm/exports/z-native-static-r01/diaphragm_z_native_static.glb": {
+      "sha256": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29",
+      "bytes": 701128,
+      "readers": [
+        {
+          "family": "diaphragm",
+          "route": "library/diaphragm/normal-pack-r02",
+          "role": "family-media"
+        },
+        {
+          "family": "diaphragm",
+          "route": "library/diaphragm/z-native-static-r01",
+          "role": "listed-revision"
+        }
+      ],
+      "disposition": {
+        "kind": "replay-only",
+        "evidence": "models/diaphragm/asset.record.json",
+        "reason": "Exact retained package replay input. Preserve its existing Library route and byte identity."
+      }
+    },
+    "models/ears_z/exports/r04/ears_z.glb": {
+      "sha256": "04ba664cdc219dc7b78e80ddb2b1d5ff39ffe4438bd0ab1bf63c2221c46f5939",
+      "bytes": 1752248,
+      "readers": [
+        {
+          "family": "ears_z",
+          "route": "library/ears_z/r04",
+          "role": "listed-revision"
+        },
+        {
+          "family": "ears_z",
+          "route": "library/ears_z/teaching-economy-r01",
+          "role": "family-media"
+        }
+      ],
+      "disposition": {
+        "kind": "replay-only",
+        "evidence": "models/ears_z/asset.record.json",
+        "reason": "Original native auricle GLB supplies the selected economy edition. Preserve the older route."
+      }
+    },
+    "models/ears_z/exports/teaching-economy-r01/ears_z.glb": {
+      "sha256": "cb5f38d7d5b8d617df11b53c65ef9d1fe11eb0c3f208d161209bda534917deed",
+      "bytes": 1005904,
+      "readers": [
+        {
+          "family": "ears_z",
+          "route": "library/ears_z/teaching-economy-r01",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:z-anatomy:auricles",
+        "revision": "teaching-economy-r01",
+        "export": "teaching",
+        "record": "models/ears_z/asset.record.json"
+      }
+    },
+    "models/esophagus_wall/exports/authored-cutaway-r01/esophagus-wall-cutaway-r01.glb": {
+      "sha256": "e4f51a86040ef115776fe06a33443982f7b63243332681e53dadaa77f81c05f5",
+      "bytes": 201328,
+      "readers": [
+        {
+          "family": "esophagus_wall",
+          "route": "library/esophagus_wall/authored-cutaway-r01",
+          "role": "family-media"
+        },
+        {
+          "family": "esophagus_wall",
+          "route": "library/esophagus_wall/authored-cutaway-r01",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:authored:esophageal-wall",
+        "revision": "authored-cutaway-r01",
+        "export": "teaching",
+        "record": "models/esophagus_wall/asset.record.json"
+      }
+    },
+    "models/eye_anterior_segment/exports/eye-order-r01/eye-order-study.glb": {
+      "sha256": "f19ee7388a85d9661f8cad7cec7a1033d5406e2fda3ee8e4b98597572d8ba2da",
+      "bytes": 2594032,
+      "readers": [
+        {
+          "family": "eye_anterior_segment",
+          "route": "library/eye_anterior_segment/eye-order-r01",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:hra:eye-anterior-segment",
+        "revision": "eye-order-r01",
+        "export": "teaching",
+        "record": "models/eye_anterior_segment/asset.record.json"
+      }
+    },
+    "models/eye_anterior_segment/exports/hra-v1.3-r01/anterior_segment.glb": {
+      "sha256": "457b08b1edab5fc39db3b49e09635091721847e06262b7cb937fd006223c6750",
+      "bytes": 10054784,
+      "readers": [
+        {
+          "family": "eye_anterior_segment",
+          "route": "library/eye_anterior_segment/eye-order-r01",
+          "role": "family-media"
+        },
+        {
+          "family": "eye_anterior_segment",
+          "route": "library/eye_anterior_segment/hra-v1.3-r01",
+          "role": "listed-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:hra:eye-anterior-segment",
+        "revision": "hra-v1-3-r01",
+        "export": "diagnostic",
+        "record": "models/eye_anterior_segment/asset.record.json"
+      }
+    },
+    "models/eye_exterior/exports/z-native-courses-r01/eye-exterior-courses.glb": {
+      "sha256": "39fd2cc18b2352b2ac73b46e76f486aa7eb7a8c0cc301a77a9b178a1cb8f70b9",
+      "bytes": 674580,
+      "readers": [
+        {
+          "family": "eye_exterior",
+          "route": "library/eye_exterior/z-native-courses-r01",
+          "role": "family-media"
+        },
+        {
+          "family": "eye_exterior",
+          "route": "library/eye_exterior/z-native-courses-r01",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:z-anatomy:eye-exterior-courses",
+        "revision": "z-native-courses-r01",
+        "export": "teaching",
+        "record": "models/eye_exterior/asset.record.json"
+      }
+    },
+    "models/gallbladder/exports/metadata-cleanup-r01/gallbladder.glb": {
+      "sha256": "faa06e38130b3f63cc0094914eeb9adfb874ba2a2dc78da49e1c255c1f740227",
+      "bytes": 2124988,
+      "readers": [
+        {
+          "family": "gallbladder",
+          "route": "library/gallbladder/metadata-cleanup-r01",
+          "role": "family-media"
+        },
+        {
+          "family": "gallbladder",
+          "route": "library/gallbladder/metadata-cleanup-r01",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:s1233:gallbladder-display",
+        "revision": "metadata-cleanup-r01",
+        "export": "teaching",
+        "record": "models/gallbladder/asset.record.json"
+      }
+    },
+    "models/heart/exports/metadata-cleanup-r01/heart.glb": {
+      "sha256": "50c86dcab55701ca1418e16cd269ded70027663d58d02270ec6df0c8afd488fb",
+      "bytes": 2037228,
+      "readers": [
+        {
+          "family": "heart",
+          "route": "library/heart/metadata-cleanup-r01",
+          "role": "listed-revision"
+        },
+        {
+          "family": "heart",
+          "route": "library/heart/texture-pack-r02",
+          "role": "family-media"
+        }
+      ],
+      "disposition": {
+        "kind": "replay-only",
+        "evidence": "models/heart/asset.record.json",
+        "reason": "Metadata-corrected derivative supplies texture packing and remains a separate historical route."
+      }
+    },
+    "models/heart/exports/texture-pack-r02/heart.glb": {
+      "sha256": "3e98b4c78ecc561d8ba1a80135ece91f23cabdd68837b2db4a8c23f6cd3c33f3",
+      "bytes": 1638296,
+      "readers": [
+        {
+          "family": "heart",
+          "route": "library/heart/texture-pack-r02",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:s1233:heart-body-shell",
+        "revision": "texture-pack-r02",
+        "export": "teaching",
+        "record": "models/heart/asset.record.json"
+      }
+    },
+    "models/hypothalamus/exports/source-candidate-01/hypothalamus_source_frame.glb": {
+      "sha256": "b6d73d6b5a33006391a743c650ccc06b65b9b9afaaaebbcf1d05102d4399274c",
+      "bytes": 75720,
+      "readers": [
+        {
+          "family": "hypothalamus",
+          "route": "library/hypothalamus/source-candidate-01",
+          "role": "family-media"
+        },
+        {
+          "family": "hypothalamus",
+          "route": "library/hypothalamus/source-candidate-01",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:bp3d:hypothalamus",
+        "revision": "source-candidate-01",
+        "export": "teaching",
+        "record": "models/hypothalamus/asset.record.json"
+      }
+    },
+    "models/joints/exports/z-elbow-r01/elbow_z_native.glb": {
+      "sha256": "cd6cd488943fe721101955322b343a8c9441f1d4ff8c5042dd4e1ca7462f7891",
+      "bytes": 158752,
+      "readers": [
+        {
+          "family": "joints",
+          "route": "library/joints/z-elbow-r01",
+          "role": "listed-revision"
+        },
+        {
+          "family": "joints",
+          "route": "library/joints/z-shoulder-r02",
+          "role": "family-media"
+        }
+      ],
+      "disposition": {
+        "kind": "historical",
+        "evidence": "models/joints/exports/z-elbow-r01/README.md",
+        "reason": "Prior source export retains its scoped review and route. The shared replay establishes the current r02 selection separately."
+      }
+    },
+    "models/joints/exports/z-elbow-r02/elbow_z_native.glb": {
+      "sha256": "d4d209057d331f2154e33941c68fc1030fe86ac47f281c974360a887cfc3eab9",
+      "bytes": 158752,
+      "readers": [
+        {
+          "family": "joints",
+          "route": "library/joints/z-elbow-r02",
+          "role": "listed-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:z-anatomy:right-elbow",
+        "revision": "z-elbow-r02",
+        "export": "teaching",
+        "record": "models/joints/elbow/asset.record.json"
+      }
+    },
+    "models/joints/exports/z-knee-r01/knee_z_native.glb": {
+      "sha256": "6dcc793e4132e62e4962e504bef0d595bb2e7d3a31881137244f31eadbb53aad",
+      "bytes": 365864,
+      "readers": [
+        {
+          "family": "joints",
+          "route": "library/joints/z-knee-r01",
+          "role": "listed-revision"
+        },
+        {
+          "family": "joints",
+          "route": "library/joints/z-shoulder-r02",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:z-anatomy:right-knee",
+        "revision": "z-knee-r01",
+        "export": "teaching",
+        "record": "models/joints/knee/asset.record.json"
+      }
+    },
+    "models/joints/exports/z-rotator-cuff-r01/right-rotator-cuff.glb": {
+      "sha256": "edf5c2fc5322adc1c75703143b3fba5a2be3ecd87d5559bce1441c1977a4eb30",
+      "bytes": 703536,
+      "readers": [
+        {
+          "family": "joints",
+          "route": "library/joints/z-rotator-cuff-r01",
+          "role": "listed-revision"
+        },
+        {
+          "family": "joints",
+          "route": "library/joints/z-shoulder-r02",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:z-anatomy:right-rotator-cuff",
+        "revision": "z-rotator-cuff-r01",
+        "export": "teaching",
+        "record": "models/joints/rotator-cuff/asset.record.json"
+      }
+    },
+    "models/joints/exports/z-shoulder-r01/shoulder_z_native.glb": {
+      "sha256": "2f2bb36881fb7a5ff346906a6ac8ea9433e31291d0ebb073959d020739e67448",
+      "bytes": 671700,
+      "readers": [
+        {
+          "family": "joints",
+          "route": "library/joints/z-shoulder-r01",
+          "role": "listed-revision"
+        },
+        {
+          "family": "joints",
+          "route": "library/joints/z-shoulder-r02",
+          "role": "family-media"
+        }
+      ],
+      "disposition": {
+        "kind": "historical",
+        "evidence": "models/joints/exports/z-shoulder-r01/README.md",
+        "reason": "Prior source export retains its scoped review and route. The shared replay establishes the current r02 selection separately."
+      }
+    },
+    "models/joints/exports/z-shoulder-r02/shoulder_z_native.glb": {
+      "sha256": "f2d746dfafb7b74bdcf91561a26c8806dc4e4fd05887c9c1d95fafd92a3ab09a",
+      "bytes": 671712,
+      "readers": [
+        {
+          "family": "joints",
+          "route": "library/joints/z-shoulder-r02",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:z-anatomy:right-shoulder",
+        "revision": "z-shoulder-r02",
+        "export": "teaching",
+        "record": "models/joints/shoulder/asset.record.json"
+      }
+    },
+    "models/kidney_left/exports/hra-female-v1.3-r02/kidney_left.glb": {
+      "sha256": "8e55b5ae48821f067f41bd23ffdd668f68c7ff705cf49e9a40287042fee469fc",
+      "bytes": 1378060,
+      "readers": [
+        {
+          "family": "kidney_left",
+          "route": "library/kidney_left/hra-female-v1.3-r02",
+          "role": "listed-revision"
+        },
+        {
+          "family": "kidney_left",
+          "route": "library/kidney_left/teaching-economy-r01",
+          "role": "family-media"
+        }
+      ],
+      "disposition": {
+        "kind": "replay-only",
+        "evidence": "models/kidney_left/asset.record.json",
+        "reason": "Exact retained package replay input. Preserve its existing Library route and byte identity."
+      }
+    },
+    "models/kidney_left/exports/metadata-cleanup-r01/kidney_left.glb": {
+      "sha256": "d2139a88cf85b70bdd7981e6134841faff99fcf18d7a480f04224d7e74c73c28",
+      "bytes": 2527704,
+      "readers": [
+        {
+          "family": "kidney_left",
+          "route": "library/kidney_left/metadata-cleanup-r01",
+          "role": "listed-revision"
+        },
+        {
+          "family": "kidney_left",
+          "route": "library/kidney_left/teaching-economy-r01",
+          "role": "family-media"
+        }
+      ],
+      "disposition": {
+        "kind": "historical",
+        "evidence": "reviews/kidney_left/2026-10-23-metadata-cleanup-r01/record.json",
+        "reason": "Earlier TotalSegmentator left renal metadata-cleanup study. The maintained HRA left renal task uses a separate lineage."
+      }
+    },
+    "models/kidney_left/exports/teaching-economy-r01/kidney_left.glb": {
+      "sha256": "e000c2b4408caf1bbbbf2a5649c5e0e3ceaf94b3c2bf794da3a2f30587bb3778",
+      "bytes": 560708,
+      "readers": [
+        {
+          "family": "kidney_left",
+          "route": "library/kidney_left/teaching-economy-r01",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:hra:kidney-left",
+        "revision": "teaching-economy-r01",
+        "export": "reference",
+        "record": "models/kidney_left/asset.record.json"
+      }
+    },
+    "models/kidney_right/exports/hra-female-v1.3-r02/kidney_right.glb": {
+      "sha256": "977d0a283de7071a2e8aaeb8900c5a6dc8d0ba770eb458e996dc66cc249c0b56",
+      "bytes": 1403576,
+      "readers": [
+        {
+          "family": "kidney_right",
+          "route": "library/kidney_right/hra-female-v1.3-r02",
+          "role": "listed-revision"
+        },
+        {
+          "family": "kidney_right",
+          "route": "library/kidney_right/teaching-economy-r01",
+          "role": "family-media"
+        }
+      ],
+      "disposition": {
+        "kind": "replay-only",
+        "evidence": "models/kidney_right/asset.record.json",
+        "reason": "Exact retained package replay input. Preserve its existing Library route and byte identity."
+      }
+    },
+    "models/kidney_right/exports/metadata-cleanup-r01/kidney_right.glb": {
+      "sha256": "0a5df031b7d9afcd43e451762717e00f817fe1f00d54c6e858ebea2c02741d64",
+      "bytes": 2548052,
+      "readers": [
+        {
+          "family": "kidney_right",
+          "route": "library/kidney_right/metadata-cleanup-r01",
+          "role": "listed-revision"
+        },
+        {
+          "family": "kidney_right",
+          "route": "library/kidney_right/teaching-economy-r01",
+          "role": "family-media"
+        }
+      ],
+      "disposition": {
+        "kind": "historical",
+        "evidence": "reviews/kidney_right/2026-10-23-metadata-cleanup-r01/record.json",
+        "reason": "Earlier TotalSegmentator right renal metadata-cleanup study. The maintained HRA right renal task uses a separate lineage."
+      }
+    },
+    "models/kidney_right/exports/teaching-economy-r01/kidney_right.glb": {
+      "sha256": "fdddbde55104ab9af2b5ebafea7e52692dad7f94aad85d93a2237cbdd371e3eb",
+      "bytes": 526464,
+      "readers": [
+        {
+          "family": "kidney_right",
+          "route": "library/kidney_right/teaching-economy-r01",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:hra:kidney-right",
+        "revision": "teaching-economy-r01",
+        "export": "reference",
+        "record": "models/kidney_right/asset.record.json"
+      }
+    },
+    "models/large-intestine/exports/source-candidate-v4/large-intestine.glb": {
+      "sha256": "a8bd8f8227a3cf53b5aa63bb234c1bcb182bfa432da5eb2e3488788f829df4f5",
+      "bytes": 7882016,
+      "readers": [
+        {
+          "family": "large-intestine",
+          "route": "library/large-intestine/source-candidate-v4",
+          "role": "listed-revision"
+        },
+        {
+          "family": "large-intestine",
+          "route": "library/large-intestine/teaching-economy-r01",
+          "role": "family-media"
+        }
+      ],
+      "disposition": {
+        "kind": "replay-only",
+        "evidence": "models/large-intestine/asset.record.json",
+        "reason": "Original V4 supplies the selected teaching derivative and retains its exact Library route."
+      }
+    },
+    "models/large-intestine/exports/teaching-economy-r01/large-intestine.glb": {
+      "sha256": "4ba211f975eb8820d12e6f975051a73691efb69c83806a7d56794f48c00c232a",
+      "bytes": 4846448,
+      "readers": [
+        {
+          "family": "large-intestine",
+          "route": "library/large-intestine/teaching-economy-r01",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:bp3d:large-bowel",
+        "revision": "teaching-economy-r01",
+        "export": "teaching",
+        "record": "models/large-intestine/asset.record.json"
+      }
+    },
+    "models/liver/exports/hra-female-v1.10-r02/liver.glb": {
+      "sha256": "e9abb0c2503a3fa9d725988451e630283ec2c902c182b812219f2d73f3ab1038",
+      "bytes": 763480,
+      "readers": [
+        {
+          "family": "liver",
+          "route": "library/liver/hra-female-v1.10-r02",
+          "role": "listed-revision"
+        },
+        {
+          "family": "liver",
+          "route": "library/liver/teaching-economy-r02",
+          "role": "family-media"
+        }
+      ],
+      "disposition": {
+        "kind": "replay-only",
+        "evidence": "models/liver/asset.record.json",
+        "reason": "Exact retained package replay input. Preserve its existing Library route and byte identity."
+      }
+    },
+    "models/liver/exports/metadata-cleanup-r01/liver.glb": {
+      "sha256": "05abdf049c36658fc3e723071858c0167294d880f7120e7250ac6b5bc6439ea6",
+      "bytes": 1862672,
+      "readers": [
+        {
+          "family": "liver",
+          "route": "library/liver/metadata-cleanup-r01",
+          "role": "listed-revision"
+        },
+        {
+          "family": "liver",
+          "route": "library/liver/teaching-economy-r02",
+          "role": "family-media"
+        }
+      ],
+      "disposition": {
+        "kind": "historical",
+        "evidence": "reviews/liver/2026-10-23-metadata-cleanup-r01/record.json",
+        "reason": "Earlier metadata-cleanup pass of the historical breathing-model delivery. The relationship to the HRA edition remains unresolved."
+      }
+    },
+    "models/liver/exports/teaching-economy-r02/liver.glb": {
+      "sha256": "5978654a1e5b8ac608735dde82434e3fe67c1e1883930c4fa1b60d53fe85dd7d",
+      "bytes": 595352,
+      "readers": [
+        {
+          "family": "liver",
+          "route": "library/liver/teaching-economy-r02",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:hra:liver",
+        "revision": "r02",
+        "export": "teaching-economy",
+        "record": "models/liver/asset.record.json"
+      }
+    },
+    "models/lung_left/exports/metadata-cleanup-r01/lung_left.glb": {
+      "sha256": "6d3a6150dc47dba0d16162738caabc1bef3fcd8cf5ab4af492dd1121c1cb8533",
+      "bytes": 2524996,
+      "readers": [
+        {
+          "family": "lung_left",
+          "route": "library/lung_left/metadata-cleanup-r01",
+          "role": "listed-revision"
+        },
+        {
+          "family": "lung_left",
+          "route": "library/lung_left/teaching-economy-r01",
+          "role": "family-media"
+        }
+      ],
+      "disposition": {
+        "kind": "replay-only",
+        "evidence": "models/lung_left/asset.record.json",
+        "reason": "Original metadata-corrected GLB supplies texture encoding. Preserve the separate historical route."
+      }
+    },
+    "models/lung_left/exports/teaching-economy-r01/lung_left.glb": {
+      "sha256": "4cb7524a3843fda941d50adc060d2a3c9d08135bea6cddc99d03284d25bb683c",
+      "bytes": 2093088,
+      "readers": [
+        {
+          "family": "lung_left",
+          "route": "library/lung_left/teaching-economy-r01",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:s1233:left-lung-display",
+        "revision": "teaching-economy-r01",
+        "export": "teaching",
+        "record": "models/lung_left/asset.record.json"
+      }
+    },
+    "models/lung_pair/exports/hra-female-normals-r02/lung_female_hra_normals_r02.glb": {
+      "sha256": "966a4c225be028e616f6f813e8d4232582995a82b8121a42257c1be53087cb19",
+      "bytes": 23253972,
+      "readers": [
+        {
+          "family": "lung_pair",
+          "route": "library/lung_pair/hra-female-normals-r02",
+          "role": "listed-revision"
+        },
+        {
+          "family": "lung_pair",
+          "route": "library/lung_pair/teaching-economy-r01",
+          "role": "family-media"
+        }
+      ],
+      "disposition": {
+        "kind": "replay-only",
+        "evidence": "models/lung_pair/asset.record.json",
+        "reason": "The original NORMAL-only paired export supplies the exact selected teaching edition and remains at its historical Library route."
+      }
+    },
+    "models/lung_pair/exports/teaching-economy-r01/lung_female_hra_normals_r02.glb": {
+      "sha256": "5c56e323c09547b7d3333f2ff222cb165d322e9cac48aa0200733132129abf78",
+      "bytes": 724960,
+      "readers": [
+        {
+          "family": "lung_pair",
+          "route": "library/lung_pair/teaching-economy-r01",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:hra:female-lung-pair",
+        "revision": "teaching-economy-r01",
+        "export": "teaching",
+        "record": "models/lung_pair/asset.record.json"
+      }
+    },
+    "models/lung_right/exports/metadata-cleanup-r01/lung_right.glb": {
+      "sha256": "3f8476ddd9d04448f4c1f63e85408860d7957f099e87170e8099efe635c16a78",
+      "bytes": 2653664,
+      "readers": [
+        {
+          "family": "lung_right",
+          "route": "library/lung_right/metadata-cleanup-r01",
+          "role": "family-media"
+        },
+        {
+          "family": "lung_right",
+          "route": "library/lung_right/metadata-cleanup-r01",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:s1233:right-lung-display",
+        "revision": "metadata-cleanup-r01",
+        "export": "teaching",
+        "record": "models/lung_right/asset.record.json"
+      }
+    },
+    "models/lymph-collecting-routes/source-context-r01/selected-source-routes.glb": {
+      "sha256": "ff8c1e9cecc86b4287520d97e71e81792d26eb0b3017e6f302e213f64819b4ca",
+      "bytes": 11476,
+      "readers": [
+        {
+          "family": "lymph-collecting-routes",
+          "route": "library/lymph-collecting-routes/source-context-r01",
+          "role": "listed-revision"
+        },
+        {
+          "family": "lymph-collecting-routes",
+          "route": "library/lymph-collecting-routes/source-trace-r02",
+          "role": "family-media"
+        }
+      ],
+      "disposition": {
+        "kind": "replay-only",
+        "evidence": "models/lymph-collecting-routes/asset.record.json",
+        "reason": "Original faceted reconstruction remains the source-scale comparison and has its own Gallery route. The older unavailable derivative was not recovered."
+      }
+    },
+    "models/lymph-collecting-routes/source-trace-r02/route-diagram.glb": {
+      "sha256": "bebe11ea3241799e83d69f70ea1cccc59283f9ec72eca0dc45877cdd6fc8fd64",
+      "bytes": 31592,
+      "readers": [
+        {
+          "family": "lymph-collecting-routes",
+          "route": "library/lymph-collecting-routes/source-trace-r02",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:authored:lymph-collecting-routes",
+        "revision": "source-trace-r02",
+        "export": "teaching",
+        "record": "models/lymph-collecting-routes/asset.record.json"
+      }
+    },
+    "models/lymph_node/exports/hra-tissue-layers-r01/lymph-node-tissue-layers.glb": {
+      "sha256": "bf4ffa85c96459f2666949196915244697f3f5e33ebf485482c8223ba1fcb23e",
+      "bytes": 2984704,
+      "readers": [
+        {
+          "family": "lymph_node",
+          "route": "library/lymph_node/hra-tissue-layers-r01",
+          "role": "listed-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:hra:lymph-node",
+        "revision": "hra-tissue-layers-r01",
+        "export": "teaching",
+        "record": "models/lymph_node/asset.record.json"
+      }
+    },
+    "models/lymph_node/exports/hra-v1.2/NIH_M_Lymph_Node.glb": {
+      "sha256": "7b047002cbb1dc06f37baa441783390d76cdb444b6144d6caa623923707953fd",
+      "bytes": 7413900,
+      "readers": [
+        {
+          "family": "lymph_node",
+          "route": "library/lymph_node/hra-v1.2",
+          "role": "listed-revision"
+        },
+        {
+          "family": "lymph_node",
+          "route": "library/lymph_node/tissue-color-pack-r02",
+          "role": "family-media"
+        }
+      ],
+      "disposition": {
+        "kind": "replay-only",
+        "evidence": "models/lymph_node/asset.record.json",
+        "reason": "Exact retained package replay input. Preserve its existing Library route and byte identity."
+      }
+    },
+    "models/lymph_node/exports/tissue-color-pack-r02/lymph-node.glb": {
+      "sha256": "d0b8ac731f187c10e1c7f23a15d6f4ec285b7727cc98bf9feed26fb97e5ee692",
+      "bytes": 2297224,
+      "readers": [
+        {
+          "family": "lymph_node",
+          "route": "library/lymph_node/tissue-color-pack-r02",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:hra:lymph-node",
+        "revision": "tissue-color-pack-r02",
+        "export": "reference",
+        "record": "models/lymph_node/asset.record.json"
+      }
+    },
+    "models/muscle/exports/teaching-economy-r02/muscle_z_native_frame.glb": {
+      "sha256": "5bd6e93d1daee826f05f9578a036f06480203517f5c3817127277b8e5c934ac3",
+      "bytes": 22558848,
+      "readers": [
+        {
+          "family": "muscle",
+          "route": "library/muscle/teaching-economy-r02",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:z-anatomy:muscle",
+        "revision": "teaching-economy-r02",
+        "export": "muscle",
+        "record": "models/muscle/asset.record.json"
+      }
+    },
+    "models/muscle/exports/z-anatomy-r02/muscle_z_native_frame.glb": {
+      "sha256": "7081144bdbca0d2d871311a3568a0aedb1c8e125f7709ae8e7d55345a54bdfb7",
+      "bytes": 30517312,
+      "readers": [
+        {
+          "family": "muscle",
+          "route": "library/muscle/teaching-economy-r02",
+          "role": "family-media"
+        },
+        {
+          "family": "muscle",
+          "route": "library/muscle/z-anatomy-r02",
+          "role": "listed-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:z-anatomy:muscle",
+        "revision": "z-anatomy-r02",
+        "export": "muscle",
+        "record": "models/muscle/asset.record.json"
+      }
+    },
+    "models/nose_sinuses/exports/index-pack-r02/nasal_airspace.glb": {
+      "sha256": "49a5253df26078a4cb8241788352bc6f142b95ff34266bb699a7f6edceceae50",
+      "bytes": 3604296,
+      "readers": [
+        {
+          "family": "nose_sinuses",
+          "route": "library/nose_sinuses/index-pack-r02",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:nih3d:nasal-airspace",
+        "revision": "index-pack-r02",
+        "export": "cast",
+        "record": "models/nose_sinuses/asset.record.json"
+      }
+    },
+    "models/nose_sinuses/exports/nih3d-airspace-r01/nasal_airspace.glb": {
+      "sha256": "3d8c4d56e09d72ae369c697d2bb9435cc3792f9dbe225e7d456ff58174a577be",
+      "bytes": 4758484,
+      "readers": [
+        {
+          "family": "nose_sinuses",
+          "route": "library/nose_sinuses/index-pack-r02",
+          "role": "family-media"
+        },
+        {
+          "family": "nose_sinuses",
+          "route": "library/nose_sinuses/nih3d-airspace-r01",
+          "role": "listed-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:nih3d:nasal-airspace",
+        "revision": "nih3d-airspace-r01",
+        "export": "cast",
+        "record": "models/nose_sinuses/asset.record.json"
+      }
+    },
+    "models/ovaries/exports/hra-ovary-tubal-r01/ovary-tubal-context.glb": {
+      "sha256": "465a44b18df91ece95a236372a8cbe3e1a0de0207525955290e6b0fa519195d1",
+      "bytes": 681552,
+      "readers": [
+        {
+          "family": "ovaries",
+          "route": "library/ovaries/hra-ovary-tubal-r01",
+          "role": "listed-revision"
+        },
+        {
+          "family": "ovaries",
+          "route": "library/ovaries/teaching-ovoid-r02",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:hra:ovaries",
+        "revision": "hra-ovary-tubal-r01",
+        "export": "reference",
+        "record": "models/ovaries/asset.record.json"
+      }
+    },
+    "models/ovaries/exports/teaching-ovoid-r02/ovary-tubal-teaching.glb": {
+      "sha256": "a12171dbb34190eff127a2a4dd743a31db1db9b51f7f801780225be3b3d3ae61",
+      "bytes": 726976,
+      "readers": [
+        {
+          "family": "ovaries",
+          "route": "library/ovaries/teaching-ovoid-r02",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:hra:ovaries",
+        "revision": "teaching-ovoid-r02",
+        "export": "teaching",
+        "record": "models/ovaries/asset.record.json"
+      }
+    },
+    "models/pancreas/exports/gross-locator-r05/gross-locator.glb": {
+      "sha256": "ac79b7138619462dbeaf28dda592aa93fc770d53d49eecbc125074594971667b",
+      "bytes": 596044,
+      "readers": [
+        {
+          "family": "pancreas",
+          "route": "library/pancreas/gross-locator-r05",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:hra:pancreas",
+        "revision": "gross-locator-r05",
+        "export": "teaching",
+        "record": "models/pancreas/asset.record.json"
+      }
+    },
+    "models/pancreas/exports/hra-female-context-r04/pancreas_hra_female_context_r04.glb": {
+      "sha256": "aa15f9248027c248886a9cf8d4f5f401b2753176c800851f648b03d88d97ebed",
+      "bytes": 1373872,
+      "readers": [
+        {
+          "family": "pancreas",
+          "route": "library/pancreas/gross-locator-r05",
+          "role": "family-media"
+        },
+        {
+          "family": "pancreas",
+          "route": "library/pancreas/hra-female-context-r04",
+          "role": "listed-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:hra:pancreas",
+        "revision": "hra-female-context-r04",
+        "export": "reference",
+        "record": "models/pancreas/asset.record.json"
+      }
+    },
+    "models/pancreas/exports/metadata-cleanup-r01/pancreas.glb": {
+      "sha256": "e1c2e335e183df5b588fd7ca1af68110a2d710219bbc5548f738065175df8833",
+      "bytes": 1940208,
+      "readers": [
+        {
+          "family": "pancreas",
+          "route": "library/pancreas/gross-locator-r05",
+          "role": "family-media"
+        },
+        {
+          "family": "pancreas",
+          "route": "library/pancreas/metadata-cleanup-r01",
+          "role": "listed-revision"
+        }
+      ],
+      "disposition": {
+        "kind": "historical",
+        "evidence": "reviews/pancreas/2026-10-23-metadata-cleanup-r01/record.json",
+        "reason": "Earlier TotalSegmentator metadata-cleanup study. The maintained HRA gross locator and donor context are separate editions."
+      }
+    },
+    "models/parathyroids/exports/z-localization-r01/parathyroids_native.glb": {
+      "sha256": "b6fbbabfa7efd12b8c377f5bc56193bd81776daab999a8c1ac8286f693b85b45",
+      "bytes": 11544,
+      "readers": [
+        {
+          "family": "parathyroids",
+          "route": "library/parathyroids/z-localization-r01",
+          "role": "family-media"
+        },
+        {
+          "family": "parathyroids",
+          "route": "library/parathyroids/z-localization-r01",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:z-anatomy:parathyroids",
+        "revision": "z-localization-r01",
+        "export": "glands",
+        "record": "models/parathyroids/asset.record.json"
+      }
+    },
+    "models/parathyroids/exports/z-localization-r01/parathyroids_thyroid_context.glb": {
+      "sha256": "7759008c5682ac76e77f39f68f5cd421ea42cfe5252cebe9bd82ecc54dc04345",
+      "bytes": 59456,
+      "readers": [
+        {
+          "family": "parathyroids",
+          "route": "library/parathyroids/z-localization-r01",
+          "role": "family-media"
+        },
+        {
+          "family": "parathyroids",
+          "route": "library/parathyroids/z-localization-r01",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:z-anatomy:parathyroids",
+        "revision": "z-localization-r01",
+        "export": "thyroid-context",
+        "record": "models/parathyroids/asset.record.json"
+      }
+    },
+    "models/parotid_glands/exports/source-candidate-02/parotid_glands_source_frame.glb": {
+      "sha256": "fc21df4c24bad92c3fb11873adf601ebf5bad066365b60be6e4366aced731d34",
+      "bytes": 63688,
+      "readers": [
+        {
+          "family": "parotid_glands",
+          "route": "library/parotid_glands/source-candidate-02",
+          "role": "listed-revision"
+        },
+        {
+          "family": "parotid_glands",
+          "route": "library/parotid_glands/source-shared-r01",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:z-anatomy:parotid-pair",
+        "revision": "source-candidate-02",
+        "export": "pair",
+        "record": "models/parotid_glands/asset.record.json"
+      }
+    },
+    "models/parotid_glands/exports/source-shared-r01/parotid-pair.glb": {
+      "sha256": "d0ee5a98c2668ab9159ae94f9a00c27e207fa541e611d71decc688bd7c482c3e",
+      "bytes": 53656,
+      "readers": [
+        {
+          "family": "parotid_glands",
+          "route": "library/parotid_glands/source-shared-r01",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:z-anatomy:parotid-pair",
+        "revision": "source-shared-r01",
+        "export": "pair",
+        "record": "models/parotid_glands/asset.record.json"
+      }
+    },
+    "models/penis/exports/z-native-components-r04/penile_internal_components.glb": {
+      "sha256": "c44d35e13be11d2fb35141747d819d4609a45ca0a5527c89e1015618d17cab70",
+      "bytes": 61664,
+      "readers": [
+        {
+          "family": "penis",
+          "route": "library/penis/z-native-components-r04",
+          "role": "family-media"
+        },
+        {
+          "family": "penis",
+          "route": "library/penis/z-native-components-r04",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:z-anatomy:penile-components",
+        "revision": "z-native-components-r04",
+        "export": "components",
+        "record": "models/penis/asset.record.json"
+      }
+    },
+    "models/peripheral_nerves/exports/median-wrist-r01/right-median-wrist.glb": {
+      "sha256": "6094265d2263f3b501f4e487ff7f859b83205bde99bca9312d48c26f29680c50",
+      "bytes": 834404,
+      "readers": [
+        {
+          "family": "peripheral_nerves",
+          "route": "library/peripheral_nerves/median-wrist-r01",
+          "role": "listed-revision"
+        },
+        {
+          "family": "peripheral_nerves",
+          "route": "library/peripheral_nerves/ulnar-elbow-r02",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:z-anatomy:median-wrist",
+        "revision": "median-wrist-r01",
+        "export": "regional",
+        "record": "models/peripheral_nerves/median-wrist/asset.record.json"
+      }
+    },
+    "models/peripheral_nerves/exports/sciatic-hip-r01/right-sciatic-hip.glb": {
+      "sha256": "72077a97a8a935a7a4623443c1c0fd61ab48a9bf4ad895af058345b7a372abd6",
+      "bytes": 559144,
+      "readers": [
+        {
+          "family": "peripheral_nerves",
+          "route": "library/peripheral_nerves/sciatic-hip-r01",
+          "role": "listed-revision"
+        },
+        {
+          "family": "peripheral_nerves",
+          "route": "library/peripheral_nerves/ulnar-elbow-r02",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:z-anatomy:sciatic-hip",
+        "revision": "sciatic-hip-r01",
+        "export": "regional",
+        "record": "models/peripheral_nerves/sciatic-hip/asset.record.json"
+      }
+    },
+    "models/peripheral_nerves/exports/ulnar-elbow-r01/right-ulnar-elbow.glb": {
+      "sha256": "94a7bde3f8a2882cc632082301d7701a737a769e1d1afe0f55629ecac3013ac3",
+      "bytes": 187708,
+      "readers": [
+        {
+          "family": "peripheral_nerves",
+          "route": "library/peripheral_nerves/ulnar-elbow-r01",
+          "role": "listed-revision"
+        },
+        {
+          "family": "peripheral_nerves",
+          "route": "library/peripheral_nerves/ulnar-elbow-r02",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:z-anatomy:ulnar-elbow",
+        "revision": "ulnar-elbow-r01",
+        "export": "regional",
+        "record": "models/peripheral_nerves/ulnar-elbow/asset.record.json"
+      }
+    },
+    "models/peripheral_nerves/exports/ulnar-elbow-r02/right-ulnar-elbow.glb": {
+      "sha256": "18dee1b0333b31f04dc07b52d4d4c58ec94f8c65108475c0f02467b06dd2cc83",
+      "bytes": 186972,
+      "readers": [
+        {
+          "family": "peripheral_nerves",
+          "route": "library/peripheral_nerves/ulnar-elbow-r02",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:z-anatomy:ulnar-elbow",
+        "revision": "ulnar-elbow-r02",
+        "export": "regional",
+        "record": "models/peripheral_nerves/ulnar-elbow/asset.record.json"
+      }
+    },
+    "models/pharynx_larynx/exports/r03/pharynx_larynx.glb": {
+      "sha256": "d691a60f12d448b9b36d362270429c672c01c7fae0f10a8789ef188dd4c08530",
+      "bytes": 5050088,
+      "readers": [
+        {
+          "family": "pharynx_larynx",
+          "route": "library/pharynx_larynx/r03",
+          "role": "listed-revision"
+        },
+        {
+          "family": "pharynx_larynx",
+          "route": "library/pharynx_larynx/teaching-economy-r01",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:bp3d:pharynx-larynx",
+        "revision": "r03",
+        "export": "regional",
+        "record": "models/pharynx_larynx/asset.record.json"
+      }
+    },
+    "models/pharynx_larynx/exports/teaching-economy-r01/pharynx_larynx.glb": {
+      "sha256": "6145abfa541670441bdc7b61978121dc4f5d2730731b873a76b9fff1428d7bff",
+      "bytes": 3834688,
+      "readers": [
+        {
+          "family": "pharynx_larynx",
+          "route": "library/pharynx_larynx/teaching-economy-r01",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:bp3d:pharynx-larynx",
+        "revision": "teaching-economy-r01",
+        "export": "regional",
+        "record": "models/pharynx_larynx/asset.record.json"
+      }
+    },
+    "models/pituitary/exports/source-candidate-01/pituitary_source_frame.glb": {
+      "sha256": "8eae4c6d05b0c9de5128ae6f574a97265cb392a44567fcac5ea0b9b7f1dbca68",
+      "bytes": 22296,
+      "readers": [
+        {
+          "family": "pituitary",
+          "route": "library/pituitary/source-candidate-01",
+          "role": "family-media"
+        },
+        {
+          "family": "pituitary",
+          "route": "library/pituitary/source-candidate-01",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:bp3d:pituitary",
+        "revision": "source-candidate-01",
+        "export": "exterior",
+        "record": "models/pituitary/asset.record.json"
+      }
+    },
+    "models/placenta/exports/hra-v1.1-r02/placenta_full_term.glb": {
+      "sha256": "7f9f215f810003fddc76ede225f051dc7014c67216e804403a4632d628ad82aa",
+      "bytes": 4917576,
+      "readers": [
+        {
+          "family": "placenta",
+          "route": "library/placenta/hra-v1.1-r02",
+          "role": "listed-revision"
+        },
+        {
+          "family": "placenta",
+          "route": "library/placenta/teaching-economy-r01",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:hra:placenta",
+        "revision": "hra-v1-1-r02",
+        "export": "reference",
+        "record": "models/placenta/asset.record.json"
+      }
+    },
+    "models/placenta/exports/teaching-economy-r01/placenta_full_term.glb": {
+      "sha256": "1c7fbe97548e365c40b886e31a97d3068e611efd79aef543cf49b9d3208ecf4f",
+      "bytes": 4050904,
+      "readers": [
+        {
+          "family": "placenta",
+          "route": "library/placenta/teaching-economy-r01",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:hra:placenta",
+        "revision": "teaching-economy-r01",
+        "export": "teaching",
+        "record": "models/placenta/asset.record.json"
+      }
+    },
+    "models/prostate/exports/hra-v1.1/VH_M_Prostate.glb": {
+      "sha256": "ec1023e0a1b81f71865872bb720404abc7bb6378a54ac71fa9f24579b097f48a",
+      "bytes": 4086328,
+      "readers": [
+        {
+          "family": "prostate",
+          "route": "library/prostate/hra-v1.1",
+          "role": "listed-revision"
+        },
+        {
+          "family": "prostate",
+          "route": "library/prostate/teaching-economy-r01",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:hra:prostate",
+        "revision": "hra-v1-1",
+        "export": "prostate",
+        "record": "models/prostate/asset.record.json"
+      }
+    },
+    "models/prostate/exports/teaching-economy-r01/VH_M_Prostate.glb": {
+      "sha256": "b46de84b02283254f06855274831657641dbd8c3e94f558f3677ecaa8255c700",
+      "bytes": 3013520,
+      "readers": [
+        {
+          "family": "prostate",
+          "route": "library/prostate/teaching-economy-r01",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:hra:prostate",
+        "revision": "teaching-economy-r01",
+        "export": "prostate",
+        "record": "models/prostate/asset.record.json"
+      }
+    },
+    "models/pulmonary_vein/exports/metadata-cleanup-r01/pulmonary_vein.glb": {
+      "sha256": "9e0454c0a920bcd9292d1aced370ff781b97aa8fb87b0439eb1f0ac21517a593",
+      "bytes": 1718704,
+      "readers": [
+        {
+          "family": "pulmonary_vein",
+          "route": "library/pulmonary_vein/metadata-cleanup-r01",
+          "role": "family-media"
+        },
+        {
+          "family": "pulmonary_vein",
+          "route": "library/pulmonary_vein/metadata-cleanup-r01",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:s1233:pulmonary-vein",
+        "revision": "metadata-cleanup-r01",
+        "export": "surface",
+        "record": "models/pulmonary_vein/asset.record.json"
+      }
+    },
+    "models/salivary_glands/exports/z-native-scoped-r02/glands-and-parotid-ducts.glb": {
+      "sha256": "a53134ec91195f5c42b8be4cde3536343e62857a7ecf5ab5d11bf3eba6ead515",
+      "bytes": 129736,
+      "readers": [
+        {
+          "family": "salivary_glands",
+          "route": "library/salivary_glands/z-native-scoped-r02",
+          "role": "listed-revision"
+        },
+        {
+          "family": "salivary_glands",
+          "route": "library/salivary_glands/z-native-shared-r01",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:z-anatomy:major-salivary-glands",
+        "revision": "z-native-scoped-r02",
+        "export": "glands-and-ducts",
+        "record": "models/salivary_glands/asset.record.json"
+      }
+    },
+    "models/salivary_glands/exports/z-native-scoped-r02/same-source-context.glb": {
+      "sha256": "1764c63011e698b9047d1abe79c647b8b609b7d8f9b18b740b17cdc65db930f8",
+      "bytes": 763124,
+      "readers": [
+        {
+          "family": "salivary_glands",
+          "route": "library/salivary_glands/z-native-scoped-r02",
+          "role": "listed-revision"
+        },
+        {
+          "family": "salivary_glands",
+          "route": "library/salivary_glands/z-native-shared-r01",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:z-anatomy:major-salivary-glands",
+        "revision": "z-native-scoped-r02",
+        "export": "gross-context",
+        "record": "models/salivary_glands/asset.record.json"
+      }
+    },
+    "models/salivary_glands/exports/z-native-shared-r01/glands-and-parotid-ducts.glb": {
+      "sha256": "ef588f09db83560185c486a15dacbba929967bfefda0cbee4a0dc16495ce16da",
+      "bytes": 116896,
+      "readers": [
+        {
+          "family": "salivary_glands",
+          "route": "library/salivary_glands/z-native-shared-r01",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:z-anatomy:major-salivary-glands",
+        "revision": "z-native-shared-r01",
+        "export": "glands-and-ducts",
+        "record": "models/salivary_glands/asset.record.json"
+      }
+    },
+    "models/salivary_glands/exports/z-native-shared-r01/same-source-context.glb": {
+      "sha256": "22406f58d0d2852a7cc5dee93f307a5240ca2004d4eb34259cb46749cb630501",
+      "bytes": 654988,
+      "readers": [
+        {
+          "family": "salivary_glands",
+          "route": "library/salivary_glands/z-native-shared-r01",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:z-anatomy:major-salivary-glands",
+        "revision": "z-native-shared-r01",
+        "export": "gross-context",
+        "record": "models/salivary_glands/asset.record.json"
+      }
+    },
+    "models/skeleton/exports/source-candidate-03/skeleton_source_frame.glb": {
+      "sha256": "d224985628cc62d0c9c4284019b73505c9ebf14d78d30a040d74a7b33c68620e",
+      "bytes": 12705356,
+      "readers": [
+        {
+          "family": "skeleton",
+          "route": "library/skeleton/source-candidate-03",
+          "role": "listed-revision"
+        },
+        {
+          "family": "skeleton",
+          "route": "library/skeleton/teaching-economy-r01",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:bp3d:skeleton",
+        "revision": "source-candidate-03",
+        "export": "skeleton",
+        "record": "models/skeleton/asset.record.json"
+      }
+    },
+    "models/skeleton/exports/teaching-economy-r01/skeleton_source_frame.glb": {
+      "sha256": "ca10c44878ec836c63882855b9af29193e637773059dbc33b15daff044c2bb3c",
+      "bytes": 11048256,
+      "readers": [
+        {
+          "family": "skeleton",
+          "route": "library/skeleton/teaching-economy-r01",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:bp3d:skeleton",
+        "revision": "teaching-economy-r01",
+        "export": "skeleton",
+        "record": "models/skeleton/asset.record.json"
+      }
+    },
+    "models/skin/exports/bp3d-envelope-r01/skin_source_frame.glb": {
+      "sha256": "d86719833a17dc7b45c8eb970498f1e2feefd352b5812942f4b147a9ffcfbe4f",
+      "bytes": 4901132,
+      "readers": [
+        {
+          "family": "skin",
+          "route": "library/skin/bp3d-envelope-r01",
+          "role": "listed-revision"
+        },
+        {
+          "family": "skin",
+          "route": "library/skin/teaching-economy-r01",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:bp3d:skin",
+        "revision": "bp3d-envelope-r01",
+        "export": "envelope",
+        "record": "models/skin/asset.record.json"
+      }
+    },
+    "models/skin/exports/teaching-economy-r01/skin_source_frame.glb": {
+      "sha256": "e89de0c33f094e76ba909ba1d5a46a46cf994c0850c080abbf4be43993600b9d",
+      "bytes": 3480472,
+      "readers": [
+        {
+          "family": "skin",
+          "route": "library/skin/teaching-economy-r01",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:bp3d:skin",
+        "revision": "teaching-economy-r01",
+        "export": "envelope",
+        "record": "models/skin/asset.record.json"
+      }
+    },
+    "models/skin/nail-study-r02/nail.glb": {
+      "sha256": "677760b2459c6a94828a6d79fbd9b69620d58fc044c8d079bc23cc84ffa54761",
+      "bytes": 94576,
+      "readers": [
+        {
+          "family": "seated-nail-r02",
+          "route": "library/seated-nail-r02",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:authored:nail-unit",
+        "revision": "nail-study-r02",
+        "export": "section",
+        "record": "models/skin/nail-study-r02/asset.record.json"
+      }
+    },
+    "models/small-intestine/exports/source-candidate-v4/small-intestine.glb": {
+      "sha256": "a9459afc67cb13c28084b518615fdbb5e05c135a47eafa3036908139aece94da",
+      "bytes": 2366552,
+      "readers": [
+        {
+          "family": "small-intestine",
+          "route": "library/small-intestine/source-candidate-v4",
+          "role": "listed-revision"
+        },
+        {
+          "family": "small-intestine",
+          "route": "library/small-intestine/teaching-economy-r01",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:bp3d:small-intestine",
+        "revision": "source-candidate-v4",
+        "export": "surface",
+        "record": "models/small-intestine/asset.record.json"
+      }
+    },
+    "models/small-intestine/exports/teaching-economy-r01/small-intestine.glb": {
+      "sha256": "b5bb67aae18a3fa305cbf29f7d1464cdfdc9d9d22b8dbb6de6c48efb03f0b190",
+      "bytes": 2140672,
+      "readers": [
+        {
+          "family": "small-intestine",
+          "route": "library/small-intestine/teaching-economy-r01",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:bp3d:small-intestine",
+        "revision": "teaching-economy-r01",
+        "export": "surface",
+        "record": "models/small-intestine/asset.record.json"
+      }
+    },
+    "models/spinal_cord/exports/authored-relationships-r03/spinal_relationships.glb": {
+      "sha256": "5d9f0f88ff8498f611aea583e080558691d592a3ce50c89ecb847cf18b4d1471",
+      "bytes": 1561260,
+      "readers": [
+        {
+          "family": "spinal_cord",
+          "route": "library/spinal_cord/authored-relationships-r03",
+          "role": "listed-revision"
+        },
+        {
+          "family": "spinal_cord",
+          "route": "library/spinal_cord/teaching-economy-r02",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:authored:spinal-roots",
+        "revision": "authored-relationships-r03",
+        "export": "relationships",
+        "record": "models/spinal_cord/asset.record.json"
+      }
+    },
+    "models/spinal_cord/exports/authored-roots-r04/candidate.glb": {
+      "sha256": "a37783fbd1ad25ba9a2bcfbed1419a2d3f655b42cec643bf32a77266ca82a9d0",
+      "bytes": 2663288,
+      "readers": [
+        {
+          "family": "spinal_cord",
+          "route": "library/spinal_cord/authored-roots-r04",
+          "role": "listed-revision"
+        },
+        {
+          "family": "spinal_cord",
+          "route": "library/spinal_cord/teaching-economy-r02",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:authored:spinal-roots",
+        "revision": "authored-roots-r04",
+        "export": "relationships",
+        "record": "models/spinal_cord/asset.record.json"
+      }
+    },
+    "models/spinal_cord/exports/teaching-economy-r02/candidate.glb": {
+      "sha256": "eba3e49c05e2f1a4f2c08b107eefa48eb32d14796dd1ce5bac9413138b404ca9",
+      "bytes": 1948852,
+      "readers": [
+        {
+          "family": "spinal_cord",
+          "route": "library/spinal_cord/teaching-economy-r02",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:authored:spinal-roots",
+        "revision": "teaching-economy-r02",
+        "export": "relationships",
+        "record": "models/spinal_cord/asset.record.json"
+      }
+    },
+    "models/spleen/exports/hra-female-v1.10-r03/spleen.glb": {
+      "sha256": "4e2637cf6c844aef85ab77c2c1049d4e7647348a13c34d784795b98825f7c8c7",
+      "bytes": 278576,
+      "readers": [
+        {
+          "family": "spleen",
+          "route": "library/spleen/hra-female-v1.10-r03",
+          "role": "family-media"
+        },
+        {
+          "family": "spleen",
+          "route": "library/spleen/hra-female-v1.10-r03",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:hra:spleen",
+        "revision": "hra-female-v1-10-r03",
+        "export": "exterior",
+        "record": "models/spleen/asset.record.json"
+      }
+    },
+    "models/spleen/exports/metadata-cleanup-r01/spleen.glb": {
+      "sha256": "1bfc1c7b38c18a6eb7fbd4a05e9a7ec0444cc411ef60a45b2d0fa49317cbfefd",
+      "bytes": 1856468,
+      "readers": [
+        {
+          "family": "spleen",
+          "route": "library/spleen/hra-female-v1.10-r03",
+          "role": "family-media"
+        },
+        {
+          "family": "spleen",
+          "route": "library/spleen/metadata-cleanup-r01",
+          "role": "listed-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:s1233:spleen",
+        "revision": "metadata-cleanup-r01",
+        "export": "surface",
+        "record": "models/spleen_s1233/asset.record.json"
+      }
+    },
+    "models/stomach/exports/metadata-cleanup-r01/stomach.glb": {
+      "sha256": "ad0876f37f92945171750d31d9c53165535a697e60a3d2ac8a3f3f78667fdec6",
+      "bytes": 3402184,
+      "readers": [
+        {
+          "family": "stomach",
+          "route": "library/stomach/metadata-cleanup-r01",
+          "role": "listed-revision"
+        },
+        {
+          "family": "stomach",
+          "route": "library/stomach/teaching-economy-r02",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:s1233:stomach",
+        "revision": "metadata-cleanup-r01",
+        "export": "teaching",
+        "record": "models/stomach/asset.record.json"
+      }
+    },
+    "models/stomach/exports/teaching-economy-r02/stomach.glb": {
+      "sha256": "1afedcb4412b0833e07eded5276913250b37d82bbffda578d2e18110021d2452",
+      "bytes": 2992144,
+      "readers": [
+        {
+          "family": "stomach",
+          "route": "library/stomach/teaching-economy-r02",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:s1233:stomach",
+        "revision": "teaching-economy-r02",
+        "export": "teaching",
+        "record": "models/stomach/asset.record.json"
+      }
+    },
+    "models/swirendo_fdi31/exports/balanced-20261028/FDI31-balanced.glb": {
+      "sha256": "90006e54c2b9f79f6c201397a50f92228d9ad6fa4450f20e0ad20c5fe70c19f7",
+      "bytes": 2052220,
+      "readers": [
+        {
+          "family": "swirendo_fdi31",
+          "route": "library/swirendo_fdi31/balanced-20261028",
+          "role": "family-media"
+        },
+        {
+          "family": "swirendo_fdi31",
+          "route": "library/swirendo_fdi31/balanced-20261028",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:swirendo:fdi31",
+        "revision": "balanced-20261028",
+        "export": "balanced",
+        "record": "models/swirendo_fdi31/asset.record.json"
+      }
+    },
+    "models/teeth_gums/exports/r02/teeth_gums.glb": {
+      "sha256": "82bfaeead46bb51b1fa5bdfdb06c918dfd01aa23b28acae733ab75ec2cd6897f",
+      "bytes": 814328,
+      "readers": [
+        {
+          "family": "teeth_gums",
+          "route": "library/teeth_gums/r02",
+          "role": "family-media"
+        },
+        {
+          "family": "teeth_gums",
+          "route": "library/teeth_gums/r02",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:bp3d:teeth-gums",
+        "revision": "r02",
+        "export": "dentition",
+        "record": "models/teeth_gums/asset.record.json"
+      }
+    },
+    "models/testes/exports/z-native-epididymis-r01/testicular-region.glb": {
+      "sha256": "e35457062c7bba79d938700beab7de851c75fa8dbbbbc76872d47290f2833d0d",
+      "bytes": 220184,
+      "readers": [
+        {
+          "family": "testes",
+          "route": "library/testes/z-native-epididymis-r01",
+          "role": "family-media"
+        },
+        {
+          "family": "testes",
+          "route": "library/testes/z-native-epididymis-r01",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:z-anatomy:testicular-region",
+        "revision": "z-native-epididymis-r01",
+        "export": "regional",
+        "record": "models/testes/asset.record.json"
+      }
+    },
+    "models/thymus/exports/source-candidate-01/thymus_source_frame.glb": {
+      "sha256": "897d7c9d9885c895862235291e05ce8b85208a276e1624f0cbb273d0a887b2a9",
+      "bytes": 39696,
+      "readers": [
+        {
+          "family": "thymus",
+          "route": "library/thymus/source-candidate-01",
+          "role": "family-media"
+        },
+        {
+          "family": "thymus",
+          "route": "library/thymus/source-candidate-01",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:bp3d:thymus",
+        "revision": "source-candidate-01",
+        "export": "exterior",
+        "record": "models/thymus/asset.record.json"
+      }
+    },
+    "models/thyroid_ct_s0189/exports/illustrative-exterior-r01/thyroid-illustrative-exterior.glb": {
+      "sha256": "4c2dee513f713fd8d649e7d1928ba3859ce1d25e81468e707b65a5fbeeee216a",
+      "bytes": 152124,
+      "readers": [
+        {
+          "family": "thyroid_ct_s0189",
+          "route": "library/thyroid_ct_s0189/illustrative-exterior-r01",
+          "role": "listed-revision"
+        },
+        {
+          "family": "thyroid_ct_s0189",
+          "route": "library/thyroid_ct_s0189/illustrative-exterior-r02",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:s0189:thyroid",
+        "revision": "illustrative-exterior-r01",
+        "export": "exterior",
+        "record": "models/thyroid_ct_s0189/asset.record.json"
+      }
+    },
+    "models/thyroid_ct_s0189/exports/illustrative-exterior-r02/thyroid-illustrative-exterior.glb": {
+      "sha256": "6bc4f4da8bc91a058da8f9c78fca8618e3ace90580cac499adf48981bc18608e",
+      "bytes": 152288,
+      "readers": [
+        {
+          "family": "thyroid_ct_s0189",
+          "route": "library/thyroid_ct_s0189/illustrative-exterior-r02",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:s0189:thyroid",
+        "revision": "illustrative-exterior-r02",
+        "export": "exterior",
+        "record": "models/thyroid_ct_s0189/asset.record.json"
+      }
+    },
+    "models/thyroid_ct_s0189/exports/source-candidate-02/thyroid_ct_s0189_source_frame.glb": {
+      "sha256": "4add07e2efed2d67efb1d4ba225a109fe448043c79182e3d2e1a96e671534883",
+      "bytes": 151580,
+      "readers": [
+        {
+          "family": "thyroid_ct_s0189",
+          "route": "library/thyroid_ct_s0189/illustrative-exterior-r02",
+          "role": "family-media"
+        },
+        {
+          "family": "thyroid_ct_s0189",
+          "route": "library/thyroid_ct_s0189/source-candidate-02",
+          "role": "listed-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:s0189:thyroid",
+        "revision": "source-candidate-02",
+        "export": "source-surface",
+        "record": "models/thyroid_ct_s0189/asset.record.json"
+      }
+    },
+    "models/tongue_authored_study/exports/authored-p11/tongue-authored-hra-hybrid-p11.glb": {
+      "sha256": "efabd58b235b72682f067113cf079e3f70fbaceac47062f2b937f09540c1ee1a",
+      "bytes": 4983044,
+      "readers": [
+        {
+          "family": "tongue_authored_study",
+          "route": "library/tongue_authored_study/authored-p11",
+          "role": "listed-revision"
+        },
+        {
+          "family": "tongue_authored_study",
+          "route": "library/tongue_authored_study/teaching-economy-r01",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:hra-hybrid:tongue",
+        "revision": "authored-p11",
+        "export": "hybrid",
+        "record": "models/tongue_authored_study/asset.record.json"
+      }
+    },
+    "models/tongue_authored_study/exports/teaching-economy-r01/tongue-authored-hra-hybrid-p11.glb": {
+      "sha256": "44ece7903283ba0eadf045b588bcfb3fb02dba86566d4468c760e36352af7a8f",
+      "bytes": 3245136,
+      "readers": [
+        {
+          "family": "tongue_authored_study",
+          "route": "library/tongue_authored_study/teaching-economy-r01",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:hra-hybrid:tongue",
+        "revision": "teaching-economy-r01",
+        "export": "hybrid",
+        "record": "models/tongue_authored_study/asset.record.json"
+      }
+    },
+    "models/trachea/exports/host-conforming-cbands-r05/trachea_host_conforming_illustration.glb": {
+      "sha256": "af54ca254e47910ded53c6b690b475ab17236ba47d314fbdd5357dc67849bf4d",
+      "bytes": 707132,
+      "readers": [
+        {
+          "family": "trachea",
+          "route": "library/trachea/host-conforming-cbands-r05",
+          "role": "listed-revision"
+        },
+        {
+          "family": "trachea",
+          "route": "library/trachea/teaching-economy-r02",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:s1233:trachea",
+        "revision": "host-conforming-cbands-r05",
+        "export": "host",
+        "record": "models/trachea/asset.record.json"
+      }
+    },
+    "models/trachea/exports/metadata-cleanup-r01/trachea.glb": {
+      "sha256": "04667b54ff0b71e3841975dc23bae31930898e4917092a42d7d1ad553fd8b3c8",
+      "bytes": 2858536,
+      "readers": [
+        {
+          "family": "trachea",
+          "route": "library/trachea/metadata-cleanup-r01",
+          "role": "listed-revision"
+        },
+        {
+          "family": "trachea",
+          "route": "library/trachea/teaching-economy-r02",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:s1233:trachea",
+        "revision": "metadata-cleanup-r01",
+        "export": "surface",
+        "record": "models/trachea/asset.record.json"
+      }
+    },
+    "models/trachea/exports/open-airway-r06/trachea-cutaway.glb": {
+      "sha256": "42b25a9e3de950db1a083da3802d4bb982c9084c425f768824c8973dc08be283",
+      "bytes": 1564740,
+      "readers": [
+        {
+          "family": "trachea",
+          "route": "library/trachea/open-airway-r06",
+          "role": "listed-revision"
+        },
+        {
+          "family": "trachea",
+          "route": "library/trachea/teaching-economy-r02",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:s1233:trachea",
+        "revision": "open-airway-r06",
+        "export": "cutaway",
+        "record": "models/trachea/asset.record.json"
+      }
+    },
+    "models/trachea/exports/open-airway-r06/trachea-open.glb": {
+      "sha256": "eb3ce52962aacc4d109a9840685aa172ca1d97bfc835367f4e36fd32de6b6cbb",
+      "bytes": 962440,
+      "readers": [
+        {
+          "family": "trachea",
+          "route": "library/trachea/open-airway-r06",
+          "role": "listed-revision"
+        },
+        {
+          "family": "trachea",
+          "route": "library/trachea/teaching-economy-r02",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:s1233:trachea",
+        "revision": "open-airway-r06",
+        "export": "open",
+        "record": "models/trachea/asset.record.json"
+      }
+    },
+    "models/trachea/exports/teaching-economy-r02/trachea-open.glb": {
+      "sha256": "814dff70dee2f62b7dcb13ee2a3fcde36b6579e440ab10bc38a758be347e97c8",
+      "bytes": 751300,
+      "readers": [
+        {
+          "family": "trachea",
+          "route": "library/trachea/teaching-economy-r02",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:s1233:trachea",
+        "revision": "teaching-economy-r02",
+        "export": "open",
+        "record": "models/trachea/asset.record.json"
+      }
+    },
+    "models/urethra_male/exports/z-native-context-r01/urethral-context.glb": {
+      "sha256": "d2d88c936287f4ea5978aba1f17e86975c587a102e498595dd7a58aa07c269e7",
+      "bytes": 195932,
+      "readers": [
+        {
+          "family": "urethra_male",
+          "route": "library/urethra_male/z-native-context-r01",
+          "role": "family-media"
+        },
+        {
+          "family": "urethra_male",
+          "route": "library/urethra_male/z-native-context-r01",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:z-anatomy:male-urethral-context",
+        "revision": "z-native-context-r01",
+        "export": "context",
+        "record": "models/urethra_male/asset.record.json"
+      }
+    },
+    "models/uterus/exports/hra-v1.1-r02/uterus_exterior.glb": {
+      "sha256": "627f169a5e02f95102af994f7346cd0f85e454651231867c6829618ef1b0c356",
+      "bytes": 291776,
+      "readers": [
+        {
+          "family": "uterus",
+          "route": "library/uterus/hra-v1.1-r02",
+          "role": "family-media"
+        },
+        {
+          "family": "uterus",
+          "route": "library/uterus/hra-v1.1-r02",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:hra:uterus",
+        "revision": "hra-v1-1-r02",
+        "export": "exterior",
+        "record": "models/uterus/asset.record.json"
+      }
+    },
+    "models/vagina_hra/exports/context-r02/vagina_hra_same_atlas_context_r02.glb": {
+      "sha256": "c649de4db766ba00020315029c922de1d018061c1a34bd95c850a05255ab3037",
+      "bytes": 2718584,
+      "readers": [
+        {
+          "family": "vagina_hra",
+          "route": "library/vagina_hra/context-r02",
+          "role": "listed-revision"
+        },
+        {
+          "family": "vagina_hra",
+          "route": "library/vagina_hra/teaching-context-r03",
+          "role": "family-media"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:hra:vagina",
+        "revision": "context-r02",
+        "export": "reference",
+        "record": "models/vagina_hra/asset.record.json"
+      }
+    },
+    "models/vagina_hra/exports/teaching-context-r03/vagina_teaching_context.glb": {
+      "sha256": "9147a3872fdceae2d351cd6ca069befbb82be880b770d9ef111b647ee001cd5d",
+      "bytes": 1055764,
+      "readers": [
+        {
+          "family": "vagina_hra",
+          "route": "library/vagina_hra/teaching-context-r03",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:hra:vagina",
+        "revision": "teaching-context-r03",
+        "export": "teaching",
+        "record": "models/vagina_hra/asset.record.json"
+      }
+    },
+    "models/vertebrae_L3/exports/metadata-cleanup-r01/vertebrae_L3.glb": {
+      "sha256": "ba74f52842207d396bd0e959d40fedc0adf69e787072117e037b0ba9d18eebfe",
+      "bytes": 2034520,
+      "readers": [
+        {
+          "family": "vertebrae_L3",
+          "route": "library/vertebrae_L3/metadata-cleanup-r01",
+          "role": "family-media"
+        },
+        {
+          "family": "vertebrae_L3",
+          "route": "library/vertebrae_L3/metadata-cleanup-r01",
+          "role": "recommended-revision"
+        }
+      ],
+      "ref": {
+        "asset": "anatomy:s1233:l3-vertebra",
+        "revision": "metadata-cleanup-r01",
+        "export": "surface",
+        "record": "models/vertebrae_L3/asset.record.json"
+      }
+    },
+    "reviews/swirendo_fdi31/2026-10-27-interface-locked/media/A_1_31_T2_SEG_na__layered.glb": {
+      "sha256": "c0884a6bcc8fc6175dd97a99f50e53334024b4eb5e033063c7602358f6da1014",
+      "bytes": 26524356,
+      "readers": [
+        {
+          "family": "swirendo_fdi31",
+          "route": "library/swirendo_fdi31/interface-locked-20261027",
+          "role": "listed-revision"
+        }
+      ],
+      "disposition": {
+        "kind": "frozen",
+        "evidence": "reviews/swirendo_fdi31/2026-10-27-interface-locked/evidence-index.json",
+        "reason": "Retained Interface-locked candidate used by the standalone review. Its archive remains unapproved for the maintained teaching task."
+      }
+    },
+    "swirendo-pilot/A_1_31_T2_SEG_na__layered.glb": {
+      "sha256": "23e59040c6c2497ef864cf229d90dbd9e347489f1c9f4a8860bd48422cc2ec21",
+      "bytes": 13239300,
+      "readers": [
+        {
+          "family": "swirendo-pilot",
+          "route": "library/swirendo-pilot/fdi31-prepared-r03",
+          "role": "listed-revision"
+        }
+      ],
+      "disposition": {
+        "kind": "unavailable",
+        "evidence": "sites/anatomy-gallery/app/src/content/gallery/static-reviews.json",
+        "reason": "Exact historical prepared r03 export is absent. The retained Interface-locked dental candidate has distinct layers and bytes."
+      },
+      "unavailable": "Historical r03 GLB unavailable locally. Follow the owning evidence link for its exact source receipt."
+    }
+  }
+}

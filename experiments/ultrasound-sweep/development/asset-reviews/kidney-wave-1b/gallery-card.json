@@ -1,0 +1,54 @@
+{
+  "slug": "kidney-right-r01",
+  "exportRef": {
+    "record": "models/kidney_right_s1233/asset.record.json",
+    "asset": "anatomy:s1233:kidney-right",
+    "revision": "r01",
+    "export": "kidney-right"
+  },
+  "review": {
+    "case": "abdomen-survey",
+    "chapter": "abd-right-kidney",
+    "part": "kidney_right"
+  },
+  "adopted": true,
+  "cardTitle": "Right kidney · Before → After",
+  "subtitle": "Abdominal survey long axis",
+  "revisionTitle": "s1233 right kidney · r01",
+  "revisionLinkLabel": "s1233 kidney r01",
+  "coordinateFrame": "s1233 voxel indices · RAS axes · 1.5 mm spacing",
+  "sourceId": "source:totalsegmentator-v2.0.1:s1233:kidney-right",
+  "sourceLabel": "TotalSegmentator v2.0.1 · Jakob Wasserthal and contributors · CC BY 4.0",
+  "savedChordContext": "across the medial hilar recess",
+  "detailsLabel": "CT sections, exact mesh comparison and lead review",
+  "figures": [
+    {
+      "file": "previous-vs-r01.webp",
+      "width": 1112,
+      "height": 1090,
+      "alt": "The previous sweep mesh has bands at the lower pole. Under matched lighting r01 has a smoother lower surface and retains the medial recess. Both appear at the same saved sweep pose.",
+      "caption": "Exact previous sweep export and r01 at matched scale and frame."
+    },
+    {
+      "file": "protected-planes.webp",
+      "width": 1328,
+      "height": 422,
+      "alt": "Gold CT contours and cyan refined contours follow each other in the saved plane and both adjacent planes.",
+      "caption": "Same-case CT overlay at frame 12 and at ±1.5 mm."
+    },
+    {
+      "file": "live-frame-12.webp",
+      "width": 1324,
+      "height": 748,
+      "alt": "Live saved frame before and after, with 3D probe contact, grayscale B-mode and tissue overlay. Calipers span the medial hilar recess in s1233.",
+      "caption": "The worked survey uses a separate s1233 subject for this saved long-axis exemplar."
+    },
+    {
+      "file": "matched-surfaces.webp",
+      "width": 1304,
+      "height": 699,
+      "alt": "At the same physical scale, the schematic ellipsoid becomes an asymmetric CT-derived kidney with rounded poles and a visible medial recess. The lower row shows the reverse angle.",
+      "caption": "107 mm schematic, CT half-label surface and refined r01."
+    }
+  ]
+}

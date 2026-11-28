@@ -20,6 +20,7 @@ from build_abdomen import axes, contact_point, measure_landmark, mesh_from_mask,
 from build_breast import footprint_hits
 from build_study import body_surface, fine_scatter, material_at, unit, volume
 from build_thyroid import AFFINE, CASE, CT_SHA, OBSTRUCTION_PINS, PINS, SHAPE, neck_surface, read_thyroid_tracks, section_grid
+from scene_assets import scene_assets
 from delivery import sha256, sweep_files, write_manifest
 from display_neck import fitted_neck
 from geometry import FRAME_COUNT, RASTER_SIZE, VOXEL_MM
@@ -36,16 +37,14 @@ KEYFRAMES = (12, 48)
 def read_tracks():
     data = json.loads((HERE / 'carotid-tracks.json').read_text())
     structures = {part['id']: part for part in read_thyroid_tracks()[0]['parts']}
+    structures['internal_jugular_vein_right'] = {'id': 'internal_jugular_vein_right',
+                                               'label': 'Right internal jugular vein', 'color': '#6c9fc0', 'opacity': .72}
     tracks = []
     for item in data['sweeps']:
         side = item['id'].removeprefix('carotid-')
         target = f'common_carotid_artery_{side}'
-        names = ['thyroid_gland', 'trachea', target]
+        names = item['parts']
         parts = [structures[name].copy() for name in names]
-        if side == 'right':
-            names.append('internal_jugular_vein_right')
-            parts.append({'id': names[-1], 'label': 'Right internal jugular vein',
-                          'color': '#6c9fc0', 'opacity': .72})
         tracks.append({**copy.deepcopy(data['common']), **item, 'organ': target,
                        'overlayParts': [name for name in names if name != 'trachea'], 'parts': parts})
     return tracks
@@ -57,7 +56,8 @@ def pose_recipe_sha256(slug):
 
 def model_recipe_sha256():
     names = ('build_carotid.py', 'build_thyroid.py', 'build_breast.py', 'breast_compression.py',
-             'display_neck.py', 'fit_abdomen.py', 'build_study.py', 'build_abdomen.py', 'carotid_vein.py', 'carotid_surface.py')
+             'display_body.py', 'display_neck.py', 'exterior-atlas.json', 'fit_abdomen.py', 'build_study.py',
+             'build_abdomen.py', 'carotid_vein.py', 'carotid_surface.py')
     return sha256(json.dumps({name: sha256((HERE / name).read_bytes()) for name in names}, sort_keys=True).encode())
 
 
@@ -303,8 +303,11 @@ def build_one(track, out, frames_targets, native, exterior, receipt, ct, masks, 
     media.mkdir()
     scenes.mkdir()
     (scenes / 'torso.mesh').write_bytes(mesh_bytes(*exterior))
+    governed = scene_assets(track)
     for key, mask in masks.items():
-        raw = vessel_mesh(mask) if 'carotid' in key or 'jugular' in key else mesh_from_mask(mask, (369, 407))
+        raw = governed.get(key)
+        if raw is None:
+            raw = vessel_mesh(mask) if 'carotid' in key or 'jugular' in key else mesh_from_mask(mask, (369, 407))
         (scenes / f'{key}.mesh').write_bytes(raw)
     for n, (base, location_voxel) in enumerate(frames_targets):
         frame, match = match_aperture(base, native, exterior, track['fieldWidthMm'])

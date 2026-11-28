@@ -1,0 +1,151 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:authored:terminal-airspaces",
+  "title": "Terminal airspace cutaway",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "lessons/one-breath/terminal-study-r02",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:one-breath:authored-terminal-airspaces",
+      "title": "Authored open terminal airspace illustration",
+      "sourceType": "authored procedural geometry",
+      "subject": "Local teaching cutaway in non-calibrated display coordinates",
+      "unresolved": "The authored cutaway has no separately declared redistribution licence in its owner material.",
+      "evidence": [
+        {
+          "path": "lessons/one-breath/terminal-study-r02/README.md",
+          "sha256": "337175c5be7a93bc333fcf22923aab782567c9c146475a536dfd8c5d913ded4c"
+        },
+        {
+          "path": "lessons/one-breath/terminal-study-r02/build.py",
+          "sha256": "d00556c0cf3b6725459fb849efca05ba6858f8436bd5cb02582b0b3b7177652a"
+        },
+        {
+          "path": "tools/teaching_scene.py",
+          "sha256": "cbb58d632a04b3ab3574730798f10b0b01bcce719f127f83cf6eb3821a686b80"
+        },
+        {
+          "path": "reviews/body-systems/2026-11-20-surface-quality/views/airspaces/metrics.json",
+          "sha256": "e5e57a74d0e10153ff3270c60ce1a75d22cfc92506006a34606ea4ee681f65b4"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-respiratory/campaign-assessments.json",
+          "sha256": "c93b3ad9eab24571166853f11ad7c2a30afef36672c32c1d8d043568baaad74b"
+        }
+      ]
+    },
+    {
+      "sourceId": "source:one-breath:archived-terminal-comparison",
+      "title": "Original One Breath airway route for matched comparison",
+      "sourceType": "archived comparison GLB",
+      "subject": "Original One Breath terminal sequence",
+      "license": "Retain the original One Breath source notices and scoped permissions.",
+      "sha256": "92fd447bad48b03489041e16d0de8750b550034ec4f158219b8352571e0e6091",
+      "bytes": 2083460,
+      "evidence": [
+        {
+          "path": "lessons/one-breath/terminal-study-r02/compare.py",
+          "sha256": "d6b955f7b2c4573eb32659a5bf510f95ef9bcf50c22a665df8185373156e05fe"
+        },
+        {
+          "path": "lessons/one-breath/licenses/ATTRIBUTION.md",
+          "sha256": "a87f2297d55493e5bed6af944986119be5c2a373d705d94e7ce7f603774e3b5a"
+        },
+        {
+          "path": "reviews/body-systems/2026-11-20-surface-quality/views/airspaces/renders.json",
+          "sha256": "0117cc86e6e482fffd184f59cb475781b24593515b244ddf8ee498be9a9c3362"
+        }
+      ],
+      "limitations": [
+        "The original airway GLB is recovered from the teaching backup for the paired comparison. The cutaway build authors its own meshes."
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "partId": "terminal-bronchiole",
+      "label": "Terminal bronchiole",
+      "selectors": [
+        "Terminal bronchiole"
+      ],
+      "registration": "illustrative"
+    },
+    {
+      "partId": "respiratory-bronchiole",
+      "label": "Respiratory bronchiole",
+      "selectors": [
+        "Respiratory bronchiole"
+      ],
+      "registration": "illustrative"
+    },
+    {
+      "partId": "alveolar-duct",
+      "label": "Alveolar duct",
+      "selectors": [
+        "Alveolar duct"
+      ],
+      "registration": "illustrative"
+    },
+    {
+      "partId": "distal-alveoli",
+      "label": "Distal common space and alveoli",
+      "selectors": [
+        "Distal common space and alveoli"
+      ],
+      "registration": "illustrative"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "terminal-study-r02",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "lessons/one-breath/terminal-study-r02/build.py",
+        "sha256": "d00556c0cf3b6725459fb849efca05ba6858f8436bd5cb02582b0b3b7177652a"
+      },
+      "sourceIds": [
+        "source:one-breath:authored-terminal-airspaces",
+        "source:one-breath:archived-terminal-comparison"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "lessons/one-breath/terminal-study-r02/README.md"
+      },
+      "partIds": [
+        "terminal-bronchiole",
+        "respiratory-bronchiole",
+        "alveolar-duct",
+        "distal-alveoli"
+      ],
+      "exports": [
+        {
+          "id": "cutaway",
+          "path": "lessons/one-breath/terminal-study-r02/terminal-airspaces.glb",
+          "sha256": "77f19cc2b261b6d11413c8bb78c949ab8d9c78091f33c47a3dc82a9543781158",
+          "bytes": 171748,
+          "format": "glb",
+          "triangles": 8396,
+          "partIds": [
+            "terminal-bronchiole",
+            "respiratory-bronchiole",
+            "alveolar-duct",
+            "distal-alveoli"
+          ]
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "The authored cutaway has no separately declared redistribution licence in its owner material.",
+    "The four tissue regions have an illustrative shared lumen in a local display frame. Physical scale and patient placement are uncalibrated."
+  ]
+}

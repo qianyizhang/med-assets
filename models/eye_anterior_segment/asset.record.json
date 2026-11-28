@@ -1,0 +1,205 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:hra:eye-anterior-segment",
+  "title": "HRA right anterior-segment studies",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/eye_anterior_segment",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:hra:eye-male-right-v1-3",
+      "title": "HRA right eye original provider GLB",
+      "subject": "HRA male right eye v1.3",
+      "sourceType": "external HRA GLB",
+      "license": "Kristen Browne and Heidi Schlehlein, Human Reference Atlas, CC BY 4.0. Retain the package attribution.",
+      "sha256": "1a6ecc528e98e0bddb8e2905e4ddb799eb471383f7274dbb9bdd1676b06be73b",
+      "bytes": 20697584,
+      "evidence": [
+        {
+          "path": "sources/datasets/hra/eye-male-right-v1.3/source.json",
+          "sha256": "3c49e2945d94d5f896b1570fe0edc2b77f46c565c17cff9dd99ce06744d9713b"
+        },
+        {
+          "path": "models/eye_anterior_segment/README.md",
+          "sha256": "e7c041baa7077a1fc3a52e51c196f07432499e3b0268b58ba7d9a46662e43491"
+        },
+        {
+          "path": "models/eye_anterior_segment/ATTRIBUTION.md",
+          "sha256": "eab8f56696edc9e2bcde1a3b6d88e818519c5d603c04da950e62a9aad979a426"
+        },
+        {
+          "path": "reviews/eye_anterior_segment/2026-10-23-hra-v1.3-r01/record.json",
+          "sha256": "f5da31955164f6eb66a3338a224b0d455b002c5ce49374832327dc04cd231fa2"
+        }
+      ],
+      "limitations": [],
+      "url": "https://cdn.humanatlas.io/digital-objects/ref-organ/eye-male-right/v1.3/assets/3d-vh-m-eye-r.glb",
+      "doi": "https://doi.org/10.48539/HBM272.VPJG.573"
+    },
+    {
+      "sourceId": "source:hra:eye-anterior-diagnostic-r01",
+      "title": "Exact seven-structure diagnostic base",
+      "subject": "HRA male right eye v1.3",
+      "sourceType": "retained source or source receipt",
+      "license": "Kristen Browne and Heidi Schlehlein, Human Reference Atlas, CC BY 4.0. Retain the package attribution.",
+      "path": "models/eye_anterior_segment/exports/hra-v1.3-r01/anterior_segment.glb",
+      "sha256": "457b08b1edab5fc39db3b49e09635091721847e06262b7cb937fd006223c6750",
+      "bytes": 10054784,
+      "evidence": [
+        {
+          "path": "reviews/eye_anterior_segment/2026-10-23-hra-v1.3-r01/record.json",
+          "sha256": "f5da31955164f6eb66a3338a224b0d455b002c5ce49374832327dc04cd231fa2"
+        },
+        {
+          "path": "models/eye_anterior_segment/exports/eye-order-r01/README.md",
+          "sha256": "1f0102cfb3da19ca46d6d9214c3838bbe888762633727267cb9f09c4e88fda94"
+        }
+      ],
+      "limitations": []
+    }
+  ],
+  "parts": [
+    {
+      "partId": "cornea",
+      "label": "Source cornea",
+      "selectors": [
+        "VH_M_cornea_R"
+      ],
+      "sourcePath": "models/eye_anterior_segment/README.md",
+      "registration": "native"
+    },
+    {
+      "partId": "iris",
+      "label": "Source iris around the pupil opening",
+      "selectors": [
+        "VH_M_iris_R"
+      ],
+      "sourcePath": "models/eye_anterior_segment/README.md",
+      "registration": "native"
+    },
+    {
+      "partId": "lens",
+      "label": "Source lens",
+      "selectors": [
+        "VH_M_lens_R"
+      ],
+      "sourcePath": "models/eye_anterior_segment/README.md",
+      "registration": "native"
+    },
+    {
+      "partId": "ciliary-diagnostic",
+      "label": "Source-labeled diagnostic ciliary surfaces",
+      "selectors": [
+        "VH_M_ciliary_body_R",
+        "VH_M_ciliary_muscle_R",
+        "VH_M_ciliary_processes_R"
+      ],
+      "sourcePath": "models/eye_anterior_segment/README.md",
+      "registration": "native"
+    },
+    {
+      "partId": "zonular-diagnostic",
+      "label": "Source-labeled diagnostic suspensory ligament",
+      "selectors": [
+        "VH_M_suspensory_ligament_of_lens_R"
+      ],
+      "sourcePath": "models/eye_anterior_segment/README.md",
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "eye-order-r01",
+      "status": "provisional",
+      "sourceIds": [
+        "source:hra:eye-anterior-diagnostic-r01"
+      ],
+      "recipeEvidence": {
+        "path": "models/eye_anterior_segment/exports/eye-order-r01/README.md",
+        "sha256": "1f0102cfb3da19ca46d6d9214c3838bbe888762633727267cb9f09c4e88fda94"
+      },
+      "frame": {
+        "convention": "glb-y-up-m",
+        "evidence": "models/eye_anterior_segment/README.md",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ]
+      },
+      "partIds": [
+        "cornea",
+        "iris",
+        "lens"
+      ],
+      "exports": [
+        {
+          "id": "teaching",
+          "path": "models/eye_anterior_segment/exports/eye-order-r01/eye-order-study.glb",
+          "sha256": "f19ee7388a85d9661f8cad7cec7a1033d5406e2fda3ee8e4b98597572d8ba2da",
+          "bytes": 2594032,
+          "format": "glb",
+          "partIds": [
+            "cornea",
+            "iris",
+            "lens"
+          ],
+          "triangles": 44301
+        }
+      ],
+      "qualifications": []
+    },
+    {
+      "revisionId": "hra-v1-3-r01",
+      "status": "provisional",
+      "sourceIds": [
+        "source:hra:eye-male-right-v1-3"
+      ],
+      "recipeEvidence": {
+        "path": "models/eye_anterior_segment/README.md",
+        "sha256": "e7c041baa7077a1fc3a52e51c196f07432499e3b0268b58ba7d9a46662e43491"
+      },
+      "frame": {
+        "convention": "glb-y-up-m",
+        "evidence": "models/eye_anterior_segment/README.md",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ]
+      },
+      "partIds": [
+        "cornea",
+        "iris",
+        "lens",
+        "ciliary-diagnostic",
+        "zonular-diagnostic"
+      ],
+      "exports": [
+        {
+          "id": "diagnostic",
+          "path": "models/eye_anterior_segment/exports/hra-v1.3-r01/anterior_segment.glb",
+          "sha256": "457b08b1edab5fc39db3b49e09635091721847e06262b7cb937fd006223c6750",
+          "bytes": 10054784,
+          "format": "glb",
+          "partIds": [
+            "cornea",
+            "iris",
+            "lens",
+            "ciliary-diagnostic",
+            "zonular-diagnostic"
+          ],
+          "triangles": 150793
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "The selected three-structure export supports broad anterior order. Attachment teaching from the ciliary or zonular surfaces is not qualified.",
+    "Provider prose and exact inventory mismatch for some broader structures. Optics and anatomy completeness remain unverified.",
+    "The original provider GLB is external to this checkout. The selected order view can replay from the retained exact diagnostic GLB."
+  ]
+}

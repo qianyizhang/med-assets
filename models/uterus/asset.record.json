@@ -1,0 +1,151 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:hra:uterus",
+  "title": "HRA female uterus exterior",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/uterus",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:uterus:hra-v1-1-r02",
+      "title": "HRA female v1.1 uterus exterior source and replay for hra-v1-1-r02",
+      "sourceType": "recipe source or retained provenance",
+      "subject": "HRA female v1.1 uterus exterior",
+      "license": "CC BY 4.0, with the Human Reference Atlas and named creators credited.",
+      "evidence": [
+        {
+          "path": "models/uterus/README.md",
+          "sha256": "5fec48c7d8ff2029d250811fcd78a9fda3eac207f548223e47b7cbf9dfc5609c"
+        },
+        {
+          "path": "models/uterus/ATTRIBUTION.md",
+          "sha256": "7ddf04cda960c48a0be2ff826f818f2eb6c7f3fcfdb61cc533c648d3ee431dcb"
+        }
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "partId": "vh-f-abdominal-ostium-of-uterine-tube",
+      "label": "VH_F_abdominal_ostium_of_uterine_tube",
+      "selectors": [
+        "VH_F_abdominal_ostium_of_uterine_tube"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "vh-f-body-of-uterus",
+      "label": "VH_F_body_of_uterus",
+      "selectors": [
+        "VH_F_body_of_uterus"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "vh-f-external-cervical-os",
+      "label": "VH_F_external_cervical_os",
+      "selectors": [
+        "VH_F_external_cervical_os"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "vh-f-internal-cervical-os",
+      "label": "VH_F_internal_cervical_os",
+      "selectors": [
+        "VH_F_internal_cervical_os"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "vh-f-cervix",
+      "label": "VH_F_cervix",
+      "selectors": [
+        "VH_F_cervix"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "vh-f-cornua",
+      "label": "VH_F_cornua",
+      "selectors": [
+        "VH_F_cornua"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "vh-f-fundus-of-uterus",
+      "label": "VH_F_fundus_of_uterus",
+      "selectors": [
+        "VH_F_fundus_of_uterus"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "vh-f-lower-uterine-segment",
+      "label": "VH_F_lower_uterine_segment",
+      "selectors": [
+        "VH_F_lower_uterine_segment"
+      ],
+      "registration": "unknown"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "hra-v1-1-r02",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "models/uterus/README.md",
+        "sha256": "5fec48c7d8ff2029d250811fcd78a9fda3eac207f548223e47b7cbf9dfc5609c"
+      },
+      "sourceIds": [
+        "source:uterus:hra-v1-1-r02"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "models/uterus/README.md"
+      },
+      "exports": [
+        {
+          "id": "exterior",
+          "path": "models/uterus/exports/hra-v1.1-r02/uterus_exterior.glb",
+          "sha256": "627f169a5e02f95102af994f7346cd0f85e454651231867c6829618ef1b0c356",
+          "bytes": 291776,
+          "triangles": 15014,
+          "format": "glb",
+          "partIds": [
+            "vh-f-abdominal-ostium-of-uterine-tube",
+            "vh-f-body-of-uterus",
+            "vh-f-external-cervical-os",
+            "vh-f-internal-cervical-os",
+            "vh-f-cervix",
+            "vh-f-cornua",
+            "vh-f-fundus-of-uterus",
+            "vh-f-lower-uterine-segment"
+          ]
+        }
+      ],
+      "qualifications": [],
+      "partIds": [
+        "vh-f-abdominal-ostium-of-uterine-tube",
+        "vh-f-body-of-uterus",
+        "vh-f-cervix",
+        "vh-f-cornua",
+        "vh-f-external-cervical-os",
+        "vh-f-fundus-of-uterus",
+        "vh-f-internal-cervical-os",
+        "vh-f-lower-uterine-segment"
+      ]
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "The preserved native exterior labels have no authored cavity. Same-atlas context and other pelvic lessons remain separately bound."
+  ]
+}

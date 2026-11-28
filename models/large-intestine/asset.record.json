@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:bp3d:large-bowel",
+  "title": "BodyParts3D large bowel exterior",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/large-intestine",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:bp3d:colon-atlas",
+      "title": "Native bowel atlas and member pins",
+      "subject": "BodyParts3D 4.0 reference atlas",
+      "sourceType": "retained source or source receipt",
+      "license": "BodyParts3D © Database Center for Life Science, CC BY 4.0 for the source. Retain the historical CC BY-SA 2.1 Japan OBJ notices.",
+      "path": "sources/datasets/bodyparts3d/bowel-studies-4.0/external-source-map.json",
+      "sha256": "3968a49a3266bf94c2f0873bbcebc92f6668d29763efe1d64d34c78d9fb51814",
+      "bytes": 24256,
+      "evidence": [
+        {
+          "path": "models/large-intestine/exports/source-candidate-v4/README.md",
+          "sha256": "4e2c4d61965169a01d07c93735a805ae38ea7271d4572ff4ee640d1e995ad451"
+        },
+        {
+          "path": "sources/datasets/bodyparts3d/bowel-studies-4.0/ATTRIBUTION.md",
+          "sha256": "b9a552c60350c83462c8350e55d0cd22d9507192e87938b4375c999e6098f839"
+        }
+      ],
+      "limitations": []
+    },
+    {
+      "sourceId": "source:recipe:teaching-economy-r01",
+      "title": "Exact retained edition source",
+      "subject": "BodyParts3D 4.0 reference atlas",
+      "sourceType": "retained source or source receipt",
+      "license": "BodyParts3D © Database Center for Life Science, CC BY 4.0 for the source. Retain the historical CC BY-SA 2.1 Japan OBJ notices.",
+      "path": "models/large-intestine/exports/source-candidate-v4/large-intestine.glb",
+      "bytes": 7882016,
+      "sha256": "a8bd8f8227a3cf53b5aa63bb234c1bcb182bfa432da5eb2e3488788f829df4f5",
+      "evidence": [
+        {
+          "path": "models/large-intestine/exports/teaching-economy-r01/README.md",
+          "sha256": "520bc58314cb4a493591b9310a660fb945d086235b2cfdd9fdd7672b674bc936"
+        }
+      ],
+      "limitations": []
+    }
+  ],
+  "parts": [
+    {
+      "partId": "colon-exterior",
+      "label": "Native atlas colon exterior",
+      "selectors": [
+        "large-intestine · BodyParts3D surface"
+      ],
+      "sourcePath": "models/large-intestine/exports/source-candidate-v4/README.md",
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "teaching-economy-r01",
+      "status": "provisional",
+      "recipe": "recipes/teaching-economy-r01.json",
+      "sourceIds": [
+        "source:recipe:teaching-economy-r01"
+      ],
+      "recipeEvidence": {
+        "path": "models/large-intestine/exports/teaching-economy-r01/README.md",
+        "sha256": "520bc58314cb4a493591b9310a660fb945d086235b2cfdd9fdd7672b674bc936"
+      },
+      "frame": {
+        "convention": "glb-y-up-m",
+        "evidence": "models/large-intestine/exports/source-candidate-v4/README.md",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ]
+      },
+      "partIds": [
+        "colon-exterior"
+      ],
+      "exports": [
+        {
+          "id": "teaching",
+          "path": "models/large-intestine/exports/teaching-economy-r01/large-intestine.glb",
+          "sha256": "4ba211f975eb8820d12e6f975051a73691efb69c83806a7d56794f48c00c232a",
+          "bytes": 4846448,
+          "format": "glb",
+          "partIds": [
+            "colon-exterior"
+          ],
+          "triangles": 218664
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "Disconnected exterior components and ribbon-like taenia surfaces do not demonstrate a complete patent lumen."
+  ]
+}

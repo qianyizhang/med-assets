@@ -7,6 +7,7 @@ import re
 import subprocess
 from urllib.parse import unquote, urlsplit
 
+from assetkit import Workspace
 from med_assets.artifacts import repo_file, source_path, unique_keys
 from med_assets.derivatives import DISPLAY_DERIVATIVES
 from med_assets.teaching import ASSESSMENTS, SELECTIONS, CurrentTeaching, check_promotion_journal, locked_store
@@ -58,6 +59,16 @@ def explain(root, paths):
     def add(path, reason, owner):
         if path in wanted:
             matches[path].add((reason, str(owner)))
+
+    workspace = Workspace.load(root)
+    for path in wanted:
+        impact = workspace.impact(path)
+        if path not in impact.matched_export_paths:
+            continue
+        for reader in impact.consumers:
+            add(path, f'AssetKit 3D dependency · {reader.consumer_id}', reader.owner_path)
+        for adoption in impact.adoptions:
+            add(path, f'AssetKit adoption ({adoption.status}) · {adoption.consumer_id}', adoption.owner_path)
 
     with locked_store(root):
         check_promotion_journal(root)

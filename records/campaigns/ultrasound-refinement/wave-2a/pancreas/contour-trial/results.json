@@ -1,0 +1,489 @@
+{
+  "baselineRevision": "4fd3b35c",
+  "case": "s1233",
+  "subject": "pancreas exterior, frame 12",
+  "source": {
+    "case": "s1233",
+    "ctSha256": "5352376d8fd9c0ab582a7fca1443f28762a66b9782d59c645b976771587c0cfc",
+    "maskSha256": "9f11083652d059e85514d419c90124911953dbbce2018ccc549eaa2c73b0968b",
+    "shape": [
+      265,
+      265,
+      401
+    ],
+    "rasMmFromVoxel": [
+      [
+        1.5,
+        0.0,
+        0.0,
+        -215.611328125
+      ],
+      [
+        0.0,
+        1.5,
+        0.0,
+        -37.111328125
+      ],
+      [
+        0.0,
+        0.0,
+        1.5,
+        41.20000076293945
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "workingLabelGridSpacingMm": [
+      1.5,
+      1.5,
+      1.5
+    ],
+    "maskComponents6ConnectedVoxels": [
+      17606
+    ],
+    "enclosedBackgroundVoxels": 42
+  },
+  "patchRadiusMm": 6,
+  "maximumAllowedMoveMm": 1.5,
+  "patches": [
+    {
+      "sourceAnchorCorrectionMm": 0.4369684051189313,
+      "planeMm": -1.5,
+      "centerRasMm": [
+        27.388671875,
+        197.460948061,
+        340.450000763
+      ],
+      "vertices": 470,
+      "maxCorrectionMm": 0.4499969482421875
+    },
+    {
+      "sourceAnchorCorrectionMm": 1.039403575940881,
+      "planeMm": 0.0,
+      "centerRasMm": [
+        -1.111328125,
+        196.907056481,
+        353.931616157
+      ],
+      "vertices": 355,
+      "maxCorrectionMm": 0.7424615807662139
+    }
+  ],
+  "trials": {
+    "r01": {
+      "export": {
+        "sha256": "4f853b98b4ec8048cee6a53562478be63faf4a668c158f34490a7535fd17fda0",
+        "bytes": 104432,
+        "triangles": 5800
+      },
+      "failures": [
+        "global referenceToMesh maxMm 7.580 > 3 mm",
+        "plane -1.5 mm referenceToMesh p95Mm 5.990 > 1.5 mm",
+        "plane -1.5 mm referenceToMesh maxMm 8.448 > 3 mm",
+        "plane 0.0 mm referenceToMesh p95Mm 7.719 > 1.5 mm",
+        "plane 0.0 mm referenceToMesh maxMm 10.184 > 3 mm",
+        "plane 1.5 mm referenceToMesh p95Mm 5.814 > 1.5 mm",
+        "plane 1.5 mm referenceToMesh maxMm 9.609 > 3 mm"
+      ],
+      "rawGlobalMaxMm": 7.5798050258244505,
+      "rawFullSectionMaxMm": [
+        8.448457388660627,
+        10.18449633445745,
+        9.608837629389043
+      ],
+      "filledFullSectionMaxMm": [
+        3.1485763699008604,
+        6.8123627175306,
+        1.5177490490881351
+      ],
+      "filledFullSectionP95Mm": [
+        0.9760746112614445,
+        0.9685149831694925,
+        0.8007699016437677
+      ],
+      "volumeChangePercent": 0.23184670067823987,
+      "topology": {
+        "components": 1,
+        "euler": 2,
+        "openEdges": 0,
+        "nonmanifoldEdges": 0,
+        "misorientedSharedEdges": 0,
+        "degenerateTriangles": 0,
+        "signedVolumeMm3": 59369.703307170865,
+        "intersectingNonincidentPairs": 0
+      },
+      "turningSilhouette": {
+        "views": 24,
+        "pixelsPerMm": 3.0,
+        "supersample": 4,
+        "maximumDeparturePx": 0.7905694150420949
+      }
+    },
+    "half": {
+      "export": {
+        "sha256": "b6a5ba3b09c19e1da8c08f819eb82477b2e644505d1a165144d575f978bf9a0b",
+        "bytes": 104432,
+        "triangles": 5800
+      },
+      "failures": [
+        "global referenceToMesh maxMm 7.580 > 3 mm",
+        "plane -1.5 mm referenceToMesh p95Mm 5.990 > 1.5 mm",
+        "plane -1.5 mm referenceToMesh maxMm 8.448 > 3 mm",
+        "plane 0.0 mm referenceToMesh p95Mm 7.719 > 1.5 mm",
+        "plane 0.0 mm referenceToMesh maxMm 10.184 > 3 mm",
+        "plane 1.5 mm referenceToMesh p95Mm 5.814 > 1.5 mm",
+        "plane 1.5 mm referenceToMesh maxMm 9.609 > 3 mm"
+      ],
+      "rawGlobalMaxMm": 7.579825773025978,
+      "rawFullSectionMaxMm": [
+        8.448457388660627,
+        10.18449633445745,
+        9.6088289766174
+      ],
+      "filledFullSectionMaxMm": [
+        3.335833784129682,
+        6.8123627175306,
+        1.5177490490881351
+      ],
+      "filledFullSectionP95Mm": [
+        0.9760740976292682,
+        0.9649556229210008,
+        0.7848721501572821
+      ],
+      "volumeChangePercent": 0.22889502662819528,
+      "topology": {
+        "components": 1,
+        "euler": 2,
+        "openEdges": 0,
+        "nonmanifoldEdges": 0,
+        "misorientedSharedEdges": 0,
+        "degenerateTriangles": 0,
+        "signedVolumeMm3": 59367.95496052876,
+        "intersectingNonincidentPairs": 0
+      },
+      "turningSilhouette": {
+        "views": 24,
+        "pixelsPerMm": 3.0,
+        "supersample": 4,
+        "maximumDeparturePx": 0.7905694150420949
+      }
+    },
+    "full": {
+      "export": {
+        "sha256": "9576358ed16e36abc03180eb7a581fd813d829cbf1a226e0c6abdba6fc75b452",
+        "bytes": 104432,
+        "triangles": 5800
+      },
+      "failures": [
+        "global referenceToMesh maxMm 7.580 > 3 mm",
+        "plane -1.5 mm referenceToMesh p95Mm 5.990 > 1.5 mm",
+        "plane -1.5 mm referenceToMesh maxMm 8.448 > 3 mm",
+        "plane 0.0 mm referenceToMesh p95Mm 7.719 > 1.5 mm",
+        "plane 0.0 mm referenceToMesh maxMm 10.184 > 3 mm",
+        "plane 1.5 mm referenceToMesh p95Mm 5.814 > 1.5 mm",
+        "plane 1.5 mm referenceToMesh maxMm 9.609 > 3 mm"
+      ],
+      "rawGlobalMaxMm": 7.5798050258244505,
+      "rawFullSectionMaxMm": [
+        8.448460365854734,
+        10.18449633445745,
+        9.6088289766174
+      ],
+      "filledFullSectionMaxMm": [
+        1.9824372820398908,
+        6.8123627175306,
+        1.5177490490881351
+      ],
+      "filledFullSectionP95Mm": [
+        0.9105969985954128,
+        0.9641748149981217,
+        0.7709299545820738
+      ],
+      "volumeChangePercent": 0.22825027907551476,
+      "topology": {
+        "components": 1,
+        "euler": 2,
+        "openEdges": 0,
+        "nonmanifoldEdges": 0,
+        "misorientedSharedEdges": 0,
+        "degenerateTriangles": 0,
+        "signedVolumeMm3": 59367.57306124055,
+        "intersectingNonincidentPairs": 0
+      },
+      "turningSilhouette": {
+        "views": 24,
+        "pixelsPerMm": 3.0,
+        "supersample": 4,
+        "maximumDeparturePx": 0.7905694150420949
+      }
+    },
+    "anchor": {
+      "export": {
+        "sha256": "16919fa7975eca4d8e3b2c0de47d30490b823810daa2b8878d6baab432bc6b96",
+        "bytes": 104432,
+        "triangles": 5800
+      },
+      "failures": [
+        "global referenceToMesh maxMm 7.580 > 3 mm",
+        "plane -1.5 mm referenceToMesh p95Mm 5.990 > 1.5 mm",
+        "plane -1.5 mm referenceToMesh maxMm 8.447 > 3 mm",
+        "plane 0.0 mm referenceToMesh p95Mm 7.719 > 1.5 mm",
+        "plane 0.0 mm referenceToMesh maxMm 10.184 > 3 mm",
+        "plane 1.5 mm referenceToMesh p95Mm 5.814 > 1.5 mm",
+        "plane 1.5 mm referenceToMesh maxMm 9.609 > 3 mm"
+      ],
+      "rawGlobalMaxMm": 7.579825773025978,
+      "rawFullSectionMaxMm": [
+        8.447149489694354,
+        10.18449633445745,
+        9.608837629389043
+      ],
+      "filledFullSectionMaxMm": [
+        1.982564813564178,
+        2.6509372768147266,
+        1.5177490490881351
+      ],
+      "filledFullSectionP95Mm": [
+        0.9106295758583322,
+        0.9670421248985609,
+        0.7799594323823704
+      ],
+      "volumeChangePercent": 0.21542476577107728,
+      "topology": {
+        "components": 1,
+        "euler": 2,
+        "openEdges": 0,
+        "nonmanifoldEdges": 0,
+        "misorientedSharedEdges": 0,
+        "degenerateTriangles": 0,
+        "signedVolumeMm3": 59359.9762051044,
+        "intersectingNonincidentPairs": 0
+      },
+      "turningSilhouette": {
+        "views": 24,
+        "pixelsPerMm": 3.0,
+        "supersample": 4,
+        "maximumDeparturePx": 0.7905694150420949
+      }
+    }
+  },
+  "siteMeasurements": [
+    {
+      "planeMm": -1.5,
+      "markerRasMm": [
+        27.388671875,
+        197.460948061,
+        340.450000763
+      ],
+      "r01In3DMm": 0.4956291976620732,
+      "trialIn3DMm": 0.05269414732648422,
+      "r01InPlaneMm": 3.1485763699157987,
+      "trialInPlaneMm": 0.12468519593857107,
+      "selectedParallelCuts": {
+        "shiftMm": [
+          -0.75,
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0,
+          1.5
+        ],
+        "source": {
+          "nearestLoopPerimeterMm": [
+            254.8731,
+            3.3933,
+            9.4094,
+            268.8383,
+            257.7876,
+            257.5587,
+            257.4413
+          ],
+          "isDominantContour": [
+            true,
+            false,
+            false,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        "r01": {
+          "nearestLoopPerimeterMm": [
+            221.4186,
+            223.2969,
+            222.6125,
+            222.8976,
+            225.0407,
+            225.4249,
+            224.2859
+          ],
+          "isDominantContour": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        "trial": {
+          "nearestLoopPerimeterMm": [
+            221.4761,
+            1.4569,
+            231.4223,
+            225.6536,
+            224.9526,
+            224.84,
+            223.5683
+          ],
+          "isDominantContour": [
+            true,
+            false,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        }
+      }
+    },
+    {
+      "planeMm": 0.0,
+      "markerRasMm": [
+        -1.111328125,
+        196.907056481,
+        353.931616157
+      ],
+      "r01In3DMm": 1.0985410765381052,
+      "trialIn3DMm": 0.08977095611128622,
+      "r01InPlaneMm": 6.812362717533858,
+      "trialInPlaneMm": 0.32403956718285726,
+      "selectedParallelCuts": {
+        "shiftMm": [
+          -0.75,
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0,
+          1.5
+        ],
+        "source": {
+          "nearestLoopPerimeterMm": [
+            257.7876,
+            0.1691,
+            3.3281,
+            5.5238,
+            7.25,
+            8.821,
+            12.1368
+          ],
+          "isDominantContour": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ]
+        },
+        "r01": {
+          "nearestLoopPerimeterMm": [
+            225.0407,
+            224.2859,
+            224.0985,
+            225.9276,
+            229.5967,
+            0.0401,
+            7.6701
+          ],
+          "isDominantContour": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            false,
+            false
+          ]
+        },
+        "trial": {
+          "nearestLoopPerimeterMm": [
+            224.9526,
+            0.0077,
+            4.4984,
+            6.4225,
+            7.9018,
+            9.2719,
+            11.9676
+          ],
+          "isDominantContour": [
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ]
+        }
+      }
+    }
+  ],
+  "interleavedExteriorChecks": [
+    {
+      "offsetMm": -2.25,
+      "r01": {
+        "p95Mm": 1.276848466206821,
+        "maxMm": 9.643887329528496
+      },
+      "trial": {
+        "p95Mm": 1.2768497873911095,
+        "maxMm": 9.643887329528496
+      }
+    },
+    {
+      "offsetMm": -0.75,
+      "r01": {
+        "p95Mm": 1.0826661838479499,
+        "maxMm": 4.4540027071806305
+      },
+      "trial": {
+        "p95Mm": 1.0745875167689036,
+        "maxMm": 4.4540027071806305
+      }
+    },
+    {
+      "offsetMm": 0.75,
+      "r01": {
+        "p95Mm": 1.0488892631544775,
+        "maxMm": 6.59727181243755
+      },
+      "trial": {
+        "p95Mm": 0.8896995907641221,
+        "maxMm": 1.7380791945227079
+      }
+    },
+    {
+      "offsetMm": 2.25,
+      "r01": {
+        "p95Mm": 1.0776051267974882,
+        "maxMm": 4.0189112210681515
+      },
+      "trial": {
+        "p95Mm": 1.0644039373115153,
+        "maxMm": 4.024151746273661
+      }
+    }
+  ],
+  "plateSha256": "1b9f26685cf80cde80d8081a81993b621a04c8532d924e75a237d1fddb668926"
+}

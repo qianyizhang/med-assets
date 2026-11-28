@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:authored:adipose-pads",
+  "title": "Authored regional adipose pads",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/adipose-context",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:commissioned:network-systems-pads",
+      "title": "External commissioned Network Systems scene",
+      "subject": "Commissioned schematic body regions",
+      "sourceType": "retained source or source receipt",
+      "license": "Original commissioned geometry. No third-party CC terms asserted.",
+      "sha256": "5f7947838971b88f2c29e992290086e21169eee2c72bb5394948e72aee4bad25",
+      "bytes": 10587644,
+      "evidence": [
+        {
+          "path": "models/adipose-context/r01/README.md",
+          "sha256": "7f5ba5e8a124399b5b74cdf5902e2e5b2912a76e9f1e1e1d71a245ce2f526cb8"
+        },
+        {
+          "path": "models/adipose-context/r01/geometry-verification.json",
+          "sha256": "6b6734969715af8e65d02742057df8996d9780c88da6a2c7f5e698038e1eafb6"
+        },
+        {
+          "path": "models/adipose-context/r01/replay-verification.json",
+          "sha256": "bc21769f272852f5691b95c5a6123acb7aab3b972f52e35a08b204e126eaf5f0"
+        }
+      ],
+      "limitations": []
+    }
+  ],
+  "parts": [
+    {
+      "partId": "abdominal-pads",
+      "label": "Authored abdominal subcutaneous pads",
+      "selectors": [
+        "Abdominal subcutaneous pad -1",
+        "Abdominal subcutaneous pad 1"
+      ],
+      "sourcePath": "models/adipose-context/r01/build-receipt.json",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "flank-pads",
+      "label": "Authored flank pads",
+      "selectors": [
+        "Flank pad -1",
+        "Flank pad 1"
+      ],
+      "sourcePath": "models/adipose-context/r01/build-receipt.json",
+      "registration": "illustrative"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "r01",
+      "status": "provisional",
+      "sourceIds": [
+        "source:commissioned:network-systems-pads"
+      ],
+      "recipeEvidence": {
+        "path": "models/adipose-context/r01/README.md",
+        "sha256": "7f5ba5e8a124399b5b74cdf5902e2e5b2912a76e9f1e1e1d71a245ce2f526cb8"
+      },
+      "frame": {
+        "convention": "glb-y-up-m",
+        "evidence": "models/adipose-context/r01/build-receipt.json",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ]
+      },
+      "partIds": [
+        "abdominal-pads",
+        "flank-pads"
+      ],
+      "exports": [
+        {
+          "id": "teaching",
+          "path": "models/adipose-context/r01/selected-source-pads.glb",
+          "sha256": "e56010adfe8aa587db77c0cd847c0dcdfbb8951bc90c92eddb27643512a38531",
+          "bytes": 49724,
+          "format": "glb",
+          "partIds": [
+            "abdominal-pads",
+            "flank-pads"
+          ],
+          "triangles": 1760
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "Source-scene placement is illustrative. The older unavailable derivative has a separate identity."
+  ]
+}

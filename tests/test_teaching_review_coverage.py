@@ -394,6 +394,12 @@ class TeachingPromotionTests(unittest.TestCase):
         return subprocess.run([sys.executable, str(ROOT / "tools/maintained_teaching.py"),
                                "--repo", str(self.repo), *args], text=True, capture_output=True, check=False)
 
+    def assetkit_cli(self, *args):
+        return subprocess.run(
+            [sys.executable, "-m", "assetkit", "--repo", str(self.repo), "review", *args],
+            cwd=self.repo.parent, text=True, capture_output=True, check=False,
+        )
+
     def replacement_review(self):
         row = {**self.row, "export": self.claim("models/replacement.glb", b"replacement model"),
                "route": "library/fixture-family/replacement-r02"}
@@ -411,6 +417,25 @@ class TeachingPromotionTests(unittest.TestCase):
         if disposition == "maintained":
             args += ["--replaces", self.row["export"]["path"]]
         return args
+
+    def test_assetkit_review_check_and_render_match_legacy(self):
+        render = self.assetkit_cli()
+        self.assertEqual(render.returncode, 0, render.stderr)
+        self.assertEqual(render.stdout, self.cli().stdout)
+        self.assertEqual(render.stdout, (self.repo / REGISTER).read_text())
+        checked = self.assetkit_cli("check")
+        self.assertEqual(checked.returncode, 0, checked.stderr)
+        self.assertEqual(checked.stdout, self.cli("--check").stdout)
+        self.assertIn("Validated 1 accepted teaching assessments", checked.stdout)
+
+        (self.repo / SCORECARD).write_text("independent edit\n")
+        before = teaching_promotion.read_state(self.repo)
+        stale = self.assetkit_cli("check")
+        self.assertEqual(stale.returncode, 1, stale.stderr)
+        self.assertEqual(stale.stdout, "")
+        self.assertEqual(stale.stderr, self.cli("--check").stderr)
+        self.assertIn("Coverage report drift", stale.stderr)
+        self.assertEqual(teaching_promotion.read_state(self.repo), before)
 
     def test_offline_teaching_command_checks_hidden_task_and_alternative(self):
         hidden = {**self.row, "task": "Inspect both boundaries."}
@@ -501,9 +526,11 @@ class TeachingPromotionTests(unittest.TestCase):
         row, review = self.replacement_review()
         args = self.promotion_args(row, review)
         before = teaching_promotion.read_state(self.repo)
-        dry_run = self.cli(*args)
+        dry_run = self.assetkit_cli(*args)
         self.assertEqual(dry_run.returncode, 0, dry_run.stderr)
+        self.assertEqual(dry_run.stdout, self.cli(*args).stdout)
         plan = json.loads(dry_run.stdout)
+        self.assertEqual(plan["status"], "dry-run")
         self.assertEqual(plan["disposition"], "maintained")
         self.assertEqual(plan["assessmentAfter"]["axes"][0]["score"], 4)
         self.assertEqual(plan["assessmentAfter"]["route"], "library/fixture-family/replacement-r02")
@@ -516,14 +543,18 @@ class TeachingPromotionTests(unittest.TestCase):
         register["families"]["fixture-family"]["label"] = "Renamed display label"
         write_fixture(self.repo, SELECTIONS, register)
         stale_state = teaching_promotion.read_state(self.repo)
-        rejected = self.cli(*args, "--apply", "--expect-state", plan["planSha256"])
-        self.assertIn("Promotion plan is stale", rejected.stderr)
-        self.assertEqual(teaching_promotion.read_state(self.repo), stale_state)
+        for flags in ((), ("--expect-state", plan["planSha256"])):
+            rejected = self.assetkit_cli(*args, "--apply", *flags)
+            self.assertEqual(rejected.returncode, 1, rejected.stderr)
+            self.assertIn("Promotion plan is stale or missing", rejected.stderr)
+            self.assertEqual(teaching_promotion.read_state(self.repo), stale_state)
+            self.assertFalse((self.repo / PROMOTION_JOURNAL).exists())
         plan = json.loads(self.cli(*args).stdout)
         self.assertEqual(plan["assessmentAfter"]["taskId"], "trace-branch")
 
-        applied = self.cli(*args, "--apply", "--expect-state", plan["planSha256"])
+        applied = self.assetkit_cli(*args, "--apply", "--expect-state", plan["planSha256"])
         self.assertEqual(applied.returncode, 0, applied.stderr)
+        self.assertEqual(json.loads(applied.stdout)["status"], "applied")
         self.assertEqual(self.cli("--check").returncode, 0)
         teaching = CurrentTeaching(self.repo)
         self.assertEqual(set(teaching.selections), {"models/replacement.glb"})
@@ -537,6 +568,9 @@ class TeachingPromotionTests(unittest.TestCase):
         row, review = self.replacement_review()
         args = self.promotion_args(row, review, disposition="alternative")
         before = teaching_promotion.read_state(self.repo)
+        invalid_choice = [*args[:-1], "provisional"]
+        self.assertEqual(self.assetkit_cli(*invalid_choice).returncode, 2)
+        self.assertEqual(self.cli(*invalid_choice).returncode, 2)
         wrong = args.copy()
         wrong[wrong.index("--export") + 1] = self.row["export"]["path"]
         self.assertIn("different export", self.cli(*wrong).stderr)
@@ -550,7 +584,9 @@ class TeachingPromotionTests(unittest.TestCase):
         self.assertEqual(teaching_promotion.read_state(self.repo), before)
         view.write_bytes(raw)
 
-        plan = json.loads(self.cli(*args).stdout)
+        dry_run = self.assetkit_cli(*args)
+        self.assertEqual(dry_run.returncode, 0, dry_run.stderr)
+        plan = json.loads(dry_run.stdout)
         self.assertEqual(plan["changedFiles"], [ASSESSMENTS])
         self.assertEqual(plan["selectionBefore"], plan["selectionAfter"])
         result = self.cli(*args, "--apply", "--expect-state", plan["planSha256"])
@@ -565,7 +601,7 @@ class TeachingPromotionTests(unittest.TestCase):
         del args[-2:]
         args[args.index("--family-id") + 1] = "replacement-family"
         args += ["--new-family-label", "Replacement family"]
-        dry_run = self.cli(*args)
+        dry_run = self.assetkit_cli(*args)
         self.assertEqual(dry_run.returncode, 0, dry_run.stderr)
         plan = json.loads(dry_run.stdout)
         self.assertEqual(plan["reviewedSha256"], assessment_digest(row))
@@ -608,16 +644,29 @@ class TeachingPromotionTests(unittest.TestCase):
             with self.assertRaisesRegex(OSError, "simulated interruption"):
                 teaching_promotion.promote(self.repo, promotion, apply=True, expect_state=plan["planSha256"])
         self.assertTrue((self.repo / PROMOTION_JOURNAL).is_file())
-        self.assertIn("Interrupted teaching promotion", self.cli("--check").stderr)
+        pending = self.assetkit_cli("check")
+        self.assertEqual(pending.returncode, 1, pending.stderr)
+        self.assertEqual(pending.stderr, self.cli("--check").stderr)
+        self.assertIn("Interrupted teaching promotion", pending.stderr)
         path = self.repo / REGISTER
         original = path.read_text()
         path.write_text("independent edit")
-        self.assertIn("Promotion conflicts with an edit".lower(), self.cli("recover").stderr.lower())
+        journal = (self.repo / PROMOTION_JOURNAL).read_bytes()
+        conflict = self.assetkit_cli("recover")
+        self.assertEqual(conflict.returncode, 1, conflict.stderr)
+        self.assertIn("Teaching promotion conflicts with an edit", conflict.stderr)
         self.assertEqual(path.read_text(), "independent edit")
+        self.assertEqual((self.repo / PROMOTION_JOURNAL).read_bytes(), journal)
         path.write_text(original)
-        self.assertEqual(self.cli("recover").returncode, 0)
+        recovered = self.assetkit_cli("recover")
+        self.assertEqual(recovered.returncode, 0, recovered.stderr)
+        self.assertEqual(recovered.stdout, "Recovered teaching promotion.\n")
         self.assertFalse((self.repo / PROMOTION_JOURNAL).exists())
         self.assertEqual(self.cli("--check").returncode, 0)
+        repeated = self.assetkit_cli("recover")
+        self.assertEqual(repeated.returncode, 0, repeated.stderr)
+        self.assertEqual(repeated.stdout, self.cli("recover").stdout)
+        self.assertEqual(repeated.stdout, "No teaching promotion to recover.\n")
 
     def test_verified_install_distinguishes_pointer_conflict_and_exact_replay(self):
         raw = b"known payload"

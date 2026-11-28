@@ -1,0 +1,123 @@
+{
+  "version": 1,
+  "rubricHash": "a38e552869511cd5bceacaa5ea4456f4d0530e58e7dce2bc6855587a98b0e684",
+  "records": [
+    {
+      "source": "sweep",
+      "case": "ivc",
+      "part": "inferior_vena_cava",
+      "occurrence": 1,
+      "revision": "anatomy:s1233:ivc@r01:abdominal",
+      "meshSha256": "0ccc3c04dc2528ce211cde5119140a6450ae28172ef5f2b6d02178a786ef3ea0",
+      "rubric": "docs/guides/asset-quality.md",
+      "reviewer": "Independent campaign lead · agent review",
+      "reviewedOn": "2026-11-28",
+      "task": "Follow the caval trunk in 3D beside the aorta. The CT label identifies the caval exterior only.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "The protected grazing contour on the caval shoulder is present. Its maximum gap is 1.18 mm after local correction, and all three sweep cuts stay within 1.78 mm.",
+        "form": "The bowed lower trunk is smoother than the previous export. The upper flare has residual horizontal bands near the supported shoulder and the artificial crop cap.",
+        "readability": "The oblique view shows the blue caval trunk beside the aorta. The liver overlaps its upper extent. Orbiting and opening the tissue overlay clarify the relationship.",
+        "economy": "The abdominal port falls from 17,476 to 6,000 triangles. Its worst silhouette departure from the dense shaped surface is 0.91 px at 3 px/mm."
+      },
+      "disposition": "Adopt for the named 3D orientation task",
+      "note": "The CT label supports caval course and exterior orientation. The worked view supplies its own teaching observations about patency and the hepatic confluence.",
+      "comparison": {
+        "label": "Previous and refined caval exterior",
+        "candidate": "asset-reviews/ivc-wave-2b/previous-vs-r01.webp",
+        "candidateLabel": "Inspect the lower trunk and the upper shoulder in front, reverse and close views.",
+        "views": [
+          {
+            "label": "Raw label and both caval exteriors",
+            "candidate": "asset-reviews/ivc-wave-2b/matched-surfaces.webp",
+            "candidateLabel": "The raw lower trunk has axial steps. The candidate retains the flare near its superior display limit."
+          },
+          {
+            "label": "Source cuts and grazing contour",
+            "candidate": "asset-reviews/ivc-wave-2b/protected-planes.webp",
+            "candidateLabel": "The small loop is recovered at the +1.5 mm parallel cut. The limits set before shaping still apply."
+          },
+          {
+            "label": "The IVC sweep at frame 12",
+            "candidate": "asset-reviews/ivc-wave-2b/live-frame-12.webp",
+            "candidateLabel": "The liver overlaps part of the upper cava. The simulated section and overlay stay registered to the same CT."
+          }
+        ]
+      },
+      "links": [
+        {
+          "label": "Source, replay and protected contour measurements",
+          "href": "asset-reviews/ivc-wave-2b/measurements.json"
+        }
+      ]
+    },
+    {
+      "source": "case",
+      "case": "abdomen-survey",
+      "chapter": "ivc-long",
+      "chapterSha256": "77b581b2ad4856b84f6e0ad22f717ee50c7b53263e4968f1a2d113926de07f86",
+      "part": "inferior_vena_cava",
+      "occurrence": 1,
+      "revision": "anatomy:s1233:ivc@r01:abdominal",
+      "meshSha256": "0ccc3c04dc2528ce211cde5119140a6450ae28172ef5f2b6d02178a786ef3ea0",
+      "rubric": "docs/guides/asset-quality.md",
+      "reviewer": "Independent campaign lead · agent review",
+      "reviewedOn": "2026-11-28",
+      "task": "Follow the caval trunk in 3D beside the aorta. The CT label identifies the caval exterior only.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "The protected grazing contour on the caval shoulder is present. Its maximum gap is 1.18 mm after local correction, and all three sweep cuts stay within 1.78 mm.",
+        "form": "The bowed lower trunk is smoother than the previous export. The upper flare has residual horizontal bands near the supported shoulder and the artificial crop cap.",
+        "readability": "The oblique view shows the blue caval trunk beside the aorta. The liver overlaps its upper extent. Orbiting and opening the tissue overlay clarify the relationship.",
+        "economy": "The abdominal port falls from 17,476 to 6,000 triangles. Its worst silhouette departure from the dense shaped surface is 0.91 px at 3 px/mm."
+      },
+      "disposition": "Adopt for the named 3D orientation task",
+      "note": "The CT label supports caval course and exterior orientation. The worked view supplies its own teaching observations about patency and the hepatic confluence.",
+      "comparison": {
+        "label": "Previous and refined caval exterior",
+        "candidate": "asset-reviews/ivc-wave-2b/previous-vs-r01.webp",
+        "candidateLabel": "Inspect the lower trunk and the upper shoulder in front, reverse and close views.",
+        "views": [
+          {
+            "label": "Raw label and both caval exteriors",
+            "candidate": "asset-reviews/ivc-wave-2b/matched-surfaces.webp",
+            "candidateLabel": "The raw lower trunk has axial steps. The candidate retains the flare near its superior display limit."
+          },
+          {
+            "label": "Source cuts and grazing contour",
+            "candidate": "asset-reviews/ivc-wave-2b/protected-planes.webp",
+            "candidateLabel": "The small loop is recovered at the +1.5 mm parallel cut. The limits set before shaping still apply."
+          },
+          {
+            "label": "The IVC sweep at frame 12",
+            "candidate": "asset-reviews/ivc-wave-2b/live-frame-12.webp",
+            "candidateLabel": "The liver overlaps part of the upper cava. The simulated section and overlay stay registered to the same CT."
+          }
+        ]
+      },
+      "links": [
+        {
+          "label": "Source, replay and protected contour measurements",
+          "href": "asset-reviews/ivc-wave-2b/measurements.json"
+        }
+      ]
+    }
+  ],
+  "evidenceSha256": {
+    "previous-vs-r01.webp": "73f5c87a525cab0f3850e236d56a533ef9f5ffad7d4e21e3d4ffc590670e1f38",
+    "matched-surfaces.webp": "c5d04aa33f6899a064c36716090f8b5d1ab753af7936132905e92eb7d9f236b7",
+    "protected-planes.webp": "dedf4118eb7210f0dfb4bfd456609144d1a24b3f18998f9c3916f87adf27cafa",
+    "live-frame-12.webp": "8a4779c8711fb9bc649434c02683ee76d4e54471536b4019755399ff064adc19"
+  },
+  "measurementsSha256": "f40f73f0365c5c05e1e5b8c386b7f710eb6a780e74bf863c7caf13efddc27349"
+}

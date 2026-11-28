@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:z-anatomy:median-wrist",
+  "title": "Right median nerve at the wrist",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/peripheral_nerves/median-wrist",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:peripheral-nerves-median-wrist:median-wrist-r01",
+      "title": "Z-Anatomy native median wrist localization source and replay for median-wrist-r01",
+      "sourceType": "recipe source or retained provenance",
+      "subject": "Z-Anatomy native median wrist localization",
+      "license": "CC BY-SA 4.0, with Z-Anatomy and inherited BodyParts3D attribution as recorded.",
+      "evidence": [
+        {
+          "path": "models/peripheral_nerves/exports/median-wrist-r01/README.md",
+          "sha256": "b0383350e33405a54de9acc467c724b2827022d9e1ad7c94977e989fecc2ae47"
+        },
+        {
+          "path": "sources/datasets/z-anatomy/median-wrist/provenance.json",
+          "sha256": "6157b5d14ca2728573f376159fdce7a7c45ccefc67cdafbd4c7a9050f244b460"
+        },
+        {
+          "path": "models/peripheral_nerves/recipes/median-wrist-r01/README.md",
+          "sha256": "10f95ebf731557d11bb9de2c2e9d98b90da250401fcc9cd95eaea02e27f60315"
+        }
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "partId": "median-nerve-r-001",
+      "label": "Median nerve.r.001",
+      "selectors": [
+        "Median nerve.r.001"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "common-palmar-digital-branches-of-median-nerve-r-001",
+      "label": "Common palmar digital branches of median nerve.r.001",
+      "selectors": [
+        "Common palmar digital branches of median nerve.r.001"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "proper-palmar-digital-branches-of-median-nerve-r-001",
+      "label": "Proper palmar digital branches of median nerve.r.001",
+      "selectors": [
+        "Proper palmar digital branches of median nerve.r.001"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "radius-r-001",
+      "label": "Radius.r.001",
+      "selectors": [
+        "Radius.r.001"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "ulna-r-001",
+      "label": "Ulna.r.001",
+      "selectors": [
+        "Ulna.r.001"
+      ],
+      "registration": "unknown"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "median-wrist-r01",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "models/peripheral_nerves/exports/median-wrist-r01/README.md",
+        "sha256": "b0383350e33405a54de9acc467c724b2827022d9e1ad7c94977e989fecc2ae47"
+      },
+      "sourceIds": [
+        "source:peripheral-nerves-median-wrist:median-wrist-r01"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "models/peripheral_nerves/exports/median-wrist-r01/README.md"
+      },
+      "exports": [
+        {
+          "id": "regional",
+          "path": "models/peripheral_nerves/exports/median-wrist-r01/right-median-wrist.glb",
+          "sha256": "6094265d2263f3b501f4e487ff7f859b83205bde99bca9312d48c26f29680c50",
+          "bytes": 834404,
+          "triangles": 38414,
+          "format": "glb",
+          "partIds": [
+            "median-nerve-r-001",
+            "common-palmar-digital-branches-of-median-nerve-r-001",
+            "proper-palmar-digital-branches-of-median-nerve-r-001",
+            "radius-r-001",
+            "ulna-r-001"
+          ]
+        }
+      ],
+      "qualifications": [],
+      "partIds": [
+        "common-palmar-digital-branches-of-median-nerve-r-001",
+        "median-nerve-r-001",
+        "proper-palmar-digital-branches-of-median-nerve-r-001",
+        "radius-r-001",
+        "ulna-r-001"
+      ]
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "The selected native surfaces support regional skeletal localization. Nerve continuity, passage clearance and clinical use remain outside scope."
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "slug": "pancreas-r01",
+  "exportRef": {
+    "record": "models/pancreas_s1233/asset.record.json",
+    "asset": "anatomy:s1233:pancreas",
+    "revision": "r01",
+    "export": "pancreas"
+  },
+  "review": {
+    "case": "abdomen-survey",
+    "chapter": "abd-pancreas",
+    "part": "pancreas"
+  },
+  "adopted": false,
+  "cardTitle": "Pancreas r01 · earlier held trial",
+  "subtitle": "Abdominal survey · frame 12",
+  "revisionTitle": "s1233 pancreas · r01",
+  "revisionLinkLabel": "pancreas r01",
+  "coordinateFrame": "s1233 voxel indices · RAS axes · 1.5 mm spacing",
+  "sourceId": "source:totalsegmentator-v2.0.1:s1233:pancreas",
+  "sourceLabel": "TotalSegmentator v2.0.1 · Jakob Wasserthal and contributors · CC BY 4.0",
+  "detailsLabel": "Source sections, saved scan and lead review",
+  "figures": [
+    {
+      "file": "previous-vs-r01.webp",
+      "width": 948,
+      "height": 1175,
+      "alt": "The head and hooked uncinate contour remain distinct in reverse. The close-up still has uneven lobulated relief along the inner margin. The matched previous view looks similar at this scale.",
+      "caption": "Previous delivered sweep and candidate in matched neutral clay."
+    },
+    {
+      "file": "protected-planes.webp",
+      "width": 1414,
+      "height": 531,
+      "alt": "The saved cut loses raw-label loops and reaches 10.18 mm error against a 3.0 mm limit. Three enclosed mask voids account for much of the difference. Even the filled exterior has a 6.81 mm miss on a small tangential loop.",
+      "caption": "Frozen source sections and measured contours."
+    },
+    {
+      "file": "adjacent-contours.webp",
+      "width": 1140,
+      "height": 850,
+      "alt": "Three axial CT slices and three oblique cuts at each site. The source-anchored trial recovers two small exterior loops. The full raw-label check still fails.",
+      "caption": "Local trial at the two exterior misses. The white cross marks the point measured on each original cut."
+    },
+    {
+      "file": "live-frame-12.webp",
+      "width": 1339,
+      "height": 816,
+      "alt": "The registered overlay locates the body anterior to the venous landmark. I used the axial scene and reverse surface to follow the head-to-tail curve. The default oblique scene and grayscale alone leave the ends hard to identify.",
+      "caption": "Saved sweep frame 12 with probe, simulated scan and tissue overlay."
+    },
+    {
+      "file": "matched-surfaces.webp",
+      "width": 1414,
+      "height": 814,
+      "alt": "Pancreas CT half-label and interpreted exterior viewed under the same light.",
+      "caption": "CT reference and reimported surface at matched scale."
+    }
+  ]
+}

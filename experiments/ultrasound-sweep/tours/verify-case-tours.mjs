@@ -12,6 +12,13 @@ const captures = process.argv[3];
 if (captures) await mkdir(captures, { recursive: true });
 const selected = process.argv.slice(4);
 const expected = new Map();
+const consumers = (await Promise.all(['organs', 'vascular'].map(async family => {
+  const path = new URL('../cases/' + family + '/consumer.json', import.meta.url);
+  return JSON.parse(await readFile(path, 'utf8')).consumers;
+}))).flat();
+const key = entry => entry.case + '/' + entry.chapter;
+const exemplars = new Map(consumers.filter(entry => entry.presentation !== 'companion').map(entry => [key(entry), entry]));
+const companions = new Map(consumers.filter(entry => entry.presentation === 'companion').map(entry => [key(entry), entry]));
 for (const packageName of ['vascular', 'organs', 'pregnancy', 'echo']) {
   const folder = new URL('../cases/' + packageName + '/', import.meta.url);
   const records = JSON.parse(await readFile(new URL('cases.json', folder), 'utf8'));
@@ -199,9 +206,7 @@ async function playCaseToEnd(page, segments) {
   await waitForTourFrame(page, 0);
   await page.locator('#playTour').click();
   const shown = await page.evaluate(async (sections) => {
-    const viewer = document.querySelector('#player iframe');
     const position = document.querySelector('#tourPosition');
-    const source = viewer.contentDocument.querySelector('#position');
     let absolute = 0;
     for (const [chapter, , first, last] of sections) {
       for (let frame = first; frame <= last; frame++) {
@@ -212,7 +217,8 @@ async function playCaseToEnd(page, segments) {
               reject(Error('Case playback did not commit absolute frame ' + absolute));
             }, 15000);
             function accept({ data, source: sender, origin }) {
-              if (sender !== viewer.contentWindow || origin !== location.origin || data?.type !== 'sweep-status' ||
+              if (sender !== document.querySelector('#player iframe')?.contentWindow ||
+                  origin !== location.origin || data?.type !== 'sweep-status' ||
                   data.status !== 'frame' || !Number.isInteger(data.request)) return;
               clearTimeout(timer);
               window.removeEventListener('message', accept);
@@ -222,6 +228,7 @@ async function playCaseToEnd(page, segments) {
             window.stepSweep();
           });
         }
+        const source = document.querySelector('#player iframe').contentDocument.querySelector('#position');
         if (position.dataset.displayed !== String(absolute) || position.valueAsNumber !== absolute ||
             source.valueAsNumber !== frame ||
             document.querySelector('.chapters [aria-current="step"]').dataset.chapter !== chapter) {
@@ -241,8 +248,9 @@ async function playCaseToEnd(page, segments) {
   return shown;
 }
 
-async function checkAcquisitionSwitch(page, child, segments, chapters) {
-  const [first, second] = chapters;
+async function checkAcquisitionSwitch(page, child, segments, chapters, caseId) {
+  // This test exercises the state retained by the worked-case player across successive acquisitions.
+  const [first, second] = chapters.filter(chapter => !exemplars.has(caseId + '/' + chapter.id));
   assert.ok(second, 'A case tour requires more than one acquisition');
   const select = page.locator('#tourSection');
   await select.selectOption(first.id);
@@ -368,7 +376,7 @@ try {
       await waitForTourFrame(page, absoluteFrame(segments, sample.id, sample.evidenceFrame));
       await expectSource(child, sample.evidenceFrame);
       const total = await checkTimeline(page, segments);
-      await checkAcquisitionSwitch(page, child, segments, chapters);
+      await checkAcquisitionSwitch(page, child, segments, chapters, id);
       const report = page.locator('#reportEvidence a');
       assert.equal(await report.count(), chapters.length);
       for (const [index, chapter] of chapters.entries()) {
@@ -377,6 +385,42 @@ try {
         await waitForTourFrame(page, absoluteFrame(segments, chapter.id, 0));
         await expectSource(child, 0);
         assert.equal(await page.locator('.chapters [aria-current="step"]').getAttribute('data-chapter'), chapter.id);
+        const exemplar = await page.locator('.chapter:not([hidden])').getAttribute('data-source-sweep');
+        const consumer = exemplars.get(id + '/' + chapter.id);
+        assert.equal(exemplar, consumer?.sweep ?? null, id + '/' + chapter.id);
+        const companion = companions.get(id + '/' + chapter.id);
+        const extra = page.locator('.chapter:not([hidden]) .ct-exemplar iframe');
+        assert.equal(await extra.count(), companion ? 1 : 0);
+        if (companion) {
+          const target = new URL(await extra.getAttribute('data-src'), page.url());
+          assert.equal(target.searchParams.get('sweep'), companion.sweep);
+          assert.equal(target.searchParams.get('frame'), String(companion.frame));
+        }
+        if (consumer) {
+          const saved = linkedFrame(tourPath(record), chapter.id, chapter.evidenceFrame, '#exam');
+          const link = report.nth(index);
+          assert.deepEqual(locationKey(new URL(await link.getAttribute('href'), page.url())), locationKey(saved));
+          await link.click();
+          await waitForTourFrame(page, absoluteFrame(segments, chapter.id, chapter.evidenceFrame));
+          await expectSource(child, chapter.evidenceFrame);
+          const suffix = String(chapter.evidenceFrame).padStart(2, '0') + '.webp';
+          const scan = child.locator(`#scan[src$="/scan-${suffix}"]`);
+          await scan.waitFor();
+          if (consumer.savedChord) {
+            assert.match(await child.locator('#apReadout').textContent(), /chord across the hilar recess.*mm/);
+          } else {
+            assert.equal(await child.locator('#apToggle').isVisible(), false);
+          }
+          await child.getByRole('button', { name: 'Anatomy overlay' }).click();
+          await child.locator(`#scan[src$="/section-${suffix}"]`).waitFor();
+          await child.getByRole('button', { name: 'Anatomy overlay' }).click();
+          await scan.waitFor();
+          const standalone = new URL(await page.locator('#openSweep').getAttribute('href'), base);
+          assert.equal(standalone.pathname, new URL('index.html', base).pathname);
+          assert.equal(standalone.searchParams.get('sweep'), consumer.sweep);
+          assert.equal(standalone.searchParams.get('frame'), String(chapter.evidenceFrame));
+          continue;
+        }
         assert.equal(await child.locator('#view').textContent(), chapter.title);
         const scan = await checkChapter(page, child, segments, chapter);
 

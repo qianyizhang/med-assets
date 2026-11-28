@@ -1,0 +1,262 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:s1233:aorta",
+  "title": "s1233 aortic surface",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/aorta",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:workshop:s1233-aorta",
+      "title": "Original Workshop s1233 aorta",
+      "subject": "s1233",
+      "sourceType": "retained source or source receipt",
+      "license": "Jakob Wasserthal and TotalSegmentator contributors, University Hospital Basel. TotalSegmentator v2.0.1, CC BY 4.0. Retain the Apache-2.0 label-source notice.",
+      "path": "body/anatomy-workshop-r1/meshes/aorta.glb",
+      "sha256": "1a20d6322cefb6c6c85c7c8ed95295e8314e568a12420434ccda40beb4f8cc31",
+      "bytes": 1189864,
+      "evidence": [
+        {
+          "path": "reviews/aorta/2026-10-23-metadata-cleanup-r01/verification.json",
+          "sha256": "0eaca50ea929e17d49b4fbdbb68d03afd0eade4cb70084603a0e674a7949c58f"
+        },
+        {
+          "path": "body/anatomy-workshop-r1/docs/licenses/NOTICE.md",
+          "sha256": "87372df39878e0c73903675edc21875fa712a90b22f497ffb55d50a29f210a94"
+        }
+      ],
+      "limitations": []
+    },
+    {
+      "sourceId": "source:totalsegmentator-v2.0.1:s1233:aorta",
+      "title": "TotalSegmentator v2.0.1 s1233 aortic label",
+      "sourceType": "external segmentation",
+      "subject": "s1233",
+      "sha256": "c2751ba8bb12ed2091db7e0446f3f333acf47db5d35e8f75c96fab4c6564ab2e",
+      "bytes": 39071,
+      "license": "CC BY 4.0. Retain the Workshop label-source notices.",
+      "url": "https://zenodo.org/records/10047263",
+      "evidence": [
+        {
+          "path": "records/campaigns/ultrasound-refinement/wave-2b/aorta/frozen.json",
+          "sha256": "66ef51a17a2f99fba65ef7a2d27dd300c37da5935ac7ba1f7f03ed8ab5c5995e"
+        }
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "partId": "aorta",
+      "label": "Source-derived aorta",
+      "selectors": [
+        "Aorta | source surface"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/body-3d-delivery/manifest.json",
+      "registration": "native"
+    },
+    {
+      "partId": "aorta-exterior",
+      "label": "Source-derived aortic exterior",
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "metadata-cleanup-r01",
+      "status": "provisional",
+      "sourceIds": [
+        "source:workshop:s1233-aorta"
+      ],
+      "recipeEvidence": {
+        "path": "models/aorta/recipes/metadata/approved-patch.json",
+        "sha256": "22ad38348ddc55037346dd064378d67c5cc7382b96f7a2c168a5c404769d2b4a"
+      },
+      "frame": {
+        "convention": "glb-y-up-m",
+        "evidence": "body/anatomy-workshop-r1/body-3d-delivery/manifest.json",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ]
+      },
+      "partIds": [
+        "aorta"
+      ],
+      "exports": [
+        {
+          "id": "teaching",
+          "path": "models/aorta/exports/metadata-cleanup-r01/aorta.glb",
+          "sha256": "f3c68980cbdbfbc1142751062e79d15f96e4d0dc6690e12d42d294c9d4d3b4ef",
+          "bytes": 1189384,
+          "format": "glb",
+          "partIds": [
+            "aorta"
+          ],
+          "triangles": 9600
+        }
+      ],
+      "qualifications": []
+    },
+    {
+      "revisionId": "ultrasound-r01",
+      "status": "provisional",
+      "recipe": "rebuild.py",
+      "frame": {
+        "convention": "voxel-index",
+        "units": "voxel",
+        "evidence": "assemblies/workshop-s1233/inputs.json"
+      },
+      "sourceIds": [
+        "source:totalsegmentator-v2.0.1:s1233:aorta"
+      ],
+      "partIds": [
+        "aorta-exterior"
+      ],
+      "exports": [
+        {
+          "id": "aorta",
+          "path": "models/aorta/exports/ultrasound-r01/aorta.mesh",
+          "sha256": "1281e1a409ec60515c8c5c70ffea1b25a49accf38361675fdf73f3eaff05e16f",
+          "bytes": 107780,
+          "format": "mesh",
+          "triangles": 5986,
+          "partIds": [
+            "aorta-exterior"
+          ],
+          "voxelGrid": {
+            "case": "s1233",
+            "shape": [
+              265,
+              265,
+              401
+            ],
+            "rasMmFromVoxel": [
+              [
+                1.5,
+                0.0,
+                0.0,
+                -215.611328125
+              ],
+              [
+                0.0,
+                1.5,
+                0.0,
+                -37.111328125
+              ],
+              [
+                0.0,
+                0.0,
+                1.5,
+                41.20000076293945
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        },
+        {
+          "id": "aorta-abdomen",
+          "path": "models/aorta/exports/ultrasound-r01/aorta-abdomen.mesh",
+          "sha256": "071cc21f07050b02fe860f133f9b46f0111d7e5fd7cc9dd2e523ace072c2824a",
+          "bytes": 104252,
+          "format": "mesh",
+          "triangles": 5790,
+          "partIds": [
+            "aorta-exterior"
+          ],
+          "voxelGrid": {
+            "case": "s1233",
+            "shape": [
+              265,
+              265,
+              401
+            ],
+            "rasMmFromVoxel": [
+              [
+                1.5,
+                0.0,
+                0.0,
+                -215.611328125
+              ],
+              [
+                0.0,
+                1.5,
+                0.0,
+                -37.111328125
+              ],
+              [
+                0.0,
+                0.0,
+                1.5,
+                41.20000076293945
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        },
+        {
+          "id": "aorta-screening",
+          "path": "models/aorta/exports/ultrasound-r01/aorta-screening.mesh",
+          "sha256": "b86b0ddf676f06fdec365a92d569eaaec2947cb4dbb3fefd26f0e47faa7fed6d",
+          "bytes": 89852,
+          "format": "mesh",
+          "triangles": 4990,
+          "partIds": [
+            "aorta-exterior"
+          ],
+          "voxelGrid": {
+            "case": "s1233",
+            "shape": [
+              265,
+              265,
+              401
+            ],
+            "rasMmFromVoxel": [
+              [
+                1.5,
+                0.0,
+                0.0,
+                -215.611328125
+              ],
+              [
+                0.0,
+                1.5,
+                0.0,
+                -37.111328125
+              ],
+              [
+                0.0,
+                0.0,
+                1.5,
+                41.20000076293945
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "Workshop placement is retained. The derivative does not establish lumen, flow or clinical measurement.",
+    "The ultrasound exterior supports course and orientation. The source label does not resolve aortic wall thickness, flow, pathology or clinical outer-wall calipers."
+  ]
+}

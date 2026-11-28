@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "assetId": "assembly:bp3d:marrow-container",
+  "title": "Illustrative proximal femur container",
+  "kind": "assembly",
+  "status": "provisional",
+  "owner": "assemblies/marrow-comparison/illustrative-container",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:bp3d-4-0:fj3365",
+      "title": "BodyParts3D FJ3365 right femur",
+      "sourceType": "original OBJ",
+      "subject": "BodyParts3D 4.0 reference atlas",
+      "license": "BodyParts3D © DBCLS, CC BY 4.0. Historical OBJ headers retain CC BY-SA 2.1 Japan.",
+      "evidence": [
+        {
+          "path": "reviews/draft_bone/2026-10-23-marrow-comparison/LICENSES.md",
+          "sha256": "cad852c6a71c4581810fb93f53b0a073e3a1e32dc449cf173e7b34e69f65d73f"
+        },
+        {
+          "path": "reviews/draft_bone/2026-10-23-marrow-comparison/evidence/model-container-checks.json",
+          "sha256": "f2d76e4183ae0949ace5efa165115e79c174b8634be91cf07173054aca1aa686"
+        }
+      ],
+      "path": "sources/datasets/marrow-comparison-v1/BP3D-FJ3365.obj",
+      "sha256": "02fffe2e1b0f8e038d8b7b48e47cbc4925a749446240e676e910bff34d5348de",
+      "bytes": 192118
+    }
+  ],
+  "parts": [
+    {
+      "partId": "section-rim",
+      "label": "Illustrative section rim",
+      "selectors": [
+        "ILLUSTRATIVE_section_rim__2p5mm_not_measured"
+      ],
+      "registration": "illustrative"
+    },
+    {
+      "partId": "cropped-exterior",
+      "label": "Cropped and sectioned BP3D exterior",
+      "selectors": [
+        "BP3D_exterior__cropped_and_sectioned"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "inner-boundary",
+      "label": "Illustrative inner boundary",
+      "selectors": [
+        "ILLUSTRATIVE_inner_boundary__not_measured_anatomy"
+      ],
+      "registration": "illustrative"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "illustrative-r03",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "assemblies/marrow-comparison/2026-10-23/README.md",
+        "sha256": "fb0581c674b4dc0194111ab8312ce0b72888f55d09cc579f690a3300c630be0f"
+      },
+      "sourceIds": [
+        "source:bp3d-4-0:fj3365"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up",
+          "+X atlas left",
+          "+Y superior",
+          "+Z anterior"
+        ],
+        "evidence": "reviews/draft_bone/2026-10-23-marrow-comparison/LICENSES.md"
+      },
+      "partIds": [
+        "section-rim",
+        "cropped-exterior",
+        "inner-boundary"
+      ],
+      "exports": [
+        {
+          "id": "container",
+          "path": "assemblies/marrow-comparison/2026-10-23/illustrative-container-r03.glb",
+          "sha256": "17d3b2a45d4bc369cbb3ca770a48c550e0bf5438f8112b7a7bd31d2cbd12a02c",
+          "bytes": 64456,
+          "format": "glb",
+          "triangles": 2552,
+          "partIds": [
+            "section-rim",
+            "cropped-exterior",
+            "inner-boundary"
+          ]
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "The wall and rim are authored at an illustrative thickness. The cavity carries no trabecular, red-marrow or yellow-marrow measurement."
+  ]
+}

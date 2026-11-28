@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "rubricHash": "a38e552869511cd5bceacaa5ea4456f4d0530e58e7dce2bc6855587a98b0e684",
+  "records": [
+    {
+      "source": "case",
+      "case": "abdomen-survey",
+      "part": "kidney_left",
+      "meshSha256": "a991e63e71cc712ee749e5accffe4d561992e88f6f59311323625fb838d95f21",
+      "baseline": "c863c681ee3b6ea9ce42944292c205a097eceeb46d28c6cdaeaf7c6650b0eb69",
+      "revision": "anatomy:s1233:kidney-left@r01:kidney-left",
+      "reviewer": "Codex campaign lead · independent of the builder",
+      "reviewedOn": "2026-11-28",
+      "rubric": "docs/guides/asset-quality.md",
+      "task": "Relate both poles and the medial hilar recess in the s1233 exterior to the saved left flank long-axis field.",
+      "note": "Frame 12 supports exterior orientation. Orbit to expose the medial recess and use the tissue overlay to match it to the saved long axis.",
+      "comparison": {
+        "label": "Matched previous mesh and r01",
+        "candidate": "asset-reviews/kidney-left-wave-2a/previous-vs-r01.webp",
+        "candidateLabel": "Exact previous mesh and candidate at matched scale",
+        "views": [
+          {
+            "label": "CT half-label and the teaching exteriors",
+            "candidate": "asset-reviews/kidney-left-wave-2a/matched-surfaces.webp",
+            "candidateLabel": "CT half-label and the teaching exteriors"
+          },
+          {
+            "label": "Three protected CT planes",
+            "candidate": "asset-reviews/kidney-left-wave-2a/protected-planes.webp",
+            "candidateLabel": "Three protected CT planes"
+          },
+          {
+            "label": "Frame 12 in the original sweep player",
+            "candidate": "asset-reviews/kidney-left-wave-2a/live-frame-12.webp",
+            "candidateLabel": "Frame 12 in the original sweep player"
+          }
+        ]
+      },
+      "links": [
+        {
+          "label": "Replay, packed mesh and section measurements",
+          "href": "asset-reviews/kidney-left-wave-2a/measurements.json"
+        }
+      ],
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "The previous sweep is closer to the raw CT surface globally. The candidate still follows both poles and the medial turn across all three protected sections, with a worst sampled distance of 1.63 mm there and 2.47 mm globally.",
+        "form": "The lower pole loses most of its horizontal terraces. A shallow step remains at the inferior tip. In reverse oblique the recess stays deep and both rounded ends remain distinct.",
+        "readability": "I could follow the two ends and the open medial indentation in the registered section. The oblique view hides the depth of the recess behind the flank. Rotating the scene exposes it.",
+        "economy": "The exact previous sweep uses 25,752 triangles and 463,568 bytes. r01 uses 4,800 and 86,432 bytes (81% less). The 24-view projected outline deviates at most 0.71 px at 3 px/mm after reducing the smooth surface."
+      },
+      "disposition": "Adopt for pole and recess orientation",
+      "chapter": "abd-left-kidney",
+      "occurrence": 1,
+      "chapterSha256": "6c799670cd532cd7f290e8b44376586911f5348fe6e4aba585ae40633c0c2d71"
+    }
+  ],
+  "evidenceSha256": {
+    "live-frame-12.webp": "021e138943e3812ad3cc1e6912e7a725e150ac435d5712fb40b13ba403bd9341",
+    "matched-surfaces.webp": "3f43aa6ac7c74586f41db4c68d1d1962256f3ae9d2067f74c33756f3cb291a65",
+    "previous-vs-r01.webp": "615af1946ab9ef6ad9c86926f3585f2092759074981c7285a25a78641d5ac28d",
+    "protected-planes.webp": "402d8fd60530284e92427f2a5ac1bac5dc38d815cd920eb56e1bc9559a63db29"
+  },
+  "measurementsSha256": "31ae884f8214c466cea4c98c582f8909ab7379cc1c66d35199792a9a9359b232"
+}

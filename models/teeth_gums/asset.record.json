@@ -1,0 +1,175 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:bp3d:teeth-gums",
+  "title": "BodyParts3D adult teeth and gingiva",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/teeth_gums",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:teeth-gums:r02",
+      "title": "BodyParts3D native adult teeth and gingiva source and replay for r02",
+      "sourceType": "recipe source or retained provenance",
+      "subject": "BodyParts3D native adult teeth and gingiva",
+      "license": "BodyParts3D © DBCLS, CC BY 4.0. Historical source headers retain CC BY-SA 2.1 Japan.",
+      "evidence": [
+        {
+          "path": "models/teeth_gums/exports/r02/README.md",
+          "sha256": "1f0a4dca9c9f1df7e64962021aa986a7045bb034db509280e0fc06494c73db62"
+        },
+        {
+          "path": "models/teeth_gums/exports/r02/ATTRIBUTION.md",
+          "sha256": "cfda6f0ff97071d18ee221025dd0cb35be954900897b0e772c7f2b6ea898c723"
+        },
+        {
+          "path": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json",
+          "sha256": "c5f364d6bbfd974e126f6141dd13514c08cb95c98dc01f391f08b4491fc04942"
+        }
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "partId": "fj1252-gingiva-of-upper-jaw",
+      "label": "FJ1252 Gingiva of upper jaw",
+      "selectors": [
+        "FJ1252 Gingiva of upper jaw"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "fj1253-gingiva-of-lower-jaw",
+      "label": "FJ1253 Gingiva of lower jaw",
+      "selectors": [
+        "FJ1253 Gingiva of lower jaw"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "fj1254-left-lower-first-secondary-molar-tooth",
+      "label": "FJ1254 Left lower first secondary molar tooth",
+      "selectors": [
+        "FJ1254 Left lower first secondary molar tooth"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "fj1258-left-lower-central-secondary-incisor-tooth",
+      "label": "FJ1258 Left lower central secondary incisor tooth",
+      "selectors": [
+        "FJ1258 Left lower central secondary incisor tooth"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "fj1261-left-upper-first-secondary-molar-tooth",
+      "label": "FJ1261 Left upper first secondary molar tooth",
+      "selectors": [
+        "FJ1261 Left upper first secondary molar tooth"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "fj1265-left-upper-central-secondary-incisor-tooth",
+      "label": "FJ1265 Left upper central secondary incisor tooth",
+      "selectors": [
+        "FJ1265 Left upper central secondary incisor tooth"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "fj1268-right-lower-first-secondary-molar-tooth",
+      "label": "FJ1268 Right lower first secondary molar tooth",
+      "selectors": [
+        "FJ1268 Right lower first secondary molar tooth"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "fj1272-right-lower-central-secondary-incisor-tooth",
+      "label": "FJ1272 Right lower central secondary incisor tooth",
+      "selectors": [
+        "FJ1272 Right lower central secondary incisor tooth"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "fj1276-right-upper-first-secondary-molar-tooth",
+      "label": "FJ1276 Right upper first secondary molar tooth",
+      "selectors": [
+        "FJ1276 Right upper first secondary molar tooth"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "fj1279-right-upper-central-secondary-incisor-tooth",
+      "label": "FJ1279 Right upper central secondary incisor tooth",
+      "selectors": [
+        "FJ1279 Right upper central secondary incisor tooth"
+      ],
+      "registration": "unknown"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "r02",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "models/teeth_gums/exports/r02/README.md",
+        "sha256": "1f0a4dca9c9f1df7e64962021aa986a7045bb034db509280e0fc06494c73db62"
+      },
+      "sourceIds": [
+        "source:teeth-gums:r02"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "models/teeth_gums/exports/r02/README.md"
+      },
+      "exports": [
+        {
+          "id": "dentition",
+          "path": "models/teeth_gums/exports/r02/teeth_gums.glb",
+          "sha256": "82bfaeead46bb51b1fa5bdfdb06c918dfd01aa23b28acae733ab75ec2cd6897f",
+          "bytes": 814328,
+          "triangles": 43502,
+          "format": "glb",
+          "partIds": [
+            "fj1252-gingiva-of-upper-jaw",
+            "fj1253-gingiva-of-lower-jaw",
+            "fj1254-left-lower-first-secondary-molar-tooth",
+            "fj1258-left-lower-central-secondary-incisor-tooth",
+            "fj1261-left-upper-first-secondary-molar-tooth",
+            "fj1265-left-upper-central-secondary-incisor-tooth",
+            "fj1268-right-lower-first-secondary-molar-tooth",
+            "fj1272-right-lower-central-secondary-incisor-tooth",
+            "fj1276-right-upper-first-secondary-molar-tooth",
+            "fj1279-right-upper-central-secondary-incisor-tooth"
+          ]
+        }
+      ],
+      "qualifications": [],
+      "partIds": [
+        "fj1252-gingiva-of-upper-jaw",
+        "fj1253-gingiva-of-lower-jaw",
+        "fj1254-left-lower-first-secondary-molar-tooth",
+        "fj1258-left-lower-central-secondary-incisor-tooth",
+        "fj1261-left-upper-first-secondary-molar-tooth",
+        "fj1265-left-upper-central-secondary-incisor-tooth",
+        "fj1268-right-lower-first-secondary-molar-tooth",
+        "fj1272-right-lower-central-secondary-incisor-tooth",
+        "fj1276-right-upper-first-secondary-molar-tooth",
+        "fj1279-right-upper-central-secondary-incisor-tooth"
+      ]
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "The named surfaces support atlas orientation. Internal tooth anatomy and clinical qualification have separate evidence."
+  ]
+}

@@ -8,7 +8,7 @@ import { Evidence } from './Evidence.jsx';
 import { Heading, Link, Missing } from './GalleryUI.jsx';
 import {
   abdomenTour, abdomenPartPath, abdomenParts, abdomenStopPath,
-  otherTopics, ultrasoundAssets, ultrasoundCollection,
+  otherTopics, ultrasoundAssets, ultrasoundCollection, ultrasoundDevelopment,
 } from './ultrasound-data.js';
 
 const local = assetsByPath(localDelivery);
@@ -76,6 +76,7 @@ export function UltrasoundCollection() {
         <div className="ga-related">
           <Link to={abdomenStopPath(defaultStop)}>Open Abdomen tour →</Link>
           <Link to={ultrasoundAssets}>Inspect tour assets →</Link>
+          <Link to={ultrasoundDevelopment}>Development →</Link>
         </div>
       </section>
       <section className="ga-collection-link" aria-label="Planned tours">

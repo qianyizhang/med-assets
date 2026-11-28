@@ -1,0 +1,284 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:hra:bladder",
+  "title": "Female HRA bladder and pelvic landmarks",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/bladder",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:hra-united-female-v1-10:atlas",
+      "title": "HRA United Female v1.10 reference organ set",
+      "sourceType": "external atlas GLB",
+      "subject": "HRA United Female v1.10 atlas",
+      "url": "https://cdn.humanatlas.io/digital-objects/ref-organ/united-female/v1.10/assets/3d-vh-f-united.glb",
+      "doi": "https://doi.org/10.48539/HBM637.DWBM.744",
+      "sha256": "95f0c3d2f918582608692ca1139e8bdb18c147a16470e9ee9af8b276bd77c422",
+      "bytes": 374505632,
+      "license": "Kristen Browne and Heidi Schlehlein, HRA, CC BY 4.0.",
+      "evidence": [
+        {
+          "path": "models/bladder/ATTRIBUTION.md",
+          "sha256": "2f62047aef78f66d8f974d3b3cfbc66d95476b3b2a3b6a342d7ba5f0e3426e8a"
+        },
+        {
+          "path": "sources/datasets/hra/united-female-v1.10/external-source.json",
+          "sha256": "b6b8f7c3ef3f8e1452428ff60f2669c8ab3a649c520fa956a34bbed21d0c8efd"
+        },
+        {
+          "path": "reviews/bladder/hra-female-context-r03/bounded-record.json",
+          "sha256": "58686d887f702158107749f173e063bb2baf406c2bb6d4813238c29f1c049e42"
+        },
+        {
+          "path": "assemblies/bladder-pancreas/recipes/recipe/replay-verification.json",
+          "sha256": "a8a0a7076d606a12947114d79823acd00e2decf7655e75c9afcfaccf69fa136c"
+        }
+      ],
+      "limitations": [
+        "Open source patches and the dome/base ridge remain. The original atlas fill state is unknown."
+      ]
+    },
+    {
+      "sourceId": "source:hra-united-female-v1-10:bladder-context-r03",
+      "title": "HRA female pelvic geometry master",
+      "sourceType": "atlas-derived GLB",
+      "subject": "HRA United Female v1.10 atlas",
+      "path": "models/bladder/exports/hra-female-context-r03/bladder_hra_female_context_r03.glb",
+      "sha256": "91f04d1c831a61944da116184f389461517587c90c91fd94e199fba1619aa6b9",
+      "bytes": 2449600,
+      "license": "Kristen Browne and Heidi Schlehlein, HRA, CC BY 4.0.",
+      "evidence": [
+        {
+          "path": "models/bladder/ATTRIBUTION.md",
+          "sha256": "2f62047aef78f66d8f974d3b3cfbc66d95476b3b2a3b6a342d7ba5f0e3426e8a"
+        },
+        {
+          "path": "assemblies/hra-female-pelvis/README.md",
+          "sha256": "6d60894d97424f1e38e215c869a235530a875f0ec63beb6ebd270e052227cc76"
+        },
+        {
+          "path": "assemblies/hra-female-pelvis/build.py",
+          "sha256": "f043af156cfbde478b5fc04fb4205211c03a67abe9d7a97553fe74f30733ff60"
+        }
+      ],
+      "limitations": [
+        "The atlas surface landmarks support exterior localization, with no patent lumen or wall-layer claim."
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "partId": "right-ureter",
+      "label": "Right ureter",
+      "selectors": [
+        "VH_F_right_ureter"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "left-ureter",
+      "label": "Left ureter",
+      "selectors": [
+        "VH_F_left_ureter"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "dome",
+      "label": "Bladder dome",
+      "selectors": [
+        "VH_F_fundus_of_urinary_bladder_dome"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "neck",
+      "label": "Bladder neck",
+      "selectors": [
+        "VH_F_urinary_bladder_neck_smooth_muscle"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "base",
+      "label": "Bladder base",
+      "selectors": [
+        "VH_F_fundus_of_urinary_bladder_base"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "trigone",
+      "label": "Trigone",
+      "selectors": [
+        "VH_F_trigone_of_urinary_bladder"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "right-ureteral-orifice",
+      "label": "Right ureteral orifice landmark",
+      "selectors": [
+        "VH_F_ureteral_orifice_R"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "left-ureteral-orifice",
+      "label": "Left ureteral orifice landmark",
+      "selectors": [
+        "VH_F_ureteral_orifice_L"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "vagina",
+      "label": "Vaginal exterior",
+      "selectors": [
+        "VH_F_vagina"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "cervix",
+      "label": "Cervix",
+      "selectors": [
+        "VH_F_cervix"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "cervicovaginal-junction",
+      "label": "Cervicovaginal junction",
+      "selectors": [
+        "VH_F_cervicovaginal_junction"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "rectum",
+      "label": "Rectal context",
+      "selectors": [
+        "VH_F_rectum"
+      ],
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "pelvic-base-r01",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "assemblies/hra-female-pelvis/bladder-selection.json",
+        "sha256": "eb820afb84ef68df8cff5f1100c72efaceed3268acd412c37f19289f04e82650"
+      },
+      "sourceIds": [
+        "source:hra-united-female-v1-10:bladder-context-r03"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "assemblies/hra-female-pelvis/README.md"
+      },
+      "partIds": [
+        "right-ureter",
+        "left-ureter",
+        "dome",
+        "neck",
+        "base",
+        "trigone",
+        "right-ureteral-orifice",
+        "left-ureteral-orifice"
+      ],
+      "exports": [
+        {
+          "id": "reference",
+          "path": "models/bladder/exports/pelvic-base-r01/bladder-pelvic-base.glb",
+          "sha256": "07de72fc8f3b152291be30f24e24369a08af1232bb1a18f1cb90cdd2440aa15a",
+          "bytes": 1271856,
+          "format": "glb",
+          "triangles": 69186,
+          "partIds": [
+            "right-ureter",
+            "left-ureter",
+            "dome",
+            "neck",
+            "base",
+            "trigone",
+            "right-ureteral-orifice",
+            "left-ureteral-orifice"
+          ]
+        }
+      ],
+      "qualifications": []
+    },
+    {
+      "revisionId": "hra-female-context-r03",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "assemblies/bladder-pancreas/recipes/recipe/README.md",
+        "sha256": "0c5ba1b13478998f1245a569de673a303a3d58e750118d8a6d3b16c2d5bd99b5"
+      },
+      "sourceIds": [
+        "source:hra-united-female-v1-10:atlas"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "reviews/bladder/hra-female-context-r03/bounded-record.json"
+      },
+      "partIds": [
+        "right-ureter",
+        "left-ureter",
+        "dome",
+        "neck",
+        "base",
+        "trigone",
+        "right-ureteral-orifice",
+        "left-ureteral-orifice",
+        "vagina",
+        "cervix",
+        "cervicovaginal-junction",
+        "rectum"
+      ],
+      "exports": [
+        {
+          "id": "pelvic-context",
+          "path": "models/bladder/exports/hra-female-context-r03/bladder_hra_female_context_r03.glb",
+          "sha256": "91f04d1c831a61944da116184f389461517587c90c91fd94e199fba1619aa6b9",
+          "bytes": 2449600,
+          "format": "glb",
+          "triangles": 120796,
+          "partIds": [
+            "right-ureter",
+            "left-ureter",
+            "dome",
+            "neck",
+            "base",
+            "trigone",
+            "right-ureteral-orifice",
+            "left-ureteral-orifice",
+            "vagina",
+            "cervix",
+            "cervicovaginal-junction",
+            "rectum"
+          ]
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "Fill state and patient registration remain unknown. The donor serves static exterior landmark reference."
+  ]
+}

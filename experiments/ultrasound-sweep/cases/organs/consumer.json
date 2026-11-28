@@ -1,0 +1,384 @@
+{
+  "consumers": [
+    {
+      "id": "ultrasound:case:abdomen-survey:abd-right-kidney",
+      "title": "Right kidney · s1233 teaching exemplar",
+      "kind": "ultrasound-case",
+      "case": "abdomen-survey",
+      "chapter": "abd-right-kidney",
+      "sweep": "kidney-right",
+      "observation": "s1233 teaching exemplar from a separate subject. The 103.3 mm pole-to-pole chord crosses the medial hilar recess at this saved stop.",
+      "poseSha256": "df87ada1caf46010f1b6d5b77951389d2347935e3cd292513094c1fe370d7aa0",
+      "savedChord": {
+        "frame": 12,
+        "millimetres": 103.3165274350045,
+        "endpointsPx": [
+          [
+            134.58205929734584,
+            280.470192231926
+          ],
+          [
+            378.58460721594736,
+            217.5218962508379
+          ]
+        ]
+      },
+      "requirements": [
+        {
+          "id": "part:kidney_right",
+          "description": "Registered kidney exterior at the saved right renal long-axis acquisition",
+          "status": "provisional",
+          "subject": "s1233"
+        }
+      ],
+      "pins": [
+        {
+          "asset": "anatomy:s1233:kidney-right",
+          "revision": "r01",
+          "export": "kidney-right",
+          "requirement": "part:kidney_right",
+          "sha256": "1b6ac9eed1ae01c2fdff12d203dd82b00dea06f76ffe379be71468eaa7681208",
+          "registration": "native"
+        }
+      ],
+      "frame": 12
+    },
+    {
+      "id": "ultrasound:case:abdomen-survey:abd-left-kidney",
+      "title": "Left kidney · s1233 teaching exemplar",
+      "kind": "ultrasound-case",
+      "case": "abdomen-survey",
+      "chapter": "abd-left-kidney",
+      "sweep": "kidney-left",
+      "frame": 12,
+      "observation": "s1233 teaching exemplar from a separate subject. Locate both poles and the indentation on the medial surface, then match the long-axis outline to the overlay.",
+      "poseSha256": "7363a7c097b1f38981fbd409a5051df7e2f65f6572963ab3144b4e8ceca2c012",
+      "requirements": [
+        {
+          "id": "part:kidney_left",
+          "description": "Locate both poles and the indentation on the medial surface, then match the long-axis outline to the overlay.",
+          "status": "provisional",
+          "subject": "s1233"
+        }
+      ],
+      "pins": [
+        {
+          "asset": "anatomy:s1233:kidney-left",
+          "revision": "r01",
+          "export": "kidney-left",
+          "requirement": "part:kidney_left",
+          "sha256": "a991e63e71cc712ee749e5accffe4d561992e88f6f59311323625fb838d95f21",
+          "registration": "native"
+        }
+      ]
+    },
+    {
+      "id": "ultrasound:case:abdomen-survey:abd-spleen",
+      "title": "Spleen · s1233 teaching exemplar",
+      "kind": "ultrasound-case",
+      "case": "abdomen-survey",
+      "chapter": "abd-spleen",
+      "sweep": "spleen",
+      "frame": 12,
+      "observation": "s1233 teaching exemplar from a separate subject. Trace the convex diaphragmatic face to the indentation on the medial surface and compare the saved long-axis outline.",
+      "poseSha256": "446aa83aa3ffa1747d15ae392db1385e996f6ea8518e4164aae8c05132bc521f",
+      "requirements": [
+        {
+          "id": "part:spleen",
+          "description": "Trace the convex diaphragmatic face to the indentation on the medial surface and compare the saved long-axis outline.",
+          "status": "provisional",
+          "subject": "s1233"
+        }
+      ],
+      "pins": [
+        {
+          "asset": "anatomy:s1233:spleen",
+          "revision": "r01",
+          "export": "spleen",
+          "requirement": "part:spleen",
+          "sha256": "76e01c95fe395952d2bfae3333fb9d228b75ff2016e736a5ebe67bd1a02b5a03",
+          "registration": "native"
+        }
+      ]
+    },
+    {
+      "id": "ultrasound:case:abdomen-survey:abd-liver",
+      "title": "Liver · s1233 teaching exemplar",
+      "kind": "ultrasound-case",
+      "case": "abdomen-survey",
+      "chapter": "abd-liver",
+      "sweep": "liver",
+      "frame": 12,
+      "observation": "s1233 teaching exemplar from a separate subject. Orient the broad right lobe and narrower left extension. Match the exterior to the saved hepatic section.",
+      "poseSha256": "e0df7debf2f6d090b1eef146fa1c326963f9b9d111ad2f2b8b1646c0f9792e2a",
+      "requirements": [
+        {
+          "id": "part:liver",
+          "description": "Orient the broad right lobe and narrower left extension. Match the exterior to the saved hepatic section.",
+          "status": "provisional",
+          "subject": "s1233"
+        }
+      ],
+      "pins": [
+        {
+          "asset": "anatomy:s1233:liver-window",
+          "revision": "r02",
+          "export": "liver",
+          "requirement": "part:liver",
+          "sha256": "711014c7f2fe14381640a98abe46155fa2fec541bab773ab10c9d72370ecb9a1",
+          "registration": "native"
+        }
+      ]
+    },
+    {
+      "id": "ultrasound:case:abdomen-survey:abd-gb",
+      "title": "Gallbladder · s1233 teaching exemplar",
+      "kind": "ultrasound-case",
+      "case": "abdomen-survey",
+      "chapter": "abd-gb",
+      "sweep": "gallbladder",
+      "frame": 12,
+      "observation": "s1233 teaching exemplar from a separate subject. Trace the broad fundus and body into the narrowing neck and relate their long axis to the saved section.",
+      "poseSha256": "29691fc5d42e686fc9960dadcac4dd4454750b21e2a9a6abe31d8d1360b61a76",
+      "requirements": [
+        {
+          "id": "part:gallbladder",
+          "description": "Trace the broad fundus and body into the narrowing neck and relate their long axis to the saved section.",
+          "status": "provisional",
+          "subject": "s1233"
+        }
+      ],
+      "pins": [
+        {
+          "asset": "anatomy:s1233:gallbladder",
+          "revision": "r01",
+          "export": "gallbladder",
+          "requirement": "part:gallbladder",
+          "sha256": "81c30eed83a085371ec5ce2468743cf4197fc3d73753e1548203e1c0f61200b8",
+          "registration": "native"
+        }
+      ]
+    },
+    {
+      "id": "ultrasound:case:abdomen-survey:abd-pancreas",
+      "title": "Pancreas · s1233 teaching exemplar",
+      "kind": "ultrasound-case",
+      "case": "abdomen-survey",
+      "chapter": "abd-pancreas",
+      "sweep": "pancreas",
+      "frame": 12,
+      "observation": "Separate-subject s1233 teaching exemplar. Rotate the 3D exterior to locate the head, uncinate region, body and tail. Exact scan contours, internal anatomy and caliper measurements remain unqualified.",
+      "poseSha256": "b05f13e87cfe1558ec6b23f8b4ac5a9dd5a79c7c60984dfba285c9157b187ad2",
+      "requirements": [
+        {
+          "id": "part:pancreas",
+          "description": "Rotate the 3D exterior to locate the head, uncinate region, body and tail.",
+          "status": "provisional",
+          "subject": "s1233"
+        }
+      ],
+      "pins": [
+        {
+          "asset": "anatomy:s1233:pancreas",
+          "revision": "r02",
+          "export": "pancreas",
+          "requirement": "part:pancreas",
+          "sha256": "16919fa7975eca4d8e3b2c0de47d30490b823810daa2b8878d6baab432bc6b96",
+          "registration": "native"
+        }
+      ]
+    },
+    {
+      "id": "ultrasound:case:abdomen-survey:abd-portal-doppler",
+      "kind": "ultrasound-case",
+      "title": "Follow the joined portal and splenic venous exterior in 3D. The worked case supplies the Doppler sample.",
+      "case": "abdomen-survey",
+      "chapter": "abd-portal-doppler",
+      "presentation": "companion",
+      "part": "portal_vein_and_splenic_vein",
+      "sweep": "portal-vein",
+      "frame": 12,
+      "workedFrame": 12,
+      "observation": "Follow the joined portal and splenic venous exterior in 3D. The worked case supplies the Doppler sample.",
+      "poseSha256": "a2f9f8300505cf4861e99c0d113ca8db0a1586502ff2c92a87ffd685cee079b8",
+      "requirements": [
+        {
+          "id": "part:portal_vein_and_splenic_vein",
+          "description": "Follow the joined portal and splenic venous exterior in 3D. The worked case supplies the Doppler sample.",
+          "status": "provisional",
+          "subject": "s1233"
+        }
+      ],
+      "pins": [
+        {
+          "asset": "anatomy:s1233:portal-splenic-vein",
+          "revision": "r02",
+          "export": "portal-splenic-vein",
+          "registration": "native",
+          "requirement": "part:portal_vein_and_splenic_vein",
+          "sha256": "592018e3539ed1eca28b009513fc12922f7d6123a4310ffb33923f900d1c81a5"
+        }
+      ]
+    },
+    {
+      "id": "ultrasound:case:abdomen-survey:ivc-long",
+      "kind": "ultrasound-case",
+      "title": "Follow the caval trunk in 3D beside the aorta. The CT label identifies the caval exterior only.",
+      "case": "abdomen-survey",
+      "chapter": "ivc-long",
+      "presentation": "companion",
+      "part": "inferior_vena_cava",
+      "sweep": "ivc",
+      "frame": 12,
+      "workedFrame": 12,
+      "observation": "Follow the caval trunk in 3D beside the aorta. The CT label identifies the caval exterior only.",
+      "poseSha256": "58adae8e21ca938b363eda50acf728020537c0ab9c2f35619c10eb63feab9bc5",
+      "requirements": [
+        {
+          "id": "part:inferior_vena_cava",
+          "description": "Follow the caval trunk in 3D beside the aorta. The CT label identifies the caval exterior only.",
+          "status": "provisional",
+          "subject": "s1233"
+        }
+      ],
+      "pins": [
+        {
+          "asset": "anatomy:s1233:ivc",
+          "revision": "r01",
+          "export": "abdominal",
+          "registration": "native",
+          "requirement": "part:inferior_vena_cava",
+          "sha256": "0ccc3c04dc2528ce211cde5119140a6450ae28172ef5f2b6d02178a786ef3ea0"
+        }
+      ]
+    },
+    {
+      "id": "ultrasound:case:abdomen-survey:aorta-long",
+      "kind": "ultrasound-case",
+      "title": "Trace the course of the abdominal aorta beside the vena cava.",
+      "case": "abdomen-survey",
+      "chapter": "aorta-long",
+      "presentation": "companion",
+      "part": "aorta",
+      "sweep": "aorta",
+      "frame": 12,
+      "workedFrame": 12,
+      "observation": "Trace the course of the abdominal aorta beside the vena cava.",
+      "poseSha256": "4d35f7cbe7b928289210d0a7e9dd406192ab3c7d33880fc66817a907ff6b0f91",
+      "requirements": [
+        {
+          "id": "part:aorta",
+          "description": "Trace the course of the abdominal aorta beside the vena cava.",
+          "status": "provisional",
+          "subject": "s1233"
+        }
+      ],
+      "pins": [
+        {
+          "asset": "anatomy:s1233:aorta",
+          "revision": "ultrasound-r01",
+          "export": "aorta-abdomen",
+          "registration": "native",
+          "requirement": "part:aorta",
+          "sha256": "071cc21f07050b02fe860f133f9b46f0111d7e5fd7cc9dd2e523ace072c2824a"
+        }
+      ]
+    },
+    {
+      "id": "ultrasound:case:thyroid-normal:thyroid-right-long",
+      "kind": "ultrasound-case",
+      "title": "Follow the right thyroid lobe along its long axis and locate its connection to the isthmus.",
+      "case": "thyroid-normal",
+      "chapter": "thyroid-right-long",
+      "presentation": "companion",
+      "part": "thyroid_gland",
+      "sweep": "thyroid-right",
+      "frame": 48,
+      "workedFrame": 12,
+      "observation": "Follow the right thyroid lobe along its long axis and locate its connection to the isthmus.",
+      "poseSha256": "276f7896928f734dcdbe764819cd9313fe6d1ef37eba688fb652366c87595f41",
+      "requirements": [
+        {
+          "id": "part:thyroid_gland",
+          "description": "Follow the right thyroid lobe along its long axis and locate its connection to the isthmus.",
+          "status": "provisional",
+          "subject": "s1127"
+        }
+      ],
+      "pins": [
+        {
+          "asset": "anatomy:s1127:thyroid",
+          "revision": "r04",
+          "export": "thyroid",
+          "registration": "native",
+          "requirement": "part:thyroid_gland",
+          "sha256": "ae8733964ac06a2e1eab11cd1198e15d2e6375e88716db493909fcd5826b3da5"
+        }
+      ]
+    },
+    {
+      "id": "ultrasound:case:thyroid-normal:thyroid-left-long",
+      "kind": "ultrasound-case",
+      "title": "Follow the left thyroid lobe along its long axis and locate its connection to the isthmus.",
+      "case": "thyroid-normal",
+      "chapter": "thyroid-left-long",
+      "presentation": "companion",
+      "part": "thyroid_gland",
+      "sweep": "thyroid-left",
+      "frame": 48,
+      "workedFrame": 12,
+      "observation": "Follow the left thyroid lobe along its long axis and locate its connection to the isthmus.",
+      "poseSha256": "64301dafa210f98ad1fc31fc55a0877f1415604aea406879231c0a70fec1f858",
+      "requirements": [
+        {
+          "id": "part:thyroid_gland",
+          "description": "Follow the left thyroid lobe along its long axis and locate its connection to the isthmus.",
+          "status": "provisional",
+          "subject": "s1127"
+        }
+      ],
+      "pins": [
+        {
+          "asset": "anatomy:s1127:thyroid",
+          "revision": "r04",
+          "export": "thyroid",
+          "registration": "native",
+          "requirement": "part:thyroid_gland",
+          "sha256": "ae8733964ac06a2e1eab11cd1198e15d2e6375e88716db493909fcd5826b3da5"
+        }
+      ]
+    },
+    {
+      "id": "ultrasound:case:thyroid-normal:thyroid-axial",
+      "kind": "ultrasound-case",
+      "title": "Locate the tracheal exterior behind the thyroid isthmus in the transverse CT view.",
+      "case": "thyroid-normal",
+      "chapter": "thyroid-axial",
+      "presentation": "companion",
+      "part": "trachea",
+      "sweep": "thyroid-right",
+      "frame": 0,
+      "workedFrame": 12,
+      "observation": "Locate the tracheal exterior behind the thyroid isthmus in the transverse CT view.",
+      "poseSha256": "276f7896928f734dcdbe764819cd9313fe6d1ef37eba688fb652366c87595f41",
+      "requirements": [
+        {
+          "id": "part:trachea",
+          "description": "Locate the tracheal exterior behind the thyroid isthmus in the transverse CT view.",
+          "status": "provisional",
+          "subject": "s1127"
+        }
+      ],
+      "pins": [
+        {
+          "asset": "anatomy:s1127:trachea",
+          "revision": "r01",
+          "export": "thyroid",
+          "registration": "native",
+          "requirement": "part:trachea",
+          "sha256": "d72633f2240dddf7b9702a7e97374b784e5272573911426fd58ba923e80e7e41"
+        }
+      ]
+    }
+  ]
+}

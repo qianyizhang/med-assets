@@ -1,0 +1,372 @@
+{
+  "baselineRevision": "abe213c4",
+  "rubricSha256": "a38e552869511cd5bceacaa5ea4456f4d0530e58e7dce2bc6855587a98b0e684",
+  "sealedChapterBindings": {
+    "abdomen-survey": {
+      "abd-liver": {
+        "liver": {
+          "path": "sweeps/liver/scenes/liver.mesh",
+          "meshSha256": "711014c7f2fe14381640a98abe46155fa2fec541bab773ab10c9d72370ecb9a1",
+          "chapterSha256": "7cc1b112979f75da5f0013f5b8af98991d62cc3077e205bbe9b589aeb9bf8c35"
+        }
+      },
+      "abd-gb": {
+        "gallbladder": {
+          "path": "scenes/gallbladder.mesh",
+          "meshSha256": "81c30eed83a085371ec5ce2468743cf4197fc3d73753e1548203e1c0f61200b8",
+          "chapterSha256": "8dbd011a50c001cd61a95476d9ad5f5b8c0455e22b89ba987e8f15222539a353"
+        }
+      },
+      "abd-pancreas": {
+        "pancreas": {
+          "path": "sweeps/pancreas/scenes/pancreas.mesh",
+          "meshSha256": "16919fa7975eca4d8e3b2c0de47d30490b823810daa2b8878d6baab432bc6b96",
+          "chapterSha256": "5d5ba3444a78a97862cf02214349374e4e16cc19015f90170953a9e68a700e13"
+        }
+      },
+      "abd-spleen": {
+        "spleen": {
+          "path": "sweeps/spleen/scenes/spleen.mesh",
+          "meshSha256": "76e01c95fe395952d2bfae3333fb9d228b75ff2016e736a5ebe67bd1a02b5a03",
+          "chapterSha256": "847dbe3258aa8fa9aa64514ac8c33e556d6d53db7566221da32871b30621c98f"
+        }
+      },
+      "abd-right-kidney": {
+        "kidney_right": {
+          "path": "sweeps/kidney-right/scenes/kidney_right.mesh",
+          "meshSha256": "1b6ac9eed1ae01c2fdff12d203dd82b00dea06f76ffe379be71468eaa7681208",
+          "chapterSha256": "1d8480ae4a7e43df0d8697721567466a3d92b51f7c99a6841201b8a2f4a4a3ec"
+        }
+      },
+      "abd-left-kidney": {
+        "kidney_left": {
+          "path": "sweeps/kidney-left/scenes/kidney_left.mesh",
+          "meshSha256": "a991e63e71cc712ee749e5accffe4d561992e88f6f59311323625fb838d95f21",
+          "chapterSha256": "6c799670cd532cd7f290e8b44376586911f5348fe6e4aba585ae40633c0c2d71"
+        }
+      }
+    }
+  },
+  "sweeps": {
+    "portal-vein": {
+      "case": "s1233",
+      "parts": {
+        "portal_vein_and_splenic_vein": {
+          "path": "sweeps/liver/scenes/portal_vein_and_splenic_vein.mesh",
+          "sha256": "5a511af3ac51d413b92bd58c49f68cc7bfaf6c1b897468a8786b5a5c7c116c77",
+          "bytes": 203720,
+          "triangles": 11316
+        },
+        "liver": {
+          "path": "sweeps/portal-vein/scenes/liver.mesh",
+          "sha256": "27862cad9d34d1d7a7b86a1ce8d92014f5d7db534788c45cb4ef9fd1cce20089",
+          "bytes": 2217704,
+          "triangles": 123204
+        },
+        "gallbladder": {
+          "path": "sweeps/liver/scenes/gallbladder.mesh",
+          "sha256": "fa42a6ae9d275bbf221c911785b8743d56049d7d3be87d700ba4326b9e922031",
+          "bytes": 149936,
+          "triangles": 8328
+        }
+      },
+      "pose": {
+        "sha256": "a2f9f8300505cf4861e99c0d113ca8db0a1586502ff2c92a87ffd685cee079b8",
+        "bytes": 10961
+      },
+      "images": {
+        "scan-00.webp": "26f1df3f34fd79b6b813a0a40f2120d132280335aeb579b61da8dd825c824eb1",
+        "section-00.webp": "8ff88ad3c0a539f00ba3d321038059918b024f0cba97f0114d253c7bda4c7b39",
+        "scan-48.webp": "51a2a3962a2e47e83d36e40e936007d4debabdd21fcd879ce7435957934fbb1c",
+        "section-48.webp": "8b681e9e85e05611be4c3c9ce3d5d7701b2f748d221f02f5689eb633cf548859",
+        "scan-12.webp": "c1f3e37fb465b3d9ae6f0fe111fb075b5f0db9c61a834f45d1b30f49167cd704",
+        "section-12.webp": "34d59e095f43cc44c092173f79e2162fa079dea9b6d327acd199f7ac5e5e60d9",
+        "scan-30.webp": "5a5051fcab7fd97d840355222ba9bffcb932b4fe43d3910aa9a5b0446fa4273f",
+        "section-30.webp": "e4bf245d718162735118fc4d870b54558c7781f64e61c1266223003cd9b71c2a"
+      }
+    },
+    "aorta": {
+      "case": "s1233",
+      "parts": {
+        "aorta": {
+          "path": "sweeps/pancreas/scenes/aorta.mesh",
+          "sha256": "c96c7710d56f90d03edc96a12a958c07d453a382cc1cc3caf84bb058025ad0e4",
+          "bytes": 329792,
+          "triangles": 18320
+        },
+        "inferior_vena_cava": {
+          "path": "sweeps/liver/scenes/inferior_vena_cava.mesh",
+          "sha256": "87f643b1f05200d4d66d469e6791b13df3f26f08a35864035f1a10f10c8ef131",
+          "bytes": 314600,
+          "triangles": 17476
+        }
+      },
+      "pose": {
+        "sha256": "4d35f7cbe7b928289210d0a7e9dd406192ab3c7d33880fc66817a907ff6b0f91",
+        "bytes": 11137
+      },
+      "images": {
+        "scan-00.webp": "856253ae7be9040dcef2a105b9738383e19dc108c0f7d5d979b5a1ea918c14f9",
+        "section-00.webp": "b269dd6f7522d22d2ce063a1679f692bc99112254a7bfeba7ef0a1ebd34d1066",
+        "scan-48.webp": "8a429f15a530875d6bcf67650268bb95dedbbbf1c65dc3ce7ebce7454bb7f2cc",
+        "section-48.webp": "5d6e4dea5878cdb40fedda9198739d4a8ea74fca6d35cd7f2155d21393d4e7c5",
+        "scan-12.webp": "f0a3935adc8717b9882ecf2e799aef820e9e15f629a44c96d61bb05b6d3e2659",
+        "section-12.webp": "54e37a3e1beaf1f3ef92510f46e174f1ef24884aabeb8de20a65d243187233b2",
+        "scan-30.webp": "7fa0cd219e14aea0ee6bd6311bf9c930f64b3225c762d5440d8e9ce9fddd910f",
+        "section-30.webp": "d793e6a0fe5026d69e48c7f13d51119d8586dd400efb00f9ffe2b63fecf78536"
+      }
+    },
+    "ivc": {
+      "case": "s1233",
+      "parts": {
+        "inferior_vena_cava": {
+          "path": "sweeps/liver/scenes/inferior_vena_cava.mesh",
+          "sha256": "87f643b1f05200d4d66d469e6791b13df3f26f08a35864035f1a10f10c8ef131",
+          "bytes": 314600,
+          "triangles": 17476
+        },
+        "aorta": {
+          "path": "sweeps/pancreas/scenes/aorta.mesh",
+          "sha256": "c96c7710d56f90d03edc96a12a958c07d453a382cc1cc3caf84bb058025ad0e4",
+          "bytes": 329792,
+          "triangles": 18320
+        },
+        "liver": {
+          "path": "sweeps/portal-vein/scenes/liver.mesh",
+          "sha256": "27862cad9d34d1d7a7b86a1ce8d92014f5d7db534788c45cb4ef9fd1cce20089",
+          "bytes": 2217704,
+          "triangles": 123204
+        }
+      },
+      "pose": {
+        "sha256": "58adae8e21ca938b363eda50acf728020537c0ab9c2f35619c10eb63feab9bc5",
+        "bytes": 11024
+      },
+      "images": {
+        "scan-00.webp": "5007fda24e99713a475eae39e7fd80bfa0e0668cc0b0bcf7a6f418287d4ee1fd",
+        "section-00.webp": "3861f339c829762e0f8b09031688190453c797c3d8db62242437189fac4b1e99",
+        "scan-48.webp": "c0ea9b9a939bb1962d5558dbe10cce5c733760d34556293fad4417dde4f76231",
+        "section-48.webp": "2a3ecb5d8ac851cbb895b32ec4fe9e7101ca955a5c08fc978d9ae3710c10ec3f",
+        "scan-12.webp": "aa7ff265e0fc27f326e98923ec1701ca9dda5dac886dffd2e894da62b5d71550",
+        "section-12.webp": "53e827c1c68796bf103e9b09433f73b7be3d2f965368ff50235a43c093c2a988",
+        "scan-30.webp": "e3eacde62d64b0a9952b75fe031ca305367fed29a4f5b0ee11b3dd5a0bd562b1",
+        "section-30.webp": "0a219e3c24f18db28988d602f93d39a31b599ab6c843c86821a11cf7faea4c4e"
+      }
+    },
+    "thyroid-right": {
+      "case": "s1127",
+      "parts": {
+        "trachea": {
+          "path": "sweeps/thyroid-right/scenes/trachea.mesh",
+          "sha256": "0a30b973ecb6539c4aadb79347563ba9de064e109a7d813a3e5a768a2d255c5d",
+          "bytes": 108248,
+          "triangles": 6012
+        },
+        "common_carotid_artery_right": {
+          "path": "sweeps/thyroid-right/scenes/common_carotid_artery_right.mesh",
+          "sha256": "3c1480cd986d98a0c4a35daa7a26ecabce22d369d47887c71568a7d12524e9c9",
+          "bytes": 43232,
+          "triangles": 2400
+        },
+        "common_carotid_artery_left": {
+          "path": "sweeps/thyroid-right/scenes/common_carotid_artery_left.mesh",
+          "sha256": "e7d3becb1b698636ff8f0c6fe2d3d50adf87e21120af7fc4d0e8d4c6f0dd390e",
+          "bytes": 62384,
+          "triangles": 3464
+        },
+        "thyroid_gland": {
+          "path": "sweeps/thyroid-right/scenes/thyroid_gland.mesh",
+          "sha256": "73207b41254e7baff0bfaee4c0d65e0cb1533832b0dd476921994d13d7d89f25",
+          "bytes": 112496,
+          "triangles": 6248
+        }
+      },
+      "pose": {
+        "sha256": "276f7896928f734dcdbe764819cd9313fe6d1ef37eba688fb652366c87595f41",
+        "bytes": 11062
+      },
+      "images": {
+        "scan-00.webp": "779fd1cc68901a35ea4ba202e6e817ec0ccdc9b4547b24ebfb8c3e472e3dcee1",
+        "section-00.webp": "3809bf96a342d618c224bc6cc816587845671bba11992ef1a2a52d543cf9cd54",
+        "scan-48.webp": "dba013ad01305ca4b64778aba8592252e8b15040f1dfee5f95ce1930738f06b0",
+        "section-48.webp": "15176fbfbe82df5f9a9724bcd89f5b969672ddff32004b402efdba5132844deb",
+        "scan-12.webp": "8ac3919ee0389bafae802bed0f6dd314f5645dc2180eb48b721be387ea1de8fe",
+        "section-12.webp": "52247d513adaf173d1a75247a07299e59af933af0a0e6a545e68afd41d84ec12",
+        "scan-30.webp": "ce7d3eb01b9f576e2db39061efbffe31bc94a2b994f51fa049be2f609bf420c7",
+        "section-30.webp": "3f2bf1d2a7751fe9084c8005e2f294326039532a41330665bf2476884d371f80"
+      }
+    },
+    "thyroid-left": {
+      "case": "s1127",
+      "parts": {
+        "trachea": {
+          "path": "sweeps/thyroid-right/scenes/trachea.mesh",
+          "sha256": "0a30b973ecb6539c4aadb79347563ba9de064e109a7d813a3e5a768a2d255c5d",
+          "bytes": 108248,
+          "triangles": 6012
+        },
+        "common_carotid_artery_right": {
+          "path": "sweeps/thyroid-right/scenes/common_carotid_artery_right.mesh",
+          "sha256": "3c1480cd986d98a0c4a35daa7a26ecabce22d369d47887c71568a7d12524e9c9",
+          "bytes": 43232,
+          "triangles": 2400
+        },
+        "common_carotid_artery_left": {
+          "path": "sweeps/thyroid-right/scenes/common_carotid_artery_left.mesh",
+          "sha256": "e7d3becb1b698636ff8f0c6fe2d3d50adf87e21120af7fc4d0e8d4c6f0dd390e",
+          "bytes": 62384,
+          "triangles": 3464
+        },
+        "thyroid_gland": {
+          "path": "sweeps/thyroid-right/scenes/thyroid_gland.mesh",
+          "sha256": "73207b41254e7baff0bfaee4c0d65e0cb1533832b0dd476921994d13d7d89f25",
+          "bytes": 112496,
+          "triangles": 6248
+        }
+      },
+      "pose": {
+        "sha256": "64301dafa210f98ad1fc31fc55a0877f1415604aea406879231c0a70fec1f858",
+        "bytes": 11070
+      },
+      "images": {
+        "scan-00.webp": "779fd1cc68901a35ea4ba202e6e817ec0ccdc9b4547b24ebfb8c3e472e3dcee1",
+        "section-00.webp": "3809bf96a342d618c224bc6cc816587845671bba11992ef1a2a52d543cf9cd54",
+        "scan-48.webp": "b97420edd8b75c564b05b637acceabb3f576e5489e6106766ea7019c553d2134",
+        "section-48.webp": "6e2fd166752ba59c8205a822ea4577b371971282c7b52e90f216c85a7788ace9",
+        "scan-12.webp": "289e2e19322318e0884bd7803b0f14f77657f2eaeff7fdf6e75deaa98241350e",
+        "section-12.webp": "55a87314f74337cd5967472fb36aea7220fffe3667dc7bdfa4a6b783a135eecf",
+        "scan-30.webp": "cacd804044f5069460808db55eadb7257fe4c2f8423d47470b49eff5187cefb1",
+        "section-30.webp": "5377f0c6bf0d56edfe070563ac5b873ac66bc3d867efb0cd1727b011a32a32e4"
+      }
+    },
+    "carotid-right": {
+      "case": "s1127",
+      "parts": {
+        "thyroid_gland": {
+          "path": "sweeps/thyroid-right/scenes/thyroid_gland.mesh",
+          "sha256": "73207b41254e7baff0bfaee4c0d65e0cb1533832b0dd476921994d13d7d89f25",
+          "bytes": 112496,
+          "triangles": 6248
+        },
+        "trachea": {
+          "path": "sweeps/carotid-right/scenes/trachea.mesh",
+          "sha256": "0e880baff1cafcdffa3c80a40a686139458729b232c953b2d7c8c7cc207ef4a4",
+          "bytes": 59072,
+          "triangles": 3280
+        },
+        "common_carotid_artery_right": {
+          "path": "sweeps/carotid-right/scenes/common_carotid_artery_right.mesh",
+          "sha256": "b292022299a085998f2e5a986dcdcc04c635ee2b5d8c8b5ec75b857bfc01cc90",
+          "bytes": 42152,
+          "triangles": 2340
+        },
+        "internal_jugular_vein_right": {
+          "path": "sweeps/carotid-right/scenes/internal_jugular_vein_right.mesh",
+          "sha256": "3b75ca26d2fa1434ec08626e668ae6add45d8e5bea0e48e32b04d6df825b3e4d",
+          "bytes": 53384,
+          "triangles": 2964
+        }
+      },
+      "pose": {
+        "sha256": "8b931db6612c2c7370d7abd468695e8357df50f5bec09f1a3f1e3577cc29d9ef",
+        "bytes": 648815
+      },
+      "images": {
+        "scan-00.webp": "7c7a2b17b139a8dd53bd7f02e6ffa97c0467e0e5513935e50ff84b7ac49bdf44",
+        "section-00.webp": "299738bf7179cf3312d77229c93e74d1ffb8753e963603d5dafc39f6f201b0e5",
+        "scan-48.webp": "a40b052601ca7cd8c1ec9ff1fae51b0e1cdca3d3bba57ada37728f4186d45eb1",
+        "section-48.webp": "73728fd4765b58688089e70403e03afe46887b989ce87053e459ff87d6036bb8",
+        "scan-12.webp": "255d24d28ea92cbfdaa8e7645133fedde131ef418f65ed51e9d66e7a0e6357b5",
+        "section-12.webp": "87a3fccd9c10da913df9265510a23d490d310380d4cdde6db8a16841246fcc9f",
+        "scan-30.webp": "f92633c91a8b4d80111b5361a37d569b5777c20a2285fec5f6b1e1547dfe3f07",
+        "section-30.webp": "0cb61c1eae9320915951b36255b74aeeedff019e73ed2e811795b1d2a2f02b8e"
+      }
+    },
+    "carotid-left": {
+      "case": "s1127",
+      "parts": {
+        "thyroid_gland": {
+          "path": "sweeps/thyroid-right/scenes/thyroid_gland.mesh",
+          "sha256": "73207b41254e7baff0bfaee4c0d65e0cb1533832b0dd476921994d13d7d89f25",
+          "bytes": 112496,
+          "triangles": 6248
+        },
+        "trachea": {
+          "path": "sweeps/carotid-right/scenes/trachea.mesh",
+          "sha256": "0e880baff1cafcdffa3c80a40a686139458729b232c953b2d7c8c7cc207ef4a4",
+          "bytes": 59072,
+          "triangles": 3280
+        },
+        "common_carotid_artery_left": {
+          "path": "sweeps/carotid-left/scenes/common_carotid_artery_left.mesh",
+          "sha256": "f67ae304f55b888ec412a0a6aad3abf872773b3fb296b38cb09dc2a1d353621a",
+          "bytes": 35744,
+          "triangles": 1984
+        }
+      },
+      "pose": {
+        "sha256": "0af078623abb5fa4437885ca4eb3fc30edd50a1356e655a68d732676fdabd2a4",
+        "bytes": 648873
+      },
+      "images": {
+        "scan-00.webp": "afaec7a2237048024a559d4572cb967bb408db346e4324928ba28cae296cadf2",
+        "section-00.webp": "6ff565164821fdcfdbc34680c8c4ed40f7b9fff0ada4200d79a264d0f17a27a1",
+        "scan-48.webp": "5b1bb23e939631de73bc47ba0bde55a16a4119b0a06b7e54b649a8a2f56c7c9b",
+        "section-48.webp": "6c5d1dec9de32c9df32deb13b1abb3a8b701ca383072e7d7e150469718f4151c",
+        "scan-12.webp": "a361598a31470962ecdc0ff160f81740cdc535f99f562581fa7eeb262c55eef2",
+        "section-12.webp": "1948157258bd8b05880fafba8ba14d693a5745cdb4c34d8f5052c9ba74114324",
+        "scan-30.webp": "0846ba53f0e5f4e71cf8e2eddcb1f32d2f8444837aeabaaf1f789e397737f305",
+        "section-30.webp": "e43b5a8bbdc4b4639ea84538d51178334202845373190ca0017c098db44aa449"
+      }
+    },
+    "aortic-screening": {
+      "case": "s1233",
+      "parts": {
+        "aorta": {
+          "path": "sweeps/aortic-screening/scenes/aorta.mesh",
+          "sha256": "8cb4b43ae5b819bbe6f7d0f6fd3b11dd3615bdf06f2f8a7c7132d9c9f445f333",
+          "bytes": 232088,
+          "triangles": 12892
+        },
+        "inferior_vena_cava": {
+          "path": "sweeps/aortic-screening/scenes/inferior_vena_cava.mesh",
+          "sha256": "5ca56e8adb292c3f3548fa09a46d5fc214ece60fc12c60b2f113504294773286",
+          "bytes": 217184,
+          "triangles": 12064
+        },
+        "iliac_artery_left": {
+          "path": "sweeps/aortic-screening/scenes/iliac_artery_left.mesh",
+          "sha256": "ab2de47618e90d8c134cda47cf34816240b65658a968dfea41924474bae7343e",
+          "bytes": 41864,
+          "triangles": 2324
+        },
+        "iliac_artery_right": {
+          "path": "sweeps/aortic-screening/scenes/iliac_artery_right.mesh",
+          "sha256": "063c9722beb92caa3a6cddf3be3a9fbe0075cd1fcfb5c4ddf11061a8a95845c6",
+          "bytes": 44168,
+          "triangles": 2452
+        },
+        "vertebrae": {
+          "path": "sweeps/aortic-screening/scenes/vertebrae.mesh",
+          "sha256": "747d35a3b82956324cbd6bc5086fbf9dcd291da1ea962d430772899595ff5c53",
+          "bytes": 1666616,
+          "triangles": 92628
+        }
+      },
+      "pose": {
+        "sha256": "8e50b976b4ce5688f528868a1f71cbf90606705de0df2e68d934f333cb89f014",
+        "bytes": 15134
+      },
+      "images": {
+        "scan-00.webp": "79d4abcbc9155c0071c82b8291ddd42f1e997524ac97083e42ca0752362cb953",
+        "section-00.webp": "7cf1b32518b9802abfeebcae1711b87c58013d4c1850ffea94c0268825896f31",
+        "scan-48.webp": "3a37a0cd85a75b4bec9d991fba3d197b2e5fea8d374aef1b4e645a2caf4d7222",
+        "section-48.webp": "617a360e89e4107c4f7e3b44e7927f014e3b93e517d6fc8f79b56f441bf4103f",
+        "scan-12.webp": "9bf67c7a1284ad76e2dde7a5845990918d998672a6abf49d38b2eb60bb274a63",
+        "section-12.webp": "6371f1eb6543ff08db55355391535a5616076e9a59311b05f09b18800048571f",
+        "scan-30.webp": "191d1d752916a05c5ab8646dcd6e34f0dccfcf3abb6e44d0c402633971cbf8ce",
+        "section-30.webp": "6b2b4513b478e9126f9118c646b45cafc47031b6fdadc8b6496c6c0dde218b3f"
+      }
+    }
+  }
+}

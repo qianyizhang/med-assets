@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:swirendo:fdi31",
+  "title": "FDI31 prepared specimen Balanced edition",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/swirendo_fdi31",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:swirendo-fdi31:balanced-20261028",
+      "title": "SWIRendo FDI31 prepared T2 specimen source and replay for balanced-20261028",
+      "sourceType": "recipe source or retained provenance",
+      "subject": "SWIRendo FDI31 prepared T2 specimen",
+      "license": "CC BY-SA 4.0, Benz, Heck and Walter",
+      "evidence": [
+        {
+          "path": "models/swirendo_fdi31/exports/balanced-20261028/README.md",
+          "sha256": "9eedb260c30456f5ab15fc7d8b2fc251b50de32e388b069984440ec158e80b27"
+        },
+        {
+          "path": "reviews/swirendo_fdi31/2026-10-28-balanced-focus/README.md",
+          "sha256": "160ec862545c73db96a19d49056947981b9867f1bf25d5ef7ebb6f1477deaa60"
+        }
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "partId": "swirendo-31-t2-enamel",
+      "label": "SWIRendo_31_T2/enamel",
+      "selectors": [
+        "SWIRendo_31_T2/enamel"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "swirendo-31-t2-dentin",
+      "label": "SWIRendo_31_T2/dentin",
+      "selectors": [
+        "SWIRendo_31_T2/dentin"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "swirendo-31-t2-pulp",
+      "label": "SWIRendo_31_T2/pulp",
+      "selectors": [
+        "SWIRendo_31_T2/pulp"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "swirendo-31-t2-bone",
+      "label": "SWIRendo_31_T2/bone",
+      "selectors": [
+        "SWIRendo_31_T2/bone"
+      ],
+      "registration": "unknown"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "balanced-20261028",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "models/swirendo_fdi31/exports/balanced-20261028/README.md",
+        "sha256": "9eedb260c30456f5ab15fc7d8b2fc251b50de32e388b069984440ec158e80b27"
+      },
+      "sourceIds": [
+        "source:swirendo-fdi31:balanced-20261028"
+      ],
+      "frame": {
+        "convention": "unverified-frame",
+        "evidence": "models/swirendo_fdi31/exports/balanced-20261028/README.md",
+        "unresolved": "The displayed tissues share the specimen frame. An anatomical patient-axis mapping remains unspecified."
+      },
+      "exports": [
+        {
+          "id": "balanced",
+          "path": "models/swirendo_fdi31/exports/balanced-20261028/FDI31-balanced.glb",
+          "sha256": "90006e54c2b9f79f6c201397a50f92228d9ad6fa4450f20e0ad20c5fe70c19f7",
+          "bytes": 2052220,
+          "triangles": 105370,
+          "format": "glb",
+          "partIds": [
+            "swirendo-31-t2-enamel",
+            "swirendo-31-t2-dentin",
+            "swirendo-31-t2-pulp",
+            "swirendo-31-t2-bone"
+          ]
+        }
+      ],
+      "qualifications": [],
+      "partIds": [
+        "swirendo-31-t2-bone",
+        "swirendo-31-t2-dentin",
+        "swirendo-31-t2-enamel",
+        "swirendo-31-t2-pulp"
+      ]
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "The displayed tissues share the specimen frame. An anatomical patient-axis mapping remains unspecified.",
+    "Source segmentation islands, boundary truncation and open interfaces remain. The detailed and master editions belong to the external delivery and source receipts."
+  ],
+  "artifacts": [
+    {
+      "path": "reviews/swirendo_fdi31/2026-10-27-interface-locked/media/A_1_31_T2_SEG_na__layered.glb",
+      "sha256": "c0884a6bcc8fc6175dd97a99f50e53334024b4eb5e033063c7602358f6da1014",
+      "bytes": 26524356,
+      "role": "frozen-gallery-review-candidate",
+      "evidence": [
+        {
+          "path": "reviews/swirendo_fdi31/2026-10-27-interface-locked/evidence-index.json",
+          "sha256": "6c6244b4d95e78804e28e90a76c53217e7d991cb1b57db76882893cbe95904cd"
+        },
+        {
+          "path": "reviews/swirendo_fdi31/2026-10-27-interface-locked/README.md",
+          "sha256": "d221958436caba20ef7f5962cc817edb32c8894a82edcd8e9b4bd8a9b40fb7f2"
+        }
+      ],
+      "limitations": [
+        "Original FDI31 T2 specimen frame in metres. The research candidate remains available through its historical Library review with no quality-status promotion."
+      ]
+    }
+  ]
+}
