@@ -189,7 +189,11 @@ def test_owned_selection_round_trip_and_s1233_placement_rejection() -> None:
     assert not native.impact(SOURCE).selections
 
     s1233 = ws.impact("anatomy:s1233:liver-window@r01:liver")
-    (sweep,) = s1233.consumers
+    assert not s1233.consumers
+    current = ws.impact("anatomy:s1233:liver-window@r02:liver")
+    (sweep,) = (
+        item for item in current.consumers if item.consumer_id.startswith("ultrasound:sweep:")
+    )
     assert sweep.consumer_id == "ultrasound:sweep:abdomen-tracks:liver"
     assert sweep.owner_path == "experiments/ultrasound-sweep/abdomen-tracks.json"
     (sweep_review,) = s1233.reviews

@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:s1233:kidney-left",
+  "title": "s1233 left kidney",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/kidney_left_s1233",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:totalsegmentator-v2.0.1:s1233:kidney-left",
+      "title": "TotalSegmentator v2.0.1 s1233 left kidney mask",
+      "sourceType": "external segmentation",
+      "sha256": "e0c7e53f00a20cedbe3e13d687ffc6d5e03a33824d4e4c7124f25335179b794e",
+      "license": "CC BY 4.0; retain the Workshop label-source notices",
+      "url": "https://zenodo.org/records/10047263"
+    }
+  ],
+  "parts": [
+    {
+      "partId": "kidney-left",
+      "label": "Left kidney exterior",
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "r01",
+      "status": "provisional",
+      "recipe": "rebuild.py",
+      "frame": {
+        "convention": "voxel-index",
+        "units": "voxel",
+        "evidence": "assemblies/workshop-s1233/inputs.json"
+      },
+      "sourceIds": [
+        "source:totalsegmentator-v2.0.1:s1233:kidney-left"
+      ],
+      "partIds": [
+        "kidney-left"
+      ],
+      "exports": [
+        {
+          "id": "kidney-left",
+          "path": "models/kidney_left_s1233/exports/r01/kidney-left.mesh",
+          "sha256": "a991e63e71cc712ee749e5accffe4d561992e88f6f59311323625fb838d95f21",
+          "bytes": 86432,
+          "format": "mesh",
+          "triangles": 4800,
+          "partIds": [
+            "kidney-left"
+          ],
+          "voxelGrid": {
+            "case": "s1233",
+            "shape": [
+              265,
+              265,
+              401
+            ],
+            "rasMmFromVoxel": [
+              [
+                1.5,
+                0.0,
+                0.0,
+                -215.611328125
+              ],
+              [
+                0.0,
+                1.5,
+                0.0,
+                -37.111328125
+              ],
+              [
+                0.0,
+                0.0,
+                1.5,
+                41.20000076293945
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "artifacts": [],
+  "exports": [
+    {
+      "path": "models/kidney_left_s1233/exports/r01/kidney-left.mesh",
+      "sha256": "a991e63e71cc712ee749e5accffe4d561992e88f6f59311323625fb838d95f21",
+      "bytes": 86432
+    }
+  ],
+  "uses": [],
+  "retirement": null,
+  "unresolved": [
+    "Candidate for exterior orientation at survey frame 12. Independent disposition is pending. The case label supplies the exterior and hilar recess."
+  ]
+}

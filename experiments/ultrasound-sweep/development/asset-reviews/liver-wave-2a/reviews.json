@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "rubricHash": "a38e552869511cd5bceacaa5ea4456f4d0530e58e7dce2bc6855587a98b0e684",
+  "records": [
+    {
+      "source": "case",
+      "case": "abdomen-survey",
+      "part": "liver",
+      "baseline": "anatomy:s1233:liver-window@r01:liver",
+      "revision": "anatomy:s1233:liver-window@r02:liver",
+      "meshSha256": "711014c7f2fe14381640a98abe46155fa2fec541bab773ab10c9d72370ecb9a1",
+      "reviewer": "Codex campaign lead · independent of the builder",
+      "reviewedOn": "2026-11-28",
+      "rubric": "docs/guides/asset-quality.md",
+      "task": "Distinguish the broad right lobe, narrower left extension and inferior cleft in the s1233 exterior. Relate the broad surface to the tissue overlay at the saved oblique portal view.",
+      "scoreEvidence": {
+        "fidelity": "The global and three frozen axial measurements stay within 2.95 mm, including 1.08 mm at the cropped cleft. The saved oblique section has a local 8.45 mm discrepancy against 7.87 mm previously. That limits how precisely I can relate the reviewed exterior to the scan.",
+        "form": "The concentric bands on the dome and inferior surface soften. The two unequal lobes and inferior cleft remain distinct in both clay views. A narrow crease at the dome margin and shallow inferior relief persist.",
+        "readability": "I could distinguish the broad lobe from the narrower extension in the 3D view, then locate the liver around the vessels on the tissue overlay. The inferior cleft is clearest from the isolated underside.",
+        "economy": "The same export scope falls from 123,204 to 12,000 triangles and from 2,217,704 to 216,032 bytes. Turning silhouettes differ by at most 0.90 pixels in 24 matched views at 3 pixels/mm against the dense refined surface."
+      },
+      "scores": {
+        "fidelity": 3,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "note": "Use r02 for the broad right lobe, narrower left extension and inferior surface indentation. The saved scan orients the whole organ. Exact local contour matching in the oblique sector remains outside this decision.",
+      "comparison": {
+        "label": "CT half-label and r02 at identical clay settings",
+        "candidate": "asset-reviews/liver-wave-2a/matched-surfaces.webp",
+        "candidateLabel": "CT half-label and clean reimport",
+        "views": [
+          {
+            "label": "Exact previous sweep and r02",
+            "candidate": "asset-reviews/liver-wave-2a/previous-vs-r02.webp",
+            "candidateLabel": "Matched oblique, inferior and dome views"
+          },
+          {
+            "label": "Protected cleft and editorial bridge",
+            "candidate": "asset-reviews/liver-wave-2a/protected-planes.webp",
+            "candidateLabel": "CT and both exact sweep exports"
+          },
+          {
+            "label": "Live saved oblique portal view",
+            "candidate": "asset-reviews/liver-wave-2a/live-frame-12.webp",
+            "candidateLabel": "WebGL, B-mode and tissue overlay at frame 12"
+          }
+        ]
+      },
+      "links": [
+        {
+          "label": "Measured geometry, replay and exact served payload",
+          "href": "asset-reviews/liver-wave-2a/measurements.json"
+        }
+      ],
+      "disposition": "Adopt for whole-liver lobe orientation",
+      "chapter": "abd-liver",
+      "occurrence": 1,
+      "chapterSha256": "7cc1b112979f75da5f0013f5b8af98991d62cc3077e205bbe9b589aeb9bf8c35"
+    }
+  ],
+  "evidenceSha256": {
+    "live-frame-12.webp": "c511533268bbbf1ca1ca9bfeaa033438294d40b76eb76ebab372b92526b843a6",
+    "matched-surfaces.webp": "23802e96bd78680cf23c2864f6113ebfdb5da0869b21cc94247371346348b4bd",
+    "previous-vs-r02.webp": "b09aa0c796d07025e2cea883d8e7bcb160ee8fd553315d151036583ef0af05ec",
+    "protected-planes.webp": "24aa758ac2c8a90a7c6f66f3763aaf80d48860ff9ccdc9a2057f869feaddae30"
+  },
+  "measurementsSha256": "7111b9fa341bc7310bbe102d89b25e8c45080f8a1489458d704eb81a0f535513"
+}

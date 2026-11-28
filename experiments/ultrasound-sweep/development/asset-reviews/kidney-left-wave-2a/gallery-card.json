@@ -1,0 +1,53 @@
+{
+  "slug": "kidney-left-r01",
+  "exportRef": {
+    "record": "models/kidney_left_s1233/asset.record.json",
+    "asset": "anatomy:s1233:kidney-left",
+    "revision": "r01",
+    "export": "kidney-left"
+  },
+  "review": {
+    "case": "abdomen-survey",
+    "chapter": "abd-left-kidney",
+    "part": "kidney_left"
+  },
+  "adopted": true,
+  "cardTitle": "Left kidney · Before → After",
+  "subtitle": "Abdominal survey · frame 12",
+  "revisionTitle": "s1233 left kidney · r01",
+  "revisionLinkLabel": "left kidney r01",
+  "coordinateFrame": "s1233 voxel indices · RAS axes · 1.5 mm spacing",
+  "sourceId": "source:totalsegmentator-v2.0.1:s1233:kidney-left",
+  "sourceLabel": "TotalSegmentator v2.0.1 · Jakob Wasserthal and contributors · CC BY 4.0",
+  "detailsLabel": "Source sections, saved scan and lead review",
+  "figures": [
+    {
+      "file": "previous-vs-r01.webp",
+      "width": 1100,
+      "height": 974,
+      "alt": "The lower pole loses most of its horizontal terraces. A shallow step remains at the inferior tip. In reverse oblique the recess stays deep and both rounded ends remain distinct.",
+      "caption": "Previous delivered sweep and candidate in matched neutral clay."
+    },
+    {
+      "file": "protected-planes.webp",
+      "width": 1430,
+      "height": 451,
+      "alt": "The previous sweep is closer to the raw CT surface globally. The candidate still follows both poles and the medial turn across all three protected sections, with a worst sampled distance of 1.63 mm there and 2.47 mm globally.",
+      "caption": "Frozen source sections and measured contours."
+    },
+    {
+      "file": "live-frame-12.webp",
+      "width": 1404,
+      "height": 1030,
+      "alt": "I could follow the two ends and the open medial indentation in the registered section. The oblique view hides the depth of the recess behind the flank. Rotating the scene exposes it.",
+      "caption": "Saved sweep frame 12 with probe, simulated scan and tissue overlay."
+    },
+    {
+      "file": "matched-surfaces.webp",
+      "width": 1334,
+      "height": 719,
+      "alt": "Left kidney CT half-label and interpreted exterior viewed under the same light.",
+      "caption": "CT reference and reimported surface at matched scale."
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "sourceRevision": "e3961e616c8ef71ea2d9b49b8cb94358c0ad3373",
+  "task": "Distinguish the broad right lobe, narrow left extension, and inferior cleft in the frame-12 s1233 exterior, then relate the surface to the visible outline in the saved oblique scan and tissue overlay.",
+  "case": "s1233",
+  "chapter": "abdomen-survey / abd-liver",
+  "acquisition": {
+    "route": "index.html?sweep=liver&frame=12",
+    "frame": 12,
+    "label": "Oblique portal view",
+    "poseVoxel": {
+      "contact": [
+        201.58983231652644,
+        221.11525873298473,
+        203.90847355007958
+      ],
+      "width": [
+        -0.8115454600129439,
+        0.41927219081665235,
+        0.4069456921263381
+      ],
+      "beam": [
+        -0.3650328451012666,
+        -0.9076492364680147,
+        0.2071808039763946
+      ],
+      "degrees": 0.0
+    }
+  },
+  "baseline": {
+    "sweeps/liver/scenes/liver.mesh": {
+      "sha256": "27862cad9d34d1d7a7b86a1ce8d92014f5d7db534788c45cb4ef9fd1cce20089",
+      "bytes": 2217704
+    },
+    "sweeps/liver/sweep.js": {
+      "sha256": "e0df7debf2f6d090b1eef146fa1c326963f9b9d111ad2f2b8b1646c0f9792e2a",
+      "bytes": 10975
+    },
+    "sweeps/liver/media/scan-12.webp": {
+      "sha256": "6dba6ac3fe610604bff0ef13288b1be01b99046cdb1094fe6a013a4623e6ff47",
+      "bytes": 31266
+    },
+    "sweeps/liver/media/section-12.webp": {
+      "sha256": "9ffcae93a3abab3ec9a7777b0a393b690c67c227db50e745b392c7dc53f48d67",
+      "bytes": 23776
+    },
+    "references/liver-12.webp": {
+      "sha256": "dab415d831ea2027a65f11c8b7cc63180d8e094629fdc3e4dd66d9c8de9f5540",
+      "bytes": 15550
+    },
+    "tours/abdomen/abdomen-survey.html": {
+      "sha256": "58a7b6fee3bcca2a111f127426ffa6ea5fbe7be3b3046c11d976a229d51b8ed4",
+      "bytes": 23106
+    },
+    "cases/organs/images/abd-liver.svg": {
+      "sha256": "3c48bece111e3aa39139903747010daf9e01fa393d99675d92ab8112570ec367",
+      "bytes": 3277
+    }
+  },
+  "source": {
+    "segmentation": "segmentations/liver.nii.gz",
+    "sha256": "0e37697cde4bf2f6042fa89d338cfbe71d85b4b44e42801840be5612c4785980",
+    "shape": [
+      265,
+      265,
+      401
+    ],
+    "spacingMm": [
+      1.5,
+      1.5,
+      1.5
+    ],
+    "rasMmFromVoxel": [
+      [
+        1.5,
+        0.0,
+        0.0,
+        -215.611328125
+      ],
+      [
+        0.0,
+        1.5,
+        0.0,
+        -37.111328125
+      ],
+      [
+        0.0,
+        0.0,
+        1.5,
+        41.20000076293945
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "acquisitionAxis": [
+      0,
+      0,
+      1
+    ],
+    "originalOrientation": "The distributed source is a canonical RAS segmentation. Original scanner orientation is unavailable; the observed terraces run along this axial grid.",
+    "halfLabelSha256": "e73a265427cc7c7fea87cc5e09a702bf1c48fb4a1bbb32dadf3d06eb2a748c22",
+    "components": 1,
+    "euler": -3,
+    "occupiedVoxelCount": 456706,
+    "enclosedCavityVoxelCount": 0,
+    "volumeReference": "Closed raw half-label surface in RAS millimetres"
+  },
+  "protectedPlanes": {
+    "axis": "axial RAS",
+    "sourceVoxelZ": [
+      206,
+      207,
+      208
+    ],
+    "offsetsMm": [
+      -1.5,
+      0,
+      1.5
+    ],
+    "cleftCropVoxelXY": [
+      [
+        166,
+        182
+      ],
+      [
+        170,
+        197
+      ]
+    ],
+    "entireContoursAlsoMeasured": true
+  },
+  "thresholds": {
+    "p95Mm": 1.5,
+    "maxMm": 3,
+    "absoluteVolumePct": 3,
+    "maxSilhouettePx": 1,
+    "orthographicViews": 24,
+    "zoomPxPerMm": 3,
+    "silhouetteReference": "dense refined surface, as in Wave 1B",
+    "triangleBand": [
+      6000,
+      12000
+    ],
+    "euler": 2,
+    "components": 1
+  }
+}

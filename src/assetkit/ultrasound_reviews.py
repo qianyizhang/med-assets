@@ -177,13 +177,19 @@ def _mesh_review(
         if (
             track_ref is None
             or Path(owner).name != "asset.record.json"
-            or (track_ref.asset, track_ref.revision, track_ref.export)
-            != (ref.asset, ref.revision, ref.export)
+            or (track_ref.asset, track_ref.export) != (ref.asset, ref.export)
+            or not any(
+                rev.id == track_ref.revision
+                and any(exp.id == track_ref.export for exp in rev.exports)
+                for rev in asset.revisions
+            )
             or record["revision"] != mesh_hash
             or record["part"] not in {part.id for part in export.parts}
         ):
             return None
-        binding_owner = LIVER_TRACK
+        # An earlier export keeps its own review when the active sweep moves forward.
+        if ref.revision == track_ref.revision:
+            binding_owner = LIVER_TRACK
     blob = verify(repo, export.path, mesh_hash, export.bytes)
     if blob.status not in ("verified", "pointer-match"):
         return None

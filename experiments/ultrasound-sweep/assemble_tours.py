@@ -12,6 +12,7 @@ import zipfile
 import numpy as np
 from gallery_reference_sources import mammary_reference, write_gallery_donors
 import build_abdomen
+from abdomen_tracks import read_tracks as read_abdominal_tracks, scene_assets
 import build_aortic_screening
 import build_axilla
 import build_breast
@@ -25,25 +26,12 @@ from breast_compression import SETTLE_DEPTH_MM
 from case_library import write_case_library
 from delivery import detail_files, read_poses, sha256, sweep_files, validate_image, validate_mesh, verify_inventory
 from display_body import expected_source_digests
-from geometry import FRAME_COUNT, KEYFRAMES, RASTER_SIZE, SECTOR_DEPTH_MM, SECTOR_HALF_ANGLE_DEG, LENS_RADIUS_MM, VOXEL_MM
+from geometry import FRAME_COUNT, KEYFRAMES, RASTER_SIZE, SECTOR_HALF_ANGLE_DEG, LENS_RADIUS_MM, VOXEL_MM
 from prepare_scenes import read_vendor, shared_geometry
 from survey_delivery import STUDY, survey_files
 
 HERE = Path(__file__).resolve().parent
 RESEARCH = HERE / 'research'
-GALLBLADDER = {
-    'id': 'gallbladder', 'title': 'Gallbladder', 'organ': 'gallbladder',
-    'region': 'Right upper abdomen', 'exterior': 'fitted-atlas',
-    'sectorDepthMm': SECTOR_DEPTH_MM, 'keyframeLabels': ['Long axis', 'Short axis'],
-    'phaseLabels': ['Find window', 'Rotate probe'],
-    'parts': [
-        {'id': 'gallbladder', 'label': 'Gallbladder', 'color': '#3fbf9e', 'opacity': 1},
-        {'id': 'liver', 'label': 'Liver', 'color': '#ad6155', 'opacity': .58},
-        {'id': 'ribs', 'label': 'Ribs', 'color': '#dacaad', 'opacity': .78},
-    ],
-    'overlayParts': ['gallbladder', 'liver', 'portal_vein_and_splenic_vein'],
-    'landmarks': ['extrahepatic-duct'],
-}
 
 
 def reference_sources(regional_sources):
@@ -318,7 +306,7 @@ def configured_tours(output, refs, files, landmark_refs, tracks):
                     tour.pop(key, None)
         verify_inventory(output / root, inventory + ['verification.json'] if slug == 'gallbladder' else inventory)
         if tour.pop('sceneAssets', None):
-            build_abdomen.scene_assets(track, output / root / 'scenes')
+            scene_assets(track, output / root / 'scenes')
         for relative in inventory:
             path = root.removeprefix('./') + relative
             source = output / path
@@ -415,7 +403,7 @@ def assemble(output, delivery=None, *, aaa_acquisitions=None):
         raise ValueError(f'Missing registered AAA acquisition receipt: {aaa_acquisitions}')
     if delivery is not None and delivery.exists():
         raise ValueError(f'Choose a fresh delivery directory: {delivery}')
-    tracks = [(track, build_abdomen) for track in [GALLBLADDER, *build_abdomen.read_tracks()]]
+    tracks = [(track, build_abdomen) for track in read_abdominal_tracks()]
     regional_sources = []
     for region, builder, group in [('thyroid', build_thyroid, build_thyroid.read_thyroid_tracks()),
                                    ('carotid', build_carotid, build_carotid.read_tracks()),

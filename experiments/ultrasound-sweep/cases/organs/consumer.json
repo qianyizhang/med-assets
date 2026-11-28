@@ -2,7 +2,7 @@
   "consumers": [
     {
       "id": "ultrasound:case:abdomen-survey:abd-right-kidney",
-      "title": "Abdominal survey \u00b7 s1233 right kidney exemplar",
+      "title": "Right kidney · s1233 teaching exemplar",
       "kind": "ultrasound-case",
       "case": "abdomen-survey",
       "chapter": "abd-right-kidney",
@@ -38,6 +38,123 @@
           "export": "kidney-right",
           "requirement": "part:kidney_right",
           "sha256": "1b6ac9eed1ae01c2fdff12d203dd82b00dea06f76ffe379be71468eaa7681208",
+          "registration": "native"
+        }
+      ],
+      "frame": 12
+    },
+    {
+      "id": "ultrasound:case:abdomen-survey:abd-left-kidney",
+      "title": "Left kidney · s1233 teaching exemplar",
+      "kind": "ultrasound-case",
+      "case": "abdomen-survey",
+      "chapter": "abd-left-kidney",
+      "sweep": "kidney-left",
+      "frame": 12,
+      "observation": "s1233 teaching exemplar from a separate subject. Locate both poles and the indentation on the medial surface, then match the long-axis outline to the overlay.",
+      "poseSha256": "7363a7c097b1f38981fbd409a5051df7e2f65f6572963ab3144b4e8ceca2c012",
+      "requirements": [
+        {
+          "id": "part:kidney_left",
+          "description": "Locate both poles and the indentation on the medial surface, then match the long-axis outline to the overlay.",
+          "status": "provisional",
+          "subject": "s1233"
+        }
+      ],
+      "pins": [
+        {
+          "asset": "anatomy:s1233:kidney-left",
+          "revision": "r01",
+          "export": "kidney-left",
+          "requirement": "part:kidney_left",
+          "sha256": "a991e63e71cc712ee749e5accffe4d561992e88f6f59311323625fb838d95f21",
+          "registration": "native"
+        }
+      ]
+    },
+    {
+      "id": "ultrasound:case:abdomen-survey:abd-spleen",
+      "title": "Spleen · s1233 teaching exemplar",
+      "kind": "ultrasound-case",
+      "case": "abdomen-survey",
+      "chapter": "abd-spleen",
+      "sweep": "spleen",
+      "frame": 12,
+      "observation": "s1233 teaching exemplar from a separate subject. Trace the convex diaphragmatic face to the indentation on the medial surface and compare the saved long-axis outline.",
+      "poseSha256": "446aa83aa3ffa1747d15ae392db1385e996f6ea8518e4164aae8c05132bc521f",
+      "requirements": [
+        {
+          "id": "part:spleen",
+          "description": "Trace the convex diaphragmatic face to the indentation on the medial surface and compare the saved long-axis outline.",
+          "status": "provisional",
+          "subject": "s1233"
+        }
+      ],
+      "pins": [
+        {
+          "asset": "anatomy:s1233:spleen",
+          "revision": "r01",
+          "export": "spleen",
+          "requirement": "part:spleen",
+          "sha256": "76e01c95fe395952d2bfae3333fb9d228b75ff2016e736a5ebe67bd1a02b5a03",
+          "registration": "native"
+        }
+      ]
+    },
+    {
+      "id": "ultrasound:case:abdomen-survey:abd-liver",
+      "title": "Liver · s1233 teaching exemplar",
+      "kind": "ultrasound-case",
+      "case": "abdomen-survey",
+      "chapter": "abd-liver",
+      "sweep": "liver",
+      "frame": 12,
+      "observation": "s1233 teaching exemplar from a separate subject. Orient the broad right lobe and narrower left extension. Match the exterior to the saved hepatic section.",
+      "poseSha256": "e0df7debf2f6d090b1eef146fa1c326963f9b9d111ad2f2b8b1646c0f9792e2a",
+      "requirements": [
+        {
+          "id": "part:liver",
+          "description": "Orient the broad right lobe and narrower left extension. Match the exterior to the saved hepatic section.",
+          "status": "provisional",
+          "subject": "s1233"
+        }
+      ],
+      "pins": [
+        {
+          "asset": "anatomy:s1233:liver-window",
+          "revision": "r02",
+          "export": "liver",
+          "requirement": "part:liver",
+          "sha256": "711014c7f2fe14381640a98abe46155fa2fec541bab773ab10c9d72370ecb9a1",
+          "registration": "native"
+        }
+      ]
+    },
+    {
+      "id": "ultrasound:case:abdomen-survey:abd-gb",
+      "title": "Gallbladder · s1233 teaching exemplar",
+      "kind": "ultrasound-case",
+      "case": "abdomen-survey",
+      "chapter": "abd-gb",
+      "sweep": "gallbladder",
+      "frame": 12,
+      "observation": "s1233 teaching exemplar from a separate subject. Trace the broad fundus and body into the narrowing neck and relate their long axis to the saved section.",
+      "poseSha256": "29691fc5d42e686fc9960dadcac4dd4454750b21e2a9a6abe31d8d1360b61a76",
+      "requirements": [
+        {
+          "id": "part:gallbladder",
+          "description": "Trace the broad fundus and body into the narrowing neck and relate their long axis to the saved section.",
+          "status": "provisional",
+          "subject": "s1233"
+        }
+      ],
+      "pins": [
+        {
+          "asset": "anatomy:s1233:gallbladder",
+          "revision": "r01",
+          "export": "gallbladder",
+          "requirement": "part:gallbladder",
+          "sha256": "81c30eed83a085371ec5ce2468743cf4197fc3d73753e1548203e1c0f61200b8",
           "registration": "native"
         }
       ]

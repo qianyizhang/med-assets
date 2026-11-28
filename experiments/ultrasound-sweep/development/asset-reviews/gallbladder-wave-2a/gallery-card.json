@@ -1,0 +1,53 @@
+{
+  "slug": "gallbladder-r01",
+  "exportRef": {
+    "record": "models/gallbladder_s1233/asset.record.json",
+    "asset": "anatomy:s1233:gallbladder",
+    "revision": "r01",
+    "export": "gallbladder"
+  },
+  "review": {
+    "case": "abdomen-survey",
+    "chapter": "abd-gb",
+    "part": "gallbladder"
+  },
+  "adopted": true,
+  "cardTitle": "Gallbladder · Before → After",
+  "subtitle": "Abdominal survey · frame 12",
+  "revisionTitle": "s1233 gallbladder · r01",
+  "revisionLinkLabel": "gallbladder r01",
+  "coordinateFrame": "s1233 voxel indices · RAS axes · 1.5 mm spacing",
+  "sourceId": "source:totalsegmentator-v2.0.1:s1233:gallbladder",
+  "sourceLabel": "TotalSegmentator v2.0.1 · Jakob Wasserthal and contributors · CC BY 4.0",
+  "detailsLabel": "Source sections, saved scan and lead review",
+  "figures": [
+    {
+      "file": "previous-vs-r01.webp",
+      "width": 1100,
+      "height": 974,
+      "alt": "The bent profile and taper persist. The lower shoulder still has a short step. The change in surface finish is modest, especially compared with the previous reverse view.",
+      "caption": "Previous delivered sweep and candidate in matched neutral clay."
+    },
+    {
+      "file": "protected-planes.webp",
+      "width": 1430,
+      "height": 373,
+      "alt": "The superior tip deficit falls from 2.30 to 1.47 mm. The narrow end and adjacent indentation track the raw contours through all three protected sections. Their maximum sampled deviation is 1.28 mm.",
+      "caption": "Frozen source sections and measured contours."
+    },
+    {
+      "file": "live-frame-12.webp",
+      "width": 1404,
+      "height": 1030,
+      "alt": "I could trace the long outline on the grayscale scan and confirm it on the overlay. The default oblique view shows only the rounded end beneath the liver. The lower orbit exposes the taper.",
+      "caption": "Saved sweep frame 12 with probe, simulated scan and tissue overlay."
+    },
+    {
+      "file": "matched-surfaces.webp",
+      "width": 1334,
+      "height": 719,
+      "alt": "Gallbladder CT half-label and interpreted exterior viewed under the same light.",
+      "caption": "CT reference and reimported surface at matched scale."
+    }
+  ]
+}

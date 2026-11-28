@@ -1,0 +1,136 @@
+{
+  "organ": "spleen",
+  "frame": 12,
+  "pose": {
+    "contact": [
+      62.596845707948376,
+      56.438929306353096,
+      215.05942054739444
+    ],
+    "width": [
+      -0.9277129027037012,
+      0.36506642779817,
+      -0.07794404051469697
+    ],
+    "beam": [
+      0.3419292279739561,
+      0.9148106537899704,
+      0.21495550881403694
+    ],
+    "degrees": 0.0
+  },
+  "normalRas": [
+    -0.14977707840056037,
+    -0.1727656534356601,
+    0.9735085288680021
+  ],
+  "protectedPlanes": [
+    {
+      "offsetMm": -1.5,
+      "originRasMm": [
+        -121.4913939454766,
+        47.80621431468314,
+        362.32886879072913
+      ],
+      "segments": 384
+    },
+    {
+      "offsetMm": 0.0,
+      "originRasMm": [
+        -121.71605956307744,
+        47.54706583452965,
+        363.7891315840311
+      ],
+      "segments": 390
+    },
+    {
+      "offsetMm": 1.5,
+      "originRasMm": [
+        -121.94072518067827,
+        47.287917354376155,
+        365.2493943773331
+      ],
+      "segments": 406
+    }
+  ],
+  "reference": {
+    "sha256": "b67cc490aaf04eea9f536e27cf0931cfd11b2a8cd75bfffb39af8bf5642c6d22",
+    "bytes": 756330
+  },
+  "source": {
+    "case": "s1233",
+    "ctSha256": "5352376d8fd9c0ab582a7fca1443f28762a66b9782d59c645b976771587c0cfc",
+    "maskSha256": "760eb489a2f6821ce25e7565e4d73709cab5a1ef0af6537d193b2ce036213573",
+    "shape": [
+      265,
+      265,
+      401
+    ],
+    "rasMmFromVoxel": [
+      [
+        1.5,
+        0.0,
+        0.0,
+        -215.611328125
+      ],
+      [
+        0.0,
+        1.5,
+        0.0,
+        -37.111328125
+      ],
+      [
+        0.0,
+        0.0,
+        1.5,
+        41.20000076293945
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "workingLabelGridSpacingMm": [
+      1.5,
+      1.5,
+      1.5
+    ],
+    "maskComponents6ConnectedVoxels": [
+      33273
+    ],
+    "enclosedBackgroundVoxels": 0
+  },
+  "previousSweep": {
+    "sha256": "6c5ecf67f894ceb581bfc4a64be704cb6bd0b1c3ab8d588bbebe47e0396a99c9",
+    "bytes": 346208,
+    "triangles": 19232
+  },
+  "savedFrameInputs": {
+    "sweep.js": {
+      "sha256": "446aa83aa3ffa1747d15ae392db1385e996f6ea8518e4164aae8c05132bc521f",
+      "bytes": 10838
+    },
+    "media/scan-12.webp": {
+      "sha256": "84f865682e6b4065e34b291e50f292a2bc356864400d743a4cb3f9febfe8f7c8",
+      "bytes": 28536
+    },
+    "media/section-12.webp": {
+      "sha256": "44384d06f3115ef9f5434ce8b4b015d90f3b6eba83488a1bf7693db90dbc350f",
+      "bytes": 23750
+    }
+  },
+  "limits": {
+    "p95Mm": 1.5,
+    "maxMm": 3.0,
+    "volumePercent": 3.0,
+    "silhouettePx": 1.0,
+    "silhouetteViews": 24,
+    "teachingZoomPxPerMm": 3.0,
+    "triangleBand": [
+      2500,
+      5000
+    ]
+  }
+}

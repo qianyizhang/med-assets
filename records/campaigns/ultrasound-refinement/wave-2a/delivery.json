@@ -1,0 +1,145 @@
+{
+  "routes": 28,
+  "cases": 32,
+  "chapters": 410,
+  "changedSurveyChapters": {
+    "abdomen-survey/abd-liver": "liver",
+    "abdomen-survey/abd-gb": "gallbladder",
+    "abdomen-survey/abd-spleen": "spleen",
+    "abdomen-survey/abd-left-kidney": "kidney-left"
+  },
+  "changedSweepParts": {
+    "gallbladder": [
+      "gallbladder"
+    ],
+    "liver": [
+      "liver"
+    ],
+    "spleen": [
+      "spleen"
+    ],
+    "kidney-left": [
+      "kidney_left"
+    ]
+  },
+  "unchangedFrameAndPoseFiles": 2930,
+  "familyFingerprintChanges": [
+    "organs",
+    "pregnancy",
+    "vascular"
+  ],
+  "sourceRevision": "e3961e616c8ef71ea2d9b49b8cb94358c0ad3373",
+  "trialChapters": {
+    "abd-left-kidney": {
+      "heading": "Left kidney · s1233 teaching exemplar",
+      "frame": 12,
+      "source": "kidney-left",
+      "meshSha256": "a991e63e71cc712ee749e5accffe4d561992e88f6f59311323625fb838d95f21",
+      "chapterSha256": "6c799670cd532cd7f290e8b44376586911f5348fe6e4aba585ae40633c0c2d71"
+    },
+    "abd-spleen": {
+      "heading": "Spleen · s1233 teaching exemplar",
+      "frame": 12,
+      "source": "spleen",
+      "meshSha256": "76e01c95fe395952d2bfae3333fb9d228b75ff2016e736a5ebe67bd1a02b5a03",
+      "chapterSha256": "847dbe3258aa8fa9aa64514ac8c33e556d6d53db7566221da32871b30621c98f"
+    },
+    "abd-pancreas": {
+      "heading": "Pancreas · s1233 teaching exemplar",
+      "frame": 12,
+      "source": "pancreas",
+      "meshSha256": "4f853b98b4ec8048cee6a53562478be63faf4a668c158f34490a7535fd17fda0",
+      "chapterSha256": "ff16b97ea235862f14bc6e759fe6b1bd2e49694b78a6034937500efb8fa32799"
+    },
+    "abd-liver": {
+      "heading": "Liver · s1233 teaching exemplar",
+      "frame": 12,
+      "source": "liver",
+      "meshSha256": "711014c7f2fe14381640a98abe46155fa2fec541bab773ab10c9d72370ecb9a1",
+      "chapterSha256": "7cc1b112979f75da5f0013f5b8af98991d62cc3077e205bbe9b589aeb9bf8c35"
+    },
+    "abd-gb": {
+      "heading": "Gallbladder · s1233 teaching exemplar",
+      "frame": 12,
+      "source": "gallbladder",
+      "meshSha256": "81c30eed83a085371ec5ce2468743cf4197fc3d73753e1548203e1c0f61200b8",
+      "chapterSha256": "8dbd011a50c001cd61a95476d9ad5f5b8c0455e22b89ba987e8f15222539a353"
+    },
+    "abd-right-kidney": {
+      "heading": "Right kidney · s1233 teaching exemplar",
+      "frame": 12,
+      "source": "kidney-right",
+      "meshSha256": "1b6ac9eed1ae01c2fdff12d203dd82b00dea06f76ffe379be71468eaa7681208",
+      "chapterSha256": "1d8480ae4a7e43df0d8697721567466a3d92b51f7c99a6841201b8a2f4a4a3ec"
+    }
+  },
+  "deliveredChapters": {
+    "abd-left-kidney": {
+      "heading": "Left kidney · s1233 teaching exemplar",
+      "frame": 12,
+      "source": "kidney-left",
+      "meshSha256": "a991e63e71cc712ee749e5accffe4d561992e88f6f59311323625fb838d95f21",
+      "chapterSha256": "6c799670cd532cd7f290e8b44376586911f5348fe6e4aba585ae40633c0c2d71"
+    },
+    "abd-spleen": {
+      "heading": "Spleen · s1233 teaching exemplar",
+      "frame": 12,
+      "source": "spleen",
+      "meshSha256": "76e01c95fe395952d2bfae3333fb9d228b75ff2016e736a5ebe67bd1a02b5a03",
+      "chapterSha256": "847dbe3258aa8fa9aa64514ac8c33e556d6d53db7566221da32871b30621c98f"
+    },
+    "abd-pancreas": {
+      "heading": "Pancreatic head and body",
+      "frame": 12,
+      "source": "worked case"
+    },
+    "abd-liver": {
+      "heading": "Liver · s1233 teaching exemplar",
+      "frame": 12,
+      "source": "liver",
+      "meshSha256": "711014c7f2fe14381640a98abe46155fa2fec541bab773ab10c9d72370ecb9a1",
+      "chapterSha256": "7cc1b112979f75da5f0013f5b8af98991d62cc3077e205bbe9b589aeb9bf8c35"
+    },
+    "abd-gb": {
+      "heading": "Gallbladder · s1233 teaching exemplar",
+      "frame": 12,
+      "source": "gallbladder",
+      "meshSha256": "81c30eed83a085371ec5ce2468743cf4197fc3d73753e1548203e1c0f61200b8",
+      "chapterSha256": "8dbd011a50c001cd61a95476d9ad5f5b8c0455e22b89ba987e8f15222539a353"
+    },
+    "abd-right-kidney": {
+      "heading": "Right kidney · s1233 teaching exemplar",
+      "frame": 12,
+      "source": "kidney-right",
+      "meshSha256": "1b6ac9eed1ae01c2fdff12d203dd82b00dea06f76ffe379be71468eaa7681208",
+      "chapterSha256": "1d8480ae4a7e43df0d8697721567466a3d92b51f7c99a6841201b8a2f4a4a3ec"
+    }
+  },
+  "gallery": {
+    "checked": [
+      "gallbladder-r01",
+      "kidney-left-r01",
+      "kidney-right-r01",
+      "liver-r02",
+      "pancreas-r01",
+      "spleen-r01"
+    ],
+    "metrics": {
+      "Governed chapters": "5 / 410",
+      "Adopted": "5",
+      "Reviewed": "6",
+      "Qualified": "0",
+      "Triangles saved": "165140",
+      "Bytes saved": "2972520"
+    },
+    "externalRequests": []
+  },
+  "verification": {
+    "assetkit": "ruff, ruff format, ty, pytest (83), validate, economy, review check and five native show/impact pairs passed",
+    "geometryChecks": "Four candidates passed all frozen limits. Pancreas failed raw surface and protected-cut limits. Five deliberately distorted copies exited nonzero.",
+    "study": "28 standalone sweeps, 32 worked cases, 29 non-AAA canonical exam tours / 390 sections / 9844 frames. Playable, case data and geometry, 46 assembly failure paths, case-browser and playback passed.",
+    "workbench": "Four adopted reviews displayed their scores on the native chapter. The held pancreas review did not score the active chapter.",
+    "repository": "Offline passed 465 Python tests and 4 Gallery suites. Payload integrity verified 1740 hydrated LFS objects.",
+    "localOnly": true
+  }
+}

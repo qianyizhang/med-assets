@@ -87,14 +87,92 @@
         }
       ],
       "qualifications": []
+    },
+    {
+      "revisionId": "r02",
+      "status": "provisional",
+      "frame": {
+        "convention": "voxel-index",
+        "units": "voxel",
+        "evidence": "assemblies/workshop-s1233/inputs.json"
+      },
+      "sourceIds": [
+        "source:totalsegmentator-v2.0.1:s1233:liver"
+      ],
+      "partIds": [
+        "liver"
+      ],
+      "exports": [
+        {
+          "id": "liver",
+          "path": "models/liver_s1233/exports/r02/liver.mesh",
+          "sha256": "711014c7f2fe14381640a98abe46155fa2fec541bab773ab10c9d72370ecb9a1",
+          "bytes": 216032,
+          "format": "mesh",
+          "triangles": 12000,
+          "partIds": [
+            "liver"
+          ],
+          "voxelGrid": {
+            "case": "s1233",
+            "shape": [
+              265,
+              265,
+              401
+            ],
+            "rasMmFromVoxel": [
+              [
+                1.5,
+                0.0,
+                0.0,
+                -215.611328125
+              ],
+              [
+                0.0,
+                1.5,
+                0.0,
+                -37.111328125
+              ],
+              [
+                0.0,
+                0.0,
+                1.5,
+                41.20000076293945
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        }
+      ],
+      "qualifications": [],
+      "recipeEvidence": {
+        "path": "models/liver_s1233/rebuild.py",
+        "sha256": "f68f91512f295ce0adf276775e3b7f41036183a9bcf1e366a044d23b2dc6785f"
+      }
     }
   ],
-  "artifacts": [],
+  "artifacts": [
+    {
+      "path": "models/liver_s1233/retopology.py",
+      "sha256": "39d8ec42268db783269eb7a093c2dce4dcd0267ed2bcbe1e7b778a2e44223c25",
+      "bytes": 1623
+    }
+  ],
   "exports": [
     {
       "path": "models/liver_s1233/exports/r01/liver.mesh",
       "sha256": "27862cad9d34d1d7a7b86a1ce8d92014f5d7db534788c45cb4ef9fd1cce20089",
       "bytes": 2217704
+    },
+    {
+      "path": "models/liver_s1233/exports/r02/liver.mesh",
+      "sha256": "711014c7f2fe14381640a98abe46155fa2fec541bab773ab10c9d72370ecb9a1",
+      "bytes": 216032
     }
   ],
   "uses": [],

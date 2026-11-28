@@ -1,0 +1,241 @@
+{
+  "case": "s1233",
+  "chapter": "abdomen-survey / abd-gb",
+  "sweep": "gallbladder",
+  "part": "gallbladder",
+  "frame": 12,
+  "learnerAction": "Trace the broad fundus and body as they taper into the neck in the saved long-axis field.",
+  "priorMesh": {
+    "sha256": "6509c00826a818036d690192e98cb2f8e14aeb8786f9c699b2c8d5fb95ea1de9",
+    "bytes": 38480,
+    "path": ".artifacts/us-wave1b/delivery/scenes/gallbladder.mesh",
+    "triangles": 2136
+  },
+  "priorProceduralChapter": {
+    "sha256": "58a7b6fee3bcca2a111f127426ffa6ea5fbe7be3b3046c11d976a229d51b8ed4",
+    "bytes": 23106
+  },
+  "priorSchematicPlate": {
+    "sha256": "8d155f9cdb1ef5eefd0437fe6354ca6d3b99943313b81abf44020fe26bf5f16a",
+    "bytes": 2467
+  },
+  "source": {
+    "ctSha256": "5352376d8fd9c0ab582a7fca1443f28762a66b9782d59c645b976771587c0cfc",
+    "maskSha256": "c5dd1e8886ed87d29dac8225acbac49dfc308c0ead9116690c818e49b1addcc7",
+    "shape": [
+      265,
+      265,
+      401
+    ],
+    "rasMmFromVoxel": [
+      [
+        1.5,
+        0.0,
+        0.0,
+        -215.611328125
+      ],
+      [
+        0.0,
+        1.5,
+        0.0,
+        -37.111328125
+      ],
+      [
+        0.0,
+        0.0,
+        1.5,
+        41.20000076293945
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "sourceUrl": "https://zenodo.org/records/10047263",
+    "license": "CC BY 4.0",
+    "occupiedVoxels": 9211,
+    "components": 1,
+    "componentSizes": [
+      9211
+    ],
+    "enclosedBackgroundVoxels": 0,
+    "labelEuler": 1,
+    "halfLabelSurfaceSha256": "c65dc93b0a17c0315c42d00f971d7e39627967ec5a87400a22fda49a7062c7c0",
+    "acquisitionSliceNormalRas": [
+      0,
+      0,
+      1
+    ]
+  },
+  "savedAcquisition": {
+    "pose": {
+      "contact": [
+        159.3706980840517,
+        227.00248911029223,
+        183.8037159145437
+      ],
+      "width": [
+        -0.8352327246132281,
+        -0.5449309286164767,
+        0.07373315924567404
+      ],
+      "beam": [
+        0.5489579688501267,
+        -0.8184464262856433,
+        0.16967791764458462
+      ],
+      "degrees": 0.0
+    },
+    "script": {
+      "sha256": "29691fc5d42e686fc9960dadcac4dd4454750b21e2a9a6abe31d8d1360b61a76",
+      "bytes": 10902,
+      "path": ".artifacts/us-wave1b/delivery/sweep.js"
+    },
+    "scans": {
+      "scan": {
+        "sha256": "9b12096e622a8d4fd31fe4ced5497c1173e71295ce1913772e2d324683136581",
+        "bytes": 33112
+      },
+      "section": {
+        "sha256": "5c50fdd76d3ae9e98e3c5a78c0c181fd4ce9175684f44285d447f812b0e9d4ab",
+        "bytes": 27220
+      }
+    },
+    "originRasMm": [
+      23.444719001077544,
+      303.39240554043835,
+      316.905574634755
+    ],
+    "width": [
+      -0.8352327246132281,
+      -0.5449309286164767,
+      0.07373315924567404
+    ],
+    "beam": [
+      0.5489579688501266,
+      -0.8184464262856432,
+      0.1696779176445846
+    ],
+    "normal": [
+      -0.03211610454440139,
+      0.18219695479739345,
+      0.9827374143134318
+    ],
+    "sectorDepthMm": 133,
+    "sectorHalfAngleDeg": 36
+  },
+  "gates": {
+    "maxP95Mm": 1.5,
+    "maxMm": 3.0,
+    "maxAbsVolumePercent": 3,
+    "topology": "One Euler 2 closed outward manifold",
+    "triangles": [
+      1500,
+      3000
+    ],
+    "maxDegenerateFaces": 0,
+    "maxIntersectingNonincidentPairs": 0,
+    "maxTurningSilhouettePx": 1,
+    "orthographicViews": 24,
+    "silhouetteZoomPxPerMm": 3,
+    "sampleSpacingMm": 0.5
+  },
+  "protectedPlanes": [
+    {
+      "offsetMm": -1.5,
+      "originRasMm": [
+        23.492893157894148,
+        303.11911010824224,
+        315.43146851328487
+      ],
+      "sampleExtentMm": [
+        [
+          -42.0,
+          77.0
+        ],
+        [
+          50.0,
+          120.0
+        ]
+      ],
+      "referenceOutlineSha256": "f68a70f0fc863f9789594e2fd3a916e741c82efff043f80267c14f13ae7d731d",
+      "referenceBoundsInPlaneMm": [
+        [
+          -36.7130744199815,
+          82.62740765273158
+        ],
+        [
+          44.243425361737046,
+          114.98872791329876
+        ]
+      ]
+    },
+    {
+      "offsetMm": 0.0,
+      "originRasMm": [
+        23.444719001077544,
+        303.39240554043835,
+        316.905574634755
+      ],
+      "sampleExtentMm": [
+        [
+          -42.0,
+          77.0
+        ],
+        [
+          50.0,
+          121.0
+        ]
+      ],
+      "referenceOutlineSha256": "36da20c900b979ec4b001ceeccd65760a08f7486c0e95aaa32aa2617db7f60b8",
+      "referenceBoundsInPlaneMm": [
+        [
+          -36.670776829701516,
+          82.04700013637141
+        ],
+        [
+          44.355967875390895,
+          115.19326666238241
+        ]
+      ]
+    },
+    {
+      "offsetMm": 1.5,
+      "originRasMm": [
+        23.39654484426094,
+        303.66570097263445,
+        318.3796807562251
+      ],
+      "sampleExtentMm": [
+        [
+          -43.0,
+          77.0
+        ],
+        [
+          50.0,
+          121.0
+        ]
+      ],
+      "referenceOutlineSha256": "f499bfe3928e6475e04a36aa04f5dfb49fca843164c27bb888c8036b605b9fbc",
+      "referenceBoundsInPlaneMm": [
+        [
+          -37.73722405245945,
+          82.30598780974162
+        ],
+        [
+          44.464765960452745,
+          115.4522543357526
+        ]
+      ]
+    }
+  ],
+  "protectedLandmarks": [
+    "Broad fundus and body",
+    "Tapering neck"
+  ],
+  "referenceLimit": "The case label describes the external gallbladder form. Wall thickness, a cystic duct junction and stone motion require their own evidence.",
+  "observedDefect": "The exact previous sweep loses contour at the narrow terminal end.",
+  "method": "Use adaptive signed-distance smoothing and Blender quadric decimation. Preserve the taper with a narrower filter in thin regions. Aim for one closed exterior without editorial repairs to components or holes."
+}

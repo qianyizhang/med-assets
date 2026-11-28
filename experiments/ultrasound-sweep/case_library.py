@@ -9,7 +9,7 @@ from urllib.parse import urlsplit
 
 from asset_qualification import write_asset_inventory
 from exam_tours import evidence_index, evidence_url, tour_path, write_exam_tours
-from kidney_exemplar import configure as configure_kidney_exemplar
+from survey_exemplars import configure as configure_survey_exemplars
 from thyroid_tour import write_thyroid_tour
 
 ROOT = Path(__file__).with_name('cases')
@@ -186,7 +186,7 @@ def write_case_library(destination, tours, refs, root=ROOT, *, aaa_acquisitions=
     grouped = load_cases(root)
     findings = finding_comparisons(root, grouped)
     evidence = evidence_index(root, grouped, FAMILIES)
-    configure_kidney_exemplar(destination, tours, evidence)
+    configure_survey_exemplars(destination, tours, evidence)
     if aaa_acquisitions is not None:
         from aaa_delivery import install_acquisitions
         normal = next((tour for tour in tours if tour['id'] == 'aortic-screening'), None)

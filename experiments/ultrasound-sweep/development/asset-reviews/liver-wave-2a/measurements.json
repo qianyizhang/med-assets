@@ -1,0 +1,613 @@
+{
+  "export": {
+    "sha256": "711014c7f2fe14381640a98abe46155fa2fec541bab773ab10c9d72370ecb9a1",
+    "bytes": 216032,
+    "triangles": 12000
+  },
+  "previousSweep": {
+    "sha256": "27862cad9d34d1d7a7b86a1ce8d92014f5d7db534788c45cb4ef9fd1cce20089",
+    "bytes": 2217704,
+    "triangles": 123204
+  },
+  "reference": {
+    "sha256": "e73a265427cc7c7fea87cc5e09a702bf1c48fb4a1bbb32dadf3d06eb2a748c22",
+    "triangles": 124816,
+    "volumeMm3": 1540994.3437502484
+  },
+  "method": "Bidirectional samples with maximum 0.5 mm spacing to exact nearest target triangles or cut segments. Silhouette compares reimport and dense SDF precursor.",
+  "global": {
+    "previous": {
+      "referenceToCandidate": {
+        "p95Mm": 0.6314892200289,
+        "maxMm": 3.2179465653869785,
+        "maxLocationRasMm": [
+          13.138671875,
+          187.888671875,
+          391.450000763
+        ],
+        "samples": 1432816
+      },
+      "candidateToReference": {
+        "p95Mm": 0.5499615462786072,
+        "maxMm": 1.5133483890000008,
+        "maxLocationRasMm": [
+          44.652020264,
+          244.259576416,
+          364.399408722
+        ],
+        "samples": 1420057
+      }
+    },
+    "candidate": {
+      "referenceToCandidate": {
+        "p95Mm": 0.889432543840348,
+        "maxMm": 2.94683416325065,
+        "maxLocationRasMm": [
+          13.138671875,
+          187.888671875,
+          391.825000763
+        ],
+        "samples": 1432816
+      },
+      "candidateToReference": {
+        "p95Mm": 0.7295682309673313,
+        "maxMm": 1.7373189879367013,
+        "maxLocationRasMm": [
+          -50.877426147,
+          227.618167877,
+          420.995727539
+        ],
+        "samples": 1164492
+      }
+    }
+  },
+  "topology": {
+    "components": 1,
+    "euler": 2,
+    "openEdges": 0,
+    "nonmanifoldEdges": 0,
+    "misorientedSharedEdges": 0,
+    "degenerateTriangles": 0,
+    "signedVolumeMm3": 1535832.7917255014,
+    "intersectingNonincidentPairs": 0
+  },
+  "volumeChangePct": {
+    "previous": -0.10970966944627847,
+    "candidate": -0.3349494464842673
+  },
+  "protectedPlanes": [
+    {
+      "zVoxel": 206,
+      "offsetMm": -1.5,
+      "full": {
+        "previous": {
+          "referenceToCandidate": {
+            "p95Mm": 0.7254962878419609,
+            "maxMm": 1.4362505914341661,
+            "maxLocationRasMm": [
+              74.638671875,
+              204.388671875,
+              350.200000763
+            ],
+            "samples": 1716
+          },
+          "candidateToReference": {
+            "p95Mm": 0.6550002614849901,
+            "maxMm": 1.3075447079999947,
+            "maxLocationRasMm": [
+              73.331127167,
+              203.715667725,
+              350.200000763
+            ],
+            "samples": 1728
+          }
+        },
+        "candidate": {
+          "referenceToCandidate": {
+            "p95Mm": 1.0480446718310925,
+            "maxMm": 2.9480870548672464,
+            "maxLocationRasMm": [
+              74.638671875,
+              201.388671875,
+              350.200000763
+            ],
+            "samples": 1716
+          },
+          "candidateToReference": {
+            "p95Mm": 0.9492284146467765,
+            "maxMm": 2.1180333000000076,
+            "maxLocationRasMm": [
+              72.181320375,
+              203.020638575,
+              350.200000763
+            ],
+            "samples": 1534
+          }
+        }
+      },
+      "cleft": {
+        "previous": {
+          "referenceToCandidate": {
+            "p95Mm": 0.5124875920863674,
+            "maxMm": 0.7250761487438873,
+            "maxLocationRasMm": [
+              38.638671875,
+              229.888671875,
+              350.200000763
+            ],
+            "samples": 206
+          },
+          "candidateToReference": {
+            "p95Mm": 0.5061564340033884,
+            "maxMm": 0.7175445560000071,
+            "maxLocationRasMm": [
+              33.388671875,
+              222.421127319,
+              350.200000763
+            ],
+            "samples": 222
+          }
+        },
+        "candidate": {
+          "referenceToCandidate": {
+            "p95Mm": 0.5272514285788191,
+            "maxMm": 0.8097521462669448,
+            "maxLocationRasMm": [
+              38.638671875,
+              258.388671875,
+              350.200000763
+            ],
+            "samples": 206
+          },
+          "candidateToReference": {
+            "p95Mm": 0.43448273231681184,
+            "maxMm": 0.6384406700000014,
+            "maxLocationRasMm": [
+              39.277112545,
+              229.443942237,
+              350.200000763
+            ],
+            "samples": 197
+          }
+        }
+      }
+    },
+    {
+      "zVoxel": 207,
+      "offsetMm": 0,
+      "full": {
+        "previous": {
+          "referenceToCandidate": {
+            "p95Mm": 0.7856689622575869,
+            "maxMm": 1.6468885552594887,
+            "maxLocationRasMm": [
+              67.138671875,
+              184.888671875,
+              351.700000763
+            ],
+            "samples": 1752
+          },
+          "candidateToReference": {
+            "p95Mm": 0.7129470532428724,
+            "maxMm": 1.470039368000002,
+            "maxLocationRasMm": [
+              65.668632507,
+              185.638671875,
+              351.700000763
+            ],
+            "samples": 1734
+          }
+        },
+        "candidate": {
+          "referenceToCandidate": {
+            "p95Mm": 1.1237688604079645,
+            "maxMm": 2.242396145031285,
+            "maxLocationRasMm": [
+              67.138671875,
+              184.888671875,
+              351.700000763
+            ],
+            "samples": 1752
+          },
+          "candidateToReference": {
+            "p95Mm": 1.0133069425492705,
+            "maxMm": 1.6125866159999873,
+            "maxLocationRasMm": [
+              65.062032973,
+              185.751258491,
+              351.700000763
+            ],
+            "samples": 1553
+          }
+        }
+      },
+      "cleft": {
+        "previous": {
+          "referenceToCandidate": {
+            "p95Mm": 0.7203341283370145,
+            "maxMm": 1.114654541015625,
+            "maxLocationRasMm": [
+              38.638671875,
+              217.888671875,
+              351.700000763
+            ],
+            "samples": 218
+          },
+          "candidateToReference": {
+            "p95Mm": 0.662919847207927,
+            "maxMm": 0.9374656680000015,
+            "maxLocationRasMm": [
+              36.201206207,
+              221.301574707,
+              351.700000763
+            ],
+            "samples": 227
+          }
+        },
+        "candidate": {
+          "referenceToCandidate": {
+            "p95Mm": 0.6870315198814045,
+            "maxMm": 1.0801984447959896,
+            "maxLocationRasMm": [
+              38.638671875,
+              217.888671875,
+              351.700000763
+            ],
+            "samples": 218
+          },
+          "candidateToReference": {
+            "p95Mm": 0.6634399507706602,
+            "maxMm": 0.8025208424434082,
+            "maxLocationRasMm": [
+              33.388671875,
+              218.174223451,
+              351.700000763
+            ],
+            "samples": 212
+          }
+        }
+      }
+    },
+    {
+      "zVoxel": 208,
+      "offsetMm": 1.5,
+      "full": {
+        "previous": {
+          "referenceToCandidate": {
+            "p95Mm": 0.7218309070874384,
+            "maxMm": 1.7398316428555345,
+            "maxLocationRasMm": [
+              68.638671875,
+              199.888671875,
+              353.200000763
+            ],
+            "samples": 1752
+          },
+          "candidateToReference": {
+            "p95Mm": 0.6487634046306527,
+            "maxMm": 1.5,
+            "maxLocationRasMm": [
+              67.062225342,
+              199.138671875,
+              353.200000763
+            ],
+            "samples": 1747
+          }
+        },
+        "candidate": {
+          "referenceToCandidate": {
+            "p95Mm": 1.0022251278873953,
+            "maxMm": 2.2657613284195817,
+            "maxLocationRasMm": [
+              68.638671875,
+              199.888671875,
+              353.200000763
+            ],
+            "samples": 1752
+          },
+          "candidateToReference": {
+            "p95Mm": 0.9289447606983355,
+            "maxMm": 1.7695366573919136,
+            "maxLocationRasMm": [
+              66.60832278,
+              198.86082552,
+              353.200000763
+            ],
+            "samples": 1549
+          }
+        }
+      },
+      "cleft": {
+        "previous": {
+          "referenceToCandidate": {
+            "p95Mm": 0.5470946917167897,
+            "maxMm": 0.806854248046875,
+            "maxLocationRasMm": [
+              38.638671875,
+              217.888671875,
+              353.200000763
+            ],
+            "samples": 218
+          },
+          "candidateToReference": {
+            "p95Mm": 0.4705223563237526,
+            "maxMm": 0.5941314700000007,
+            "maxLocationRasMm": [
+              50.044540405,
+              250.513671875,
+              353.200000763
+            ],
+            "samples": 223
+          }
+        },
+        "candidate": {
+          "referenceToCandidate": {
+            "p95Mm": 0.4500758676444125,
+            "maxMm": 0.8094991779172389,
+            "maxLocationRasMm": [
+              38.638671875,
+              217.888671875,
+              353.200000763
+            ],
+            "samples": 218
+          },
+          "candidateToReference": {
+            "p95Mm": 0.41691549430000163,
+            "maxMm": 0.5724023581287382,
+            "maxLocationRasMm": [
+              39.448171053,
+              217.888671875,
+              353.200000763
+            ],
+            "samples": 214
+          }
+        }
+      }
+    }
+  ],
+  "frame12Diagnostic": {
+    "method": "The sector includes cut segments with midpoints inside the saved image field.",
+    "unclipped": {
+      "previous": {
+        "referenceToCandidate": {
+          "p95Mm": 1.3942134192442337,
+          "maxMm": 7.869659680011346,
+          "maxLocationRasMm": [
+            54.260051773,
+            194.017291977,
+            365.950000763
+          ],
+          "samples": 2960
+        },
+        "candidateToReference": {
+          "p95Mm": 0.6649920727078439,
+          "maxMm": 1.2252095729654384,
+          "maxLocationRasMm": [
+            55.727154832,
+            185.257607054,
+            365.390509537
+          ],
+          "samples": 2617
+        }
+      },
+      "candidate": {
+        "referenceToCandidate": {
+          "p95Mm": 1.6049599597214457,
+          "maxMm": 8.447462120480804,
+          "maxLocationRasMm": [
+            54.260051773,
+            194.017291977,
+            365.950000763
+          ],
+          "samples": 2960
+        },
+        "candidateToReference": {
+          "p95Mm": 0.9397446227685033,
+          "maxMm": 1.5096241756761046,
+          "maxLocationRasMm": [
+            33.9820296,
+            221.177528044,
+            375.750976836
+          ],
+          "samples": 1880
+        }
+      }
+    },
+    "sector": {
+      "previous": {
+        "referenceToCandidate": {
+          "p95Mm": 1.5218017173374494,
+          "maxMm": 7.869659680011346,
+          "maxLocationRasMm": [
+            54.260051773,
+            194.017291977,
+            365.950000763
+          ],
+          "samples": 1954
+        },
+        "candidateToReference": {
+          "p95Mm": 0.689689932173969,
+          "maxMm": 2.015456951707084,
+          "maxLocationRasMm": [
+            2.498245889,
+            158.307912737,
+            393.2807599
+          ],
+          "samples": 1715
+        }
+      },
+      "candidate": {
+        "referenceToCandidate": {
+          "p95Mm": 2.4827240289890207,
+          "maxMm": 8.447462120480804,
+          "maxLocationRasMm": [
+            54.260051773,
+            194.017291977,
+            365.950000763
+          ],
+          "samples": 1954
+        },
+        "candidateToReference": {
+          "p95Mm": 0.9996752255108116,
+          "maxMm": 4.192585174441906,
+          "maxLocationRasMm": [
+            -48.134516892,
+            235.267803272,
+            417.551788932
+          ],
+          "samples": 1250
+        }
+      }
+    }
+  },
+  "domeDiagnostic": {
+    "previous": {
+      "columns": 5180,
+      "rmsMm": 0.349809183080056
+    },
+    "candidate": {
+      "columns": 5180,
+      "rmsMm": 0.17964002603079138
+    }
+  },
+  "silhouette": {
+    "views": 24,
+    "pixelsPerMm": 3,
+    "supersample": 4,
+    "maximumDeparturePx": 0.9013878188659973
+  },
+  "gates": {
+    "global": true,
+    "protectedPlanes": true,
+    "volume": true,
+    "topology": true,
+    "silhouette": true,
+    "triangleBudget": true
+  },
+  "replays": {
+    "r01": {
+      "sha256": "27862cad9d34d1d7a7b86a1ce8d92014f5d7db534788c45cb4ef9fd1cce20089",
+      "bytes": 2217704
+    },
+    "r02": [
+      {
+        "sha256": "711014c7f2fe14381640a98abe46155fa2fec541bab773ab10c9d72370ecb9a1",
+        "bytes": 216032
+      },
+      {
+        "sha256": "711014c7f2fe14381640a98abe46155fa2fec541bab773ab10c9d72370ecb9a1",
+        "bytes": 216032
+      }
+    ]
+  },
+  "negativeCheck": {
+    "method": "Add eight source voxels (12 mm) in RAS x to every vertex in a disposable packed copy. Run the same decisive verifier with the same raw reference, protected cuts and dense refined precursor.",
+    "export": {
+      "sha256": "356147c7deb5ab5458653661929d117972fb48c8af5d76e85c780c91a460b4ba",
+      "bytes": 216032,
+      "triangles": 12000
+    },
+    "exitCode": 1,
+    "gates": {
+      "global": false,
+      "protectedPlanes": false,
+      "volume": true,
+      "topology": true,
+      "silhouette": false,
+      "triangleBudget": true
+    },
+    "global": {
+      "referenceToCandidate": {
+        "p95Mm": 11.176638949271075,
+        "maxMm": 14.078802504246658,
+        "maxLocationRasMm": [
+          -52.861328125,
+          238.888671875,
+          408.700000763
+        ],
+        "samples": 1432816
+      },
+      "candidateToReference": {
+        "p95Mm": 10.925759357652025,
+        "maxMm": 12.133244440999988,
+        "maxLocationRasMm": [
+          148.271916316,
+          164.185175969,
+          348.291059347
+        ],
+        "samples": 1164499
+      }
+    },
+    "silhouette": {
+      "views": 24,
+      "pixelsPerMm": 3,
+      "supersample": 4,
+      "maximumDeparturePx": 36.443449342783126
+    }
+  },
+  "liveBrowser": {
+    "browser": "158.0.8127.18",
+    "frozenScansAndOverlays": 98,
+    "matchingPoseCount": 49,
+    "baseline": {
+      "served": {
+        "sweeps/liver/scenes/liver.mesh": {
+          "sha256": "27862cad9d34d1d7a7b86a1ce8d92014f5d7db534788c45cb4ef9fd1cce20089",
+          "bytes": 2217704
+        },
+        "sweeps/liver/sweep.js": {
+          "sha256": "e0df7debf2f6d090b1eef146fa1c326963f9b9d111ad2f2b8b1646c0f9792e2a",
+          "bytes": 10975
+        },
+        "sweeps/liver/media/scan-12.webp": {
+          "sha256": "6dba6ac3fe610604bff0ef13288b1be01b99046cdb1094fe6a013a4623e6ff47",
+          "bytes": 31266
+        },
+        "sweeps/liver/media/section-12.webp": {
+          "sha256": "9ffcae93a3abab3ec9a7777b0a393b690c67c227db50e745b392c7dc53f48d67",
+          "bytes": 23776
+        },
+        "references/liver-12.webp": {
+          "sha256": "dab415d831ea2027a65f11c8b7cc63180d8e094629fdc3e4dd66d9c8de9f5540",
+          "bytes": 15550
+        }
+      },
+      "frame": 12,
+      "errors": [],
+      "meshRequests": 1
+    },
+    "candidate": {
+      "served": {
+        "sweeps/liver/scenes/liver.mesh": {
+          "sha256": "711014c7f2fe14381640a98abe46155fa2fec541bab773ab10c9d72370ecb9a1",
+          "bytes": 216032
+        },
+        "sweeps/liver/sweep.js": {
+          "sha256": "e0df7debf2f6d090b1eef146fa1c326963f9b9d111ad2f2b8b1646c0f9792e2a",
+          "bytes": 10975
+        },
+        "sweeps/liver/media/scan-12.webp": {
+          "sha256": "6dba6ac3fe610604bff0ef13288b1be01b99046cdb1094fe6a013a4623e6ff47",
+          "bytes": 31266
+        },
+        "sweeps/liver/media/section-12.webp": {
+          "sha256": "9ffcae93a3abab3ec9a7777b0a393b690c67c227db50e745b392c7dc53f48d67",
+          "bytes": 23776
+        },
+        "references/liver-12.webp": {
+          "sha256": "dab415d831ea2027a65f11c8b7cc63180d8e094629fdc3e4dd66d9c8de9f5540",
+          "bytes": 15550
+        }
+      },
+      "frame": 12,
+      "errors": [],
+      "meshRequests": 1
+    }
+  },
+  "admission": {
+    "assetkitSync": "passed; no manifest changes required",
+    "assetkitHydratedCheckPort": "passed",
+    "assetkitValidate": "passed",
+    "liverReplayMaxProbeContactErrorMm": 0.174
+  }
+}

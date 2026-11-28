@@ -10,6 +10,7 @@ from pathlib import Path
 
 import numpy as np
 
+from abdomen_tracks import read_tracks, scene_assets
 from delivery import read_poses, sweep_files, write_manifest
 from display_body import fitted_surface, check_contacts, load_body_atlas
 from geometry import (
@@ -79,8 +80,13 @@ def shared_geometry():
 def stage(output, vendor_dir=None):
     poses = read_poses(output / 'sweep.js')
     contacts = np.array([frame['contact'] for frame in poses])
+    track, = [track for track in read_tracks() if track['id'] == 'gallbladder']
+    governed = scene_assets(track)
     files = {}
     for name in ('liver', 'ribs', 'gallbladder'):
+        if name in governed:
+            files[f'scenes/{name}.mesh'] = governed[name]
+            continue
         with np.load(output / f'{name}.npz') as mesh:
             # Marching cubes and the GLB atlas use opposite windings.
             files[f'scenes/{name}.mesh'] = mesh_bytes(mesh['vertices'], mesh['faces'][:, ::-1])

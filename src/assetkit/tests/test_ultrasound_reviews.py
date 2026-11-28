@@ -33,10 +33,11 @@ RUBRIC_HASH = "a38e552869511cd5bceacaa5ea4456f4d0530e58e7dce2bc6855587a98b0e684"
 
 def test_pilot_reads_existing_workbench_reviews_without_generated_delivery() -> None:
     registry = AssetRegistry.load_records(REPO, (LIVER_RECORD,))
-    liver, echo = load_ultrasound_reviews(REPO, registry)
+    by_id = {review.id: review for review in load_ultrasound_reviews(REPO, registry)}
+    liver, echo = by_id[LIVER_REVIEW_ID], by_id[ECHO_REVIEW_ID]
     assert liver.id == LIVER_REVIEW_ID
     assert liver.owner_path == f"{REVIEW_ROOT}/originals/reviews.json"
-    assert liver.binding_owner == LIVER_TRACK
+    assert liver.binding_owner == liver.owner_path
     assert liver.export_ref is not None
     assert liver.export_ref.record == LIVER_RECORD
     assert liver.export_ref.revision == "r01"
@@ -81,7 +82,11 @@ def test_pilot_reads_existing_workbench_reviews_without_generated_delivery() -> 
 def test_discovers_native_mesh_reviews_in_multiple_packages() -> None:
     registry = AssetRegistry.load_records(REPO, (LIVER_RECORD, KIDNEY_RECORD))
     reviews = {review.id: review for review in load_ultrasound_reviews(REPO, registry)}
-    assert set(reviews) == {KIDNEY_REVIEW_ID, LIVER_REVIEW_ID, ECHO_REVIEW_ID}
+    chapter_id = "ultrasound:case:abdomen-survey:abd-liver:liver"
+    assert set(reviews) == {KIDNEY_REVIEW_ID, LIVER_REVIEW_ID, ECHO_REVIEW_ID, chapter_id}
+    ref = reviews[chapter_id].export_ref
+    assert ref is not None and ref.revision == "r02"
+    assert reviews[chapter_id].chapter_sha256
     kidney = reviews[KIDNEY_REVIEW_ID]
     package = json.loads((REPO / KIDNEY_FOLDER / "reviews.json").read_text())
     (record,) = package["records"]

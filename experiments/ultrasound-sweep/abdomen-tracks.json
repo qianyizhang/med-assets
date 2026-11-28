@@ -53,14 +53,66 @@
   },
   "sweeps": [
     {
+      "id": "gallbladder",
+      "title": "Gallbladder",
+      "organ": "gallbladder",
+      "region": "Right upper abdomen",
+      "exterior": "fitted-atlas",
+      "sectorDepthMm": 133,
+      "keyframeLabels": [
+        "Long axis",
+        "Short axis"
+      ],
+      "phaseLabels": [
+        "Find window",
+        "Rotate probe"
+      ],
+      "parts": [
+        "gallbladder",
+        "liver",
+        "ribs"
+      ],
+      "overlayParts": [
+        "gallbladder",
+        "liver",
+        "portal_vein_and_splenic_vein"
+      ],
+      "landmarks": [
+        "extrahepatic-duct"
+      ],
+      "partStyles": {
+        "gallbladder": {
+          "color": "#3fbf9e",
+          "opacity": 1
+        },
+        "liver": {
+          "color": "#ad6155",
+          "opacity": 0.58
+        },
+        "ribs": {
+          "color": "#dacaad",
+          "opacity": 0.78
+        }
+      },
+      "sceneAssets": {
+        "gallbladder": {
+          "asset": "anatomy:s1233:gallbladder",
+          "revision": "r01",
+          "export": "gallbladder",
+          "registration": "native"
+        }
+      }
+    },
+    {
       "id": "liver",
       "title": "Liver",
       "organ": "liver",
       "sceneAssets": {
         "liver": {
           "asset": "anatomy:s1233:liver-window",
-          "revision": "r01",
-          "export": "liver"
+          "revision": "r02",
+          "export": "liver",
+          "registration": "native"
         }
       },
       "parts": [
@@ -192,7 +244,15 @@
         "pancreatic-tail"
       ],
       "requirePoseReceipt": true,
-      "requirePaletteReceipt": true
+      "requirePaletteReceipt": true,
+      "sceneAssets": {
+        "spleen": {
+          "asset": "anatomy:s1233:spleen",
+          "revision": "r01",
+          "export": "spleen",
+          "registration": "native"
+        }
+      }
     },
     {
       "id": "kidney-right",
@@ -254,7 +314,15 @@
       ],
       "sectorDepthMm": 133,
       "exterior": "fitted-atlas",
-      "requirePaletteReceipt": true
+      "requirePaletteReceipt": true,
+      "sceneAssets": {
+        "kidney_left": {
+          "asset": "anatomy:s1233:kidney-left",
+          "revision": "r01",
+          "export": "kidney-left",
+          "registration": "native"
+        }
+      }
     },
     {
       "id": "aorta",

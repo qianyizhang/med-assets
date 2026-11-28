@@ -1,0 +1,136 @@
+{
+  "organ": "pancreas",
+  "frame": 12,
+  "pose": {
+    "contact": [
+      138.92965654991315,
+      223.03544729716273,
+      199.42206070052114
+    ],
+    "width": [
+      -0.8857161107430694,
+      0.10995377920782637,
+      0.45101789056321007
+    ],
+    "beam": [
+      -0.030094948869686666,
+      -0.9831016630764314,
+      0.18056969321812
+    ],
+    "degrees": 0.0
+  },
+  "normalRas": [
+    -0.46325075846964575,
+    -0.14636012603940868,
+    -0.8740580348483884
+  ],
+  "protectedPlanes": [
+    {
+      "offsetMm": -1.5,
+      "originRasMm": [
+        -6.52196716242581,
+        297.6613830098032,
+        341.64417886599375
+      ],
+      "segments": 545
+    },
+    {
+      "offsetMm": 0.0,
+      "originRasMm": [
+        -7.216843300130279,
+        297.4418428207441,
+        340.3330918137212
+      ],
+      "segments": 593
+    },
+    {
+      "offsetMm": 1.5,
+      "originRasMm": [
+        -7.911719437834748,
+        297.222302631685,
+        339.0220047614486
+      ],
+      "segments": 622
+    }
+  ],
+  "reference": {
+    "sha256": "ea899b4c707c8ecee332725698c4daa979e916e3dadf977e897bfcaf4d5a7727",
+    "bytes": 732282
+  },
+  "source": {
+    "case": "s1233",
+    "ctSha256": "5352376d8fd9c0ab582a7fca1443f28762a66b9782d59c645b976771587c0cfc",
+    "maskSha256": "9f11083652d059e85514d419c90124911953dbbce2018ccc549eaa2c73b0968b",
+    "shape": [
+      265,
+      265,
+      401
+    ],
+    "rasMmFromVoxel": [
+      [
+        1.5,
+        0.0,
+        0.0,
+        -215.611328125
+      ],
+      [
+        0.0,
+        1.5,
+        0.0,
+        -37.111328125
+      ],
+      [
+        0.0,
+        0.0,
+        1.5,
+        41.20000076293945
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "workingLabelGridSpacingMm": [
+      1.5,
+      1.5,
+      1.5
+    ],
+    "maskComponents6ConnectedVoxels": [
+      17606
+    ],
+    "enclosedBackgroundVoxels": 42
+  },
+  "previousSweep": {
+    "sha256": "7ba31afffdffbed4d60c5834ab86f3eefb6f784261b519b8bb2f093103a40045",
+    "bytes": 299240,
+    "triangles": 16620
+  },
+  "savedFrameInputs": {
+    "sweep.js": {
+      "sha256": "b05f13e87cfe1558ec6b23f8b4ac5a9dd5a79c7c60984dfba285c9157b187ad2",
+      "bytes": 11020
+    },
+    "media/scan-12.webp": {
+      "sha256": "ef076091d9e5d6d9ad34221b768ad5d9ca66b432c3ab76f0f7aac9f3c141538e",
+      "bytes": 32896
+    },
+    "media/section-12.webp": {
+      "sha256": "3881743e5689c306142c5a64c32baf2ec3db14c9b3b8c411cd70f3118615a9cb",
+      "bytes": 31070
+    }
+  },
+  "limits": {
+    "p95Mm": 1.5,
+    "maxMm": 3.0,
+    "volumePercent": 3.0,
+    "silhouettePx": 1.0,
+    "silhouetteViews": 24,
+    "teachingZoomPxPerMm": 3.0,
+    "triangleBand": [
+      2500,
+      6000
+    ]
+  }
+}

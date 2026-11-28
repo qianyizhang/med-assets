@@ -733,16 +733,17 @@ def test_liver_sweep_indexes_the_governed_export_and_checks_its_grid() -> None:
         ws.registry.require_voxel_export(ref, VoxelGrid.model_validate(wrong_origin))
 
     impact = ws.impact(f"{ref.asset}@{ref.revision}:{ref.export}")
-    assert [use.owner_path for use in impact.consumers] == [
-        "experiments/ultrasound-sweep/abdomen-tracks.json"
-    ]
+    assert not impact.consumers  # The original revision remains replayable.
     assert not impact.adoptions
 
     native_ws = Workspace.load(repo, include_legacy_adapters=False)
     native_impact = native_ws.impact(f"{ref.asset}@{ref.revision}:{ref.export}")
-    assert [use.owner_path for use in native_impact.consumers] == [
-        "experiments/ultrasound-sweep/abdomen-tracks.json"
-    ]
+    assert not native_impact.consumers
+    current = native_ws.impact("anatomy:s1233:liver-window@r02:liver")
+    assert {use.owner_path for use in current.consumers} == {
+        "experiments/ultrasound-sweep/abdomen-tracks.json",
+        "experiments/ultrasound-sweep/cases/organs/consumer.json",
+    }
     resolved = native_ws.registry.resolve_export(ref.asset, ref.revision, ref.export)
     assert resolved is not None
     assert resolved[1].provenance.license == "CC BY 4.0; retain the Workshop label-source notices"

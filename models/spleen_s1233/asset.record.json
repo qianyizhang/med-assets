@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "assetId": "anatomy:s1233:spleen",
-  "title": "s1233 spleen display surface",
+  "title": "s1233 spleen surfaces",
   "kind": "model",
   "status": "provisional",
-  "owner": "models/spleen/s1233",
+  "owner": "models/spleen_s1233",
   "concepts": [],
   "sources": [
     {
@@ -34,6 +34,14 @@
         "sha256": "a645df334901e46f24ad44b756d30234ce18bfa74e821d9a1b7ae432a045181b",
         "bytes": 1856780
       }
+    },
+    {
+      "sourceId": "source:totalsegmentator-v2.0.1:s1233:spleen",
+      "title": "TotalSegmentator v2.0.1 s1233 spleen mask",
+      "sourceType": "external segmentation",
+      "sha256": "760eb489a2f6821ce25e7565e4d73709cab5a1ef0af6537d193b2ce036213573",
+      "license": "CC BY 4.0; retain the Workshop label-source notices",
+      "url": "https://zenodo.org/records/10047263"
     }
   ],
   "parts": [
@@ -44,6 +52,11 @@
         "Spleen | source surface"
       ],
       "registration": "unknown"
+    },
+    {
+      "partId": "spleen",
+      "label": "Spleen exterior",
+      "registration": "native"
     }
   ],
   "revisions": [
@@ -83,10 +96,75 @@
       "partIds": [
         "spleen-source-surface"
       ]
+    },
+    {
+      "revisionId": "r01",
+      "status": "provisional",
+      "recipe": "rebuild.py",
+      "frame": {
+        "convention": "voxel-index",
+        "units": "voxel",
+        "evidence": "assemblies/workshop-s1233/inputs.json"
+      },
+      "sourceIds": [
+        "source:totalsegmentator-v2.0.1:s1233:spleen"
+      ],
+      "partIds": [
+        "spleen"
+      ],
+      "exports": [
+        {
+          "id": "spleen",
+          "path": "models/spleen_s1233/exports/r01/spleen.mesh",
+          "sha256": "76e01c95fe395952d2bfae3333fb9d228b75ff2016e736a5ebe67bd1a02b5a03",
+          "bytes": 86432,
+          "format": "mesh",
+          "triangles": 4800,
+          "partIds": [
+            "spleen"
+          ],
+          "voxelGrid": {
+            "case": "s1233",
+            "shape": [
+              265,
+              265,
+              401
+            ],
+            "rasMmFromVoxel": [
+              [
+                1.5,
+                0.0,
+                0.0,
+                -215.611328125
+              ],
+              [
+                0.0,
+                1.5,
+                0.0,
+                -37.111328125
+              ],
+              [
+                0.0,
+                0.0,
+                1.5,
+                41.20000076293945
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        }
+      ],
+      "qualifications": []
     }
   ],
   "uses": [],
   "unresolved": [
-    "Historical Library revision retains the earlier case-derived geometry. The original byte pin differs from the current Workshop path. The HRA spleen has its own frame."
+    "Historical Library revision retains the earlier case-derived geometry. The original byte pin differs from the current Workshop path. The HRA spleen has its own frame.",
+    "Provisional Wave 2A exterior for frame-12 orientation. Independent teaching review and chapter binding remain pending."
   ]
 }

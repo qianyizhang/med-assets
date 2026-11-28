@@ -12,6 +12,8 @@ const captures = process.argv[3];
 if (captures) await mkdir(captures, { recursive: true });
 const selected = process.argv.slice(4);
 const expected = new Map();
+const consumers = JSON.parse(await readFile(new URL('../cases/organs/consumer.json', import.meta.url))).consumers;
+const exemplars = new Map(consumers.map(entry => [entry.case + '/' + entry.chapter, entry]));
 for (const packageName of ['vascular', 'organs', 'pregnancy', 'echo']) {
   const folder = new URL('../cases/' + packageName + '/', import.meta.url);
   const records = JSON.parse(await readFile(new URL('cases.json', folder), 'utf8'));
@@ -241,8 +243,9 @@ async function playCaseToEnd(page, segments) {
   return shown;
 }
 
-async function checkAcquisitionSwitch(page, child, segments, chapters) {
-  const [first, second] = chapters;
+async function checkAcquisitionSwitch(page, child, segments, chapters, caseId) {
+  // This test exercises the state retained by the worked-case player across successive acquisitions.
+  const [first, second] = chapters.filter(chapter => !exemplars.has(caseId + '/' + chapter.id));
   assert.ok(second, 'A case tour requires more than one acquisition');
   const select = page.locator('#tourSection');
   await select.selectOption(first.id);
@@ -368,7 +371,7 @@ try {
       await waitForTourFrame(page, absoluteFrame(segments, sample.id, sample.evidenceFrame));
       await expectSource(child, sample.evidenceFrame);
       const total = await checkTimeline(page, segments);
-      await checkAcquisitionSwitch(page, child, segments, chapters);
+      await checkAcquisitionSwitch(page, child, segments, chapters, id);
       const report = page.locator('#reportEvidence a');
       assert.equal(await report.count(), chapters.length);
       for (const [index, chapter] of chapters.entries()) {
@@ -378,22 +381,31 @@ try {
         await expectSource(child, 0);
         assert.equal(await page.locator('.chapters [aria-current="step"]').getAttribute('data-chapter'), chapter.id);
         const exemplar = await page.locator('.chapter:not([hidden])').getAttribute('data-source-sweep');
-        if (exemplar) {
-          assert.equal(id + '/' + chapter.id + '/' + exemplar, 'abdomen-survey/abd-right-kidney/kidney-right');
+        const consumer = exemplars.get(id + '/' + chapter.id);
+        assert.equal(exemplar, consumer?.sweep ?? null, id + '/' + chapter.id);
+        if (consumer) {
           const saved = linkedFrame(tourPath(record), chapter.id, chapter.evidenceFrame, '#exam');
           const link = report.nth(index);
           assert.deepEqual(locationKey(new URL(await link.getAttribute('href'), page.url())), locationKey(saved));
           await link.click();
           await waitForTourFrame(page, absoluteFrame(segments, chapter.id, chapter.evidenceFrame));
           await expectSource(child, chapter.evidenceFrame);
-          const scan = child.locator('#scan[src$="/scan-12.webp"]');
+          const suffix = String(chapter.evidenceFrame).padStart(2, '0') + '.webp';
+          const scan = child.locator(`#scan[src$="/scan-${suffix}"]`);
           await scan.waitFor();
-          assert.match(await child.locator('#apReadout').textContent(), /chord across the hilar recess.*mm/);
+          if (consumer.savedChord) {
+            assert.match(await child.locator('#apReadout').textContent(), /chord across the hilar recess.*mm/);
+          } else {
+            assert.equal(await child.locator('#apToggle').isVisible(), false);
+          }
           await child.getByRole('button', { name: 'Anatomy overlay' }).click();
-          await child.locator('#scan[src$="/section-12.webp"]').waitFor();
+          await child.locator(`#scan[src$="/section-${suffix}"]`).waitFor();
           await child.getByRole('button', { name: 'Anatomy overlay' }).click();
           await scan.waitFor();
-          assert.match(await page.locator('#openSweep').getAttribute('href'), /index\.html\?sweep=kidney-right&frame=12$/);
+          const standalone = new URL(await page.locator('#openSweep').getAttribute('href'), base);
+          assert.equal(standalone.pathname, new URL('index.html', base).pathname);
+          assert.equal(standalone.searchParams.get('sweep'), consumer.sweep);
+          assert.equal(standalone.searchParams.get('frame'), String(chapter.evidenceFrame));
           continue;
         }
         assert.equal(await child.locator('#view').textContent(), chapter.title);

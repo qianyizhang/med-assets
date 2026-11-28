@@ -94,7 +94,8 @@ def verify_delivery(helper, config, frozen, receipt):
     if browser["currency"] != {"current": False, "sibling": False, "placement": True}:
         raise ValueError("Browser review-currency checks did not pass")
 
-    (consumer,) = json.loads((STUDY / "cases/organs/consumer.json").read_text())["consumers"]
+    consumers = json.loads((STUDY / "cases/organs/consumer.json").read_text())["consumers"]
+    (consumer,) = (row for row in consumers if row["id"] == "ultrasound:case:abdomen-survey:abd-right-kidney")
     if consumer["savedChord"] != receipt["savedChord"]:
         raise ValueError("Authored saved calipers differ from the reimported pole-to-pole chord")
 

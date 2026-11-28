@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:s1233:pancreas",
+  "title": "s1233 pancreas",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/pancreas_s1233",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:totalsegmentator-v2.0.1:s1233:pancreas",
+      "title": "TotalSegmentator v2.0.1 s1233 pancreas mask",
+      "sourceType": "external segmentation",
+      "sha256": "9f11083652d059e85514d419c90124911953dbbce2018ccc549eaa2c73b0968b",
+      "license": "CC BY 4.0; retain the Workshop label-source notices",
+      "url": "https://zenodo.org/records/10047263"
+    }
+  ],
+  "parts": [
+    {
+      "partId": "pancreas",
+      "label": "Pancreas exterior",
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "r01",
+      "status": "provisional",
+      "recipe": "rebuild.py",
+      "frame": {
+        "convention": "voxel-index",
+        "units": "voxel",
+        "evidence": "assemblies/workshop-s1233/inputs.json"
+      },
+      "sourceIds": [
+        "source:totalsegmentator-v2.0.1:s1233:pancreas"
+      ],
+      "partIds": [
+        "pancreas"
+      ],
+      "exports": [
+        {
+          "id": "pancreas",
+          "path": "models/pancreas_s1233/exports/r01/pancreas.mesh",
+          "sha256": "4f853b98b4ec8048cee6a53562478be63faf4a668c158f34490a7535fd17fda0",
+          "bytes": 104432,
+          "format": "mesh",
+          "triangles": 5800,
+          "partIds": [
+            "pancreas"
+          ],
+          "voxelGrid": {
+            "case": "s1233",
+            "shape": [
+              265,
+              265,
+              401
+            ],
+            "rasMmFromVoxel": [
+              [
+                1.5,
+                0.0,
+                0.0,
+                -215.611328125
+              ],
+              [
+                0.0,
+                1.5,
+                0.0,
+                -37.111328125
+              ],
+              [
+                0.0,
+                0.0,
+                1.5,
+                41.20000076293945
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "artifacts": [],
+  "exports": [
+    {
+      "path": "models/pancreas_s1233/exports/r01/pancreas.mesh",
+      "sha256": "4f853b98b4ec8048cee6a53562478be63faf4a668c158f34490a7535fd17fda0",
+      "bytes": 104432
+    }
+  ],
+  "uses": [],
+  "retirement": null,
+  "unresolved": [
+    "Provisional exterior only. Raw CT comparison includes three enclosed mask pockets and exceeds the protected-plane and maximum distance tolerances. Teaching review and chapter binding are pending."
+  ]
+}

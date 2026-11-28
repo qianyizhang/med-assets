@@ -275,12 +275,13 @@ function gapRow(entry, chapter, detail) {
 
 function referenceRow(entry, chapter, reference, part) {
   const sourceSpace = part.sourceSpace ?? part.assetId.split(':').slice(0, 2).join(':');
+  const usedInExemplar = reference.source === 'sweep' && chapter.sourceSweep === part.case;
   const donor = {
+    ...(usedInExemplar ? { registration: 'registered-exact' } : {}),
     source: part.source, case: part.case, part: part.part, chapter: part.chapter, occurrence: part.occurrence,
     url: part.url, label: part.title ?? part.label, sourceSpace, assetId: part.assetId, assetRevision: part.assetRevision,
     sourceNode: part.sourceNode, sourceSha256: part.sourceSha256, meshDigest: part.meshDigest,
   };
-  const usedInExemplar = reference.source === 'sweep' && chapter.sourceSweep === part.case;
   return { ...part, ...rowBase('case', entry, chapter), donor, sourceSpace, legacyParts: reference.legacyParts,
     referenceScope: reference.referenceScope,
     sourceNotice: usedInExemplar ? 'Delivered in the registered s1233 chapter, a teaching exemplar from a separate subject.' :

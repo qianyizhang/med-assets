@@ -1,6 +1,6 @@
 # Wave 1B · s1233 right kidney
 
-The long-axis right-kidney chapter of the local abdominal survey opens a registered s1233 teaching exemplar at its saved stop. The candidate Gallery carries the matched evidence and exact `anatomy:s1233:kidney-right@r01:kidney-right` download. **Lead decision · Adopt r01 for orientation at frame 12. Hold the continuous-tissue caliper teaching claim. Wave 2 is on hold.** Final scores for locating both poles and relating the medial recess to the scan are **4/3/3/4** for fidelity, form, readability and economy. The ultrasound workbench's four-top-score qualification remains unearned.
+The long-axis right-kidney chapter of the local abdominal survey opens a registered s1233 teaching exemplar at its saved stop. The candidate Gallery carries the matched evidence and exact `anatomy:s1233:kidney-right@r01:kidney-right` download. **Lead decision · Adopt r01 for orientation at frame 12. Hold the continuous-tissue caliper teaching claim. Wave 2 was held at Wave 1B close. [Wave 2A](../wave-2a/README.md) records the subsequent abdominal exterior decisions.** Final scores for locating both poles and relating the medial recess to the scan are **4/3/3/4** for fidelity, form, readability and economy. The ultrasound workbench's four-top-score qualification remains unearned.
 
 ## Independent review of the exact previous export
 

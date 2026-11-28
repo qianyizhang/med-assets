@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "rubricHash": "a38e552869511cd5bceacaa5ea4456f4d0530e58e7dce2bc6855587a98b0e684",
+  "records": [
+    {
+      "source": "case",
+      "case": "abdomen-survey",
+      "part": "gallbladder",
+      "meshSha256": "81c30eed83a085371ec5ce2468743cf4197fc3d73753e1548203e1c0f61200b8",
+      "baseline": "6509c00826a818036d690192e98cb2f8e14aeb8786f9c699b2c8d5fb95ea1de9",
+      "revision": "anatomy:s1233:gallbladder@r01:gallbladder",
+      "reviewer": "Codex campaign lead · independent of the builder",
+      "reviewedOn": "2026-11-28",
+      "rubric": "docs/guides/asset-quality.md",
+      "task": "Trace the broad fundus and body as they taper into the neck in the saved long-axis field.",
+      "note": "Use the saved long axis and lower orbit to trace the exterior from the broad body into the tapering neck. The biliary-stone case retains its worked acquisition.",
+      "comparison": {
+        "label": "Matched previous mesh and r01",
+        "candidate": "asset-reviews/gallbladder-wave-2a/previous-vs-r01.webp",
+        "candidateLabel": "Exact previous mesh and candidate at matched scale",
+        "views": [
+          {
+            "label": "CT half-label and the teaching exteriors",
+            "candidate": "asset-reviews/gallbladder-wave-2a/matched-surfaces.webp",
+            "candidateLabel": "CT half-label and the teaching exteriors"
+          },
+          {
+            "label": "Three protected CT planes",
+            "candidate": "asset-reviews/gallbladder-wave-2a/protected-planes.webp",
+            "candidateLabel": "Three protected CT planes"
+          },
+          {
+            "label": "Frame 12 in the original sweep player",
+            "candidate": "asset-reviews/gallbladder-wave-2a/live-frame-12.webp",
+            "candidateLabel": "Frame 12 in the original sweep player"
+          }
+        ]
+      },
+      "links": [
+        {
+          "label": "Replay, packed mesh and section measurements",
+          "href": "asset-reviews/gallbladder-wave-2a/measurements.json"
+        }
+      ],
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "The superior tip deficit falls from 2.30 to 1.47 mm. The narrow end and adjacent indentation track the raw contours through all three protected sections. Their maximum sampled deviation is 1.28 mm.",
+        "form": "The bent profile and taper persist. The lower shoulder still has a short step. The change in surface finish is modest, especially compared with the previous reverse view.",
+        "readability": "I could trace the long outline on the grayscale scan and confirm it on the overlay. The default oblique view shows only the rounded end beneath the liver. The lower orbit exposes the taper.",
+        "economy": "The exact previous sweep uses 2,136 triangles and 38,480 bytes. r01 uses 1,940 and 34,952 bytes (9% less). The 24-view projected outline deviates at most 0.56 px at 3 px/mm after reducing the smooth surface."
+      },
+      "disposition": "Adopt for fundus-to-neck orientation",
+      "chapter": "abd-gb",
+      "occurrence": 1,
+      "chapterSha256": "8dbd011a50c001cd61a95476d9ad5f5b8c0455e22b89ba987e8f15222539a353"
+    }
+  ],
+  "evidenceSha256": {
+    "live-frame-12.webp": "b1be0f97ff9125a8ffc9ff0843b2c72e4cf037760e59f7060b64591284db8a60",
+    "matched-surfaces.webp": "33de84aeb248e29e1e619f117d5f88068b1bdd2aa5c2e4a4839992e3736b9619",
+    "previous-vs-r01.webp": "59018f494ed997ebd59b9a9aa4c3042f6fbf8faa085cc49546e47759034208fa",
+    "protected-planes.webp": "61566c2c93ec4c346fee4a449139a67e03f41c356c240761e1355db90469e364"
+  },
+  "measurementsSha256": "390b889d3d8fb4e1c8b301c979e956b0d3632c44ddfd0948d5a61617cbb71141"
+}

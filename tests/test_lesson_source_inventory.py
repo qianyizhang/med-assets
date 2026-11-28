@@ -72,7 +72,8 @@ class LessonSourceInventoryTest(unittest.TestCase):
             for path in sorted(ULTRASOUND.glob("*-track*.json"))
             for sweep in load(path).get("sweeps", [])
         ]
-        self.assertEqual(len(sweeps), 16)
+        self.assertIn("gallbladder", sweeps)
+        self.assertEqual(len(sweeps), 17)
         self.assertEqual(len(set(sweeps)), len(sweeps))
 
         reference_ids = Counter(

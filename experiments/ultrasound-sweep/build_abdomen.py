@@ -12,6 +12,7 @@ from scipy import ndimage as nd
 from scipy.spatial.transform import Rotation, Slerp
 from skimage.measure import label, marching_cubes
 
+from abdomen_tracks import read_tracks, scene_assets
 from build_study import (
     CT_SHA, H, LAST, LONG, W, WORKSHOP, body_surface, fine_scatter, material_at, unit, volume,
 )
@@ -103,13 +104,6 @@ LANDMARKS = {
 }
 
 
-def read_tracks():
-    catalogue = json.loads((HERE / 'abdomen-tracks.json').read_text())
-    structures = catalogue['structures']
-    return [{**track, 'parts': [{'id': key, **structures[key]} for key in track['parts']]}
-            for track in catalogue['sweeps']]
-
-
 def pose_recipe_sha256(sweep_id):
     return sha256(json.dumps(POSES[sweep_id], separators=(',', ':')).encode())
 
@@ -162,34 +156,6 @@ def mesh_from_mask(mask, z_bounds=None):
     values = nd.gaussian_filter(np.pad(cropped, 1).astype('f'), .85)
     vertices, faces, _, _ = marching_cubes(values, .5, step_size=1)
     return mesh_bytes(vertices + lower - 1, faces[:, ::-1])
-
-
-def scene_assets(track, scene_directory=None):
-    """Read exact governed meshes, or verify their staged copies before assembly."""
-    references = track.get('sceneAssets', {})
-    if not references:
-        return {}
-
-    from assetkit.blobs import read_verified
-    from assetkit.registry import AssetRegistry, VoxelGrid
-    from assetkit.ultrasound import SweepSceneAssetRef
-
-    repo = HERE.parents[1]
-    registry = AssetRegistry.load(repo, include_legacy_adapters=False)
-    grid = VoxelGrid.model_validate({key: WORKSHOP[key] for key in ('case', 'shape', 'rasMmFromVoxel')})
-    slots = {entry['id'] for entry in track['parts']}
-    meshes = {}
-    for part, raw_ref in references.items():
-        if part not in slots:
-            raise ValueError(f'{track["id"]}: Unknown scene asset slot {part!r}')
-        export = registry.require_voxel_export(SweepSceneAssetRef.model_validate(raw_ref), grid)
-        if export.format != 'mesh' or export.sha256 is None or export.bytes is None:
-            raise ValueError(f'{track["id"]}: Expected an identity-pinned packed mesh for {part}')
-        if scene_directory is None:
-            meshes[part] = read_verified(repo, export.path, export.sha256, export.bytes)
-        else:
-            meshes[part] = read_verified(scene_directory, f'{part}.mesh', export.sha256, export.bytes)
-    return meshes
 
 
 class ImagingGrid:
@@ -441,7 +407,7 @@ def main():
     if args.sweeps_dir is None:
         parser.error('sweeps_dir is required for a sweep build')
     tracks = [track for track in read_tracks()
-              if args.track is None or track['id'] in args.track]
+              if track['id'] != 'gallbladder' and (args.track is None or track['id'] in args.track)]
     for track in tracks:
         if not args.refresh_exteriors and (args.sweeps_dir / track['id']).exists():
             parser.error(f'Choose a fresh destination for {track["id"]}.')
