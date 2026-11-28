@@ -60,7 +60,7 @@
       "source": "case",
       "case": "thyroid-normal",
       "chapter": "thyroid-axial",
-      "chapterSha256": "af68cdfe3a7987be09a336620627a2532ab38822f933f000b9043025662f003b",
+      "chapterSha256": "2ad754ac101043ce48dd0977f672d1af0f5170933fc1bce8fc82604c9300662a",
       "part": "trachea",
       "occurrence": 1,
       "revision": "anatomy:s1127:trachea@r01:thyroid",
@@ -82,7 +82,7 @@
         "economy": "The thyroid port uses 2,900 triangles. Across 24 views the largest turning-silhouette departure from the dense port is 0.50 px."
       },
       "disposition": "Adopt for the named 3D orientation task",
-      "note": "Landmark orientation from the traced air-column exterior. The model supplies no airway wall thickness, patency or clinical airway measurement.",
+      "note": "Landmark orientation from the traced air-column exterior. The model supplies no airway wall thickness, patency or clinical airway measurement. Rechecked in the running chapter with the r04 thyroid context.",
       "comparison": {
         "label": "Previous and selected tracheal display crops",
         "candidate": "asset-reviews/trachea-wave-2b/previous-vs-r01.webp",
@@ -104,9 +104,9 @@
             "candidateLabel": "At the transverse entry, the dark air column sits behind the isthmus. The unchanged scan and overlay locate it."
           },
           {
-            "label": "Registered neck context in both running sweeps",
+            "label": "Reviewed neck chapter and both context sweeps with thyroid r04",
             "candidate": "asset-reviews/trachea-wave-2b/registered-context.webp",
-            "candidateLabel": "Both carotid sweeps show the trachea as 3D context. Their frame-12 and frame-48 scan planes do not intersect its label."
+            "candidateLabel": "The top row shows the worked chapter CT companion. The next two rows show the same registered neck context after the thyroid surface correction."
           }
         ]
       },
@@ -143,9 +143,9 @@
       "disposition": "Adopt for the named 3D context use",
       "note": "Both carotid sweeps show the trachea as 3D context. Their frame-12 and frame-48 scan planes do not intersect its label.",
       "comparison": {
-        "label": "Registered neck context in both running sweeps",
+        "label": "Reviewed neck chapter and both context sweeps with thyroid r04",
         "candidate": "asset-reviews/trachea-wave-2b/registered-context.webp",
-        "candidateLabel": "Both carotid sweeps show the trachea as 3D context. Their frame-12 and frame-48 scan planes do not intersect its label.",
+        "candidateLabel": "The top row shows the worked chapter CT companion. The next two rows show the same registered neck context after the thyroid surface correction.",
         "views": [
           {
             "label": "Full tracheal label and two derived crop exteriors",
@@ -197,9 +197,9 @@
       "disposition": "Adopt for the named 3D context use",
       "note": "Both carotid sweeps show the trachea as 3D context. Their frame-12 and frame-48 scan planes do not intersect its label.",
       "comparison": {
-        "label": "Registered neck context in both running sweeps",
+        "label": "Reviewed neck chapter and both context sweeps with thyroid r04",
         "candidate": "asset-reviews/trachea-wave-2b/registered-context.webp",
-        "candidateLabel": "Both carotid sweeps show the trachea as 3D context. Their frame-12 and frame-48 scan planes do not intersect its label.",
+        "candidateLabel": "The top row shows the worked chapter CT companion. The next two rows show the same registered neck context after the thyroid surface correction.",
         "views": [
           {
             "label": "Full tracheal label and two derived crop exteriors",
@@ -231,7 +231,7 @@
     "matched-surfaces.webp": "7b1244961f3d8d9fb99d0e876777d2192eefe28840feb530f24e4ca6d5f2452b",
     "protected-planes.webp": "7ffcbace5500a70743639f20e2d48f4f2828d00a41318f0c08d7988737488b25",
     "live-frame-12.webp": "dcf5582a92468dd5e5ad42ca4ffccda35c9d0e6cab8c3ac01f8d380886a59667",
-    "registered-context.webp": "f720aa863af5f8be2522833dd858d2246f576ba4f09ecc5dee653de9c5fa58e2"
+    "registered-context.webp": "d609811513330ea2aadc1e68f1c43bd7fc2065d59d90bae6f0aea4d2f7c496d0"
   },
   "measurementsSha256": "861c881e0d016b474a3b739b7b0de1df0518fd8c25cc49ebda917b69c3eba67d"
 }

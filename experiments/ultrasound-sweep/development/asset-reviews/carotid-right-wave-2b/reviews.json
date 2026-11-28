@@ -60,7 +60,7 @@
       "source": "case",
       "case": "carotid-normal",
       "chapter": "right-cca-gray",
-      "chapterSha256": "f37ed617d4e44ebc44020e3f92b7b4ddea2af4f6df11c4c249cbb31f0a9833cd",
+      "chapterSha256": "4a1428133b863f501b0142c4b6f8bc48e1a99d33c5b2e195b1f93928f4cf8d1c",
       "part": "common_carotid_artery_right",
       "occurrence": 1,
       "revision": "anatomy:s1127:carotid-right@r01:neck",
@@ -82,7 +82,7 @@
         "economy": "The neck port falls from 2,340 to 1,650 triangles. Its worst turning-silhouette change is 0.50 px at 3 px/mm."
       },
       "disposition": "Adopt for the named 3D orientation task",
-      "note": "The exterior supports side-specific course and orientation. Duplex signals, plaque, luminal patency and wall measurements require separate evidence.",
+      "note": "The exterior supports side-specific course and orientation. Duplex signals, plaque, luminal patency and wall measurements require separate evidence. Rechecked in the running chapter with the r04 thyroid context.",
       "comparison": {
         "label": "Right common carotid before and after refinement",
         "candidate": "asset-reviews/carotid-right-wave-2b/previous-vs-r01.webp",
@@ -104,9 +104,9 @@
             "candidateLabel": "The scan and overlay come from the original acquisition. The worked case opens this subject separately."
           },
           {
-            "label": "Registered neck context in both running sweeps",
+            "label": "Reviewed neck chapter and both context sweeps with thyroid r04",
             "candidate": "asset-reviews/carotid-right-wave-2b/registered-context.webp",
-            "candidateLabel": "Both thyroid scenes render the full right common carotid port at frame 0. The neck crop has a separately reviewed export."
+            "candidateLabel": "The top row shows the worked chapter CT companion. The next two rows show the same registered neck context after the thyroid surface correction."
           }
         ]
       },
@@ -143,9 +143,9 @@
       "disposition": "Adopt for the named 3D context use",
       "note": "Both thyroid scenes render the full right common carotid port at frame 0. The neck crop has a separately reviewed export.",
       "comparison": {
-        "label": "Registered neck context in both running sweeps",
+        "label": "Reviewed neck chapter and both context sweeps with thyroid r04",
         "candidate": "asset-reviews/carotid-right-wave-2b/registered-context.webp",
-        "candidateLabel": "Both thyroid scenes render the full right common carotid port at frame 0. The neck crop has a separately reviewed export.",
+        "candidateLabel": "The top row shows the worked chapter CT companion. The next two rows show the same registered neck context after the thyroid surface correction.",
         "views": [
           {
             "label": "Raw half-label against both carotid ports",
@@ -197,9 +197,9 @@
       "disposition": "Adopt for the named 3D context use",
       "note": "Both thyroid scenes render the full right common carotid port at frame 0. The neck crop has a separately reviewed export.",
       "comparison": {
-        "label": "Registered neck context in both running sweeps",
+        "label": "Reviewed neck chapter and both context sweeps with thyroid r04",
         "candidate": "asset-reviews/carotid-right-wave-2b/registered-context.webp",
-        "candidateLabel": "Both thyroid scenes render the full right common carotid port at frame 0. The neck crop has a separately reviewed export.",
+        "candidateLabel": "The top row shows the worked chapter CT companion. The next two rows show the same registered neck context after the thyroid surface correction.",
         "views": [
           {
             "label": "Raw half-label against both carotid ports",
@@ -231,7 +231,7 @@
     "matched-surfaces.webp": "b542a08508b4612de910240cf0fbc45213a2a4cb34a07d444309710e2c8f2cc7",
     "protected-planes.webp": "182175d30e280f347afdbbee4a4f4c28649dd94594f70fc66542b046f8a243a5",
     "live-frame-12.webp": "d2e31d8db4695d3007847ca6946243b450d5c3a63f223c986eb5bbd83fb20fc9",
-    "registered-context.webp": "20f60cd543bbded4f4c410158e606b190ca826d2ad5cb686f6eb58491c52771b"
+    "registered-context.webp": "db980b98a058a075f1273a5a5746ae99d522ca5ae12568b290436a850727d02c"
   },
   "measurementsSha256": "ce6424346b86d7bd8bf481ac005eb25ae39dd693eaed2267cb6fe0c52e639c05"
 }

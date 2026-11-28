@@ -2,6 +2,8 @@
 
 **All seven structures were adopted for scoped exterior orientation.** Eight standalone sweeps now select 11 native display ports. Nine worked chapters gained a separately registered CT companion, bringing governed coverage from 6 to 15 of 410 chapters. Fourteen of the 28 standalone sweeps now use native scene exports.
 
+**Thyroid follow-up.** The table and delivery receipt below describe Wave 2B at close. [R04 now supplies both thyroid chapters and both carotid context views](thyroid/surface-r04/README.md). Its left shoulder is smoother at the same triangle count as r03. The left long-axis fidelity score is 3/4 for the narrower orientation use.
+
 The abdominal aorta is one s1233 asset. Its ultrasound revision reconstructs one field on the native CT grid, retains the detailed full extent, and exports the abdominal and screening crops separately. The original Workshop GLB keeps its revision, frame and consumers. A lesson selects the port that matches its teaching field. Each port has its own mesh identity. [Aorta source, ports and replay](../../../../models/aorta/README.md)
 
 ## Teaching scope

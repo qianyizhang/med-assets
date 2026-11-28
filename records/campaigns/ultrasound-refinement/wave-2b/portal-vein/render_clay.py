@@ -23,6 +23,7 @@ def main():
     for name in ("reference", "measurements", "previous", "mesh", "output"):
         parser.add_argument(name, type=Path)
     parser.add_argument("--preset", choices=("portal-vein", "thyroid"), default="portal-vein")
+    parser.add_argument("--thyroid-control", type=Path, help="Render an additional packed thyroid control and shoulder close-ups")
     args = parser.parse_args(sys.argv[sys.argv.index("--") + 1 :])
     receipt = json.loads(args.measurements.read_text())
     affine = np.asarray(receipt["frozen"]["source"]["rasMmFromVoxel"])
@@ -33,6 +34,10 @@ def main():
         (raw, faces),
         clay.packed_ras(args.mesh, affine, receipt["export"]),
     ]
+    if args.thyroid_control:
+        if args.preset != "thyroid":
+            parser.error("--thyroid-control requires the thyroid preset")
+        surfaces.append(clay.packed_ras(args.thyroid_control, affine, None))
     center = (raw.min(0) + raw.max(0)) / 2
 
     bpy.ops.wm.read_factory_settings(use_empty=True)
@@ -90,6 +95,12 @@ def main():
             ("overview", (0.08, 0.95, 0.35), (0, 0, 0), 0.087),
             ("reverse", (-0.10, -0.92, 0.28), (0, 0, 0), 0.087),
             ("detail", (0.04, 0.85, 0.52), (0, 0.01, -0.003), 0.053),
+        )
+    if args.thyroid_control:
+        shoulder = (np.array([-10.65, 165.8, 279.8]) - center) / 1000
+        views += (
+            ("shoulder", (0.08, 0.95, 0.35), shoulder, 0.035),
+            ("shoulder-side", (-0.82, 0.43, 0.36), shoulder, 0.034),
         )
     args.output.mkdir(parents=True)
     for name, direction, origin, scale in views:

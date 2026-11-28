@@ -162,7 +162,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     for name in ("reference", "measured", "clay", "captures", "output"):
         parser.add_argument(name, type=Path)
-    parser.add_argument("--revision", choices=("r02", "r03"), default="r03")
+    parser.add_argument("--revision", choices=("r02", "r03", "r04"), default="r03")
     args = parser.parse_args()
     report = json.loads((args.measured / "measurements.json").read_text())
     args.output.mkdir(parents=True, exist_ok=True)

@@ -1,5 +1,7 @@
 # Wave 2B · s1127 bilateral thyroid
 
+**Current selection.** [R04 fixes the superior left shoulder](surface-r04/README.md). The account below records the original Wave 2B decision at `d6987e0c`. Its historical r03 comparison and geometry checks remain available. The follow-up audit revised left-lobe form from 3 to 2 on r03.
+
 Follow each lobe from the transverse thyroid sweep into its longitudinal view at frame 48 in `thyroid-right` and `thyroid-left`. Relate the saved scan to the matching lobe and to the central bridge in the 3D scene. The two worked `thyroid-normal` longitudinal chapters have authored frame-12 acquisitions. The original right-sweep bridge assessment stays bound to the exact historical R01 export and its own observations. This packet evaluates the s1127 native long-axis views for 3D orientation.
 
 ## Frozen source and checks

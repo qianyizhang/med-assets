@@ -216,9 +216,17 @@ def compare(source, target):
     }
 
 
-def evaluate(reference, baseline, candidate, output, dense):
+def evaluate(reference, baseline, candidate, output, dense, previous_revision=None):
     frozen = json.loads((HERE / "reference.json").read_text())
     previous = check_previous(baseline)
+    if previous_revision is not None:
+        repo = HERE.parents[4]
+        record = json.loads((repo / "models/thyroid_s1127/asset.record.json").read_bytes())
+        revision, = (r for r in record["revisions"] if r["revisionId"] == previous_revision)
+        export, = revision["exports"]
+        previous = repo / export["path"]
+        if geometry.identity(previous) != {key: export[key] for key in ("sha256", "bytes")}:
+            raise ValueError("Previous thyroid export differs from its registration")
     if geometry.identity(reference) != frozen["reference"]:
         raise ValueError("Frozen half-label array identity changed")
     vertices, faces = mesh(candidate)
@@ -323,7 +331,7 @@ def evaluate(reference, baseline, candidate, output, dense):
         {
             "frozen": frozen,
             "export": geometry.identity(candidate) | {"triangles": len(faces)},
-            "previousSweep": PREVIOUS,
+            "previousSweep": geometry.identity(previous) | {"triangles": len(before_faces)},
             "candidateGlobal": global_result,
             "baselineGlobal": before_result,
             "protectedPlanes": protected,
@@ -353,11 +361,12 @@ def main():
             command.add_argument(field, type=Path)
         if name == "evaluate":
             command.add_argument("--dense", type=Path)
+            command.add_argument("--previous-revision", help="Registered thyroid export to use as the comparison control")
     args = parser.parse_args()
     if args.command == "freeze":
         freeze(args.case, args.baseline, args.output)
         return 0
-    return evaluate(args.reference, args.baseline, args.mesh, args.output, args.dense)
+    return evaluate(args.reference, args.baseline, args.mesh, args.output, args.dense, args.previous_revision)
 
 
 if __name__ == "__main__":

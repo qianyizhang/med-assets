@@ -1,0 +1,275 @@
+{
+  "version": 1,
+  "rubricHash": "a38e552869511cd5bceacaa5ea4456f4d0530e58e7dce2bc6855587a98b0e684",
+  "records": [
+    {
+      "source": "sweep",
+      "case": "thyroid-left",
+      "part": "thyroid_gland",
+      "occurrence": 1,
+      "revision": "anatomy:s1127:thyroid@r04:thyroid",
+      "meshSha256": "ae8733964ac06a2e1eab11cd1198e15d2e6375e88716db493909fcd5826b3da5",
+      "rubric": "docs/guides/asset-quality.md",
+      "reviewer": "Independent agent reviewer · blinded shoulder comparison and unblinded CT and chapter review",
+      "reviewedOn": "2026-11-28",
+      "task": "Follow the left thyroid lobe along its long axis and locate its connection to the isthmus.",
+      "scores": {
+        "fidelity": 3,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "The three saved left longitudinal cuts stay within 2.32 mm. On an additional +0.75 mm parallel cut the in-plane gap is 4.13 mm while local 3D distance is 0.64 mm. This limits agreement for contour tracing.",
+        "form": "The left shoulder has a continuous broad highlight in front and side close-ups. The reverse view retains the lower-lobe indentation. The central bridge and lower-lobe relief are softer than the historical r01.",
+        "readability": "The left lobe can be followed in the oblique frame-48 view. The axial orbit and the transverse entry clarify the connection over the trachea. The probe and grid partly overlap the target.",
+        "economy": "The 5,900-triangle surface has the same packed cost as r03. Relative to the dense shaped surface, maximum silhouette departure is 0.50 px across 24 views at 3 px/mm."
+      },
+      "disposition": "Adopt for the named 3D orientation task",
+      "note": "Separate-subject exterior orientation. Close agreement on the frozen cuts supports that learner action. Arbitrary scan-contour tracing, volume calipers and clinical findings remain unqualified.",
+      "comparison": {
+        "label": "Thyroid shoulder before and after the correction",
+        "candidate": "asset-reviews/thyroid-r04/previous-vs-r04.webp",
+        "candidateLabel": "Matched front, reverse and bridge views compare the shipped r03 and r04 exports.",
+        "views": [
+          {
+            "label": "R03, raw CT label and r04",
+            "candidate": "asset-reviews/thyroid-r04/matched-surfaces.webp",
+            "candidateLabel": "R04 follows the lobe outline without reproducing raw axial terraces. The reverse view retains the lower lobe indentation."
+          },
+          {
+            "label": "Protected bilateral long-axis cuts",
+            "candidate": "asset-reviews/thyroid-r04/protected-planes.webp",
+            "candidateLabel": "The left trio stays within 2.32 mm. An additional parallel section 0.75 mm from the center has a 4.13 mm in-plane miss and a 0.64 mm local 3D distance."
+          },
+          {
+            "label": "Isthmus sections and transverse entry",
+            "candidate": "asset-reviews/thyroid-r04/isthmus-cuts.webp",
+            "candidateLabel": "Five sagittal sections stay within 0.84 mm. The transverse entry preserves the connection between lobes."
+          },
+          {
+            "label": "Bilateral thyroid sweeps at frame 12",
+            "candidate": "asset-reviews/thyroid-r04/live-frame-12.webp",
+            "candidateLabel": "R03 and r04 use the same pose and scan images. The overlay shows the gland above the tracheal air column."
+          },
+          {
+            "label": "Bilateral long-axis CT companions",
+            "candidate": "asset-reviews/thyroid-r04/live-frame-48.webp",
+            "candidateLabel": "The probe and grid partly obscure the gland in the default view. The axial orbit and overlay help locate the lobe and its bridge."
+          }
+        ]
+      },
+      "links": [
+        {
+          "label": "Frozen checks, independent shoulder measurements and held-out sections",
+          "href": "asset-reviews/thyroid-r04/measurements.json"
+        }
+      ]
+    },
+    {
+      "source": "case",
+      "case": "thyroid-normal",
+      "chapter": "thyroid-left-long",
+      "chapterSha256": "941022fe07692682d4487245fe5f110188079d4d57d76594829dd1dbc6458ecf",
+      "part": "thyroid_gland",
+      "occurrence": 1,
+      "revision": "anatomy:s1127:thyroid@r04:thyroid",
+      "meshSha256": "ae8733964ac06a2e1eab11cd1198e15d2e6375e88716db493909fcd5826b3da5",
+      "rubric": "docs/guides/asset-quality.md",
+      "reviewer": "Independent agent reviewer · blinded shoulder comparison and unblinded CT and chapter review",
+      "reviewedOn": "2026-11-28",
+      "task": "Follow the left thyroid lobe along its long axis and locate its connection to the isthmus.",
+      "scores": {
+        "fidelity": 3,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "The three saved left longitudinal cuts stay within 2.32 mm. On an additional +0.75 mm parallel cut the in-plane gap is 4.13 mm while local 3D distance is 0.64 mm. This limits agreement for contour tracing.",
+        "form": "The left shoulder has a continuous broad highlight in front and side close-ups. The reverse view retains the lower-lobe indentation. The central bridge and lower-lobe relief are softer than the historical r01.",
+        "readability": "The left lobe can be followed in the oblique frame-48 view. The axial orbit and the transverse entry clarify the connection over the trachea. The probe and grid partly overlap the target.",
+        "economy": "The 5,900-triangle surface has the same packed cost as r03. Relative to the dense shaped surface, maximum silhouette departure is 0.50 px across 24 views at 3 px/mm."
+      },
+      "disposition": "Adopt for the named 3D orientation task",
+      "note": "Separate-subject exterior orientation. Close agreement on the frozen cuts supports that learner action. Arbitrary scan-contour tracing, volume calipers and clinical findings remain unqualified.",
+      "comparison": {
+        "label": "Thyroid shoulder before and after the correction",
+        "candidate": "asset-reviews/thyroid-r04/previous-vs-r04.webp",
+        "candidateLabel": "Matched front, reverse and bridge views compare the shipped r03 and r04 exports.",
+        "views": [
+          {
+            "label": "R03, raw CT label and r04",
+            "candidate": "asset-reviews/thyroid-r04/matched-surfaces.webp",
+            "candidateLabel": "R04 follows the lobe outline without reproducing raw axial terraces. The reverse view retains the lower lobe indentation."
+          },
+          {
+            "label": "Protected bilateral long-axis cuts",
+            "candidate": "asset-reviews/thyroid-r04/protected-planes.webp",
+            "candidateLabel": "The left trio stays within 2.32 mm. An additional parallel section 0.75 mm from the center has a 4.13 mm in-plane miss and a 0.64 mm local 3D distance."
+          },
+          {
+            "label": "Isthmus sections and transverse entry",
+            "candidate": "asset-reviews/thyroid-r04/isthmus-cuts.webp",
+            "candidateLabel": "Five sagittal sections stay within 0.84 mm. The transverse entry preserves the connection between lobes."
+          },
+          {
+            "label": "Bilateral thyroid sweeps at frame 12",
+            "candidate": "asset-reviews/thyroid-r04/live-frame-12.webp",
+            "candidateLabel": "R03 and r04 use the same pose and scan images. The overlay shows the gland above the tracheal air column."
+          },
+          {
+            "label": "Bilateral long-axis CT companions",
+            "candidate": "asset-reviews/thyroid-r04/live-frame-48.webp",
+            "candidateLabel": "The probe and grid partly obscure the gland in the default view. The axial orbit and overlay help locate the lobe and its bridge."
+          }
+        ]
+      },
+      "links": [
+        {
+          "label": "Frozen checks, independent shoulder measurements and held-out sections",
+          "href": "asset-reviews/thyroid-r04/measurements.json"
+        }
+      ]
+    },
+    {
+      "source": "sweep",
+      "case": "thyroid-right",
+      "part": "thyroid_gland",
+      "occurrence": 1,
+      "revision": "anatomy:s1127:thyroid@r04:thyroid",
+      "meshSha256": "ae8733964ac06a2e1eab11cd1198e15d2e6375e88716db493909fcd5826b3da5",
+      "rubric": "docs/guides/asset-quality.md",
+      "reviewer": "Independent agent reviewer · blinded shoulder comparison and unblinded CT and chapter review",
+      "reviewedOn": "2026-11-28",
+      "task": "Follow the right thyroid lobe along its long axis and locate its connection to the isthmus.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "The three right long-axis cuts stay within 1.41 mm. The five isthmus cuts stay within 0.84 mm, and the bridge remains visible at the transverse entry.",
+        "form": "The left shoulder has a continuous broad highlight in front and side close-ups. The reverse view retains the lower-lobe indentation. The central bridge and lower-lobe relief are softer than the historical r01.",
+        "readability": "The right lobe can be followed in the oblique frame-48 view. The axial orbit and the transverse entry clarify the connection over the trachea. The probe and grid partly overlap the target.",
+        "economy": "The 5,900-triangle surface has the same packed cost as r03. Relative to the dense shaped surface, maximum silhouette departure is 0.50 px across 24 views at 3 px/mm."
+      },
+      "disposition": "Adopt for the named 3D orientation task",
+      "note": "Separate-subject exterior orientation. Close agreement on the frozen cuts supports that learner action. Arbitrary scan-contour tracing, volume calipers and clinical findings remain unqualified.",
+      "comparison": {
+        "label": "Thyroid shoulder before and after the correction",
+        "candidate": "asset-reviews/thyroid-r04/previous-vs-r04.webp",
+        "candidateLabel": "Matched front, reverse and bridge views compare the shipped r03 and r04 exports.",
+        "views": [
+          {
+            "label": "R03, raw CT label and r04",
+            "candidate": "asset-reviews/thyroid-r04/matched-surfaces.webp",
+            "candidateLabel": "R04 follows the lobe outline without reproducing raw axial terraces. The reverse view retains the lower lobe indentation."
+          },
+          {
+            "label": "Protected bilateral long-axis cuts",
+            "candidate": "asset-reviews/thyroid-r04/protected-planes.webp",
+            "candidateLabel": "The left trio stays within 2.32 mm. An additional parallel section 0.75 mm from the center has a 4.13 mm in-plane miss and a 0.64 mm local 3D distance."
+          },
+          {
+            "label": "Isthmus sections and transverse entry",
+            "candidate": "asset-reviews/thyroid-r04/isthmus-cuts.webp",
+            "candidateLabel": "Five sagittal sections stay within 0.84 mm. The transverse entry preserves the connection between lobes."
+          },
+          {
+            "label": "Bilateral thyroid sweeps at frame 12",
+            "candidate": "asset-reviews/thyroid-r04/live-frame-12.webp",
+            "candidateLabel": "R03 and r04 use the same pose and scan images. The overlay shows the gland above the tracheal air column."
+          },
+          {
+            "label": "Bilateral long-axis CT companions",
+            "candidate": "asset-reviews/thyroid-r04/live-frame-48.webp",
+            "candidateLabel": "The probe and grid partly obscure the gland in the default view. The axial orbit and overlay help locate the lobe and its bridge."
+          }
+        ]
+      },
+      "links": [
+        {
+          "label": "Frozen checks, independent shoulder measurements and held-out sections",
+          "href": "asset-reviews/thyroid-r04/measurements.json"
+        }
+      ]
+    },
+    {
+      "source": "case",
+      "case": "thyroid-normal",
+      "chapter": "thyroid-right-long",
+      "chapterSha256": "ebab0fcd3a3f406f304c0eb9b48312f09e80a56645d685226054c463c7719828",
+      "part": "thyroid_gland",
+      "occurrence": 1,
+      "revision": "anatomy:s1127:thyroid@r04:thyroid",
+      "meshSha256": "ae8733964ac06a2e1eab11cd1198e15d2e6375e88716db493909fcd5826b3da5",
+      "rubric": "docs/guides/asset-quality.md",
+      "reviewer": "Independent agent reviewer · blinded shoulder comparison and unblinded CT and chapter review",
+      "reviewedOn": "2026-11-28",
+      "task": "Follow the right thyroid lobe along its long axis and locate its connection to the isthmus.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "The three right long-axis cuts stay within 1.41 mm. The five isthmus cuts stay within 0.84 mm, and the bridge remains visible at the transverse entry.",
+        "form": "The left shoulder has a continuous broad highlight in front and side close-ups. The reverse view retains the lower-lobe indentation. The central bridge and lower-lobe relief are softer than the historical r01.",
+        "readability": "The right lobe can be followed in the oblique frame-48 view. The axial orbit and the transverse entry clarify the connection over the trachea. The probe and grid partly overlap the target.",
+        "economy": "The 5,900-triangle surface has the same packed cost as r03. Relative to the dense shaped surface, maximum silhouette departure is 0.50 px across 24 views at 3 px/mm."
+      },
+      "disposition": "Adopt for the named 3D orientation task",
+      "note": "Separate-subject exterior orientation. Close agreement on the frozen cuts supports that learner action. Arbitrary scan-contour tracing, volume calipers and clinical findings remain unqualified.",
+      "comparison": {
+        "label": "Thyroid shoulder before and after the correction",
+        "candidate": "asset-reviews/thyroid-r04/previous-vs-r04.webp",
+        "candidateLabel": "Matched front, reverse and bridge views compare the shipped r03 and r04 exports.",
+        "views": [
+          {
+            "label": "R03, raw CT label and r04",
+            "candidate": "asset-reviews/thyroid-r04/matched-surfaces.webp",
+            "candidateLabel": "R04 follows the lobe outline without reproducing raw axial terraces. The reverse view retains the lower lobe indentation."
+          },
+          {
+            "label": "Protected bilateral long-axis cuts",
+            "candidate": "asset-reviews/thyroid-r04/protected-planes.webp",
+            "candidateLabel": "The left trio stays within 2.32 mm. An additional parallel section 0.75 mm from the center has a 4.13 mm in-plane miss and a 0.64 mm local 3D distance."
+          },
+          {
+            "label": "Isthmus sections and transverse entry",
+            "candidate": "asset-reviews/thyroid-r04/isthmus-cuts.webp",
+            "candidateLabel": "Five sagittal sections stay within 0.84 mm. The transverse entry preserves the connection between lobes."
+          },
+          {
+            "label": "Bilateral thyroid sweeps at frame 12",
+            "candidate": "asset-reviews/thyroid-r04/live-frame-12.webp",
+            "candidateLabel": "R03 and r04 use the same pose and scan images. The overlay shows the gland above the tracheal air column."
+          },
+          {
+            "label": "Bilateral long-axis CT companions",
+            "candidate": "asset-reviews/thyroid-r04/live-frame-48.webp",
+            "candidateLabel": "The probe and grid partly obscure the gland in the default view. The axial orbit and overlay help locate the lobe and its bridge."
+          }
+        ]
+      },
+      "links": [
+        {
+          "label": "Frozen checks, independent shoulder measurements and held-out sections",
+          "href": "asset-reviews/thyroid-r04/measurements.json"
+        }
+      ]
+    }
+  ],
+  "evidenceSha256": {
+    "previous-vs-r04.webp": "dfb8234e3cbaf9436d18b6c8266e9b2d6213d0d3c9670191f7ad11ba3c240660",
+    "matched-surfaces.webp": "5c52da3be6624dac17571fd74c4510ecd10a44b5e76c3d65b55da96129187019",
+    "protected-planes.webp": "e35d3048f2e147fbffd9ed35c477c9931bdad36505720c42e909e6c6aee87483",
+    "isthmus-cuts.webp": "96d922abd0e2fb6a41f61d73a73ab63fe08df845b8b60dbb4306e3f4a35ad151",
+    "live-frame-12.webp": "974478f6ffd0bfb2e86512b5355f962ebfe97466c9b82215a950b09d48a02dc0",
+    "live-frame-48.webp": "45ebee78f879c10ac204ed44c6e5b62fb9168cef9ac48f487cd9f294ccd2ede1"
+  },
+  "measurementsSha256": "48e6f1e534112e918de99b4f803a30eef701e98b57cfa18d546f85effa844936"
+}

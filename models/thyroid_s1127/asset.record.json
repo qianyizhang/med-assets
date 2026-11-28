@@ -215,6 +215,70 @@
           }
         }
       ]
+    },
+    {
+      "revisionId": "r04",
+      "status": "provisional",
+      "recipe": "rebuild.py",
+      "frame": {
+        "convention": "voxel-index",
+        "units": "voxel",
+        "evidence": "models/thyroid_s1127/README.md"
+      },
+      "sourceIds": [
+        "source:totalsegmentator-v2.0.1:s1127:thyroid"
+      ],
+      "partIds": [
+        "thyroid"
+      ],
+      "qualifications": [],
+      "exports": [
+        {
+          "id": "thyroid",
+          "path": "models/thyroid_s1127/exports/r04/thyroid_gland.mesh",
+          "format": "mesh",
+          "sha256": "ae8733964ac06a2e1eab11cd1198e15d2e6375e88716db493909fcd5826b3da5",
+          "bytes": 106232,
+          "triangles": 5900,
+          "partIds": [
+            "thyroid"
+          ],
+          "voxelGrid": {
+            "case": "s1127",
+            "shape": [
+              275,
+              275,
+              409
+            ],
+            "rasMmFromVoxel": [
+              [
+                1.5,
+                0.0,
+                0.0,
+                -191.59765625
+              ],
+              [
+                0.0,
+                1.5,
+                0.0,
+                -35.09765625
+              ],
+              [
+                0.0,
+                0.0,
+                1.5,
+                -311.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        }
+      ]
     }
   ],
   "unresolved": [
