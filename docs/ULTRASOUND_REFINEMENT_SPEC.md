@@ -69,14 +69,9 @@ Hold a candidate if its reference or spatial placement cannot support the claim,
 
 ### CT-derived assets
 
-Treat a CT segmentation mask as an **anatomical reference** for placement, proportion, orientation and key landmarks — **not** a pixelated voxel surface to copy vertex-for-vertex. Raw `1.5 mm` marching-cubes meshes carry visible axial terraces and tens of thousands of redundant triangles (`23k–123k`) that fall short of the [visual quality target](guides/visual-quality-target.md) on **Form** and **Economy**.
+Treat a CT segmentation mask as an **anatomical reference** for placement, proportion, orientation and key landmarks — **not** a pixelated voxel surface to copy vertex-for-vertex. Raw `1.5 mm` marching-cubes meshes carry visible axial terraces and `23k–123k` redundant triangles that fall short of the [visual quality target](guides/visual-quality-target.md) on **Form** and **Economy**.
 
-Follow [CT-to-mesh best practices](guides/ct-to-mesh-best-practices.md) and [scan-surface refinement](guides/scan-surface-refinement.md) to actively smooth, sculpt, close spurious segmentation holes and retopologize/decimate each target into a clean, organic, low-poly teaching mesh (typically `~1.5k–6k` triangles for a single solid organ) while preserving its s1233/case spatial registration, overall span and protected landmarks in the scan plane. Changing mesh connectivity is expected; check outward orientation, manifold closure, zero degeneracy/self-intersections and protected-section contours directly on the clean-reimported export.
-
-Avoid brittle voxel-clone traps in acceptance metrics:
-- Do **not** gate rounded/blunt organ caps on Euclidean displacement between single `argmax(axis)` vertices (flat binary voxel ceilings cause tangential `2–3 mm` shifts even when contours agree within `0.5 mm`). Gate pole/cap fidelity by **cap contour distance + principal-axis / chord length**.
-- When a 2D section maximum drives a decision, locate the worst sample visually on the section overlay and check without sector clipping.
-- Record transferable observations in [CT-to-mesh best practices](guides/ct-to-mesh-best-practices.md) and keep asset-specific parameters with the package recipe.
+Follow [scan-derived surface refinement](guides/scan-surface-refinement.md) to actively smooth, sculpt, close spurious holes and retopologize/decimate each target into a clean, organic, low-poly teaching mesh (typically `~1.5k–6k` triangles for a single solid organ) while preserving its case spatial registration, overall span and protected scan-plane landmarks. Changing mesh connectivity is expected; verify orientation, manifold closure, zero degeneracy/self-intersections and protected-section contours directly on the clean-reimported export. Avoid brittle voxel-clone traps (no single-vertex `argmax(axis)` cap-displacement gates on blunt poles; localize any 2D section maxima without sector clipping). Record transferable lessons in [scan-surface-refinement.md](guides/scan-surface-refinement.md) and keep asset-specific parameters with the package recipe.
 
 ### Review binding before parallel mesh work
 
