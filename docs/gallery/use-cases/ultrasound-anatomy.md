@@ -198,7 +198,7 @@ Use **Browse geometry bindings** to look up a named part, its geometry, source r
 
 | Binding kind | Evidence needed | Workbench example |
 | --- | --- | --- |
-| Exact source reused | A reference to the same packed mesh at the same scale, or a named source node whose indexed geometry is preserved during transfer. | The biliary case reuses the standalone s1233 gallbladder surface. |
+| Exact source reused | A reference to the same packed mesh at the same scale, or a named source node whose indexed geometry is preserved during transfer. | The biliary workbench shows the exact standalone s1233 gallbladder mesh in its source frame. The worked chapter renders its own modeled gallbladder. |
 | Existing asset adapted | The recipe names the source revision and describes a change to its geometry or fit. | The atlas body envelope is fitted to the abdominal or neck scan window. |
 | Separately derived from source data | Independent extractions share an identified upstream dataset or subject. Record the extraction recipe and resulting geometry. | The abdominal sweeps extract their own surfaces from s1233 CT labels. |
 | Independently authored | A case or sweep recipe constructs the surface. Record the recipe revision and the limits of its teaching use. | The pregnancy sweeps generate anatomy at a specified gestational stage. |
