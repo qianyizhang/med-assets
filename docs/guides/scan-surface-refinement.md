@@ -1,6 +1,6 @@
 # Refine a scan-derived teaching surface
 
-Use **scan-derived surface refinement** for the whole job. **Re-sculpting** describes a hands-on change to form, such as restoring a pinched fold. The same refinement can be made with a brush or a reproducible local filter. The deliverable is an interpreted teaching surface, a retained case reference and evidence for the features the learner should see.
+Use **scan-derived surface refinement** for the whole job. **Re-sculpting** describes a hands-on change to form, such as restoring a pinched fold. The same refinement can be made with a brush or a reproducible local filter. The deliverable is an interpreted teaching surface, a retained case reference and evidence for the features the learner should see. See [Visual and geometric quality target](visual-quality-target.md) for the expected appearance and [CT-to-mesh refinement best practices](ct-to-mesh-best-practices.md) for recommended SDF, fairing, sculpting and retopology pipelines.
 
 ## Before shaping
 

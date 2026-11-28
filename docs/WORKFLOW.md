@@ -130,7 +130,7 @@ The default setup includes the MCP server and Blender add-on. The tested pair is
 
 ### Body-system gallery rubric
 
-Use the [teaching-asset rubric](guides/asset-quality.md) for fidelity, form and surface, teaching readability, and mesh economy. The [scan-derived surface refinement guide](guides/scan-surface-refinement.md) covers shape, finish and mesh budget for an interpreted exterior. The [gallery design guide](gallery/design.md) covers discovery, inspection and handoff between collections.
+Use the [teaching-asset rubric](guides/asset-quality.md) for fidelity, form and surface, teaching readability, and mesh economy. Use the [visual quality target](guides/visual-quality-target.md) for the expected appearance of finished 3D meshes, [CT-to-mesh best practices](guides/ct-to-mesh-best-practices.md) and [scan-derived surface refinement](guides/scan-surface-refinement.md) for turning scan masks into sculpted low-poly exteriors, and the [gallery design guide](gallery/design.md) for discovery, inspection and handoff between collections.
 
 ### Evidence for comparison
 
