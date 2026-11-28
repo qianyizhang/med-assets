@@ -280,9 +280,11 @@ function referenceRow(entry, chapter, reference, part) {
     url: part.url, label: part.title ?? part.label, sourceSpace, assetId: part.assetId, assetRevision: part.assetRevision,
     sourceNode: part.sourceNode, sourceSha256: part.sourceSha256, meshDigest: part.meshDigest,
   };
+  const usedInExemplar = reference.source === 'sweep' && chapter.sourceSweep === part.case;
   return { ...part, ...rowBase('case', entry, chapter), donor, sourceSpace, legacyParts: reference.legacyParts,
     referenceScope: reference.referenceScope,
-    sourceNotice: entry.family === 'abdomen' ? abdomenReferenceNotice :
+    sourceNotice: usedInExemplar ? 'Delivered in the registered s1233 chapter, a teaching exemplar from a separate subject.' :
+      entry.family === 'abdomen' ? abdomenReferenceNotice :
       'Independent source anatomy in its original coordinates. This reference is separate from the worked acquisition.' };
 }
 

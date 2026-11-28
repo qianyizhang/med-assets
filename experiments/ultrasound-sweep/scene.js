@@ -19,8 +19,13 @@ export async function readAsset(path, format) {
   }
 }
 
-export async function loadMesh(name, path = `scenes/${name}.mesh`) {
+export async function loadMesh(name, path = `scenes/${name}.mesh`, expectedSha256) {
   const data = await readAsset(path, 'arrayBuffer');
+  if (expectedSha256) {
+    const bytes = new Uint8Array(await crypto.subtle.digest('SHA-256', data));
+    const digest = Array.from(bytes, byte => byte.toString(16).padStart(2, '0')).join('');
+    if (digest !== expectedSha256) throw new Error(`Unexpected mesh identity: ${name}`);
+  }
   const header = new DataView(data);
   if (header.byteLength < 8) throw new Error(`Incomplete mesh: ${name}`);
   const vertices = header.getUint32(0, true);
@@ -789,7 +794,7 @@ export async function createSweepScene({ canvas, frames, config, onViewPresetCha
   const requests = [
     () => readAsset('scenes/geometry.json', 'json'),
     ...names.map((name) => () => loadMesh(name, config.meshPaths?.[name]
-      ?? new URL(`scenes/${name}.mesh`, assetRoot))),
+      ?? new URL(`scenes/${name}.mesh`, assetRoot), config.meshSha256?.[name])),
     ...(linear ? [] : probeNames.map((name) => () => loadMesh(name))),
   ];
   const received = [];

@@ -1,0 +1,46 @@
+{
+  "consumers": [
+    {
+      "id": "ultrasound:case:abdomen-survey:abd-right-kidney",
+      "title": "Abdominal survey \u00b7 s1233 right kidney exemplar",
+      "kind": "ultrasound-case",
+      "case": "abdomen-survey",
+      "chapter": "abd-right-kidney",
+      "sweep": "kidney-right",
+      "observation": "s1233 teaching exemplar from a separate subject. The 103.3 mm pole-to-pole chord crosses the medial hilar recess at this saved stop.",
+      "poseSha256": "df87ada1caf46010f1b6d5b77951389d2347935e3cd292513094c1fe370d7aa0",
+      "savedChord": {
+        "frame": 12,
+        "millimetres": 103.3165274350045,
+        "endpointsPx": [
+          [
+            134.58205929734584,
+            280.470192231926
+          ],
+          [
+            378.58460721594736,
+            217.5218962508379
+          ]
+        ]
+      },
+      "requirements": [
+        {
+          "id": "part:kidney_right",
+          "description": "Registered kidney exterior at the saved right renal long-axis acquisition",
+          "status": "provisional",
+          "subject": "s1233"
+        }
+      ],
+      "pins": [
+        {
+          "asset": "anatomy:s1233:kidney-right",
+          "revision": "r01",
+          "export": "kidney-right",
+          "requirement": "part:kidney_right",
+          "sha256": "1b6ac9eed1ae01c2fdff12d203dd82b00dea06f76ffe379be71468eaa7681208",
+          "registration": "native"
+        }
+      ]
+    }
+  ]
+}

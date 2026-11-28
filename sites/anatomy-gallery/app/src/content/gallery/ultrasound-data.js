@@ -1,6 +1,7 @@
 const media = 'lessons/ultrasound-anatomy/media/';
 const digestive = 'lessons/body-systems/display/digestive-s1233-assembly-';
 export const ultrasoundCollection = 'use-cases/ultrasound';
+export const ultrasoundDevelopment = 'use-cases/ultrasound-development';
 export const ultrasoundAssets = 'use-cases/ultrasound-assets';
 const source = 'https://github.com/qianyizhang/med-assets/blob/e51891b/';
 

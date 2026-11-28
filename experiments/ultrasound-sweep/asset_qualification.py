@@ -71,7 +71,7 @@ def write_asset_inventory(destination, grouped, families, evidence, tours):
     for family, cases in grouped.items():
         for case in cases:
             key = case['id']
-            chapters = [{k: chapter[k] for k in ('id', 'title', 'evidenceFrame')} for chapter in evidence[key]]
+            chapters = [{k: chapter[k] for k in ('id', 'title', 'evidenceFrame', 'sourceSweep') if k in chapter} for chapter in evidence[key]]
             records.append(dict(id=key, family=family, owner=families[family][1], title=case['title'],
                                 url=f'tours/{family}/{key}.html', chapters=chapters, record=case))
     reviews = []

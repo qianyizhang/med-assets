@@ -14,6 +14,8 @@ Open the fragment on the Site root, for example `/#/library/s1233-adrenal/r05`. 
 | --- | --- |
 | `/`, `/#/` | The candidate opens the Gallery landing page with Asset Library and Use Cases. The brand link returns here. The recorded public release opens the Library. |
 | `/#/use-cases/lessons` | The candidate indexes shorter lessons and pathway diagrams. Each entry opens its existing teaching address. |
+| `/#/use-cases/ultrasound-development` | Open the locally built Before → After evidence for the abdominal survey right kidney exemplar. |
+| `/#/use-cases/ultrasound-development/kidney-right-r01` | Inspect the exact AssetKit revision and download its verified packed mesh. |
 | `/#/library` | Browse the Asset Library. Fragment parameters preserve `q`, `system`, `purpose`, `kind`, `state`, `rating=rated\|unrated`, `layout=list\|tree\|cards` and `sort=name\|name-desc\|rating-high\|rating-low\|most-files\|fewest-files`. Example: `/#/library?rating=rated&sort=rating-high`. |
 | `/#/library/s1233-adrenal/r05` | Open the exact revision. Its package owns the bytes and its dated assessment owns the score. The existing survey IDs still open the family or package. Use the revision history to choose a specific export. |
 | `/#/use-cases/systems`, `/#/use-cases/systems/<system-id>` | Open the Body Systems collection or a system assembly. The optional fragment parameter `detail` selects a teaching detail. In the candidate, `view=development` opens the selected system’s check, limits and sources. Teaching returns to the same assembly or detail. Reproductive `reproductive-female-left-pickup` opens the shared ovary lesson in the system sequence. |

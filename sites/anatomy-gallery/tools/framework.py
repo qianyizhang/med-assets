@@ -175,6 +175,10 @@ def prepare(site, source, output, viewer_inputs=None, *, seed_path=None, offline
         gallery = staged / 'src/content/gallery'
         if gallery.is_dir():
             from gallery_runtime import prepare_gallery
+            if (gallery / 'UltrasoundDevelopment.jsx').is_file():
+                from ultrasound_progress import prepare_ultrasound_progress
+
+                prepare_ultrasound_progress(site.parents[1], gallery / 'ultrasound-progress')
             prepare_gallery(site, viewer_inputs or site / '.local/viewer-inputs', gallery, offline=offline)
             # The protected Worker at the pinned framework revision still imports this filename.
             index = gallery.parent / 'assets/delivery-index.json'

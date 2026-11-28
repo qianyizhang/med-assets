@@ -1,0 +1,381 @@
+{
+  "export": {
+    "sha256": "1b6ac9eed1ae01c2fdff12d203dd82b00dea06f76ffe379be71468eaa7681208",
+    "bytes": 86432,
+    "triangles": 4800
+  },
+  "raw": {
+    "triangles": 23400,
+    "packedBytes": 421232,
+    "volumeMm3": 110833.59375
+  },
+  "smoothTriangles": 141196,
+  "topology": {
+    "components": 1,
+    "euler": 2,
+    "openEdges": 0,
+    "nonmanifoldEdges": 0,
+    "misorientedSharedEdges": 0,
+    "degenerateTriangles": 0,
+    "signedVolumeMm3": 110860.56289638695,
+    "intersectingNonincidentPairs": 0
+  },
+  "volumeChangePct": 0.024333007235854964,
+  "principalSpanMm": {
+    "reference": 106.78290464024286,
+    "refined": 105.07268681662855
+  },
+  "global": {
+    "referenceToCandidate": {
+      "p95Mm": 0.9687245914363339,
+      "maxMm": 2.688617690605805,
+      "maxLocationRasMm": [
+        72.388671875,
+        188.638671875,
+        269.200000763
+      ],
+      "samples": 268377
+    },
+    "candidateToReference": {
+      "p95Mm": 0.7624069111362719,
+      "maxMm": 1.9165328980605523,
+      "maxLocationRasMm": [
+        64.750628662,
+        186.687504578,
+        270.366533661
+      ],
+      "samples": 217846
+    }
+  },
+  "planes": [
+    {
+      "offsetMm": -1.5,
+      "distances": {
+        "referenceToCandidate": {
+          "p95Mm": 1.1232863194480627,
+          "maxMm": 2.1607934429426545,
+          "maxLocationRasMm": [
+            79.138671875,
+            178.525884666,
+            272.200000763
+          ],
+          "samples": 1144
+        },
+        "candidateToReference": {
+          "p95Mm": 0.9067105185194968,
+          "maxMm": 1.9559366805336647,
+          "maxLocationRasMm": [
+            77.182738235,
+            177.84735135,
+            272.818825809
+          ],
+          "samples": 863
+        }
+      },
+      "capDistances": [
+        {
+          "referenceToCandidate": {
+            "p95Mm": 0.5263437153667407,
+            "maxMm": 0.673964311732939,
+            "maxLocationRasMm": [
+              70.888671875,
+              123.219118105,
+              322.280446993
+            ],
+            "samples": 71
+          },
+          "candidateToReference": {
+            "p95Mm": 0.55795609438954,
+            "maxMm": 0.6969310180672773,
+            "maxLocationRasMm": [
+              74.118308398,
+              125.823488809,
+              319.91542429
+            ],
+            "samples": 63
+          }
+        },
+        {
+          "referenceToCandidate": {
+            "p95Mm": 1.0764053258376642,
+            "maxMm": 1.147261839143785,
+            "maxLocationRasMm": [
+              63.388671875,
+              198.813148065,
+              253.874476953
+            ],
+            "samples": 81
+          },
+          "candidateToReference": {
+            "p95Mm": 0.8598879955657102,
+            "maxMm": 1.1319529685142586,
+            "maxLocationRasMm": [
+              63.516893442,
+              197.852076049,
+              254.744084701
+            ],
+            "samples": 62
+          }
+        }
+      ],
+      "referenceChordMm": 103.89114151029186,
+      "refinedChordMm": 103.23192613050239,
+      "outsideChordMm": 62.78854763521798
+    },
+    {
+      "offsetMm": 0,
+      "distances": {
+        "referenceToCandidate": {
+          "p95Mm": 1.0964155060082568,
+          "maxMm": 2.1261195601741942,
+          "maxLocationRasMm": [
+            75.411491135,
+            184.888671875,
+            268.472820023
+          ],
+          "samples": 1154
+        },
+        "candidateToReference": {
+          "p95Mm": 0.862323379772548,
+          "maxMm": 1.8564249626047309,
+          "maxLocationRasMm": [
+            74.115521553,
+            183.540944035,
+            269.695795766
+          ],
+          "samples": 860
+        }
+      },
+      "capDistances": [
+        {
+          "referenceToCandidate": {
+            "p95Mm": 0.3636747567614976,
+            "maxMm": 0.41073736919967296,
+            "maxLocationRasMm": [
+              70.888671875,
+              125.068433955,
+              322.629762843
+            ],
+            "samples": 70
+          },
+          "candidateToReference": {
+            "p95Mm": 0.3707927608523483,
+            "maxMm": 0.7336485990717538,
+            "maxLocationRasMm": [
+              73.724234378,
+              126.7156679,
+              321.132028065
+            ],
+            "samples": 61
+          }
+        },
+        {
+          "referenceToCandidate": {
+            "p95Mm": 0.9579026830954295,
+            "maxMm": 1.1282372104257954,
+            "maxLocationRasMm": [
+              66.388671875,
+              200.638671875,
+              254.238193264
+            ],
+            "samples": 75
+          },
+          "candidateToReference": {
+            "p95Mm": 0.7934934853809497,
+            "maxMm": 0.9843646265944562,
+            "maxLocationRasMm": [
+              66.842727044,
+              199.866401202,
+              254.936132872
+            ],
+            "samples": 60
+          }
+        }
+      ],
+      "referenceChordMm": 104.29238571318137,
+      "refinedChordMm": 103.3165274350045,
+      "outsideChordMm": 62.750388963304374
+    },
+    {
+      "offsetMm": 1.5,
+      "distances": {
+        "referenceToCandidate": {
+          "p95Mm": 1.2063834172566177,
+          "maxMm": 2.3621802134440437,
+          "maxLocationRasMm": [
+            76.138671875,
+            184.888671875,
+            270.494311513
+          ],
+          "samples": 1110
+        },
+        "candidateToReference": {
+          "p95Mm": 0.9281298949827184,
+          "maxMm": 2.2052189749577122,
+          "maxLocationRasMm": [
+            72.870009323,
+            185.284540896,
+            270.143765164
+          ],
+          "samples": 847
+        }
+      },
+      "capDistances": [
+        {
+          "referenceToCandidate": {
+            "p95Mm": 0.7493881291305806,
+            "maxMm": 0.8802573702253625,
+            "maxLocationRasMm": [
+              69.388671875,
+              124.557601471,
+              325.118930359
+            ],
+            "samples": 72
+          },
+          "candidateToReference": {
+            "p95Mm": 0.7120373880835322,
+            "maxMm": 0.8050730094978749,
+            "maxLocationRasMm": [
+              69.214421125,
+              125.197647632,
+              324.540008087
+            ],
+            "samples": 54
+          }
+        },
+        {
+          "referenceToCandidate": {
+            "p95Mm": 0.6962464343074641,
+            "maxMm": 1.1877136625235543,
+            "maxLocationRasMm": [
+              85.888671875,
+              196.138671875,
+              260.28820491
+            ],
+            "samples": 82
+          },
+          "candidateToReference": {
+            "p95Mm": 0.5607102035384655,
+            "maxMm": 0.6655830115755328,
+            "maxLocationRasMm": [
+              63.476482976,
+              199.591155417,
+              257.216497956
+            ],
+            "samples": 64
+          }
+        }
+      ],
+      "referenceChordMm": 103.89114151029186,
+      "refinedChordMm": 103.08669724389351,
+      "outsideChordMm": 62.53786418823955
+    }
+  ],
+  "lateralReferenceSections": [
+    {
+      "offsetMm": -15,
+      "contours": 1,
+      "chordMm": 91.23676183183261,
+      "outsideMm": 1.4210854715202004e-14
+    },
+    {
+      "offsetMm": -12,
+      "contours": 2,
+      "chordMm": 97.28874100874592,
+      "outsideMm": 0.0
+    },
+    {
+      "offsetMm": -9,
+      "contours": 5,
+      "chordMm": 101.48677316356726,
+      "outsideMm": 0.0
+    },
+    {
+      "offsetMm": -6,
+      "contours": 2,
+      "chordMm": 102.238638662291,
+      "outsideMm": 41.76816990111439
+    },
+    {
+      "offsetMm": -3,
+      "contours": 1,
+      "chordMm": 104.08485687459832,
+      "outsideMm": 62.89958230202137
+    },
+    {
+      "offsetMm": 0,
+      "contours": 1,
+      "chordMm": 104.29238571318137,
+      "outsideMm": 62.27204252459056
+    },
+    {
+      "offsetMm": 3,
+      "contours": 1,
+      "chordMm": 103.89114151029187,
+      "outsideMm": 63.140998181075055
+    },
+    {
+      "offsetMm": 6,
+      "contours": 1,
+      "chordMm": 102.82072174193684,
+      "outsideMm": 54.41046080564889
+    },
+    {
+      "offsetMm": 9,
+      "contours": 1,
+      "chordMm": 102.16953356181148,
+      "outsideMm": 39.564159828563696
+    },
+    {
+      "offsetMm": 12,
+      "contours": 1,
+      "chordMm": 95.9343220356358,
+      "outsideMm": 24.072523303499047
+    },
+    {
+      "offsetMm": 15,
+      "contours": 2,
+      "chordMm": 83.81180352700781,
+      "outsideMm": 1.6405857371174193
+    }
+  ],
+  "silhouette": {
+    "views": 24,
+    "pixelsPerMm": 3,
+    "supersample": 4,
+    "maximumDeparturePx": 0.7071067811865476
+  },
+  "savedChord": {
+    "frame": 12,
+    "millimetres": 103.3165274350045,
+    "endpointsPx": [
+      [
+        134.58205929734584,
+        280.470192231926
+      ],
+      [
+        378.58460721594736,
+        217.5218962508379
+      ]
+    ]
+  },
+  "previousSweep": {
+    "sha256": "58d9a1d89b0fadbb6f2601e665d946b36bd44fc4e6cdc9ec1eb11b7ec0ffc833",
+    "bytes": 416840,
+    "triangles": 23156
+  },
+  "liveBrowser": {
+    "/sweeps/kidney-right/scenes/kidney_right.mesh": {
+      "sha256": "1b6ac9eed1ae01c2fdff12d203dd82b00dea06f76ffe379be71468eaa7681208",
+      "bytes": 86432
+    },
+    "/sweeps/kidney-right/media/scan-12.webp": {
+      "sha256": "d029bc333e47f2131f07030964def2265dd7009ed505c04fec725a400fd51239",
+      "bytes": 34594
+    },
+    "/sweeps/kidney-right/media/section-12.webp": {
+      "sha256": "783d3c0092bd35ef14ced5110c86bbd36b7e9cd923c1962eb821f48a424c78d5",
+      "bytes": 29884
+    }
+  }
+}

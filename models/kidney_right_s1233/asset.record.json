@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:s1233:kidney-right",
+  "title": "s1233 right kidney",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/kidney_right_s1233",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:totalsegmentator-v2.0.1:s1233:kidney-right",
+      "title": "TotalSegmentator v2.0.1 s1233 right kidney mask",
+      "sourceType": "external segmentation",
+      "sha256": "8ca7e6696b90cb1e7e39b14e5c8f7e92c59b9344bff8fd368009751335abc8b5",
+      "license": "CC BY 4.0; retain the Workshop label-source notices",
+      "url": "https://zenodo.org/records/10047263"
+    }
+  ],
+  "parts": [
+    {
+      "partId": "kidney-right",
+      "label": "Right kidney exterior",
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "r01",
+      "status": "provisional",
+      "recipe": "rebuild.py",
+      "frame": {
+        "convention": "voxel-index",
+        "units": "voxel",
+        "evidence": "assemblies/workshop-s1233/inputs.json"
+      },
+      "sourceIds": [
+        "source:totalsegmentator-v2.0.1:s1233:kidney-right"
+      ],
+      "partIds": [
+        "kidney-right"
+      ],
+      "exports": [
+        {
+          "id": "kidney-right",
+          "path": "models/kidney_right_s1233/exports/r01/kidney-right.mesh",
+          "sha256": "1b6ac9eed1ae01c2fdff12d203dd82b00dea06f76ffe379be71468eaa7681208",
+          "bytes": 86432,
+          "format": "mesh",
+          "triangles": 4800,
+          "partIds": [
+            "kidney-right"
+          ],
+          "voxelGrid": {
+            "case": "s1233",
+            "shape": [
+              265,
+              265,
+              401
+            ],
+            "rasMmFromVoxel": [
+              [
+                1.5,
+                0.0,
+                0.0,
+                -215.611328125
+              ],
+              [
+                0.0,
+                1.5,
+                0.0,
+                -37.111328125
+              ],
+              [
+                0.0,
+                0.0,
+                1.5,
+                41.20000076293945
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "artifacts": [],
+  "exports": [
+    {
+      "path": "models/kidney_right_s1233/exports/r01/kidney-right.mesh",
+      "sha256": "1b6ac9eed1ae01c2fdff12d203dd82b00dea06f76ffe379be71468eaa7681208",
+      "bytes": 86432
+    }
+  ],
+  "uses": [],
+  "retirement": null,
+  "unresolved": [
+    "Lead teaching review pending. The surface models the CT label exterior and medial hilar recess."
+  ]
+}

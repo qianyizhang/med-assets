@@ -990,3 +990,40 @@
   .ga-ultrasound-body-image { width: 65px; }
   .ga-ultrasound-geometry { grid-template-columns: minmax(0, 1fr); }
 }
+
+.ga-ultrasound-progress figure {
+  margin: 1rem 0;
+}
+
+.ga-ultrasound-progress img {
+  display: block;
+  max-inline-size: 100%;
+  block-size: auto;
+  border-radius: 0.5rem;
+}
+
+.ga-ultrasound-progress figcaption {
+  margin-block-start: 0.45rem;
+}
+
+.ga-progress-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(13rem, 100%), 1fr));
+  gap: 1rem;
+}
+
+.ga-progress-metrics dd, .ga-progress-scores dd {
+  margin: 0.25rem 0 0;
+}
+
+.ga-progress-metrics dt, .ga-progress-scores dt {
+  font-weight: 650;
+}
+
+.ga-progress-scores > div + div {
+  margin-block-start: 0.75rem;
+}
+
+.ga-progress-hash {
+  overflow-wrap: anywhere;
+}

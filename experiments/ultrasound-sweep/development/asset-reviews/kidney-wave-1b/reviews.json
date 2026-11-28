@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "rubricHash": "a38e552869511cd5bceacaa5ea4456f4d0530e58e7dce2bc6855587a98b0e684",
+  "records": [
+    {
+      "source": "case",
+      "case": "abdomen-survey",
+      "chapter": "abd-right-kidney",
+      "part": "kidney_right",
+      "occurrence": 1,
+      "baseline": "a9ec4877",
+      "revision": "anatomy:s1233:kidney-right@r01:kidney-right",
+      "meshSha256": "1b6ac9eed1ae01c2fdff12d203dd82b00dea06f76ffe379be71468eaa7681208",
+      "chapterSha256": "1d8480ae4a7e43df0d8697721567466a3d92b51f7c99a6841201b8a2f4a4a3ec",
+      "reviewer": "Codex candidate observations · lead review pending",
+      "reviewedOn": "2026-11-28",
+      "rubric": "docs/guides/asset-quality.md",
+      "task": "Locate both poles and the medial hilar recess in 3D, then relate them to the saved s1233 long-axis scan.",
+      "proposedScores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 4,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "The three protected CT sections agree within 1.21 mm p95 and 2.36 mm maximum. The saved refined chord is 103.3 mm against 104.3 mm from the CT outline.",
+        "form": "The matched clay and reverse views show rounded poles, smooth broad areas and a preserved medial hilar recess. Some relief remains near the lower outer surface, so the finish needs a lead judgment against the CT reference.",
+        "readability": "In reverse oblique, both poles and the recessed medial contour are recognizable. The live B-mode and tissue overlay show the same recess below the source-aligned calipers.",
+        "economy": "4,800 triangles and 86,432 bytes. The projected silhouette departs by 0.71 px at 3 px/mm in 24 views against the pre-decimation surface."
+      },
+      "note": "Provisional candidate. s1233 is a separate subject. The bright tissue is simulated and the source label represents an exterior. An independent lead review owns the final scores and disposition.",
+      "comparison": {
+        "label": "Matched neutral clay surfaces",
+        "candidate": "asset-reviews/kidney-wave-1b/matched-surfaces.webp",
+        "candidateLabel": "Schematic, CT half-label and refined export",
+        "views": [
+          {
+            "label": "Three protected CT sections",
+            "candidate": "asset-reviews/kidney-wave-1b/protected-planes.webp",
+            "candidateLabel": "CT and refined contours"
+          },
+          {
+            "label": "Live survey frame",
+            "candidate": "asset-reviews/kidney-wave-1b/live-frame-12.webp",
+            "candidateLabel": "Before and after"
+          }
+        ]
+      },
+      "links": [
+        {
+          "label": "Measured geometry and saved calipers",
+          "href": "asset-reviews/kidney-wave-1b/measurements.json"
+        }
+      ]
+    }
+  ],
+  "evidenceSha256": {
+    "matched-surfaces.webp": "0e7e1c633b3b8a043a1b441ba776b1db45987576197d1bd4598ae539924e5667",
+    "protected-planes.webp": "483166c7f6dc02c6fb5459a45b49ee66e1307750ceeae772d45738fa5885d957",
+    "live-frame-12.webp": "80852a6fd6931c812ccc98f42dac988d0aa91bd9ae38ac6a8424bd32cd0c9800"
+  },
+  "measurementsSha256": "6c8fb2b7fb5ff27fb0cc48059fe9f1262a3a6f2c4588f8b1c9487a2cdf7d64da"
+}

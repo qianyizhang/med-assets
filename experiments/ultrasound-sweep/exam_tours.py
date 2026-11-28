@@ -41,8 +41,9 @@ def exam_page(record, family_title, chapters):
         measure = escape(chapter.get('measurement') or '')
         sections.append(dict(id=chapter_id, sweep=chapter_id, label=chapter['title'],
                              start=0, end=chapter['frames'] - 1))
+        source = f' data-source-sweep="{escape(chapter['sourceSweep'], quote=True)}"' if 'sourceSweep' in chapter else ''
         panels.append(f'''<section class="chapter" id="{escape(chapter_id)}" hidden
-          data-view-image="{escape(chapter['viewImage'])}" data-evidence-frame="{frame}">
+          data-view-image="{escape(chapter['viewImage'])}" data-evidence-frame="{frame}"{source}>
           <div><h2>{heading}</h2><p>{observation}</p></div>
           <div class="evidence"><a href="{href}">Show saved frame</a></div></section>''')
         findings.append(f'<li><a href="{href}">{heading}</a> · {measure or observation}</li>')

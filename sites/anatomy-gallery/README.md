@@ -15,6 +15,10 @@ Use Cases also opens the bilingual oral-spaces cutaways and four regional locato
 
 The Gallery also opens the three bilingual pathway diagrams and the interactive dental arch. Experiments & Archive contains the left kidney outline trial and both dental film collections. The [collection ledger](../../records/work-items/items/AG-GAL-013-reconcile-gallery-coverage.md#collection-ledger) records the collection destinations and the public Head & Neck and Airway handoffs.
 
+### Ultrasound Development
+
+From **Use Cases → Ultrasound Anatomy → Development**, open the right kidney comparison. The candidate build packages the review-pinned WebPs and the exact r01 mesh. The Development card, its evidence and the revision download work without the ultrasound study server. See the teaching scope and evidence in the [Wave 1B receipt](../../records/campaigns/ultrasound-refinement/wave-1b/README.md).
+
 ### Files in the imported atlas packages
 
 The Static Cardiac Atlas entry attaches the ten RAS-mm STL exports and editable Blender file to its [static ED delivery](../../docs/gallery/routes-and-api.md#page-links). The original **All indexed files** disclosure is available on the family overview. For the original texture study, use the [retained UV layout and texture maps](../../heart/Cardiac_Atlas/textures/), [normal-map measurements](../../heart/Cardiac_Atlas/textures/Normal_QA.json) and [diagnostic render recipe](../../heart/Cardiac_Atlas/render_normal_diagnostic.py). The imported guide’s render paths refer to its original distribution.

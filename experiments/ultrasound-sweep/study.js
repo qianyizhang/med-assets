@@ -111,8 +111,9 @@ function phaseName(frame) {
 }
 
 function drawApSpan(frame, hasScan) {
-  if (!selectedTour.showApSpan) return;
-  const span = poses[frame]?.apSpan;
+  const savedChord = selectedTour.savedChord;
+  if (!selectedTour.showApSpan && !savedChord) return;
+  const span = savedChord?.frame === frame ? savedChord : poses[frame]?.apSpan;
   const visible = hasScan && span && $('apToggle').getAttribute('aria-pressed') === 'true';
   $('apMarks').hidden = !visible;
   $('apReadout').hidden = !visible;
@@ -123,7 +124,8 @@ function drawApSpan(frame, hasScan) {
   const dy = 5 * (x1 - x2) / distance;
   $('apChord').setAttribute('d', `M ${x1} ${y1} L ${x2} ${y2}`);
   $('apEnds').setAttribute('d', span.endpointsPx.map(([x,y]) => `M ${x-dx} ${y-dy} L ${x+dx} ${y+dy}`).join(' '));
-  $('apReadout').textContent = 'Modeled AP span · ' + span.millimetres.toFixed(1) + ' mm';
+  const label = savedChord ? 'Pole-to-pole chord across the hilar recess' : 'Modeled AP span';
+  $('apReadout').textContent = label + ' · ' + span.millimetres.toFixed(1) + ' mm';
 }
 
 $('apToggle').onclick = () => {
@@ -808,7 +810,12 @@ async function startTour() {
     { frame: keyframes.find(({ frame }) => frame > 0)?.frame ?? last, label: 'Rotate probe' },
   ];
   configureTimeline();
-  $('apToggle').hidden = !selectedTour.showApSpan;
+  $('apToggle').hidden = !selectedTour.showApSpan && !selectedTour.savedChord;
+  if (selectedTour.savedChord) {
+    $('apToggle').textContent = 'Pole-to-pole chord';
+    $('apToggle').title = 'Show the chord across the medial hilar recess at the saved frame';
+    on('apToggle', true);
+  }
   if (!embedded) configureSiblingRoutes(tours);
   if (selectedTour.steering) {
     const { probeSteering } = await import('./probe-steering.js');

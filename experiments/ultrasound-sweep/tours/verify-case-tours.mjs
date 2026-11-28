@@ -199,9 +199,7 @@ async function playCaseToEnd(page, segments) {
   await waitForTourFrame(page, 0);
   await page.locator('#playTour').click();
   const shown = await page.evaluate(async (sections) => {
-    const viewer = document.querySelector('#player iframe');
     const position = document.querySelector('#tourPosition');
-    const source = viewer.contentDocument.querySelector('#position');
     let absolute = 0;
     for (const [chapter, , first, last] of sections) {
       for (let frame = first; frame <= last; frame++) {
@@ -212,7 +210,8 @@ async function playCaseToEnd(page, segments) {
               reject(Error('Case playback did not commit absolute frame ' + absolute));
             }, 15000);
             function accept({ data, source: sender, origin }) {
-              if (sender !== viewer.contentWindow || origin !== location.origin || data?.type !== 'sweep-status' ||
+              if (sender !== document.querySelector('#player iframe')?.contentWindow ||
+                  origin !== location.origin || data?.type !== 'sweep-status' ||
                   data.status !== 'frame' || !Number.isInteger(data.request)) return;
               clearTimeout(timer);
               window.removeEventListener('message', accept);
@@ -222,6 +221,7 @@ async function playCaseToEnd(page, segments) {
             window.stepSweep();
           });
         }
+        const source = document.querySelector('#player iframe').contentDocument.querySelector('#position');
         if (position.dataset.displayed !== String(absolute) || position.valueAsNumber !== absolute ||
             source.valueAsNumber !== frame ||
             document.querySelector('.chapters [aria-current="step"]').dataset.chapter !== chapter) {
@@ -377,6 +377,25 @@ try {
         await waitForTourFrame(page, absoluteFrame(segments, chapter.id, 0));
         await expectSource(child, 0);
         assert.equal(await page.locator('.chapters [aria-current="step"]').getAttribute('data-chapter'), chapter.id);
+        const exemplar = await page.locator('.chapter:not([hidden])').getAttribute('data-source-sweep');
+        if (exemplar) {
+          assert.equal(id + '/' + chapter.id + '/' + exemplar, 'abdomen-survey/abd-right-kidney/kidney-right');
+          const saved = linkedFrame(tourPath(record), chapter.id, chapter.evidenceFrame, '#exam');
+          const link = report.nth(index);
+          assert.deepEqual(locationKey(new URL(await link.getAttribute('href'), page.url())), locationKey(saved));
+          await link.click();
+          await waitForTourFrame(page, absoluteFrame(segments, chapter.id, chapter.evidenceFrame));
+          await expectSource(child, chapter.evidenceFrame);
+          const scan = child.locator('#scan[src$="/scan-12.webp"]');
+          await scan.waitFor();
+          assert.match(await child.locator('#apReadout').textContent(), /chord across the hilar recess.*mm/);
+          await child.getByRole('button', { name: 'Anatomy overlay' }).click();
+          await child.locator('#scan[src$="/section-12.webp"]').waitFor();
+          await child.getByRole('button', { name: 'Anatomy overlay' }).click();
+          await scan.waitFor();
+          assert.match(await page.locator('#openSweep').getAttribute('href'), /index\.html\?sweep=kidney-right&frame=12$/);
+          continue;
+        }
         assert.equal(await child.locator('#view').textContent(), chapter.title);
         const scan = await checkChapter(page, child, segments, chapter);
 

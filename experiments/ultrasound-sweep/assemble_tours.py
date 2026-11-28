@@ -344,8 +344,6 @@ def write_catalogue(destination, refs, tours, survey=None, aaa_acquisitions=None
         protocol, skin = survey
         (study / protocol['displaySkinPath']).write_bytes(skin)
         (study / 'protocol.json').write_text(json.dumps(protocol, indent=2) + '\n')
-    for name, variable, content in [('references.js', 'abdomenReferences', refs), ('abdomen-tours.js', 'abdomenTours', tours)]:
-        (destination / name).write_text(f'const {variable} = ' + json.dumps(content, ensure_ascii=False, indent=2) + ';\n')
     for name in ('index.html', 'study.css', 'study.js', 'study-picker.js', 'scene.js', 'case-scene.js', 'probe-steering.js'):
         shutil.copyfile(HERE / name, destination / name)
     for folder, names in (
@@ -362,6 +360,8 @@ def write_catalogue(destination, refs, tours, survey=None, aaa_acquisitions=None
     write_gallery_donors(destination)
     copy_cardiac_study(HERE / 'cardiac', destination)
     write_case_library(destination, tours, refs, aaa_acquisitions=aaa_acquisitions)
+    for name, variable, content in [('references.js', 'abdomenReferences', refs), ('abdomen-tours.js', 'abdomenTours', tours)]:
+        (destination / name).write_text(f'const {variable} = ' + json.dumps(content, ensure_ascii=False, indent=2) + ';\n')
 
 
 def copy_cardiac_study(source, destination):
