@@ -3,11 +3,21 @@
 from __future__ import annotations
 
 import json
+from collections.abc import Callable
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Annotated, Any, Literal
 
 import typer
+from med_assets.teaching_cli import (
+    REVIEW_ERRORS,
+    REVIEW_FAILURE,
+    check_teaching,
+    promote_teaching,
+    recover_teaching,
+    render_teaching,
+)
+from med_assets.teaching_promotion import Promotion
 
 from . import AssetModel, Workspace
 from .build import BuildResult, plan_build, run_build, sync_manifest
@@ -21,6 +31,10 @@ app = typer.Typer(
     no_args_is_help=True,
     add_completion=False,
 )
+review_app = typer.Typer(
+    help="Manage the maintained teaching register and its accepted assessments."
+)
+app.add_typer(review_app, name="review")
 
 
 @dataclass
@@ -29,11 +43,12 @@ class _State:
     native_only: bool
     inspect_glb: bool
 
-    def load(self) -> Workspace:
+    def load(self, *, review_target: str | None = None) -> Workspace:
         return Workspace.load(
             self.repo,
             include_legacy_adapters=not self.native_only,
             inspect_glbs=self.inspect_glb,
+            review_target=review_target if self.native_only else None,
         )
 
 
@@ -75,6 +90,83 @@ def configure(
     ctx.obj = _State(repo=repo, native_only=native_only, inspect_glb=inspect_glb)
 
 
+def _run_review(fn: Callable[[], str]) -> None:
+    try:
+        typer.echo(fn(), nl=False)
+    except REVIEW_ERRORS as error:
+        typer.echo(f"{REVIEW_FAILURE}: {error}", err=True)
+        raise typer.Exit(code=1) from error
+
+
+@review_app.callback(invoke_without_command=True)
+def review(ctx: typer.Context) -> None:
+    """Render the maintained teaching register when no command is given."""
+    if ctx.invoked_subcommand is None:
+        _run_review(lambda: render_teaching(_state(ctx).repo))
+
+
+@review_app.command("check")
+def review_check(ctx: typer.Context) -> None:
+    """Validate accepted teaching tasks and compare the tracked register and scorecard."""
+    _run_review(lambda: check_teaching(_state(ctx).repo))
+
+
+@review_app.command("promote")
+def review_promote(
+    ctx: typer.Context,
+    review: Annotated[str, typer.Option("--review", help="Owner assessment path under reviews/")],
+    export: Annotated[str, typer.Option("--export", help="Exact package export path")],
+    task_id: Annotated[str, typer.Option("--task-id", help="Stable learner task ID")],
+    collection_id: Annotated[str, typer.Option("--collection-id", help="Register collection ID")],
+    family_id: Annotated[str, typer.Option("--family-id", help="Register family ID")],
+    disposition: Annotated[Literal["maintained", "alternative"], typer.Option("--disposition")],
+    reviewed_sha256: Annotated[
+        str | None,
+        typer.Option(
+            "--reviewed-sha256", help="Exact reviewed row pin when selection is ambiguous"
+        ),
+    ] = None,
+    replaces: Annotated[
+        str | None,
+        typer.Option(
+            "--replaces", help="Exact maintained export replaced within this collection and family"
+        ),
+    ] = None,
+    new_family_label: Annotated[
+        str | None, typer.Option("--new-family-label", help="Label for a new register entry")
+    ] = None,
+    apply: Annotated[
+        bool, typer.Option("--apply", help="Apply the plan locally after a dry run")
+    ] = False,
+    expect_state: Annotated[
+        str | None, typer.Option("--expect-state", help="planSha256 from the reviewed dry run")
+    ] = None,
+) -> None:
+    """Plan or apply a promotion from a pinned reviewed assessment."""
+    instruction = Promotion(
+        review=review,
+        reviewed_sha256=reviewed_sha256,
+        export=export,
+        task_id=task_id,
+        collection_id=collection_id,
+        family_id=family_id,
+        disposition=disposition,
+        replaces=replaces,
+        new_family_label=new_family_label,
+    )
+    _run_review(
+        lambda: promote_teaching(
+            _state(ctx).repo, instruction, apply=apply, expect_state=expect_state
+        )
+    )
+
+
+@review_app.command("recover")
+def review_recover(ctx: typer.Context) -> None:
+    """Complete an interrupted local teaching promotion."""
+    _run_review(lambda: recover_teaching(_state(ctx).repo))
+
+
 @app.command()
 def scan(ctx: typer.Context) -> None:
     """Emit the full workspace projection as JSON."""
@@ -104,10 +196,15 @@ def find(
 @app.command()
 def show(
     ctx: typer.Context,
-    target: Annotated[str, typer.Argument(help="Asset ID, export key, path, or consumer ID")],
+    target: Annotated[
+        str,
+        typer.Argument(
+            help="Asset ID, exact export key or path, consumer ID, or workbench review ID"
+        ),
+    ],
 ) -> None:
-    """Inspect a maintained asset or consumer with its exports, assessments, and decisions."""
-    _run(lambda: _state(ctx).load().show(target))
+    """Inspect an asset, its exact export, a consumer, or a task-scoped review."""
+    _run(lambda: _state(ctx).load(review_target=target).show(target))
 
 
 @app.command()
@@ -122,7 +219,7 @@ def impact(
     target: Annotated[str, typer.Argument(help="Asset ID, export key, or repo-relative path")],
 ) -> None:
     """Trace consumers, reviews, and selections affected by a target."""
-    _run(lambda: _state(ctx).load().impact(target))
+    _run(lambda: _state(ctx).load(review_target=target).impact(target))
 
 
 @app.command()

@@ -11,7 +11,14 @@ from typing import Any, Literal
 from pydantic import Field, computed_field
 
 from .blobs import normalize_path
-from .curation import Adoption, CurationStore, Qualification, Review, Selection
+from .curation import (
+    Adoption,
+    CurationStore,
+    ExportReview,
+    Qualification,
+    Selection,
+    ultrasound_reviews_for_exports,
+)
 from .discovery import manifests
 from .errors import AssetKitError
 from .models import AssetModel
@@ -235,7 +242,7 @@ class ImpactResult(AssetModel):
     matched_export_paths: tuple[str, ...] = ()
     consumers: tuple[AffectedConsumer, ...] = ()
     adoptions: tuple[Adoption, ...] = ()
-    reviews: tuple[Review, ...] = ()
+    reviews: tuple[ExportReview, ...] = ()
     qualifications: tuple[Qualification, ...] = ()
     selections: tuple[Selection, ...] = ()
 
@@ -657,17 +664,25 @@ class DeliveryGraph:
             recommendations=tuple(recs),
         )
 
-    def impact(self, target: str, registry: AssetRegistry, curation: CurationStore) -> ImpactResult:
+    def impact(
+        self,
+        target: str,
+        registry: AssetRegistry,
+        curation: CurationStore,
+        *,
+        repo: Path | None = None,
+    ) -> ImpactResult:
         matched_assets, matched_paths = registry.match_target(target)
         if not matched_assets and not matched_paths:
             return ImpactResult(target=target, found=False, status="unknown-target")
 
         whole_assets = {a.id for a in registry.assets if target in {a.id, a.owner_dir}}
-        export_keys = {
-            (asset.id, rev.id, exp.id)
+        exports = tuple(
+            (asset, rev, exp)
             for asset, rev, exp in registry.iter_exports()
-            if target == exp.path or target == f"{asset.id}@{rev.id}:{exp.id}"
-        }
+            if asset.id in whole_assets or target in {exp.path, f"{asset.id}@{rev.id}:{exp.id}"}
+        )
+        export_keys = {(asset.id, rev.id, exp.id) for asset, rev, exp in exports}
         affected_consumers = []
         for consumer in self.consumers:
             pins = tuple(
@@ -686,6 +701,10 @@ class DeliveryGraph:
                         owner_path=consumer.owner_path,
                     )
                 )
+        reviews = curation.reviews_for_exports(exports)
+        ultrasound = (
+            ultrasound_reviews_for_exports(repo, registry, exports) if repo is not None else ()
+        )
         return ImpactResult(
             target=target,
             found=True,
@@ -694,9 +713,9 @@ class DeliveryGraph:
             matched_export_paths=tuple(sorted(matched_paths)),
             consumers=tuple(affected_consumers),
             adoptions=curation.adoptions_for(matched_paths, whole_assets),
-            reviews=curation.reviews_for(matched_paths, whole_assets),
+            reviews=(*reviews, *ultrasound),
             qualifications=curation.qualifications_for(matched_paths, whole_assets),
-            selections=curation.selections_for(matched_paths, whole_assets),
+            selections=curation.selections_for(matched_paths, whole_assets, reviews=reviews),
         )
 
     def resolve(
@@ -735,6 +754,7 @@ class DeliveryGraph:
                     revision_id=rev.id,
                     consumer_id=consumer.id,
                     task_id=req.id,
+                    export_bytes=exp.bytes,
                 )
                 for part in exp.parts:
                     prov = part.provenance or rev.provenance
@@ -751,6 +771,7 @@ class DeliveryGraph:
                         task_id=req.id,
                         asset_id=asset.id,
                         revision_id=rev.id,
+                        export_bytes=exp.bytes,
                     )
                     if req.subject and prov.subject and prov.subject != req.subject:
                         foreign_subject.append(

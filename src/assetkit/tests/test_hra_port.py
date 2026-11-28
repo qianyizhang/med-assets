@@ -14,7 +14,9 @@ from typer.testing import CliRunner, Result
 
 from assetkit import AssetKitError, Workspace, inspect_mesh, verify
 from assetkit.cli import app
+from assetkit.curation import Review
 from assetkit.registry import ExportRef, VoxelGrid
+from assetkit.ultrasound_reviews import ECHO_REVIEW_ID, LIVER_REVIEW_ID, UltrasoundReview
 
 REPO = Path(__file__).resolve().parents[3]
 ASSET = "anatomy:hra:liver"
@@ -76,6 +78,27 @@ def test_native_owner_exact_export_and_source_replay_pin() -> None:
     assert shown["asset"]["status"] == "provisional"
     assert not shown["tasks"]
     assert not shown["qualifications"]
+    (review,) = shown["reviews"]
+    assert review["kind"] == "gallery-assessment"
+    assert review["id"] == ASSESSMENT_DIGEST
+    assert review["ownerPath"] == ASSESSMENT_OWNER
+    assert review["reviewer"] == "Codex · campaign lead review"
+    assert review["assessedAt"] == "2026-11-22"
+    assert review["rubric"] == {
+        "path": "docs/guides/asset-quality.md",
+        "sha256": "2e91264ce7c05b6906a8f113f2e0fc888c4765cd3a6d0d6c8a26b6a420900abb",
+        "revision": "9e6e490fd67468985e2e8a8298995c730e2f55e5",
+    }
+    assert review["scores"] == {"axis1": 4, "axis2": 3, "axis3": 3, "axis4": 4}
+    assert review["scoreTotal"] == 14 and all(axis["observation"] for axis in review["axes"])
+    assert review["target"]["status"] == "passed"
+    assert review["evidence"]["teachingView"] in {v["path"] for v in review["evidence"]["views"]}
+    (selection,) = shown["selections"]
+    assert (selection["exportPath"], selection["taskId"], selection["reviewId"]) == (
+        EXPORT,
+        "liver",
+        ASSESSMENT_DIGEST,
+    )
     (revision,) = shown["revisions"]
     assert revision["id"] == "r02"
     assert revision["status"] == "provisional"
@@ -90,6 +113,8 @@ def test_native_owner_exact_export_and_source_replay_pin() -> None:
     assert {field: export[field] for field in EXPORT_PIN} == EXPORT_PIN
     assert export["storageStatus"] in {"verified", "pointer-match"}
     assert export["triangles"] == TRIANGLES
+    assert export["qualification"]["reviewIds"] == [ASSESSMENT_DIGEST]
+    assert export["qualification"]["qualified"] is False
     assert revision["frame"] == export["frame"]
     assert export["frame"]["convention"] == "glb-y-up-m"
     assert export["frame"]["units"] == "m"
@@ -153,13 +178,28 @@ def test_owned_selection_round_trip_and_s1233_placement_rejection() -> None:
     assert indexed_selection.task_id == selection.task_id
     assert indexed_selection.review_id == assessment.sha256
     (review,) = impact.reviews
+    assert isinstance(review, Review)
     assert review.id == assessment.sha256
     assert review.sha256 == DIGEST
+    native = Workspace.load(REPO, include_legacy_adapters=False)
+    native_impact = native.impact(KEY)
+    assert native_impact.reviews == impact.reviews
+    assert native_impact.selections == impact.selections
+    assert not native.impact(SOURCE).reviews
+    assert not native.impact(SOURCE).selections
 
     s1233 = ws.impact("anatomy:s1233:liver-window@r01:liver")
     (sweep,) = s1233.consumers
     assert sweep.consumer_id == "ultrasound:sweep:abdomen-tracks:liver"
     assert sweep.owner_path == "experiments/ultrasound-sweep/abdomen-tracks.json"
+    (sweep_review,) = s1233.reviews
+    assert isinstance(sweep_review, UltrasoundReview)
+    assert (
+        sweep_review.id == LIVER_REVIEW_ID
+        and sweep_review.export_path in s1233.matched_export_paths
+    )
+    assert sweep_review.id != ASSESSMENT_DIGEST
+    assert not s1233.selections
     grid_source = json.loads((REPO / "assemblies/workshop-s1233/inputs.json").read_text())
     grid = VoxelGrid.model_validate(
         {field: grid_source[field] for field in ("case", "shape", "rasMmFromVoxel")}
@@ -168,6 +208,18 @@ def test_owned_selection_round_trip_and_s1233_placement_rejection() -> None:
         ws.registry.require_voxel_export(
             ExportRef(asset=ASSET, revision="r02", export="teaching-economy"), grid
         )
+
+
+def test_native_show_can_find_recipe_bound_echo_review_by_key() -> None:
+    result = CliRunner().invoke(app, ["--repo", str(REPO), "--native-only", "show", ECHO_REVIEW_ID])
+    assert result.exit_code == 0, result.output
+    shown = json.loads(result.output)
+    assert shown["kind"] == "review" and shown["found"]
+    review = shown["review"]
+    assert review["id"] == ECHO_REVIEW_ID
+    assert review["kind"] == "recipe" and review["bindingStatus"] == "recorded"
+    assert review["case"] == "echo-aortic-stenosis" and review["chapter"] == "psax-av-section"
+    assert "exportRef" not in review and "exportPath" not in review
 
 
 def test_hydrated_replay_matches_exact_export(tmp_path: Path) -> None:

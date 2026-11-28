@@ -53,11 +53,27 @@ uv run assetkit compile --target gallery
 uv run assetkit compile --target r2
 ```
 
-A bundle preserves one item per use, including its transform. Totals count each pinned export once. Check each item’s storage status and digest before runtime use. The R2 projection lists demand. The transport owner controls upload admission.
+A bundle preserves one item per use, including its transform. Totals count each pinned export once. Check each item’s storage status and digest before runtime use. Both default and native-only R2 projections include demand from exact maintained selections. The transport owner controls upload admission.
 
 Gallery Library entries and recipe inputs appear in `impact`. A candidate Library route can list several downloads without loading any of them. The [Gallery release guide](../../docs/gallery/asset-library.md#making-a-release-selection) describes how to update those bindings.
 
 Default queries include directory-discovered files with status `legacy-candidate`. An exact governed export path resolves through its owner record. Use `--native-only` for acceptance of a governed dependency.
+
+## Inspect a teaching review
+
+Use the export key to see the task, scores and evidence attached to the exact file.
+
+```sh
+uv run assetkit --native-only show anatomy:hra:liver@r02:teaching-economy
+uv run assetkit --native-only show anatomy:s1233:liver-window@r01:liver
+uv run assetkit show ultrasound:case:echo-aortic-stenosis:psax-av-section:aortic-valve-cusp-1
+```
+
+The HRA review asks the learner to locate the posterior bare area. The ultrasound review asks the learner to distinguish the broad right lobe from the narrower left extension on the s1233 mesh. Each assessment applies to its own geometry, task and rubric. The Gallery starting file is an editorial selection. Asset qualifications require an explicit decision.
+
+The modeled echo cusp is a recipe-bound review. The CLI shows its recorded case, chapter, part and recipe fingerprint. In Python, `workspace.show(review_id, delivery=compact_directory)` checks that fingerprint against an assembled delivery. The ultrasound pilot covers that cusp and the s1233 liver. The [workbench](../../experiments/ultrasound-sweep/README.md) owns the full review collection.
+
+Run `uv run assetkit review check` to validate the maintained teaching register and scorecard. The [promotion guide](../../docs/guides/teaching-assessments.md) covers preview, apply and recovery.
 
 ## Register a package
 

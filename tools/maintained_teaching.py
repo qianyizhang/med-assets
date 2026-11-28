@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """Validate, render and promote local accepted teaching assessments."""
 import argparse
-import json
 import sys
 from pathlib import Path
 
-from med_assets.teaching import CurrentTeaching, render_register, validate_current
-from med_assets.teaching_promotion import Promotion, promote, recover
+from med_assets.teaching_cli import (
+    REVIEW_ERRORS, REVIEW_FAILURE, check_teaching, promote_teaching, recover_teaching, render_teaching,
+)
+from med_assets.teaching_promotion import Promotion
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -31,22 +32,29 @@ def main():
         parser.error("--check cannot be combined with a promotion command")
     repo = args.repo.resolve()
     try:
-        if args.command == "promote":
-            promotion = Promotion(args.review, args.reviewed_sha256, args.export, args.task_id,
-                                  args.collection_id, args.family_id, args.disposition, args.replaces,
-                                  args.new_family_label)
-            output = promote(repo, promotion, apply=args.apply, expect_state=args.expect_state)
-            print(json.dumps(output, ensure_ascii=False, indent=2))
-        elif args.command == "recover":
-            print("Recovered teaching promotion." if recover(repo) else "No teaching promotion to recover.")
-        elif args.check:
-            count = validate_current(repo)
-            print(f"Validated {count} accepted teaching assessments, the teaching register and scorecard.")
-        else:
-            current = CurrentTeaching(repo)
-            sys.stdout.write(render_register(current.selections))
-    except (OSError, ValueError, KeyError, TypeError, RuntimeError) as error:
-        parser.exit(1, f"Maintained teaching failed: {error}\n")
+        match args.command:
+            case "promote":
+                instruction = Promotion(
+                    review=args.review,
+                    reviewed_sha256=args.reviewed_sha256,
+                    export=args.export,
+                    task_id=args.task_id,
+                    collection_id=args.collection_id,
+                    family_id=args.family_id,
+                    disposition=args.disposition,
+                    replaces=args.replaces,
+                    new_family_label=args.new_family_label,
+                )
+                output = promote_teaching(
+                    repo, instruction, apply=args.apply, expect_state=args.expect_state
+                )
+            case "recover":
+                output = recover_teaching(repo)
+            case _:
+                output = check_teaching(repo) if args.check else render_teaching(repo)
+        sys.stdout.write(output)
+    except REVIEW_ERRORS as error:
+        parser.exit(1, f"{REVIEW_FAILURE}: {error}\n")
 
 
 if __name__ == "__main__":

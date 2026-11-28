@@ -452,7 +452,7 @@ def check_port(
     record = load_record(repo, expected.record, strict=True)
     ref = expected.ref
     key = f"{ref.asset}@{ref.revision}:{ref.export}"
-    ws = Workspace.load(repo, include_legacy_adapters=False)
+    ws = Workspace.load(repo, include_legacy_adapters=False, review_target=expected.path)
     shown = ws.show(key)
     if (
         not isinstance(shown, ShowAssetResult)

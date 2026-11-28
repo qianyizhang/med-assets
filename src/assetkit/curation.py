@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 import json
+from collections.abc import Iterable
 from dataclasses import dataclass
 from pathlib import Path
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING, Any, Literal
 
 from pydantic import Field
 
@@ -13,15 +14,27 @@ from .blobs import HEX64
 from .discovery import manifests
 from .errors import AssetKitError
 from .models import AssetModel
+from .ultrasound_reviews import (
+    LIVER_REVIEW_ASSET,
+    LIVER_REVIEW_ID,
+    UltrasoundReview,
+    load_ultrasound_reviews,
+)
 
 if TYPE_CHECKING:
     from .delivery import DeliveryGraph
-    from .registry import AssetRegistry
+    from .registry import Asset, AssetRegistry, Export, Revision
 
 REVIEW_STATUSES = frozenset({"accepted", "provisional", "blocked", "rejected"})
 QUALIFICATION_DECISIONS = frozenset({"qualified", "provisional", "blocked", "rejected"})
 ADOPTION_STATUSES = frozenset({"provisional", "qualified", "deprecated", "retired"})
 SELECTION_KINDS = frozenset({"teaching-default", "recommended-revision", "release-admitted"})
+
+
+class ReviewEvidence(AssetModel):
+    sources: tuple[dict[str, Any], ...]
+    views: tuple[dict[str, Any], ...]
+    teaching_view: str | None = None
 
 
 class Review(AssetModel):
@@ -38,12 +51,46 @@ class Review(AssetModel):
     part_id: str | None = None
     scores: dict[str, Any] = Field(default_factory=dict)
     limits: tuple[str, ...] = ()
+    kind: Literal["gallery-assessment", "legacy-assessment"] | None = None
+    bytes: int | None = None
+    reviewer: str | None = None
+    assessed_at: str | None = None
+    rubric: dict[str, Any] | str | None = None
+    axes: tuple[dict[str, Any], ...] | None = None
+    score_total: int | None = None
+    evidence: ReviewEvidence | None = None
+    decision: str | None = None
+    target: dict[str, Any] | None = None
+    refinement: dict[str, Any] | None = None
 
     def validate_invariants(self) -> None:
         if not self.id.strip() or not self.export_path.strip():
             raise AssetKitError(f"Review requires non-empty id and export_path: {self}")
         if self.status not in REVIEW_STATUSES:
             raise AssetKitError(f"Invalid review status '{self.status}' on '{self.id}'")
+
+
+ExportReview = Review | UltrasoundReview
+
+
+def ultrasound_reviews_for_exports(
+    repo: Path,
+    registry: AssetRegistry,
+    exports: Iterable[tuple[Asset, Revision, Export]],
+) -> tuple[UltrasoundReview, ...]:
+    exact = {
+        (asset.id, rev.id, exp.id, asset.source_manifest, exp.path)
+        for asset, rev, exp in exports
+        if asset.id == LIVER_REVIEW_ASSET
+    }
+    if not exact:
+        return ()
+    return tuple(
+        review
+        for review in load_ultrasound_reviews(repo, registry, target=LIVER_REVIEW_ID)
+        if (ref := review.export_ref) is not None
+        and (ref.asset, ref.revision, ref.export, ref.record, review.export_path) in exact
+    )
 
 
 class Selection(AssetModel):
@@ -191,17 +238,40 @@ class CurationStore:
     adoptions: tuple[Adoption, ...] = ()
 
     @classmethod
-    def load(cls, repo: Path, *, include_legacy_adapters: bool = True) -> CurationStore:
+    def load(
+        cls,
+        repo: Path,
+        *,
+        include_legacy_adapters: bool = True,
+        registry: AssetRegistry | None = None,
+        review_paths: set[str] | None = None,
+    ) -> CurationStore:
+        from med_assets.teaching import ASSESSMENTS, SELECTIONS
+
         root = repo.resolve()
         reviews: list[Review] = []
         selections: list[Selection] = []
         qualifications, adoptions = _load_record_curation(root)
-        if include_legacy_adapters:
-            if (root / "reviews/teaching-assessments/current-assessments.json").is_file():
-                reviews, selections = _load_current_teaching(root)
-            else:
-                reviews = _load_teaching_assessments(root)
-                selections = _load_maintained_selections(root)
+        has_current = (root / ASSESSMENTS).is_file()
+        if has_current and (include_legacy_adapters or (root / SELECTIONS).is_file()):
+            native_exports = None
+            if not include_legacy_adapters:
+                if registry is None:
+                    from .registry import AssetRegistry
+
+                    registry = AssetRegistry.load(root, include_legacy_adapters=False)
+                native_exports = {
+                    (export.path, export.sha256, export.bytes)
+                    for _, _, export in registry.iter_exports()
+                    if export.sha256
+                    and export.bytes
+                    and export.storage_status not in {"mismatch", "invalid-pointer"}
+                    and (review_paths is None or export.path in review_paths)
+                }
+            reviews, selections = _load_current_teaching(root, native_exports=native_exports)
+        elif include_legacy_adapters and not has_current:
+            reviews = _load_teaching_assessments(root)
+            selections = _load_maintained_selections(root)
         return cls(
             reviews=tuple(reviews),
             selections=tuple(selections),
@@ -249,6 +319,8 @@ class CurationStore:
         part_id: str | None = None,
         asset_id: str | None = None,
         revision_id: str | None = None,
+        export_bytes: int | None = None,
+        review_ids: set[str] | None = None,
     ) -> QualificationStatus:
         """Compute exact-digest assessment evidence, qualification decisions, and adoption state."""
         if not sha256 or not HEX64.fullmatch(sha256):
@@ -286,6 +358,8 @@ class CurationStore:
             for r in self.reviews
             if r.export_path == export_path
             and r.sha256 == sha256
+            and (export_bytes is None or r.bytes is None or r.bytes == export_bytes)
+            and (review_ids is None or r.id in review_ids)
             and (r.asset_id is None or asset_id is None or r.asset_id == asset_id)
             and (task is None or r.task_id == task)
             and (part_id is None or r.part_id is None or r.part_id == part_id)
@@ -336,9 +410,29 @@ class CurationStore:
 
     def reviews_for(self, export_paths: set[str], asset_ids: set[str]) -> tuple[Review, ...]:
         return tuple(
-            r
-            for r in self.reviews
-            if r.export_path in export_paths or (r.asset_id in asset_ids if r.asset_id else False)
+            review
+            for review in self.reviews
+            if review.export_path in export_paths or review.asset_id in asset_ids
+        )
+
+    def reviews_for_exports(
+        self, exports: Iterable[tuple[Asset, Revision, Export]]
+    ) -> tuple[Review, ...]:
+        identities: dict[str, set[tuple[str, str, int | None]]] = {}
+        for asset, _, export in exports:
+            if export.sha256 and export.storage_status not in {"mismatch", "invalid-pointer"}:
+                identities.setdefault(export.path, set()).add(
+                    (asset.id, export.sha256, export.bytes)
+                )
+        return tuple(
+            review
+            for review in self.reviews
+            if any(
+                digest == review.sha256
+                and (review.asset_id is None or review.asset_id == asset_id)
+                and (review.bytes is None or review.bytes == size)
+                for asset_id, digest, size in identities.get(review.export_path, ())
+            )
         )
 
     def qualifications_for(
@@ -356,11 +450,24 @@ class CurationStore:
             a for a in self.adoptions if a.export_path in export_paths or a.asset_id in asset_ids
         )
 
-    def selections_for(self, export_paths: set[str], asset_ids: set[str]) -> tuple[Selection, ...]:
+    def selections_for(
+        self,
+        export_paths: set[str],
+        asset_ids: set[str],
+        *,
+        reviews: tuple[Review, ...] | None = None,
+    ) -> tuple[Selection, ...]:
+        authoritative = (
+            {r.id for r in self.reviews if r.kind == "gallery-assessment"}
+            if reviews is not None
+            else set()
+        )
+        matched = {r.id for r in reviews or ()}
         return tuple(
             s
             for s in self.selections
-            if s.export_path in export_paths or (s.asset_id in asset_ids if s.asset_id else False)
+            if (s.export_path in export_paths or (s.asset_id in asset_ids if s.asset_id else False))
+            and (s.review_id not in authoritative or s.review_id in matched)
         )
 
     def compile_gallery(
@@ -374,7 +481,11 @@ class CurationStore:
                 exps: list[GalleryExportView] = []
                 for exp in rev.exports:
                     qual = self.qualification_for(
-                        exp.path, exp.sha256, asset_id=asset.id, revision_id=rev.id
+                        exp.path,
+                        exp.sha256,
+                        asset_id=asset.id,
+                        revision_id=rev.id,
+                        export_bytes=exp.bytes,
                     )
                     exps.append(
                         GalleryExportView(
@@ -571,15 +682,32 @@ def _load_record_curation(repo: Path) -> tuple[list[Qualification], list[Adoptio
     return qualifications, adoptions
 
 
-def _load_current_teaching(repo: Path) -> tuple[list[Review], list[Selection]]:
+def _load_current_teaching(
+    repo: Path,
+    *,
+    native_exports: set[tuple[str, str, int]] | None,
+) -> tuple[list[Review], list[Selection]]:
     # Import the repository adapter only when reading its maintained register.
     from med_assets.teaching import SELECTIONS, CurrentTeaching
 
+    if native_exports is not None and not native_exports:
+        return [], []
     current = CurrentTeaching(repo)
+    paths = {path for path, _, _ in native_exports} if native_exports is not None else None
     reviews = []
     for path, task_id in current.entries:
+        if paths is not None and path not in paths:
+            continue
         assessment = current.resolve(path, task_id)
         row = assessment.row
+        claim = row["export"]
+        if (
+            native_exports is not None
+            and (path, claim["sha256"], claim["bytes"]) not in native_exports
+        ):
+            continue
+        scores = {f"axis{i}": axis["score"] for i, axis in enumerate(row["axes"], 1)}
+        ratings = [score for score in scores.values() if score is not None]
         reviews.append(
             Review(
                 id=assessment.sha256,
@@ -590,10 +718,26 @@ def _load_current_teaching(repo: Path) -> tuple[list[Review], list[Selection]]:
                 if row.get("target", {}).get("status") == "blocked"
                 else "accepted",
                 owner_path=assessment.owner.relative_to(repo).as_posix(),
-                sha256=row["export"]["sha256"],
-                scores={f"axis{i}": axis["score"] for i, axis in enumerate(row["axes"], 1)},
+                sha256=claim["sha256"],
+                scores=scores,
+                kind="gallery-assessment",
+                bytes=claim["bytes"],
+                reviewer=assessment.attribution["evaluator"],
+                assessed_at=assessment.attribution["date"],
+                rubric=assessment.attribution["rubric"],
+                axes=tuple(row["axes"]),
+                score_total=sum(ratings) if len(ratings) == 4 else None,
+                evidence=ReviewEvidence(
+                    sources=tuple(row["sources"]),
+                    views=tuple(row["views"]),
+                    teaching_view=row.get("teachingView"),
+                ),
+                decision=row.get("decision"),
+                target=row.get("target"),
+                refinement=row.get("refinement"),
             )
         )
+    reviewed = {review.id for review in reviews}
     selections = [
         Selection(
             id=f"selection:{selection.collection_id}:{selection.family_id}:{selection.path}",
@@ -605,7 +749,8 @@ def _load_current_teaching(repo: Path) -> tuple[list[Review], list[Selection]]:
             task_id=selection.task_id,
             review_id=assessment.sha256,
         )
-        for selection, assessment in current.selected()
+        for selection, assessment in current.selected(paths=paths)
+        if assessment.sha256 in reviewed
     ]
     return reviews, selections
 
@@ -650,6 +795,7 @@ def _load_teaching_assessments(repo: Path) -> list[Review]:
                     owner_path=rel_owner,
                     sha256=exp.get("sha256"),
                     scores=scores,
+                    kind="legacy-assessment",
                 )
             )
     return reviews

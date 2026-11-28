@@ -8,12 +8,14 @@ from typing import Any, Literal
 
 from .curation import (
     CurationStore,
+    ExportReview,
     GalleryProjection,
     Qualification,
     QualificationStatus,
     R2SyncItem,
     Review,
     Selection,
+    ultrasound_reviews_for_exports,
 )
 from .delivery import (
     BudgetPolicy,
@@ -27,6 +29,12 @@ from .delivery import (
 from .errors import AssetKitError
 from .models import AssetModel
 from .registry import AssetRegistry, CoordinateFrame, Part, Provenance, VoxelGrid
+from .ultrasound_reviews import (
+    ECHO_REVIEW_ID,
+    LIVER_REVIEW_ID,
+    UltrasoundReview,
+    load_ultrasound_reviews,
+)
 from .vocab import ConceptGraph
 
 
@@ -124,7 +132,7 @@ class ShowAssetResult(AssetModel):
     asset: AssetHeader
     revisions: tuple[ShowRevisionView, ...] = ()
     tasks: tuple[TaskAdoptionView, ...] = ()
-    reviews: tuple[Review, ...] = ()
+    reviews: tuple[ExportReview, ...] = ()
     qualifications: tuple[Qualification, ...] = ()
     selections: tuple[Selection, ...] = ()
 
@@ -137,13 +145,21 @@ class ShowConsumerResult(AssetModel):
     consumer: Consumer
 
 
+class ShowReviewResult(AssetModel):
+    target: str
+    found: Literal[True] = True
+    status: Literal["ok"] = "ok"
+    kind: Literal["review"] = "review"
+    review: UltrasoundReview
+
+
 class UnknownTargetResult(AssetModel):
     target: str
     found: Literal[False] = False
     status: Literal["unknown-target"] = "unknown-target"
 
 
-ShowResult = ShowAssetResult | ShowConsumerResult | UnknownTargetResult
+ShowResult = ShowAssetResult | ShowConsumerResult | ShowReviewResult | UnknownTargetResult
 
 
 @dataclass(frozen=True)
@@ -163,12 +179,18 @@ class Workspace:
         *,
         include_legacy_adapters: bool = True,
         inspect_glbs: bool = False,
+        review_target: str | None = None,
     ) -> Workspace:
         root = repo.resolve()
         registry = AssetRegistry.load(
             root,
             include_legacy_adapters=include_legacy_adapters,
             inspect_glbs=inspect_glbs,
+        )
+        review_paths = (
+            registry.match_target(review_target)[1]
+            if review_target is not None and not include_legacy_adapters
+            else None
         )
         return cls(
             repository=root,
@@ -177,7 +199,12 @@ class Workspace:
             delivery=DeliveryGraph.load(
                 root, include_legacy_adapters=include_legacy_adapters, registry=registry
             ),
-            curation=CurationStore.load(root, include_legacy_adapters=include_legacy_adapters),
+            curation=CurationStore.load(
+                root,
+                include_legacy_adapters=include_legacy_adapters,
+                registry=registry,
+                review_paths=review_paths,
+            ),
         )
 
     def validate(self) -> list[str]:
@@ -205,7 +232,7 @@ class Workspace:
         )
 
     def impact(self, target: str) -> ImpactResult:
-        return self.delivery.impact(target, self.registry, self.curation)
+        return self.delivery.impact(target, self.registry, self.curation, repo=self.repository)
 
     def bundle(self, consumer_id: str) -> RuntimeBundle:
         return self.delivery.bundle_for(consumer_id, self.registry)
@@ -282,8 +309,15 @@ class Workspace:
             consumers=tuple(consumers_hit),
         )
 
-    def show(self, target: str) -> ShowResult:
+    def show(self, target: str, *, delivery: Path | None = None) -> ShowResult:
         """Inspect a maintained asset (or consumer) with its exports, assessments, and decisions."""
+        if target in {LIVER_REVIEW_ID, ECHO_REVIEW_ID}:
+            reviews = load_ultrasound_reviews(
+                self.repository, self.registry, target=target, delivery=delivery
+            )
+            if reviews:
+                return ShowReviewResult(target=target, review=reviews[0])
+            return UnknownTargetResult(target=target)
         matched_assets, _ = self.registry.match_target(target)
         if len(matched_assets) > 1:
             native_owners = {
@@ -300,13 +334,32 @@ class Workspace:
         if matched_assets:
             asset = self.registry.get(next(iter(matched_assets)))
             if asset is not None:
-                asset_paths = {exp.path for rev in asset.revisions for exp in rev.exports}
+                whole_asset = target in {asset.id, asset.owner_dir}
+                asset_ids = {asset.id} if whole_asset else set()
+                matches = tuple(
+                    (asset, rev, exp)
+                    for rev in asset.revisions
+                    for exp in rev.exports
+                    if whole_asset or target in {exp.path, f"{asset.id}@{rev.id}:{exp.id}"}
+                )
+                asset_paths = {exp.path for _, _, exp in matches}
+                reviews = self.curation.reviews_for_exports(matches)
+                ultrasound = ultrasound_reviews_for_exports(self.repository, self.registry, matches)
+                scoped_ids = {review.id for review in reviews}
+                export_ids = {(rev.id, exp.id) for _, rev, exp in matches}
                 revisions_out: list[ShowRevisionView] = []
                 for rev in asset.revisions:
                     exports_out: list[ShowExportView] = []
                     for exp in rev.exports:
+                        if (rev.id, exp.id) not in export_ids:
+                            continue
                         qual = self.curation.qualification_for(
-                            exp.path, exp.sha256, asset_id=asset.id, revision_id=rev.id
+                            exp.path,
+                            exp.sha256,
+                            asset_id=asset.id,
+                            revision_id=rev.id,
+                            export_bytes=exp.bytes,
+                            review_ids=scoped_ids,
                         )
                         exports_out.append(
                             ShowExportView(
@@ -325,6 +378,8 @@ class Workspace:
                                 qualification=qual,
                             )
                         )
+                    if not whole_asset and not exports_out:
+                        continue
                     revisions_out.append(
                         ShowRevisionView(
                             id=rev.id,
@@ -337,7 +392,7 @@ class Workspace:
                         )
                     )
 
-                adoptions = self.curation.adoptions_for(asset_paths, {asset.id})
+                adoptions = self.curation.adoptions_for(asset_paths, asset_ids)
                 tasks_out: list[TaskAdoptionView] = []
                 for adop in adoptions:
                     task_qual = self.curation.qualification_for(
@@ -346,11 +401,11 @@ class Workspace:
                         use_id=adop.use_id,
                         asset_id=asset.id,
                         revision_id=adop.revision_id,
+                        export_bytes=adop.bytes,
+                        review_ids=scoped_ids,
                     )
                     matching_ids = set(task_qual.review_ids)
-                    matching_reviews = tuple(
-                        r for r in self.curation.reviews if r.id in matching_ids
-                    )
+                    matching_reviews = tuple(r for r in reviews if r.id in matching_ids)
                     tasks_out.append(
                         TaskAdoptionView(
                             use_id=adop.use_id,
@@ -382,9 +437,11 @@ class Workspace:
                     ),
                     revisions=tuple(revisions_out),
                     tasks=tuple(tasks_out),
-                    reviews=self.curation.reviews_for(asset_paths, {asset.id}),
-                    qualifications=self.curation.qualifications_for(asset_paths, {asset.id}),
-                    selections=self.curation.selections_for(asset_paths, {asset.id}),
+                    reviews=(*reviews, *ultrasound),
+                    qualifications=self.curation.qualifications_for(asset_paths, asset_ids),
+                    selections=self.curation.selections_for(
+                        asset_paths, asset_ids, reviews=reviews
+                    ),
                 )
 
         consumer = self.delivery.get(target)
