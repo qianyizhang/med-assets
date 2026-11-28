@@ -25,7 +25,8 @@ The [design](../src/assetkit/DESIGN.md#decisions) owns the architecture. The [la
 | --- | --- |
 | `glb-y-up-m` | The file uses a right-handed, Y-up convention in metres. Establish patient axes, origin, scale, and placement from package evidence before combining different sources. |
 | `voxel-index` | Vertices are voxel indices. Bind case, grid shape, and the complete `rasMmFromVoxel` affine. Applying the affine once yields RAS millimetres. The s1233 handoff checks all three fields. Use the same rule for s1127 or s0189 with their own grids. |
-| `blender-z-up-m` | Use for metre-valued authoring coordinates. Record scene scale and the export transform for assets authored in Blender units. |
+| `blender-z-up-m` | Use for metre-valued Blender authoring coordinates. |
+| `blender-z-up-bu` | Stored coordinates are Blender units (`BU`). Record the conversion to GLB world metres in `blenderToGlb`. For the standard export, its three axes give GLB X, Y and Z as `(+X, +Z, −Y)` of the scene, multiplied once by `metresPerUnit`. The resulting GLB declares its own `glb-y-up-m` frame. |
 | `tool-probe-m` | A probe's owner defines its footprint origin, beam and marker axes, dimensions, and placement transform. |
 | `unverified-frame` | Name the missing frame evidence in `unresolved`. Provisional registration may proceed. Consumers requiring spatial placement must reject the handoff. |
 

@@ -201,6 +201,7 @@ def _record_sync(repo: Path, record: AssetRecord) -> SyncDiff:
     observed = {identity.path: identity for identity in reversed(record.inputs)}
     changes: list[SyncExportChange] = []
     meshes: dict[str, MeshStats | None] = {}
+    voxel_paths = {export.path for export in record.exports if export.is_voxel_mesh}
     for export in record.exports:
         blob = observed[export.path]
         if blob.status == "pointer-match" and not {"sha256", "bytes"} <= export.row.keys():
@@ -208,7 +209,7 @@ def _record_sync(repo: Path, record: AssetRecord) -> SyncDiff:
                 f"Hydrated bytes required for initial identity registration: {export.path}"
             )
         if export.path not in meshes:
-            meshes[export.path] = export_mesh(repo, blob)
+            meshes[export.path] = export_mesh(repo, blob, voxel_mesh=export.path in voxel_paths)
         mesh = meshes[export.path]
         fields: dict[str, str | int | None] = {"sha256": blob.sha256, "bytes": blob.bytes}
         if mesh is not None:

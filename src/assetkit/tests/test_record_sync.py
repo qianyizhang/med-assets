@@ -327,3 +327,77 @@ def test_atomic_replace_failure_preserves_record_and_cleans_temporary_file(
         apply_record_sync(tmp, RECORD, plan.plan_token)
     assert manifest.read_bytes() == original
     assert set(manifest.parent.iterdir()) == files
+
+
+def test_voxel_mesh_sync_fills_and_checks_triangles(package) -> None:
+    repo, record, _ = package
+    revision = record["revisions"][0]
+    revision["frame"] = {"convention": "voxel-index", "units": "voxel"}
+    path = f"{OWNER}/liver.mesh"
+    export = revision["exports"][0]
+    export.update(
+        path=path,
+        voxelGrid={
+            "case": "test",
+            "shape": [3, 3, 3],
+            "rasMmFromVoxel": [[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]],
+        },
+    )
+    record["exports"] = [{"path": path}]
+    raw = struct.pack("<2I9f3I", 3, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 2)
+    payload = repo / path
+    payload.write_bytes(raw)
+    owner = repo / RECORD
+    owner.write_text(json.dumps(record))
+    plan = plan_record_sync(repo, RECORD)
+    assert plan.updated_exports[0].changes["triangles"] == {"before": None, "after": 1}
+    assert plan.plan_token is not None
+    apply_record_sync(repo, RECORD, plan.plan_token)
+    stored = json.loads(owner.read_bytes())
+    assert stored["revisions"][0]["exports"][0]["triangles"] == 1
+    assert not plan_record_sync(repo, RECORD).updated_exports
+
+    stored["exports"][0]["triangles"] = 999
+    del stored["revisions"][0]["exports"][0]["triangles"]
+    owner.write_text(json.dumps(stored))
+    before = owner.read_bytes()
+    with pytest.raises(AssetKitError, match="Conflicting triangle count"):
+        plan_record_sync(repo, RECORD)
+    with pytest.raises(AssetKitError, match="Conflicting triangle count"):
+        apply_record_sync(repo, RECORD, plan.plan_token)
+    assert owner.read_bytes() == before
+
+    del stored["exports"][0]["triangles"]
+    owner.write_text(json.dumps(stored))
+    payload.write_text(
+        f"version https://git-lfs.github.com/spec/v1\noid sha256:{hashlib.sha256(raw).hexdigest()}\nsize {len(raw)}\n"
+    )
+    assert not plan_record_sync(repo, RECORD).updated_exports
+
+
+@pytest.mark.parametrize(
+    "bad",
+    [
+        {"units": "m"},
+        {"blenderToGlb": None},
+        {"blenderToGlb": {"metresPerUnit": 0, "axes": ["+X", "+Z", "-Y"]}},
+        {"blenderToGlb": {"metresPerUnit": 0.025, "axes": ["+X", "-Z", "+Y"]}},
+        {"convention": "glb-y-up-m", "units": "m"},
+    ],
+)
+def test_sync_rejects_inconsistent_native_scene_conversion(package, bad) -> None:
+    repo, record, _ = package
+    record["revisions"][0]["frame"] = {
+        **FRAME,
+        "convention": "blender-z-up-bu",
+        "units": "BU",
+        "axes": ["right-handed", "Z-up"],
+        "blenderToGlb": {"metresPerUnit": 0.025, "axes": ["+X", "+Z", "-Y"]},
+        **bad,
+    }
+    path = repo / RECORD
+    path.write_text(json.dumps(record))
+    before = path.read_bytes()
+    with pytest.raises(AssetKitError, match="Invalid coordinate frame"):
+        plan_record_sync(repo, RECORD)
+    assert path.read_bytes() == before

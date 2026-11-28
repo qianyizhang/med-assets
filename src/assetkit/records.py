@@ -35,6 +35,14 @@ class RecordExport:
     selectors: tuple[str, ...] = ()
     frame: CoordinateFrame | None = None
 
+    @property
+    def is_voxel_mesh(self) -> bool:
+        return (
+            self.path.endswith(".mesh")
+            and self.frame is not None
+            and self.frame.convention == "voxel-index"
+        )
+
 
 @dataclass(frozen=True)
 class AssetRecord:
@@ -131,11 +139,16 @@ def _frame(raw: object, unresolved: tuple[str, ...], context: str) -> Coordinate
                 f"Name the missing frame evidence for {context} in the record's unresolved list"
             )
         return frame
+    expected_units = "BU" if frame.convention == "blender-z-up-bu" else "m"
     if frame.convention != "voxel-index" and (
-        frame.units != "m" or not frame.axes or any(not axis.strip() for axis in frame.axes)
+        frame.units != expected_units
+        or not frame.axes
+        or any(not axis.strip() for axis in frame.axes)
     ):
-        raise AssetKitError(f"Declare metre units and axes for {context}")
-    up = {"glb-y-up-m": "Y-up", "blender-z-up-m": "Z-up"}.get(frame.convention)
+        raise AssetKitError(f"Declare {expected_units} units and axes for {context}")
+    up = {"glb-y-up-m": "Y-up", "blender-z-up-m": "Z-up", "blender-z-up-bu": "Z-up"}.get(
+        frame.convention
+    )
     if up:
         axes = set(frame.axes)
         other_up = {"X-up", "Y-up", "Z-up"} - {up}
@@ -489,12 +502,7 @@ def check_port(
         if not allow_lfs_pointer:
             raise AssetKitError(f"Hydrated bytes required for {key}")
     else:
-        voxel_mesh = (
-            selected.path.endswith(".mesh")
-            and selected.frame is not None
-            and selected.frame.convention == "voxel-index"
-        )
-        mesh = export_mesh(repo, observed, voxel_mesh=voxel_mesh)
+        mesh = export_mesh(repo, observed, voxel_mesh=selected.is_voxel_mesh)
         if (selected.selectors or declared_triangles is not None) and mesh is None:
             raise AssetKitError(f"Cannot verify claimed mesh statistics or selectors for {key}")
         if mesh is not None:

@@ -8,7 +8,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Literal
 
-from pydantic import Field, FiniteFloat, PositiveInt
+from pydantic import Field, FiniteFloat, PositiveInt, model_validator
 
 from .blobs import inspect_mesh, normalize_path, safe_path, verify
 from .discovery import SKIP_DIRS, manifests
@@ -53,8 +53,20 @@ class VoxelGrid(AssetModel):
 
 
 FrameConvention = Literal[
-    "glb-y-up-m", "voxel-index", "blender-z-up-m", "tool-probe-m", "unverified-frame"
+    "glb-y-up-m",
+    "voxel-index",
+    "blender-z-up-m",
+    "blender-z-up-bu",
+    "tool-probe-m",
+    "unverified-frame",
 ]
+
+
+class BlenderToGlb(AssetModel):
+    """Uniform physical scale and the standard Blender-to-glTF world-axis mapping."""
+
+    metres_per_unit: float = Field(gt=0, allow_inf_nan=False, strict=True)
+    axes: tuple[Literal["+X"], Literal["+Z"], Literal["-Y"]]
 
 
 class CoordinateFrame(AssetModel):
@@ -65,6 +77,18 @@ class CoordinateFrame(AssetModel):
     axes: tuple[str, ...] = ()
     evidence: str | None = None
     unresolved: str | None = None
+    blender_to_glb: BlenderToGlb | None = None
+
+    @model_validator(mode="after")
+    def _check_blender_units(self) -> CoordinateFrame:
+        if self.convention == "blender-z-up-bu":
+            if self.units != "BU" or self.blender_to_glb is None:
+                raise ValueError(
+                    "A Blender-unit frame needs BU units and a Blender-to-GLB transform"
+                )
+        elif self.blender_to_glb is not None:
+            raise ValueError("The Blender-to-GLB transform belongs to a blender-z-up-bu frame")
+        return self
 
 
 class SpatialFrame(AssetModel):

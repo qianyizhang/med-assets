@@ -841,3 +841,29 @@ def test_read_verified_rejects_missing_lfs_and_changed_bytes(tmp_path: Path) -> 
         read_verified(tmp_path, file.name, digest, len(data))
     file.write_bytes(data)
     assert read_verified(tmp_path, file.name, digest, len(data)) == data
+
+
+def test_cardiac_editable_exports_preserve_native_scene_scale() -> None:
+    repo = Path(__file__).resolve().parents[3]
+    registry = AssetRegistry.load_records(
+        repo,
+        [
+            "heart/Cardiac_Atlas/asset.record.json",
+            "heart/Cardiac_Atlas_Animated/asset.record.json",
+        ],
+    )
+    units = json.loads((repo / "heart/Cardiac_Atlas/geometry_spec.json").read_bytes())["units"]
+    native = []
+    for _, _, export in registry.iter_exports():
+        frame = export.frame
+        assert frame is not None
+        if export.format == "blend":
+            native.append(export.path)
+            assert (frame.convention, frame.units) == ("blender-z-up-bu", "BU")
+            assert frame.blender_to_glb is not None
+            assert frame.blender_to_glb.metres_per_unit == units["blender_scene_scale_length_m"]
+            assert frame.blender_to_glb.axes == ("+X", "+Z", "-Y")
+        elif export.format == "glb":
+            assert (frame.convention, frame.units) == ("glb-y-up-m", "m")
+            assert frame.blender_to_glb is None
+    assert len(native) == 2

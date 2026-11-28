@@ -426,8 +426,12 @@
         "source:cardiac-atlas:procedural-r01"
       ],
       "frame": {
-        "convention": "blender-z-up-m",
-        "units": "m",
+        "convention": "blender-z-up-bu",
+        "units": "BU",
+        "blenderToGlb": {
+          "metresPerUnit": 0.025,
+          "axes": ["+X", "+Z", "-Y"]
+        },
         "axes": [
           "right-handed",
           "Z-up",
