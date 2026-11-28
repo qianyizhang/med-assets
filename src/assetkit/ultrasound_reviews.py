@@ -1,8 +1,10 @@
-"""Read two exact, scoped reviews from the ultrasound workbench."""
+"""Read exact mesh and recipe reviews from the ultrasound workbench."""
 
 from __future__ import annotations
 
 import json
+from collections import defaultdict
+from collections.abc import Iterable
 from hashlib import sha256
 from pathlib import Path
 from typing import TYPE_CHECKING, Any, Literal
@@ -21,10 +23,11 @@ from pydantic import Field
 from .blobs import HEX64, safe_path, verify
 from .errors import AssetKitError
 from .models import AssetModel
-from .registry import ExportRef, RecordExportRef
+from .registry import RecordExportRef
+from .ultrasound import SweepSceneAssetRef
 
 if TYPE_CHECKING:
-    from .registry import AssetRegistry
+    from .registry import Asset, AssetRegistry, Export, Revision
 
 SWEEP_ROOT = "experiments/ultrasound-sweep"
 REVIEW_ROOT = f"{SWEEP_ROOT}/development/asset-reviews"
@@ -67,6 +70,7 @@ class UltrasoundReview(AssetModel):
     export_ref: RecordExportRef | None = None
     export_path: str | None = None
     mesh_sha256: str | None = None
+    chapter_sha256: str | None = None
     recipe_sha256: str | None = None
 
 
@@ -120,12 +124,22 @@ def _review_fields(repo: Path, path: Path, package, record) -> dict[str, Any]:
     )
 
 
-def _liver_review(
-    repo: Path, registry: AssetRegistry, path: Path, package
-) -> UltrasoundReview | None:
-    record = _select(package["records"], "sweep", "liver", None, "liver")
-    if record is None:
-        return None
+def _mesh_review_id(record) -> str:
+    return ":".join(
+        field
+        for field in (
+            "ultrasound",
+            record["source"],
+            record["case"],
+            record.get("chapter"),
+            record["part"],
+        )
+        if field
+    )
+
+
+def _liver_binding(repo: Path, package, record) -> SweepSceneAssetRef | None:
+    """Retain the pilot's original track and rubric check for its digest-only review."""
     track_file = safe_path(repo, LIVER_TRACK)
     rubric = safe_path(repo, RUBRIC_PATH)
     if not track_file.is_file() or not rubric.is_file():
@@ -140,37 +154,49 @@ def _liver_review(
     raw_ref = tracks[0].get("sceneAssets", {}).get(record["part"])
     if not raw_ref or record["part"] not in tracks[0].get("parts", []):
         return None
-    ref = ExportRef.model_validate(raw_ref)
-    if ref.asset != LIVER_REVIEW_ASSET:
-        return None
-    resolved = registry.resolve_export(ref.asset, ref.revision, ref.export)
-    if resolved is None:
-        return None
-    asset, _, export = resolved
+    ref = SweepSceneAssetRef.model_validate(raw_ref)
+    return ref if ref.asset == LIVER_REVIEW_ASSET else None
+
+
+def _mesh_review(
+    repo: Path, path: Path, package, record, match: tuple[Asset, Revision, Export]
+) -> UltrasoundReview | None:
+    asset, revision, export = match
     mesh_hash = record["meshSha256"]
     owner = asset.source_manifest
-    if (
-        not owner
-        or Path(owner).name != "asset.record.json"
-        or export.format != "mesh"
-        or export.bytes is None
-        or export.sha256 != mesh_hash
-        or record["revision"] != mesh_hash
-        or record["part"] not in {part.id for part in export.parts}
-    ):
+    if owner is None or export.bytes is None:
         return None
+    ref = RecordExportRef(asset=asset.id, revision=revision.id, export=export.id, record=owner)
+    export_key = f"{ref.asset}@{ref.revision}:{ref.export}"
+    if "@" in record["revision"] and record["revision"] != export_key:
+        return None
+    review_id = _mesh_review_id(record)
+    binding_owner = path.relative_to(repo).as_posix()
+    if path.parent.name == "originals" and review_id == LIVER_REVIEW_ID:
+        track_ref = _liver_binding(repo, package, record)
+        if (
+            track_ref is None
+            or Path(owner).name != "asset.record.json"
+            or (track_ref.asset, track_ref.revision, track_ref.export)
+            != (ref.asset, ref.revision, ref.export)
+            or record["revision"] != mesh_hash
+            or record["part"] not in {part.id for part in export.parts}
+        ):
+            return None
+        binding_owner = LIVER_TRACK
     blob = verify(repo, export.path, mesh_hash, export.bytes)
     if blob.status not in ("verified", "pointer-match"):
         return None
     return UltrasoundReview(
         **_review_fields(repo, path, package, record),
-        id=LIVER_REVIEW_ID,
+        id=review_id,
         kind="mesh",
         binding_status="verified" if blob.status == "verified" else "recorded",
-        binding_owner=LIVER_TRACK,
-        export_ref=RecordExportRef(**ref.model_dump(), record=owner),
+        binding_owner=binding_owner,
+        export_ref=ref,
         export_path=export.path,
         mesh_sha256=mesh_hash,
+        chapter_sha256=record.get("chapterSha256"),
     )
 
 
@@ -230,31 +256,61 @@ def load_ultrasound_reviews(
     *,
     delivery: Path | None = None,
     target: str | None = None,
+    exports: Iterable[tuple[Asset, Revision, Export]] | None = None,
 ) -> tuple[UltrasoundReview, ...]:
-    """Project exact pilot evidence, with opt-in verification of an assembled echo delivery."""
+    """Project exact evidence, optionally restricted to the exports being inspected."""
     repo = repo.resolve()
+    by_digest = defaultdict(list)
+    if target != ECHO_REVIEW_ID:
+        for asset, revision, export in registry.iter_exports() if exports is None else exports:
+            owner = asset.source_manifest
+            if (
+                owner
+                and Path(owner).name in {"asset.record.json", "assets.json"}
+                and export.format == "mesh"
+                and export.sha256
+            ):
+                by_digest[export.sha256].append((asset, revision, export))
+
+    include_echo = exports is None and target in (None, ECHO_REVIEW_ID)
+    if not by_digest and not include_echo:
+        return ()
+    root = safe_path(repo, REVIEW_ROOT)
+    echo_path = root / "echo/reviews.json"
+    paths = sorted(root.glob("*/reviews.json")) if by_digest else []
+    if include_echo and not by_digest and echo_path.is_file():
+        paths.append(echo_path)
+
     reviews = []
-    for review_id, folder in ((LIVER_REVIEW_ID, "originals"), (ECHO_REVIEW_ID, "echo")):
-        if target is not None and target != review_id:
-            continue
-        path = safe_path(repo, f"{REVIEW_ROOT}/{folder}/reviews.json")
-        if not path.is_file():
-            continue
+    echo = None
+    for path in paths:
+        relative = path.relative_to(repo).as_posix()
+        path = safe_path(repo, relative)
         try:
+            read_echo = path == echo_path and include_echo
+            if not read_echo and not any(
+                record.get("meshSha256") in by_digest
+                and (target is None or _mesh_review_id(record) == target)
+                for record in _read_json(path)["records"]
+            ):
+                continue
             package = validate_reviews(path, allow_lfs_pointers=True)
             if not HEX64.fullmatch(package["rubricHash"]):
                 raise ValueError("Invalid workbench rubric identity")
-            if review_id == ECHO_REVIEW_ID and not HEX64.fullmatch(package["recipeHash"]):
-                raise ValueError("Invalid workbench recipe identity")
-            review = (
-                _liver_review(repo, registry, path, package)
-                if review_id == LIVER_REVIEW_ID
-                else _echo_review(repo, path, package, delivery)
-            )
+            for record in package["records"]:
+                meshes = by_digest.get(record.get("meshSha256"), ())
+                if not meshes or (target is not None and _mesh_review_id(record) != target):
+                    continue
+                for match in meshes:
+                    review = _mesh_review(repo, path, package, record, match)
+                    if review is not None:
+                        reviews.append(review)
+            if read_echo:
+                if not HEX64.fullmatch(package["recipeHash"]):
+                    raise ValueError("Invalid workbench recipe identity")
+                echo = _echo_review(repo, path, package, delivery)
         except (ValueError, OSError, KeyError, TypeError) as exc:
-            raise AssetKitError(
-                f"Invalid ultrasound workbench review {path.relative_to(repo)}: {exc}"
-            ) from exc
-        if review is not None:
-            reviews.append(review)
+            raise AssetKitError(f"Invalid ultrasound workbench review {relative}: {exc}") from exc
+    if echo is not None:
+        reviews.append(echo)
     return tuple(reviews)

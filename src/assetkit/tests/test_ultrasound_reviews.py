@@ -23,6 +23,10 @@ REPO = Path(__file__).resolve().parents[3]
 LIVER_RECORD = "models/liver_s1233/asset.record.json"
 LIVER_MESH = "models/liver_s1233/exports/r01/liver.mesh"
 LIVER_HASH = "27862cad9d34d1d7a7b86a1ce8d92014f5d7db534788c45cb4ef9fd1cce20089"
+KIDNEY_FOLDER = f"{REVIEW_ROOT}/kidney-wave-1b"
+KIDNEY_RECORD = "models/kidney_right_s1233/asset.record.json"
+KIDNEY_MESH = "models/kidney_right_s1233/exports/r01/kidney-right.mesh"
+KIDNEY_REVIEW_ID = "ultrasound:case:abdomen-survey:abd-right-kidney:kidney_right"
 ECHO_HASH = "80f5885a9577c09534edc72958c58941e6da5c419de85dc430fa0e3a3ff0bf95"
 RUBRIC_HASH = "a38e552869511cd5bceacaa5ea4456f4d0530e58e7dce2bc6855587a98b0e684"
 
@@ -74,11 +78,51 @@ def test_pilot_reads_existing_workbench_reviews_without_generated_delivery() -> 
     }
 
 
+def test_discovers_native_mesh_reviews_in_multiple_packages() -> None:
+    registry = AssetRegistry.load_records(REPO, (LIVER_RECORD, KIDNEY_RECORD))
+    reviews = {review.id: review for review in load_ultrasound_reviews(REPO, registry)}
+    assert set(reviews) == {KIDNEY_REVIEW_ID, LIVER_REVIEW_ID, ECHO_REVIEW_ID}
+    kidney = reviews[KIDNEY_REVIEW_ID]
+    package = json.loads((REPO / KIDNEY_FOLDER / "reviews.json").read_text())
+    (record,) = package["records"]
+    assert kidney.owner_path == f"{KIDNEY_FOLDER}/reviews.json"
+    assert kidney.export_ref is not None and kidney.export_ref.record == KIDNEY_RECORD
+    assert kidney.export_path == KIDNEY_MESH
+    assert kidney.scores == {"fidelity": 4, "form": 3, "readability": 3, "economy": 4}
+    assert kidney.score_total == 14 and kidney.score_maximum == 16
+    assert kidney.rubric_sha256 == package["rubricHash"]
+    assert kidney.mesh_sha256 == record["meshSha256"]
+    assert kidney.chapter_sha256 == record["chapterSha256"]
+    assert {image.path: image.sha256 for image in kidney.images} == {
+        f"{KIDNEY_FOLDER}/{name}": digest for name, digest in package["evidenceSha256"].items()
+    }
+
+
 def copy_file(root: Path, relative: str) -> Path:
     path = root / relative
     path.parent.mkdir(parents=True, exist_ok=True)
     shutil.copyfile(REPO / relative, path)
     return path
+
+
+def test_mesh_review_rejects_an_unmatched_digest_even_when_revision_matches(tmp_path: Path) -> None:
+    copy_file(tmp_path, KIDNEY_RECORD)
+    copy_file(tmp_path, KIDNEY_MESH)
+    # Discover a new package by location alone. Its witnesses are local to that package.
+    folder = tmp_path / f"{REVIEW_ROOT}/new-campaign"
+    shutil.copytree(REPO / KIDNEY_FOLDER, folder)
+    path = folder / "reviews.json"
+    package = json.loads(
+        path.read_text().replace("asset-reviews/kidney-wave-1b/", "asset-reviews/new-campaign/")
+    )
+    path.write_text(json.dumps(package))
+    registry = AssetRegistry.load_records(tmp_path, (KIDNEY_RECORD,))
+    (review,) = load_ultrasound_reviews(tmp_path, registry)
+    assert review.owner_path == f"{REVIEW_ROOT}/new-campaign/reviews.json"
+
+    package["records"][0]["meshSha256"] = "0" * 64
+    path.write_text(json.dumps(package))
+    assert load_ultrasound_reviews(tmp_path, registry) == ()
 
 
 def test_liver_requires_an_exact_governed_mesh_and_accepts_pointer_identity(tmp_path: Path) -> None:

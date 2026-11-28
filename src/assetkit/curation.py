@@ -14,12 +14,7 @@ from .blobs import HEX64
 from .discovery import manifests
 from .errors import AssetKitError
 from .models import AssetModel
-from .ultrasound_reviews import (
-    LIVER_REVIEW_ASSET,
-    LIVER_REVIEW_ID,
-    UltrasoundReview,
-    load_ultrasound_reviews,
-)
+from .ultrasound_reviews import UltrasoundReview
 
 if TYPE_CHECKING:
     from .delivery import DeliveryGraph
@@ -71,26 +66,6 @@ class Review(AssetModel):
 
 
 ExportReview = Review | UltrasoundReview
-
-
-def ultrasound_reviews_for_exports(
-    repo: Path,
-    registry: AssetRegistry,
-    exports: Iterable[tuple[Asset, Revision, Export]],
-) -> tuple[UltrasoundReview, ...]:
-    exact = {
-        (asset.id, rev.id, exp.id, asset.source_manifest, exp.path)
-        for asset, rev, exp in exports
-        if asset.id == LIVER_REVIEW_ASSET
-    }
-    if not exact:
-        return ()
-    return tuple(
-        review
-        for review in load_ultrasound_reviews(repo, registry, target=LIVER_REVIEW_ID)
-        if (ref := review.export_ref) is not None
-        and (ref.asset, ref.revision, ref.export, ref.record, review.export_path) in exact
-    )
 
 
 class Selection(AssetModel):

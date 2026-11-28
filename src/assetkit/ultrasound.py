@@ -11,10 +11,16 @@ from pydantic import Field, model_validator
 from .blobs import safe_path
 from .errors import AssetKitError
 from .models import AssetModel
-from .registry import RecordExportRef
+from .registry import ExportRef, RecordExportRef
 
 EXTERIOR_ATLAS_CONFIG = "experiments/ultrasound-sweep/exterior-atlas.json"
 GALLERY_REFERENCE_CONFIG = "experiments/ultrasound-sweep/gallery-reference-assets.json"
+
+
+class SweepSceneAssetRef(ExportRef):
+    """An exact export with its registration in the sweep scene."""
+
+    registration: str = "unknown"
 
 
 class ExteriorAtlas(AssetModel):

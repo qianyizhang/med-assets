@@ -7,7 +7,7 @@
 *.png filter=lfs diff=lfs merge=lfs -text
 *.stl filter=lfs diff=lfs merge=lfs -text
 *.nii.gz filter=lfs diff=lfs merge=lfs -text
-models/liver_s1233/exports/**/*.mesh filter=lfs diff=lfs merge=lfs -text
+models/**/exports/**/*.mesh filter=lfs diff=lfs merge=lfs -text
 sources/fonts/**/*.ttf filter=lfs diff=lfs merge=lfs -text
 experiments/ultrasound-sweep/cardiac/reference/*.webm filter=lfs diff=lfs merge=lfs -text
 experiments/ultrasound-sweep/cardiac/reference/*.zip filter=lfs diff=lfs merge=lfs -text

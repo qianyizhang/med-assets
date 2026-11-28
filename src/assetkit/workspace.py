@@ -15,7 +15,6 @@ from .curation import (
     R2SyncItem,
     Review,
     Selection,
-    ultrasound_reviews_for_exports,
 )
 from .delivery import (
     BudgetPolicy,
@@ -344,7 +343,9 @@ class Workspace:
                 )
                 asset_paths = {exp.path for _, _, exp in matches}
                 reviews = self.curation.reviews_for_exports(matches)
-                ultrasound = ultrasound_reviews_for_exports(self.repository, self.registry, matches)
+                ultrasound = load_ultrasound_reviews(
+                    self.repository, self.registry, exports=matches
+                )
                 scoped_ids = {review.id for review in reviews}
                 export_ids = {(rev.id, exp.id) for _, rev, exp in matches}
                 revisions_out: list[ShowRevisionView] = []

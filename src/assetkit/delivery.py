@@ -17,18 +17,19 @@ from .curation import (
     ExportReview,
     Qualification,
     Selection,
-    ultrasound_reviews_for_exports,
 )
 from .discovery import manifests
 from .errors import AssetKitError
 from .models import AssetModel
-from .registry import REGISTRATION_STATES, AssetRegistry, ExportRef, Part, RecordExportRef
+from .registry import REGISTRATION_STATES, AssetRegistry, Part, RecordExportRef
 from .ultrasound import (
     EXTERIOR_ATLAS_CONFIG,
     GALLERY_REFERENCE_CONFIG,
+    SweepSceneAssetRef,
     read_exterior_atlas,
     read_gallery_references,
 )
+from .ultrasound_reviews import load_ultrasound_reviews
 from .vocab import ConceptGraph
 
 CONSUMER_KINDS = frozenset(
@@ -703,7 +704,7 @@ class DeliveryGraph:
                 )
         reviews = curation.reviews_for_exports(exports)
         ultrasound = (
-            ultrasound_reviews_for_exports(repo, registry, exports) if repo is not None else ()
+            load_ultrasound_reviews(repo, registry, exports=exports) if repo is not None else ()
         )
         return ImpactResult(
             target=target,
@@ -1130,9 +1131,10 @@ def _load_ultrasound_sweep_consumers(
                     revision_id=ref.revision,
                     export_id=ref.export,
                     requirement_id=f"part:{part}",
+                    registration=ref.registration,
                 )
                 for part, raw in scene_assets.items()
-                for ref in (ExportRef.model_validate(raw),)
+                for ref in (SweepSceneAssetRef.model_validate(raw),)
             )
             consumers.append(
                 Consumer(

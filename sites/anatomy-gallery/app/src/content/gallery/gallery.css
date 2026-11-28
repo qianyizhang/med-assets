@@ -1012,6 +1012,19 @@
   gap: 1rem;
 }
 
+.ga-campaign-progress {
+  grid-template-columns: repeat(auto-fit, minmax(min(8rem, 100%), 1fr));
+  padding: 1rem;
+  border: 1px solid var(--ga-line);
+  border-radius: 0.5rem;
+  background: var(--ga-panel);
+}
+
+.ga-campaign-progress dd {
+  font-size: 1.3rem;
+  font-variant-numeric: tabular-nums;
+}
+
 .ga-progress-metrics dd, .ga-progress-scores dd {
   margin: 0.25rem 0 0;
 }

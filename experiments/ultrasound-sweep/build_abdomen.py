@@ -171,7 +171,8 @@ def scene_assets(track, scene_directory=None):
         return {}
 
     from assetkit.blobs import read_verified
-    from assetkit.registry import AssetRegistry, ExportRef, VoxelGrid
+    from assetkit.registry import AssetRegistry, VoxelGrid
+    from assetkit.ultrasound import SweepSceneAssetRef
 
     repo = HERE.parents[1]
     registry = AssetRegistry.load(repo, include_legacy_adapters=False)
@@ -181,7 +182,7 @@ def scene_assets(track, scene_directory=None):
     for part, raw_ref in references.items():
         if part not in slots:
             raise ValueError(f'{track["id"]}: Unknown scene asset slot {part!r}')
-        export = registry.require_voxel_export(ExportRef.model_validate(raw_ref), grid)
+        export = registry.require_voxel_export(SweepSceneAssetRef.model_validate(raw_ref), grid)
         if export.format != 'mesh' or export.sha256 is None or export.bytes is None:
             raise ValueError(f'{track["id"]}: Expected an identity-pinned packed mesh for {part}')
         if scene_directory is None:

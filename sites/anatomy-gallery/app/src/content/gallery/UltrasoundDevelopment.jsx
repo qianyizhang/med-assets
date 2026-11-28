@@ -1,14 +1,14 @@
 import React from 'react';
 import { Heading, Link } from './GalleryUI.jsx';
 import { ultrasoundCollection, ultrasoundDevelopment } from './ultrasound-data.js';
-import record from './ultrasound-progress/record.json';
-import mesh from './ultrasound-progress/kidney-right.mesh?url';
-import surfaces from './ultrasound-progress/matched-surfaces.webp';
-import planes from './ultrasound-progress/protected-planes.webp';
-import pair from './ultrasound-progress/previous-vs-r01.webp';
-import frame from './ultrasound-progress/live-frame-12.webp';
+import index from './ultrasound-progress/index.json';
 
-const revisionPath = ultrasoundDevelopment + '/kidney-right-r01';
+const records = import.meta.glob('./ultrasound-progress/*/record.json', { eager: true, import: 'default' });
+const assets = import.meta.glob('./ultrasound-progress/*/*.{mesh,webp}', {
+  eager: true, import: 'default', query: '?url',
+});
+const cards = new Map(index.cards.map(slug => [slug, records[`./ultrasound-progress/${slug}/record.json`]]));
+const assetUrl = (slug, name) => assets[`./ultrasound-progress/${slug}/${name}`];
 const number = new Intl.NumberFormat('en-US');
 const axes = {
   fidelity: 'Fidelity',
@@ -17,70 +17,100 @@ const axes = {
   economy: 'Mesh economy',
 };
 
-export function UltrasoundDevelopment({ showRevision }) {
+export const hasUltrasoundProgressRevision = slug => cards.has(slug);
+
+function CampaignProgress({ campaign }) {
+  const metrics = [
+    ['Governed chapters', `${number.format(campaign.governedChapters)} / ${number.format(campaign.chapters)}`],
+    ['Adopted', number.format(campaign.adopted)],
+    ['Reviewed', number.format(campaign.reviewed)],
+    ['Qualified', number.format(campaign.qualified)],
+    ['Triangles saved', number.format(campaign.trianglesSaved)],
+    ['Bytes saved', number.format(campaign.bytesSaved)],
+  ];
+  return (
+    <dl className="ga-progress-metrics ga-campaign-progress" aria-label="Campaign progress">
+      {metrics.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
+    </dl>
+  );
+}
+
+function ProgressFigure({ slug, figure }) {
+  return (
+    <figure>
+      <img src={assetUrl(slug, figure.file)} width={figure.width} height={figure.height} loading="lazy" alt={figure.alt} />
+      <figcaption>{figure.caption}</figcaption>
+    </figure>
+  );
+}
+
+function ProgressCard({ slug, record }) {
   const delta = Math.round(100 * (1 - record.export.bytes / record.previous.bytes));
+  const [leadFigure, ...details] = record.figures;
+  const titleId = `ultrasound-progress-${slug}`;
+  return (
+    <article className="ga-collection-link ga-ultrasound-progress" aria-labelledby={titleId}>
+      <h2 id={titleId}>{record.cardTitle}</h2>
+      <p>{record.subtitle} · {record.disposition}</p>
+      <ProgressFigure slug={slug} figure={leadFigure} />
+      <dl className="ga-progress-metrics">
+        <div><dt>Sweep mesh triangles</dt><dd>{number.format(record.previous.triangles)} → {number.format(record.export.triangles)}</dd></div>
+        <div><dt>Sweep mesh bytes</dt><dd>{number.format(record.previous.bytes)} → {number.format(record.export.bytes)}{delta > 0 && ` · ${delta}% smaller`}</dd></div>
+        {record.savedChord && (
+          <div><dt>Saved frame {record.savedChord.frame}</dt><dd>{record.savedChord.millimetres.toFixed(1)} mm {record.savedChord.context}</dd></div>
+        )}
+      </dl>
+      <p><Link to={`${ultrasoundDevelopment}/${slug}`}>Open exact AssetKit revision · {record.revisionLinkLabel} →</Link></p>
+      <details>
+        <summary>{record.detailsLabel}</summary>
+        {details.map(figure => <ProgressFigure key={figure.file} slug={slug} figure={figure} />)}
+        <p>{record.scope}</p>
+        <dl className="ga-progress-scores">
+          {Object.entries(axes).map(([key, label]) => (
+            <div key={key}>
+              <dt>{label}{record.scores[key] == null ? ' · Unscored' : ` · ${record.scores[key]}/4`}</dt>
+              {record.observations[key] && <dd>{record.observations[key]}</dd>}
+            </div>
+          ))}
+        </dl>
+      </details>
+    </article>
+  );
+}
+
+function ProgressRevision({ slug, record }) {
   return (
     <>
-      <Link to={showRevision ? ultrasoundDevelopment : ultrasoundCollection}>
-        {showRevision ? '← Ultrasound Development' : '← Ultrasound Anatomy'}
+      <Heading title={record.revisionTitle}>{record.disposition}</Heading>
+      <section className="ga-collection-link">
+        <p><code>{record.ref}</code></p>
+        <dl>
+          <dt>Coordinate frame</dt><dd>{record.coordinateFrame}</dd>
+          <dt>Export</dt><dd>{number.format(record.export.triangles)} triangles · {number.format(record.export.bytes)} bytes</dd>
+          <dt>SHA-256</dt><dd><code className="ga-progress-hash">{record.export.sha256}</code></dd>
+        </dl>
+        <div className="ga-related">
+          <a href={assetUrl(slug, record.mesh)} download={`${slug}.mesh`}>Download the exact packed mesh</a>
+          <a href={record.sourceUrl}>{record.sourceLabel}</a>
+        </div>
+      </section>
+    </>
+  );
+}
+
+export function UltrasoundDevelopment({ revision }) {
+  return (
+    <>
+      <Link to={revision ? ultrasoundDevelopment : ultrasoundCollection}>
+        {revision ? '← Ultrasound Development' : '← Ultrasound Anatomy'}
       </Link>
-      {showRevision ? (
-        <>
-          <Heading title="s1233 right kidney · r01">{record.disposition}</Heading>
-          <section className="ga-collection-link">
-            <p><code>{record.ref}</code></p>
-            <dl>
-              <dt>Coordinate frame</dt><dd>s1233 voxel indices · RAS axes · 1.5 mm spacing</dd>
-              <dt>Export</dt><dd>{number.format(record.export.triangles)} triangles · {number.format(record.export.bytes)} bytes</dd>
-              <dt>SHA-256</dt><dd><code className="ga-progress-hash">{record.export.sha256}</code></dd>
-            </dl>
-            <div className="ga-related">
-              <a href={mesh} download="kidney-right-r01.mesh">Download the exact packed mesh</a>
-              <a href={record.source.url}>TotalSegmentator v2.0.1 · Jakob Wasserthal and contributors · CC BY 4.0</a>
-            </div>
-          </section>
-        </>
+      {revision ? (
+        <ProgressRevision slug={revision} record={cards.get(revision)} />
       ) : (
         <>
           <Heading title="Ultrasound Development" />
-          <article className="ga-collection-link ga-ultrasound-progress" aria-labelledby="right-kidney-progress">
-            <h2 id="right-kidney-progress">Right kidney · Before → After</h2>
-            <p>Abdominal survey long axis · {record.disposition}</p>
-            <figure>
-              <img src={pair} width="1112" height="1090" loading="lazy" alt="The previous sweep mesh has bands at the lower pole. Under matched lighting r01 has a smoother lower surface and retains the medial recess. Both appear at the same saved sweep pose." />
-              <figcaption>Exact previous sweep export and r01 at matched scale and frame.</figcaption>
-            </figure>
-            <dl className="ga-progress-metrics">
-              <div><dt>Sweep mesh triangles</dt><dd>{number.format(record.previous.triangles)} → {number.format(record.export.triangles)}</dd></div>
-              <div><dt>Sweep mesh bytes</dt><dd>{number.format(record.previous.bytes)} → {number.format(record.export.bytes)} · {delta}% smaller</dd></div>
-              <div><dt>Saved frame 12</dt><dd>{record.savedChordMm.toFixed(1)} mm across the medial hilar recess</dd></div>
-            </dl>
-            <p><Link to={revisionPath}>Open exact AssetKit revision · s1233 kidney r01 →</Link></p>
-            <details>
-              <summary>CT sections, exact mesh comparison and lead review</summary>
-              <figure>
-                <img src={planes} width="1328" height="422" loading="lazy" alt="Gold CT contours and cyan refined contours follow each other in the saved plane and both adjacent planes." />
-                <figcaption>Same-case CT overlay at frame 12 and at ±1.5 mm.</figcaption>
-              </figure>
-              <figure>
-                <img src={frame} width="1324" height="748" loading="lazy" alt="Live saved frame before and after, with 3D probe contact, grayscale B-mode and tissue overlay. Calipers span the medial hilar recess in s1233." />
-                <figcaption>The worked survey uses a separate s1233 subject for this saved long-axis exemplar.</figcaption>
-              </figure>
-              <figure>
-                <img src={surfaces} width="1304" height="699" alt="At the same physical scale, the schematic ellipsoid becomes an asymmetric CT-derived kidney with rounded poles and a visible medial recess. The lower row shows the reverse angle." />
-                <figcaption>107 mm schematic, CT half-label surface and refined r01.</figcaption>
-              </figure>
-              <p>{record.scope}</p>
-              <dl className="ga-progress-scores">
-                {Object.entries(axes).map(([key, label]) => (
-                  <div key={key}>
-                    <dt>{label} · {record.scores[key]}/4</dt>
-                    <dd>{record.observations[key]}</dd>
-                  </div>
-                ))}
-              </dl>
-            </details>
-          </article>
+          <CampaignProgress campaign={index.campaign} />
+          {[...cards].map(([slug, record]) => <ProgressCard key={slug} slug={slug} record={record} />)}
         </>
       )}
     </>

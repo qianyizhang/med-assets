@@ -71,7 +71,7 @@ uv run assetkit show ultrasound:case:echo-aortic-stenosis:psax-av-section:aortic
 
 The HRA review asks the learner to locate the posterior bare area. The ultrasound review asks the learner to distinguish the broad right lobe from the narrower left extension on the s1233 mesh. Each assessment applies to its own geometry, task and rubric. The Gallery starting file is an editorial selection. Asset qualifications require an explicit decision.
 
-The modeled echo cusp is a recipe-bound review. The CLI shows its recorded case, chapter, part and recipe fingerprint. In Python, `workspace.show(review_id, delivery=compact_directory)` checks that fingerprint against an assembled delivery. The ultrasound pilot covers that cusp and the s1233 liver. The [workbench](../../experiments/ultrasound-sweep/README.md) owns the full review collection.
+AssetKit discovers mesh-bound workbench reviews by the SHA-256 of a native packed export. Inspect the export with `show` or `impact` to see the scores, rubric, image identities and any chapter fingerprint. The modeled echo cusp remains a recipe-bound review. The CLI shows its recorded case, chapter, part and recipe fingerprint. In Python, `workspace.show(review_id, delivery=compact_directory)` checks that fingerprint against an assembled delivery. The [workbench](../../experiments/ultrasound-sweep/README.md) owns the review collection.
 
 Run `uv run assetkit review check` to validate the maintained teaching register and scorecard. The [promotion guide](../../docs/guides/teaching-assessments.md) covers preview, apply and recovery.
 
