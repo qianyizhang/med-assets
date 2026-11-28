@@ -26,6 +26,21 @@ export async function read(url, type = 'json') {
   return response[type]();
 }
 
+export async function chapterMeshReviewPrior(manifest, record, rubricHash, meshHashes) {
+  const binding = manifest.chapterMeshBindings?.[record.case]?.[record.chapter]?.[record.part];
+  if (!binding?.path || !record.meshSha256 || !record.chapterSha256 || !rubricHash ||
+      binding.meshSha256 !== record.meshSha256 || binding.chapterSha256 !== record.chapterSha256 ||
+      manifest.rubricHash !== rubricHash) return true;
+  if (!meshHashes.has(binding.path)) {
+    const check = read(studyURL(binding.path), 'arrayBuffer')
+      .then((bytes) => crypto.subtle.digest('SHA-256', bytes))
+      .then((digest) => Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, '0')).join(''))
+      .catch(() => null);
+    meshHashes.set(binding.path, check);
+  }
+  return await meshHashes.get(binding.path) !== record.meshSha256;
+}
+
 export function dispose(object) {
   const geometries = new Set(), materials = new Set();
   object?.traverse((node) => {

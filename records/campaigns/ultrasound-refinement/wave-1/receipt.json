@@ -1,0 +1,61 @@
+{
+  "baseRevision": "6265fcdf",
+  "proposedDisposition": "hold pending evidence",
+  "replayedSweepFiles": 105,
+  "stageSweepIndex": {
+    "sha256": "2ce338cf71f372176cec1015825e5a2b33342e85cc8377474ea009467868fac6",
+    "bytes": 9618
+  },
+  "stageSweepReceipt": {
+    "sha256": "49fd9acccadf0132ac5da32413cbd085d2987004314769687e0183028002b906",
+    "bytes": 2636
+  },
+  "contextPayloads": {
+    "sweeps/liver/scenes/liver.mesh": {
+      "sha256": "27862cad9d34d1d7a7b86a1ce8d92014f5d7db534788c45cb4ef9fd1cce20089",
+      "bytes": 2217704
+    },
+    "sweeps/kidney-right/scenes/ribs.mesh": {
+      "sha256": "53ebff0ad1327ae08959ef0d5428955478c19341ac3664415d0cd03f88ba640f",
+      "bytes": 431384
+    },
+    "sweeps/kidney-right/scenes/torso.mesh": {
+      "sha256": "dd936b67047d91846d5b3fd5a19c7b2cdeaf0025580de53b4d313ff14a5370a3",
+      "bytes": 3670196
+    }
+  },
+  "compactDeliveryDelta": {
+    "changedPaths": [
+      "development/assets-data.js",
+      "development/assets.js"
+    ],
+    "addedMeshBytes": 0,
+    "addedMeshes": 0
+  },
+  "evidence": {
+    "live-frame-12.webp": {
+      "sha256": "824569db4f08f58b9d872b0aeb355dd165c2fb89810edd726a12c1e66236e380",
+      "bytes": 76722
+    },
+    "live-identity.json": {
+      "sha256": "c3b87aa6603bad1df70fa27960c9df323880c6850ef005d84b1510896ddcdaac",
+      "bytes": 850
+    },
+    "matched-surfaces.webp": {
+      "sha256": "54b3aafe46fe18de85f30d03c12fe30221035788a345de96023387b080dfa133",
+      "bytes": 31626
+    },
+    "measurements.json": {
+      "sha256": "e381b8095fe14686007368b6fc59f98659235cc706e17165207688c639ec7ede",
+      "bytes": 4042
+    },
+    "protected-planes.webp": {
+      "sha256": "d42b776ecc6d68147aaf340ca3e0d026365c6bb82b0ceab81abafbc8fafd6913",
+      "bytes": 61718
+    },
+    "reference.json": {
+      "sha256": "34182fa96d206361ccc34440aa5a42b9557494df008c81f7696410759667d624",
+      "bytes": 4253
+    }
+  }
+}

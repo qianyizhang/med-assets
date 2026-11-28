@@ -2,7 +2,7 @@
 
 The local audit traces **28 standalone sweeps and all 410 chapters across 32 worked cases**. The s1233 liver is the only directly pinned native export in the standalone playback catalogue. The 410 chapter readers have **zero direct AssetKit export pins**. They use recipe-backed geometry, fitted context, packed AAA scene data and independent reference panels. The liver remains on `r01` under the pretrial decision. [Summary ledger](audit-summary.json) · [Assembly receipt](assembly.json) · [Liver pretrial](../pretrial/README.md)
 
-Wave 1 remains on hold for a separate decision.
+Wave 0 closed before Wave 1 authorization. The [Wave 1 record](../wave-1/README.md) contains the local trial and proposed disposition.
 
 | Delivery | Standalone sweeps | Chapters | Review identities matched | Matched reviews with four evidenced 4/4 scores |
 | --- | ---: | ---: | ---: | ---: |

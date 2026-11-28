@@ -1,6 +1,6 @@
 # Ultrasound Anatomy asset refinement and qualification
 
-**Decision · Keep the s1233 liver sweep on `r01`. The local pretrial is complete. Wave 0 audited all 28 sweeps and 410 exam chapters. Wave 1 is on hold.** The proposed dome treatment smoothed the visible terraces but reversed 42 triangle normals. The active export and its existing lobe-identification review stay in place. The [right-kidney packet](../records/campaigns/ultrasound-refinement/wave-0/right-kidney-brief.md) is ready for a separate authorization decision.
+**Decision · Keep the s1233 liver sweep on `r01`. Wave 0 audited all 28 sweeps and 410 exam chapters.** The [Wave 1 kidney trial](../records/campaigns/ultrasound-refinement/wave-1/README.md) proposes holding the replacement for lead review. Its pole positions exceeded the frozen tolerance. The survey still presents the 107 mm schematic. Per-chapter mesh review binding passed the sibling-edit and invalidation checks.
 
 The campaign aims to improve anatomy where it changes what a learner can see, identify or measure in a specific sweep or exam chapter. AssetKit owns reusable 3D exports, provenance and coordinate frames. The lesson owns acquisition, display, placement, saved poses and teaching claims. The ultrasound workbench owns its ratings. Gallery presents accepted work through its own maintained surfaces.
 
@@ -75,9 +75,9 @@ For indexed surface edits, check collapsed faces and normal reversals against th
 
 ### Review binding before parallel mesh work
 
-Today the [workbench](../experiments/ultrasound-sweep/development/assets.js) matches standalone reviews to individual mesh digests and modeled chapter reviews to a [family recipe](../lib/med_assets/ultrasound_review.py). Changing only the liver in the disposable trial changed the organ-family fingerprint. The baseline mismatches alone cannot identify which input changed historically.
+The [workbench](../experiments/ultrasound-sweep/development/assets.js) matches standalone reviews to individual mesh digests and keeps the [family recipe](../lib/med_assets/ultrasound_review.py) for earlier modeled reviews. Changing only the liver in the disposable trial changed the organ-family fingerprint. The baseline mismatches alone cannot identify which input changed historically.
 
-For an upgraded chapter, compare its reviewed mesh SHA-256 to the **emitted part for that chapter**. Bind placement, saved pose, acquisition or render inputs, task, rubric and witnesses where the teaching claim depends on them. Keep the existing family binding for earlier reviews until their observations are checked against a new delivery. Before parallel mesh integration, prove that changing an unrelated sibling preserves the review and that changing the reviewed bytes or placement invalidates the corresponding claim. Keep procedural or acquisition reviews on an evidenced recipe scope. Wave 0 records the reader gap and acceptance cases; Wave 1 integration implements and verifies per-chapter mesh binding and sibling invariance before parallel Wave 2 dispatch.
+For an upgraded chapter, the player declares each emitted part in the chapter's `reviewMeshes`. The part's declaration carries the actual emitted `path`, applied `placement` and the delivered `inputs` that control the claim. Include the saved pose, acquisition, scan, overlay and render inputs when the claim depends on them. Assembly computes `meshSha256` from the packed file and `chapterSha256` from those scoped inputs, the saved frame, observation and measurement. The workbench checks both digests, the rubric and the served mesh bytes. An authored review applies to one case, chapter and part and keeps its own task and witnessed evidence. Earlier procedural and acquisition reviews retain their recipe binding until their observations are checked against a fresh delivery. [Wave 1 regression evidence](../records/campaigns/ultrasound-refinement/wave-1/README.md#verification)
 
 ## AssetKit admission and retention
 

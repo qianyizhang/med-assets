@@ -3,7 +3,7 @@
 import json
 from hashlib import sha256
 
-from .artifacts import POINTER_PREFIX, parse_pointer, repo_file, unique_keys
+from .artifacts import HEX64, POINTER_PREFIX, parse_pointer, repo_file, unique_keys
 
 
 def recipe_hashes(destination, owners, records, *, rubric):
@@ -57,6 +57,45 @@ MAX_AXIS_SCORE = 4
 RUBRIC_PATH = "docs/guides/asset-quality.md"
 
 
+def chapter_mesh_bindings(destination, evidence, *, validate_mesh):
+    """Fingerprint files declared by the player for a specific chapter part."""
+    bindings = {}
+    digests = {}
+
+    def digest(path, *, mesh=False):
+        if (path, mesh) not in digests:
+            raw = repo_file(destination, path).read_bytes()
+            if mesh:
+                validate_mesh(raw, path)
+            digests[path, mesh] = sha256(raw).hexdigest()
+        return digests[path, mesh]
+
+    for case, chapters in evidence.items():
+        for chapter in chapters:
+            for part, binding in chapter.get("reviewMeshes", {}).items():
+                path = binding["path"]
+                fingerprint = {
+                    "case": case,
+                    "chapter": chapter["id"],
+                    "part": part,
+                    "frame": chapter["evidenceFrame"],
+                    "observation": chapter["observation"],
+                    "measurement": chapter.get("measurement"),
+                    "placement": binding["placement"],
+                    "inputs": {name: digest(name) for name in binding["inputs"]},
+                }
+                chapter_sha = sha256(
+                    json.dumps(fingerprint, sort_keys=True, allow_nan=False).encode()
+                ).hexdigest()
+                parts = bindings.setdefault(case, {}).setdefault(chapter["id"], {})
+                parts[part] = {
+                    "path": path,
+                    "meshSha256": digest(path, mesh=True),
+                    "chapterSha256": chapter_sha,
+                }
+    return bindings
+
+
 def review_images(record):
     """Return the witnesses named in a workbench review's matched views."""
     comparison = record.get("comparison", {})
@@ -84,6 +123,24 @@ def validate_reviews(path, *, allow_lfs_pointers=False):
         ):
             raise ValueError(f"Incomplete asset review identity: {path}")
         extra = record.get("additionalUses", [])
+        chapter_mesh_review = "chapterSha256" in record or (
+            "meshSha256" in record and record.get("source") != "sweep"
+        )
+        if chapter_mesh_review and (
+            record.get("source") != "case"
+            or not record.get("chapter")
+            or extra
+            or record.get("occurrence", 1) != 1
+            or not all(
+                isinstance(value, str) and HEX64.fullmatch(value)
+                for value in (
+                    record.get("meshSha256"),
+                    record.get("chapterSha256"),
+                    document.get("rubricHash"),
+                )
+            )
+        ):
+            raise ValueError(f"Invalid chapter mesh review binding: {path}")
         base = {key: value for key, value in record.items() if key != "additionalUses"}
         bindings.append(base)
         for use in extra:

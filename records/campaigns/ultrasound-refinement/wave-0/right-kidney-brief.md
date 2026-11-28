@@ -1,6 +1,6 @@
 # Wave 1 brief · Right kidney long axis
 
-**Decision requested · Test reuse of the existing s1233 right-kidney surface for one learner action.** At the saved long-axis stop, find the superior and inferior poles of the **right** kidney, explain where the section passes through the 3D organ, and read the pole-to-pole chord in the matching scan. Start with the delivered surface. Consider a local refinement only if a measured surface defect prevents that action. Wave 0 inspected the assembled files and traced the current reader in source. Wave 1 awaits authorization. [Campaign scope](../../../../docs/ULTRASOUND_REFINEMENT_SPEC.md)
+**Decision requested at Wave 0 close · Test reuse of the existing s1233 right-kidney surface for one learner action.** At the saved long-axis stop, find the superior and inferior poles of the **right** kidney, explain where the section passes through the 3D organ, and read the pole-to-pole chord in the matching scan. Start with the delivered surface. Consider a local refinement only if a measured surface defect prevents that action. The [Wave 1 trial](../wave-1/README.md) records the resulting measurements and proposed disposition. [Campaign scope](../../../../docs/ULTRASOUND_REFINEMENT_SPEC.md)
 
 ## The learner's current route
 

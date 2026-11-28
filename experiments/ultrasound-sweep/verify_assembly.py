@@ -4,14 +4,16 @@ import argparse
 import json
 from pathlib import Path
 import shutil
+import struct
 import tempfile
 
 from assetkit import AssetKitError, AssetRegistry
 from assetkit.ultrasound import GALLERY_REFERENCE_CONFIG, read_gallery_references
+from med_assets.ultrasound_review import chapter_mesh_bindings
 
 import assemble_tours
 from gallery_reference_sources import write_gallery_donors
-from delivery import read_poses, sha256
+from delivery import read_poses, sha256, validate_mesh
 from asset_qualification import validate_reviews
 
 
@@ -61,6 +63,59 @@ def verify_review_failures(work):
     must_fail('Missing or unbound')
 
 
+def verify_chapter_mesh_bindings(work):
+    mesh = work / 'parts'
+    mesh.mkdir()
+    reviewed = mesh / 'rim.mesh'
+    sibling = mesh / 'wall.mesh'
+    pose = mesh / 'pose.json'
+
+    def triangle(x):
+        return struct.pack('<2I9f3I', 3, 1, x, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
+
+    reviewed.write_bytes(triangle(1))
+    sibling.write_bytes(triangle(1))
+    pose.write_text('[1, 0, 0]')
+    placement = {'millimetresPerUnit': 1.5}
+    chapter = dict(id='saved', evidenceFrame=12, observation='Trace the rim',
+                   reviewMeshes={
+                       'rim': dict(path='parts/rim.mesh', placement=placement, inputs=['parts/pose.json']),
+                       'wall': dict(path='parts/wall.mesh', placement=placement, inputs=[]),
+                   })
+
+    def bindings():
+        return chapter_mesh_bindings(work, {'worked': [chapter]}, validate_mesh=validate_mesh)['worked']['saved']
+
+    original = bindings()
+    sibling.write_bytes(triangle(2))
+    assert bindings()['rim'] == original['rim']
+    assert bindings()['wall']['meshSha256'] != original['wall']['meshSha256']
+    reviewed.write_bytes(triangle(2))
+    assert bindings()['rim']['meshSha256'] != original['rim']['meshSha256']
+    reviewed.write_bytes(triangle(1))
+    placement['millimetresPerUnit'] = 1
+    assert bindings()['rim']['chapterSha256'] != original['rim']['chapterSha256']
+    placement['millimetresPerUnit'] = 1.5
+    pose.write_text('[0, 1, 0]')
+    assert bindings()['rim']['chapterSha256'] != original['rim']['chapterSha256']
+    pose.write_text('[1, 0, 0]')
+    assert bindings()['rim'] == original['rim']
+
+    for bad_bytes, message in ((None, 'Missing artifact file'), (b'corrupt', 'Invalid packed mesh')):
+        reviewed.unlink()
+        if bad_bytes is not None:
+            reviewed.write_bytes(bad_bytes)
+        try:
+            bindings()
+        except ValueError as error:
+            assert message in str(error), error
+        else:
+            raise AssertionError(f'Chapter mesh accepted {message}')
+        if not reviewed.exists():
+            reviewed.write_bytes(triangle(1))
+    print('Chapter mesh binding: sibling edit preserved currency; mesh, placement and pose edits invalidated it; missing and corrupt payloads rejected.')
+
+
 def verify_subset(staging, destination, expected):
     """A removed study may change which surviving tour owns a shared mesh."""
     actual = javascript_value(destination / 'abdomen-tours.js', 'abdomenTours')
@@ -78,6 +133,7 @@ def verify(source, aaa_acquisitions=None):
     with tempfile.TemporaryDirectory() as work:
         work = Path(work)
         verify_review_failures(work)
+        verify_chapter_mesh_bindings(work)
         source_root = work / 'gallery-inputs'
         repo = assemble_tours.HERE.parents[1]
         donor = next(donor for donor in read_gallery_references(repo).donors if donor.slot == 'bladder')

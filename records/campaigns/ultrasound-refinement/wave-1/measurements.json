@@ -1,0 +1,171 @@
+{
+  "mesh": {
+    "sha256": "58d9a1d89b0fadbb6f2601e665d946b36bd44fc4e6cdc9ec1eb11b7ec0ffc833",
+    "bytes": 416840
+  },
+  "triangles": 23156,
+  "topology": {
+    "components": 1,
+    "euler": 2,
+    "openEdges": 0,
+    "nonmanifoldEdges": 0,
+    "misorientedSharedEdges": 0,
+    "degenerateTriangles": 0,
+    "signedVolumeMm3": 110235.08402936075,
+    "intersectingNonincidentPairs": 0
+  },
+  "sections": [
+    {
+      "offsetMm": -1.5,
+      "referenceToMesh": {
+        "p95Mm": 0.6643925713966877,
+        "maxMm": 0.9424000922057743,
+        "maxLocationRasMm": [
+          79.138671875,
+          178.525884666,
+          272.200000763
+        ],
+        "samples": 1144
+      },
+      "meshToReference": {
+        "p95Mm": 0.6029814910316732,
+        "maxMm": 0.8873427443884213,
+        "maxLocationRasMm": [
+          78.25133051,
+          178.288609604,
+          272.416880234
+        ],
+        "samples": 1111
+      },
+      "candidateContours": 1,
+      "meshPolesRasMm": [
+        [
+          64.888671875,
+          123.27166555085317,
+          322.2471534877126
+        ],
+        [
+          72.388671875,
+          199.66514062945728,
+          253.08189274924464
+        ]
+      ],
+      "poleDisplacementMm": [
+        3.0006148547915696,
+        3.0017593327293897
+      ],
+      "meshChordMm": 103.32495500896945,
+      "chordErrorMm": 0.5661865013224059,
+      "referenceChordOutsideOutlineMm": 62.74609070595862
+    },
+    {
+      "offsetMm": 0,
+      "referenceToMesh": {
+        "p95Mm": 0.6135622636740858,
+        "maxMm": 1.207080710834095,
+        "maxLocationRasMm": [
+          73.888671875,
+          165.031639418,
+          286.450000763
+        ],
+        "samples": 1154
+      },
+      "meshToReference": {
+        "p95Mm": 0.5362016625748961,
+        "maxMm": 0.821435711511697,
+        "maxLocationRasMm": [
+          76.608383135,
+          164.240250315,
+          287.159857003
+        ],
+        "samples": 1132
+      },
+      "candidateContours": 1,
+      "meshPolesRasMm": [
+        [
+          63.388671875,
+          124.00830801391588,
+          323.6071711856052
+        ],
+        [
+          72.388671875,
+          200.41690832387138,
+          254.42465243834548
+        ]
+      ],
+      "poleDisplacementMm": [
+        3.004876954273726,
+        3.0153584225518357
+      ],
+      "meshChordMm": 103.46736249437053,
+      "chordErrorMm": 0.8250232188108413,
+      "referenceChordOutsideOutlineMm": 62.27204252459056
+    },
+    {
+      "offsetMm": 1.5,
+      "referenceToMesh": {
+        "p95Mm": 0.6632894833608216,
+        "maxMm": 1.4167153760901663,
+        "maxLocationRasMm": [
+          67.888671875,
+          137.944258836,
+          313.005587724
+        ],
+        "samples": 1110
+      },
+      "meshToReference": {
+        "p95Mm": 0.5407118986565883,
+        "maxMm": 0.884716598305,
+        "maxLocationRasMm": [
+          73.753956652,
+          141.885140235,
+          309.424556318
+        ],
+        "samples": 1087
+      },
+      "candidateContours": 1,
+      "meshPolesRasMm": [
+        [
+          63.388671875,
+          124.66033219193949,
+          325.0402135483275
+        ],
+        [
+          70.888671875,
+          201.04974522121387,
+          255.87862956687735
+        ]
+      ],
+      "poleDisplacementMm": [
+        3.0027425455374623,
+        3.0045294020950766
+      ],
+      "meshChordMm": 103.31949052226425,
+      "chordErrorMm": 0.5716509880276135,
+      "referenceChordOutsideOutlineMm": 63.10561459457186
+    }
+  ],
+  "contactOffsetMm": 2.0650359024359908e-07,
+  "surface": {
+    "referenceToMesh": {
+      "p95Mm": 0.6237593994636563,
+      "maxMm": 1.4570240252277562,
+      "maxLocationRasMm": [
+        67.888671875,
+        138.388671875,
+        313.450000763
+      ],
+      "samples": 268377
+    },
+    "meshToReference": {
+      "p95Mm": 0.5486574075002442,
+      "maxMm": 1.0671249389999957,
+      "maxLocationRasMm": [
+        79.571546936,
+        166.288671875,
+        294.100000763
+      ],
+      "samples": 266807
+    }
+  }
+}

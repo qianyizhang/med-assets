@@ -5,7 +5,9 @@ import json
 from pathlib import Path
 import shutil
 
-from med_assets.ultrasound_review import RUBRIC_PATH, recipe_hashes, validate_reviews
+from med_assets.ultrasound_review import RUBRIC_PATH, chapter_mesh_bindings, recipe_hashes, validate_reviews
+
+from delivery import validate_mesh
 
 
 HERE = Path(__file__).resolve().parent
@@ -96,4 +98,7 @@ def write_asset_inventory(destination, grouped, families, evidence, tours):
                     reviews=reviews, sweepHashes=sweep_hashes,
                     rubricHash=sha256(RUBRIC.read_bytes()).hexdigest(),
                     recipeHashes=recipe_hashes(destination, {row['owner'] for row in records}, records, rubric=RUBRIC))
+    chapter_meshes = chapter_mesh_bindings(destination, evidence, validate_mesh=validate_mesh)
+    if chapter_meshes:
+        manifest['chapterMeshBindings'] = chapter_meshes
     (target / 'asset-inventory.json').write_text(json.dumps(manifest, separators=(',', ':')) + '\n')
